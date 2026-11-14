@@ -148,8 +148,10 @@ The core has no package dependencies. Only `SplashTheMusical.DependencyModule` r
 - One hand-written lexer and recursive-descent parser per diagram type, over `ReadOnlySpan<char>`. They share a small
   set of lexing helpers for strings, entity codes, Markdown strings, comments and directives.
 - Each parser follows the upstream grammar of its type. At mermaid 12.3.0 that is 19 jison grammars under
-  `packages/mermaid/src/diagrams/*/parser` and 18 langium files under `packages/parser/src/language`. A few types,
-  `usecase` for example, have neither and need their TypeScript parser read.
+  `packages/mermaid/src/diagrams/*/parser` and 18 langium files under `packages/parser/src/language`, of which 15 are
+  diagram grammars and 3 are shared fragments. `usecase` has neither. Its parser is a hand-written chevrotain lexer,
+  parser and visitor. `swimlane` reuses the flowchart grammar. [upstream-map.md](upstream-map.md) names the file for
+  each type.
 - Each parser source names the upstream grammar file and rule it implements. The update process in section 8 diffs
   those grammar files between versions, so a changed rule points at the C# code to change.
 - Errors carry a line, a column and a message. `TryParse` returns diagnostics instead of throwing.
@@ -198,17 +200,26 @@ Box sizes depend on text width, and mermaid.js gets it from the browser.
 
 `SplashTheMusical.Layout` works on plain graphs and knows nothing about Mermaid.
 
-| Engine | Used by | Approach |
-|---|---|---|
-| `dagre` | flowchart, state, class, ER, requirement by default | Port dagre to C#. Geometry parity for these types depends on the same ranking, ordering and coordinate assignment |
-| `elk` | diagrams that ask for `layout: elk` | Use the `Sugiyama` engine from Mermaider, which is layered with orthogonal routing. Parity is L2 only |
-| `tidy-tree` | mindmap and tree layouts | Port the algorithm |
-| `cose-bilkent` | types that default to a force-directed layout, mindmap for example | Port with a fixed seed. Parity is topology, not position |
-| Arithmetic | sequence, gantt, charts, gitgraph, timeline and others | Per-type code that follows mermaid's renderer |
+The defaults below were read at `mermaid@12.3.0`. [upstream-map.md](upstream-map.md) has the row for each type.
 
-The "Used by" column is from mermaid 11 and needs confirming against the 12.3.0 source in phase 0. The 12.3.0 tree
-also has `ddlt`, `grid` and `swimlanes` layout folders, which need reading before they can be sized. Edge curves use
-ports of the d3 curve generators mermaid uses.
+| Engine | Default for | Approach |
+|---|---|---|
+| `elk` | flowchart, class, state, ER, requirement, agentflow, usecase. The top-level `layout` default is `elk` | Use the `Sugiyama` engine from Mermaider, which is layered with orthogonal routing. Parity is L2 only. Open decision 8 asks whether that is enough now that ELK is the default |
+| `dagre` | No type at default config. A diagram that sets `layout: dagre` gets it, and the `tiny` build falls back to it for `elk` | Port dagre to C#. Geometry parity depends on the same ranking, ordering and coordinate assignment |
+| `swimlane` | swimlane | Port mermaid's own lane layout and orthogonal router |
+| `cose-bilkent` | mindmap | Port with a fixed seed. Parity is topology, not position |
+| `fcose` | architecture, which calls cytoscape-fcose directly | Port with a fixed seed. Parity is topology, not position |
+| `tidy-tree` | No type. Mindmap gets it when the host registers `@mermaid-js/layout-tidy-tree` and the diagram asks for it | Port the algorithm |
+| d3 and venn.js layouts | sankey with d3-sankey, treemap with the d3-hierarchy tiling, venn with venn.js and fmin | Port each algorithm |
+| Arithmetic | block, c4, cynefin, eventmodeling, gantt, gitgraph, info, ishikawa, journey, kanban, packet, pie, quadrant, radar, railroad, sequence, timeline, treeView, wardley, xychart | Per-type code that follows mermaid's renderer |
+
+The types in the `elk` row, swimlane and mindmap accept every registered layout name, which is how a diagram picks
+`dagre`, `swimlane`, `cose-bilkent`, the ELK variants or `tidy-tree`. The other types compute positions in their
+renderer and ignore `layout`.
+
+Of the 12.3.0 layout folders, `grid` is not registered and nothing imports it, so it needs no port. `ddlt` holds
+data-driven layout test tooling and is not a layout. Edge curves use ports of the d3 curve generators. Mermaid accepts
+all 19 of d3-shape's curves by name.
 
 The dagre port is tested alone. The oracle records the graph mermaid.js hands to dagre and the positions dagre
 returns, and a test replays each graph through the port.
@@ -222,7 +233,11 @@ returns, and a test replays each graph through the port.
 - Element ids and class names follow mermaid.js where it is cheap. Stylesheets written for mermaid output then work,
   and the harness can pair elements by id.
 - The `look` values `handDrawn` and `neo` come after `classic`. `handDrawn` needs a port of the rough.js algorithms
-  with a fixed seed.
+  with a fixed seed. At 12.3.0, flowchart, swimlane, agentflow, class, state, ER, requirement, sequence, usecase and
+  venn default to look `neo` and theme `redux-color`. Those ten types reach default-config parity only with `neo`.
+  Open decision 9 covers the order.
+- At 12.3.0 labels are in `foreignObject` by default for every type drawn through `rendering-util` shapes, and for
+  journey, timeline, eventmodeling and venn. [upstream-map.md](upstream-map.md) lists each type.
 
 ### Diagram modules
 
@@ -415,7 +430,7 @@ Reference points, measured on 2026-11-14:
 | Mermaider `src/Mermaider` | about 37,000 lines of C#, for 28 diagram types with no writer |
 | Mermaider `src/Sugiyama` | about 9,100 lines |
 | Mermaider tests | about 26,500 lines of C# and 2,400 lines of scripts |
-| mermaid 12.3.0 own source, without tests, docs and dependencies | about 4 MB, which is roughly 115,000 lines |
+| mermaid 12.3.0 `packages/mermaid/src`, without tests, jison grammars and dependencies | 117,287 lines, of which 92,769 are code |
 | `Mermaider.dll` and `Sugiyama.dll`, release | 1.6 MB and 0.2 MB |
 | Mermaider's native AOT smoke test, osx-arm64 | 12.9 MB |
 
@@ -429,12 +444,12 @@ Estimate for STM at 1.0, in lines of C#:
 | Document model | 6,000 to 8,000 | Mermaider's models are 2,300 lines and keep less of the source |
 | Lexers, parsers, config, YAML and JSON readers | 20,000 to 25,000 | Mermaider's regex parsers are 10,900 lines. Hand-written parsers are longer, and five types are new |
 | Writers and builders | 6,000 to 8,000 | New |
-| Themes and generated config | 8,000 to 10,000 | mermaid's themes are about 240 KB of source |
+| Themes and generated config | 8,000 to 10,000 | mermaid's themes are 4,100 lines of code and the khroma functions they use are under 931 |
 | Renderers, shapes and looks | 25,000 to 30,000 | Mermaider's renderers are 16,800 lines without mermaid's shape set or looks |
-| Layout assembly | 20,000 to 25,000 | The dagre port, `Sugiyama`, the tree and force layouts, and the per-type arithmetic layouts |
+| Layout assembly | 35,000 to 45,000 | The ports below come to 33,500 lines of source code. `Sugiyama` and the per-type arithmetic layouts come on top |
 | Text tables, icons, limits, sanitizer | about 4,000 plus data | |
 | DependencyModule and CLI | under 1,000 | |
-| **Product code** | **90,000 to 120,000** | Close to mermaid's own 115,000 lines |
+| **Product code** | **105,000 to 140,000** | Mermaid's own source is 117,000 lines |
 | Tests and harness | 30,000 to 40,000, plus about 3,000 lines of Node | |
 | Corpus | 4,400 cases today, with two committed oracle files per case | |
 
@@ -447,8 +462,27 @@ Estimate for the shipped binaries:
 - CI records the size of the core assembly and of the native AOT CLI. A pull request that grows either by more than
   5% fails until the new size is accepted.
 
-The line counts for the dependency ports are from memory and need checking in phase 0. That covers dagre, the d3
-curve code, the colour functions and the force layout.
+The dependency ports were measured at the versions mermaid 12.3.0's lock file pins. "Code" counts lines that are not
+blank and not comments, without tests and type declarations. [upstream-map.md](upstream-map.md) has the count per
+package.
+
+| Port | Used by | Packages | Code lines |
+|---|---|---|---|
+| dagre and graphlib | `layout: dagre`, and flowchart's node intersection | dagre-d3-es 7.0.14 `src/dagre`, `src/graphlib` and `src/dagre-js/intersect` | 3,182 |
+| d3 curves | Edges of every graph type | d3-shape 3.2.0 curves, line, area and point, d3-path 3.1.0 | 1,157 |
+| Colour functions | Themes | khroma 2.1.0, of which the themes use 10 functions | 931 at most |
+| cose-bilkent | mindmap | cytoscape-cose-bilkent 4.1.0, cose-base 1.0.3, layout-base 1.0.2 | 4,722 |
+| fcose | architecture | cytoscape-fcose 2.2.0, cose-base 2.2.0, layout-base 2.0.1 | 7,619 |
+| tidy-tree | mindmap with `@mermaid-js/layout-tidy-tree` | non-layered-tidy-tree-layout 2.0.2 and the adapter package | 967 |
+| rough.js | `handDrawn` look, ishikawa, venn | roughjs 4.6.6, hachure-fill, path-data-parser, points-on-curve, points-on-path | 2,099 |
+| Swimlane layout | swimlane | mermaid's `layout-algorithms/swimlanes` | 10,567 |
+| Venn layout | venn | @upsetjs/venn.js 2.0.0 and the fmin 0.0.4 code it bundles | 1,663 |
+| Sankey and treemap | sankey, treemap | d3-sankey 0.12.3, d3-hierarchy 3.1.2 treemap tiling | 595 |
+| **Total** | | | **33,502** |
+
+cose-bilkent and fcose depend on different major versions of cose-base and layout-base. A port that shares one graph
+model between them would be smaller than the sum. The total leaves out ELK. elkjs 0.12.0 is GWT output of Eclipse ELK's
+Java, 4.8 MB in one file, so a port of ELK layered would be sized from the Java source.
 
 ## 7. The test harness
 
@@ -610,3 +644,10 @@ ordered by how often they are used.
    names confirmed.
 6. **Target frameworks.** This plan targets `net10.0` only.
 7. **Names.** Package ids, the root namespace and the CLI command name are placeholders here.
+8. **Default layout.** At 12.3.0 the top-level `layout` default is `elk`, so flowchart, class, state, ER, requirement,
+   agentflow and usecase use ELK unless a diagram asks for `dagre`. The plan's dagre port then gives geometry parity
+   only for diagrams that set `layout: dagre`. The options are to port ELK layered, to accept L2 parity through
+   `Sugiyama` for these types at default config, or to run the oracle with `layout: dagre` and treat the ELK default
+   as a ledger entry. The roadmap's phase 2 and phase 7 depend on the answer.
+9. **Default look.** Ten types default to look `neo` and theme `redux-color` at 12.3.0. The roadmap puts `neo` in
+   phase 7. Moving `neo` and `redux-color` into phase 1 would give those types default-config parity from the start.
