@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Graph layout engines, with no knowledge of Mermaid.</Description>
+  </PropertyGroup>
+</Project>

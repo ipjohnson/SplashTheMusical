@@ -1,0 +1,30 @@
+# Build output
+.artifacts/
+artifacts/
+[Bb]in/
+[Oo]bj/
+
+# Node
+node_modules/
+
+# Editors
+.vs/
+.idea/
+*.suo
+*.user
+*.swp
+.DS_Store
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Test results
+[Tt]est[Rr]esult*/
+*.trx
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# Claude Code personal settings
+.claude/settings.local.json

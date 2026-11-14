@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Parse, generate and render Mermaid diagrams in .NET.</Description>
+  </PropertyGroup>
+</Project>
