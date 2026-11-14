@@ -314,18 +314,132 @@ Rules for the API:
 
 ## 5. The DependencyModule project
 
-`SplashTheMusical.DependencyModule` registers the library and holds no logic.
+`SplashTheMusical.DependencyModule` registers the library and holds no logic. The facts below were read from
+ipjohnson/DependencyModules at `v1.7.0` and checked with a native AOT sample.
 
-- It defines `SplashTheMusicalModule`, a `[DependencyModule]` partial class from the DependencyModules library. A host
-  adds it with `services.AddModule<SplashTheMusicalModule>()`. The registration code is source generated, so it has no
-  reflection and no assembly scanning, which keeps it AOT safe.
-- It also has `services.AddSplashTheMusical(options => ...)` for hosts that do not use DependencyModules.
-- It registers every service with `TryAdd` semantics, so a host can replace `ITextMeasurer` or add an
-  `IDiagramModule` before or after adding the module.
-- The core stays free of DI attributes and packages. The module registers the core's types from its own assembly.
+### Packages and names
 
-I could not read the DependencyModules repository from this session. The attribute and method names above are from
-memory and need checking against the current package, as does how a module registers types from another assembly.
+| Item | Value |
+|---|---|
+| Runtime package | `DependencyModules.Runtime` 1.7.0. It has the attributes, the interfaces and `AddModule`. It targets `net8.0` and `net10.0` and sets `IsAotCompatible` |
+| Generator package | `DependencyModules.SourceGenerator` 1.7.0. It runs only at compile time |
+| Options package | `Microsoft.Extensions.Options`, for `MermaidOptions` |
+| Module attribute | `[DependencyModule]` in `DependencyModules.Runtime.Attributes`, on a `partial` class at namespace level |
+| Registration hook | `IServiceCollectionConfiguration.ConfigureServices(IServiceCollection)` in `DependencyModules.Runtime.Interfaces`. It runs after the module's generated registrations |
+| Load method | `services.AddModule<T>()` in `DependencyModules.Runtime`. `T` needs a parameterless constructor |
+| Generated attribute | `[SplashTheMusicalModule]`. Another module puts it on its class to depend on this one |
+
+The generator also writes `PopulateServiceCollection`, an `Equals` that compares only the module type, and the
+attribute's `GetModule`, which calls `new SplashTheMusicalModule()`. None of it uses reflection.
+
+### Registering types from another assembly
+
+The service attributes (`[SingletonService]`, `[ScopedService]`, `[TransientService]`, `[CrossWireService]`) register
+only classes in the module's own project. The core has no attributes, so the module needs another route. There are
+three, and all three passed in the AOT sample:
+
+1. **Code in `ConfigureServices`.** The module implements `IServiceCollectionConfiguration` and calls `TryAddSingleton`
+   and `TryAddEnumerable` for each core type. Every type is named in one place.
+2. **A convention over the core assembly.** The module implements `IConventionModule` and writes
+   `conventions.RegisterAll<IDiagramModule>().InAssemblyOf<FlowchartModule>().Using(RegistrationType.TryEnumerable).AsSingleton()`.
+   The generator reads the statement at compile time and writes one registration per public class it finds.
+3. **Static factory methods in the module project.** Each method returns a core type and carries
+   `[SingletonService(Using = RegistrationType.Try)]`. This needs one method per service.
+
+STM uses option 1. AGENTS.md requires diagram modules to be listed explicitly, which rules out option 2 for
+`IDiagramModule`. A convention would also register any public implementation added to the core later, including
+ones not meant for DI. Option 3 spreads the registration type across attributes and adds a method per service.
+
+Options come from `IOptions<MermaidOptions>`, and the module registers `MermaidOptions` as a singleton read from it. A
+host can then call `services.Configure<MermaidOptions>(...)` before or after the module. I rejected a module
+constructor parameter. `GenerateUseMethod` does turn it into a working `AddX(Action<MermaidOptions>)` method, but the
+module then has no parameterless constructor, so `AddModule<T>()` fails, and the generated attribute cannot carry a
+delegate.
+
+### The module
+
+```csharp
+using DependencyModules.Runtime;
+using DependencyModules.Runtime.Attributes;
+using DependencyModules.Runtime.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
+
+namespace SplashTheMusical.DependencyModule;
+
+[DependencyModule]
+public partial class SplashTheMusicalModule : IServiceCollectionConfiguration
+{
+	public void ConfigureServices(IServiceCollection services)
+	{
+		services.AddOptions<MermaidOptions>();
+		services.TryAddSingleton(provider => provider.GetRequiredService<IOptions<MermaidOptions>>().Value);
+		services.TryAddSingleton<ITextMeasurer, DefaultTextMeasurer>();
+		services.TryAddEnumerable(ServiceDescriptor.Singleton<IDiagramModule, FlowchartModule>());
+		services.TryAddEnumerable(ServiceDescriptor.Singleton<IDiagramModule, SequenceModule>());
+		services.TryAddSingleton<IMermaid, Mermaid>();
+	}
+}
+
+public static class SplashTheMusicalServiceCollectionExtensions
+{
+	public static IServiceCollection AddSplashTheMusical(
+		this IServiceCollection services,
+		Action<MermaidOptions>? configure = null)
+	{
+		services.AddModule<SplashTheMusicalModule>();
+		if (configure is not null)
+		{
+			services.Configure(configure);
+		}
+
+		return services;
+	}
+}
+```
+
+The sample compiled this file against a stand-in core assembly with `ITextMeasurer`, `DefaultTextMeasurer`,
+`IDiagramModule`, `FlowchartModule`, `SequenceModule`, `IMermaid`, `Mermaid` and `MermaidOptions`. That assembly had
+no reference to DependencyModules. `Mermaid` took `MermaidOptions`, `ITextMeasurer` and `IEnumerable<IDiagramModule>`
+in its constructor. The real module lists every diagram module of the core.
+
+The project file references the three packages without versions, as `Directory.Packages.props` requires:
+
+```xml
+<ItemGroup>
+	<ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
+	<PackageReference Include="DependencyModules.Runtime" />
+	<PackageReference Include="DependencyModules.SourceGenerator" />
+	<PackageReference Include="Microsoft.Extensions.Options" />
+</ItemGroup>
+```
+
+### Behaviour the sample checked
+
+The sample was a console app with `PublishAot`. It ran ten checks under JIT and again as the native binary, and all
+passed. The `dotnet publish` output had zero warnings.
+
+| Check | Result |
+|---|---|
+| Default registration | `IMermaid` resolves with the default options, `DefaultTextMeasurer` and both diagram modules |
+| Lifetime | `IMermaid` resolves to the same instance twice |
+| Host registers `ITextMeasurer` before the module | The host's measurer wins and there is one registration, because of `TryAdd` |
+| Host replaces `ITextMeasurer` after the module | `services.Replace(...)` leaves one registration, and `Mermaid` gets the host's measurer |
+| Module added three times, by `AddModule` twice and `AddSplashTheMusical` once | Two diagram modules and one `IMermaid` registration. Each `AddModule` call loads the module again, so `TryAdd` is what prevents duplicates |
+| Host adds an `IDiagramModule` | `Mermaid` gets the host's module and both core modules |
+| `AddSplashTheMusical(o => o.Theme = "dark")` | `Mermaid` sees `dark` |
+| `services.Configure<MermaidOptions>(...)` after the module | `Mermaid` sees the configured value |
+| Convention with `InAssemblyOf<FlowchartModule>()` | Registers both core diagram modules |
+| Host module with `[SplashTheMusicalModule]` | Loading the host module loads this one |
+
+The sample did not check a plain `AddSingleton<ITextMeasurer, ...>` after the module. The DependencyModules docs say
+`GetService` gives the last registration, so the host's measurer would win, but `GetServices` would return both.
+`Replace` is the way to document.
+
+The generator package reached the console app through the project reference, which is why the host module compiled
+there. Whether `SplashTheMusical.DependencyModule` should set `PrivateAssets="all"` on it is left to the step that
+creates the project.
 
 ## 6. AOT, performance and size
 
@@ -640,8 +754,8 @@ ordered by how often they are used.
    `ParseOptions.Lenient` mode could keep that behaviour.
 4. **Math.** KaTeX labels need a math typesetter. The options are to leave them out, to draw the source text, or to
    add a typesetter as a separate package.
-5. **DependencyModule.** I assumed this means a module built on the DependencyModules library. Section 5 needs its
-   names confirmed.
+5. **DependencyModule.** Settled. The module is built on DependencyModules 1.7.0, and section 5 has the confirmed
+   names.
 6. **Target frameworks.** This plan targets `net10.0` only.
 7. **Names.** Package ids, the root namespace and the CLI command name are placeholders here.
 8. **Default layout.** At 12.3.0 the top-level `layout` default is `elk`, so flowchart, class, state, ER, requirement,
