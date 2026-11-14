@@ -11,12 +11,16 @@
     <ArtifactsPath>$(MSBuildThisFileDirectory).artifacts</ArtifactsPath>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <_RepoRelativeProjectDirectory>$([MSBuild]::MakeRelative($(MSBuildThisFileDirectory), $(MSBuildProjectDirectory)).Replace('\','/'))</_RepoRelativeProjectDirectory>
+  </PropertyGroup>
+
   <!-- src/ projects: the trim, AOT and single-file analyzers -->
-  <PropertyGroup Condition="$(MSBuildProjectDirectory.Replace('\','/').Contains('/src/'))">
+  <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('src/'))">
     <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(MSBuildProjectDirectory.Replace('\','/').Contains('/tests/'))">
+  <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('tests/'))">
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 </Project>
