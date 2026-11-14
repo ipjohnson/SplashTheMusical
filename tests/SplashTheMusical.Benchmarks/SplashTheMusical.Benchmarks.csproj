@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />
+    <ProjectReference Include="../../src/SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
+  </ItemGroup>
+</Project>

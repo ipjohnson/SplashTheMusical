@@ -1,0 +1,33 @@
+# The .NET SDK version is pinned in global.json, which accepts any later 10.0.x feature band.
+
+[env]
+DOTNET_NOLOGO = "1"
+DOTNET_CLI_TELEMETRY_OPTOUT = "1"
+DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1"
+
+[tools]
+dotnet = "10"
+
+[tasks.build]
+description = "Build the solution"
+run = "dotnet build SplashTheMusical.slnx"
+
+[tasks.test]
+description = "Build, then run the tests"
+run = "dotnet test --solution SplashTheMusical.slnx"
+
+[tasks.format]
+description = "Format the repository"
+run = "dotnet format SplashTheMusical.slnx"
+
+[tasks.check]
+description = "Fail on formatting drift"
+run = "dotnet format SplashTheMusical.slnx --verify-no-changes"
+
+[tasks.ci]
+description = "What CI runs: build, test and the formatting check"
+run = [
+  "dotnet build SplashTheMusical.slnx",
+  "dotnet test --solution SplashTheMusical.slnx --no-build",
+  "dotnet format SplashTheMusical.slnx --verify-no-changes --no-restore",
+]

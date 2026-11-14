@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>stm</AssemblyName>
+    <RootNamespace>SplashTheMusical.Cli</RootNamespace>
+    <Description>The stm command: render and write Mermaid diagrams.</Description>
+    <PublishAot>true</PublishAot>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
+    <ProjectReference Include="../SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
+  </ItemGroup>
+</Project>
