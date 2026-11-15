@@ -6,6 +6,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { checkPinned } from './pinned.mjs'
+import { hookDagre } from './dumps.mjs'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 const cases = path.join(root, 'cases')
@@ -26,7 +27,7 @@ const run = (dir, casesDir, out) =>
 // A copy of the runner whose lock file or extractor can be changed, sharing the real node_modules and fonts.
 function copyOfRunner({ pinMermaid, extract } = {}) {
 	const dir = temp()
-	for (const f of ['facts.mjs', 'pinned.mjs', 'package.json']) fs.copyFileSync(path.join(root, f), path.join(dir, f))
+	for (const f of ['facts.mjs', 'pinned.mjs', 'dumps.mjs', 'package.json']) fs.copyFileSync(path.join(root, f), path.join(dir, f))
 	fs.writeFileSync(path.join(dir, 'extract.mjs'), extract ?? fs.readFileSync(path.join(root, 'extract.mjs'), 'utf8'))
 	const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'))
 	if (pinMermaid) lock.packages['node_modules/mermaid'].version = pinMermaid
@@ -95,11 +96,16 @@ after(() => {
 	fs.rmSync(second, { recursive: true, force: true })
 })
 
-test('two runs write a facts file per case and a boxes file per accepted case, cover every diagram type and write identical files', () => {
+// The cases whose types are rendered again with `layout: dagre`.
+const dagreCases = ['classDiagram', 'er', 'flowchart-v2', 'stateDiagram']
+const dumpFiles = ['config.txt', 'shapes.txt', 'themes.txt']
+
+test('two runs write a facts file per case, a boxes file per accepted case, the dagre and global dumps, cover every diagram type and write identical files', () => {
 	const names = fs.readdirSync(cases).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4) + '.facts.txt').sort()
 	const boxes = accepted(path.join(first, 'facts')).map(f => f.replace('.facts.txt', '.boxes.txt'))
 	assert.equal(boxes.length, names.length - 1)
-	assert.deepEqual(fs.readdirSync(path.join(first, 'facts')).sort(), [...names, ...boxes].sort())
+	const dagre = dagreCases.map(n => n + '.dagre.txt')
+	assert.deepEqual(fs.readdirSync(path.join(first, 'facts')).sort(), [...names, ...boxes, ...dagre, ...dumpFiles].sort())
 	for (const dir of ['facts', 'svg']) {
 		const files = fs.readdirSync(path.join(first, dir)).sort()
 		assert.deepEqual(fs.readdirSync(path.join(second, dir)).sort(), files)
@@ -138,6 +144,84 @@ test('every accepted case has a canvas, text drawn only in the bundled font, and
 		}
 	}
 	assert.deepEqual(Object.keys(boxed).filter(n => !fs.existsSync(path.join(dir, n + '.boxes.txt'))), [])
+})
+
+const lines = file => fs.readFileSync(file, 'utf8').split('\n').filter(Boolean)
+const finite = /^-?\d+(\.\d+)?(e[+-]?\d+)?$/
+
+test('the theme dump has the computed variables of each of the 11 themes', () => {
+	const rows = lines(path.join(first, 'facts', 'themes.txt'))
+	assert.deepEqual(rows.slice(0, 2), ['# mermaid.js theme variables. Refresh with: mise run oracle', '# mermaid 12.3.0'])
+	const vars = rows.slice(2).map(l => l.split('\t'))
+	assert.ok(vars.every(r => r.length === 4 && r[0] === 'theme'))
+	const themes = ['base', 'dark', 'default', 'forest', 'neo', 'neo-dark', 'neutral', 'redux', 'redux-color', 'redux-dark', 'redux-dark-color']
+	assert.deepEqual([...new Set(vars.map(r => r[1]))].sort(), themes)
+	const value = (theme, name) => vars.find(r => r[1] === theme && r[2] === name)?.[3]
+	assert.equal(value('default', 'primaryColor'), '"#ECECFF"')
+	for (const theme of themes) {
+		for (const name of ['primaryColor', 'primaryTextColor', 'lineColor', 'fontFamily', 'mainBkg'])
+			assert.match(value(theme, name) ?? '', /^".+"$/, `${theme} ${name}`)
+		assert.ok(vars.filter(r => r[1] === theme).length > 200, `${theme}: too few variables`)
+	}
+})
+
+test('the config dump has mermaid\'s default config and the shape dump has its shape table', () => {
+	const config = lines(path.join(first, 'facts', 'config.txt'))
+	assert.equal(config[0], '# mermaid.js default config. Refresh with: mise run oracle')
+	for (const row of ['key\tlayout\t"elk"', 'key\ttheme\t"default"', 'key\tflowchart.theme\t"redux-color"', 'key\tflowchart.nodeSpacing\t50', 'key\tdeterministicIDSeed\tundefined', 'key\tthemeVariables.primaryColor\t"#ECECFF"'])
+		assert.ok(config.includes(row), row)
+	const shapes = lines(path.join(first, 'facts', 'shapes.txt'))
+	assert.equal(shapes[0], '# mermaid.js shape table. Refresh with: mise run oracle')
+	for (const row of ['shape\trect\tRectangle\tProcess\tStandard process shape\tsquareRect', 'alias\tdatabase\tcyl', 'internal-alias\tsquareRect\trect', 'undocumented\tstate\tstate', 'key\tdb\tcylinder', 'key\tclassBox\tclassBox'])
+		assert.ok(shapes.includes(row), row)
+	assert.equal(shapes.filter(l => l.startsWith('shape\t')).length, 53)
+})
+
+test('each dagre dump has a layout whose every node is placed and every edge routed, and covers the case\'s nodes', () => {
+	for (const name of dagreCases) {
+		const rows = lines(path.join(first, 'facts', name + '.dagre.txt'))
+		assert.deepEqual(rows.slice(0, 2), ['# mermaid.js dagre layouts. Refresh with: mise run oracle', '# mermaid 12.3.0'])
+		const all = rows.slice(3).map(l => l.split('\t'))
+		const starts = all.flatMap((r, i) => r[0] === 'layout' ? [i] : [])
+		assert.ok(starts.length > 0, `${name}: no layouts`)
+		assert.deepEqual(all.filter(r => r[0] === 'layout').map(r => Number(r[1])), starts.map((_, i) => i + 1), `${name}: layout numbers`)
+		for (const [i, start] of starts.entries()) {
+			const block = all.slice(start + 1, starts[i + 1])
+			const kinds = block.map(r => r[0])
+			assert.equal(kinds[0], 'graph', `${name} ${i + 1}`)
+			assert.ok(block[0].slice(2, 5).every(v => finite.test(v)), `${name}: ${block[0].join(' ')}`)
+			const nodes = block.filter(r => r[0] === 'node'), edges = block.filter(r => r[0] === 'edge')
+			assert.ok(nodes.length > 0, `${name} ${i + 1}: no nodes`)
+			for (const n of nodes) assert.ok(n.slice(3).every(v => finite.test(v)), `${name}: ${n.join(' ')}`)
+			for (const e of edges) assert.ok(e.slice(4, 9).every(v => finite.test(v)), `${name}: ${e.join(' ')}`)
+			assert.ok(block.filter(r => r[0] === 'size').length === 1 && block.find(r => r[0] === 'size').slice(1).every(v => finite.test(v)), `${name}: size`)
+			assert.deepEqual(block.filter(r => r[0] === 'place').map(r => r[1]), nodes.map(r => r[1]), `${name}: places`)
+			for (const p of block.filter(r => r[0] === 'place')) assert.ok(p.slice(2).every(v => finite.test(v)), `${name}: ${p.join(' ')}`)
+			const routes = block.filter(r => r[0] === 'route')
+			assert.deepEqual(routes.map(r => r.slice(1, 4).join(' ')), edges.map(r => r.slice(1, 4).join(' ')), `${name}: routes`)
+			for (const r of routes) {
+				const points = r[6].split(' ').map(p => p.split(','))
+				assert.ok(points.length >= 2 && points.flat().every(v => finite.test(v)), `${name}: ${r.join(' ')}`)
+			}
+			assert.match(kinds.join(' '), /^graph( node)+( edge)* size( place)+( route)*$/, `${name} ${i + 1}: line order`)
+		}
+		const placed = new Set(all.filter(r => r[0] === 'place').map(r => r[1]))
+		const facts = lines(path.join(first, 'facts', name + '.facts.txt')).map(l => l.split('\t'))
+		const kind = { classDiagram: 'class', er: 'entity' }[name] ?? 'node'
+		const ids = facts.filter(r => r[0] === kind).map(r => r[1]).filter(id => !id.startsWith('[*]'))
+		assert.ok(ids.length > 0, `${name}: no ${kind} facts`)
+		// mermaid's ER renderer names an entity's node entity-<id>-<n>.
+		const placedAs = id => name === 'er' ? [...placed].some(p => p.startsWith(`entity-${id}-`) && finite.test(p.slice(id.length + 8))) : placed.has(id)
+		for (const id of ids) assert.ok(placedAs(id), `${name}: ${id} not placed`)
+	}
+})
+
+test('the dagre hook wraps dagre\'s layout function once and refuses a bundle without it', () => {
+	const code = fs.readFileSync(path.join(root, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js'), 'utf8')
+	const hooked = hookDagre(code)
+	assert.equal(hooked.split('function __oracleDagreLayout(').length, 2)
+	assert.equal(hooked.split('globalThis.__oracleDagre?.before(').length, 2)
+	assert.throws(() => hookDagre(code.replace('"  buildLayoutGraph"', '"buildLayoutGraph"')), /found 0 times in mermaid\.min\.js/)
 })
 
 test('the run fails when node_modules holds another mermaid than the lock file pins', () => {
