@@ -5,6 +5,7 @@ SplashTheMusical includes code and data derived from the following projects.
 ## Mermaider
 
 Parts of the parsers, layout engines, renderers and tests come from [nullean/mermaider](https://github.com/nullean/mermaider).
+`tools/oracle/facts.mjs` and `tools/oracle/extract.mjs` start from its `scripts/mjs-facts.mjs`.
 
 ```
 MIT License

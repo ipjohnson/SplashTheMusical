@@ -7,6 +7,7 @@ DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1"
 
 [tools]
 dotnet = "10"
+node = "22"
 
 [tasks.build]
 description = "Build the solution"
@@ -23,6 +24,25 @@ run = "dotnet format SplashTheMusical.slnx"
 [tasks.check]
 description = "Fail on formatting drift"
 run = "dotnet format SplashTheMusical.slnx --verify-no-changes"
+
+[tasks.oracle]
+description = "Write the mermaid.js facts of every case in a folder. tools/oracle/README.md describes the outputs"
+usage = '''
+arg "[cases]" help="Folder of .mmd cases" default="tools/oracle/cases"
+arg "[facts]" help="Folder the facts files go to" default=".artifacts/oracle/facts"
+arg "[svg]" help="Folder the SVGs go to" default=".artifacts/oracle/svg"
+'''
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  'node tools/oracle/facts.mjs "${usage_cases}" "${usage_facts}" "${usage_svg}"',
+]
+
+[tasks.oracle-test]
+description = "Test the oracle: two identical runs, every diagram type, and the failures"
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  "node --test tools/oracle/facts.test.mjs",
+]
 
 [tasks.ci]
 description = "What CI runs: build, test and the formatting check"

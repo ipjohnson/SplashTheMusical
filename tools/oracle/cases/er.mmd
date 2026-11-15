@@ -1,0 +1,8 @@
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    PERSON }o..o{ ORDER : watches
+    CUSTOMER {
+        string name PK "the full name"
+        int age
+    }
