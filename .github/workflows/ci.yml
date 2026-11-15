@@ -51,6 +51,28 @@ jobs:
         shell: bash
         run: ./.artifacts/conformance-aot/SplashTheMusical.Conformance
 
+  # The committed sizes in docs/benchmarks/sizes.md are of osx-arm64, which macos-latest runs.
+  size:
+    name: binary size
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - name: Build the core assembly in release
+        run: dotnet build src/SplashTheMusical -c Release
+
+      - name: Publish stm with native AOT
+        run: dotnet publish src/SplashTheMusical.Cli
+
+      - name: Fail when either is more than 5% larger than docs/benchmarks/sizes.md
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
+
   # L4 of the parity plan, and the check that the committed oracle output is what the pinned mermaid.js writes. It runs
   # on macOS because the committed boxes files name the macOS fonts Chromium falls back to for emoji and CJK text.
   l4:

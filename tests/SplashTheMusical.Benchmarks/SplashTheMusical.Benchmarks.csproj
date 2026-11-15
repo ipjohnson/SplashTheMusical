@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" />
+    <PackageReference Include="Mermaider" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />

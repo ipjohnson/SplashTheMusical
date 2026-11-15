@@ -81,6 +81,40 @@ run = [
   "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs",
 ]
 
+[tasks.bench]
+description = "Run STM's stages on the benchmark set under JIT and native AOT, and write a result file"
+usage = '''
+arg "[out]" help="The result file" default=".artifacts/bench/stm-results.md"
+'''
+run = 'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- bench --out "${usage_out}"'
+
+[tasks.bench-compare]
+description = "Fail when a result file is more than 10% worse in time or allocation than the committed numbers"
+usage = '''
+arg "[run]" help="The result file of a run" default=".artifacts/bench/stm-results.md"
+arg "[committed]" help="The committed numbers" default="docs/benchmarks/stm.md"
+'''
+run = 'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- compare "${usage_committed}" "${usage_run}"'
+
+[tasks.bench-mermaider]
+description = "Run the Mermaider baseline on the benchmark set and rewrite docs/benchmarks/mermaider-baseline.md"
+run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- mermaider"
+
+[tasks.bench-select]
+description = "Pick the benchmark set from the corpus and rewrite corpus/benchmarks/cases.txt"
+run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- select"
+
+[tasks.size]
+description = "Fail when the core assembly or the native AOT stm is more than 5% larger than docs/benchmarks/sizes.md"
+usage = '''
+flag "--accept" help="Rewrite the sizes of this machine's rows instead of checking them"
+'''
+run = [
+  "dotnet build src/SplashTheMusical -c Release",
+  "dotnet publish src/SplashTheMusical.Cli",
+  'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size $([ "${usage_accept:-false}" = "true" ] && echo --accept)',
+]
+
 [tasks.ci]
 description = "What CI runs: build, test and the formatting check"
 run = [

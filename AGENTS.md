@@ -21,7 +21,13 @@ mise run oracle-test
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # publish the conformance tests with native AOT and run them
+mise run bench             # STM's stages on corpus/benchmarks/cases.txt, JIT and AOT, written to .artifacts/bench
+mise run bench-compare     # fail when a run is more than 10% worse than docs/benchmarks/stm.md
+mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the budget STM is held to
+mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
 ```
+
+`tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
 
