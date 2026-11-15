@@ -2,4 +2,7 @@
   <PropertyGroup>
     <Description>Parse, generate and render Mermaid diagrams in .NET.</Description>
   </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="SplashTheMusical.Tests" />
+  </ItemGroup>
 </Project>

@@ -10,6 +10,9 @@ Parts of the parsers, layout engines, renderers and tests come from [nullean/mer
 `corpus/*/mermaider-*.mmd` cases are its hand-written cases, gallery examples and spec test sources.
 `tests/SplashTheMusical.Conformance/OverlapLint.cs` is a port of `tests/Mermaider.Tests/Snapshots/LayoutSkeleton/OverlapLint.cs`
 in the [ipjohnson/mermaider](https://github.com/ipjohnson/mermaider) fork.
+`src/SplashTheMusical/ResourceLimits.cs`, `src/SplashTheMusical/MermaidResourceLimitException.cs` and
+`src/SplashTheMusical/Parsing/ResourceGuard.cs` take their limits, defaults and checks from its `Models/ResourceLimits.cs`,
+`MermaidResourceLimitException.cs` and `Rendering/ResourceGuard.cs`.
 
 ```
 MIT License
