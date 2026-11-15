@@ -109,8 +109,11 @@ jobs:
           mkdir -p .artifacts
           node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg > .artifacts/corpus-oracle.log
 
+      # The scheduled run saves no cache, so it draws only the rasters it scores, as a run without the folder does.
       - name: Rasterize and score both SVGs of every case
-        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster
+        env:
+          ORACLE_RASTER_DIR: ${{ github.event_name != 'schedule' && '.artifacts/corpus/raster' || '' }}
+        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
 
       # On a cache hit facts.mjs did not run, so this checks only corpus/l4.txt.
       - name: Fail when the committed oracle output or corpus/l4.txt is stale
