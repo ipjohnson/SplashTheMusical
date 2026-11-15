@@ -1,4 +1,7 @@
 {
   "canvas": 0.05,
-  "overlap": 0.8
+  "overlap": 0.8,
+  "raster": 0.9,
+  "rasterReportOnly": true,
+  "reason": "architecture's layout, fcose, is force-directed, so section 7 of the parity plan makes its L4 report-only"
 }

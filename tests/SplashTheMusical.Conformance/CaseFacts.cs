@@ -9,7 +9,15 @@ namespace SplashTheMusical.Conformance;
 /// <param name="Facts">The fact lines, without the header and the accept line.</param>
 /// <param name="Boxes">The <c>box</c> lines of the boxes file.</param>
 /// <param name="Canvas">The <c>canvas</c> line of the boxes file, or null when there is none.</param>
-public sealed record CaseFacts(bool Accepted, string? Error, IReadOnlyList<string> Facts, IReadOnlyList<string> Boxes, string? Canvas = null)
+/// <param name="Svg">The SVG the renderer drew, which L4 rasterizes, or null when it drew none.</param>
+public sealed record CaseFacts(
+	bool Accepted,
+	string? Error,
+	IReadOnlyList<string> Facts,
+	IReadOnlyList<string> Boxes,
+	string? Canvas = null,
+	string? Svg = null
+)
 {
 	public static CaseFacts Refused(string error) => new(false, error, [], []);
 }

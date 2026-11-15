@@ -34,7 +34,8 @@ Beside each case are the files the oracle in `tools/oracle` writes for it. Its R
 
 `themes.txt`, `config.txt` and `shapes.txt` in this folder are the oracle's theme variables, default config and shape
 table. `ledger` holds the parity ledgers, which [its README](ledger/README.md) describes. `tolerances` holds the L3
-tolerances of each type, which [its README](tolerances/README.md) describes.
+and L4 tolerances of each type, which [its README](tolerances/README.md) describes. `l4.txt` holds the L4 outcome of
+each case, which `mise run raster` writes and [the oracle README](../tools/oracle/README.md#l4-rasters) describes.
 
 ## Refreshing
 

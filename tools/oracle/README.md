@@ -8,7 +8,8 @@ against. Section 7 of [the parity plan](../../docs/mermaid-parity-plan.md) descr
 ```bash
 mise run oracle                              # cases in tools/oracle/cases, output in .artifacts/oracle
 mise run oracle <cases> <facts-dir> <svg-dir>
-mise run oracle-test                         # node --test tools/oracle/facts.test.mjs
+mise run oracle-test                         # node --test on facts.test.mjs and raster.test.mjs
+mise run raster                              # L4: corpus/l4.txt and .artifacts/raster
 ```
 
 Both tasks run `npm ci` in `tools/oracle` when `node_modules` is missing. Without mise, run
@@ -320,3 +321,51 @@ the unminified ESM build in mermaid's dist. A handler is the name of the shape's
 
 With an SVG folder, the runner writes `<name>.svg` for each accepted case. The SVGs are build artifacts and are not
 committed.
+
+## L4 rasters
+
+`raster.mjs` is L4 of [the parity plan](../../docs/mermaid-parity-plan.md). It draws mermaid.js's SVG and STM's SVG of
+each corpus case in one headless Chromium page, so a difference comes from the SVGs and not from the rasterizer.
+
+```bash
+mise run raster   # runs stm-svg and corpus-oracle first
+node tools/oracle/raster.mjs <corpus> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir>
+```
+
+`mise run stm-svg` writes STM's SVGs to `.artifacts/stm/svg`. `mise run corpus-oracle` writes mermaid.js's to
+`.artifacts/corpus/svg`. A case's acceptance by mermaid.js comes from its facts file, and STM's from whether STM wrote
+an SVG for it. The run fails when mermaid.js accepts a case and the oracle SVG folder has no SVG for it.
+
+The page serves only the bundled font and draws every text in it, as the oracle's page does. Each SVG is put inline on
+a white stage of the size of mermaid.js's SVG, scaled down so its longer side is at most 800 pixels, and fills the
+stage with its aspect ratio kept. When mermaid.js refuses a case, STM's SVG sets the size. The stage is screenshotted
+at a device scale of 1.
+
+The score is the mean structural similarity (SSIM) of the two screenshots' luma, over 8 by 8 windows 4 pixels apart,
+with the constants of Wang et al. 2004. Identical rasters score 1. The threshold of a type is `raster` in its
+[tolerance file](../../corpus/tolerances/README.md).
+
+| Outcome | When |
+|---|---|
+| `n/a` | Neither side has an SVG |
+| `report` | The type's tolerance file sets `rasterReportOnly` |
+| `pass` | Both sides have an SVG and the score is at least the threshold |
+| `fail` | Otherwise, including when only one side has an SVG |
+
+The run writes these files:
+
+| File | Lines |
+|---|---|
+| The outcomes file, `corpus/l4.txt` for `mise run raster` | A comment line, then case and outcome per case, sorted by UTF-16 code unit |
+| `<images-dir>/scores.txt` | A comment line, then case, outcome and score to 4 decimals per case. The score is empty when one side has no SVG |
+| `<images-dir>/<name>.png` | mermaid.js's raster on the left and STM's on the right, for the first 10 failing or report-only cases below the threshold of each type. A side without an SVG is grey |
+
+`corpus/l4.txt` is committed. `docs/parity-report.md` takes its L4 column from it, and `RasterOutcomesTests` in
+`tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build
+artifacts. Scores are not committed, because small differences between machines would change them.
+
+The `l4` job of `.github/workflows/ci.yml` runs on macOS. It rewrites the corpus's oracle output with `facts.mjs`,
+runs `raster.mjs`, and uploads the scores and images as the `l4-raster` artifact. It fails when any file under
+`corpus/` then differs from the commit, so it catches oracle output that the pinned mermaid.js no longer writes and an
+`l4.txt` that STM's SVGs no longer give. It runs on macOS because the committed boxes files name the macOS fonts
+Chromium falls back to for emoji and CJK text.

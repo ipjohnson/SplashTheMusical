@@ -4,21 +4,23 @@ using System.Text.Json;
 namespace SplashTheMusical.Conformance;
 
 /// <summary>
-/// The L3 tolerances of one diagram type. corpus/tolerances/README.md describes the file.
+/// The L3 and L4 tolerances of one diagram type. corpus/tolerances/README.md describes the file.
 /// </summary>
 /// <param name="Canvas">How far the canvas width and height may differ, as a fraction of mermaid.js's.</param>
 /// <param name="Overlap">The least intersection over union of a box and its counterpart.</param>
+/// <param name="Raster">The least structural similarity of STM's raster to mermaid.js's at L4.</param>
+/// <param name="RasterReportOnly">True when L4 reports the type's scores and does not judge them.</param>
 /// <param name="Reason">Why the type is looser than <see cref="Start"/>.</param>
-public sealed record Tolerance(double Canvas, double Overlap, string? Reason = null)
+public sealed record Tolerance(double Canvas, double Overlap, double Raster, bool RasterReportOnly = false, string? Reason = null)
 {
 	/// <summary>The starting tolerances of section 7 of docs/mermaid-parity-plan.md. A type may only be tighter without a reason.</summary>
-	public static Tolerance Start { get; } = new(0.05, 0.8);
+	public static Tolerance Start { get; } = new(0.05, 0.8, 0.9);
 
 	public static string Root => Path.Combine(CorpusCheck.CorpusRoot, "tolerances");
 
 	public static string FileName(string type) => type + ".json";
 
-	public bool IsLooserThanStart => Canvas > Start.Canvas || Overlap < Start.Overlap;
+	public bool IsLooserThanStart => Canvas > Start.Canvas || Overlap < Start.Overlap || Raster < Start.Raster || RasterReportOnly;
 
 	/// <param name="file">The name problems are reported against.</param>
 	public static Tolerance? Parse(string file, string json, List<string> problems)
@@ -44,6 +46,8 @@ public sealed record Tolerance(double Canvas, double Overlap, string? Reason = n
 
 			double? canvas = null;
 			double? overlap = null;
+			double? raster = null;
+			var reportOnly = false;
 			string? reason = null;
 			foreach (var property in document.RootElement.EnumerateObject())
 			{
@@ -55,6 +59,15 @@ public sealed record Tolerance(double Canvas, double Overlap, string? Reason = n
 					case "overlap":
 						overlap = Fraction(file, property, problems);
 						break;
+					case "raster":
+						raster = Fraction(file, property, problems);
+						break;
+					case "rasterReportOnly" when property.Value.ValueKind is JsonValueKind.True or JsonValueKind.False:
+						reportOnly = property.Value.GetBoolean();
+						break;
+					case "rasterReportOnly":
+						problems.Add($"{file}: rasterReportOnly is not true or false");
+						break;
 					case "reason" when property.Value.ValueKind == JsonValueKind.String:
 						reason = property.Value.GetString();
 						break;
@@ -62,24 +75,24 @@ public sealed record Tolerance(double Canvas, double Overlap, string? Reason = n
 						problems.Add($"{file}: reason is not a string");
 						break;
 					default:
-						problems.Add($"{file}: {property.Name} is not canvas, overlap or reason");
+						problems.Add($"{file}: {property.Name} is not canvas, overlap, raster, rasterReportOnly or reason");
 						break;
 				}
 			}
 
-			if (canvas is null || overlap is null)
+			if (canvas is null || overlap is null || raster is null)
 			{
-				problems.Add($"{file}: needs canvas and overlap");
+				problems.Add($"{file}: needs canvas, overlap and raster");
 				return null;
 			}
 
-			var tolerance = new Tolerance(canvas.Value, overlap.Value, string.IsNullOrWhiteSpace(reason) ? null : reason);
+			var tolerance = new Tolerance(canvas.Value, overlap.Value, raster.Value, reportOnly, string.IsNullOrWhiteSpace(reason) ? null : reason);
 			if (tolerance.IsLooserThanStart && tolerance.Reason is null)
 			{
 				problems.Add(
 					string.Create(
 						CultureInfo.InvariantCulture,
-						$"{file}: canvas {tolerance.Canvas} and overlap {tolerance.Overlap} are looser than {Start.Canvas} and {Start.Overlap}, and it has no reason"
+						$"{file}: canvas {tolerance.Canvas}, overlap {tolerance.Overlap}, raster {tolerance.Raster} and rasterReportOnly {(tolerance.RasterReportOnly ? "true" : "false")} are looser than {Start.Canvas}, {Start.Overlap}, {Start.Raster} and false, and it has no reason"
 					)
 				);
 			}

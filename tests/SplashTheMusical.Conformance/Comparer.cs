@@ -23,6 +23,9 @@ public enum Outcome
 
 	/// <summary>Both sides refuse the source, so it has no facts to compare at L1 or L2.</summary>
 	NotApplicable,
+
+	/// <summary>L4 of a type whose tolerance file sets <c>rasterReportOnly</c>: the score is reported and not judged.</summary>
+	ReportOnly,
 }
 
 /// <param name="Missing">True for a line the oracle has and the provider lacks, false for a line only the provider has.</param>

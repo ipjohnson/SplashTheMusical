@@ -11,7 +11,13 @@ public class ParityReportTests
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
 		var problems = new List<string>();
-		var report = ParityReport.Render(results, LedgerFolder.Read(LedgerFolder.Root, problems), new StubFactsProvider().Name, CorpusCheck.PinnedMermaid());
+		var report = ParityReport.Render(
+			results,
+			LedgerFolder.Read(LedgerFolder.Root, problems),
+			RasterOutcomes.Read(RasterOutcomes.FilePath, problems),
+			new StubFactsProvider().Name,
+			CorpusCheck.PinnedMermaid()
+		);
 		if (Environment.GetEnvironmentVariable(ParityReport.WriteVariable) is { Length: > 0 })
 		{
 			File.WriteAllText(ParityReport.FilePath, report);
@@ -32,6 +38,16 @@ public class ParityReportTests
 			Comparer.Compare("pie/c", Refused, Refused),
 			Comparer.Compare("pie/d", Refused, Accepted),
 			Comparer.Compare("xychart/a", Refused, Refused),
+			Comparer.Compare("mindmap/a", Accepted, Accepted),
+		};
+		var l4 = new Dictionary<string, Outcome>
+		{
+			["pie/a"] = Outcome.Pass,
+			["pie/b"] = Outcome.Fail,
+			["pie/c"] = Outcome.NotApplicable,
+			["pie/d"] = Outcome.Fail,
+			["xychart/a"] = Outcome.NotApplicable,
+			["mindmap/a"] = Outcome.ReportOnly,
 		};
 		var ledgers = new[]
 		{
@@ -45,10 +61,13 @@ public class ParityReportTests
 			),
 		};
 
-		var lines = ParityReport.Render(results, ledgers, "test", "12.3.0").Split('\n');
+		var lines = ParityReport.Render(results, ledgers, l4, "test", "12.3.0").Split('\n');
 
-		await Assert.That(lines).Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
-		await Assert.That(lines).Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | 0 | 0 | 0 |");
-		await Assert.That(lines).Contains("| **Total** | 5 | 3 | 60.0% (3 of 5) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		await Assert.That(lines).Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		await Assert.That(lines).Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | n/a | 0 | 0 | 0 |");
+		await Assert.That(lines).Contains("| mindmap | 1 | 0 | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | report-only | 0 | 0 | 0 |");
+		await Assert
+			.That(lines)
+			.Contains("| **Total** | 6 | 3 | 66.7% (4 of 6) | 50.0% (2 of 4) | 50.0% (2 of 4) | 50.0% (2 of 4) | 33.3% (1 of 3) | 1 | 1 | 1 |");
 	}
 }

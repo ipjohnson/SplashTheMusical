@@ -50,3 +50,58 @@ jobs:
       - name: Run the native conformance runner
         shell: bash
         run: ./.artifacts/conformance-aot/SplashTheMusical.Conformance
+
+  # L4 of the parity plan, and the check that the committed oracle output is what the pinned mermaid.js writes. It runs
+  # on macOS because the committed boxes files name the macOS fonts Chromium falls back to for emoji and CJK text.
+  l4:
+    name: l4 and oracle freshness
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22.23"
+
+      - name: Install the oracle
+        run: npm ci --prefix tools/oracle --no-audit --no-fund
+
+      - name: Write STM's SVGs
+        env:
+          STM_SVG_DIR: ${{ github.workspace }}/.artifacts/stm/svg
+        run: dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/StmSvgsTests/*"
+
+      - name: Rewrite the oracle output of the corpus and write mermaid.js's SVGs
+        run: |
+          mkdir -p .artifacts
+          node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg > .artifacts/corpus-oracle.log
+
+      - name: Rasterize and score both SVGs of every case
+        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster
+
+      - name: Upload the scores and the side-by-side images of failing cases
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: l4-raster
+          path: |
+            .artifacts/raster
+            .artifacts/corpus-oracle.log
+          if-no-files-found: ignore
+
+      - name: Fail when the committed oracle output or corpus/l4.txt is stale
+        run: |
+          changed=$(git status --porcelain -- corpus)
+          if [ -n "$changed" ]; then
+            echo "$changed" | head -50
+            git diff --stat -- corpus | tail -1
+            echo "::error::The committed corpus output differs from what the pinned mermaid.js and STM write. Run mise run raster and commit corpus/."
+            exit 1
+          fi
