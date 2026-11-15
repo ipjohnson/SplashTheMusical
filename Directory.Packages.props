@@ -14,4 +14,8 @@
     <!-- The baseline STM is measured against -->
     <PackageVersion Include="Mermaider" Version="0.17.0" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- tools/SplashTheMusical.Upstream reads mermaid's config.schema.yaml, which uses anchors -->
+    <PackageVersion Include="YamlDotNet" Version="18.1.0" />
+  </ItemGroup>
 </Project>

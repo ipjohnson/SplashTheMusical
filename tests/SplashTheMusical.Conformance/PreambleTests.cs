@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Text;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Writing;
@@ -106,106 +105,11 @@ public class PreambleTests
 		var facts = new List<string>();
 		if (document.Title is not null)
 		{
-			facts.Add(Line("preamble-title", document.Title));
+			facts.Add(ConfigLines.Line("preamble-title", document.Title));
 		}
 
-		Flatten(facts, "", PreambleConfig.Resolve(document, type));
+		ConfigLines.Flatten(facts, "preamble-config", "", PreambleConfig.Resolve(document, type));
 		return facts;
-	}
-
-	private static void Flatten(List<string> facts, string prefix, MermaidValue value)
-	{
-		switch (value.Kind)
-		{
-			case MermaidValueKind.Mapping:
-				if (value.Entries.Count == 0 && prefix.Length > 0)
-				{
-					facts.Add(Line("preamble-config", prefix, "{}"));
-				}
-
-				foreach (var (key, item) in value.Entries)
-				{
-					Flatten(facts, prefix.Length > 0 ? prefix + "." + key : key, item);
-				}
-
-				break;
-			case MermaidValueKind.Sequence:
-				if (value.Items.Count == 0)
-				{
-					facts.Add(Line("preamble-config", prefix, "[]"));
-				}
-
-				for (var i = 0; i < value.Items.Count; i++)
-				{
-					Flatten(facts, prefix + "." + i.ToString(CultureInfo.InvariantCulture), value.Items[i]);
-				}
-
-				break;
-			default:
-				facts.Add(Line("preamble-config", prefix, Json(value)));
-				break;
-		}
-	}
-
-	/// <summary>JavaScript's <c>JSON.stringify</c> of a scalar.</summary>
-	private static string Json(MermaidValue value)
-	{
-		switch (value.Kind)
-		{
-			case MermaidValueKind.Null:
-				return "null";
-			case MermaidValueKind.Boolean:
-				return value.Boolean ? "true" : "false";
-			case MermaidValueKind.Number:
-				return double.IsFinite(value.Number) ? JsNumber.ToString(value.Number) : "null";
-			default:
-				var builder = new StringBuilder("\"");
-				foreach (var c in value.String)
-				{
-					builder.Append(c switch
-					{
-						'"' => "\\\"",
-						'\\' => "\\\\",
-						'\b' => "\\b",
-						'\f' => "\\f",
-						'\n' => "\\n",
-						'\r' => "\\r",
-						'\t' => "\\t",
-						< ' ' => "\\u" + ((int)c).ToString("x4", CultureInfo.InvariantCulture),
-						_ => c.ToString(),
-					});
-				}
-
-				return builder.Append('"').ToString();
-		}
-	}
-
-	/// <summary>A fact line as extract.mjs's <c>tab</c> writes it: each field with its space folded and trimmed, and no trailing empty fields.</summary>
-	private static string Line(params string[] fields) =>
-		string.Join('\t', fields.Select(Fold)).TrimEnd('\t');
-
-	private static string Fold(string text)
-	{
-		var builder = new StringBuilder(text.Length);
-		var space = false;
-		foreach (var c in text)
-		{
-			if (PreambleParser.IsSpace(c))
-			{
-				space = true;
-				continue;
-			}
-
-			if (space && builder.Length > 0)
-			{
-				builder.Append(' ');
-			}
-
-			space = false;
-			builder.Append(c);
-		}
-
-		return builder.ToString();
 	}
 
 	private sealed class PreambleDocument : MermaidDocument;
