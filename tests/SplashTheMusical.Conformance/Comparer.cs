@@ -11,6 +11,9 @@ public enum Level
 
 	/// <summary>Structure: the <c>drawn</c> and <c>label</c> facts, and the kind and name of every box.</summary>
 	L2,
+
+	/// <summary>Geometry: the canvas and the place of every box, within the type's <see cref="Tolerance"/>.</summary>
+	L3,
 }
 
 public enum Outcome
@@ -38,12 +41,16 @@ public sealed record CaseComparison(string Name, string Type, IReadOnlyList<Leve
 	public LevelResult this[Level level] => Levels[(int)level];
 }
 
-/// <summary>Diffs a provider's facts with the oracle's, per level. Lines are compared as multisets.</summary>
+/// <summary>
+/// Diffs a provider's facts with the oracle's, per level. L0 to L2 compare lines as multisets, and L3 is
+/// <see cref="GeometryComparer"/>.
+/// </summary>
 public static class Comparer
 {
-	public static IReadOnlyList<Level> Levels { get; } = [Level.L0, Level.L1, Level.L2];
+	public static IReadOnlyList<Level> Levels { get; } = [Level.L0, Level.L1, Level.L2, Level.L3];
 
-	public static CaseComparison Compare(string name, CaseFacts oracle, CaseFacts actual)
+	/// <param name="tolerance">The L3 tolerance of the case's type. <see cref="Tolerance.Start"/> when it is null.</param>
+	public static CaseComparison Compare(string name, CaseFacts oracle, CaseFacts actual, Tolerance? tolerance = null)
 	{
 		var type = name.Split('/', '\\')[0];
 		var levels = new List<LevelResult>(Levels.Count);
@@ -55,14 +62,17 @@ public static class Comparer
 				continue;
 			}
 
-			var differences = Diff(level, Lines(level, oracle), Lines(level, actual));
+			var differences =
+				level == Level.L3
+					? GeometryComparer.Compare(type, oracle, actual, tolerance ?? Tolerance.Start)
+					: Diff(level, Lines(level, oracle), Lines(level, actual));
 			levels.Add(new LevelResult(level, differences.Count == 0 ? Outcome.Pass : Outcome.Fail, differences));
 		}
 
 		return new CaseComparison(name, type, levels);
 	}
 
-	/// <summary>The lines of a provider's facts that a level compares.</summary>
+	/// <summary>The lines of a provider's facts that L0, L1 or L2 compares.</summary>
 	public static IReadOnlyList<string> Lines(Level level, CaseFacts facts) =>
 		level switch
 		{

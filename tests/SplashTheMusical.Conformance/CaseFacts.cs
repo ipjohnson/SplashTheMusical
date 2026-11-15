@@ -8,7 +8,8 @@ namespace SplashTheMusical.Conformance;
 /// <param name="Error">The first line of the error message when the source is refused.</param>
 /// <param name="Facts">The fact lines, without the header and the accept line.</param>
 /// <param name="Boxes">The <c>box</c> lines of the boxes file.</param>
-public sealed record CaseFacts(bool Accepted, string? Error, IReadOnlyList<string> Facts, IReadOnlyList<string> Boxes)
+/// <param name="Canvas">The <c>canvas</c> line of the boxes file, or null when there is none.</param>
+public sealed record CaseFacts(bool Accepted, string? Error, IReadOnlyList<string> Facts, IReadOnlyList<string> Boxes, string? Canvas = null)
 {
 	public static CaseFacts Refused(string error) => new(false, error, [], []);
 }

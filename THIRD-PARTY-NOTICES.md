@@ -8,6 +8,8 @@ Parts of the parsers, layout engines, renderers and tests come from [nullean/mer
 `tools/oracle/facts.mjs` and `tools/oracle/extract.mjs` start from its `scripts/mjs-facts.mjs`.
 `tools/corpus/corpus.mjs` is a port of its `scripts/mermaid-docs-corpus.py` and `scripts/mermaid-test-corpus.py`. The
 `corpus/*/mermaider-*.mmd` cases are its hand-written cases, gallery examples and spec test sources.
+`tests/SplashTheMusical.Conformance/OverlapLint.cs` is a port of `tests/Mermaider.Tests/Snapshots/LayoutSkeleton/OverlapLint.cs`
+in the [ipjohnson/mermaider](https://github.com/ipjohnson/mermaider) fork.
 
 ```
 MIT License

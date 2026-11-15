@@ -2,7 +2,7 @@ namespace SplashTheMusical.Conformance;
 
 public class ParityReportTests
 {
-	private static readonly CaseFacts Accepted = new(true, null, ["label\tA", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"]);
+	private static readonly CaseFacts Accepted = new(true, null, ["label\tA", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 
 	private static readonly CaseFacts Refused = CaseFacts.Refused("no");
 
@@ -47,8 +47,8 @@ public class ParityReportTests
 
 		var lines = ParityReport.Render(results, ledgers, "test", "12.3.0").Split('\n');
 
-		await Assert.That(lines).Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
-		await Assert.That(lines).Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | 0 | 0 | 0 |");
-		await Assert.That(lines).Contains("| **Total** | 5 | 3 | 60.0% (3 of 5) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		await Assert.That(lines).Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		await Assert.That(lines).Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | 0 | 0 | 0 |");
+		await Assert.That(lines).Contains("| **Total** | 5 | 3 | 60.0% (3 of 5) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
 	}
 }

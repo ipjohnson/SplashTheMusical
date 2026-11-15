@@ -25,11 +25,12 @@ public static class ParityReport
 			$"STM, as `{provider}`, against mermaid.js {mermaid} on the {Count(results.Count)} cases of `corpus/`. `mise run parity` writes\n"
 		);
 		text.Append("this file, and `ParityReportTests` in `tests/SplashTheMusical.Conformance` fails when it is out of date.\n\n");
-		text.Append("A level's rate is the cases that pass it out of the cases it applies to. L1 and L2 do not apply to a case that both\n");
-		text.Append("mermaid.js and STM refuse. Section 7 of [the parity plan](mermaid-parity-plan.md) describes the levels, and\n");
+		text.Append("A level's rate is the cases that pass it out of the cases it applies to. L1 to L3 do not apply to a case that both\n");
+		text.Append("mermaid.js and STM refuse. Section 7 of [the parity plan](mermaid-parity-plan.md) describes the levels,\n");
+		text.Append("[the tolerances README](../corpus/tolerances/README.md) the L3 tolerances, and\n");
 		text.Append("[the ledger README](../corpus/ledger/README.md) the categories of the ledger counts.\n\n");
-		text.Append("| Type | Cases | Refused by mermaid.js | L0 | L1 | L2 | bug | by-design | out-of-scope |\n");
-		text.Append("|---|---:|---:|---:|---:|---:|---:|---:|---:|\n");
+		text.Append("| Type | Cases | Refused by mermaid.js | L0 | L1 | L2 | L3 | bug | by-design | out-of-scope |\n");
+		text.Append("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n");
 
 		var byType = ledgers.ToDictionary(l => l.Type, StringComparer.Ordinal);
 		foreach (var group in results.GroupBy(r => r.Type).OrderBy(g => g.Key, StringComparer.Ordinal))

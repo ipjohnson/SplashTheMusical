@@ -1,0 +1,8 @@
+# The oracle's boxes with C 30 units wider about the same center, so it covers 77% of its counterpart.
+box	class	A	20	20	100	80
+box	class	B	200	20	100	80
+box	class	C	95	180	130	80
+box	namespace	N	10	10	300	100
+box	relation	A --> C	70	100	90	80
+box	relation-label	A --> C	60	102	60	20
+canvas	0	0	400	300

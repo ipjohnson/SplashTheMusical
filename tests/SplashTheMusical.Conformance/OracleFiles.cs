@@ -28,13 +28,28 @@ public static class OracleFiles
 			}
 		}
 
-		var boxes = new List<string>();
 		var boxesPath = Path.Combine(corpus, name + ".boxes.txt");
-		if (File.Exists(boxesPath))
+		var (boxes, canvas) = File.Exists(boxesPath) ? ReadBoxes(boxesPath) : ([], null);
+		return new CaseFacts(accepted, error, facts, boxes, canvas);
+	}
+
+	/// <summary>The <c>box</c> lines and the <c>canvas</c> line of a boxes file.</summary>
+	public static (List<string> Boxes, string? Canvas) ReadBoxes(string path)
+	{
+		var boxes = new List<string>();
+		string? canvas = null;
+		foreach (var line in File.ReadLines(path))
 		{
-			boxes.AddRange(File.ReadLines(boxesPath).Where(l => l.StartsWith("box\t", StringComparison.Ordinal)));
+			if (line.StartsWith("box\t", StringComparison.Ordinal))
+			{
+				boxes.Add(line);
+			}
+			else if (line.StartsWith("canvas\t", StringComparison.Ordinal))
+			{
+				canvas = line;
+			}
 		}
 
-		return new CaseFacts(accepted, error, facts, boxes);
+		return (boxes, canvas);
 	}
 }

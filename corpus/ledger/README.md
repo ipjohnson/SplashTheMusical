@@ -20,7 +20,7 @@ Lines are separated by LF. A line that starts with `#` is a comment. A line with
 | `out-of-scope` | STM does not support it |
 
 Every other line is an entry under the category above it: the case's path below its type folder without `.mmd`, a tab,
-and the level it fails, `L0`, `L1` or `L2`.
+and the level it fails, `L0`, `L1`, `L2` or `L3`.
 
 ```text
 bug #13

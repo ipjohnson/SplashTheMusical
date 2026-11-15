@@ -1,0 +1,8 @@
+# The oracle's boxes on a canvas moved by 2, -3, with every box within a unit of its place and the canvas 2.5% wider.
+box	class	A	22.4	17.2	102	80
+box	class	B	202.5	17	101	80
+box	class	C	112	177.5	100	80
+box	namespace	N	11.5	7	302	100
+box	relation	A --> C	72	97	91	80.5
+box	relation-label	A --> C	62.5	99	60	20
+canvas	2	-3	410	295

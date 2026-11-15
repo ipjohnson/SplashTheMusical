@@ -63,7 +63,7 @@ public sealed class Ledger(string type, IReadOnlyList<LedgerEntry> entries)
 			var level = ParseLevel(line[(tab + 1)..]);
 			if (level is null)
 			{
-				problems.Add($"{file}:{number}: {line[(tab + 1)..]} is not L0, L1 or L2");
+				problems.Add($"{file}:{number}: {line[(tab + 1)..]} is not L0, L1, L2 or L3");
 			}
 			else if (category is null)
 			{
@@ -154,6 +154,7 @@ public sealed class Ledger(string type, IReadOnlyList<LedgerEntry> entries)
 			"L0" => Level.L0,
 			"L1" => Level.L1,
 			"L2" => Level.L2,
+			"L3" => Level.L3,
 			_ => null,
 		};
 }
