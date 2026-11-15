@@ -31,6 +31,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Liberation fonts
+
+`tools/oracle/fonts` holds the four Liberation Sans 2.1.5 faces from
+[liberationfonts/liberation-fonts](https://github.com/liberationfonts/liberation-fonts). They are under the SIL Open
+Font License 1.1, whose full text is in `tools/oracle/fonts/LICENSE`.
+
+```
+Digitized data copyright (c) 2010 Google Corporation
+	with Reserved Font Arimo, Tinos and Cousine.
+Copyright (c) 2012 Red Hat, Inc.
+	with Reserved Font Name Liberation.
+```
+
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).

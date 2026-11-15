@@ -619,8 +619,8 @@ flowchart TD
 `tools/oracle` is the Node side. It starts from Mermaider's `scripts/mjs-facts.mjs`.
 
 - It pins mermaid, `@mermaid-js/mermaid-zenuml`, the layout packages and puppeteer in `package-lock.json`.
-- It renders every case in one headless Chromium page, in UTC, on a fixed clock, with a bundled font loaded by
-  `@font-face`. Two runs write the same files.
+- It renders every case in one headless Chromium page, in UTC, on a fixed clock, with a bundled font loaded through
+  the FontFace API before mermaid loads. Two runs write the same files.
 - Per case it writes: acceptance and the error message, the model facts from the diagram's db, the structure facts
   from the DOM, the bounding box of every identified element, the canvas size, and the SVG.
 - It also writes the computed theme variables per theme, the default config, the shape table and the dagre inputs and
@@ -654,8 +654,9 @@ mermaid.js accepts 4,055 of today's 4,364 cases and refuses 309. The refused one
 
 ### Font control
 
-The oracle and STM use the same bundled open-licensed font in the harness. STM's width table for that font comes from
-the same font file. Text width then stops being a source of difference, and what remains in L3 is layout.
+The oracle and STM use the same bundled open-licensed font in the harness. The font is Liberation Sans 2.1.5, under the
+SIL Open Font License, in `tools/oracle/fonts`. Its widths match Arial's. STM's width table for that font comes from
+the same font files. Text width then stops being a source of difference, and what remains in L3 is layout.
 
 ### Parity ledger
 

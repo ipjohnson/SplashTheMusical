@@ -38,7 +38,7 @@ run = [
 ]
 
 [tasks.oracle-test]
-description = "Test the oracle: two identical runs, every diagram type, and the failures"
+description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, and the failures"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
   "node --test tools/oracle/facts.test.mjs",
