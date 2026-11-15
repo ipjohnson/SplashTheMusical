@@ -1,12 +1,12 @@
 // Renders every .mmd in a folder with the mermaid.js that package-lock.json pins, in one headless page, and writes
-// <name>.facts.txt per case. tools/oracle/README.md describes the format. extract.mjs says which facts come from
-// mermaid's parsed model and which from its rendered DOM.
+// <name>.facts.txt per case and <name>.boxes.txt per accepted case. tools/oracle/README.md describes the formats.
+// extract.mjs says which facts come from mermaid's parsed model and which from its rendered DOM.
 //
 //   node facts.mjs <cases-dir> <facts-dir> [svg-dir]
 //
 // The run fails when node_modules does not match package-lock.json and when a case has a diagram type extract.mjs has
-// no extractor for. Facts files whose case is no longer in the folder are deleted. With svg-dir, each accepted case's
-// SVG is written there too.
+// no extractor for. Facts and boxes files whose case is no longer in the folder are deleted. With svg-dir, each
+// accepted case's SVG is written there too.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -61,10 +61,21 @@ function shapeNames() {
 }
 const shapes = shapeNames()
 
+// The bundled font, Liberation Sans 2.1.5 under the SIL Open Font License (fonts/LICENSE). All four faces are bundled so
+// Chromium never synthesizes bold or italic.
+const fontFamily = 'Liberation Sans'
+const fontFaces = [
+	{ file: 'LiberationSans-Regular.ttf', weight: '400', style: 'normal' },
+	{ file: 'LiberationSans-Bold.ttf', weight: '700', style: 'normal' },
+	{ file: 'LiberationSans-Italic.ttf', weight: '400', style: 'italic' },
+	{ file: 'LiberationSans-BoldItalic.ttf', weight: '700', style: 'italic' },
+]
+
 // The page is served from a made-up origin so that ES modules, such as the tidy-tree layout and its chunks, load from
-// node_modules. Every other request is refused, so a run never reaches the network.
+// node_modules, and the bundled font from fonts. Every other request is refused, so a run never reaches the network.
 const origin = 'http://oracle.invalid'
-const mime = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html' }
+const mime = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html', '.ttf': 'font/ttf' }
+const served = ['node_modules', 'fonts'].map(d => path.join(root, d) + path.sep)
 const browser = await puppeteer.launch({ headless: 'shell' })
 const page = await browser.newPage()
 await page.setRequestInterception(true)
@@ -73,7 +84,7 @@ page.on('request', request => {
 	if (url.origin !== origin) return request.abort()
 	if (url.pathname === '/') return request.respond({ contentType: 'text/html', body: '<!doctype html><html><body></body></html>' })
 	const file = path.join(root, decodeURIComponent(url.pathname))
-	if (!file.startsWith(path.join(root, 'node_modules') + path.sep) || !fs.existsSync(file)) return request.respond({ status: 404, body: '' })
+	if (!served.some(d => file.startsWith(d)) || !fs.existsSync(file)) return request.respond({ status: 404, body: '' })
 	request.respond({ contentType: mime[path.extname(file)] ?? 'application/octet-stream', body: fs.readFileSync(file) })
 })
 // mermaid reads a gantt date without a dateFormat as UTC and a time-only date against today, so the page runs in UTC on
@@ -107,6 +118,24 @@ await page.evaluateOnNewDocument(() => {
 	})
 })
 await page.goto(origin + '/')
+// Every text is drawn and measured in the bundled Liberation Sans, so text width is the same for the oracle and for STM's
+// width table of the same files. The faces load before mermaid does, so the first case is measured in them too. The
+// !important style reaches mermaid's per-diagram font settings and generic families such as sans-serif. A canvas
+// ignores CSS, so the faces are also registered under the families that canvas measurement asks for: ZenUML measures
+// in "Helvetica, Verdana, serif".
+await page.evaluate(async (family, aliases, faces) => {
+	for (const face of faces) {
+		const data = await (await fetch('/fonts/' + face.file)).arrayBuffer()
+		for (const name of [family, ...aliases]) {
+			const f = new FontFace(name, data, { weight: face.weight, style: face.style })
+			await f.load()
+			document.fonts.add(f)
+		}
+	}
+	const style = document.createElement('style')
+	style.textContent = `* { font-family: "${family}" !important; }`
+	document.head.append(style)
+}, fontFamily, ['Helvetica', 'Verdana'], fontFaces)
 await page.addScriptTag({ path: path.join(mermaidDir, 'dist', 'mermaid.min.js') })
 // ZenUML is an external diagram, as it is for mermaid-cli and the mermaid live editor.
 await page.addScriptTag({ path: path.join(root, 'node_modules', '@mermaid-js', 'mermaid-zenuml', 'dist', 'mermaid-zenuml.min.js') })
@@ -121,6 +150,22 @@ await page.evaluate(async () => {
 	await mermaid.registerExternalDiagrams([globalThis.__esbuild_esm_mermaid_nm['mermaid-zenuml'].default])
 	mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' })
 })
+
+// The fonts Chromium drew the case's text in, with their glyph counts, from the DevTools protocol. A glyph the bundled
+// font lacks, such as a CJK letter or an emoji, falls back to a system font and shows up here.
+const cdp = await page.createCDPSession()
+await cdp.send('DOM.enable')
+await cdp.send('CSS.enable')
+async function fontsDrawn() {
+	const { root: doc } = await cdp.send('DOM.getDocument', { depth: -1 })
+	const { nodeIds } = await cdp.send('DOM.querySelectorAll', { nodeId: doc.nodeId, selector: 'body svg, body svg *' })
+	const glyphs = new Map()
+	for (const nodeId of nodeIds) {
+		const { fonts } = await cdp.send('CSS.getPlatformFontsForNode', { nodeId })
+		for (const f of fonts) glyphs.set(f.familyName, (glyphs.get(f.familyName) ?? 0) + f.glyphCount)
+	}
+	return [...glyphs].map(([family, count]) => `font\t${family}\t${count}`)
+}
 
 fs.mkdirSync(factsDir, { recursive: true })
 if (svgDir) fs.mkdirSync(svgDir, { recursive: true })
@@ -145,13 +190,18 @@ for (const name of names) {
 		? ['accept\tyes', ...result.facts.sort()]
 		: ['accept\tno', `# error ${result.error.split('\n')[0].trim()}`]
 	fs.writeFileSync(path.join(factsDir, name + '.facts.txt'), [...header, ...body].join('\n') + '\n')
+	const boxesFile = path.join(factsDir, name + '.boxes.txt')
+	if (result.error === undefined) {
+		const boxes = [...result.boxes, ...await fontsDrawn()].sort()
+		fs.writeFileSync(boxesFile, ['# mermaid.js boxes. Refresh with: mise run oracle', ...header.slice(1), ...boxes].join('\n') + '\n')
+	} else if (fs.existsSync(boxesFile)) fs.unlinkSync(boxesFile)
 	if (svgDir && result.svg) fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
 	if (result.error === undefined) accepted++
 	console.log(`${result.error === undefined ? 'ok ' : 'err'}  ${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
 }
 
-const keep = new Set(names.map(n => n + '.facts.txt'))
-for (const f of fs.readdirSync(factsDir).filter(f => f.endsWith('.facts.txt') && !keep.has(f)).sort()) {
+const keep = new Set(names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']))
+for (const f of fs.readdirSync(factsDir).filter(f => (f.endsWith('.facts.txt') || f.endsWith('.boxes.txt')) && !keep.has(f)).sort()) {
 	fs.unlinkSync(path.join(factsDir, f))
 	console.log(`del  ${f}`)
 }

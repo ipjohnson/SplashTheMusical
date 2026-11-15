@@ -20,7 +20,8 @@ The run fails in these cases:
   `npm ci` in `tools/oracle`.
 - A case has a diagram type that `extract.mjs` has no extractor for. Add one.
 
-Facts files whose case is no longer in the cases folder are deleted.
+Facts and boxes files whose case is no longer in the cases folder are deleted. A case that mermaid.js refuses has no
+boxes file.
 
 ## What it pins
 
@@ -41,9 +42,25 @@ Two runs on the same machine write byte-identical files. `mise run oracle-test` 
 - The time zone is UTC, and `Date` with no arguments and `Date.now()` return 2000-01-01T00:00:00Z.
 - `Math.random` is a seeded generator. It is seeded with 0 before mermaid loads and with a hash of the case's name
   before each case, so a case's output does not depend on the cases before it.
-- The page loads from a made-up origin, `http://oracle.invalid`, which serves only `tools/oracle/node_modules`. Every
-  other request is refused, so a run never reaches the network.
+- The page loads from a made-up origin, `http://oracle.invalid`, which serves only `tools/oracle/node_modules` and
+  `tools/oracle/fonts`. Every other request is refused, so a run never reaches the network.
+- Every text is drawn and measured in the bundled font. The font section below says how.
 - Cases run in file-name order in one page.
+
+## The font
+
+`fonts/` holds Liberation Sans 2.1.5 in its four faces: regular, bold, italic and bold italic. It is under the SIL Open
+Font License 1.1, in `fonts/LICENSE`. Its widths match Arial's, and Arial is in mermaid's default font list. STM's width
+table for the harness is generated from the same files, so text width is not a source of difference in box comparisons.
+
+The page loads the four faces before mermaid loads, so the first case is measured in them too. A page style sets
+`font-family: "Liberation Sans" !important` on every element. That covers mermaid's per-diagram font settings and
+generic families such as `sans-serif`. A canvas ignores CSS, so the faces are also registered as `Helvetica` and
+`Verdana`, the families ZenUML's canvas measurement asks for. Chromium never synthesizes bold or italic, because every
+face is bundled.
+
+A glyph the font lacks, such as a CJK letter or an emoji, is drawn in a system font. The `font` lines of the boxes
+file show when that happens.
 
 ## The cases
 
@@ -130,6 +147,69 @@ rendered SVG. The comment above each extractor in `extract.mjs` says the same.
 | `ishikawa` | `head` text. `cause` path below the head | Model |
 
 A path joins the names from the root with ` / `.
+
+## Boxes files
+
+The runner writes `<name>.boxes.txt` for each accepted case. It has the same header, encoding, field and sorting rules
+as a facts file, without the `accept` line:
+
+```
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0f3a9c1d2b4e5f60
+```
+
+The lines that follow are:
+
+| Line | Fields |
+|---|---|
+| `canvas` | x, y, width, height of the SVG's viewBox. An SVG without a viewBox, such as `info`'s, gets 0, 0 and its drawn size |
+| `font` | a font family Chromium drew the case's text in, and its glyph count, from the DevTools protocol's platform fonts |
+| `box` | kind, name, x, y, width, height |
+
+Boxes are in the SVG's user units, the space of the viewBox. A box is the union of the client rects of the elements
+that draw it, mapped back through the SVG's screen transform. Transforms count and strokes do not. A straight edge has
+a width or a height of 0. An element with no size, such as an empty edge label, has no box.
+
+A box's name is the identifier the facts use for the element: a node id, a path, or a label. Edges and other links
+are named `<start> --> <end>`. When a kind uses a name twice, the second box gets ` #2`, the third ` #3`, in the
+order the extractor meets them.
+
+| Type | Box kinds and names |
+|---|---|
+| `flowchart-v2`, `flowchart-elk`, `swimlane` | `node` and `group` by id. `edge` and `edge-label` by ends |
+| `stateDiagram` | `node` and `group` by the names of the facts. `note` by its state. `edge` and `edge-label` by ends |
+| `classDiagram` | `class` and `namespace` by id. `note` by its text. `relation` and `relation-label` by ends |
+| `sequence` | `actor` and `actor-bottom` by id. `box` by name. `message` and `message-text` by ends. `note` by text. `block` by kind and text |
+| `er` | `entity` by key. `relation` and `relation-label` by ends |
+| `pie` | `title`. `slice` and `legend` by label |
+| `quadrantChart` | `title`. `quadrant` by number. `axis` by side. `point` by label |
+| `timeline` | `title`. `section` and `period` by text. `event` by period and text |
+| `gitGraph` | `branch` and `branch-label` by name. `commit` and `commit-label` by index. `tag` by commit index and tag |
+| `radar` | `title`. `axis` by label. `curve` and `legend` by label |
+| `railroad`, `railroadEbnf`, `railroadAbnf`, `railroadPeg` | `title`. `rule` by name. `terminal`, `nonterminal` and `special` by rule and text |
+| `wardley` | `title`. `stage` by index. `node` by id. `link` by ends |
+| `zenuml` | `title`. `participant` by id. `group` by name. `message` by ends. `fragment` by kind and condition |
+| `treemap` | `node` by path |
+| `venn` | `set` and `union` by sets |
+| `mindmap` | `node` by path. `edge` by the child's path |
+| `gantt` | `title`. `section` by name. `task` and `task-text` by section and task |
+| `journey` | `title`. `section` by name. `task` and `face` by section and task. `person` by name |
+| `c4` | `title`. `element` and `boundary` by alias. `rel-label` by ends |
+| `sankey` | `node` by name. `flow` by ends |
+| `xychart` | `title`. `plot`. `series` by index. `axis` and `axis-title` by `x` or `y`. `category` by text |
+| `requirement` | `requirement` and `element` by name. `relation` and `relation-label` by ends |
+| `packet` | `title`. `field` by the first and last bit of each piece on a row |
+| `kanban` | `column` and `card` by id |
+| `architecture` | `group`, `service` and `junction` by id. `edge` by ends |
+| `block` | `block` by the id of the facts. `edge` and `edge-label` by ends |
+| `usecase` | `actor`, `usecase`, `boundary` and `json` by id. `note` by target. `relation` and `relation-label` by ends |
+| `treeView` | `node` by path |
+| `agentflow` | `title`. `node` and `flow` by id. `edge` and `edge-label` by ends |
+| `cynefin` | `title`. `domain-label` by domain. `item` by domain and index. `transition` and `transition-label` by ends |
+| `eventmodeling` | `title`. `lane` and `frame` by index. `relation` by frame names |
+| `info` | `version` |
+| `ishikawa` | `head` by text. `cause` by path |
 
 ## SVGs
 
