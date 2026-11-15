@@ -1,2 +1,2 @@
 # SplashTheMusical
-A mermaid parse in C#
+A mermaid parser in C#
