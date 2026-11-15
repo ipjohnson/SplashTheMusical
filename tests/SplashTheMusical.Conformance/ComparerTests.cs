@@ -6,7 +6,8 @@ public class ComparerTests
 		true,
 		null,
 		["drawn\tyes", "edge\tA\tB\tnone\tarrow\tsolid", "label\tA", "label\tA", "node\tA\tA\trect", "node\tB\tB\trect", "type\tflowchart-v2"],
-		["box\tnode\tA\t12\t12\t40\t20", "box\tnode\tB\t12\t80\t40\t20"]
+		["box\tnode\tA\t12\t12\t40\t20", "box\tnode\tB\t12\t80\t40\t20"],
+		"canvas\t0\t0\t64\t112"
 	);
 
 	[Test]
@@ -21,7 +22,7 @@ public class ComparerTests
 			var outcomes = result.Levels.Select(l => l.Outcome).ToList();
 			var expected = OracleFiles.Read(CorpusCheck.CorpusRoot, result.Name).Accepted
 				? outcomes.All(o => o == Outcome.Fail) && result[Level.L1].Differences.All(d => d.Missing)
-				: outcomes.SequenceEqual([Outcome.Pass, Outcome.NotApplicable, Outcome.NotApplicable]);
+				: outcomes.SequenceEqual([Outcome.Pass, Outcome.NotApplicable, Outcome.NotApplicable, Outcome.NotApplicable]);
 			if (!expected)
 			{
 				wrong.Add(result.Name);
@@ -69,6 +70,11 @@ public class ComparerTests
 			"L1 - edge\tA\tB\tnone\tarrow\tsolid"
 		);
 		await LineAssert.Equal(result[Level.L2].Differences.Select(d => d.ToString()), "L2 + box\tedge\tA --> B", "L2 - box\tnode\tB", "L2 - label\tA");
+		await LineAssert.Equal(
+			result[Level.L3].Differences.Select(d => d.ToString()),
+			"L3 + box\tnode\tA\t0\t0\t10\t10",
+			"L3 - box\tnode\tA\t12\t12\t40\t20"
+		);
 	}
 
 	[Test]
@@ -81,6 +87,7 @@ public class ComparerTests
 		await Assert.That(result[Level.L1].Differences).All(d => d.Missing);
 		await Assert.That(result[Level.L2].Differences).Count().IsEqualTo(5);
 		await Assert.That(result[Level.L2].Differences).All(d => d.Missing);
+		await LineAssert.Equal(result[Level.L3].Differences.Select(d => d.ToString()), "L3 - canvas\t0\t0\t64\t112");
 	}
 
 	private sealed class FixedProvider(CaseFacts facts) : IFactsProvider

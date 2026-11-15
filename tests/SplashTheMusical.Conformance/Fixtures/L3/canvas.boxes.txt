@@ -1,0 +1,8 @@
+# The oracle's boxes on a canvas 10% wider.
+box	class	A	20	20	100	80
+box	class	B	200	20	100	80
+box	class	C	110	180	100	80
+box	namespace	N	10	10	300	100
+box	relation	A --> C	70	100	90	80
+box	relation-label	A --> C	60	102	60	20
+canvas	0	0	440	300

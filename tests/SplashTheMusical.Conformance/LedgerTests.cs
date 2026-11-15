@@ -4,7 +4,7 @@ public class LedgerTests
 {
 	private const string Mermaid = "12.3.0";
 
-	private static readonly CaseFacts Oracle = new(true, null, ["label\tA", "node\tA\tA\trect", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"]);
+	private static readonly CaseFacts Oracle = new(true, null, ["label\tA", "node\tA\tA\trect", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 
 	[Test]
 	public async Task TheStubDiffersOnlyWhereTheCommittedLedgersListABug()
@@ -30,7 +30,8 @@ public class LedgerTests
 				LedgerFolder.Problems(folder, [Fails("pie/a"), Fails("pie/b")], Mermaid),
 				"pie/a L0: differs from mermaid.js and pie.txt does not list it",
 				"pie/a L1: differs from mermaid.js and pie.txt does not list it",
-				"pie/a L2: differs from mermaid.js and pie.txt does not list it"
+				"pie/a L2: differs from mermaid.js and pie.txt does not list it",
+				"pie/a L3: differs from mermaid.js and pie.txt does not list it"
 			);
 		});
 
@@ -44,7 +45,8 @@ public class LedgerTests
 				LedgerFolder.Problems(folder, [Passes("pie/a"), Passes("pie/b")], Mermaid),
 				"pie/b L0: pie.txt lists it and it no longer differs",
 				"pie/b L1: pie.txt lists it and it no longer differs",
-				"pie/b L2: pie.txt lists it and it no longer differs"
+				"pie/b L2: pie.txt lists it and it no longer differs",
+				"pie/b L3: pie.txt lists it and it no longer differs"
 			);
 		});
 
@@ -59,7 +61,7 @@ public class LedgerTests
 
 			await LineAssert.Equal(
 				LedgerFolder.Problems(folder, worse, Mermaid),
-				"pie: 6 bugs, bugs.txt allows 3. The count may only go up when the mermaid version changes"
+				"pie: 8 bugs, bugs.txt allows 4. The count may only go up when the mermaid version changes"
 			);
 
 			LedgerFolder.Write(folder, worse, "#13", "12.4.0");
@@ -72,14 +74,14 @@ public class LedgerTests
 		WithFolder(async folder =>
 		{
 			LedgerFolder.Write(folder, [Fails("pie/a"), Fails("pie/b")], "#13", Mermaid);
-			File.WriteAllText(Path.Combine(folder, "pie.txt"), "bug #13\nb\tL0\nb\tL1\nb\tL2\n");
+			File.WriteAllText(Path.Combine(folder, "pie.txt"), "bug #13\nb\tL0\nb\tL1\nb\tL2\nb\tL3\n");
 			var better = new[] { Passes("pie/a"), Fails("pie/b") };
 
-			await LineAssert.Equal(LedgerFolder.Problems(folder, better, Mermaid), "pie: 3 bugs, bugs.txt records 6. Lower it to 3");
+			await LineAssert.Equal(LedgerFolder.Problems(folder, better, Mermaid), "pie: 4 bugs, bugs.txt records 8. Lower it to 4");
 
 			LedgerFolder.Write(folder, better, "#13", Mermaid);
 
-			await Assert.That(File.ReadAllText(Path.Combine(folder, BugCounts.FileName))).Contains("pie\t3\n");
+			await Assert.That(File.ReadAllText(Path.Combine(folder, BugCounts.FileName))).Contains("pie\t4\n");
 			await Assert.That(LedgerFolder.Problems(folder, better, Mermaid)).IsEmpty();
 		});
 
@@ -95,9 +97,11 @@ public class LedgerTests
 				File.ReadAllLines(Path.Combine(folder, "pie.txt")),
 				"# The parity ledger of pie. corpus/ledger/README.md describes it.",
 				"bug #13",
+				"a\tL3",
 				"b\tL0",
 				"b\tL1",
 				"b\tL2",
+				"b\tL3",
 				"bug owner/repo#7",
 				"a\tL2",
 				"by-design",
@@ -105,14 +109,14 @@ public class LedgerTests
 				"out-of-scope",
 				"a\tL0"
 			);
-			await Assert.That(File.ReadAllText(Path.Combine(folder, BugCounts.FileName))).Contains("pie\t4\n");
+			await Assert.That(File.ReadAllText(Path.Combine(folder, BugCounts.FileName))).Contains("pie\t6\n");
 		});
 
 	[Test]
 	public async Task AMalformedLedgerIsReported()
 	{
 		var problems = new List<string>();
-		var lines = new[] { "a\tL0", "bug", "bug 13", "bug #13", "a\tL3", "a\tL1", "a\tL1", "wontfix" };
+		var lines = new[] { "a\tL0", "bug", "bug 13", "bug #13", "a\tL4", "a\tL1", "a\tL1", "wontfix" };
 
 		var ledger = Ledger.Parse("pie", "pie.txt", lines, problems);
 
@@ -123,7 +127,7 @@ public class LedgerTests
 			"pie.txt:1: a is not under a category",
 			"pie.txt:2: bug is not by-design, out-of-scope or bug with an issue such as #13",
 			"pie.txt:3: bug 13 is not by-design, out-of-scope or bug with an issue such as #13",
-			"pie.txt:5: L3 is not L0, L1 or L2",
+			"pie.txt:5: L4 is not L0, L1, L2 or L3",
 			"pie.txt:7: a L1 is listed twice",
 			"pie.txt:8: wontfix is not by-design, out-of-scope or bug with an issue such as #13"
 		);
