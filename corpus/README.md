@@ -33,7 +33,7 @@ Beside each case are the files the oracle in `tools/oracle` writes for it. Its R
 | `<name>.dagre.txt` | accepted flowchart, state, class and ER case |
 
 `themes.txt`, `config.txt` and `shapes.txt` in this folder are the oracle's theme variables, default config and shape
-table.
+table. `ledger` holds the parity ledgers, which [its README](ledger/README.md) describes.
 
 ## Refreshing
 

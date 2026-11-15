@@ -1,0 +1,36 @@
+# mermaid 12.3.0
+# The bug entries of each ledger. corpus/ledger/README.md describes it.
+agentflow	585
+architecture	186
+block	372
+c4	189
+class	1320
+cynefin	93
+er	1053
+eventmodeling	99
+flowchart	2616
+gantt	252
+git	678
+info	21
+ishikawa	51
+kanban	138
+mindmap	243
+packet	66
+pie	195
+quadrant-chart	153
+radar	72
+railroad	318
+requirement	540
+sankey	87
+sequence	1245
+state	855
+swimlanes	207
+timeline	177
+treeView	225
+treemap	153
+usecase	339
+user-journey	90
+venn	135
+wardley	156
+xychart	228
+zenuml	90
