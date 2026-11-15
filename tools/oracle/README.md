@@ -20,8 +20,22 @@ The run fails in these cases:
   `npm ci` in `tools/oracle`.
 - A case has a diagram type that `extract.mjs` has no extractor for. Add one.
 
-Facts and boxes files whose case is no longer in the cases folder are deleted. A case that mermaid.js refuses has no
-boxes file.
+- `mermaid.min.js` does not hold dagre's `layout` function exactly once. The [dagre dumps](#dagre-files) section says
+  why the runner looks for it.
+
+Facts, boxes and dagre files whose case is no longer in the cases folder are deleted. A case that mermaid.js refuses
+has no boxes file and no dagre file.
+
+Each run writes these files to the facts folder:
+
+| File | Per | Section |
+|---|---|---|
+| `<name>.facts.txt` | case | [Facts files](#facts-files) |
+| `<name>.boxes.txt` | accepted case | [Boxes files](#boxes-files) |
+| `<name>.dagre.txt` | accepted flowchart, state, class and ER case | [Dagre files](#dagre-files) |
+| `themes.txt` | run | [Theme variables](#theme-variables) |
+| `config.txt` | run | [Default config](#default-config) |
+| `shapes.txt` | run | [Shape table](#shape-table) |
 
 ## What it pins
 
@@ -210,6 +224,90 @@ order the extractor meets them.
 | `eventmodeling` | `title`. `lane` and `frame` by index. `relation` by frame names |
 | `info` | `version` |
 | `ishikawa` | `head` by text. `cause` by path |
+
+## Dagre files
+
+The runner writes `<name>.dagre.txt` for each accepted case of type `flowchart-v2`, `stateDiagram`, `classDiagram` or
+`er`. At 12.3.0 these types default to the ELK layout, so the runner renders each such case a second time with
+`layout: dagre` set through `mermaid.initialize`, then initializes mermaid back. Every dagre layout of that render is
+recorded, in call order. mermaid's dagre renderer lays out a cluster that it extracts from the graph on its own, before
+the graph that holds it, so a case can have several layouts.
+
+The runner records them through a hook. It finds dagre's `layout(g, opts)` in `mermaid.min.js` by its timing labels,
+which minification keeps, and wraps it before the page loads the bundle. The hook reads the graph before and after the
+call. The run fails when the function is not found exactly once.
+
+The file has the same header as a facts file, with `# mermaid.js dagre layouts. Refresh with: mise run oracle` as its
+first line. Unlike the other files, its lines are not sorted. dagre iterates nodes and edges in the graph's order, and
+that order changes its results, so the file keeps it. Fields are separated by tabs and trailing empty fields are
+dropped. In ids and names, a backslash, tab, newline and carriage return are written `\\`, `\t`, `\n` and `\r`. Numbers
+are written in full, as JavaScript's `String` writes them, so a replay starts from dagre's exact input.
+
+Each layout is a `layout` line followed by its input lines and then its output lines:
+
+| Line | Fields |
+|---|---|
+| `layout` | the layout's number, from 1 |
+| `graph` | rankdir, nodesep, edgesep, ranksep, marginx, marginy, align, acyclicer, ranker |
+| `node` | id, parent id or empty for the root, width, height. One per node in the graph's order |
+| `edge` | start, end, name, minlen, weight, width, height, labeloffset, labelpos. One per edge in the graph's order |
+| `size` | width and height of the laid-out graph |
+| `place` | id, x, y, width, height. One per node, in the same order as `node` |
+| `route` | start, end, name, label x, label y, points as `x,y` pairs separated by spaces. One per edge, in the same order as `edge` |
+
+The input is what dagre's `buildLayoutGraph` reads from the graph. Keys are lower-cased, a present numeric attribute
+goes through `Number`, and a missing one takes dagre's default: nodesep 50, edgesep 20, ranksep 50, rankdir `tb`, node
+width and height 0, edge minlen 1, weight 1, width and height 0, labeloffset 10 and labelpos `r`. marginx, marginy,
+align, acyclicer and ranker have no default and are empty when missing. A cluster's input width and height are 0,
+because dagre sizes it.
+
+The output is what dagre writes back to the graph. Label x and y are empty for an edge dagre gives no label position.
+
+## Theme variables
+
+`themes.txt` holds the computed variables of each theme in mermaid's themes table: `default`, `base`, `dark`,
+`forest`, `neutral`, `neo`, `neo-dark`, `redux`, `redux-dark`, `redux-color` and `redux-dark-color` at 12.3.0. The
+runner reads the theme names from `themes_default` in mermaid's dist, initializes mermaid with each theme and reads
+`themeVariables` from its site config. That is the theme's `getThemeVariables()` with no overrides.
+
+`themes.txt`, `config.txt` and `shapes.txt` each start with two comment lines, such as:
+
+```
+# mermaid.js theme variables. Refresh with: mise run oracle
+# mermaid 12.3.0
+```
+
+The lines that follow are sorted by UTF-16 code unit and their fields are separated by tabs. In `themes.txt` and
+`config.txt` a value is JSON, so `"#ECECFF"` is a string and `16` is a number. A key that is present with no value
+is written `undefined`, and a number that JSON cannot hold is written `NaN` or `Infinity`. Nested objects and arrays
+are flattened into dotted paths, such as `xyChart.plotColorPalette`. An empty one is written `{}` or `[]`. Functions are
+left out.
+
+| Line | Fields |
+|---|---|
+| `theme` | theme, variable path, value |
+
+## Default config
+
+`config.txt` holds `mermaidAPI.defaultConfig`, the config before any `initialize`, directive or front matter. It
+includes `themeVariables`, which are the `default` theme's.
+
+| Line | Fields |
+|---|---|
+| `key` | path, value |
+
+## Shape table
+
+`shapes.txt` holds mermaid's table of node shapes. The runner reads it from `shapesDefs` and `undocumentedShapes` in
+the unminified ESM build in mermaid's dist. A handler is the name of the shape's drawing function there.
+
+| Line | Fields |
+|---|---|
+| `shape` | short name, name, semantic name, description, handler. One per documented shape |
+| `alias` | alias, short name |
+| `internal-alias` | internal alias, short name |
+| `undocumented` | name, handler. The shapes mermaid's diagrams use internally, such as `state`, `classBox` and `erBox` |
+| `key` | name, handler. Every name mermaid's shape lookup accepts, built as `generateShapeMap` builds it |
 
 ## SVGs
 

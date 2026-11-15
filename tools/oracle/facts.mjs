@@ -1,6 +1,7 @@
 // Renders every .mmd in a folder with the mermaid.js that package-lock.json pins, in one headless page, and writes
-// <name>.facts.txt per case and <name>.boxes.txt per accepted case. tools/oracle/README.md describes the formats.
-// extract.mjs says which facts come from mermaid's parsed model and which from its rendered DOM.
+// <name>.facts.txt per case, <name>.boxes.txt per accepted case and <name>.dagre.txt per accepted flowchart, state,
+// class and ER case. It also writes themes.txt, config.txt and shapes.txt. tools/oracle/README.md describes the
+// formats. extract.mjs says which facts come from mermaid's parsed model and which from its rendered DOM.
 //
 //   node facts.mjs <cases-dir> <facts-dir> [svg-dir]
 //
@@ -14,6 +15,7 @@ import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 import { extractFacts } from './extract.mjs'
+import { configDumps, dagreLayouts, hookDagre, readShapes, readThemeNames } from './dumps.mjs'
 
 const [, , casesDir, factsDir, svgDir] = process.argv
 if (!casesDir || !factsDir) {
@@ -40,26 +42,16 @@ const seedOf = name => crypto.createHash('sha256').update(name, 'utf8').digest()
 // Node shapes are written in mermaid's documented short names (rect, rounded, diam, cyl, fr-rect, sm-circ, ...). mermaid
 // keeps a node's shape as written, an alias such as `database` or an internal name such as `squareRect`, so its own
 // table of shapes (shapesDefs in its dist) maps each name to the short one.
-function shapeNames() {
-	const chunks = path.join(mermaidDir, 'dist', 'chunks', 'mermaid.esm')
-	for (const file of fs.readdirSync(chunks).filter(f => f.endsWith('.mjs')).sort()) {
-		const code = fs.readFileSync(path.join(chunks, file), 'utf8')
-		const start = code.indexOf('shapesDefs = [')
-		if (start < 0) continue
-		const table = code.slice(start, code.indexOf('\n];', start))
-		const names = {}
-		for (const entry of table.split(/\n {2}\{/).slice(1)) {
-			const short = /shortName: "([^"]+)"/.exec(entry)?.[1]
-			if (!short) continue
-			names[short] = short
-			for (const list of entry.matchAll(/(?:internalAliases|aliases): \[([^\]]*)\]/g))
-				for (const alias of list[1].matchAll(/"([^"]+)"/g)) names[alias[1]] ??= short
-		}
-		return names
-	}
-	throw new Error('shapesDefs not found in mermaid\'s dist; the shape table moved')
+const shapeTable = readShapes(mermaidDir)
+const shapes = {}
+for (const d of shapeTable.defs) {
+	shapes[d.shortName] = d.shortName
+	for (const alias of [...d.aliases, ...d.internalAliases]) shapes[alias] ??= d.shortName
 }
-const shapes = shapeNames()
+const themeNames = readThemeNames(mermaidDir)
+// The types whose cases are rendered a second time with `layout: dagre`, to record dagre's inputs and outputs.
+const dagreTypes = new Set(['flowchart-v2', 'stateDiagram', 'classDiagram', 'er'])
+const init = { startOnLoad: false, securityLevel: 'strict' }
 
 // The bundled font, Liberation Sans 2.1.5 under the SIL Open Font License (fonts/LICENSE). All four faces are bundled so
 // Chromium never synthesizes bold or italic.
@@ -136,7 +128,7 @@ await page.evaluate(async (family, aliases, faces) => {
 	style.textContent = `* { font-family: "${family}" !important; }`
 	document.head.append(style)
 }, fontFamily, ['Helvetica', 'Verdana'], fontFaces)
-await page.addScriptTag({ path: path.join(mermaidDir, 'dist', 'mermaid.min.js') })
+await page.addScriptTag({ content: hookDagre(fs.readFileSync(path.join(mermaidDir, 'dist', 'mermaid.min.js'), 'utf8')) })
 // ZenUML is an external diagram, as it is for mermaid-cli and the mermaid live editor.
 await page.addScriptTag({ path: path.join(root, 'node_modules', '@mermaid-js', 'mermaid-zenuml', 'dist', 'mermaid-zenuml.min.js') })
 await page.addScriptTag({
@@ -146,10 +138,10 @@ await page.addScriptTag({
 		globalThis.__oracleLayouts = true`,
 })
 await page.waitForFunction(() => globalThis.__oracleLayouts === true)
-await page.evaluate(async () => {
+await page.evaluate(async init => {
 	await mermaid.registerExternalDiagrams([globalThis.__esbuild_esm_mermaid_nm['mermaid-zenuml'].default])
-	mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' })
-})
+	mermaid.initialize(init)
+}, init)
 
 // The fonts Chromium drew the case's text in, with their glyph counts, from the DevTools protocol. A glyph the bundled
 // font lacks, such as a CJK letter or an emoji, falls back to a system font and shows up here.
@@ -170,8 +162,24 @@ async function fontsDrawn() {
 fs.mkdirSync(factsDir, { recursive: true })
 if (svgDir) fs.mkdirSync(svgDir, { recursive: true })
 
+const dumpHeader = what => [`# mermaid.js ${what}. Refresh with: mise run oracle`, `# mermaid ${version}`]
+const dumps = await page.evaluate(configDumps, themeNames, init)
+fs.writeFileSync(path.join(factsDir, 'themes.txt'), [...dumpHeader('theme variables'), ...dumps.themes.sort()].join('\n') + '\n')
+fs.writeFileSync(path.join(factsDir, 'config.txt'), [...dumpHeader('default config'), ...dumps.config.sort()].join('\n') + '\n')
+const shapeLines = [
+	...shapeTable.defs.flatMap(d => [
+		['shape', d.shortName, d.name, d.semanticName, d.description, d.handler],
+		...d.aliases.map(a => ['alias', a, d.shortName]),
+		...d.internalAliases.map(a => ['internal-alias', a, d.shortName]),
+	]),
+	...shapeTable.undocumented.map(s => ['undocumented', s.key, s.handler]),
+	...[...shapeTable.keys].map(([k, h]) => ['key', k, h]),
+].map(f => f.join('\t').replace(/\t+$/, '')).sort()
+fs.writeFileSync(path.join(factsDir, 'shapes.txt'), [...dumpHeader('shape table'), ...shapeLines].join('\n') + '\n')
+
 const names = fs.readdirSync(casesDir).filter(f => f.endsWith('.mmd')).sort().map(f => f.slice(0, -4))
 let accepted = 0
+const dagreNames = new Set()
 for (const name of names) {
 	const source = fs.readFileSync(path.join(casesDir, name + '.mmd'), 'utf8')
 	await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
@@ -195,16 +203,25 @@ for (const name of names) {
 		const boxes = [...result.boxes, ...await fontsDrawn()].sort()
 		fs.writeFileSync(boxesFile, ['# mermaid.js boxes. Refresh with: mise run oracle', ...header.slice(1), ...boxes].join('\n') + '\n')
 	} else if (fs.existsSync(boxesFile)) fs.unlinkSync(boxesFile)
+	const dagreFile = path.join(factsDir, name + '.dagre.txt')
+	const type = result.facts?.find(f => f.startsWith('type\t'))?.slice(5)
+	if (result.error === undefined && dagreTypes.has(type)) {
+		await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
+		const layouts = await page.evaluate(dagreLayouts, source, name, init)
+		fs.writeFileSync(dagreFile, ['# mermaid.js dagre layouts. Refresh with: mise run oracle', ...header.slice(1), ...layouts].join('\n') + '\n')
+		dagreNames.add(name + '.dagre.txt')
+	} else if (fs.existsSync(dagreFile)) fs.unlinkSync(dagreFile)
 	if (svgDir && result.svg) fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
 	if (result.error === undefined) accepted++
 	console.log(`${result.error === undefined ? 'ok ' : 'err'}  ${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
 }
 
-const keep = new Set(names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']))
-for (const f of fs.readdirSync(factsDir).filter(f => (f.endsWith('.facts.txt') || f.endsWith('.boxes.txt')) && !keep.has(f)).sort()) {
+const keep = new Set([...names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']), ...dagreNames])
+const perCase = f => f.endsWith('.facts.txt') || f.endsWith('.boxes.txt') || f.endsWith('.dagre.txt')
+for (const f of fs.readdirSync(factsDir).filter(f => perCase(f) && !keep.has(f)).sort()) {
 	fs.unlinkSync(path.join(factsDir, f))
 	console.log(`del  ${f}`)
 }
 
 await browser.close()
-console.log(`mermaid ${version}: ${names.length} cases, ${accepted} accepted`)
+console.log(`mermaid ${version}: ${names.length} cases, ${accepted} accepted, ${dagreNames.size} dagre dumps, ${themeNames.length} themes`)
