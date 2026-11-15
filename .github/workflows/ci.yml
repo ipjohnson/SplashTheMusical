@@ -86,16 +86,6 @@ jobs:
       - name: Rasterize and score both SVGs of every case
         run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster
 
-      - name: Upload the scores and the side-by-side images of failing cases
-        if: always()
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: l4-raster
-          path: |
-            .artifacts/raster
-            .artifacts/corpus-oracle.log
-          if-no-files-found: ignore
-
       - name: Fail when the committed oracle output or corpus/l4.txt is stale
         run: |
           changed=$(git status --porcelain -- corpus)
@@ -105,3 +95,16 @@ jobs:
             echo "::error::The committed corpus output differs from what the pinned mermaid.js and STM write. Run mise run raster and commit corpus/."
             exit 1
           fi
+
+      # The artifact only helps a reader, so a full storage quota does not fail the job.
+      - name: Upload the scores and the side-by-side images of failing cases
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: l4-raster
+          path: |
+            .artifacts/raster
+            .artifacts/corpus-oracle.log
+          if-no-files-found: ignore
+          retention-days: 7
