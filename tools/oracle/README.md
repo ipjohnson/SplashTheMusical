@@ -18,6 +18,8 @@ The run fails in these cases:
 
 - `node_modules` holds a version of a package in `package.json` other than the one `package-lock.json` pins. Run
   `npm ci` in `tools/oracle`.
+- A package in `package.json` asks for a newer Node in its `engines` field. puppeteer 25.17.0 asks for 22.12.0. Under
+  Node 22.7.0 a run over `corpus/` stops answering after a few hundred cases, so mise.toml pins Node 22.23.
 - A case has a diagram type that `extract.mjs` has no extractor for. Add one.
 
 - `mermaid.min.js` does not hold dagre's `layout` function exactly once. The [dagre dumps](#dagre-files) section says

@@ -28,7 +28,7 @@ const root = path.dirname(fileURLToPath(import.meta.url))
 const problems = checkPinned(root)
 if (problems.length) {
 	for (const p of problems) console.error(p)
-	console.error('run npm ci in tools/oracle')
+	console.error('run npm ci in tools/oracle with the Node mise.toml pins')
 	process.exit(1)
 }
 const mermaidDir = path.join(root, 'node_modules', 'mermaid')
