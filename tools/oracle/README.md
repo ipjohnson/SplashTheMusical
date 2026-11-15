@@ -366,8 +366,8 @@ artifacts. Scores are not committed, because small differences between machines 
 
 ### The oracle raster folder
 
-With an oracle raster folder, the run keeps mermaid.js's raster of every case that mermaid.js accepts there, so a later
-run draws only STM's side. A cached raster is read back byte for byte, so the scores equal those of a run without the
+With an oracle raster folder, the run keeps there each mermaid.js raster it draws: those of the cases it scores and of
+the cases it draws side by side. A later run reads them back and draws only STM's side of those cases. A cached raster is read back byte for byte, so the scores equal those of a run without the
 folder. The folder holds two files per case, in the case's subfolder:
 
 | File | Contents |
@@ -377,7 +377,8 @@ folder. The folder holds two files per case, in the case's subfolder:
 
 The raster key is the SHA-256 of the Chromium version, `raster.mjs` and the bundled fonts. A run reuses a raster only
 when both hashes in its key file match. Otherwise it draws the raster again and overwrites the files. After the run it
-deletes the files of every case that is no longer in the corpus or that mermaid.js now refuses. The run still fails
+deletes the files of every case whose mermaid.js raster it did not draw or read, such as a case that is no longer in
+the corpus or that mermaid.js now refuses. The run still fails
 when mermaid.js accepts a case and the oracle SVG folder has no SVG for it, whatever the raster folder holds. The last
 line of the output counts the rasters read, the rasters drawn and the files deleted.
 
@@ -400,9 +401,7 @@ under `corpus/` then differs from the commit. On a miss that catches oracle outp
 longer writes. On every run it catches an `l4.txt` that STM's SVGs no longer give.
 
 A weekly scheduled run of the workflow skips the cache and runs the whole job, so a runner image update that changes
-the fallback fonts shows up within a week. It saves no cache, so it runs `raster.mjs` without the oracle raster folder.
+the fallback fonts shows up within a week.
 
-Filling the folder draws mermaid.js's raster of every accepted case, including the cases STM does not draw yet. That
-makes a full miss slower than a run without the folder. While STM drew no corpus case, on an Apple silicon Mac, a run
-without the folder took 379 seconds, a run that filled an empty folder took 929 seconds, and a run that read every
-raster from it took 67 seconds.
+A hit draws mermaid.js's side only for the cases STM started drawing since the cache was saved. The next miss on
+`main` saves them.

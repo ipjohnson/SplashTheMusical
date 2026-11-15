@@ -5,8 +5,8 @@
 //
 // A case's oracle acceptance comes from its facts file, and STM's from whether stm-svg-dir has its SVG. The threshold
 // of a type comes from <corpus-dir>/tolerances/<type>.json. The run fails when an accepted case has no oracle SVG.
-// With oracle-raster-dir, mermaid.js's raster of each accepted case is kept there and reused while its SVG, Chromium,
-// this script and the bundled fonts are unchanged.
+// With oracle-raster-dir, each mermaid.js raster the run draws is kept there and reused while its SVG, Chromium, this
+// script and the bundled fonts are unchanged.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -302,8 +302,7 @@ for (const name of names) {
 		continue
 	}
 
-	// A case is drawn only when it is scored or gets an image. With oracle-raster-dir, mermaid.js's side of every accepted
-	// case is drawn, so the folder holds it when STM starts drawing the case.
+	// A case is drawn only when it is scored or gets an image.
 	const both = oracle !== undefined && stm !== undefined
 	const imageDue = (images.get(type) ?? 0) < imagesPerType
 	let score
@@ -311,7 +310,7 @@ for (const name of names) {
 	let stmPng
 	let width = 1
 	let height = 1
-	if (oracle !== undefined && (both || imageDue || rasterDir)) {
+	if (oracle !== undefined && (both || imageDue)) {
 		kept.add(name)
 		const drawn = await oracleRaster(name, oracle)
 		oraclePng = drawn.png
