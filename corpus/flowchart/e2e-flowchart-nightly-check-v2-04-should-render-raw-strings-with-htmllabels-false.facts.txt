@@ -19,4 +19,5 @@ node	githost2	Github, Gitlab,BitBucket, etc.	rect
 node	mermaid	What isyourmermaidversion?	diam
 node	v10	<11	rect
 node	v11	= v11	rect
+preamble-config	htmlLabels	false
 type	flowchart-v2

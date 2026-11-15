@@ -6,4 +6,5 @@ drawn	yes
 flow	a	b	10
 label	a
 label	b
+preamble-config	sankey.linkColor	"gradient"
 type	sankey

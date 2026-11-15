@@ -7,4 +7,8 @@ item	clear	0	Standard
 item	complex	0	Test item
 label	Standard
 label	Test item
+preamble-config	theme	"base"
+preamble-config	themeVariables.cynefin.boundaryColor	"#FF0000"
+preamble-config	themeVariables.cynefin.clearBg	"#E6E6FA"
+preamble-config	themeVariables.cynefin.complexBg	"#FFE4B5"
 type	cynefin

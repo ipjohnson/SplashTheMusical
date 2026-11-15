@@ -8,4 +8,7 @@ group	main	main	subcontainer,subcontainer-sibling
 group	subcontainer	subcontainer	subcontainer-child
 node	subcontainer-child	subcontainer-child	rect
 node	subcontainer-sibling	subcontainer-sibling	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

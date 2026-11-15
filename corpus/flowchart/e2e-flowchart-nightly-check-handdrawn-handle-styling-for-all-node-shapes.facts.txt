@@ -18,4 +18,8 @@ node	G	red text	odd
 node	H	blue text	diam
 node	I	red text	hex
 node	J	blue text	lean-r
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

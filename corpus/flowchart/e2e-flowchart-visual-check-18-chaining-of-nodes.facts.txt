@@ -8,4 +8,6 @@ edge	b	c	none	arrow	solid
 node	a	a	rect
 node	b	b	rect
 node	c	c	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

@@ -27,6 +27,7 @@ label	Task and section fills
 label	View cart
 label	Visitor
 label	Warehouse
+preamble-config	theme	"redux"
 section	Browse
 section	Cart
 section	Close

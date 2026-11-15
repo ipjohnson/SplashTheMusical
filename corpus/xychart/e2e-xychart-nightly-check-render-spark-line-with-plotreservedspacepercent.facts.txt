@@ -3,6 +3,10 @@
 # source d25d49f21c2ae0b1
 accept	yes
 drawn	yes
+preamble-config	theme	"dark"
+preamble-config	xyChart.height	20
+preamble-config	xyChart.plotReservedSpacePercent	100
+preamble-config	xyChart.width	200
 series	line	5000,9000,7500,6200,9500,5500,11000,8200,9200,9500,7000,8800
 type	xychart
 x-axis

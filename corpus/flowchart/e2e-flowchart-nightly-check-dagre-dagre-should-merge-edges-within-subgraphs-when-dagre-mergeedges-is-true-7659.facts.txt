@@ -15,4 +15,5 @@ node	C	C	rect
 node	D	D	rect
 node	E	E	rect
 node	F	F	rect
+preamble-config	layout	"dagre"
 type	flowchart-v2

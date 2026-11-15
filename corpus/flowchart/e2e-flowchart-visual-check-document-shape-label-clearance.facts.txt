@@ -10,4 +10,7 @@ node	A	aaaaaa bbbbbb cccccc dddddd eeeeee ffffff gggggg hhhhhh	doc
 node	B	aaaaaa bbbbbb cccccc dddddd eeeeee ffffff gggggg hhhhhh	docs
 node	C	aaaaaa bbbbbb cccccc dddddd eeeeee ffffff gggggg hhhhhh	lin-doc
 node	D	aaaaaa bbbbbb cccccc dddddd eeeeee ffffff gggggg hhhhhh	tag-doc
+preamble-config	flowchart.minNodeWidth	120
+preamble-config	flowchart.wrappingWidth	120
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

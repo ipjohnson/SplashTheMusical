@@ -9,4 +9,5 @@ message	A	B	solid	filled	Message with notes
 note	left	A	Note left of 0
 note	over	A	Note over 2
 note	right	A	Note right of 1
+preamble-config	look	"classic"
 type	sequence

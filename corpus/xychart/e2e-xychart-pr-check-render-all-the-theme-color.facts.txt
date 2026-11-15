@@ -18,6 +18,19 @@ label	may
 label	nov
 label	oct
 label	sep
+preamble-config	themeVariables.xyChart.backgroundColor	"#f0f8ff"
+preamble-config	themeVariables.xyChart.dataLabelColor	"#eeeeee"
+preamble-config	themeVariables.xyChart.plotColorPalette	"#008000, #faba63"
+preamble-config	themeVariables.xyChart.titleColor	"#ff0000"
+preamble-config	themeVariables.xyChart.xAxisLabelColor	"#7fffd4"
+preamble-config	themeVariables.xyChart.xAxisLineColor	"#87ceeb"
+preamble-config	themeVariables.xyChart.xAxisTickColor	"#ff6347"
+preamble-config	themeVariables.xyChart.xAxisTitleColor	"#ee82ee"
+preamble-config	themeVariables.xyChart.yAxisLabelColor	"#ee82ee"
+preamble-config	themeVariables.xyChart.yAxisLineColor	"#ff6347"
+preamble-config	themeVariables.xyChart.yAxisTickColor	"#87ceeb"
+preamble-config	themeVariables.xyChart.yAxisTitleColor	"#7fffd4"
+preamble-config	xyChart.showDataLabel	true
 series	bar	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000
 series	line	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000
 title	Sales Revenue

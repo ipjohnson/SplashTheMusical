@@ -11,6 +11,8 @@ label	test harness component
 label	test suite
 label	the system shall meet performance targets.
 label	verifies
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 relation	test harness component	system performance requirement	verifies
 requirement	system performance requirement	requirement	1	the system shall meet performance targets.	medium	test
 type	requirement

@@ -6,6 +6,7 @@ drawn	yes
 label	Elapsed Time
 label	Percentage (%)
 label	Wide chart scaled down to fit
+preamble-config	xyChart.width	4000
 series	line	10,20,30,40,50,60,70,80,90,100
 series	line	20,30,40,50,60,70,80,90,95,90
 title	Wide chart scaled down to fit

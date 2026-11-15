@@ -12,4 +12,8 @@ commit	4	main	normal			5
 drawn	yes
 label	develop
 label	main
+preamble-config	gitGraph.parallelCommits	false
+preamble-config	gitGraph.rotateCommitLabel	false
+preamble-config	gitGraph.showBranches	true
+preamble-config	gitGraph.showCommitLabel	false
 type	gitGraph

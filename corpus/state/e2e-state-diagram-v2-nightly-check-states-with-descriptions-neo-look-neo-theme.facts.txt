@@ -17,4 +17,6 @@ node	State3	State3	rounded
 node	State4	State4	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	stateDiagram

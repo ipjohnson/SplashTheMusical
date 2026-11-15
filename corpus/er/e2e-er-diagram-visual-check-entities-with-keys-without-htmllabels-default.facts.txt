@@ -20,5 +20,6 @@ label	string
 label	string
 label	title
 label	writes
+preamble-config	htmlLabels	false
 relation	AUTHOR_WITH_LONG_ENTITY_NAME	BOOK	one-or-more	one-or-more	non-identifying	writes
 type	er

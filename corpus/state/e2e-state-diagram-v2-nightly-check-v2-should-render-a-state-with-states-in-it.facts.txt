@@ -6,4 +6,5 @@ drawn	yes
 group	Parent	Parent	C
 group	PilotCockpit	PilotCockpit	Parent
 node	C	C	rounded
+preamble-config	logLevel	0
 type	stateDiagram

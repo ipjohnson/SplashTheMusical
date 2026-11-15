@@ -5,4 +5,8 @@ accept	yes
 drawn	yes
 group	bar	Bar	F
 node	F	F	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

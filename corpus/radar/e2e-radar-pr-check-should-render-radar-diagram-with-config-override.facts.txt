@@ -12,5 +12,7 @@ label	B
 label	Best Radar Ever
 label	C
 label	mycurve
+preamble-config	radar.axisScaleFactor	0.5
+preamble-config	radar.marginTop	100
 title	Best Radar Ever
 type	radar

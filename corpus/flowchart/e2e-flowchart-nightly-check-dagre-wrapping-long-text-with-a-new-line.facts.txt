@@ -6,4 +6,7 @@ drawn	yes
 edge	b	c	none	arrow	solid
 node	b	The dog in the hog.(1).. a a a a very long text about it Word! Another line with many, many words. Another line with many, many words. Another line with many, many words. Another line with many, many words. Another line with many, many words. Another line with many, many words. Another line with many, many words. Another line with many, many words.	rounded
 node	c	c	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

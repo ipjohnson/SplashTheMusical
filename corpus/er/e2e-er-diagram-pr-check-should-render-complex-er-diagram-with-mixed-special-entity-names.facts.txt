@@ -28,6 +28,7 @@ label	string
 label	u
 label	value
 label	varchar(50)
+preamble-config	logLevel	1
 relation	1	u	one	one-or-more	identifying	contains
 relation	CUSTOMER	1	one	zero-or-more	identifying	places
 relation	u	2.5	one	one	identifying	processes

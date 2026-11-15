@@ -10,6 +10,8 @@ label	req B with shorthand class.
 label	req_b
 label	service
 label	verifies
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 relation	elem_b	req_b	verifies
 requirement	req_b	requirement	2	req B with shorthand class.	high	test
 type	requirement

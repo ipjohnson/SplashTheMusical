@@ -13,4 +13,7 @@ message	Bob	Charlie	dashed	filled	To boundary
 message	Charlie	David	solid	filled	To control
 message	David	Eve	dashed	filled-both	To entity
 message	Eve	Alice	solid	cross	Back to participant
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

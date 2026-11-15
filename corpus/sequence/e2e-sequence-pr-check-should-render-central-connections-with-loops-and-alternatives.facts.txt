@@ -13,4 +13,7 @@ message	Alice	Bob	solid	filled	Central heartbeat
 message	Bob	Charlie	dashed	filled	Forward heartbeat
 message	Charlie	Alice	dashed	filled-both	Success response
 message	Charlie	Alice	solid	cross	Failure response
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

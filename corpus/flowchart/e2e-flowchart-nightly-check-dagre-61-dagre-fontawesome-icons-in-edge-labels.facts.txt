@@ -7,4 +7,8 @@ edge	C	F	none	arrow	solid	Car
 icon	F	fa:fa-car
 node	C	C	rect
 node	F	Car	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

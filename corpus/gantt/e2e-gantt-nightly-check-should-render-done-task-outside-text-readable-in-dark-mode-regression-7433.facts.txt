@@ -9,6 +9,7 @@ label	A very long label that will not fit inside the short bar
 label	Active short bar
 label	Critical tasks
 label	Gantt dark mode done-task outside-text readability
+preamble-config	theme	"dark"
 section	A section
 section	Critical tasks
 task	A section	A very long label that will not fit inside the short bar		2014-01-06 00:00	2014-01-07 00:00	done

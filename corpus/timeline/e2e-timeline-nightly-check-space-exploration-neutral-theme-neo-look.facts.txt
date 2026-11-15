@@ -45,6 +45,8 @@ period	Modern Era	2020
 period	Modern Era	2021
 period	Moon Era	1969
 period	Moon Era	1972
+preamble-config	look	"neo"
+preamble-config	theme	"neutral"
 section	Early Era
 section	Modern Era
 section	Moon Era

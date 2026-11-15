@@ -13,4 +13,7 @@ message	Auth	Cache	solid	filled	Store session
 message	Auth	DB	solid	filled	Query user
 message	Cache	Auth	dashed	filled	Confirmed
 message	DB	Auth	dashed	filled	User data
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

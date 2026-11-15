@@ -16,4 +16,7 @@ label	d
 label	e
 label	x
 label	y
+preamble-config	sankey.nodeAlignment	"center"
+preamble-config	sankey.useMaxWidth	false
+preamble-config	sankey.width	410
 type	sankey

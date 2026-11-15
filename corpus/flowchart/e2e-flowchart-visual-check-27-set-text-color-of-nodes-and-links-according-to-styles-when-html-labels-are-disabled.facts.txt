@@ -12,4 +12,6 @@ node	C	red text	lean-r
 node	D	blue text	diam
 node	E	default style	hex
 node	F	default style	stadium
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

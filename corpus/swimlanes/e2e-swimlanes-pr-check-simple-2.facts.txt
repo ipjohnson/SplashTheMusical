@@ -15,4 +15,7 @@ node	B	B	rect
 node	C	C	rect
 node	D	D	rect
 node	E	E	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

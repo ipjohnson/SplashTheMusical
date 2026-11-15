@@ -5,4 +5,6 @@ accept	yes
 drawn	yes
 group	Parent	Parent	C
 node	C	C	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

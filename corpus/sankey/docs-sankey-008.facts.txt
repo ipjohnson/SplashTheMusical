@@ -10,4 +10,8 @@ label	Electricity grid
 label	Heating and cooling - homes
 label	Industry
 label	Losses
+preamble-config	sankey.nodeColors.Electricity grid	"#4e79a7"
+preamble-config	sankey.nodeColors.Industry	"#e15759"
+preamble-config	sankey.nodeColors.Losses	"#bab0ab"
+preamble-config	sankey.showValues	false
 type	sankey

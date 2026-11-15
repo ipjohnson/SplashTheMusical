@@ -8,4 +8,8 @@ edge	a1	a2	none	arrow	solid	l2
 group	one	one	a1,a2
 node	a1	a1	rect
 node	a2	a2	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

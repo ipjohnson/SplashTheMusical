@@ -11,4 +11,6 @@ node	a	The cat in the hat	rounded
 node	b	The dog in the hog	hex
 node	c	The cat in the hat	rounded
 node	d	The dog in the hog	rounded
+preamble-config	flowchart.htmlLabels	true
+preamble-config	flowchart.titleTopMargin	0
 type	flowchart-v2

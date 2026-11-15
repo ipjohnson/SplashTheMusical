@@ -6,7 +6,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { checkPinned } from './pinned.mjs'
-import { hookDagre } from './dumps.mjs'
+import { hookDagre, hookPreprocess } from './dumps.mjs'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 const cases = path.join(root, 'cases')
@@ -222,6 +222,26 @@ test('the dagre hook wraps dagre\'s layout function once and refuses a bundle wi
 	assert.equal(hooked.split('function __oracleDagreLayout(').length, 2)
 	assert.equal(hooked.split('globalThis.__oracleDagre?.before(').length, 2)
 	assert.throws(() => hookDagre(code.replace('"  buildLayoutGraph"', '"buildLayoutGraph"')), /found 0 times in mermaid\.min\.js/)
+})
+
+test('the preprocess hook exposes preprocessDiagram once and refuses a bundle without it', () => {
+	const code = fs.readFileSync(path.join(root, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js'), 'utf8')
+	assert.equal(hookPreprocess(code).split('globalThis.__oraclePreprocess=').length, 2)
+	assert.throws(() => hookPreprocess(code.replace('"preprocessDiagram"', '"preprocess"')), /found 0 times in mermaid\.min\.js/)
+})
+
+test('a case with front matter gets the preamble title and config mermaid.js read', () => {
+	const dir = temp()
+	try {
+		fs.mkdirSync(path.join(dir, 'cases'))
+		fs.writeFileSync(path.join(dir, 'cases', 'titled.mmd'), '---\ntitle: Sales\nconfig:\n  theme: dark\n---\n%%{init: {"pie": {"textPosition": 0.5}}}%%\npie\n  "a": 1\n')
+		const result = run(root, path.join(dir, 'cases'), path.join(dir, 'out'))
+		assert.equal(result.status, 0, result.stderr)
+		const facts = fs.readFileSync(path.join(dir, 'out', 'facts', 'titled.facts.txt'), 'utf8').split('\n').filter(l => l.startsWith('preamble-'))
+		assert.deepEqual(facts, ['preamble-config\tpie.textPosition\t0.5', 'preamble-config\ttheme\t"dark"', 'preamble-title\tSales'])
+	} finally {
+		fs.rmSync(dir, { recursive: true, force: true })
+	}
 })
 
 test('a case in a subfolder gets its files beside it, with the output of the same case in a flat folder', () => {

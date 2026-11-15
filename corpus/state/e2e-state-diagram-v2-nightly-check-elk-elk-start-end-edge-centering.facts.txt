@@ -6,4 +6,5 @@ drawn	yes
 edge	[*]start@root	[*]end@root	none	arrow	solid
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	layout	"elk"
 type	stateDiagram

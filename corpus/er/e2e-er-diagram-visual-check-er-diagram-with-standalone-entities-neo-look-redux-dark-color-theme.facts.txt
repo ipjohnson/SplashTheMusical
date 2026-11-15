@@ -18,5 +18,7 @@ label	id
 label	relates
 label	string
 label	string
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 relation	CONNECTED_A	CONNECTED_B	one	one	identifying	relates
 type	er

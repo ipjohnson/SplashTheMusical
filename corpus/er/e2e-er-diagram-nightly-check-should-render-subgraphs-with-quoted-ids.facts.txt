@@ -10,5 +10,6 @@ label	CUSTOMER
 label	Customer Domain
 label	ORDER
 label	contains
+preamble-config	logLevel	1
 relation	Customer Domain	ORDER	one	zero-or-more	identifying	contains
 type	er

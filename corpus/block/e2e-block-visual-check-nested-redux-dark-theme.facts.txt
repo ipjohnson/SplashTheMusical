@@ -15,4 +15,6 @@ label	four
 label	one
 label	three
 label	two
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 type	block

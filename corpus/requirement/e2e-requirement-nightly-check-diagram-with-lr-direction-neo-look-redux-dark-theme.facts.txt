@@ -10,6 +10,8 @@ label	req A.
 label	req B.
 label	req_a
 label	req_b
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 relation	req_a	req_b	derives
 requirement	req_a	requirement	1	req A.	low	analysis
 requirement	req_b	requirement	2	req B.	medium	inspection

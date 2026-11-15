@@ -24,4 +24,5 @@ node	[*]start@Drivers		sm-circ
 node	[*]start@Kernel		sm-circ
 node	[*]start@Running		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	theme	"redux-dark-color"
 type	stateDiagram

@@ -17,4 +17,5 @@ node	Right	Right	rounded
 node	[*]start@Neighbour		sm-circ
 node	[*]start@divider-id-1		sm-circ
 node	[*]start@divider-id-115		sm-circ
+preamble-config	theme	"redux"
 type	stateDiagram

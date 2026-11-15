@@ -10,5 +10,6 @@ label	CUSTOMER
 label	ORDER
 label	orders
 label	places
+preamble-config	logLevel	1
 relation	CUSTOMER	orders	one	zero-or-more	identifying	places
 type	er

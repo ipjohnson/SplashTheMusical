@@ -24,6 +24,7 @@ label	Future task in critical line
 label	Future task2
 label	Implement parser and jison
 label	Last section
+preamble-config	theme	"forest"
 section	A section
 section	Critical tasks
 section	Documentation

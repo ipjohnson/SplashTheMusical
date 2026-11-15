@@ -10,4 +10,6 @@ label	Electricity grid
 label	Heating and cooling - homes
 label	Industry
 label	Losses
+preamble-config	sankey.labelStyle	"outlined"
+preamble-config	sankey.showValues	false
 type	sankey

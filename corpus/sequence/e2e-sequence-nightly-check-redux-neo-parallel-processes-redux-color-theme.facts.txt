@@ -22,4 +22,6 @@ message	Order	OrdersDB	solid	filled	Save finalized order
 message	Order	PaymentService	solid	filled	Process payment
 message	OrdersDB	Order	dashed	filled	Order saved
 message	PaymentService	Order	dashed	filled	Payment confirmed
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 type	sequence

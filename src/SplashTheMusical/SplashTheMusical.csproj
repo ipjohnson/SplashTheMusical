@@ -4,5 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="SplashTheMusical.Tests" />
+    <InternalsVisibleTo Include="SplashTheMusical.Conformance" />
   </ItemGroup>
 </Project>

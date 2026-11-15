@@ -20,5 +20,6 @@ label	price
 label	string
 label	string
 label	value
+preamble-config	logLevel	1
 relation	1	ORDER	one	one	identifying	places
 type	er

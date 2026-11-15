@@ -11,6 +11,7 @@ label	NAMED-DRIVER
 label	PERSON
 label	allows
 label	is
+preamble-config	look	"handDrawn"
 relation	CAR	NAMED-DRIVER	one	one-or-more	identifying	allows
 relation	PERSON	NAMED-DRIVER	one	zero-or-more	non-identifying	is
 type	er

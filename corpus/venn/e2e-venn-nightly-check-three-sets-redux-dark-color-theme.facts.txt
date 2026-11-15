@@ -4,6 +4,7 @@
 accept	yes
 drawn	yes
 label	Innovation
+preamble-config	theme	"redux-dark-color"
 set	Desirable		10
 set	Feasible		10
 set	Viable		10

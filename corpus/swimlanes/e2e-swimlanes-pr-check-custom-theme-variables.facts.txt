@@ -7,4 +7,10 @@ edge	A	B	none	arrow	solid
 group	ThemeLane	ThemeLane	A,B
 node	A	Themed node	rect
 node	B	Next node	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	theme	"base"
+preamble-config	themeVariables.lineColor	"#118844"
+preamble-config	themeVariables.mainBkg	"#ffe1ef"
+preamble-config	themeVariables.nodeBorder	"#225577"
 type	swimlane

@@ -7,4 +7,5 @@ edge	a	b	none	arrow	solid
 group	NotShooting	Long state name 2	a,b
 node	a	a	rounded
 node	b	b	rounded
+preamble-config	logLevel	0
 type	stateDiagram

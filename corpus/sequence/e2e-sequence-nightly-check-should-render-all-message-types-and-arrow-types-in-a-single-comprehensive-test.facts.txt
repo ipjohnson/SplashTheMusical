@@ -57,4 +57,7 @@ note	over	Alice,David	SELF-REFERENCES (Same participant)
 note	over	Alice,David	SELF-REFERENCES BIDIRECTIONAL
 note	over	Alice,David	SELF-REFERENCES WITH REVERSE ARROWS
 note	over	Alice,David	SOLID ARROWS (Filled arrowhead)
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

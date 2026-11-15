@@ -17,4 +17,6 @@ node	State4	State4	rounded
 node	State5	State5	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

@@ -95,4 +95,9 @@ node	6	Creates a Request for Quotation based on the PR	rect
 node	7	Needs canvassing?	diam
 node	8	Creates 2 or more alternative RFQs	rect
 node	9	Sends all RFQs	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	look	"neo"
+preamble-config	swimlane.automaticLaneOrdering	true
+preamble-config	theme	"redux"
 type	swimlane

@@ -10,4 +10,7 @@ method	Class10	+ swim () : a
 method	Class10	+quack() : test
 method	Class10	boldmethod ()
 method	Class10	italicmethod ()
+preamble-config	htmlLabels	false
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 type	classDiagram

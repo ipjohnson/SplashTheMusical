@@ -28,4 +28,7 @@ node	receives_order	receives order	rect
 node	roadmap	product on roadmap?	hex
 node	sales_process	sales_process: sales process	rounded
 node	ship	ship products	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

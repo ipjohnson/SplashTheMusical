@@ -19,4 +19,11 @@ label	E
 label	c1
 label	c2
 label	c3
+preamble-config	radar.axisScaleFactor	0.25
+preamble-config	radar.curveTension	0.1
+preamble-config	theme	"base"
+preamble-config	themeVariables.cScale0	"#FF0000"
+preamble-config	themeVariables.cScale1	"#00FF00"
+preamble-config	themeVariables.cScale2	"#0000FF"
+preamble-config	themeVariables.radar.curveOpacity	0
 type	radar

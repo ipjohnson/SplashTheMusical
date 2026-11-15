@@ -12,5 +12,6 @@ label	Analyse
 label	Categorise
 label	Probe
 label	Seeded Boundaries
+preamble-config	cynefin.seed	42
 title	Seeded Boundaries
 type	cynefin

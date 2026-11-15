@@ -14,4 +14,6 @@ label	string[]
 label	title
 label	type
 label	type~T~
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 type	er

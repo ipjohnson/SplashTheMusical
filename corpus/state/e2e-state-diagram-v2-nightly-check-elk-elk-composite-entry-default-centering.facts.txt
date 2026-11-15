@@ -26,4 +26,6 @@ node	On2	On2	rounded
 node	[*]start@Console		sm-circ
 node	[*]start@TV		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	layout	"elk"
 type	stateDiagram

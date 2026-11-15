@@ -18,4 +18,7 @@ message	control3	entity4	solid	filled	Message 3
 message	database5	collections6	solid	filled	Message 5
 message	entity4	database5	solid	filled	Message 4
 message	participant0	actor1	solid	filled	Message 0
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

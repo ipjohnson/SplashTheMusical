@@ -10,4 +10,5 @@ node	A	Start	stadium
 node	B	Decision	diam
 node	C	Option A	rect
 node	D	Option B	rect
+preamble-config	look	"handDrawn"
 type	flowchart-v2

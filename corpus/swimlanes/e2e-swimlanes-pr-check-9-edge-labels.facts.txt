@@ -8,4 +8,7 @@ edge	Start	Process1	none	arrow	solid	Yes
 group	Dep1	Dep1	Process1,Start
 node	Process1	Process1	rect
 node	Start	Start	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

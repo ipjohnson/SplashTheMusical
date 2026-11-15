@@ -20,4 +20,6 @@ node	NumLockOn	NumLockOn	rounded
 node	[*]start@divider-id-1		sm-circ
 node	[*]start@divider-id-59		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 type	stateDiagram

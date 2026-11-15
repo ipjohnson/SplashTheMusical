@@ -12,4 +12,5 @@ node	B	1+e−2π1+e−4π1+e−6π1+e−8π1+⋯	rounded
 node	C	−78∘	rounded
 node	D	x={aif b cif d	rounded
 node	E	x(t)=c1[−cos⁡t+sin⁡t 2cos⁡t]e2t	rounded
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

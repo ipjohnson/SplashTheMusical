@@ -12,4 +12,7 @@ message	Alice	Bob	solid	filled-both	Dual central with bidirectional solid LTR
 message	Bob	Alice	dashed	filled-both	Dual central with bidirectional dotted RTL
 message	Bob	Alice	solid	filled-both	Central at start with bidirectional RTL
 message	Bob	Alice	solid	filled-both	Dual central with bidirectional solid RTL
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

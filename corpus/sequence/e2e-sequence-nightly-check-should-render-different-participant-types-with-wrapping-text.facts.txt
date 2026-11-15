@@ -21,4 +21,5 @@ message	E	C	dashed	filled	Validation result
 message	FE	B	solid	filled	Another long message with explicit line breaks
 message	FE	C	solid	filled	Process data
 message	Q	LongNameUser	dashed	filled	Final response with confirmation of all actions taken
+preamble-config	sequence.wrap	true
 type	sequence

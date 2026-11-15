@@ -68,16 +68,16 @@ public class DirectiveReaderTests
 		Read("%%{init: [1e400]}%%").Directive!.Arguments!.Items[0].Number.Should().Be(double.PositiveInfinity);
 
 	[Test]
-	[Arguments("%%{init: {theme: \"dark\"}}%%")]
-	[Arguments("%%{init: {\"title\": \"it's\"}}%%")]
-	[Arguments("%%{init: {\"a\": 1,}}%%")]
-	[Arguments("%%{init: {\"a\": 1} extra}%%")]
-	public void InvalidJsonIsIgnoredWithAWarning(string source)
+	[Arguments("%%{init: {theme: \"dark\"}}%%", "{theme: \"dark\"}")]
+	[Arguments("%%{init: {\"title\": \"it's\"}}%%", "{\"title\": \"it's\"}")]
+	[Arguments("%%{init: {\"a\": 1,}}%%", "{\"a\": 1,}")]
+	[Arguments("%%{init: {\"a\": 1} extra}%%", "{\"a\": 1} extra")]
+	public void InvalidJsonIsKeptAsTextWithAWarning(string source, string text)
 	{
 		var cursor = new SourceCursor(source + "\nA");
 		var diagnostics = new List<MermaidDiagnostic>();
 		DirectiveReader.TryRead(ref cursor, diagnostics, ResourceLimits.Default, out var directive).Should().BeTrue();
-		directive.Should().BeNull();
+		directive.Should().Be(new MermaidDirective("init", null) { InvalidArguments = text });
 		cursor.Remaining.ToString().Should().Be("\nA");
 		var warning = diagnostics.Should().ContainSingle().Subject;
 		warning.Severity.Should().Be(DiagnosticSeverity.Warning);

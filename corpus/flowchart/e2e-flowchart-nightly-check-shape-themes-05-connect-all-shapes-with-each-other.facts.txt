@@ -24,4 +24,6 @@ node	n22	This is a label for brace-l shape	brace
 node	n33	This is a label for comment shape	brace
 node	n44	This is a label for braces shape	braces
 node	n55	This is a label for brace-r shape	brace-r
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	flowchart-v2

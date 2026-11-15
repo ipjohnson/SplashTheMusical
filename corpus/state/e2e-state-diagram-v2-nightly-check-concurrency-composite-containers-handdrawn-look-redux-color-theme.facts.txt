@@ -26,4 +26,6 @@ node	[*]start@divider-id-1		sm-circ
 node	[*]start@divider-id-2		sm-circ
 node	[*]start@divider-id-27		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	look	"handDrawn"
+preamble-config	theme	"redux-color"
 type	stateDiagram

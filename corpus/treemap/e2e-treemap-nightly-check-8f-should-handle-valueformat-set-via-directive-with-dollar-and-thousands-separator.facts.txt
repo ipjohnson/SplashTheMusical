@@ -13,4 +13,5 @@ node	Sales by Region / East	4567890
 node	Sales by Region / North	1234567
 node	Sales by Region / South	7654321
 node	Sales by Region / West	9876543
+preamble-config	treemap.valueFormat	"$0,0"
 type	treemap

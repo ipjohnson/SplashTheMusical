@@ -14,6 +14,13 @@ label	Issue1300
 label	Issue19062
 label	Issue19401
 label	Timeline - Gantt Sampler
+preamble-config	gantt.displayMode	"compact"
+preamble-config	gantt.numberSectionStyles	2
+preamble-config	gantt.rightPadding	0
+preamble-config	gantt.topAxis	true
+preamble-config	gantt.useWidth	400
+preamble-config	themeCSS	" // YAML supports multiline strings using a newline markers: \n #item36 { fill: CadetBlue } \n\n// Custom marker workaround CSS from forum (below) \n rect[id^=workaround] { height: calc(100% - 50px) ; transform: translate(9px, 25px); y: 0; width: 1.5px; stroke: none; fill: red; } \n text[id^=workaround] { fill: red; y: 100%; font-size: 15px;} "
+preamble-title	Ignored if specified in chart
 section	Issue1300
 section	Issue19062
 section	Issue19401

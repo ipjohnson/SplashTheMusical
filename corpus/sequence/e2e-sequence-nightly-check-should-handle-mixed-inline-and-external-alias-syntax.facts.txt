@@ -10,4 +10,7 @@ message	A	B	solid	filled	Request
 message	B	A	dashed	filled	Response
 message	B	C	solid	filled	Query
 message	C	B	dashed	filled	Data
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

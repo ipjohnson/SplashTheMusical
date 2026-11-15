@@ -18,4 +18,9 @@ label	develop
 label	featureA
 label	main
 label	v1.0.0
+preamble-config	logLevel	"debug"
+preamble-config	theme	"default"
+preamble-config	themeVariables.tagLabelBackground	"#00ff00"
+preamble-config	themeVariables.tagLabelBorder	"#0000ff"
+preamble-config	themeVariables.tagLabelColor	"#ff0000"
 type	gitGraph

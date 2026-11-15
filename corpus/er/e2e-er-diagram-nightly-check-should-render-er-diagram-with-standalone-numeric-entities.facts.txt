@@ -14,5 +14,6 @@ label	ORDER-ITEM
 label	PRODUCT
 label	has
 label	u
+preamble-config	logLevel	1
 relation	PRODUCT	ORDER-ITEM	one	zero-or-more	identifying	has
 type	er

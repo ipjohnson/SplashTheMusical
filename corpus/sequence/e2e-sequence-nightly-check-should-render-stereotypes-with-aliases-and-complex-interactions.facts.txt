@@ -24,4 +24,7 @@ message	Queue	Auth	dashed	filled	Event queued
 message	UserDB	Auth	dashed	filled	User found
 message	Web	Auth	solid	filled	Login request
 note	over	Web,Audit	All interactions logged
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

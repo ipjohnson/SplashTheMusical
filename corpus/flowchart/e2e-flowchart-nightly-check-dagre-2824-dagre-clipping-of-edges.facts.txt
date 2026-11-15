@@ -9,4 +9,8 @@ edge	B	C	none	arrow	solid
 node	A	A	rect
 node	B	B	rect
 node	C	C	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

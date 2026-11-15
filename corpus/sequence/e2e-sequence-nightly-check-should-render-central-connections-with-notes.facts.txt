@@ -11,4 +11,7 @@ message	Bob	Charlie	dashed	filled	Reverse central connection
 message	Charlie	Alice	dashed	filled-both	Dual central connection
 note	over	Alice,Bob	Central connection note
 note	right	Charlie	Response note
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

@@ -8,4 +8,6 @@ drawn	yes
 message	Alice	Bob	solid	filled	I'm short
 message	Bob	Alice	solid	filled	Short as well
 note	left	Alice	I should have bigger fonts
+preamble-config	sequence.noteFontFamily	"Arial"
+preamble-config	sequence.noteFontSize	18
 type	sequence

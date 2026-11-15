@@ -14,4 +14,5 @@ commit	6	main	normal
 drawn	yes
 label	develop
 label	main
+preamble-title	Example Git diagram
 type	gitGraph

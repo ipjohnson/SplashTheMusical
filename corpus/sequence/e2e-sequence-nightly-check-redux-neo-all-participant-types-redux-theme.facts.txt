@@ -18,4 +18,6 @@ message	Col	Q	solid	filled	Message 7
 message	D	Col	solid	filled	Message 6
 message	E	D	solid	filled	Message 5
 message	P	A	solid	filled	Message 1
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	sequence

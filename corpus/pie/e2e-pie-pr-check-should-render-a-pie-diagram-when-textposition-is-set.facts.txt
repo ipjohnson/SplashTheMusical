@@ -5,6 +5,8 @@ accept	yes
 drawn	yes
 label	Cats
 label	Dogs
+preamble-config	logLevel	1
+preamble-config	pie.textPosition	0.9
 slice	Cats	25
 slice	Dogs	50
 type	pie

@@ -21,6 +21,8 @@ label	req3
 label	req4
 label	req5
 label	req6
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 requirement	req1	requirement	1	basic requirement.	low	analysis
 requirement	req2	functional-requirement	2	functional requirement.	medium	demonstration
 requirement	req3	interface-requirement	3	interface requirement.	high	inspection

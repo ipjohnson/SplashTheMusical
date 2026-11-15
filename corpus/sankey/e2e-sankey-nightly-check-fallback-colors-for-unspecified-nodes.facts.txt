@@ -8,4 +8,5 @@ flow	b	c	20
 label	a
 label	b
 label	c
+preamble-config	sankey.nodeColors.a	"#ff0000"
 type	sankey

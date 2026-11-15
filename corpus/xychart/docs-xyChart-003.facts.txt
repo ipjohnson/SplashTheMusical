@@ -10,6 +10,7 @@ label	Category 4
 label	Different Colors in xyChart
 label	categoriesX
 label	valuesY
+preamble-config	themeVariables.xyChart.plotColorPalette	"#000000, #0000FF, #00FF00, #FF0000"
 series	bar	15,25,20,30
 series	bar	20,30,25,35
 series	line	10,20,30,40

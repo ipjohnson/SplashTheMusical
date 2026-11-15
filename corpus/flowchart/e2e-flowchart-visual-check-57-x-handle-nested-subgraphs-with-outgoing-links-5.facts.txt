@@ -13,4 +13,7 @@ node	Process_D	Process_D	rect
 node	process_A	process_A	rect
 node	process_B	process_B	rect
 node	process_C	process_C	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

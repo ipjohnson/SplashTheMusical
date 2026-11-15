@@ -44,4 +44,6 @@ label	main
 label	sub-merged
 label	v1.0
 label	v2.0
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	gitGraph

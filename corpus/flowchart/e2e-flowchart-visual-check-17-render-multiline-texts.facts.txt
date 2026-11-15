@@ -21,4 +21,6 @@ node	E1	Multi Line	rect
 node	E2	Multi Line	rect
 node	F1	Multi Line	rounded
 node	F2	Multi Line	rounded
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

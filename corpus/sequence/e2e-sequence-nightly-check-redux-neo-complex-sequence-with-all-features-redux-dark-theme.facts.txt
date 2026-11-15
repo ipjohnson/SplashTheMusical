@@ -30,4 +30,6 @@ message	OrderQueue	Order	solid	filled	Update status
 message	User	LoginUI	solid	filled	Enter credentials
 message	User	Order	solid	filled	New order
 message	UserDB	AuthService	dashed	filled	User data
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 type	sequence

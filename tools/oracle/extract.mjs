@@ -135,6 +135,18 @@ export async function extractFacts(source, name, shapes) {
 	extract()
 	facts.push(tab('type', type))
 	facts.push(tab('drawn', drawn() ? 'yes' : 'no'))
+	// The front matter title and the config of the front matter and the directives, from mermaid's preprocessDiagram
+	// (hookPreprocess in dumps.mjs). Config is flattened into dotted paths with JSON values, as config.txt is.
+	const preamble = globalThis.__oraclePreprocess(source)
+	if (preamble.title !== undefined) facts.push(tab('preamble-title', preamble.title))
+	const flatten = (prefix, v) => {
+		if (v !== null && typeof v === 'object') {
+			const keys = Object.keys(v)
+			if (!keys.length && prefix) facts.push(tab('preamble-config', prefix, Array.isArray(v) ? '[]' : '{}'))
+			for (const k of keys) flatten(prefix ? `${prefix}.${k}` : k, v[k])
+		} else facts.push(tab('preamble-config', prefix, v === undefined ? 'undefined' : JSON.stringify(v)))
+	}
+	flatten('', preamble.config ?? {})
 	boxes.push(canvas())
 	return { facts, boxes, svg }
 

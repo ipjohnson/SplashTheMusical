@@ -15,6 +15,9 @@ class	Payment	Payment
 drawn	yes
 method	Order	+total() : Money
 method	Payment	+authorise() : bool
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 relation	Customer	Order	none	arrow	solid	places	1	*
 relation	Order	LineItem	diamond-filled	none	solid	contains	1	*
 relation	Order	Payment	none	arrow	solid	settled by

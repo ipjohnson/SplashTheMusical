@@ -7,4 +7,7 @@ edge	Loose	A	none	arrow	solid
 group	OwnedLane	OwnedLane	A
 node	A	Owned node	rect
 node	Loose	Loose node	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	theme	"redux-color"
 type	swimlane

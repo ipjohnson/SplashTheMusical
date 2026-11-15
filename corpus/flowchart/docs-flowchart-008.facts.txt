@@ -18,4 +18,7 @@ node	Cache	Local cache	cyl
 node	DB	Orders DB	cyl
 node	Orders	Order service	rect
 node	UI	Web app	rect
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	flowchart-v2

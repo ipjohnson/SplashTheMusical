@@ -9,4 +9,5 @@ label	Alpha
 label	Beta
 node	alpha	Alpha	square	task
 node	beta	Beta	square	task
+preamble-config	agentflow.nodeSpacing	40
 type	agentflow

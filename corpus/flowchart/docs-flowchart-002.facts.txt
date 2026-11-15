@@ -4,4 +4,5 @@
 accept	yes
 drawn	yes
 node	id1	This is the text in the box	rect
+preamble-title	Node with text
 type	flowchart-v2

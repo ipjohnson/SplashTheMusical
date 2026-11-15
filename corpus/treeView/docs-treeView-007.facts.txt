@@ -15,4 +15,10 @@ node	notes.txt	file
 node	src	dir
 node	src / App.tsx	file
 node	src / utils.ts	file
+preamble-config	treeView.defaultIconPack	"material-icon-theme"
+preamble-config	treeView.extensionIcons..ts	"typescript"
+preamble-config	treeView.extensionIcons..tsx	"react-ts"
+preamble-config	treeView.extensionIcons..txt	"none"
+preamble-config	treeView.filenameIcons.Dockerfile	"docker"
+preamble-config	treeView.showIcons	true
 type	treeView

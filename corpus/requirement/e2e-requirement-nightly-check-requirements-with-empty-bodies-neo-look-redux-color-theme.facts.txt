@@ -6,5 +6,7 @@ drawn	yes
 element	empty_entity
 label	empty_entity
 label	empty_req
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 requirement	empty_req	requirement
 type	requirement

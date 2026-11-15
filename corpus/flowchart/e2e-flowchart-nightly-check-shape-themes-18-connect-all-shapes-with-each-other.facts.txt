@@ -13,4 +13,6 @@ node	n00	This is a label for rounded shape	rounded
 node	n11	This is a label for rect shape	rect
 node	n22		sm-circ
 node	n33		fr-circ
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 type	flowchart-v2

@@ -13,6 +13,8 @@ label	Make tea
 label	Me
 label	My working day
 label	Sit down
+preamble-config	logLevel	0
+preamble-config	theme	"forest"
 section	Go home
 section	Go to work
 task	Go home	Go downstairs	5	Me

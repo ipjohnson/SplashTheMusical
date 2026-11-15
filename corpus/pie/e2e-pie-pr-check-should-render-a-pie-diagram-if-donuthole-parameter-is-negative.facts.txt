@@ -7,6 +7,7 @@ label	Cat
 label	Dog
 label	Fish
 label	Owned Pet
+preamble-config	pie.donutHole	-0.3
 slice	Cat	52
 slice	Dog	65
 slice	Fish	16

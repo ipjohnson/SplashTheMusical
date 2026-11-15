@@ -11,4 +11,7 @@ message	Alice	Bob	solid	filled	Normal message
 message	Bob	Charlie	solid	cross	Normal cross message
 message	Bob	Charlie	solid	filled	Central connection
 message	Charlie	Alice	dashed	filled	Normal dotted message
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

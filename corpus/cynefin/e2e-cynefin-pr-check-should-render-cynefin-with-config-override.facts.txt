@@ -7,4 +7,7 @@ item	clear	0	Standard work
 item	complex	0	Adaptive work
 label	Adaptive work
 label	Standard work
+preamble-config	cynefin.boundaryAmplitude	15
+preamble-config	cynefin.height	700
+preamble-config	cynefin.width	1000
 type	cynefin

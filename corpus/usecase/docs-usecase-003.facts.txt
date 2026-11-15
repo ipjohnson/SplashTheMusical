@@ -15,6 +15,9 @@ label	Fulfilment
 label	Storefront
 label	Support
 label	Track delivery
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 relation	Checkout	Browse	include	none	arrow		1
 relation	Customer	Browse	association	none	arrow		1
 relation	Customer	Checkout	association	none	arrow		1

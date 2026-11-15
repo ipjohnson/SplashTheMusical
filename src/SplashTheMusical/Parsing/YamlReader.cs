@@ -13,12 +13,13 @@ namespace SplashTheMusical.Parsing;
 /// <para>
 /// Supported: block mappings, block sequences, a sequence at the same indentation as its key, compact entries such as
 /// <c>- key: value</c>, flow mappings and flow sequences that may span lines, plain, single-quoted and double-quoted
-/// scalars on one line, literal and folded block scalars with their chomping indicators, and comments.
+/// scalars, which fold onto one line when they span lines, literal and folded block scalars with their chomping
+/// indicators, and comments.
 /// </para>
 /// <para>
-/// Not supported, each with an error: anchors, aliases, tags, complex keys, YAML directives, document markers, plain and
-/// quoted scalars that continue on the next line, single-pair mappings inside a flow sequence, and indentation
-/// indicators on block scalars.
+/// Not supported, each with an error: anchors, aliases, tags, complex keys, YAML directives, document markers, plain
+/// scalars that continue on the next line inside a flow collection, single-pair mappings inside a flow sequence, and
+/// indentation indicators on block scalars.
 /// </para>
 /// <para>
 /// js-yaml stops at the first error, and so does the reader. Mapping keys are the key's text, where JavaScript would
@@ -238,24 +239,64 @@ internal ref struct YamlReader
 			return ParseBlockScalar(parentIndent);
 		}
 
-		var plain = IsPlainStart(_cursor.Remaining, flow: false);
+		if (IsPlainStart(_cursor.Remaining, flow: false))
+		{
+			return ParsePlainLines(parentIndent);
+		}
+
 		var value = ParseInlineValue(depth, flow: false);
 		if (value is null || !FinishLine())
 		{
 			return null;
 		}
 
-		if (!SkipBlankLines())
-		{
-			return _failed ? null : value;
-		}
+		return SkipBlankLines() || !_failed ? value : null;
+	}
 
-		if (plain && Indent > parentIndent && !IsMappingEntry())
+	/// <summary>
+	/// A plain scalar in a block, which continues on the lines below that are indented more than its parent. The lines
+	/// are folded as YAML folds them: a line break becomes a space, and each empty line between two lines becomes a line
+	/// break. A comment ends the scalar.
+	/// </summary>
+	private MermaidValue? ParsePlainLines(int parentIndent)
+	{
+		var first = ReadPlainLine();
+		StringBuilder? folded = null;
+		while (true)
 		{
-			return Fail("Plain scalars that continue on the next line are not supported.");
-		}
+			_cursor.SkipWhitespace();
+			var comment = Current == '#';
+			if (!FinishLine())
+			{
+				return null;
+			}
 
-		return value;
+			var nextLine = _cursor.Line;
+			if (!SkipBlankLines() || comment || Indent <= parentIndent || IsMappingEntry() || IsDocumentMarker())
+			{
+				return _failed ? null : ResolvePlain(folded is null ? first : folded.ToString());
+			}
+
+			folded ??= new StringBuilder().Append(first);
+			var emptyLines = _cursor.Line - nextLine;
+			if (emptyLines == 0)
+			{
+				folded.Append(' ');
+			}
+			else
+			{
+				folded.Append('\n', emptyLines);
+			}
+
+			folded.Append(ReadPlainLine());
+		}
+	}
+
+	private ReadOnlySpan<char> ReadPlainLine()
+	{
+		var text = _cursor.Remaining[..PlainLength(_cursor.Remaining, flow: false)].TrimEnd(" \t");
+		_cursor.Advance(text.Length);
+		return text;
 	}
 
 	private MermaidValue? ParseInlineValue(int depth, bool flow)
@@ -452,26 +493,32 @@ internal ref struct YamlReader
 		return key;
 	}
 
-	private MermaidValue? ReadDoubleQuoted()
+	private MermaidValue? ReadDoubleQuoted() => ReadQuoted(doubleQuoted: true);
+
+	private MermaidValue? ReadSingleQuoted() => ReadQuoted(doubleQuoted: false);
+
+	private MermaidValue? ReadQuoted(bool doubleQuoted)
 	{
 		var rest = _cursor.Remaining[1..];
-		var length = DoubleQuotedLength(rest, out var escaped);
+		var length = doubleQuoted
+			? DoubleQuotedLength(rest, multiline: true, out var escaped)
+			: SingleQuotedLength(rest, multiline: true, out escaped);
 		if (length < 0)
 		{
-			return length == -1 ? Fail("The quoted scalar has no closing quote.") : Fail("Quoted scalars that continue on the next line are not supported.");
+			return Fail("The quoted scalar has no closing quote.");
 		}
 
 		var text = rest[..length];
 		string value;
-		if (escaped)
+		if (escaped || text.ContainsAny('\r', '\n'))
 		{
-			var unescaped = Unescape(text);
-			if (unescaped is null)
+			var decoded = Decode(text, doubleQuoted);
+			if (decoded is null)
 			{
 				return null;
 			}
 
-			value = unescaped;
+			value = decoded;
 		}
 		else
 		{
@@ -482,33 +529,79 @@ internal ref struct YamlReader
 		return MermaidValue.FromString(value);
 	}
 
-	private MermaidValue? ReadSingleQuoted()
-	{
-		var rest = _cursor.Remaining[1..];
-		var length = SingleQuotedLength(rest, out var escaped);
-		if (length < 0)
-		{
-			return length == -1 ? Fail("The quoted scalar has no closing quote.") : Fail("Quoted scalars that continue on the next line are not supported.");
-		}
-
-		var text = rest[..length].ToString();
-		_cursor.Advance(length + 2);
-		return MermaidValue.FromString(escaped ? text.Replace("''", "'", StringComparison.Ordinal) : text);
-	}
-
-	private string? Unescape(ReadOnlySpan<char> text)
+	/// <summary>
+	/// The value of a quoted scalar's text. Escapes are decoded in a double-quoted scalar and <c>''</c> in a
+	/// single-quoted one. A line break and the spaces around it fold to a space, or to a line break for each empty line
+	/// that follows it. An escaped line break is removed with the spaces after it.
+	/// </summary>
+	private string? Decode(ReadOnlySpan<char> text, bool doubleQuoted)
 	{
 		var builder = new StringBuilder(text.Length);
+
+		// The length without the spaces and tabs that end the current line, which a line break removes.
+		var kept = 0;
 		for (var i = 0; i < text.Length; i++)
 		{
 			var c = text[i];
-			if (c != '\\')
+			if (c is '\r' or '\n')
+			{
+				builder.Length = kept;
+				var breaks = 0;
+				for (; i < text.Length && text[i] is ' ' or '\t' or '\r' or '\n'; i++)
+				{
+					if (text[i] == '\n' || (text[i] == '\r' && (i + 1 >= text.Length || text[i + 1] != '\n')))
+					{
+						breaks++;
+					}
+				}
+
+				i--;
+				if (breaks == 1)
+				{
+					builder.Append(' ');
+				}
+				else
+				{
+					builder.Append('\n', breaks - 1);
+				}
+
+				kept = builder.Length;
+				continue;
+			}
+
+			if (!doubleQuoted || c != '\\')
 			{
 				builder.Append(c);
+				if (!doubleQuoted && c == '\'')
+				{
+					i++;
+				}
+
+				if (c is not (' ' or '\t'))
+				{
+					kept = builder.Length;
+				}
+
 				continue;
 			}
 
 			var escape = text[++i];
+			if (escape is '\r' or '\n')
+			{
+				if (escape == '\r' && i + 1 < text.Length && text[i + 1] == '\n')
+				{
+					i++;
+				}
+
+				while (i + 1 < text.Length && text[i + 1] is ' ' or '\t')
+				{
+					i++;
+				}
+
+				kept = builder.Length;
+				continue;
+			}
+
 			var simple = escape switch
 			{
 				'0' => '\0',
@@ -530,6 +623,7 @@ internal ref struct YamlReader
 			if (simple != (char)0xFFFF)
 			{
 				builder.Append(simple);
+				kept = builder.Length;
 				continue;
 			}
 
@@ -546,6 +640,7 @@ internal ref struct YamlReader
 					}
 
 					builder.Append(new Rune(code).ToString());
+					kept = builder.Length;
 					i += digits;
 					break;
 				default:
@@ -773,10 +868,10 @@ internal ref struct YamlReader
 		switch (rest[0])
 		{
 			case '"':
-				end = DoubleQuotedLength(rest[1..], out _);
+				end = DoubleQuotedLength(rest[1..], multiline: false, out _);
 				break;
 			case '\'':
-				end = SingleQuotedLength(rest[1..], out _);
+				end = SingleQuotedLength(rest[1..], multiline: false, out _);
 				break;
 			default:
 				if (!IsPlainStart(rest, flow: false))
@@ -894,9 +989,9 @@ internal ref struct YamlReader
 
 	/// <summary>
 	/// The length of a double-quoted scalar's text, after its opening quote. -1 when it has no closing quote, -2 when it
-	/// reaches a line break first.
+	/// reaches a line break first and <paramref name="multiline"/> is <c>false</c>.
 	/// </summary>
-	private static int DoubleQuotedLength(ReadOnlySpan<char> rest, out bool escaped)
+	private static int DoubleQuotedLength(ReadOnlySpan<char> rest, bool multiline, out bool escaped)
 	{
 		escaped = false;
 		var offset = 0;
@@ -920,7 +1015,7 @@ internal ref struct YamlReader
 						return -1;
 					}
 
-					if (rest[at + 1] is '\r' or '\n')
+					if (rest[at + 1] is '\r' or '\n' && !multiline)
 					{
 						return -2;
 					}
@@ -928,16 +1023,22 @@ internal ref struct YamlReader
 					offset = at + 2;
 					break;
 				default:
-					return -2;
+					if (!multiline)
+					{
+						return -2;
+					}
+
+					offset = at + 1;
+					break;
 			}
 		}
 	}
 
 	/// <summary>
 	/// The length of a single-quoted scalar's text, after its opening quote. -1 when it has no closing quote, -2 when it
-	/// reaches a line break first.
+	/// reaches a line break first and <paramref name="multiline"/> is <c>false</c>.
 	/// </summary>
-	private static int SingleQuotedLength(ReadOnlySpan<char> rest, out bool escaped)
+	private static int SingleQuotedLength(ReadOnlySpan<char> rest, bool multiline, out bool escaped)
 	{
 		escaped = false;
 		var offset = 0;
@@ -952,7 +1053,13 @@ internal ref struct YamlReader
 			var at = offset + found;
 			if (rest[at] != '\'')
 			{
-				return -2;
+				if (!multiline)
+				{
+					return -2;
+				}
+
+				offset = at + 1;
+				continue;
 			}
 
 			if (at + 1 < rest.Length && rest[at + 1] == '\'')

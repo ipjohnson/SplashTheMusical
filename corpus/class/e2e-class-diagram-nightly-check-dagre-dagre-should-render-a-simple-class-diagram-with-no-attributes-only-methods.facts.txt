@@ -6,4 +6,7 @@ class	Duck	Duck
 drawn	yes
 method	Duck	+quack()
 method	Duck	+swim()
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 type	classDiagram

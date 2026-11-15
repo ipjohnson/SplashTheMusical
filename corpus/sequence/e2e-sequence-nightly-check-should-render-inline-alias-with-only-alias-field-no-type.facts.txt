@@ -7,4 +7,7 @@ actor	Auth	Auth Service	participant
 drawn	yes
 message	API	Auth	solid	filled	Request
 message	Auth	API	dashed	filled	Response
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

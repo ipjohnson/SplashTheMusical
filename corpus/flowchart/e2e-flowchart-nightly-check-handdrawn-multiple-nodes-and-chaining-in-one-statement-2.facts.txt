@@ -11,4 +11,7 @@ node	A	h	rect
 node	B	test	rect
 node	C	C	rect
 node	D	D	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

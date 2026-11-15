@@ -7,6 +7,7 @@ label	Eat
 label	Roam
 label	Sleep
 label	What Koalas Do In A Day
+preamble-config	pie.donutHole	0.4
 slice	Eat	3
 slice	Roam	1
 slice	Sleep	20

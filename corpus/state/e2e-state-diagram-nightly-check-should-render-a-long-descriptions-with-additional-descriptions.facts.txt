@@ -6,4 +6,6 @@ drawn	yes
 edge	[*]start@root	S1	none	arrow	solid
 node	S1		rectWithTitle
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

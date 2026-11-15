@@ -5,5 +5,8 @@ accept	yes
 class	C1	Class 1 with text label
 class	C2	C2
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 relation	C1	C2	none	arrow	solid
 type	classDiagram

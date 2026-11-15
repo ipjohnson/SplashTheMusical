@@ -13,4 +13,5 @@ message	A	B	solid	cross	-x message 4
 message	A	B	solid	filled	->> message 0
 message	A	B	solid	filled	->>+ message 6
 message	A	B	solid	none	-> message 2
+preamble-config	look	"classic"
 type	sequence

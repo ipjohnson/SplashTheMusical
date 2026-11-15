@@ -31,4 +31,10 @@ node	G3	GitHub Projects (tracking + prioritization)	rect
 node	R1	Owns release process planning + cut release	rect
 node	R2	Biweekly release	rect
 node	S1	Escalated review (deeper expertise / historical context)	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	layout	"swimlane"
+preamble-config	logLevel	0
+preamble-config	swimlane.ignoreCrossLaneEdges	false
+preamble-config	swimlane.optimizeRanksByCrossings	false
 type	swimlane

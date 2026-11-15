@@ -13,6 +13,7 @@ label	RECLUSE
 label	SOCIALITE
 label	avoids
 label	interacts with
+preamble-config	look	"handDrawn"
 relation	RECLUSE	SOCIALITE	zero-or-more	zero-or-more	identifying	avoids
 relation	SOCIALITE	SOCIALITE	zero-or-more	zero-or-more	identifying	interacts with
 type	er

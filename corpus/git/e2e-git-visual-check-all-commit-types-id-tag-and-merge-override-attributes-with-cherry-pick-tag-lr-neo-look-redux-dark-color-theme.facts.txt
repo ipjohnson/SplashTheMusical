@@ -25,4 +25,6 @@ label	patch
 label	post-merge
 label	v0.1
 label	v1.0
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	gitGraph

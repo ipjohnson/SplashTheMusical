@@ -24,5 +24,6 @@ label	string
 label	string
 label	string
 label	string
+preamble-config	loglevel	1
 relation	HOTEL	ROOM	one	zero-or-more	identifying	has
 type	er

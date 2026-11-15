@@ -29,4 +29,7 @@ commit	9	featureA	normal
 drawn	yes
 label	abc
 label	ash
+preamble-config	gitGraph.showBranches	false
+preamble-config	logLevel	"debug"
+preamble-config	theme	"base"
 type	gitGraph

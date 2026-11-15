@@ -9,4 +9,7 @@ edge	B	C	none	arrow	solid	approved
 node	A	Draft	rect
 node	B	Review	diam
 node	C	Published	rect
+preamble-config	flowchart.minNodeWidth	0
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 type	flowchart-v2

@@ -14,6 +14,8 @@ label	This is yet another long label that will be split into multiple lines to t
 label	Use Core Functionality
 label	Use Core Functionality
 label	User Journey Example
+preamble-config	journey.maxLabelWidth	320
+preamble-config	journey.useMaxWidth	true
 section	Engagement
 section	Onboarding
 task	Engagement	Browse Features	3

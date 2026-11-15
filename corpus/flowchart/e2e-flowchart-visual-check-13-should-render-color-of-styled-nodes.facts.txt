@@ -6,4 +6,6 @@ drawn	yes
 edge	foo	bar	none	arrow	solid
 node	bar	bar	rect
 node	foo	foo	rect
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	flowchart-v2

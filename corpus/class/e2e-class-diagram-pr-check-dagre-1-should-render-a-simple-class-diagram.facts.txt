@@ -29,6 +29,9 @@ drawn	yes
 method	Class01	size()
 method	Class07	equals()
 method	Class10	test()
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	Class01	AveryLongClass	triangle	none	solid	Cool
 relation	Class03	Class04	diamond-filled	none	solid
 relation	Class05	Class06	diamond	none	solid

@@ -24,6 +24,7 @@ label	Future task in critical line
 label	Future task2
 label	Implement parser and jison
 label	Last section
+preamble-config	gantt.useMaxWidth	false
 section	A section
 section	Critical tasks
 section	Documentation

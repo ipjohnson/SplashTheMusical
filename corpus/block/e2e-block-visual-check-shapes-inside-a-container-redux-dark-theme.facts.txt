@@ -20,4 +20,6 @@ label	Square
 label	Stadium
 label	Subroutine
 label	Trapezoid
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 type	block

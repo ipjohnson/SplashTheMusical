@@ -14,4 +14,9 @@ label	test1
 label	test2
 label	test3
 label	test4
+preamble-config	gitGraph.mainBranchOrder	2
+preamble-config	gitGraph.showBranches	true
+preamble-config	gitGraph.showCommitLabel	true
+preamble-config	logLevel	"debug"
+preamble-config	theme	"base"
 type	gitGraph

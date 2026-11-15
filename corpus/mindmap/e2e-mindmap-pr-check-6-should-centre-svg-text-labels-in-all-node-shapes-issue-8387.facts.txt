@@ -17,4 +17,5 @@ node	Cell / Default	default
 node	Cell / Hexagon	hex
 node	Cell / Rounded	rounded
 node	Cell / Square	rect
+preamble-config	htmlLabels	false
 type	mindmap

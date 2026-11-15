@@ -10,4 +10,6 @@ icon	I	fa:fa-code
 node	D	Use the editor	diam
 node	I	Text	diam
 node	a	a	rect
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

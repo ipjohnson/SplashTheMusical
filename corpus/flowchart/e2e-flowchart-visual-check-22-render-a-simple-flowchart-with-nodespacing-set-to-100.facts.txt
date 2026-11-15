@@ -15,4 +15,6 @@ node	C	Let me think	diam
 node	D	Laptop	rect
 node	E	iPhone	rect
 node	F	Car	rect
+preamble-config	flowchart.nodeSpacing	100
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

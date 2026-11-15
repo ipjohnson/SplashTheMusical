@@ -12,4 +12,5 @@ divider
 drawn	yes
 message	boundary2	control3	solid	filled	Message 2
 message	participant0	actor1	solid	filled	Message 0
+preamble-config	look	"classic"
 type	sequence

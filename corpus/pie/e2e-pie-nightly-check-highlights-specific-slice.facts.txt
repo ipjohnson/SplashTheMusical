@@ -7,6 +7,7 @@ label	Budget Allocation
 label	Entertainment
 label	Food
 label	Rent
+preamble-config	pie.highlightSlice	"Food"
 slice	Entertainment	80
 slice	Food	300
 slice	Rent	500

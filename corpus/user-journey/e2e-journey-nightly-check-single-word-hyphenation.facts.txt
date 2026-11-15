@@ -7,6 +7,8 @@ label	Long Word Test
 label	Supercalifragilisticexpialidocious
 label	Test
 label	VeryLongWord
+preamble-config	journey.maxLabelWidth	100
+preamble-config	journey.useMaxWidth	true
 section	Test
 task	Test	VeryLongWord	5	Supercalifragilisticexpialidocious
 title	Long Word Test

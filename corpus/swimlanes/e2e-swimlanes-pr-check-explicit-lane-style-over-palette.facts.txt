@@ -8,4 +8,7 @@ group	Palette	Palette	A
 group	Styled	Styled	B
 node	A	Slot colour	rect
 node	B	Own colour	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	theme	"redux-color"
 type	swimlane

@@ -8,6 +8,7 @@ label	Keyboard
 label	Monitor
 label	Mouse
 label	Speaker
+preamble-config	pie.donutHole	1.2
 slice	Keyboard	5
 slice	Monitor	8
 slice	Mouse	12

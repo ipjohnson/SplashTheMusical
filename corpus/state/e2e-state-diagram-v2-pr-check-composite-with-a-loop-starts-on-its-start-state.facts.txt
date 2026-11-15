@@ -15,4 +15,5 @@ node	Moving	Moving	rounded
 node	Still	Still	rounded
 node	[*]end@apa		fr-circ
 node	[*]start@apa		sm-circ
+preamble-config	layout	"elk"
 type	stateDiagram

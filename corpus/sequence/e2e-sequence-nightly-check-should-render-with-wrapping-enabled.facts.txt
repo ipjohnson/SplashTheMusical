@@ -9,4 +9,5 @@ message	A	John	solid	filled	Hello John, how are you today? I'm feeling quite ver
 message	A	John	solid	filled	John, can you hear me? If you are not available, we can talk later.
 message	John	A	dashed	filled	Hi Alice, I can hear you! I was finishing up an important meeting.
 message	John	A	dashed	filled	I feel great! I was not ignoring you. I am sorry you had to wait for a response.
+preamble-config	sequence.wrap	true
 type	sequence

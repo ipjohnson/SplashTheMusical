@@ -8,4 +8,5 @@ block	loop	Loopy
 drawn	yes
 message	Alice	Bob	solid	filled	Extremely utterly long line of longness which had previously overflown the actor box as it is much longer than what it should be
 message	Bob	Alice	solid	filled	Pasten
+preamble-config	sequence.wrap	true
 type	sequence

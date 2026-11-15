@@ -7,4 +7,6 @@ edge	A	B	none	arrow	solid
 group	ClassLane	ClassLane	A,B
 node	A	Classed node	rect
 node	B	Default node	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
 type	swimlane

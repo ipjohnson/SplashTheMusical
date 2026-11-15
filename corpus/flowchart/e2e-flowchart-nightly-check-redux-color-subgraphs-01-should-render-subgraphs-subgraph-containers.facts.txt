@@ -23,4 +23,5 @@ node	E	Warehouse	cyl
 node	F	API	rect
 node	G	Cache	rect
 node	H	Metrics	rect
+preamble-config	theme	"redux"
 type	flowchart-v2

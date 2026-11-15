@@ -9,6 +9,7 @@ label	C
 label	Categories
 label	Multiple Bar Plots
 label	Values
+preamble-config	xyChart.showDataLabel	true
 series	bar	10,50,90
 title	Multiple Bar Plots
 type	xychart

@@ -6,4 +6,6 @@ drawn	yes
 edge	b	c	none	arrow	solid	1o bold
 node	b	The dog in the hog.(1) NL	rounded
 node	c	c	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	flowchart.titleTopMargin	0
 type	flowchart-v2

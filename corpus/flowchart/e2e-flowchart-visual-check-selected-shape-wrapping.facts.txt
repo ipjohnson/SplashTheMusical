@@ -32,4 +32,7 @@ node	Q	First chosen line Second chosen line	circle
 node	R	Choose how to continue from here	rect
 node	S	Choose how to continue from here	stadium
 node	T	Choose how to continue from here	rounded
+preamble-config	flowchart.minNodeWidth	120
+preamble-config	flowchart.wrappingWidth	120
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

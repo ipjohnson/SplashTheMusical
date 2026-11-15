@@ -15,4 +15,7 @@ node	C	Let me think	diam
 node	D	Laptop	rect
 node	E	iPhone	rect
 node	F	Car	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

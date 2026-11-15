@@ -23,6 +23,8 @@ label	places
 label	varchar(128)
 label	varchar(64)
 label	varchar(64)
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 relation	c	o	one	zero-or-more	identifying	places
 relation	p	c	one	zero-or-one	identifying	has
 type	er

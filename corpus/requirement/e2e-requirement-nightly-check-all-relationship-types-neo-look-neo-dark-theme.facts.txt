@@ -52,6 +52,8 @@ label	system
 label	system
 label	traces
 label	verifies
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 relation	elem_0	req_0	contains
 relation	elem_1	req_1	copies
 relation	elem_2	req_2	derives

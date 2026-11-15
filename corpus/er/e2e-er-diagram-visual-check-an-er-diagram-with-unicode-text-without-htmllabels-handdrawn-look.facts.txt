@@ -22,4 +22,6 @@ label	int
 label	last*Name*
 label	string
 label	string
+preamble-config	htmlLabels	false
+preamble-config	look	"handDrawn"
 type	er

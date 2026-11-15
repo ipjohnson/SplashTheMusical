@@ -4,4 +4,5 @@
 accept	yes
 drawn	yes
 node	id	id	rect
+preamble-title	Node
 type	flowchart-v2

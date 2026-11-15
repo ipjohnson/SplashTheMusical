@@ -18,4 +18,6 @@ node	n11	This is a label for lean-r shape	lean-r
 node	n22	This is a label for lean-l shape	lean-l
 node	n33	This is a label for trap-t shape	trap-t
 node	n44	This is a label for trap-b shape	trap-b
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	flowchart-v2

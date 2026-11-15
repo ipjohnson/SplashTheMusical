@@ -40,6 +40,7 @@ label	the third test text.
 label	traces
 label	verifies
 label	word doc
+preamble-config	look	"handDrawn"
 relation	test_entity	test_req2	satisfies
 relation	test_entity2	test_req	copies
 relation	test_entity3	test_req5	verifies

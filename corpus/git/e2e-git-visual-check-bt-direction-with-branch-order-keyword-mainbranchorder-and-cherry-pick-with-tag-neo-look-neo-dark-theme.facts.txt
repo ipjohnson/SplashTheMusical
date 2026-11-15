@@ -28,4 +28,7 @@ label	release-merge
 label	release/v2
 label	v2.0
 label	v2.0-rc1
+preamble-config	gitGraph.mainBranchOrder	2
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 type	gitGraph

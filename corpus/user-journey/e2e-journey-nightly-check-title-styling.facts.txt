@@ -16,6 +16,9 @@ label	Sign Up
 label	Use Core Functionality
 label	User Journey Example
 label	size
+preamble-config	journey.titleColor	"#2900A5"
+preamble-config	journey.titleFontFamily	"Times New Roman"
+preamble-config	journey.titleFontSize	"5rem"
 section	Engagement
 section	Onboarding
 section	Retention

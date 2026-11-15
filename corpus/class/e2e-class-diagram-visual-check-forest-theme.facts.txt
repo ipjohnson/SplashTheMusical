@@ -34,6 +34,8 @@ method	Duck	+quack()
 method	Duck	+swim()
 method	Fish	-canEat()
 method	Zebra	+run()
+preamble-config	logLevel	0
+preamble-config	theme	"forest"
 relation	Animal	Duck	triangle	none	solid		*	1
 relation	Animal	Fish	triangle	none	solid		1	10
 relation	Animal	Zebra	triangle	none	solid

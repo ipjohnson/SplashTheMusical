@@ -15,6 +15,9 @@ label	Not Important
 label	Not Urgent
 label	Plan
 label	Urgent
+preamble-config	quadrantChart.chartHeight	400
+preamble-config	quadrantChart.chartWidth	400
+preamble-config	themeVariables.quadrant1TextFill	"ff0000"
 quadrant	1	Plan
 quadrant	2	Do
 quadrant	3	Delegate

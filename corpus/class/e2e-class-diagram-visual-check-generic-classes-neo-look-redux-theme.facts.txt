@@ -13,5 +13,8 @@ class	Class10	Class10<T>
 drawn	yes
 method	Class01	size()
 method	Class10	test()
+preamble-config	htmlLabels	true
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 relation	Class08	C2	arrow	arrow	solid	Cool label
 type	classDiagram

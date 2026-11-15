@@ -20,4 +20,6 @@ node	[*]start@TV		sm-circ
 node	[*]start@root		sm-circ
 node	fork_state	fork_state	rounded
 node	join_state	join_state	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

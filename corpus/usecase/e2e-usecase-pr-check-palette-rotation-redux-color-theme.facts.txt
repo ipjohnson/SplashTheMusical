@@ -24,6 +24,10 @@ label	eu
 label	region
 label	tags
 note	Login	Requires an active session
+preamble-config	theme	"redux-color"
+preamble-config	usecase.colorScheme	"rotate"
+preamble-config	usecase.diagramPadding	24
+preamble-config	usecase.useMaxWidth	true
 relation	Business	Checkout	association	none	arrow		1
 relation	Checkout	Payload	association	none	arrow		1
 relation	Hollow	Reset	association	none	circle		1

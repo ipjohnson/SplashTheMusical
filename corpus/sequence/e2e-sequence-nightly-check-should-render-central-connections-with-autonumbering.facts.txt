@@ -12,4 +12,7 @@ message	Alice	Bob	solid	filled	Dual central connections
 message	Bob	Alice	solid	filled	Reverse central at source
 message	Bob	Charlie	solid	filled	Another central connection
 message	Charlie	Alice	dashed	filled	Reverse central dotted
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

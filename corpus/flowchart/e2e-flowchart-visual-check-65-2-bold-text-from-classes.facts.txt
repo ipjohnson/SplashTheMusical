@@ -4,4 +4,7 @@
 accept	yes
 drawn	yes
 node	CS	A long bold text to be viewed	rounded
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

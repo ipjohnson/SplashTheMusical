@@ -10,4 +10,5 @@ drawn	yes
 message	participant0	actor1	solid	filled	Message 0
 message	participant0	actor1	solid	filled	Message 1
 message	participant0	actor1	solid	filled	Message 2
+preamble-config	look	"classic"
 type	sequence

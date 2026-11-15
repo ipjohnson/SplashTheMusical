@@ -19,4 +19,15 @@ node	mindmap / Origins / Long history / Popularisation	default
 node	mindmap / Research	hex
 node	mindmap / Research / Uses	rect
 node	mindmap / Research / Uses / Creative techniques	default
+preamble-config	mindmap.colorBy	"depth"
+preamble-config	theme	"base"
+preamble-config	themeVariables.cScale1	"#bfdbfe"
+preamble-config	themeVariables.cScale2	"#bbf7d0"
+preamble-config	themeVariables.cScale3	"#fde68a"
+preamble-config	themeVariables.cScaleLabel0	"#ffffff"
+preamble-config	themeVariables.cScaleLabel1	"#172554"
+preamble-config	themeVariables.cScaleLabel2	"#14532d"
+preamble-config	themeVariables.cScaleLabel3	"#451a03"
+preamble-config	themeVariables.git0	"#374151"
+preamble-config	themeVariables.gitBranchLabel0	"#ffffff"
 type	mindmap

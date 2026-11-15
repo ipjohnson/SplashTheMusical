@@ -27,4 +27,5 @@ node	notes	Notes	lin-doc	refdoc
 node	plan	Plan	rounded	task
 node	search	web_search	fr-rect	tool
 node	store	Store	square	task
+preamble-config	theme	"default"
 type	agentflow

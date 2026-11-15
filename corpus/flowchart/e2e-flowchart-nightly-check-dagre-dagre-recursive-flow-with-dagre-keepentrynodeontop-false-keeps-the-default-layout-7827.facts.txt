@@ -17,4 +17,5 @@ node	expert_voices	expert_voices	rect
 node	format_output	format_output	rect
 node	synthesize	synthesize	rect
 node	web_sources	web_sources	rect
+preamble-config	layout	"dagre"
 type	flowchart-v2

@@ -8,4 +8,7 @@ edge	B	C	none	arrow	solid	Markdown edge labels will autowrap, unless markdownAut
 node	A	This is a really long line of plain text that will autowrap and support newlines too.	rect
 node	B	This is a really long line of markdown text that will autowrap, unless markdownAutoWrap:false is set.	rect
 node	C	C	rect
+preamble-config	htmlLabels	true
+preamble-config	markdownAutoWrap	true
+preamble-title	Testing with {"markdownAutoWrap":true,"htmlLabels":true}
 type	flowchart-v2

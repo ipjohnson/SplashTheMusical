@@ -24,4 +24,16 @@ label	branch7
 label	branch8
 label	branch9
 label	main
+preamble-config	logLevel	"debug"
+preamble-config	theme	"default"
+preamble-config	themeVariables.gitBranchLabel0	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel1	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel2	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel3	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel4	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel5	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel6	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel7	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel8	"#ffffff"
+preamble-config	themeVariables.gitBranchLabel9	"#ffffff"
 type	gitGraph

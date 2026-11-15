@@ -15,4 +15,5 @@ label	2-abcdefg
 label	branch-A
 label	branch-B
 label	main
+preamble-config	gitGraph.parallelCommits	true
 type	gitGraph

@@ -11,4 +11,8 @@ node	A	Christmas	rect
 node	B	Go shopping	rounded
 node	C	C	rect
 node	D	D	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

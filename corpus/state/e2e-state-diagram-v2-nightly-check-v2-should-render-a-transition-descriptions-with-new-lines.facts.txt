@@ -12,4 +12,6 @@ node	S2	S2	rounded
 node	S3	S3	rounded
 node	S4	S4	rounded
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

@@ -18,4 +18,14 @@ label	develop
 label	featureA
 label	main
 label	v1.0.0
+preamble-config	logLevel	"debug"
+preamble-config	theme	"default"
+preamble-config	themeVariables.git0	"#ff0000"
+preamble-config	themeVariables.git1	"#00ff00"
+preamble-config	themeVariables.git2	"#0000ff"
+preamble-config	themeVariables.git3	"#ff00ff"
+preamble-config	themeVariables.git4	"#00ffff"
+preamble-config	themeVariables.git5	"#ffff00"
+preamble-config	themeVariables.git6	"#ff00ff"
+preamble-config	themeVariables.git7	"#00ffff"
 type	gitGraph

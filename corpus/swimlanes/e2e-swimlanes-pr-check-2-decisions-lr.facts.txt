@@ -28,4 +28,7 @@ node	Process4	Process4	rect
 node	Process5	Process5	rect
 node	Process6	Process6	rect
 node	Start	Start	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

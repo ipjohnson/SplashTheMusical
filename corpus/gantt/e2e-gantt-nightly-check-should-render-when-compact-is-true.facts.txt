@@ -22,6 +22,7 @@ label	GANTT compact
 label	H
 label	I
 label	Sessions
+preamble-config	gantt.displayMode	"compact"
 section	DB Clean
 section	Sessions
 task	DB Clean	Clean		2000-01-01 12:00	2000-01-01 12:10

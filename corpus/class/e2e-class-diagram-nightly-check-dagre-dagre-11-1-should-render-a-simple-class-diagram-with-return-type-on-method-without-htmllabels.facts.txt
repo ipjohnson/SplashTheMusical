@@ -7,4 +7,7 @@ class	Class10	Class10<T>
 drawn	yes
 method	Class10	test(int[] ids) : bool
 method	Class10	testArray() : bool[]
+preamble-config	htmlLabels	false
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 type	classDiagram

@@ -47,4 +47,5 @@ node	record	record_outcome	rounded	task
 node	send	send_reply	fr-rect	tool
 node	severity	Severity?	diam	decision
 node	ticket	ticket	lean-r	input
+preamble-config	theme	"redux-color"
 type	agentflow

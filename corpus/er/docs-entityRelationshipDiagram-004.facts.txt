@@ -38,6 +38,9 @@ label	string
 label	string
 label	string
 label	title
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 relation	ORDER	LINE_ITEM	one	one-or-more	identifying	contains
 relation	PRODUCT	LINE_ITEM	one	zero-or-more	identifying	appears in

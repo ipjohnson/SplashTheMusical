@@ -6,4 +6,7 @@ drawn	yes
 edge	foo	bar	none	arrow	solid
 node	bar	bar	rect
 node	foo	foo	rect
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
+preamble-config	look	"handDrawn"
 type	flowchart-v2

@@ -11,4 +11,6 @@ label	More
 label	Tasks
 node	t1	One	rounded	task
 node	t2	Two	rounded	task
+preamble-config	handDrawnSeed	1
+preamble-config	look	"handDrawn"
 type	agentflow

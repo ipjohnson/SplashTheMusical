@@ -14,4 +14,6 @@ message	Customer	Web	solid	filled	Place order
 message	Web	API	solid	filled	POST /orders
 message	Web	Customer	dashed	filled	Order confirmed
 note	over	Customer,Bank	One order, one transaction
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	sequence

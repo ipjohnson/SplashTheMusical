@@ -11,4 +11,7 @@ message	Alice	Alice	solid	filled	Circles at both ends with solid arrow
 message	Bob	Bob	dashed	filled	Circles at both ends with dotted arrow
 message	Bob	Bob	dashed	open	Circles at both ends with close arrow
 message	Charlie	Charlie	solid	none	Circles at both ends with open arrow
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

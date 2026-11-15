@@ -6,4 +6,6 @@ drawn	yes
 edge	XState1	XState2	none	arrow	solid
 node	XState1	Long state description	rounded
 node	XState2		rectWithTitle
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

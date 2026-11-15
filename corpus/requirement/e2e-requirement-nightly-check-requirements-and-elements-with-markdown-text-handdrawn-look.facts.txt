@@ -10,5 +10,6 @@ label	*Italicized* __Bolded__
 label	*my italicized name*
 label	1
 label	__my bolded name__
+preamble-config	look	"handDrawn"
 requirement	__my bolded name__	requirement	1	**Bolded text** _italicized text_	high	test
 type	requirement

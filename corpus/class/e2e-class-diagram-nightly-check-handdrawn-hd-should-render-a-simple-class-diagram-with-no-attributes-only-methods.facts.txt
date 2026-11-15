@@ -6,4 +6,7 @@ class	Duck	Duck
 drawn	yes
 method	Duck	+quack()
 method	Duck	+swim()
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 type	classDiagram

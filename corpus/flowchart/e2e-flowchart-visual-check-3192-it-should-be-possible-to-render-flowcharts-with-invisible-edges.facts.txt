@@ -6,4 +6,5 @@ drawn	yes
 edge	A	B	none	none	invisible
 node	A	A	rect
 node	B	B	rect
+preamble-config	flowchart.titleTopMargin	10
 type	flowchart-v2

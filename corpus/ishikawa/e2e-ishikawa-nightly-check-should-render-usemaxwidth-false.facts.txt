@@ -13,4 +13,5 @@ label	Out of focus
 label	Process
 label	Shaky hands
 label	User
+preamble-config	ishikawa.useMaxWidth	false
 type	ishikawa

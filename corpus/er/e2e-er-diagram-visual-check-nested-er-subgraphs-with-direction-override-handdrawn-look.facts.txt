@@ -13,6 +13,7 @@ label	PRODUCT
 label	domain
 label	links
 label	places
+preamble-config	look	"handDrawn"
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 relation	PRODUCT	domain	one	zero-or-more	identifying	links
 type	er

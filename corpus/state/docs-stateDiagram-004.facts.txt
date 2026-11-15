@@ -20,4 +20,7 @@ node	Submitted	Submitted	rounded
 node	[*]end@root		fr-circ
 node	[*]start@Review		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	stateDiagram

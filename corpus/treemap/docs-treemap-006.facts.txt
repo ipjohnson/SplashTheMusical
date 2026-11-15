@@ -15,4 +15,5 @@ node	Category A / Item A2	20
 node	Category B
 node	Category B / Item B1	15
 node	Category B / Item B2	25
+preamble-config	treemap.diagramPadding	200
 type	treemap

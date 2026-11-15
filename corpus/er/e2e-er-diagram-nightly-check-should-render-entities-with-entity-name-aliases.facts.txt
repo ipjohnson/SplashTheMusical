@@ -17,5 +17,6 @@ label	lastName
 label	varchar(128)
 label	varchar(64)
 label	varchar(64)
+preamble-config	logLevel	1
 relation	p	c	one	zero-or-one	identifying	has
 type	er

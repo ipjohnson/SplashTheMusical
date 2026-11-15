@@ -23,4 +23,6 @@ label	string[]
 label	tags
 label	type~T~
 label	varchar(255)
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 type	er

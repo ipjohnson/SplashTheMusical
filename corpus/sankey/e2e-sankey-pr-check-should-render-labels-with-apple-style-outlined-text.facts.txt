@@ -28,4 +28,7 @@ label	Tax
 label	Wearables
 label	iPad
 label	iPhone
+preamble-config	sankey.height	500
+preamble-config	sankey.labelStyle	"outlined"
+preamble-config	sankey.width	800
 type	sankey

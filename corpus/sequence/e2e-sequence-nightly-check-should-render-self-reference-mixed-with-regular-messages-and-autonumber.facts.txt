@@ -13,4 +13,7 @@ message	Bob	Alice	dashed	filled	Regular dotted back
 message	Bob	Bob	solid	filled	Self-reference solid
 message	Bob	Charlie	dashed	filled	Regular dotted
 message	Charlie	Alice	solid	filled	Regular back
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

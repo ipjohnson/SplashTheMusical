@@ -12,4 +12,8 @@ node	_one	_one	rect
 node	_sub_one	_sub_one	rect
 node	_sub_two	_sub_two	rect
 node	b	b	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

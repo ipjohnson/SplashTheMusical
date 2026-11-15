@@ -6,4 +6,5 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 drawn	yes
 message	Alice	Bob	solid	none	Hello Bob, how are you?
+preamble-config	logLevel	0
 type	sequence

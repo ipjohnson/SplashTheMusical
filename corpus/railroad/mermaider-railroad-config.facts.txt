@@ -5,5 +5,7 @@ accept	yes
 drawn	yes
 label	r
 label	x
+preamble-config	railroad.arcRadius	4
+preamble-config	railroad.fontSize	20
 rule	r	[?x?]
 type	railroad

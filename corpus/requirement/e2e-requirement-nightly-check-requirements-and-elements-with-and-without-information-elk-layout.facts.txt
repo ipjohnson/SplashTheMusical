@@ -8,5 +8,6 @@ label	1
 label	test_entity
 label	test_req
 label	the test text.
+preamble-config	layout	"elk"
 requirement	test_req	requirement	1	the test text.	high	test
 type	requirement

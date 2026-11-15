@@ -12,6 +12,7 @@ label	Catalogue
 label	Checkout
 label	Customer
 label	Payment
+preamble-config	theme	"redux-color"
 relation	Browse	Checkout	association	none	arrow		1
 relation	Checkout	Browse	include	none	arrow		1
 relation	Customer	Browse	association	none	arrow		1

@@ -21,4 +21,5 @@ message	D	E	solid	filled	Task 4
 message	E	E	solid	filled	Task 6
 message	E	G	solid	filled	Task 5
 message	G	E	dashed	filled	Return
+preamble-config	sequence.wrap	true
 type	sequence

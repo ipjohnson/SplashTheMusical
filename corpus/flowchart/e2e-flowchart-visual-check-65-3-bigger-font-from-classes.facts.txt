@@ -10,4 +10,7 @@ node	Node1	Node1	rect
 node	Node2	Node2	rect
 node	Node3	Node3	rect
 node	Node4	I am a circle	circle
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

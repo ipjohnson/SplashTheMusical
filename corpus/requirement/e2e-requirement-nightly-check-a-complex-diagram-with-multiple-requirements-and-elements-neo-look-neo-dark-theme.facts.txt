@@ -25,6 +25,8 @@ label	the system shall respond within 100ms.
 label	throughput must exceed 1000 requests per second.
 label	traces
 label	verifies
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 relation	func_req	perf_req	traces
 relation	hw_element	sys_req	satisfies
 relation	sw_element	func_req	verifies

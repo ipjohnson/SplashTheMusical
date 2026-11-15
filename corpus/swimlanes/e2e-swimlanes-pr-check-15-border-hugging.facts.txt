@@ -20,4 +20,8 @@ node	25	Submit chosen RFQ for Approval	rect
 node	26	26: Reviews and Approves the chosen RFQ	rect
 node	27	27: Reviews and Approves the chosen RFQ	rect
 node	28	28: Reviews and Approves the chosen RFQ Note: RFQ will be converted to PO	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	swimlane

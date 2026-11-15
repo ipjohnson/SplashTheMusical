@@ -6,4 +6,5 @@ drawn	yes
 edge	markdown	newLines	none	arrow	solid
 node	markdown	This is Markdown	rect
 node	newLines	Line1Line 2Line 3	rect
+preamble-config	htmlLabels	false
 type	flowchart-v2

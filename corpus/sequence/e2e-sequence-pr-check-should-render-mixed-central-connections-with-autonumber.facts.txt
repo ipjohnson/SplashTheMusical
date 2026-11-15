@@ -20,4 +20,7 @@ message	David	Bob	solid	filled	Return skip
 note	over	Alice,David	Mixed with different participants
 note	over	Alice,David	Normal arrows with central connections
 note	over	Alice,David	Reverse arrows with central connections
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

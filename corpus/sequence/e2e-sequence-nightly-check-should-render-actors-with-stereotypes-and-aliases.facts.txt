@@ -13,4 +13,7 @@ message	D	S	dashed	filled	Success
 message	S	A	dashed	filled	Response
 message	S	D	solid	filled	Persist
 message	U	A	solid	filled	Send request
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

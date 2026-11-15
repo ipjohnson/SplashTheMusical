@@ -8,4 +8,6 @@ node	State1	The state with a note +,-	rounded
 node	State2	State2	rounded
 note	State1	Important information! You can write +,- notes.
 note	State2	This is the note +,-
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

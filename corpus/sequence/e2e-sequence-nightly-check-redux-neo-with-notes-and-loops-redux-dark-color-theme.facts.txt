@@ -23,4 +23,6 @@ message	UserManager	UserDB	solid	filled	Query users
 message	UserManager	UserProfile	solid	filled	Format profiles
 message	UserProfile	UserManager	solid	filled	Formatted data
 note	right	UserDB	Encrypted data requires decryption
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	sequence

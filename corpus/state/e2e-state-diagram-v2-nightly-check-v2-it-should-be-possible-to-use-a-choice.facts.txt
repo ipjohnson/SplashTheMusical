@@ -18,4 +18,5 @@ node	On	On	rounded
 node	Washing	Washing	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	logLevel	0
 type	stateDiagram

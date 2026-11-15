@@ -11,6 +11,8 @@ label	docs/design.md
 label	document
 label	sys_req
 label	system level requirement.
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 relation	design_doc	sys_req	copies
 requirement	sys_req	requirement	10	system level requirement.	high	test
 type	requirement

@@ -14,6 +14,8 @@ label	ORDER
 label	contains
 label	has
 label	places
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	has
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 relation	ORDER	LINE-ITEM	one	one-or-more	identifying	contains

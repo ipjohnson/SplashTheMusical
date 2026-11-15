@@ -60,6 +60,7 @@ label	VM
 label	VNet
 label	VNet A
 label	Web App
+preamble-config	architecture.randomize	true
 service	asp	App Plan	snet1
 service	bus	Service Bus	env
 service	client	Client

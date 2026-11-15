@@ -12,4 +12,6 @@ node	a	a	rounded
 node	b	b	rounded
 node	c	c	rounded
 node	d	d	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

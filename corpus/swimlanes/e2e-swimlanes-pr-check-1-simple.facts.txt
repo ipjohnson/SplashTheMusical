@@ -12,4 +12,7 @@ node	Process1	Process1	rect
 node	Process2	Process2	rect
 node	Process3	Process3	rect
 node	Start	Start	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

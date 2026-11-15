@@ -18,4 +18,6 @@ label	develop
 label	featureA
 label	main
 label	v1.0.0
+preamble-config	logLevel	"debug"
+preamble-config	theme	"default"
 type	gitGraph

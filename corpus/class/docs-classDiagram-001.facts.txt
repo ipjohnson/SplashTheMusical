@@ -20,6 +20,7 @@ method	Fish	-canEat()
 method	Zebra	+run()
 note		From Duck till Zebra
 note	Duck	can fly can swim can dive can help in debugging
+preamble-title	Animal example
 relation	Animal	Duck	triangle	none	solid
 relation	Animal	Fish	triangle	none	solid
 relation	Animal	Zebra	triangle	none	solid

@@ -7,6 +7,17 @@ direction	LR
 drawn	yes
 label	Browse catalog
 label	Customer
+preamble-config	usecase.actorFontFamily	"Arial"
+preamble-config	usecase.actorFontSize	16
+preamble-config	usecase.actorFontWeight	"bold"
+preamble-config	usecase.colorScheme	"role"
+preamble-config	usecase.diagramPadding	24
+preamble-config	usecase.nodeSpacing	60
+preamble-config	usecase.rankSpacing	70
+preamble-config	usecase.useMaxWidth	false
+preamble-config	usecase.usecaseFontFamily	"Georgia"
+preamble-config	usecase.usecaseFontSize	14
+preamble-config	usecase.usecaseFontWeight	"normal"
 relation	Customer	Browse	association	none	arrow		1
 type	usecase
 usecase	Browse	Browse catalog	ellipse

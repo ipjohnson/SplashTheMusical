@@ -25,6 +25,8 @@ label	2024-10
 label	Date
 label	Git Commits per Month
 label	Number of Commits
+preamble-config	xyChart.xAxis.labelRotation	45
+preamble-config	xyChart.xAxis.showLabel	true
 series	bar	344,523,81,7,3,3,5,17,5,2,7,6,4,2,9,31,79,70,50
 title	Git Commits per Month
 type	xychart

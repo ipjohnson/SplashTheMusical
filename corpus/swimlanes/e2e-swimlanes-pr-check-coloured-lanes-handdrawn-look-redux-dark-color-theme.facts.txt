@@ -17,4 +17,8 @@ node	B	Check	rect
 node	C	Assemble	rect
 node	D	Deliver	rect
 node	E	Follow up	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	look	"handDrawn"
+preamble-config	theme	"redux-dark-color"
 type	swimlane

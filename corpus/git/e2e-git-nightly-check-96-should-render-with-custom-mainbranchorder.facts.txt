@@ -17,4 +17,9 @@ label	4
 label	feature1
 label	feature2
 label	main
+preamble-config	gitGraph.mainBranchOrder	2
+preamble-config	gitGraph.parallelCommits	false
+preamble-config	gitGraph.rotateCommitLabel	false
+preamble-config	gitGraph.showBranches	true
+preamble-config	gitGraph.showCommitLabel	true
 type	gitGraph

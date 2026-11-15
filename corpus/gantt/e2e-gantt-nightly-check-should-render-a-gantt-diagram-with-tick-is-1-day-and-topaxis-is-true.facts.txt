@@ -10,6 +10,7 @@ label	Another task
 label	Section
 label	Task in sec
 label	another task
+preamble-config	gantt.topAxis	true
 section	Another
 section	Section
 task	Another	Task in sec		2022-10-20 00:00	2022-11-07 00:00

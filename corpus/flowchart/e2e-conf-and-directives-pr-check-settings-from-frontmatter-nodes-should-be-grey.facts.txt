@@ -9,4 +9,5 @@ group	section	section	B,C
 node	A	Another	lean-r
 node	B	Another	lean-r
 node	C	End	rect
+preamble-config	theme	"neutral"
 type	flowchart-v2

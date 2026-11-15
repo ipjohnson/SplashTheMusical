@@ -11,4 +11,9 @@ node	packages	file
 node	packages / mermaid	file
 node	packages / mermaid / src	file
 node	packages / parser	file
+preamble-config	themeVariables.treeView.labelColor	"#FF0000"
+preamble-config	themeVariables.treeView.labelFontSize	"20px"
+preamble-config	themeVariables.treeView.lineColor	"#00FF00"
+preamble-config	treeView.lineThickness	3
+preamble-config	treeView.rowIndent	80
 type	treeView

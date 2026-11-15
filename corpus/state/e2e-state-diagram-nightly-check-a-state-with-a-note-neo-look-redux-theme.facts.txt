@@ -5,4 +5,7 @@ accept	yes
 drawn	yes
 node	State1	The state with a note	rounded
 note	State1	Important information! You can write notes.
+preamble-config	fontFamily	"courier"
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	stateDiagram

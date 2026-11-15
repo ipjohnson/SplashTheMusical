@@ -7,4 +7,5 @@ actor	Bob	Bob	participant
 drawn	yes
 message	Alice	Bob	solid	filled	I'm short but also multiline
 message	Bob	Alice	solid	filled	Short as well and also multiline
+preamble-config	sequence.messageAlign	"left"
 type	sequence

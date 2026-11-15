@@ -13,4 +13,6 @@ group	C	RL subgraph	C1
 node	A	LR loop	rect
 node	B1	BT loop	rect
 node	C1	RL loop	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	htmlLabels	false
 type	flowchart-v2

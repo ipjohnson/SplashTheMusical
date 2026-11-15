@@ -9,4 +9,5 @@ group	section	section	B,C
 node	A	Forest	rounded
 node	B	Another	lean-r
 node	C	End	rect
+preamble-config	theme	"forest"
 type	flowchart-v2

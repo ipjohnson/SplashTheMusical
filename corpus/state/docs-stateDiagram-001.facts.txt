@@ -14,4 +14,5 @@ node	Moving	Moving	rounded
 node	Still	Still	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-title	Simple sample
 type	stateDiagram

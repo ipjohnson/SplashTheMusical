@@ -11,6 +11,7 @@ icon	c	server
 label	A
 label	B
 label	C
+preamble-config	architecture.idealEdgeLengthMultiplier	3
 service	a	A
 service	b	B
 service	c	C

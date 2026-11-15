@@ -9,6 +9,7 @@ label	Sales Revenue
 label	b
 label	c
 label	jan
+preamble-config	xyChart.showDataLabel	true
 series	bar	5000,6000,7500
 title	Sales Revenue
 type	xychart

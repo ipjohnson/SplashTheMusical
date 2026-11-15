@@ -7,4 +7,7 @@ attribute	Duck	+float weight
 attribute	Duck	+int age
 class	Duck	Duck
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 type	classDiagram

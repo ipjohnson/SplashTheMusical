@@ -8,4 +8,8 @@ edge	Lorem	Ipsum	none	arrow	solid
 node	Dolor	Dolor	rect
 node	Ipsum	Ipsum	rect
 node	Lorem	Lorem	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

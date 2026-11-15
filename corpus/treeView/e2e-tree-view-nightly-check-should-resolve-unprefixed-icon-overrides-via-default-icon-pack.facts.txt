@@ -10,4 +10,5 @@ label	src
 node	src	dir
 node	src / alarm.txt	file
 node	src / index.js	file
+preamble-config	treeView.defaultIconPack	"fa"
 type	treeView

@@ -9,4 +9,6 @@ field	32	63	Sequence Number
 label	Destination Port
 label	Sequence Number
 label	Source Port
+preamble-config	packet.showBits	true
+preamble-config	themeVariables.packet.startByteColor	"red"
 type	packet

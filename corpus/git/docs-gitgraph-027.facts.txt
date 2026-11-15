@@ -35,4 +35,6 @@ label	featureB
 label	hotfix
 label	main
 label	release
+preamble-config	logLevel	"debug"
+preamble-config	theme	"neutral"
 type	gitGraph

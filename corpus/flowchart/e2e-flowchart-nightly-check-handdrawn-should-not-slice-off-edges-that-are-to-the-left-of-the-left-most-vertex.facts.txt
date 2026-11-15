@@ -10,4 +10,7 @@ edge	work	sleep	none	arrow	solid
 node	eat	eat	rect
 node	sleep	sleep	rect
 node	work	work	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

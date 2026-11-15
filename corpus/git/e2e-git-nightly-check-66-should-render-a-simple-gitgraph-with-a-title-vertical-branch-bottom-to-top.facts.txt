@@ -7,4 +7,5 @@ commit	0	main	normal			1-abcdefg
 drawn	yes
 label	1-abcdefg
 label	main
+preamble-title	simple gitGraph
 type	gitGraph

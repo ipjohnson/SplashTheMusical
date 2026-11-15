@@ -9,4 +9,7 @@ drawn	yes
 message	Alice	Bob	solid	filled	Central connection
 message	Bob	Charlie	dashed	filled	Reverse central connection
 message	Charlie	Alice	dashed	filled-both	Dual central connection
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

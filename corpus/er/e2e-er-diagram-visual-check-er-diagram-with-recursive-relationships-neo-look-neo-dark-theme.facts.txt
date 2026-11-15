@@ -18,6 +18,8 @@ label	managerId
 label	manages
 label	name
 label	string
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 relation	DEPARTMENT	EMPLOYEE	one	one-or-more	identifying	employs
 relation	EMPLOYEE	EMPLOYEE	one	zero-or-more	identifying	manages
 type	er

@@ -8,4 +8,6 @@ group	Delivery	Delivery	B
 group	Intake	Intake	A
 node	A	Request	rect
 node	B	Build	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
 type	swimlane

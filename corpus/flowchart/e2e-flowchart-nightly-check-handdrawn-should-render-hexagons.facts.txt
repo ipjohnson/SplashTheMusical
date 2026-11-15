@@ -14,4 +14,7 @@ node	C	Let me think... Do I want something for work, something to spend every fr
 node	D	Laptop	rect
 node	E	iPhone	rect
 node	F	Car	rect
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
+preamble-config	look	"handDrawn"
 type	flowchart-v2

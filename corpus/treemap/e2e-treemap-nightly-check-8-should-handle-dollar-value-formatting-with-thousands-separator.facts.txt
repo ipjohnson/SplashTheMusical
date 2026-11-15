@@ -19,4 +19,5 @@ node	Budget / Operations
 node	Budget / Operations / Equipment	200000
 node	Budget / Operations / Salaries	700000
 node	Budget / Operations / Supplies	100000
+preamble-config	treemap.valueFormat	"$0,0"
 type	treemap
