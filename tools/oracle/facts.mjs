@@ -1,0 +1,160 @@
+// Renders every .mmd in a folder with the mermaid.js that package-lock.json pins, in one headless page, and writes
+// <name>.facts.txt per case. tools/oracle/README.md describes the format. extract.mjs says which facts come from
+// mermaid's parsed model and which from its rendered DOM.
+//
+//   node facts.mjs <cases-dir> <facts-dir> [svg-dir]
+//
+// The run fails when node_modules does not match package-lock.json and when a case has a diagram type extract.mjs has
+// no extractor for. Facts files whose case is no longer in the folder are deleted. With svg-dir, each accepted case's
+// SVG is written there too.
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { fileURLToPath } from 'node:url'
+import puppeteer from 'puppeteer'
+import { checkPinned } from './pinned.mjs'
+import { extractFacts } from './extract.mjs'
+
+const [, , casesDir, factsDir, svgDir] = process.argv
+if (!casesDir || !factsDir) {
+	console.error('usage: node facts.mjs <cases-dir> <facts-dir> [svg-dir]')
+	process.exit(2)
+}
+
+const root = path.dirname(fileURLToPath(import.meta.url))
+const problems = checkPinned(root)
+if (problems.length) {
+	for (const p of problems) console.error(p)
+	console.error('run npm ci in tools/oracle')
+	process.exit(1)
+}
+const mermaidDir = path.join(root, 'node_modules', 'mermaid')
+const version = JSON.parse(fs.readFileSync(path.join(mermaidDir, 'package.json'), 'utf8')).version
+
+// Hash of the source with CRLF folded to LF, so a consumer can tell a facts file from an edited case.
+const sourceHash = text => crypto.createHash('sha256').update(text.replace(/\r\n/g, '\n'), 'utf8').digest('hex').slice(0, 16)
+// The seed of the page's Math.random for one case. It depends on the case's name only, so a case's output does not
+// depend on which cases ran before it.
+const seedOf = name => crypto.createHash('sha256').update(name, 'utf8').digest().readUInt32LE(0)
+
+// Node shapes are written in mermaid's documented short names (rect, rounded, diam, cyl, fr-rect, sm-circ, ...). mermaid
+// keeps a node's shape as written, an alias such as `database` or an internal name such as `squareRect`, so its own
+// table of shapes (shapesDefs in its dist) maps each name to the short one.
+function shapeNames() {
+	const chunks = path.join(mermaidDir, 'dist', 'chunks', 'mermaid.esm')
+	for (const file of fs.readdirSync(chunks).filter(f => f.endsWith('.mjs')).sort()) {
+		const code = fs.readFileSync(path.join(chunks, file), 'utf8')
+		const start = code.indexOf('shapesDefs = [')
+		if (start < 0) continue
+		const table = code.slice(start, code.indexOf('\n];', start))
+		const names = {}
+		for (const entry of table.split(/\n {2}\{/).slice(1)) {
+			const short = /shortName: "([^"]+)"/.exec(entry)?.[1]
+			if (!short) continue
+			names[short] = short
+			for (const list of entry.matchAll(/(?:internalAliases|aliases): \[([^\]]*)\]/g))
+				for (const alias of list[1].matchAll(/"([^"]+)"/g)) names[alias[1]] ??= short
+		}
+		return names
+	}
+	throw new Error('shapesDefs not found in mermaid\'s dist; the shape table moved')
+}
+const shapes = shapeNames()
+
+// The page is served from a made-up origin so that ES modules, such as the tidy-tree layout and its chunks, load from
+// node_modules. Every other request is refused, so a run never reaches the network.
+const origin = 'http://oracle.invalid'
+const mime = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html' }
+const browser = await puppeteer.launch({ headless: 'shell' })
+const page = await browser.newPage()
+await page.setRequestInterception(true)
+page.on('request', request => {
+	const url = new URL(request.url())
+	if (url.origin !== origin) return request.abort()
+	if (url.pathname === '/') return request.respond({ contentType: 'text/html', body: '<!doctype html><html><body></body></html>' })
+	const file = path.join(root, decodeURIComponent(url.pathname))
+	if (!file.startsWith(path.join(root, 'node_modules') + path.sep) || !fs.existsSync(file)) return request.respond({ status: 404, body: '' })
+	request.respond({ contentType: mime[path.extname(file)] ?? 'application/octet-stream', body: fs.readFileSync(file) })
+})
+// mermaid reads a gantt date without a dateFormat as UTC and a time-only date against today, so the page runs in UTC on
+// a fixed day.
+await page.emulateTimezone('UTC')
+await page.evaluateOnNewDocument(() => {
+	const now = Date.UTC(2000, 0, 1)
+	const D = Date
+	globalThis.Date = class extends D {
+		constructor(...a) { super(...(a.length ? a : [now])) }
+		static now() { return now }
+	}
+	// mulberry32, seeded here for what mermaid draws while it loads, such as iconify's id prefix, and again before each case.
+	globalThis.__oracleSeed = seed => {
+		let a = seed >>> 0
+		Math.random = () => {
+			a = (a + 0x6d2b79f5) | 0
+			let t = Math.imul(a ^ (a >>> 15), 1 | a)
+			t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+			return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+		}
+	}
+	globalThis.__oracleSeed(0)
+	// @zenuml/core reads localStorage, which this page may not touch; an in-memory store stands in.
+	const m = new Map()
+	Object.defineProperty(window, 'localStorage', {
+		value: {
+			getItem: k => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), removeItem: k => m.delete(k), clear: () => m.clear(),
+			key: i => [...m.keys()][i] ?? null, get length() { return m.size },
+		},
+	})
+})
+await page.goto(origin + '/')
+await page.addScriptTag({ path: path.join(mermaidDir, 'dist', 'mermaid.min.js') })
+// ZenUML is an external diagram, as it is for mermaid-cli and the mermaid live editor.
+await page.addScriptTag({ path: path.join(root, 'node_modules', '@mermaid-js', 'mermaid-zenuml', 'dist', 'mermaid-zenuml.min.js') })
+await page.addScriptTag({
+	type: 'module',
+	content: `import tidyTree from '/node_modules/@mermaid-js/layout-tidy-tree/dist/mermaid-layout-tidy-tree.esm.min.mjs'
+		mermaid.registerLayoutLoaders(tidyTree)
+		globalThis.__oracleLayouts = true`,
+})
+await page.waitForFunction(() => globalThis.__oracleLayouts === true)
+await page.evaluate(async () => {
+	await mermaid.registerExternalDiagrams([globalThis.__esbuild_esm_mermaid_nm['mermaid-zenuml'].default])
+	mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' })
+})
+
+fs.mkdirSync(factsDir, { recursive: true })
+if (svgDir) fs.mkdirSync(svgDir, { recursive: true })
+
+const names = fs.readdirSync(casesDir).filter(f => f.endsWith('.mmd')).sort().map(f => f.slice(0, -4))
+let accepted = 0
+for (const name of names) {
+	const source = fs.readFileSync(path.join(casesDir, name + '.mmd'), 'utf8')
+	await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
+	const result = await page.evaluate(extractFacts, source, name, shapes)
+	if (result.unknownType) {
+		console.error(`${name}: no extractor for mermaid diagram type '${result.unknownType}'; add one to tools/oracle/extract.mjs`)
+		await browser.close()
+		process.exit(1)
+	}
+	const header = [
+		'# mermaid.js facts. Refresh with: mise run oracle',
+		`# mermaid ${version}`,
+		`# source ${sourceHash(source)}`,
+	]
+	const body = result.error === undefined
+		? ['accept\tyes', ...result.facts.sort()]
+		: ['accept\tno', `# error ${result.error.split('\n')[0].trim()}`]
+	fs.writeFileSync(path.join(factsDir, name + '.facts.txt'), [...header, ...body].join('\n') + '\n')
+	if (svgDir && result.svg) fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
+	if (result.error === undefined) accepted++
+	console.log(`${result.error === undefined ? 'ok ' : 'err'}  ${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
+}
+
+const keep = new Set(names.map(n => n + '.facts.txt'))
+for (const f of fs.readdirSync(factsDir).filter(f => f.endsWith('.facts.txt') && !keep.has(f)).sort()) {
+	fs.unlinkSync(path.join(factsDir, f))
+	console.log(`del  ${f}`)
+}
+
+await browser.close()
+console.log(`mermaid ${version}: ${names.length} cases, ${accepted} accepted`)

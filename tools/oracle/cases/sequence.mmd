@@ -1,0 +1,15 @@
+sequenceDiagram
+    box Team
+      participant A as Alice
+      actor B as Bob
+    end
+    A->>B: Hello Bob
+    loop Every minute
+      B-->>A: Hi Alice
+    end
+    alt is sick
+      A-xB: Not so good
+    else is well
+      A-)B: Fine
+    end
+    Note over A,B: A typical interaction

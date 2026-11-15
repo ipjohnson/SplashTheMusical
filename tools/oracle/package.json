@@ -1,0 +1,19 @@
+{
+  "name": "splashthemusical-oracle",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Runs the pinned mermaid.js in headless Chromium and writes the facts STM is compared against",
+  "type": "module",
+  "scripts": {
+    "facts": "node facts.mjs"
+  },
+  "devDependencies": {
+    "@mermaid-js/layout-tidy-tree": "1.0.1",
+    "@mermaid-js/mermaid-zenuml": "1.0.1",
+    "mermaid": "12.3.0",
+    "puppeteer": "25.17.0"
+  },
+  "overrides": {
+    "mermaid": "$mermaid"
+  }
+}

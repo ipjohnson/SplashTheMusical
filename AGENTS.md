@@ -16,7 +16,11 @@ mise run test     # dotnet test --solution SplashTheMusical.slnx
 mise run format   # dotnet format SplashTheMusical.slnx
 mise run check    # fail on formatting drift
 mise run ci       # what CI runs: build, test and the formatting check
+mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
+mise run oracle-test
 ```
+
+`mise install` also provides Node 22 for the oracle. `tools/oracle/README.md` describes its outputs.
 
 Without mise:
 
@@ -39,6 +43,7 @@ Build output goes to `.artifacts/`.
 | `tests/SplashTheMusical.Tests` | Unit tests. |
 | `tests/SplashTheMusical.Conformance` | The harness that compares STM with the mermaid.js oracle. |
 | `tests/SplashTheMusical.Benchmarks` | BenchmarkDotNet. |
+| `tools/oracle` | Node: runs the pinned mermaid.js in headless Chromium and writes the facts STM is compared against. |
 
 ## Rules
 

@@ -1,0 +1,14 @@
+classDiagram
+  namespace Zoo {
+    class Animal {
+      <<abstract>>
+      +String name
+      +eat(food) bool
+    }
+    class Duck
+  }
+  class Pond
+  Animal <|-- Duck
+  Duck "1" --> "*" Pond : swims in
+  Pond ..o Animal
+  note for Duck "can fly"

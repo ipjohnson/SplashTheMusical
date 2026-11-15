@@ -1,0 +1,13 @@
+stateDiagram-v2
+    [*] --> Still
+    Still --> Moving : push
+    state Moving {
+        [*] --> Slow
+        Slow --> Fast
+    }
+    state check <<choice>>
+    Moving --> check
+    check --> Crash : too fast
+    check --> Still
+    Crash --> [*]
+    note right of Crash : Ouch
