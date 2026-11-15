@@ -23,7 +23,7 @@ public class ComparisonTests
 		var exit = Comparison.Run(Committed, Regressed, output);
 
 		exit.Should().Be(1);
-		output.ToString().Split('\n', StringSplitOptions.RemoveEmptyEntries).Should().Equal(
+		output.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries).Should().Equal(
 			"JIT pie-small parse: time 1000.0 ns -> 1110.0 ns (+11.0%)",
 			"JIT pie-small render: allocation 8000 B -> 8880 B (+11.0%)",
 			"AOT pie-small render: allocation 0 B -> 24 B (was zero)",
