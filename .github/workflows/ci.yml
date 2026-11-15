@@ -43,3 +43,10 @@ jobs:
       # Trim, AOT and ILC warnings are errors, so this fails on any of them.
       - name: Publish stm with native AOT
         run: dotnet publish src/SplashTheMusical.Cli
+
+      - name: Publish the conformance runner with native AOT
+        run: dotnet publish tests/SplashTheMusical.Conformance -o .artifacts/conformance-aot
+
+      - name: Run the native conformance runner
+        shell: bash
+        run: ./.artifacts/conformance-aot/SplashTheMusical.Conformance

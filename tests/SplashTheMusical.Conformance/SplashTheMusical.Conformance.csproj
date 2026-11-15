@@ -1,12 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <!-- The native runner checks the corpus with the same tests as dotnet test. AwesomeAssertions is not trim safe, so
+         these tests use TUnit's assertions. -->
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="TUnit" />
-    <PackageReference Include="AwesomeAssertions" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />
+    <!-- ILC compiles all of the core, not only what the tests reach, and Assembly.Load finds it by name. -->
+    <TrimmerRootAssembly Include="SplashTheMusical" />
   </ItemGroup>
 </Project>

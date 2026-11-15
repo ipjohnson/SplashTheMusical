@@ -1,10 +1,8 @@
-using AwesomeAssertions;
-
 namespace SplashTheMusical.Conformance;
 
 public class HarnessTests
 {
 	[Test]
-	public void LoadsTheCore() =>
-		System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name.Should().Be("SplashTheMusical");
+	public async Task LoadsTheCore() =>
+		await Assert.That(System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name).IsEqualTo("SplashTheMusical");
 }
