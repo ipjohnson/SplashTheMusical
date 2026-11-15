@@ -1,8 +1,10 @@
-# L3 tolerances
+# L3 and L4 tolerances
 
-Each `<type>.json` holds the L3 tolerances of the corpus cases of one diagram type. Section 7 of
-[the parity plan](../../docs/mermaid-parity-plan.md) describes L3. `GeometryComparer` in
-`tests/SplashTheMusical.Conformance` applies the tolerances, and `ToleranceTests` checks the files. Neither needs Node.
+Each `<type>.json` holds the L3 and L4 tolerances of the corpus cases of one diagram type. Section 7 of
+[the parity plan](../../docs/mermaid-parity-plan.md) describes both levels. `GeometryComparer` in
+`tests/SplashTheMusical.Conformance` applies the L3 tolerances, and `ToleranceTests` checks the files. Neither needs
+Node. `tools/oracle/raster.mjs` applies the L4 tolerances, and [the oracle README](../../tools/oracle/README.md#l4-rasters)
+describes how it scores a case.
 
 ## What L3 checks
 
@@ -27,7 +29,8 @@ not linted. The roles are the `Roles` table in `OverlapLint.cs`.
 ```json
 {
   "canvas": 0.05,
-  "overlap": 0.8
+  "overlap": 0.8,
+  "raster": 0.9
 }
 ```
 
@@ -35,8 +38,13 @@ not linted. The roles are the `Roles` table in `OverlapLint.cs`.
 |---|---|
 | `canvas` | How far the canvas width and height may differ, from 0 to 1 |
 | `overlap` | The least intersection over union of a box and its counterpart, from 0 to 1 |
+| `raster` | The least structural similarity of STM's raster to mermaid.js's at L4, from 0 to 1 |
+| `rasterReportOnly` | `true` when L4 reports the type's scores and does not judge them. Optional, `false` by default |
 | `reason` | Why the type is looser than the starting tolerances. Optional |
 
-Every corpus type has a file. The starting tolerances are a `canvas` of 0.05 and an `overlap` of 0.8. A type may
-tighten them freely. A file with a larger `canvas` or a smaller `overlap` fails `ToleranceTests` unless it has a
-`reason`.
+Every corpus type has a file. The starting tolerances are a `canvas` of 0.05, an `overlap` of 0.8 and a `raster` of
+0.9. A type may tighten them freely. A file with a larger `canvas`, a smaller `overlap` or `raster`, or
+`rasterReportOnly` set fails `ToleranceTests` unless it has a `reason`.
+
+`mindmap` and `architecture` set `rasterReportOnly`, because their default layouts are force-directed. The plan makes
+L4 report-only for such types.

@@ -1,4 +1,5 @@
 {
   "canvas": 0.05,
-  "overlap": 0.8
+  "overlap": 0.8,
+  "raster": 0.9
 }

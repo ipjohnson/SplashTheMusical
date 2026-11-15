@@ -57,6 +57,16 @@ description = "Write docs/parity-report.md from the committed oracle output and 
 env = { STM_WRITE_REPORT = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
 
+[tasks.stm-svg]
+description = "Write the SVG STM draws for each corpus case to .artifacts/stm/svg"
+env = { STM_SVG_DIR = "{{config_root}}/.artifacts/stm/svg" }
+run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/StmSvgsTests/*"'
+
+[tasks.raster]
+description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write corpus/l4.txt and the side-by-side images of failing cases"
+depends = ["stm-svg", "corpus-oracle"]
+run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster"
+
 [tasks.conformance-aot]
 description = "Publish the conformance tests with native AOT and run them"
 run = [
@@ -65,10 +75,10 @@ run = [
 ]
 
 [tasks.oracle-test]
-description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, the dumps, and the failures"
+description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, the dumps, the failures and the L4 raster scores"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
-  "node --test tools/oracle/facts.test.mjs",
+  "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs",
 ]
 
 [tasks.ci]

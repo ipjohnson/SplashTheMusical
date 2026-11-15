@@ -17,12 +17,13 @@ public static class CorpusComparison
 
 	public static CaseComparison Run(string corpus, string name, IFactsProvider provider) => Run(corpus, name, provider, Tolerances(corpus));
 
+	// The oracle reads the text with any byte order mark, so the provider gets it too.
+	public static string Source(string corpus, string name) => Encoding.UTF8.GetString(File.ReadAllBytes(Path.Combine(corpus, name + ".mmd")));
+
 	private static CaseComparison Run(string corpus, string name, IFactsProvider provider, IReadOnlyDictionary<string, Tolerance> tolerances)
 	{
-		// The oracle reads the text with any byte order mark, so the provider gets it too.
-		var source = Encoding.UTF8.GetString(File.ReadAllBytes(Path.Combine(corpus, name + ".mmd")));
 		var type = name.Split('/', '\\')[0];
-		return Comparer.Compare(name, OracleFiles.Read(corpus, name), provider.Facts(source), tolerances.GetValueOrDefault(type));
+		return Comparer.Compare(name, OracleFiles.Read(corpus, name), provider.Facts(Source(corpus, name)), tolerances.GetValueOrDefault(type));
 	}
 
 	private static IReadOnlyDictionary<string, Tolerance> Tolerances(string corpus) => Tolerance.Read(Path.Combine(corpus, "tolerances"), []);

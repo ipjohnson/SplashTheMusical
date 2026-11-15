@@ -48,7 +48,7 @@ public class GeometryComparerTests
 	[Test]
 	public async Task ALooserTypeToleranceLetsTheWiderCanvasPass()
 	{
-		var result = Comparer.Compare("class/fixture", Read("oracle"), Read("canvas"), new Tolerance(0.1, 0.8, "wider"))[Level.L3];
+		var result = Comparer.Compare("class/fixture", Read("oracle"), Read("canvas"), new Tolerance(0.1, 0.8, 0.9, Reason: "wider"))[Level.L3];
 
 		await Assert.That(result.Outcome).IsEqualTo(Outcome.Pass);
 	}

@@ -18,7 +18,8 @@ mise run check    # fail on formatting drift
 mise run ci       # what CI runs: build, test and the formatting check
 mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
 mise run oracle-test
-mise run parity            # rewrite docs/parity-report.md from the corpus and the ledgers
+mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
+mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # publish the conformance tests with native AOT and run them
 ```
 
