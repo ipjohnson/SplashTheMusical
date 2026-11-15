@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 21b7ab1be42a404d
+box	edge	researcher --> writer	135	183	0	20
+box	flow	researcher	36	60	198	123
+box	flow	team	12	12	246	342
+box	flow	writer	36	207	198	123
+box	node	compose	60	255	150	51
+box	node	gather	60	108	150	51
+canvas	4	4	262	358
+font	Liberation Sans	110

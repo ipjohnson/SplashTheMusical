@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c431ee03060a0f5f
+accept	yes
+actor	API	REST API	boundary
+actor	Cache	Cache Store	entity
+actor	DB	Primary DB	database
+actor	Svc	Business Logic	control
+actor	UI	User Interface	boundary
+actor	User	End User	actor
+box	Backend Layer	API,Svc
+box	Data Layer	Cache,DB
+box	Frontend Layer	UI,User
+drawn	yes
+message	API	Svc	solid	filled	Process
+message	API	UI	dashed	filled	Data
+message	Cache	Svc	dashed	filled	Cache miss
+message	DB	Svc	dashed	filled	Data
+message	Svc	API	dashed	filled	Response
+message	Svc	Cache	solid	filled	Check cache
+message	Svc	Cache	solid	filled	Update cache
+message	Svc	DB	solid	filled	Query data
+message	UI	API	solid	filled	HTTP request
+message	UI	User	dashed	filled	Display
+message	User	UI	solid	filled	Click button
+type	sequence

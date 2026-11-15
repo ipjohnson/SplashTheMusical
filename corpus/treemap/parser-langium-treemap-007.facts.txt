@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b91e255504852ddc
+accept	yes
+drawn	yes
+label	Child
+label	Root
+node	Root
+node	Root / Child	100
+type	treemap

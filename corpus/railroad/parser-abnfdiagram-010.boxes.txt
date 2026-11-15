@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ce307bcc03a48c3e
+box	nonterminal	URI / hier-part	201.828	11.34	79.578	37.32
+box	nonterminal	URI / scheme	81.344	11.5	76.031	37
+box	nonterminal	hier-part / authority	152.266	363	81.375	37.32
+box	nonterminal	hier-part / path-abempty	243.641	363	117.844	37.32
+box	nonterminal	scheme / ALPHA	109.813	186.66	72.469	37
+box	nonterminal	scheme / ALPHA #2	232.281	96.66	72.469	37
+box	nonterminal	scheme / DIGIT	237.18	141.66	62.672	37
+box	rule	URI	0	11.34	296.406	37.32
+box	rule	hier-part	0	363	376.484	37.32
+box	rule	scheme	0	76.66	359.75	257
+box	title	URI	0	16	41.329	17
+canvas	0	0	396.484	438.32
+font	Liberation Sans	162

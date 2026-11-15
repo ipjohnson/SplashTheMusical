@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6c090cd23edd205f
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+edge	B	C	none	arrow	solid
+edge	C	D	none	arrow	solid
+edge	D	E	none	arrow	solid
+group	G1	Intake	A,B
+group	L1	Sales	C,G1
+group	L2	Warehouse	D,E
+node	A	Receive order	rect
+node	B	Check stock	rect
+node	C	Confirm	rect
+node	D	Pick	rect
+node	E	Ship	rect
+type	swimlane

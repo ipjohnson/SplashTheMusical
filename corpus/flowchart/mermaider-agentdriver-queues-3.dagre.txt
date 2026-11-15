@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 28e88699a5978f9b
+layout	1
+graph	LR	50	20	50	8	8
+node	events		152	108
+node	code		152	150
+node	steward		152	129
+node	inputs		152	129
+node	policy		152	129
+node	tools		152	108
+node	suggestion		152	66
+node	you		152	87
+edge	events	code	L_events_code_0	1	1	0	0	10	c
+edge	code	steward	L_code_steward_0	1	1	99.640625	21	10	c
+edge	inputs	steward	L_inputs_steward_0	1	1	0	0	10	c
+edge	steward	policy	L_steward_policy_0	1	1	54.46875	21	10	c
+edge	policy	tools	L_policy_tools_0	1	1	47.484375	21	10	c
+edge	tools	code	L_tools_code_0	1	1	119.109375	21	10	c
+edge	policy	suggestion	L_policy_suggestion_0	1	1	95.71875	21	10	c
+edge	suggestion	you	L_suggestion_you_0	1	1	0	0	10	c
+edge	you	events	L_you_events_0	1	1	61.484375	21	10	c
+size	1492.46875	409.5
+place	events	84	237	152	108
+place	code	286	83	152	150
+place	steward	587.640625	83	152	129
+place	inputs	286	272.5	152	129
+place	policy	908.75	83	152	129
+place	tools	1206.46875	92.5	152	108
+place	suggestion	1206.46875	323	152	66
+place	you	1408.46875	357	152	87
+route	events	code	L_events_code_0			119.41558441558442,183 185,83 210,83
+route	code	steward	L_code_steward_0	436.8203125	27.5	362,55.032944832944835 436.8203125,27.5 511.640625,55.032944832944835
+route	inputs	steward	L_inputs_steward_0			362,225.63628593628593 436.8203125,179.5 511.640625,131.62740222740223
+route	steward	policy	L_steward_policy_0	748.1953125	83	663.640625,83 748.1953125,83 832.75,83
+route	policy	tools	L_policy_tools_0	1057.609375	83	984.75,83 1057.609375,83 1130.46875,87.6497848220846
+route	tools	code	L_tools_code_0	748.1953125	239.25	1151.692557495741,146.5 1057.609375,239.25 908.75,239.25 748.1953125,239.25 587.640625,239.25 436.8203125,239.25 358.39375,158
+route	policy	suggestion	L_policy_suggestion_0	1057.609375	323	948.75595703125,147.5 1057.609375,323 1130.46875,323
+route	suggestion	you	L_suggestion_you_0			1282.46875,323 1307.46875,323 1332.46875,331.41584158415844
+route	you	events	L_you_events_0	748.1953125	391	1332.46875,382.58415841584156 1307.46875,391 1206.46875,391 1057.609375,391 908.75,391 748.1953125,391 587.640625,391 436.8203125,391 286,391 185,391 119.41558441558442,291

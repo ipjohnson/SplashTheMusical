@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2164dc469e99b072
+layout	1
+graph	LR	50	20	50	8	8
+node	Controller		154.3515625	120
+node	Service		152.7890625	120
+node	Repository		152.765625	141
+edge	Controller	Service	id_Controller_Service_1	1	1	0	0	10	c
+edge	Service	Repository	id_Service_Repository_2	1	1	0	0	10	c
+size	575.90625	157
+place	Controller	85.17578125	78.5	154.3515625	120
+place	Service	288.74609375	78.5	152.7890625	120
+place	Repository	491.5234375	78.5	152.765625	141
+route	Controller	Service	id_Controller_Service_1			162.3515625,78.5 187.3515625,78.5 212.3515625,78.5
+route	Service	Repository	id_Service_Repository_2			365.140625,78.5 390.140625,78.5 415.140625,78.5

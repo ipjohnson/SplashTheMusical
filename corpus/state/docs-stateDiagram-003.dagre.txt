@@ -1,0 +1,45 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1e1b107393bac8ac
+layout	1
+graph	TB	50	20	75	8	8
+node	Review_start	Review	14	14
+node	Screening	Review	136	37
+node	Decision	Review	136	37
+node	Review		0	0
+edge	Review_start	Screening	edge2	1	1	0	0	10	c
+edge	Screening	Decision	edge3	1	1	0	0	10	c
+size	222	329
+place	Review_start	111	52.5	14	14
+place	Screening	111	153	136	37
+place	Decision	111	265	136	37
+place	Review	111	164.5	206	313
+route	Review_start	Screening	edge2			111,59.5 111,97 111,134.5
+route	Screening	Decision	edge3			111,171.5 111,209 111,246.5
+layout	2
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Draft		136	37
+node	Submitted		136	37
+node	Review		206	313
+node	Published		136	37
+node	root_end		14.013293266296387	14
+edge	root_start	Draft	edge0	1	1	0	0	10	c
+edge	Draft	Submitted	edge1	1	1	41.234375	21	10	c
+edge	Published	root_end	edge7	1	1	0	0	10	c
+edge	Submitted	Review	edge4	1	1	0	0	10	c
+edge	Review	Published	edge5	1	1	58.390625	21	10	c
+edge	Review	Draft	edge6	1	1	49.8125	21	10	c
+size	250.953125	760
+place	root_start	139.953125	15	14	14
+place	Draft	139.953125	90.5	136	37
+place	Submitted	76	198.5	136	37
+place	Review	139.953125	423.5	206	313
+place	Published	139.953125	669.5	136	37
+place	root_end	139.953125	745	14.013293266296387	14
+route	root_start	Draft	edge0			139.953125,22 139.953125,47 139.953125,72
+route	Draft	Submitted	edge1	76	144.5	118.04325810185185,109 76,144.5 76,180
+route	Published	root_end	edge7			139.953125,688 139.953125,713 139.953125,738
+route	Submitted	Review	edge4			76,217 76,242 84.80897038567494,267
+route	Review	Published	edge5	139.953125	615.5	139.953125,580 139.953125,615.5 139.953125,651
+route	Review	Draft	edge6	203.90625	198.5	195.09727961432506,267 203.90625,242 203.90625,198.5 203.90625,144.5 161.86299189814815,109

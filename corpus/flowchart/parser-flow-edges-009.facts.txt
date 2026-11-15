@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9507dc3c76708b8e
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+edge	B	C	none	arrow	solid
+node	A	A	circle
+node	B	B	circle
+node	C	C	rect
+type	flowchart-v2

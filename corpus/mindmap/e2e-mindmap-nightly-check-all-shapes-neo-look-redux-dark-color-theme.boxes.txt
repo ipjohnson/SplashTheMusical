@@ -1,0 +1,62 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8ad6a05a26c6c665
+box	edge	All Shapes / Bang Branch	505.249	294.634	55.993	100.787
+box	edge	All Shapes / Bang Branch / Bang Node	444.009	182.793	46.762	85.566
+box	edge	All Shapes / Bang Branch / Bang Node / Another Bang	446.792	64.327	83.796	94.101
+box	edge	All Shapes / Bang Branch / Bang Node / Nested Bang	308.789	69.212	116.224	91.161
+box	edge	All Shapes / Circle Branch	418.757	373.36	135.167	31.744
+box	edge	All Shapes / Circle Branch / Circle Node	253.264	336.843	136.238	29.875
+box	edge	All Shapes / Circle Branch / Circle Node / Another Circle	94.864	191.807	133.071	131.288
+box	edge	All Shapes / Circle Branch / Circle Node / Nested Circle	88.457	338.611	136.007	47.879
+box	edge	All Shapes / Cloud Branch	577.769	299.189	76.286	97.529
+box	edge	All Shapes / Cloud Branch / Cloud Node	673.711	197.894	75.91	78.685
+box	edge	All Shapes / Cloud Branch / Cloud Node / Another Cloud	762.988	73.471	19.86	98.921
+box	edge	All Shapes / Cloud Branch / Cloud Node / Nested Cloud	775.017	187.833	135.72	6.647
+box	edge	All Shapes / Default Branch	582.244	414.602	134.102	59.336
+box	edge	All Shapes / Default Branch / df Default Node	743.188	487.269	112.935	62.483
+box	edge	All Shapes / Default Branch / df Default Node / df1 Nested Default	884.182	558.415	160.342	15.051
+box	edge	All Shapes / Default Branch / df Default Node / df2 Another Default	870.934	571.918	8.434	74.54
+box	edge	All Shapes / Hexagon Branch	583.301	380.095	147.072	25.842
+box	edge	All Shapes / Hexagon Branch / Hexagon Node	760.146	375.514	182.379	1.834
+box	edge	All Shapes / Hexagon Branch / Hexagon Node / Another Hexagon	972.015	379.236	208.778	55.788
+box	edge	All Shapes / Hexagon Branch / Hexagon Node / Nested Hexagon	970.487	264.365	177.678	103.451
+box	edge	All Shapes / Rounded Branch	415.82	414.322	138.869	58.093
+box	edge	All Shapes / Rounded Branch / Rounded Node	301.426	487.142	88.509	65.673
+box	edge	All Shapes / Rounded Branch / Rounded Node / Another Rounded	117.898	562.753	156.515	10.463
+box	edge	All Shapes / Rounded Branch / Rounded Node / Nested Rounded	260.453	576.002	24.24	73.701
+box	edge	All Shapes / Square Branch	568.529	423.533	0.011	104.279
+box	edge	All Shapes / Square Branch / Square Node	523.333	555.957	37.982	69.088
+box	edge	All Shapes / Square Branch / Square Node / Another Square	471.049	651.218	37.625	65.955
+box	edge	All Shapes / Square Branch / Square Node / Nested Square	529.784	644.349	121.391	54.677
+box	node	All Shapes	517.45	357.456	102.154	102.154
+box	node	All Shapes / Bang Branch	442.488	256.022	110.953	51
+box	node	All Shapes / Bang Branch / Bang Node	364.779	133.03	150.078	76.25
+box	node	All Shapes / Bang Branch / Bang Node / Another Bang	459.188	16.525	169.531	76.25
+box	node	All Shapes / Bang Branch / Bang Node / Nested Bang	218.414	23.355	163.691	76.25
+box	node	All Shapes / Circle Branch	347.138	344.431	114.031	51
+box	node	All Shapes / Circle Branch / Circle Node	184.565	279.582	108.096	108.096
+box	node	All Shapes / Circle Branch / Circle Node / Another Circle	22.608	119.694	123.155	123.155
+box	node	All Shapes / Circle Branch / Circle Node / Nested Circle	15	332.163	118.616	118.616
+box	node	All Shapes / Cloud Branch	605.882	261.874	114.828	51
+box	node	All Shapes / Cloud Branch / Cloud Node	708.857	152.662	106.171	71.345
+box	node	All Shapes / Cloud Branch / Cloud Node / Another Cloud	725.893	20.814	124.612	78.833
+box	node	All Shapes / Cloud Branch / Cloud Node / Nested Cloud	868.489	158.321	118.95	76.579
+box	node	All Shapes / Default Branch	668.759	454.508	122.609	51
+box	node	All Shapes / Default Branch / df Default Node	805.6	531.514	127.297	51
+box	node	All Shapes / Default Branch / df Default Node / df1 Nested Default	986.474	549.368	145.969	51
+box	node	All Shapes / Default Branch / df Default Node / df2 Another Default	806.117	635.863	149.875	51
+box	node	All Shapes / Hexagon Branch	677.999	351.999	134.297	51
+box	node	All Shapes / Hexagon Branch / Hexagon Node	868.821	329.863	177.406	91
+box	node	All Shapes / Hexagon Branch / Hexagon Node / Another Hexagon	1098.801	393.396	192.969	91
+box	node	All Shapes / Hexagon Branch / Hexagon Node / Nested Hexagon	1066.979	211.318	188.297	91
+box	node	All Shapes / Rounded Branch	334.443	452.704	135.078	51
+box	node	All Shapes / Rounded Branch / Rounded Node	227.286	536.253	124.187	51
+box	node	All Shapes / Rounded Branch / Rounded Node / Another Rounded	33.049	548.717	139.766	51
+box	node	All Shapes / Rounded Branch / Rounded Node / Nested Rounded	188.227	638.452	135.078	51
+box	node	All Shapes / Square Branch	506.838	517.312	123.406	51
+box	node	All Shapes / Square Branch / Square Node	458.849	615.689	114.516	45
+box	node	All Shapes / Square Branch / Square Node / Another Square	398.577	707.702	130.078	45
+box	node	All Shapes / Square Branch / Square Node / Nested Square	602.149	682.686	125.406	45
+canvas	5	6.525	1296.769	756.177
+font	Liberation Sans	756

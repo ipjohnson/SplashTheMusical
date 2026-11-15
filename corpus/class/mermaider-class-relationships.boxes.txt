@@ -1,0 +1,29 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4400a1bd9c0d5657
+box	class	A	29.938	12	34.125	81
+box	class	B	29.938	194	34.125	81
+box	class	C	123.219	12	34.125	81
+box	class	D	123.219	194	34.125	81
+box	class	E	220.438	12	33.344	81
+box	class	F	220.828	194	32.563	81
+box	class	G	313.18	12	34.891	81
+box	class	H	313.563	194	34.125	81
+box	class	I	411.773	12	27.891	81
+box	class	J	409.82	194	31.797	81
+box	class	K	502.781	12	34.125	81
+box	class	L	503.563	194	32.563	81
+box	relation	A --> B	47	110.25	0	83.75
+box	relation	C --> D	140.281	110.25	0	83.75
+box	relation	E --> F	237.109	110.25	0	83.75
+box	relation	G --> H	330.625	93	0	95
+box	relation	I --> J	425.719	93	0	95
+box	relation	K --> L	519.844	93	0	83.75
+box	relation-label	A --> B	12	133	69.281	21
+box	relation-label	C --> D	101.281	133	77.828	21
+box	relation-label	E --> F	199.109	133	75.516	21
+box	relation-label	G --> H	294.625	133	71.594	21
+box	relation-label	I --> J	386.219	133	78.625	21
+box	relation-label	K --> L	484.844	133	69.266	21
+canvas	4	4	558.109	279
+font	Liberation Sans	154

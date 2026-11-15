@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2c6a2560da49bb10
+box	edge	bottom_disk --> juncC	-9.58	57	0	160.806
+box	edge	bottom_gateway --> juncR	290.717	57	0	160.806
+box	edge	juncC --> juncR	74.42	57	132.297	0
+box	edge	left_disk --> juncC	-170.717	57	161.137	0
+box	edge	top_disk --> juncC	-9.58	-103.806	0	160.806
+box	edge	top_gateway --> juncR	290.717	-103.806	0	160.806
+box	group	left	-293.217	-226.306	366.137	583.612
+box	group	right	208.217	-226.306	165	583.612
+box	junction	juncC	-49.58	17	80	80
+box	junction	juncR	250.717	17	80	80
+box	service	bottom_disk	-49.58	217.806	80	103.219
+box	service	bottom_gateway	250.717	217.806	80	103.537
+box	service	left_disk	-250.717	17	80	103.219
+box	service	top_disk	-49.58	-183.806	80	103.219
+box	service	top_gateway	250.717	-183.806	80	103.537
+canvas	-333.217	-266.306	746.435	663.612
+font	Liberation Sans	52

@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cc7884f2722a0260
+box	actor	Reviewer	12	75.5	78.359	121
+box	relation	Reviewer --> Formatted	90.359	59	236	51.75
+box	relation	Reviewer --> Literal	90.359	136	36	0
+box	relation	Reviewer --> Quoted	90.359	161.25	36	72.75
+box	relation-label	Reviewer --> Formatted	182.227	51	56.266	15
+box	usecase	Formatted	330.359	12	160	94
+box	usecase	Literal	130.359	107	160	58
+box	usecase	Quoted	130.359	205	160	58
+canvas	-8	-8	518.359	291
+font	Liberation Sans	192

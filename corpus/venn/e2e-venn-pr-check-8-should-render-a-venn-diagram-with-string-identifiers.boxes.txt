@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source da532c5dc0b59e08
+box	set	JavaScript	15	92.615	288.671	288.77
+box	set	Python	496.329	92.665	288.671	288.671
+box	set	TypeScript	198.221	92.665	288.671	288.721
+box	union	JavaScript,TypeScript	198.221	125.464	105.45	223.072
+canvas	0	0	800	450
+font	Liberation Sans	94

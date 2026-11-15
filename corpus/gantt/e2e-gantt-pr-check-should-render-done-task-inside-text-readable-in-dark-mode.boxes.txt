@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f1738e9fa80997af
+box	section	A section	10	68	44.641	12
+box	section	Critical tasks	10	104	62.344	12
+box	task	A section / Active	392	74	317	20
+box	task	A section / Done	75	50	317	20
+box	task	Critical tasks / Done critical	75	98	317	20
+box	task-text	A section / Active	535.516	77.5	29.969	12
+box	task-text	A section / Done	220.352	53.5	26.297	12
+box	task-text	Critical tasks / Done critical	203.234	101.5	60.531	12
+box	title	Gantt dark mode done-task inside-text readability	195.898	9	392.203	20
+canvas	0	0	784	172
+font	Liberation Sans	490

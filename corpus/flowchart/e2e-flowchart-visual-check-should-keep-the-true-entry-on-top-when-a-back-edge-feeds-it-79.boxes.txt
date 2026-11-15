@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 725504fa514cd8dc
+box	edge	decide --> end_decision	88	417	37.333	61.167
+box	edge	end_decision --> format_json	150.5	628	0	97
+box	edge	end_decision --> stockholm	172.5	103	40.5	379.167
+box	edge	new_york --> san_francisco	88	205	0	36
+box	edge	san_francisco --> decide	88	311	0	36
+box	edge	stockholm --> new_york	88	99	40.5	36
+box	edge-label	end_decision --> format_json	139	668	22.844	21
+box	edge-label	end_decision --> stockholm	204	267.5	17.906	21
+box	node	decide	12	351	152	66
+box	node	end_decision	65.5	457	171	171
+box	node	format_json	74.5	729	152	45
+box	node	new_york	12	139	152	66
+box	node	san_francisco	12	245	152	66
+box	node	stockholm	74.5	12	152	87
+canvas	4	4	240.5	778
+font	Liberation Sans	252

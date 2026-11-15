@@ -1,0 +1,29 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1047e274aebf166b
+box	edge	Configuring --> Idle	179.704	194.5	47.385	99.5
+box	edge	Idle --> Configuring	265.223	189	47.385	99.5
+box	edge	NewValuePreview --> NewValueSelection	260.359	422.5	5.953	135.5
+box	edge	NewValuePreview --> NewValueSelection #2	119.5	422.5	112.166	135.5
+box	edge	NewValueSelection --> NewValuePreview	289.053	417	104.134	135.5
+box	edge	State1 --> State2	266.313	643	0	18.5
+box	edge	[*]start@Configuring --> NewValueSelection	260.359	356	0	18.5
+box	edge	[*]start@NotShooting --> Idle	246.156	128	0	18.5
+box	edge	[*]start@root --> NotShooting	246.156	26	0	34.5
+box	edge-label	Configuring --> Idle	151.204	249	56.813	21
+box	edge-label	Idle --> Configuring	284.108	249	56.813	21
+box	edge-label	NewValuePreview --> NewValueSelection	198.813	477	134.375	21
+box	edge-label	NewValuePreview --> NewValueSelection #2	60	477	118.813	21
+box	edge-label	NewValueSelection --> NewValuePreview	353.188	477	79.125	21
+box	group	Configuring	95.5	294	321.688	458
+box	group	NewValuePreview	174.313	558	184	170
+box	group	NotShooting	71.5	66	369.688	710
+box	node	Idle	178.156	152	136	37
+box	node	NewValueSelection	192.172	380	136.375	37
+box	node	State1	198.313	606	136	37
+box	node	State2	198.313	667	136	37
+box	node	[*]start@Configuring	253.359	342	14	14
+box	node	[*]start@NotShooting	239.156	114	14	14
+box	node	[*]start@root	239.156	12	14	14
+canvas	52	4	397.188	780
+font	Liberation Sans	258

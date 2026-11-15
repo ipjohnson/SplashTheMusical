@@ -1,0 +1,25 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9d043844dda5a217
+accept	yes
+direction	TD
+drawn	yes
+edge	brief	check	sequence
+edge	check	post	sequence	yes
+edge	city	research	sequence
+edge	research	brief	sequence
+edge	research	style_ref	reference
+label	City Input
+label	Nordic Design
+label	Quality OK?
+label	Research Brief
+label	post_results
+label	research_location
+label	yes
+node	brief	Research Brief	square	task
+node	check	Quality OK?	diam	decision
+node	city	City Input	lean-r	input
+node	post	post_results	hex	action
+node	research	research_location	fr-rect	tool
+node	style_ref	Nordic Design	lin-doc	refdoc
+type	agentflow

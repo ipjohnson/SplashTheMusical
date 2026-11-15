@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e1d0405f57741186
+box	face	Test / VeryLongWord	309.609	285	30	30
+box	section	Test	249.609	50	150	50
+box	task	Test / VeryLongWord	249.609	110	150	50
+box	title	Long Word Test	249.609	-6	254.172	38.165
+canvas	0	-25	699.219	540
+font	Liberation Sans	132

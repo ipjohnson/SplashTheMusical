@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 71816048f71fcda5
+accept	yes
+attribute	Bar	+Zip
+class	Ba	Ba
+class	Bar	Bar
+class	FooBase	FooBase<T>
+drawn	yes
+method	Bar	+Zap()
+relation	FooBase	Ba	triangle	none	solid
+type	classDiagram

@@ -1,0 +1,23 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 48b724d65c7171fc
+accept	yes
+drawn	yes
+edge	Evaluate	checkResult	none	arrow	solid
+edge	Negative	Retry	none	arrow	solid
+edge	Neutral	[*]end@root	none	arrow	solid
+edge	Positive	[*]end@root	none	arrow	solid
+edge	Retry	Evaluate	none	arrow	solid
+edge	[*]start@root	Evaluate	none	arrow	solid
+edge	checkResult	Negative	none	arrow	solid	if score < 0
+edge	checkResult	Neutral	none	arrow	solid	if score = 0
+edge	checkResult	Positive	none	arrow	solid	if score > 0
+node	Evaluate	Evaluate	rounded
+node	Negative	Negative	rounded
+node	Neutral	Neutral	rounded
+node	Positive	Positive	rounded
+node	Retry	Retry	rounded
+node	[*]end@root		fr-circ
+node	[*]start@root		sm-circ
+node	checkResult		diam
+type	stateDiagram

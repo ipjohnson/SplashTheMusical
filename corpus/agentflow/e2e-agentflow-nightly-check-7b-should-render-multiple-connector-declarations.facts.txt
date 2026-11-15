@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5a1c07b858ac6bd8
+accept	yes
+connector	github	GitHub API
+connector	slack	Slack API
+direction	LR
+drawn	yes
+edge	create_issue	notify	sequence
+label	GitHub API
+label	Slack API
+label	create_issue
+label	notify_channel
+node	create_issue	create_issue	fr-rect	tool
+node	notify	notify_channel	hex	action
+type	agentflow

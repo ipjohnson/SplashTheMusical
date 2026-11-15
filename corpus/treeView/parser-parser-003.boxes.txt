@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 14f505c49a67198e
+box	node	README.md	20	193.445	95.125	17.016
+box	node	src	20	30.742	24.031	17.016
+box	node	src / components	35	57.91	95.125	17.32
+box	node	src / components / Button.tsx	50	85.078	71.156	17.016
+box	node	src / components / Modal.tsx	50	112.094	68.469	17.016
+box	node	src / utils	35	139.109	32.891	17.016
+box	node	src / utils / helpers.ts	50	166.277	69.375	17.32
+canvas	-0.5	0	135.125	216.734
+font	Liberation Sans	114

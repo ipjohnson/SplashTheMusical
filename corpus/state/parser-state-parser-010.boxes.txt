@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e14b138efd3e2538
+box	edge	locked --> pending	106.5	49	0	95.5
+box	edge-label	locked --> pending	12	89	188.297	21
+box	node	locked	38.5	12	136	37
+box	node	pending	38.5	150	136	37
+canvas	4	4	204.297	191
+font	Liberation Sans	88

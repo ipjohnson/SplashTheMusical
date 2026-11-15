@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9696d628a2b1303
+box	entity	COMMENT	215.719	651.25	167.641	159
+box	entity	POST	52.846	311.75	187.859	238.5
+box	entity	TAG	12	651.25	163.719	119.25
+box	entity	USER	127.514	12	190.953	198.75
+box	relation	POST --> COMMENT	174.753	550.25	100.18	101
+box	relation	POST --> TAG	93.859	550.25	24.94	101
+box	relation	USER --> COMMENT	251.483	210.75	72.663	440.5
+box	relation	USER --> POST	146.776	210.75	47.723	101
+box	relation-label	POST --> COMMENT	225.813	590.25	22.578	21
+box	relation-label	POST --> TAG	72.359	590.25	42.828	21
+box	relation-label	USER --> COMMENT	305.865	420.5	36.563	21
+box	relation-label	USER --> POST	128.276	250.75	36.563	21
+canvas	4	4	387.359	814.25
+font	Liberation Sans	358

@@ -1,0 +1,13 @@
+sequenceDiagram
+  autonumber
+  participant Client
+  participant API
+  participant DB
+  Client->>API: Login request
+  API->>DB: Verify user
+  DB-->>API: User found
+  API-->>Client: Auth token
+  Client->>API: GET /profile
+  API->>DB: Fetch profile
+  DB-->>API: Profile data
+  API-->>Client: 200 OK

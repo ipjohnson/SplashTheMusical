@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 16c3bfad1ed02b16
+box	domain-label	chaotic	210.667	449.635	58.666	17.959
+box	item	chaotic / 0	215.987	515	48.026	26
+box	title	Second Diagram	369.004	7.916	141.991	20.65
+canvas	0	0	880	680
+font	Liberation Sans	448

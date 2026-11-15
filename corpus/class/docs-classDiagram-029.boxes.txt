@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 594dbbe914ff48d5
+box	class	MyClass	238.93	85	80.813	81
+box	note	This is a general note	12	12	145.859	33
+box	note	This is a note for a class	197.859	12	162.953	33
+canvas	4	4	364.813	170
+font	Liberation Sans	110

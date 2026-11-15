@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 33859bb5fa91e0c1
+box	edge	Complete --> [*]end@root	256	357	0	34.5
+box	edge	Ready --> fork_point	256	103	0	34.5
+box	edge	TaskA --> join_point	80	230	163.5	34.5
+box	edge	TaskB --> join_point	256	230	0	34.5
+box	edge	TaskC --> join_point	268.5	230	163.5	34.5
+box	edge	[*]start@root --> Ready	256	26	0	34.5
+box	edge	fork_point --> TaskA	80	153	163.5	34.5
+box	edge	fork_point --> TaskB	256	153	0	34.5
+box	edge	fork_point --> TaskC	268.5	153	163.5	34.5
+box	edge	join_point --> Complete	256	280	0	34.5
+box	node	Complete	188	320	136	37
+box	node	Ready	188	66	136	37
+box	node	TaskA	12	193	136	37
+box	node	TaskB	188	193	136	37
+box	node	TaskC	364	193	136	37
+box	node	[*]end@root	249	397	14.013	14
+box	node	[*]start@root	249	12	14	14
+box	node	fork_point	221	143	70	10
+box	node	join_point	221	270	70	10
+canvas	4	4	504	415
+font	Liberation Sans	56

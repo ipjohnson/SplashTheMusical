@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e94a3d7d90012b57
+accept	yes
+drawn	yes
+frame	0	01	event	Start	200
+label	Events
+label	Start
+lane	200	Events
+type	eventmodeling

@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a1c3af772df2e7e6
+accept	yes
+actor	A	Service A	boundary
+actor	B	Service B	control
+actor	C	C	database
+drawn	yes
+message	A	B	solid	filled	Request
+message	B	C	solid	filled	Query
+type	sequence

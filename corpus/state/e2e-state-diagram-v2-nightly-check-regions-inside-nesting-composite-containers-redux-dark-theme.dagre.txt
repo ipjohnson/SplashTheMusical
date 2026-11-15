@@ -1,0 +1,74 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3121bc85ec2ed77b
+layout	1
+graph	TB	50	20	125	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	Left	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	Left	edge0	1	1	0	0	10	c
+size	222	317
+place	divider-id-1_start	111	77.5	14	14
+place	Left	111	228	136	37
+place	divider-id-1	111	158.5	206	301
+route	divider-id-1_start	Left	edge0			111,84.5 111,147 111,209.5
+layout	2
+graph	TB	50	20	125	8	8
+node	id-uwis9dpb4om-92_start	id-uwis9dpb4om-92	14	14
+node	Right	id-uwis9dpb4om-92	136	37
+node	id-uwis9dpb4om-92		0	0
+edge	id-uwis9dpb4om-92_start	Right	edge1	1	1	0	0	10	c
+size	222	317
+place	id-uwis9dpb4om-92_start	111	77.5	14	14
+place	Right	111	228	136	37
+place	id-uwis9dpb4om-92	111	158.5	206	301
+route	id-uwis9dpb4om-92_start	Right	edge1			111,84.5 111,147 111,209.5
+layout	3
+graph	TB	50	20	125	8	8
+node	Deep_start	Deep	14	14
+node	Done	Deep	136	37
+node	Deep		0	0
+edge	Deep_start	Done	edge4	1	1	0	0	10	c
+size	222	317
+place	Deep_start	111	77.5	14	14
+place	Done	111	228	136	37
+place	Deep	111	158.5	206	301
+route	Deep_start	Done	edge4			111,84.5 111,147 111,209.5
+layout	4
+graph	TB	50	20	100	8	8
+node	divider-id-1	Concurrent	206	301
+node	id-uwis9dpb4om-92	Concurrent	206	301
+node	Concurrent		0	0
+size	548	417
+place	divider-id-1	146	208.5	206	301
+place	id-uwis9dpb4om-92	402	208.5	206	301
+place	Concurrent	274	208.5	532	401
+layout	5
+graph	TB	50	20	100	8	8
+node	Finish_start	Finish	14	14
+node	Flush	Finish	136	37
+node	Deep	Finish	206	301
+node	Finish		0	0
+edge	Finish_start	Flush	edge3	1	1	0	0	10	c
+size	478	531
+place	Finish_start	111	65	14	14
+place	Flush	111	322.5	136	37
+place	Deep	332	322.5	206	301
+place	Finish	239	265.5	462	515
+route	Finish_start	Flush	edge3			111,72 111,122 111,304
+layout	6
+graph	TB	50	20	75	8	8
+node	Concurrent	Machine	532	401
+node	Finish	Machine	462	515
+node	Machine		0	0
+edge	Concurrent	Finish	edge2	1	1	0	0	10	c
+size	618	1082
+place	Concurrent	309	246	532	401
+place	Finish	309	779	462	515
+place	Machine	309	541	602	1066
+route	Concurrent	Finish	edge2			309,446.5 309,484 309,521.5
+layout	7
+graph	TB	50	20	50	8	8
+node	Machine		602	1066
+size	618	1082
+place	Machine	309	541	602	1066

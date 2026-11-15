@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9be7bba123eec1af
+accept	yes
+actor	Admin	Admin	actor
+actor	AuthService	AuthService	boundary
+actor	Dashboard	Dashboard	participant
+actor	Logs	Logs	collections
+actor	UserDB	UserDB	database
+actor	UserManager	UserManager	control
+actor	UserProfile	UserProfile	entity
+block	loop	Authentication check
+drawn	yes
+message	Admin	Dashboard	solid	filled	Open user management
+message	AuthService	Dashboard	solid	filled	Access granted
+message	Dashboard	AuthService	solid	filled	Verify admin rights
+message	Dashboard	Logs	solid	filled	Record access
+message	Dashboard	UserManager	solid	filled	List users
+message	Logs	Admin	solid	filled	Audit trail
+message	UserDB	UserManager	solid	filled	Return user data
+message	UserManager	Dashboard	solid	filled	Display users
+message	UserManager	UserDB	solid	filled	Query users
+message	UserManager	UserProfile	solid	filled	Format profiles
+message	UserProfile	UserManager	solid	filled	Formatted data
+note	right	UserDB	Encrypted data requires decryption
+type	sequence

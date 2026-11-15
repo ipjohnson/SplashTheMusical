@@ -1,0 +1,29 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3bf8156297ac7c6
+box	entity	ApiDeclaration	592.383	234	131.063	81
+box	entity	CrossLinkDeclaration	379.32	234	173.062	81
+box	entity	DocumentationSet	484.289	12	155.188	81
+box	entity	Product	763.445	234	100	81
+box	entity	Redirect	247.18	234	92.141	81
+box	entity	Registry	903.445	234	100	81
+box	entity	TableOfContents	62.883	234	144.297	81
+box	entity	TocItem	85.031	416	100	81
+box	relation	DocumentationSet --> ApiDeclaration	571.539	93	86.375	141
+box	relation	DocumentationSet --> CrossLinkDeclaration	465.852	93	86.375	141
+box	relation	DocumentationSet --> Product	590.852	93	222.594	141
+box	relation	DocumentationSet --> Redirect	293.25	93	239.664	141
+box	relation	DocumentationSet --> Registry	610.164	93	343.281	141
+box	relation	DocumentationSet --> TableOfContents	135.031	93	378.57	141
+box	relation	TableOfContents --> TocItem	135.031	315	0	101
+box	relation	TocItem --> TocItem	65.031	447	20	19
+box	relation-label	DocumentationSet --> ApiDeclaration	648.414	173	18.687	21
+box	relation-label	DocumentationSet --> CrossLinkDeclaration	430.852	173	69.25	21
+box	relation-label	DocumentationSet --> Product	786.445	173	53.703	21
+box	relation-label	DocumentationSet --> Redirect	253.25	173	79.359	21
+box	relation-label	DocumentationSet --> Registry	930.445	173	45.906	21
+box	relation-label	DocumentationSet --> TableOfContents	125.531	173	18.688	21
+box	relation-label	TableOfContents --> TocItem	113.531	355	42.031	21
+box	relation-label	TocItem --> TocItem	12	446	49.031	21
+canvas	4	4	1007.445	501
+font	Liberation Sans	312

@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3b111e119d91137f
+box	axis	x-left	80.977	476.203	80.047	17
+box	axis	x-right	311.195	476.203	83.609	17.32
+box	axis	y-bottom	476.203	300.734	17.32	124.531
+box	axis	y-top	476.203	86.953	17.32	128.094
+box	quadrant	1	237	45	232	212
+box	quadrant	2	5	45	232	212
+box	quadrant	3	5	257	232	212
+box	quadrant	4	237	257	232	212
+box	title	Reach and engagement of campaigns	80.992	6.406	338.016	22.15
+canvas	0	0	500	500
+font	Liberation Sans	276

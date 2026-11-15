@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0cef65d95cd6da33
+accept	yes
+direction	TD
+drawn	yes
+label	is_valid?
+node	d	is_valid?	diam	decision
+type	agentflow

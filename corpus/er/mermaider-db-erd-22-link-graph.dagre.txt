@@ -1,0 +1,50 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e748adb9976fd17f
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-LinkManifest-1		118.59375	81
+node	entity-GitOrigin-2		95.234375	81
+node	entity-LinkManifestPage-3		151.296875	81
+node	entity-Anchor-4		100	81
+node	entity-Redirect-5		92.140625	81
+node	entity-CrossLinkUri-6		120.125	81
+node	entity-Registry-7		100	81
+node	entity-LinkRegistry-8		117.03125	81
+node	entity-LinkRegistryEntry-9		149.703125	81
+node	entity-Checkout-10		99.15625	81
+node	entity-LinkRegistrySnapshot-11		176.1875	81
+edge	entity-DocumentationSet-0	entity-LinkManifest-1	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	1	1	66.9375	21	10	c
+edge	entity-LinkManifest-1	entity-GitOrigin-2	id_entity-LinkManifest-1_entity-GitOrigin-2_1	1	1	34.25	21	10	c
+edge	entity-LinkManifest-1	entity-LinkManifestPage-3	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	1	1	28.015625	21	10	c
+edge	entity-LinkManifestPage-3	entity-Anchor-4	id_entity-LinkManifestPage-3_entity-Anchor-4_3	1	1	49.8125	21	10	c
+edge	entity-LinkManifest-1	entity-Redirect-5	id_entity-LinkManifest-1_entity-Redirect-5_4	1	1	53.6875	21	10	c
+edge	entity-LinkManifest-1	entity-CrossLinkUri-6	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	1	1	140.859375	21	10	c
+edge	entity-Registry-7	entity-LinkRegistry-8	id_entity-Registry-7_entity-LinkRegistry-8_6	1	1	88.71875	21	10	c
+edge	entity-LinkRegistry-8	entity-LinkRegistryEntry-9	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	1	1	111.015625	21	10	c
+edge	entity-LinkRegistryEntry-9	entity-LinkManifest-1	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	1	1	27.25	21	10	c
+edge	entity-Checkout-10	entity-LinkRegistrySnapshot-11	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	1	1	149.421875	21	10	c
+size	943.06640625	1007
+place	entity-DocumentationSet-0	267.91796875	412.5	155.1875	81
+place	entity-LinkManifest-1	449.7421875	594.5	118.59375	81
+place	entity-GitOrigin-2	55.6171875	776.5	95.234375	81
+place	entity-LinkManifestPage-3	318.8828125	776.5	151.296875	81
+place	entity-Anchor-4	318.8828125	958.5	100	81
+place	entity-Redirect-5	580.6015625	776.5	92.140625	81
+place	entity-CrossLinkUri-6	826.734375	776.5	120.125	81
+place	entity-Registry-7	560.36328125	48.5	100	81
+place	entity-LinkRegistry-8	560.36328125	230.5	117.03125	81
+place	entity-LinkRegistryEntry-9	560.36328125	412.5	149.703125	81
+place	entity-Checkout-10	846.97265625	48.5	99.15625	81
+place	entity-LinkRegistrySnapshot-11	846.97265625	230.5	176.1875	81
+route	entity-DocumentationSet-0	entity-LinkManifest-1	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	267.91796875	503.5	267.91796875,453 267.91796875,503.5 390.4453125,564.8228994349797
+route	entity-LinkManifest-1	entity-GitOrigin-2	id_entity-LinkManifest-1_entity-GitOrigin-2_1	55.6171875	685.5	390.4453125,608.1911274976213 55.6171875,685.5 55.6171875,736
+route	entity-LinkManifest-1	entity-LinkManifestPage-3	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	318.8828125	685.5	391.50257554945057,635 318.8828125,685.5 318.8828125,736
+route	entity-LinkManifestPage-3	entity-Anchor-4	id_entity-LinkManifestPage-3_entity-Anchor-4_3	318.8828125	867.5	318.8828125,817 318.8828125,867.5 318.8828125,918
+route	entity-LinkManifest-1	entity-Redirect-5	id_entity-LinkManifest-1_entity-Redirect-5_4	580.6015625	685.5	507.98179945054943,635 580.6015625,685.5 580.6015625,736
+route	entity-LinkManifest-1	entity-CrossLinkUri-6	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	826.734375	685.5	509.0390625,608.8133354056574 826.734375,685.5 826.734375,736
+route	entity-Registry-7	entity-LinkRegistry-8	id_entity-Registry-7_entity-LinkRegistry-8_6	560.36328125	139.5	560.36328125,89 560.36328125,139.5 560.36328125,190
+route	entity-LinkRegistry-8	entity-LinkRegistryEntry-9	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	560.36328125	321.5	560.36328125,271 560.36328125,321.5 560.36328125,372
+route	entity-LinkRegistryEntry-9	entity-LinkManifest-1	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	560.36328125	503.5	560.36328125,453 560.36328125,503.5 498.9746523008242,554
+route	entity-Checkout-10	entity-LinkRegistrySnapshot-11	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	846.97265625	139.5	846.97265625,89 846.97265625,139.5 846.97265625,190

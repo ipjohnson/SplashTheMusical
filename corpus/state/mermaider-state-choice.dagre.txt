@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 48b724d65c7171fc
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Evaluate		136	37
+node	checkResult		28	28
+node	Positive		136	37
+node	Negative		136	37
+node	Neutral		136	37
+node	root_end		14.013293266296387	14
+node	Retry		136	37
+edge	root_start	Evaluate	edge0	1	1	0	0	10	c
+edge	Evaluate	checkResult	edge1	1	1	0	0	10	c
+edge	checkResult	Positive	edge2	1	1	68.875	21	10	c
+edge	checkResult	Negative	edge3	1	1	68.875	21	10	c
+edge	checkResult	Neutral	edge4	1	1	68.875	21	10	c
+edge	Positive	root_end	edge5	1	1	0	0	10	c
+edge	Negative	Retry	edge6	1	1	0	0	10	c
+edge	Neutral	root_end	edge7	1	1	0	0	10	c
+edge	Retry	Evaluate	edge8	1	1	0	0	10	c
+size	575.5	390
+place	root_start	406.5	15	14	14
+place	Evaluate	406.5	90.5	136	37
+place	checkResult	262	173	28	28
+place	Positive	76	276.5	136	37
+place	Negative	448	276.5	136	37
+place	Neutral	262	276.5	136	37
+place	root_end	169	363.5	14.013293266296387	14
+place	Retry	499.5	363.5	136	37
+route	root_start	Evaluate	edge0			406.5,22 406.5,47 406.5,72
+route	Evaluate	checkResult	edge1			345.04597701149424,109 262,134 262,159
+route	checkResult	Positive	edge2	76	222.5	248,176.7258064516129 76,222.5 76,258
+route	checkResult	Negative	edge3	448	222.5	276,176.7258064516129 448,222.5 448,258
+route	checkResult	Neutral	edge4	262	222.5	262,187 262,222.5 262,258
+route	Positive	root_end	edge5			76,295 76,320 161.9933533668518,360.22269754255973
+route	Negative	Retry	edge6			448,295 448,320 477.5977011494253,345
+route	Neutral	root_end	edge7			262,295 262,320 176.0066466331482,360.22269754255973
+route	Retry	Evaluate	edge8			521.4022988505748,345 551,320 551,276.5 551,222.5 551,173 551,134 467.95402298850576,109

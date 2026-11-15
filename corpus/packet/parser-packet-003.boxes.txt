@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ac937f84e709cd17
+box	field	0-10	1	15	347	32
+box	title	Packet diagram	464.395	61.114	97.21	15.99
+canvas	0	0	1026	94
+font	Liberation Sans	42

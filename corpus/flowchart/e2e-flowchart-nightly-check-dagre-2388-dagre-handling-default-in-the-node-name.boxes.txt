@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a194d95f2d926b7e
+box	edge	default-index.js --> dot.template.js	160	30.5	46	0
+box	edge	index.js --> module-utl.js	160	125.5	46	0
+box	node	default-index.js	8	8	152	45
+box	node	dot.template.js	210	8	152	45
+box	node	index.js	8	103	152	45
+box	node	module-utl.js	210	103	152	45
+canvas	0	0	370	156
+font	Liberation Sans	104

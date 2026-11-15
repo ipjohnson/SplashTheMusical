@@ -1,0 +1,35 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7645c4273c309306
+box	actor	Alice	5	27	150	90
+box	actor	Bob	249	27	150	90
+box	actor	John	489	27	150	90
+box	actor-bottom	Alice	5	901	150	90
+box	actor-bottom	Bob	249	901	150	90
+box	actor-bottom	John	489	901	150	90
+box	block	alt either this	69	446	506	267
+box	block	par this happens in parallel	69	723	506	158
+box	box	Alice and Bob	-20	-5	444	1016
+box	message	Alice --> Bob	81	161	236	0
+box	message	Alice --> Bob #2	81	802	236	0
+box	message	Alice --> John	81	525	476	0
+box	message	Alice --> John #2	81	614	476	0
+box	message	Alice --> John #3	81	703	482	0
+box	message	Alice --> John #4	81	871	476	0
+box	message	Bob --> Alice	87	249	236	0
+box	message	Bob --> Alice #2	84	436	239	0
+box	message	Bob --> John	325	205	232	0
+box	message	Bob --> John #2	325	293	232	0
+box	message-text	Alice --> Bob	111.851	137.819	174.299	17.73
+box	message-text	Alice --> Bob #2	130.974	778.819	136.052	17.73
+box	message-text	Alice --> John	305.948	501.819	26.104	17.499
+box	message-text	Alice --> John #2	308.771	590.819	20.458	17.499
+box	message-text	Alice --> John #3	297.987	679.819	48.026	17.73
+box	message-text	Alice --> John #4	250.974	847.819	136.052	17.73
+box	message-text	Bob --> Alice	141.421	225.819	127.157	17.73
+box	message-text	Bob --> Alice #2	127.973	412.819	152.055	17.73
+box	message-text	Bob --> John	363.63	181.819	154.741	17.73
+box	message-text	Bob --> John #2	377.421	269.819	127.157	17.73
+box	note	Bob thinks a long long time, so long that the text does not fit on a row.	589	303	150	89
+canvas	-50	-10	839	1052
+font	Liberation Sans	694

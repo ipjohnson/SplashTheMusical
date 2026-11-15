@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e1d0405f57741186
+accept	yes
+drawn	yes
+label	Long Word Test
+label	Supercalifragilisticexpialidocious
+label	Test
+label	VeryLongWord
+section	Test
+task	Test	VeryLongWord	5	Supercalifragilisticexpialidocious
+title	Long Word Test
+type	journey

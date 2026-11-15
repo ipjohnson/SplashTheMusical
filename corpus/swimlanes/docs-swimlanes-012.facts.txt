@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3328f094a66a6a94
+accept	yes
+drawn	yes
+edge	intake	plan	none	arrow	solid
+edge	plan	review	none	arrow	solid
+group	legal	Legal	review
+group	ops	Operations	intake,plan
+node	intake	Receive request	rect
+node	plan	Plan work	rect
+node	review	Review contract	rect
+type	swimlane

@@ -1,0 +1,6 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b37d7faa66b50a0f
+accept	yes
+drawn	yes
+type	timeline

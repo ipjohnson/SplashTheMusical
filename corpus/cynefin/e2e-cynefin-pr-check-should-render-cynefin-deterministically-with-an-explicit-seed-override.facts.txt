@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 61cb7984d7dfe6d5
+accept	yes
+drawn	yes
+item	chaotic	0	Act
+item	clear	0	Categorise
+item	complex	0	Probe
+item	complicated	0	Analyse
+label	Act
+label	Analyse
+label	Categorise
+label	Probe
+label	Seeded Boundaries
+title	Seeded Boundaries
+type	cynefin

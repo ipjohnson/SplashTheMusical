@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5d20f8b251ec264d
+accept	yes
+class	Duck	Duck
+drawn	yes
+method	Duck	+quack()
+method	Duck	+swim()
+type	classDiagram

@@ -1,0 +1,22 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c02c64e654fcdb45
+accept	yes
+direction	TD
+drawn	yes
+edge	enrich	publish	sequence
+edge	receive	validate	sequence
+edge	validate	enrich	sequence
+flow	intake	Intake	receive
+flow	output	Output	publish
+flow	processing	Processing	enrich,validate
+label	Intake
+label	Output
+label	Processing
+label	Publish
+label	Receive request
+node	enrich	Enrich	rounded	task
+node	publish	Publish	hex	action
+node	receive	Receive request	lean-r	input
+node	validate	Validate	rounded	task
+type	agentflow

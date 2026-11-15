@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6fc2474e125b7cb5
+accept	yes
+annotation	Payment	«interface»
+attribute	Customer	+String email
+attribute	Customer	+String name
+attribute	LineItem	+int quantity
+attribute	Order	+Date placedAt
+attribute	Order	+String id
+class	Customer	Customer
+class	LineItem	LineItem
+class	Order	Order
+class	Payment	Payment
+drawn	yes
+method	Order	+total() : Money
+method	Payment	+authorise() : bool
+relation	Customer	Order	none	arrow	solid	places	1	*
+relation	Order	LineItem	diamond-filled	none	solid	contains	1	*
+relation	Order	Payment	none	arrow	solid	settled by
+type	classDiagram

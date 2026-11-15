@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e5b8b271aac85395
+box	nonterminal	country-code / DIGIT	166.281	96.82	62.672	37
+box	nonterminal	phone / country-code	157.625	30	112.5	37.32
+box	nonterminal	phone / subscriber	300.125	30.16	93.813	37
+box	nonterminal	subscriber / DIGIT	167.594	181.82	62.672	37
+box	rule	country-code	0	96.82	263.953	57
+box	rule	phone	0	10	408.938	57.32
+box	rule	subscriber	0	181.82	285.266	130
+canvas	0	0	428.938	349.82
+font	Liberation Sans	134

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 39c13d4702dec9e1
+accept	yes
+drawn	yes
+item	chaotic	0	Item D
+item	clear	0	Item C
+item	complex	0	Item A
+item	complicated	0	Item B
+label	Item A
+label	Item B
+label	Item C
+label	Item D
+label	Straight Boundaries
+title	Straight Boundaries
+type	cynefin

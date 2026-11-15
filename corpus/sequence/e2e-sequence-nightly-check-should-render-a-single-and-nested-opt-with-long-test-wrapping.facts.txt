@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ef566a213f4d6318
+accept	yes
+actor	A	A	participant
+actor	B	B	participant
+actor	C	C	participant
+actor	D	D	participant
+actor	E	E	participant
+actor	G	G	participant
+block	opt	this is a nested opt with a long title that will overflow
+block	opt	this is an opt with a long title that will overflow
+block	opt	this is another opt with a long title that will overflow
+drawn	yes
+message	A	B	solid	filled	Task 1
+message	A	D	solid	filled	Task 3
+message	B	C	solid	filled	Task 2
+message	C	B	dashed	filled	Return
+message	D	A	dashed	filled	Complete
+message	D	E	solid	filled	Task 4
+message	E	E	solid	filled	Task 6
+message	E	G	solid	filled	Task 5
+message	G	E	dashed	filled	Return
+type	sequence

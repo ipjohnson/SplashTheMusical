@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6d6a10a8db6787d4
+accept	yes
+direction	TD
+drawn	yes
+edge	alpha	beta	sequence
+label	Alpha
+label	Beta
+node	alpha	Alpha	square	task
+node	beta	Beta	square	task
+type	agentflow

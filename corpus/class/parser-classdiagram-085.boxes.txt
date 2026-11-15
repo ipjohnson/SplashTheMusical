@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e13577f76590bd76
+box	class	Car	62.668	194	72.25	81
+box	class	Driver	66.559	12	64.469	81
+box	class	Person	117.234	376	71.469	81
+box	class	Wheel	12	376	65.234	81
+box	relation	Car --> Person	107.501	275	45.467	101
+box	relation	Car --> Wheel	44.617	292.25	45.467	83.75
+box	relation	Driver --> Car	98.793	93	0	101
+box	relation-label	Car --> Person	130.469	315	44.75	21
+box	relation-label	Car --> Wheel	17.117	315	54.109	21
+box	relation-label	Driver --> Car	73.793	133	49.422	21
+canvas	4	4	192.703	461
+font	Liberation Sans	90

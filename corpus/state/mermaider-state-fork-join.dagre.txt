@@ -1,0 +1,44 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 33859bb5fa91e0c1
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Ready		136	37
+node	fork_point		70	10
+node	join_point		70	10
+node	TaskA		136	37
+node	TaskB		136	37
+node	TaskC		136	37
+node	Complete		136	37
+node	root_end		14.013293266296387	14
+edge	root_start	Ready	edge0	1	1	0	0	10	c
+edge	Ready	fork_point	edge1	1	1	0	0	10	c
+edge	fork_point	TaskA	edge2	1	1	0	0	10	c
+edge	fork_point	TaskB	edge3	1	1	0	0	10	c
+edge	fork_point	TaskC	edge4	1	1	0	0	10	c
+edge	TaskA	join_point	edge5	1	1	0	0	10	c
+edge	TaskB	join_point	edge6	1	1	0	0	10	c
+edge	TaskC	join_point	edge7	1	1	0	0	10	c
+edge	join_point	Complete	edge8	1	1	0	0	10	c
+edge	Complete	root_end	edge9	1	1	0	0	10	c
+size	524	475
+place	root_start	262	15	14	14
+place	Ready	262	90.5	136	37
+place	fork_point	262	164	70	10
+place	join_point	262	311	70	10
+place	TaskA	76	237.5	136	37
+place	TaskB	262	237.5	136	37
+place	TaskC	448	237.5	136	37
+place	Complete	262	384.5	136	37
+place	root_end	262	460	14.013293266296387	14
+route	root_start	Ready	edge0			262,22 262,47 262,72
+route	Ready	fork_point	edge1			262,109 262,134 262,159
+route	fork_point	TaskA	edge2			231,169 76,194 76,219
+route	fork_point	TaskB	edge3			262,169 262,194 262,219
+route	fork_point	TaskC	edge4			293,169 448,194 448,219
+route	TaskA	join_point	edge5			76,256 76,281 231,306
+route	TaskB	join_point	edge6			262,256 262,281 262,306
+route	TaskC	join_point	edge7			448,256 448,281 293,306
+route	join_point	Complete	edge8			262,316 262,341 262,366
+route	Complete	root_end	edge9			262,403 262,428 262,453

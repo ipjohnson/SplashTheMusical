@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ad0510ddfd47f226
+box	actor	API	20	0	107.914	67
+box	actor-bottom	API	20	173	107.914	67
+box	message	API --> API	76	115.381	45	23.238
+box	message-text	API --> API	63.102	94.219	25.797	17.016
+canvas	-50	-10	251	291
+font	Liberation Sans	60

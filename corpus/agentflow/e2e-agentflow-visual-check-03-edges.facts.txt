@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source adfb6173879504f9
+accept	yes
+direction	TD
+drawn	yes
+edge	check	fix	sequence	no
+edge	check	ship	sequence	yes
+edge	fix	check	failure
+edge	fix	logs	reference
+label	Build logs
+label	Fix the build
+label	Ship it
+label	Tests pass?
+label	no
+label	yes
+node	check	Tests pass?	diam	decision
+node	fix	Fix the build	rounded	task
+node	logs	Build logs	lin-doc	refdoc
+node	ship	Ship it	hex	action
+type	agentflow

@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a74c5de6ef55136d
+accept	yes
+actor	DB	DB	participant
+actor	Service	Service	participant
+block	critical	Establish a connection to the DB
+drawn	yes
+message	Service	DB	dashed	none	connect
+type	sequence

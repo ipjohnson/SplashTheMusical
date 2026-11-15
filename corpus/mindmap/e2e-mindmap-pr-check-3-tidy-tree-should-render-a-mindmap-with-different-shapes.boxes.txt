@@ -1,0 +1,36 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7c6023dc0ae1e8bf
+box	edge	mindmap / Origins	-116.026	-41	71	61
+box	edge	mindmap / Origins / Long history	-246.714	-68	40	27
+box	edge	mindmap / Origins / Popularisation	-246.714	-41	40	27
+box	edge	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	-428.12	-14	40	0
+box	edge	mindmap / Research	45.026	17	71	3
+box	edge	mindmap / Research / On Automatic creation	224.51	17	40	39
+box	edge	mindmap / Research / On Automatic creation / Uses	461.932	56	40	0
+box	edge	mindmap / Research / On Automatic creation / Uses / Argument mapping	578.385	56	40	54
+box	edge	mindmap / Research / On Automatic creation / Uses / Creative techniques	578.385	2	40	54
+box	edge	mindmap / Research / On Automatic creation / Uses / Strategic planning	578.385	56	40	0
+box	edge	mindmap / Research / On effectiveness<br/>and features	224.51	-10	40	27
+box	edge	mindmap / Tools	-116.026	20	71	55
+box	edge	mindmap / Tools / I am a cloud	-254.21	75	60.825	0
+box	edge	mindmap / Tools / I am a cloud / I am a bang	-439.795	75	104.887	0
+box	edge	mindmap / Tools / I am a cloud / I am a bang / Tools	-603.858	75	84.063	0
+box	node	mindmap	-45.026	-25.026	90.052	90.052
+box	node	mindmap / Origins	-206.713	-58	90.687	34
+box	node	mindmap / Origins / Long history	-373.885	-85	127.172	34
+box	node	mindmap / Origins / Popularisation	-388.12	-31	141.406	34
+box	node	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	-668.12	-43	240	58
+box	node	mindmap / Research	116.026	0	108.484	34
+box	node	mindmap / Research / On Automatic creation	264.51	39	197.422	34
+box	node	mindmap / Research / On Automatic creation / Uses	501.932	39	76.453	34
+box	node	mindmap / Research / On Automatic creation / Uses / Argument mapping	618.385	93	175.188	34
+box	node	mindmap / Research / On Automatic creation / Uses / Creative techniques	618.385	-15	181.422	34
+box	node	mindmap / Research / On Automatic creation / Uses / Strategic planning	618.385	39	168.094	34
+box	node	mindmap / Research / On effectiveness<br/>and features	264.51	-39	240	58
+box	node	mindmap / Tools	-193.385	58	77.359	34
+box	node	mindmap / Tools / I am a cloud	-353.486	36.081	122.347	80.698
+box	node	mindmap / Tools / I am a cloud / I am a bang	-560.495	36.6	168.125	80
+box	node	mindmap / Tools / I am a cloud / I am a bang / Tools	-681.217	58	77.359	34
+canvas	-691.217	-95	1501.024	232
+font	Liberation Sans	472

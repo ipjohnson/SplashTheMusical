@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e88b986370a6f021
+accept	yes
+actor	Queue	Queue	participant
+actor	Service	Service	participant
+drawn	yes
+message	Queue	Queue	solid	filled	Process internally
+message	Queue	Service	dashed	filled	Ack
+message	Service	Queue	solid	filled	Send
+message	Service	Service	solid	filled	Initialize
+type	sequence

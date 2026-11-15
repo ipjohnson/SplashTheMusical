@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a12c8c465366a5fb
+box	domain-label	chaotic	210.667	449.635	58.666	17.959
+box	domain-label	clear	619.989	449.635	40.023	17.959
+box	domain-label	complex	206.221	149.635	67.558	17.959
+box	domain-label	complicated	592.006	149.635	95.988	17.959
+box	domain-label	confusion	400.46	319.635	79.081	17.959
+box	item	chaotic / 0	225.659	515	28.682	26
+box	item	clear / 0	625.659	515	28.682	26
+box	item	complex / 0	225.992	215	28.015	26
+box	item	complicated / 0	625.993	215	28.015	26
+box	item	confusion / 0	425.992	362	28.015	26
+canvas	0	0	880	680
+font	Liberation Sans	420

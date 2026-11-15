@@ -1,0 +1,60 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9b5192218252a0ec
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Charlie	Charlie	participant
+actor	David	David	participant
+drawn	yes
+message	Alice	Alice	solid	filled	Self-reference solid
+message	Alice	Alice	solid	filled-both	Self-ref bidirectional solid
+message	Alice	Bob	dashed	cross	Cross with circle at destination
+message	Alice	Bob	dashed	cross	Dual circles with cross
+message	Alice	Bob	solid	filled	Dual circles with solid
+message	Alice	Bob	solid	filled	Regular message
+message	Alice	Bob	solid	filled	Solid arrow (->>)
+message	Alice	Bob	solid	filled	Solid with circle at destination
+message	Alice	Bob	solid	filled-both	Bidirectional back
+message	Alice	Bob	solid	filled-both	Bidirectional solid (<<->>)
+message	Alice	Bob	solid	filled-both	Dual circles with bidirectional solid
+message	Alice	Bob	solid	open	Solid point async (-)
+message	Alice	Charlie	dashed	filled	Dotted with circle at destination
+message	Alice	Charlie	dashed	filled	Dual circles with dotted
+message	Alice	Charlie	solid	none	Solid open arrow (->)
+message	Alice	David	solid	cross	Solid cross (-x)
+message	Alice	David	solid	none	Dual circles with open
+message	Alice	David	solid	none	Open with circle at destination
+message	Bob	Alice	dashed	cross	Circle at source with cross
+message	Bob	Alice	dashed	filled	Dotted arrow (-->>)
+message	Bob	Alice	dashed	open	Dotted point async (--)
+message	Bob	Alice	solid	filled	Circle at source with solid
+message	Bob	Bob	dashed	filled	Self-reference dotted
+message	Bob	Bob	dashed	filled-both	Self-ref bidirectional dotted
+message	Bob	Charlie	dashed	none	Dotted open arrow (-->)
+message	Bob	Charlie	solid	cross	Cross message
+message	Bob	Charlie	solid	filled	Central dual connection
+message	Bob	David	dashed	cross	Dotted cross (--x)
+message	Charlie	Bob	dashed	filled	Circle at source with dotted
+message	Charlie	Charlie	solid	none	Self-reference open
+message	Charlie	David	dashed	filled	Dotted response
+message	Charlie	David	dashed	filled-both	Bidirectional dotted (<<-->>)
+message	Charlie	David	dashed	filled-both	Dual circles with bidirectional dotted
+message	Charlie	David	solid	filled	Central reverse
+message	David	Alice	dashed	filled	Dotted with circle
+message	David	Alice	solid	none	Circle at source with open
+message	David	David	solid	cross	Self-reference cross
+note	over	Alice,David	BIDIRECTIONAL ARROWS
+note	over	Alice,David	BIDIRECTIONAL WITH CENTRAL CONNECTIONS
+note	over	Alice,David	CENTRAL CONNECTIONS (Circle at destination)
+note	over	Alice,David	CENTRAL CONNECTIONS DUAL (Circles at both ends)
+note	over	Alice,David	CENTRAL CONNECTIONS REVERSE (Circle at source)
+note	over	Alice,David	DOTTED ARROWS (Dashed line)
+note	over	Alice,David	DOTTED REVERSE ARROWS
+note	over	Alice,David	MIXED COMPLEX SCENARIO
+note	over	Alice,David	REVERSE ARROWS (Half arrows)
+note	over	Alice,David	SELF-REFERENCES (Same participant)
+note	over	Alice,David	SELF-REFERENCES BIDIRECTIONAL
+note	over	Alice,David	SELF-REFERENCES WITH REVERSE ARROWS
+note	over	Alice,David	SOLID ARROWS (Filled arrowhead)
+type	sequence

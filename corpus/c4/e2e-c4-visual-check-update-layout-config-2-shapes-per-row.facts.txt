@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cda9311b008e7304
+accept	yes
+drawn	yes
+element	a	system	internal	A
+element	b	system	internal	B
+element	c	system	internal	C
+element	d	system	internal	D
+label	A
+label	B
+label	C
+label	D
+label	UpdateLayoutConfig ($c4ShapeInRow=2)
+title	UpdateLayoutConfig ($c4ShapeInRow=2)
+type	c4

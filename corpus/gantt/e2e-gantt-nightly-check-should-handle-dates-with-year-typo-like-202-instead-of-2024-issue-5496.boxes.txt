@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b270c6ac69c5e51b
+box	section	Vacation	10	68	42	12
+box	task	Vacation / London	709	50	0	20
+box	task	Vacation / London #2	75	74	0	20
+box	task-text	Vacation / London	714	53.5	36.719	12
+box	task-text	Vacation / London #2	80	77.5	36.719	12
+box	title	Schedule	354.469	9	75.063	20
+canvas	0	0	784	148
+font	Liberation Sans	146

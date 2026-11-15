@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 76f8bf059b800932
+box	section	Backend	10	68	42.813	12
+box	section	Frontend	10	116	44.031	12
+box	section	Release	10	176	40.359	12
+box	task	Backend / API design	75	50	159	20
+box	task	Backend / Implement	234	74	237	20
+box	task	Frontend / Build	234	122	237	20
+box	task	Frontend / UI design	75	98	159	20
+box	task	Release / Integration	471	146	159	20
+box	task	Release / Launch	697.686	192.686	22.627	22.627
+box	task	Release / QA	630	170	79	20
+box	task-text	Backend / API design	127.898	53.5	53.203	12.283
+box	task-text	Backend / Implement	326.82	77.5	51.359	12.283
+box	task-text	Frontend / Build	340.266	125.5	24.469	12
+box	task-text	Frontend / UI design	131.258	101.5	46.484	12.283
+box	task-text	Release / Integration	524.508	149.5	51.984	12.283
+box	task-text	Release / Launch	657.906	197.5	36.094	12
+box	task-text	Release / QA	661.547	173.5	15.906	12.079
+box	title	Multi-dependency demo	295.938	9	192.125	20
+canvas	0	0	784	268
+font	Liberation Sans	370

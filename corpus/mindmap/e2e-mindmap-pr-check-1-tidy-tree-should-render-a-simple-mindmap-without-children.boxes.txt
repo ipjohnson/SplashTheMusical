@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d43bcaf178e7445a
+box	edge	mindmap / A	-116.026	17	71	3
+box	edge	mindmap / B	45.026	17	71	3
+box	node	mindmap	-45.026	-25.026	90.052	90.052
+box	node	mindmap / A	-166.698	0	50.672	34
+box	node	mindmap / B	116.026	0	50.672	34
+canvas	-176.698	-35.026	353.396	110.052
+font	Liberation Sans	18

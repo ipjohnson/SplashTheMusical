@@ -1,0 +1,48 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7047a4ca2f537f46
+layout	1
+graph	LR	50	20	75	8	8
+node	lb2	subnet2	152	45
+node	compute2	subnet2	152	45
+node	subnet2		0	0
+size	243	226
+place	lb2	121.5	65.5	152	45
+place	compute2	121.5	160.5	152	45
+place	subnet2	121.5	113	227	210
+layout	2
+graph	LR	50	20	75	8	8
+node	lb1	subnet1	152	45
+node	compute1	subnet1	152	45
+node	subnet1		0	0
+size	243	226
+place	lb1	121.5	65.5	152	45
+place	compute1	121.5	160.5	152	45
+place	subnet1	121.5	113	227	210
+layout	3
+graph	TB	50	20	50	8	8
+node	project		0	0
+node	subnet2	project	227	210
+node	subnet1	project	227	210
+node	internet		152	45
+node	nat	project	152	45
+node	router	project	152	45
+edge	internet	router	L_internet_router_0	1	1	0	0	10	c
+edge	nat	internet	L_nat_internet_0	1	1	0	0	10	c
+edge	router	subnet1	L_router_subnet1_0	1	1	0	0	10	c
+edge	router	subnet2	L_router_subnet2_0	1	1	0	0	10	c
+edge	subnet1	nat	L_subnet1_nat_0	1	1	0	0	10	c
+edge	subnet2	nat	L_subnet2_nat_0	1	1	0	0	10	c
+size	593.5	821
+place	project	390.25	410.5	390.5	805
+place	subnet2	380.25	138	227	210
+place	subnet1	437	683	227	210
+place	internet	84	410.5	152	45
+place	nat	324.75	315.5	152	45
+place	router	381.5	505.5	152	45
+route	internet	router	L_internet_router_0			160,428.87150127226465 280.5,458 333.6578947368421,483
+route	nat	internet	L_nat_internet_0			324.75,338 324.75,363 160,395.50519210799587
+route	router	subnet1	L_router_subnet1_0			381.5,528 381.5,553 392.1730769230769,578
+route	router	subnet2	L_router_subnet2_0			407.1973684210526,483 435.75,458 435.75,410.5 435.75,363 435.75,315.5 435.75,268 425.0769230769231,243
+route	subnet1	nat	L_subnet1_nat_0			488.8942307692308,578 501.25,553 501.25,505.5 501.25,458 501.25,410.5 501.25,363 400.75,335.9532577903683
+route	subnet2	nat	L_subnet2_nat_0			335.4230769230769,243 324.75,268 324.75,293

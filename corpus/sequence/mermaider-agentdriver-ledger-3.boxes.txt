@@ -1,0 +1,47 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 269d609153223df6
+box	actor	C	1179	0	150	73
+box	actor	E	577	0	150	73
+box	actor	L	344	0	150	73
+box	actor	R	906	0	150	73
+box	actor	S	0	0	150	73
+box	actor-bottom	C	1179	887	150	73
+box	actor-bottom	E	577	887	150	73
+box	actor-bottom	L	344	887	150	73
+box	actor-bottom	R	906	887	150	73
+box	actor-bottom	S	0	887	150	73
+box	message	C --> R	988	617	271	0
+box	message	C --> R #2	988	661	271	0
+box	message	E --> R	659	279	315	0
+box	message	E --> R #2	659	485	315	0
+box	message	L --> E	426	235	219	0
+box	message	L --> E #2	426	441	219	0
+box	message	L --> L	420	159.381	45	23.238
+box	message	L --> L #2	420	365.381	45	23.238
+box	message	L --> L #3	420	747.381	45	23.238
+box	message	L --> S	82	823	342	0
+box	message	R --> C	988	529	259	0
+box	message	R --> L	426	323	560	0
+box	message	R --> L #2	426	573	560	0
+box	message	R --> L #3	426	705	560	0
+box	message	S --> L	82	117	330	0
+box	message	S --> L #2	82	867	330	0
+box	message-text	C --> R	1019.681	593.633	202.638	18.228
+box	message-text	C --> R #2	1077.909	637.633	86.182	18.228
+box	message-text	E --> R	684.699	255.633	258.603	18.228
+box	message-text	E --> R #2	764.672	461.633	98.656	18.228
+box	message-text	L --> E	475.384	211.633	115.232	18.228
+box	message-text	L --> E #2	479.371	417.633	107.258	18.228
+box	message-text	L --> L	247.294	137.633	345.411	18.228
+box	message-text	L --> L #2	322.839	343.633	194.322	18.228
+box	message-text	L --> L #3	253.233	725.633	333.535	18.228
+box	message-text	L --> S	211.352	799.633	77.296	18.227
+box	message-text	R --> C	1022.154	505.633	185.693	18.228
+box	message-text	R --> L	638.577	299.633	128.846	18.228
+box	message-text	R --> L #2	654.555	549.633	96.891	18.228
+box	message-text	R --> L #3	534.196	681.633	337.608	18.228
+box	message-text	S --> L	107.166	93.633	273.669	18.227
+box	message-text	S --> L #2	168.484	843.633	151.032	18.227
+canvas	-50	-10	1429	1011
+font	Liberation Sans	1086

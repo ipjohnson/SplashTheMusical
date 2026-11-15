@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3b1c2f1d546a748
+box	boundary	c1	150	457.136	316	261.435
+box	element	customer	466	166	216	185.136
+box	element	email_system	150	166	216	99.189
+box	element	spa	200	557.136	216	111.435
+box	rel-label	customer --> spa	427.103	448.696	27.327	12.735
+box	rel-label	email_system --> customer	444.507	235.674	89.326	12.735
+box	title	Container diagram for Internet Banking System	166	5.143	333.361	18.176
+canvas	0	-70	832	888.571
+font	Liberation Sans	718

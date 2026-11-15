@@ -1,0 +1,22 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f266bf717bdfbe9
+accept	yes
+actor	Client	Mobile Client	actor
+actor	DB	Order Database	database
+actor	Gateway	API Gateway	boundary
+actor	Logs	Audit Logs	collections
+actor	OrderSvc	Order Service	control
+actor	Queue	Message Queue	queue
+drawn	yes
+message	Client	Gateway	solid	filled	Place order
+message	DB	OrderSvc	dashed	filled	Order saved
+message	Gateway	Client	dashed	filled	Confirmation
+message	Gateway	OrderSvc	solid	filled	Validate order
+message	Logs	OrderSvc	dashed	filled	Logged
+message	OrderSvc	DB	solid	filled	Save order
+message	OrderSvc	Gateway	dashed	filled	Order confirmed
+message	OrderSvc	Logs	solid	filled	Log transaction
+message	OrderSvc	Queue	solid	filled	Queue for processing as well
+message	Queue	OrderSvc	dashed	filled	Processing started AS Well
+type	sequence

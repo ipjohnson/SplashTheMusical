@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5d1d0f1758a955a3
+box	actor	Auth	600	0	150	73
+box	actor	Client	0	0	150	73
+box	actor	DB	400	0	150	73
+box	actor	Server	200	0	150	73
+box	actor-bottom	Auth	600	357	150	73
+box	actor-bottom	Client	0	357	150	73
+box	actor-bottom	DB	400	357	150	73
+box	actor-bottom	Server	200	357	150	73
+box	message	Auth --> Server	286	293	384	0
+box	message	Client --> Server	76	117	188	0
+box	message	DB --> Server	286	205	184	0
+box	message	Server --> Auth	280	249	384	0
+box	message	Server --> Client	82	337	188	0
+box	message	Server --> DB	280	161	184	0
+box	message-text	Auth --> Server	466.446	270.123	23.107	17.347
+box	message-text	Client --> Server	127.03	94.124	85.941	17.413
+box	message-text	DB --> Server	346.007	182.124	64.015	17.347
+box	message-text	Server --> Auth	421.915	226.124	100.171	17.347
+box	message-text	Server --> Client	144.007	314.124	63.985	17.347
+box	message-text	Server --> DB	323.261	138.123	97.477	17.347
+canvas	-50	-10	850	481
+font	Liberation Sans	178

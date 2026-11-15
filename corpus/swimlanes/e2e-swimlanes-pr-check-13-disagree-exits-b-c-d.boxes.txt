@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f0ab98250e965e0
+box	edge	A --> Sys1	-277.719	25.5	210.359	0
+box	edge	B --> C	-250.719	146.5	610.078	0
+box	edge	B --> exit	-494.719	192	1031.078	707.149
+box	edge	C --> D	465.359	192	0	99
+box	edge	C --> exit	544.359	146.5	43	670.074
+box	edge	D --> E	92.641	340.5	270.719	0
+box	edge	D --> exit	465.359	386	98	401.074
+box	edge	E --> F	12.641	363	372.719	95.5
+box	edge	F --> G	465.359	481	0	99
+box	edge	G --> H	465.359	629	0	46
+box	edge	H --> I	-272.719	701.5	662.078	0
+box	edge	I --> exit	-474.719	701.5	940.078	177.649
+box	edge	Sys1 --> B	-352.719	48	365.359	49
+box	edge-label	B --> C	37.641	136	37.359	21
+box	edge-label	B --> exit	-451.734	645.5	56.031	21
+box	edge-label	C --> D	446.68	233	37.359	21
+box	edge-label	C --> exit	556.994	806.074	56.031	21
+box	edge-label	D --> E	207.32	330	37.359	21
+box	edge-label	D --> exit	486.344	395.5	56.031	21
+box	group	X1	-548.398	-36	391.359	931.149
+box	group	X2	182.32	-36	566.078	931.149
+box	group	X3	-157.039	-36	339.359	931.149
+box	node	A	-427.719	0	150	51
+box	node	B	-454.719	101	204	91
+box	node	C	363.359	101	204	91
+box	node	D	363.359	295	204	91
+box	node	E	-63.359	318	152	45
+box	node	F	389.359	436	152	45
+box	node	G	389.359	584	152	45
+box	node	H	389.359	679	152	45
+box	node	I	-428.719	679	152	45
+box	node	Sys1	-63.359	3	152	45
+box	node	exit	390.359	791.074	150	51
+box	node	id1	-424.719	774	144	85.149
+canvas	-556.398	-44	1312.797	951.149
+font	Liberation Sans	186

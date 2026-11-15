@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 832a1ec82f995ef8
+accept	yes
+drawn	yes
+node	id1	This is the text in the box	lean-r
+type	flowchart-v2

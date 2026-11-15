@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 71b729d777609fee
+accept	yes
+branch	develop
+branch	main
+commit	0	main	normal			ZERO
+commit	1	develop	normal			A
+commit	2	main	cherry-pick	MyTag
+drawn	yes
+label	A
+label	MyTag
+label	ZERO
+label	develop
+label	main
+type	gitGraph

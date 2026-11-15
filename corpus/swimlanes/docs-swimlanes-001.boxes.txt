@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7677982d4cd415d8
+box	edge	Browse --> Pay	112	0	357.422	0
+box	edge	Pay --> Invoice	625.422	0	533.422	504
+box	edge	Pay --> Pick	549.422	22.5	0	203
+box	edge	Pick --> Ship	625.422	252	357.422	0
+box	group	Customer	-86	-58.5	1234.844	184.5
+box	group	Finance	-86	378	1234.844	184.5
+box	group	Warehouse	-86	126	1234.844	252
+box	node	Browse	-40	-22.5	152	45
+box	node	Invoice	473.422	481.5	152	45
+box	node	Pay	473.422	-22.5	152	45
+box	node	Pick	473.422	229.5	152	45
+box	node	Ship	986.844	229.5	152	45
+canvas	-94	-66.5	1260.844	637
+font	Liberation Sans	152

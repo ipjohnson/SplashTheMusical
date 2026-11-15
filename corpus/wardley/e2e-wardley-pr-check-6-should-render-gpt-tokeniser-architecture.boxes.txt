@@ -1,0 +1,65 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19cf85bf89f54af2
+box	link	GPT Tokeniser --> tokeniser	511.13	120.611	113.612	45.047
+box	link	MEGABYTE --> UTF8	234.19	381.346	551.3	248.509
+box	link	UTF8 --> Unicode License v3	774.363	637.205	13.113	18.39
+box	link	Unicode License v3 --> Unicode Consortium	605.965	662.144	159.151	45.951
+box	link	algo --> token vocabulary	524.479	370.272	81.695	88.675
+box	link	algo --> tokeniser training data	392.85	370.802	123.082	172.157
+box	link	byte pair encoding (BPE) --> UTF8	791.434	384.861	19.132	241.477
+box	link	decoder --> algo	526.601	330.444	238.339	33.88
+box	link	encoder --> algo	375.118	330.983	138.156	32.732
+box	link	inference code --> decoder	425.45	294.998	339.46	34.004
+box	link	methodology --> inference code	424.885	234.466	118.999	57.33
+box	link	methodology --> security framework	555.801	235.045	69.391	42.16
+box	link	methodology --> training code	314.952	232.679	228.36	39.576
+box	link	python --> IDE	893.375	511.252	16.05	45.017
+box	link	python --> sentencepiece	854.173	510.812	34.214	59.977
+box	link	tokeniser --> methodology	508.761	173.687	37.298	52.306
+box	link	tokeniser training data --> code data	351.464	553.396	35.632	87.447
+box	link	tokeniser training data --> english text data	391.114	553.578	26.613	87.084
+box	link	tokeniser training data --> foreign text data	283.397	551.835	101.487	90.57
+box	link	training code --> encoder	313.423	277.378	51.474	48.125
+box	link	training code --> python	314.613	275.503	571.174	227.873
+box	link	training code --> special tokens	309.04	279.28	0	51.36
+box	link	training code --> text merging rules	262.832	277.759	42.215	47.362
+box	node	GPT Tokeniser	595.429	109.612	69.782	11.225
+box	node	GPT2	686.6	175.76	26.111	35.806
+box	node	GPT3	765.92	175.76	26.111	35.806
+box	node	GPT4	807.08	175.76	26.111	36.806
+box	node	GPT5	409.48	175.76	26.111	36.806
+box	node	GPT6	198.68	175.76	26.111	36.806
+box	node	GPT7	165.52	175.76	26.111	35.806
+box	node	IDE	905.44	545.501	30.662	22.419
+box	node	MEGABYTE	200.72	372.88	55.532	36.806
+box	node	UTF8	784.96	615.901	38.992	22.419
+box	node	Unicode Consortium	594.2	693.342	104.521	22.419
+box	node	Unicode License v3	741.88	654.48	87.189	19.806
+box	node	algo	504.88	339.862	19.8	30.219
+box	node	algo_algo v1	182.56	362.462	46.227	22.418
+box	node	algo_algo v2	845.2	362.462	46.227	22.418
+box	node	byte pair encoding (BPE)	784.04	372.88	111.063	27.806
+box	node	code data	318.2	640.4	43.89	31.806
+box	node	decoder	764.88	313.182	50.107	22.418
+box	node	encoder	363.28	312.181	43.108	23.419
+box	node	english text data	413.48	640.4	78.763	18.806
+box	node	foreign text data	227.92	640.4	71.645	26.806
+box	node	inference code	369.48	273.982	65.55	26.418
+box	node	methodology	545.2	215.101	70.02	21.219
+box	node	methodology_methodology v1	242.8	228.701	84.549	22.418
+box	node	methodology_methodology v2	845.2	228.701	84.549	22.418
+box	node	python	885.36	489.181	44.013	22.418
+box	node	security framework	603.32	274.32	83.837	18.806
+box	node	sentencepiece	802.2	570	64.432	27.806
+box	node	special tokens	248.04	330.64	67	23.806
+box	node	text merging rules	194.84	311.182	79.406	24.418
+box	node	token vocabulary	585.24	457.36	75.525	24.806
+box	node	tokeniser	500.02	151.742	53.336	21.219
+box	node	tokeniser training data	315.36	507.422	98.304	46.419
+box	node	tokeniser_tokeniser v1	152.44	165.341	67.865	22.418
+box	node	tokeniser_tokeniser v2	845.2	165.341	67.865	22.418
+box	node	training code	219.04	266.861	96	12.419
+box	title	GPT Tokeniser	506	16.108	88	14.031
+canvas	0	0	1100	800
+font	Liberation Sans	1482

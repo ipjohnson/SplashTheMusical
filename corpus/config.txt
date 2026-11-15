@@ -1,0 +1,904 @@
+# mermaid.js default config. Refresh with: mise run oracle
+# mermaid 12.3.0
+key	agentflow.diagramPadding	8
+key	agentflow.look	"neo"
+key	agentflow.minNodeWidth	120
+key	agentflow.nodeSpacing	50
+key	agentflow.rankSpacing	50
+key	agentflow.theme	"redux-color"
+key	agentflow.titleTopMargin	25
+key	agentflow.useMaxWidth	true
+key	agentflow.wrappingWidth	120
+key	architecture.edgeElasticity	0.45
+key	architecture.fontSize	16
+key	architecture.iconSize	80
+key	architecture.idealEdgeLengthMultiplier	1.5
+key	architecture.nodeSeparation	75
+key	architecture.numIter	2500
+key	architecture.padding	40
+key	architecture.randomize	false
+key	architecture.seed	1
+key	architecture.useMaxWidth	true
+key	arrowMarkerAbsolute	false
+key	block.padding	8
+key	block.useMaxWidth	true
+key	c4.boundaryFontFamily	"\"Open Sans\", sans-serif"
+key	c4.boundaryFontSize	14
+key	c4.boundaryFontWeight	"normal"
+key	c4.boxMargin	10
+key	c4.c4BoundaryInRow	2
+key	c4.c4ShapeInRow	4
+key	c4.c4ShapeMargin	50
+key	c4.c4ShapePadding	20
+key	c4.componentFontFamily	"\"Open Sans\", sans-serif"
+key	c4.componentFontSize	14
+key	c4.componentFontWeight	"normal"
+key	c4.component_bg_color	"#85BBF0"
+key	c4.component_border_color	"#78A8D8"
+key	c4.component_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.component_dbFontSize	14
+key	c4.component_dbFontWeight	"normal"
+key	c4.component_db_bg_color	"#85BBF0"
+key	c4.component_db_border_color	"#78A8D8"
+key	c4.component_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.component_queueFontSize	14
+key	c4.component_queueFontWeight	"normal"
+key	c4.component_queue_bg_color	"#85BBF0"
+key	c4.component_queue_border_color	"#78A8D8"
+key	c4.containerFontFamily	"\"Open Sans\", sans-serif"
+key	c4.containerFontSize	14
+key	c4.containerFontWeight	"normal"
+key	c4.container_bg_color	"#438DD5"
+key	c4.container_border_color	"#3C7FC0"
+key	c4.container_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.container_dbFontSize	14
+key	c4.container_dbFontWeight	"normal"
+key	c4.container_db_bg_color	"#438DD5"
+key	c4.container_db_border_color	"#3C7FC0"
+key	c4.container_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.container_queueFontSize	14
+key	c4.container_queueFontWeight	"normal"
+key	c4.container_queue_bg_color	"#438DD5"
+key	c4.container_queue_border_color	"#3C7FC0"
+key	c4.diagramMarginX	50
+key	c4.diagramMarginY	10
+key	c4.external_componentFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_componentFontSize	14
+key	c4.external_componentFontWeight	"normal"
+key	c4.external_component_bg_color	"#CCCCCC"
+key	c4.external_component_border_color	"#BFBFBF"
+key	c4.external_component_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_component_dbFontSize	14
+key	c4.external_component_dbFontWeight	"normal"
+key	c4.external_component_db_bg_color	"#CCCCCC"
+key	c4.external_component_db_border_color	"#BFBFBF"
+key	c4.external_component_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_component_queueFontSize	14
+key	c4.external_component_queueFontWeight	"normal"
+key	c4.external_component_queue_bg_color	"#CCCCCC"
+key	c4.external_component_queue_border_color	"#BFBFBF"
+key	c4.external_containerFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_containerFontSize	14
+key	c4.external_containerFontWeight	"normal"
+key	c4.external_container_bg_color	"#B3B3B3"
+key	c4.external_container_border_color	"#A6A6A6"
+key	c4.external_container_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_container_dbFontSize	14
+key	c4.external_container_dbFontWeight	"normal"
+key	c4.external_container_db_bg_color	"#B3B3B3"
+key	c4.external_container_db_border_color	"#A6A6A6"
+key	c4.external_container_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_container_queueFontSize	14
+key	c4.external_container_queueFontWeight	"normal"
+key	c4.external_container_queue_bg_color	"#B3B3B3"
+key	c4.external_container_queue_border_color	"#A6A6A6"
+key	c4.external_personFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_personFontSize	14
+key	c4.external_personFontWeight	"normal"
+key	c4.external_person_bg_color	"#686868"
+key	c4.external_person_border_color	"#8A8A8A"
+key	c4.external_systemFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_systemFontSize	14
+key	c4.external_systemFontWeight	"normal"
+key	c4.external_system_bg_color	"#999999"
+key	c4.external_system_border_color	"#8A8A8A"
+key	c4.external_system_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_system_dbFontSize	14
+key	c4.external_system_dbFontWeight	"normal"
+key	c4.external_system_db_bg_color	"#999999"
+key	c4.external_system_db_border_color	"#8A8A8A"
+key	c4.external_system_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.external_system_queueFontSize	14
+key	c4.external_system_queueFontWeight	"normal"
+key	c4.external_system_queue_bg_color	"#999999"
+key	c4.external_system_queue_border_color	"#8A8A8A"
+key	c4.flowchart.curve	"basis"
+key	c4.flowchart.diagramPadding	8
+key	c4.flowchart.htmlLabels	null
+key	c4.flowchart.inheritDir	false
+key	c4.flowchart.look	"neo"
+key	c4.flowchart.minNodeWidth	120
+key	c4.flowchart.nodeSpacing	50
+key	c4.flowchart.padding	15
+key	c4.flowchart.rankSpacing	50
+key	c4.flowchart.stepDuration	1
+key	c4.flowchart.stepNumbers	false
+key	c4.flowchart.subGraphTitleMargin.bottom	0
+key	c4.flowchart.subGraphTitleMargin.top	0
+key	c4.flowchart.theme	"redux-color"
+key	c4.flowchart.titleTopMargin	25
+key	c4.flowchart.useMaxWidth	true
+key	c4.flowchart.wrappingWidth	120
+key	c4.height	60
+key	c4.messageFontFamily	"\"Open Sans\", sans-serif"
+key	c4.messageFontSize	12
+key	c4.messageFontWeight	"normal"
+key	c4.nextLinePaddingX	0
+key	c4.personFontFamily	"\"Open Sans\", sans-serif"
+key	c4.personFontSize	14
+key	c4.personFontWeight	"normal"
+key	c4.person_bg_color	"#08427B"
+key	c4.person_border_color	"#073B6F"
+key	c4.systemFontFamily	"\"Open Sans\", sans-serif"
+key	c4.systemFontSize	14
+key	c4.systemFontWeight	"normal"
+key	c4.system_bg_color	"#1168BD"
+key	c4.system_border_color	"#3C7FC0"
+key	c4.system_dbFontFamily	"\"Open Sans\", sans-serif"
+key	c4.system_dbFontSize	14
+key	c4.system_dbFontWeight	"normal"
+key	c4.system_db_bg_color	"#1168BD"
+key	c4.system_db_border_color	"#3C7FC0"
+key	c4.system_queueFontFamily	"\"Open Sans\", sans-serif"
+key	c4.system_queueFontSize	14
+key	c4.system_queueFontWeight	"normal"
+key	c4.system_queue_bg_color	"#1168BD"
+key	c4.system_queue_border_color	"#3C7FC0"
+key	c4.useMaxWidth	true
+key	c4.useWidth	undefined
+key	c4.width	216
+key	c4.wrap	true
+key	c4.wrapPadding	10
+key	class.hideEmptyMembersBox	false
+key	class.hierarchicalNamespaces	true
+key	class.layout	undefined
+key	class.look	"neo"
+key	class.theme	"redux-color"
+key	cynefin.boundaryAmplitude	8
+key	cynefin.height	600
+key	cynefin.padding	40
+key	cynefin.seed	0
+key	cynefin.showDomainDescriptions	true
+key	cynefin.useMaxWidth	true
+key	cynefin.width	800
+key	darkMode	false
+key	deterministicIDSeed	undefined
+key	deterministicIds	false
+key	elk.considerModelOrder	"NODES_AND_EDGES"
+key	elk.cycleBreakingStrategy	undefined
+key	elk.forceNodeModelOrder	false
+key	elk.keepEntryNodeOnTop	false
+key	elk.layeringLayerBound	4
+key	elk.layeringStrategy	undefined
+key	elk.lineHops	true
+key	elk.mergeEdges	false
+key	elk.nodePlacementAlignment	undefined
+key	elk.nodePlacementStrategy	undefined
+key	elk.orientFeedbackEdges	true
+key	elk.preset	"default"
+key	elk.straightenEdges	true
+key	er.diagramPadding	20
+key	er.entityPadding	15
+key	er.fill	"honeydew"
+key	er.fontSize	12
+key	er.layoutDirection	"TB"
+key	er.look	"neo"
+key	er.minEntityHeight	75
+key	er.minEntityWidth	100
+key	er.nodeSpacing	140
+key	er.rankSpacing	80
+key	er.stroke	"gray"
+key	er.theme	"redux-color"
+key	er.titleTopMargin	25
+key	er.useMaxWidth	true
+key	eventmodeling.padding	30
+key	eventmodeling.rowHeight	32
+key	eventmodeling.useMaxWidth	true
+key	flowchart.curve	"basis"
+key	flowchart.diagramPadding	8
+key	flowchart.htmlLabels	null
+key	flowchart.inheritDir	false
+key	flowchart.look	"neo"
+key	flowchart.minNodeWidth	120
+key	flowchart.nodeSpacing	50
+key	flowchart.padding	15
+key	flowchart.rankSpacing	50
+key	flowchart.stepDuration	1
+key	flowchart.stepNumbers	false
+key	flowchart.subGraphTitleMargin.bottom	0
+key	flowchart.subGraphTitleMargin.top	0
+key	flowchart.theme	"redux-color"
+key	flowchart.titleTopMargin	25
+key	flowchart.useMaxWidth	true
+key	flowchart.wrappingWidth	120
+key	fontFamily	"\"trebuchet ms\", verdana, arial, sans-serif;"
+key	fontSize	16
+key	forceLegacyMathML	false
+key	gantt.axisFormat	"%Y-%m-%d"
+key	gantt.barGap	4
+key	gantt.barHeight	20
+key	gantt.displayMode	""
+key	gantt.fontSize	11
+key	gantt.gridLineStartPadding	35
+key	gantt.leftPadding	75
+key	gantt.numberSectionStyles	4
+key	gantt.rightPadding	75
+key	gantt.sectionFontSize	11
+key	gantt.tickInterval	undefined
+key	gantt.titleTopMargin	25
+key	gantt.topAxis	false
+key	gantt.topPadding	50
+key	gantt.useMaxWidth	true
+key	gantt.useWidth	undefined
+key	gantt.weekday	"sunday"
+key	gitGraph.arrowMarkerAbsolute	false
+key	gitGraph.diagramPadding	8
+key	gitGraph.mainBranchName	"main"
+key	gitGraph.mainBranchOrder	0
+key	gitGraph.nodeLabel.height	100
+key	gitGraph.nodeLabel.width	75
+key	gitGraph.nodeLabel.x	-25
+key	gitGraph.nodeLabel.y	0
+key	gitGraph.parallelCommits	false
+key	gitGraph.rotateCommitLabel	true
+key	gitGraph.showBranches	true
+key	gitGraph.showCommitLabel	true
+key	gitGraph.titleTopMargin	25
+key	gitGraph.useMaxWidth	true
+key	handDrawnSeed	0
+key	ishikawa.diagramPadding	20
+key	ishikawa.useMaxWidth	true
+key	journey.activationWidth	10
+key	journey.actorColours.0	"#8FBC8F"
+key	journey.actorColours.1	"#7CFC00"
+key	journey.actorColours.2	"#00FFFF"
+key	journey.actorColours.3	"#20B2AA"
+key	journey.actorColours.4	"#B0E0E6"
+key	journey.actorColours.5	"#FFFFE0"
+key	journey.bottomMarginAdj	1
+key	journey.boxMargin	10
+key	journey.boxTextMargin	5
+key	journey.diagramMarginX	50
+key	journey.diagramMarginY	10
+key	journey.height	50
+key	journey.leftMargin	150
+key	journey.maxLabelWidth	360
+key	journey.messageAlign	"center"
+key	journey.messageMargin	35
+key	journey.noteMargin	10
+key	journey.rightAngles	false
+key	journey.sectionColours.0	"#fff"
+key	journey.sectionFills.0	"#191970"
+key	journey.sectionFills.1	"#8B008B"
+key	journey.sectionFills.2	"#4B0082"
+key	journey.sectionFills.3	"#2F4F4F"
+key	journey.sectionFills.4	"#800000"
+key	journey.sectionFills.5	"#8B4513"
+key	journey.sectionFills.6	"#00008B"
+key	journey.taskFontFamily	"\"Open Sans\", sans-serif"
+key	journey.taskFontSize	14
+key	journey.taskMargin	50
+key	journey.textPlacement	"fo"
+key	journey.titleColor	""
+key	journey.titleFontFamily	"\"trebuchet ms\", verdana, arial, sans-serif"
+key	journey.titleFontSize	"4ex"
+key	journey.useMaxWidth	true
+key	journey.width	150
+key	kanban.padding	8
+key	kanban.sectionWidth	200
+key	kanban.ticketBaseUrl	""
+key	kanban.useMaxWidth	true
+key	layout	"elk"
+key	legacyMathML	false
+key	logLevel	5
+key	look	"classic"
+key	markdownAutoWrap	true
+key	maxEdges	500
+key	maxTextSize	50000
+key	mindmap.colorBy	"branch"
+key	mindmap.layoutAlgorithm	"cose-bilkent"
+key	mindmap.maxNodeWidth	200
+key	mindmap.padding	10
+key	mindmap.useMaxWidth	true
+key	packet.bitOrder	"ascending"
+key	packet.bitWidth	32
+key	packet.bitsPerRow	32
+key	packet.paddingX	5
+key	packet.paddingY	5
+key	packet.rowHeight	32
+key	packet.showBits	true
+key	packet.useMaxWidth	true
+key	pie.donutHole	0
+key	pie.highlightSlice	""
+key	pie.legendPosition	"right"
+key	pie.textPosition	0.75
+key	pie.useMaxWidth	true
+key	pie.useWidth	984
+key	quadrantChart.chartHeight	500
+key	quadrantChart.chartWidth	500
+key	quadrantChart.pointLabelFontSize	12
+key	quadrantChart.pointRadius	5
+key	quadrantChart.pointTextPadding	5
+key	quadrantChart.quadrantExternalBorderStrokeWidth	2
+key	quadrantChart.quadrantInternalBorderStrokeWidth	1
+key	quadrantChart.quadrantLabelFontSize	16
+key	quadrantChart.quadrantPadding	5
+key	quadrantChart.quadrantTextTopPadding	5
+key	quadrantChart.titleFontSize	20
+key	quadrantChart.titlePadding	10
+key	quadrantChart.useMaxWidth	true
+key	quadrantChart.xAxisLabelFontSize	16
+key	quadrantChart.xAxisLabelPadding	5
+key	quadrantChart.xAxisPosition	"top"
+key	quadrantChart.yAxisLabelFontSize	16
+key	quadrantChart.yAxisLabelPadding	5
+key	quadrantChart.yAxisPosition	"left"
+key	radar.axisLabelFactor	1.05
+key	radar.axisScaleFactor	1
+key	radar.curveTension	0.17
+key	radar.height	600
+key	radar.marginBottom	50
+key	radar.marginLeft	50
+key	radar.marginRight	50
+key	radar.marginTop	50
+key	radar.useMaxWidth	true
+key	radar.width	600
+key	railroad.commentFill	undefined
+key	railroad.commentStroke	undefined
+key	railroad.commentTextColor	undefined
+key	railroad.fontFamily	undefined
+key	railroad.fontSize	undefined
+key	railroad.lineColor	undefined
+key	railroad.markerFill	undefined
+key	railroad.nonTerminalFill	undefined
+key	railroad.nonTerminalStroke	undefined
+key	railroad.nonTerminalTextColor	undefined
+key	railroad.ruleNameColor	undefined
+key	railroad.specialFill	undefined
+key	railroad.specialStroke	undefined
+key	railroad.terminalFill	undefined
+key	railroad.terminalStroke	undefined
+key	railroad.terminalTextColor	undefined
+key	requirement.fontSize	14
+key	requirement.line_height	20
+key	requirement.look	"neo"
+key	requirement.rect_border_color	"#bbb"
+key	requirement.rect_border_size	"0.5px"
+key	requirement.rect_fill	"#f9f9f9"
+key	requirement.rect_min_height	200
+key	requirement.rect_min_width	200
+key	requirement.rect_padding	10
+key	requirement.text_color	"#333"
+key	requirement.theme	"redux-color"
+key	requirement.useMaxWidth	true
+key	requirement.useWidth	undefined
+key	sankey.height	400
+key	sankey.labelStyle	"legacy"
+key	sankey.linkColor	"gradient"
+key	sankey.nodeAlignment	"justify"
+key	sankey.nodeColors	undefined
+key	sankey.nodePadding	12
+key	sankey.nodeWidth	10
+key	sankey.prefix	""
+key	sankey.showValues	true
+key	sankey.suffix	""
+key	sankey.useMaxWidth	true
+key	sankey.width	600
+key	secure.0	"secure"
+key	secure.1	"securityLevel"
+key	secure.2	"startOnLoad"
+key	secure.3	"maxTextSize"
+key	secure.4	"suppressErrorRendering"
+key	secure.5	"maxEdges"
+key	securityLevel	"strict"
+key	sequence.activationWidth	10
+key	sequence.actorFontFamily	"\"Open Sans\", sans-serif"
+key	sequence.actorFontSize	14
+key	sequence.actorFontWeight	400
+key	sequence.actorMargin	50
+key	sequence.bottomMarginAdj	1
+key	sequence.boxMargin	10
+key	sequence.boxTextMargin	5
+key	sequence.diagramMarginX	50
+key	sequence.diagramMarginY	10
+key	sequence.forceMenus	false
+key	sequence.height	65
+key	sequence.hideUnusedParticipants	false
+key	sequence.labelBoxHeight	20
+key	sequence.labelBoxWidth	50
+key	sequence.look	"neo"
+key	sequence.messageAlign	"center"
+key	sequence.messageFontFamily	"\"trebuchet ms\", verdana, arial, sans-serif"
+key	sequence.messageFontSize	16
+key	sequence.messageFontWeight	400
+key	sequence.messageMargin	35
+key	sequence.mirrorActors	true
+key	sequence.noteAlign	"center"
+key	sequence.noteFontFamily	"\"trebuchet ms\", verdana, arial, sans-serif"
+key	sequence.noteFontSize	14
+key	sequence.noteFontWeight	400
+key	sequence.noteMargin	10
+key	sequence.rightAngles	false
+key	sequence.showSequenceNumbers	false
+key	sequence.theme	"redux-color"
+key	sequence.useMaxWidth	true
+key	sequence.width	150
+key	sequence.wrap	false
+key	sequence.wrapPadding	10
+key	startOnLoad	true
+key	state.compositTitleSize	35
+key	state.dividerMargin	10
+key	state.edgeLengthFactor	"20"
+key	state.fontSize	24
+key	state.fontSizeFactor	5.02
+key	state.forkHeight	7
+key	state.forkWidth	70
+key	state.labelHeight	16
+key	state.layout	"elk"
+key	state.look	"neo"
+key	state.minNodeWidth	120
+key	state.miniPadding	2
+key	state.noteMargin	10
+key	state.padding	8
+key	state.radius	5
+key	state.sizeUnit	5
+key	state.textHeight	10
+key	state.theme	"redux-color"
+key	state.titleShift	-15
+key	state.titleTopMargin	25
+key	state.useMaxWidth	true
+key	state.wrappingWidth	120
+key	suppressErrorRendering	false
+key	swimlane.automaticLaneOrdering	false
+key	swimlane.ignoreCrossLaneEdges	true
+key	swimlane.layout	"swimlane"
+key	swimlane.lineHops	"arc"
+key	swimlane.look	"neo"
+key	swimlane.optimizeRanksByCrossings	true
+key	swimlane.theme	"redux-color"
+key	swimlane.useMaxWidth	true
+key	theme	"default"
+key	themeCSS	undefined
+key	themeVariables.THEME_COLOR_LIMIT	12
+key	themeVariables.activationBkgColor	"#f4f4f4"
+key	themeVariables.activationBorderColor	"#666"
+key	themeVariables.activeTaskBkgColor	"#bfc7ff"
+key	themeVariables.activeTaskBorderColor	"#534fbc"
+key	themeVariables.actorBkg	"#ECECFF"
+key	themeVariables.actorBorder	"#9370DB"
+key	themeVariables.actorLineColor	"#9370DB"
+key	themeVariables.actorTextColor	"black"
+key	themeVariables.altBackground	"#f0f0f0"
+key	themeVariables.altSectionBkgColor	"white"
+key	themeVariables.archEdgeArrowColor	"#333333"
+key	themeVariables.archEdgeColor	"#333333"
+key	themeVariables.archEdgeWidth	"3"
+key	themeVariables.archGroupBorderColor	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.archGroupBorderWidth	"2px"
+key	themeVariables.arrowheadColor	"#333333"
+key	themeVariables.attributeBackgroundColorEven	"#f2f2f2"
+key	themeVariables.attributeBackgroundColorOdd	"#ffffff"
+key	themeVariables.background	"white"
+key	themeVariables.border1	"#9370DB"
+key	themeVariables.border2	"#aaaa33"
+key	themeVariables.cScale0	"hsl(240, 100%, 76.2745098039%)"
+key	themeVariables.cScale1	"hsl(60, 100%, 73.5294117647%)"
+key	themeVariables.cScale10	"hsl(180, 100%, 76.2745098039%)"
+key	themeVariables.cScale11	"hsl(210, 100%, 76.2745098039%)"
+key	themeVariables.cScale2	"hsl(80, 100%, 76.2745098039%)"
+key	themeVariables.cScale3	"hsl(270, 100%, 76.2745098039%)"
+key	themeVariables.cScale4	"hsl(300, 100%, 76.2745098039%)"
+key	themeVariables.cScale5	"hsl(330, 100%, 76.2745098039%)"
+key	themeVariables.cScale6	"hsl(0, 100%, 76.2745098039%)"
+key	themeVariables.cScale7	"hsl(30, 100%, 76.2745098039%)"
+key	themeVariables.cScale8	"hsl(90, 100%, 76.2745098039%)"
+key	themeVariables.cScale9	"hsl(150, 100%, 76.2745098039%)"
+key	themeVariables.cScaleInv0	"hsl(60, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv1	"hsl(240, 100%, 83.5294117647%)"
+key	themeVariables.cScaleInv10	"hsl(0, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv11	"hsl(30, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv2	"hsl(260, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv3	"hsl(90, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv4	"hsl(120, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv5	"hsl(150, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv6	"hsl(180, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv7	"hsl(210, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv8	"hsl(270, 100%, 86.2745098039%)"
+key	themeVariables.cScaleInv9	"hsl(330, 100%, 86.2745098039%)"
+key	themeVariables.cScaleLabel0	"#ffffff"
+key	themeVariables.cScaleLabel1	"black"
+key	themeVariables.cScaleLabel10	"black"
+key	themeVariables.cScaleLabel11	"black"
+key	themeVariables.cScaleLabel2	"black"
+key	themeVariables.cScaleLabel3	"#ffffff"
+key	themeVariables.cScaleLabel4	"black"
+key	themeVariables.cScaleLabel5	"black"
+key	themeVariables.cScaleLabel6	"black"
+key	themeVariables.cScaleLabel7	"black"
+key	themeVariables.cScaleLabel8	"black"
+key	themeVariables.cScaleLabel9	"black"
+key	themeVariables.cScalePeer0	"hsl(240, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer1	"hsl(60, 100%, 48.5294117647%)"
+key	themeVariables.cScalePeer10	"hsl(180, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer11	"hsl(210, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer2	"hsl(80, 100%, 56.2745098039%)"
+key	themeVariables.cScalePeer3	"hsl(270, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer4	"hsl(300, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer5	"hsl(330, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer6	"hsl(0, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer7	"hsl(30, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer8	"hsl(90, 100%, 61.2745098039%)"
+key	themeVariables.cScalePeer9	"hsl(150, 100%, 61.2745098039%)"
+key	themeVariables.classText	"#131300"
+key	themeVariables.clusterBkg	"#ffffde"
+key	themeVariables.clusterBorder	"#aaaa33"
+key	themeVariables.commitLabelBackground	"#ffffde"
+key	themeVariables.commitLabelColor	"#000021"
+key	themeVariables.commitLabelFontSize	"10px"
+key	themeVariables.compositeBackground	"white"
+key	themeVariables.compositeBorder	"#9370DB"
+key	themeVariables.compositeTitleBackground	"#ECECFF"
+key	themeVariables.critBkgColor	"red"
+key	themeVariables.critBorderColor	"#ff8888"
+key	themeVariables.cynefin.arrowColor	"#333333"
+key	themeVariables.cynefin.arrowWidth	2
+key	themeVariables.cynefin.boundaryColor	"#333333"
+key	themeVariables.cynefin.boundaryWidth	2
+key	themeVariables.cynefin.chaoticBg	"#FBE9E7"
+key	themeVariables.cynefin.clearBg	"#FFF8E1"
+key	themeVariables.cynefin.cliffColor	"#8B0000"
+key	themeVariables.cynefin.cliffWidth	4
+key	themeVariables.cynefin.complexBg	"#E8F5E9"
+key	themeVariables.cynefin.complicatedBg	"#E3F2FD"
+key	themeVariables.cynefin.confusionBg	"#F3E5F5"
+key	themeVariables.cynefin.domainFontSize	16
+key	themeVariables.cynefin.itemFontSize	12
+key	themeVariables.cynefin.labelColor	"#131300"
+key	themeVariables.cynefin.textColor	"#333"
+key	themeVariables.defaultLinkColor	"#333333"
+key	themeVariables.doneTaskBkgColor	"lightgrey"
+key	themeVariables.doneTaskBorderColor	"grey"
+key	themeVariables.dropShadow	"drop-shadow(1px 2px 2px rgba(185, 185, 185, 1))"
+key	themeVariables.edgeLabelBackground	"rgba(232,232,232, 0.8)"
+key	themeVariables.emArrowhead	"#333333"
+key	themeVariables.emCommandFill	"#bcd6fe"
+key	themeVariables.emCommandStroke	"#679ac3"
+key	themeVariables.emEventFill	"#ffb778"
+key	themeVariables.emEventStroke	"#c19a0f"
+key	themeVariables.emProcessorFill	"#edb3f6"
+key	themeVariables.emProcessorStroke	"#b88cbf"
+key	themeVariables.emReadModelFill	"#d3f1a2"
+key	themeVariables.emReadModelStroke	"#a3b732"
+key	themeVariables.emRelationStroke	"#333333"
+key	themeVariables.emSwimlaneBackgroundOdd	"rgb(250,250,250)"
+key	themeVariables.emSwimlaneBackgroundStroke	"rgb(240,240,240)"
+key	themeVariables.emUiFill	"white"
+key	themeVariables.emUiStroke	"#dbdada"
+key	themeVariables.errorBkgColor	"#552222"
+key	themeVariables.errorTextColor	"#552222"
+key	themeVariables.excludeBkgColor	"#eeeeee"
+key	themeVariables.fillType0	"#ECECFF"
+key	themeVariables.fillType1	"#ffffde"
+key	themeVariables.fillType2	"hsl(304, 100%, 96.2745098039%)"
+key	themeVariables.fillType3	"hsl(124, 100%, 93.5294117647%)"
+key	themeVariables.fillType4	"hsl(176, 100%, 96.2745098039%)"
+key	themeVariables.fillType5	"hsl(-4, 100%, 93.5294117647%)"
+key	themeVariables.fillType6	"hsl(8, 100%, 96.2745098039%)"
+key	themeVariables.fillType7	"hsl(188, 100%, 93.5294117647%)"
+key	themeVariables.flowContainerStroke	"hsl(60, 60%, 83.5294117647%)"
+key	themeVariables.fontFamily	"\"trebuchet ms\", verdana, arial, sans-serif"
+key	themeVariables.fontSize	"16px"
+key	themeVariables.fontWeight	"normal"
+key	themeVariables.git0	"hsl(240, 100%, 46.2745098039%)"
+key	themeVariables.git1	"hsl(60, 100%, 43.5294117647%)"
+key	themeVariables.git2	"hsl(80, 100%, 46.2745098039%)"
+key	themeVariables.git3	"hsl(210, 100%, 46.2745098039%)"
+key	themeVariables.git4	"hsl(180, 100%, 46.2745098039%)"
+key	themeVariables.git5	"hsl(150, 100%, 46.2745098039%)"
+key	themeVariables.git6	"hsl(300, 100%, 46.2745098039%)"
+key	themeVariables.git7	"hsl(0, 100%, 46.2745098039%)"
+key	themeVariables.gitBranchLabel0	"#ffffff"
+key	themeVariables.gitBranchLabel1	"black"
+key	themeVariables.gitBranchLabel2	"black"
+key	themeVariables.gitBranchLabel3	"#ffffff"
+key	themeVariables.gitBranchLabel4	"black"
+key	themeVariables.gitBranchLabel5	"black"
+key	themeVariables.gitBranchLabel6	"black"
+key	themeVariables.gitBranchLabel7	"black"
+key	themeVariables.gitInv0	"hsl(60, 100%, 3.7254901961%)"
+key	themeVariables.gitInv1	"rgb(0, 0, 160.5)"
+key	themeVariables.gitInv2	"rgb(48.8333333334, 0, 146.5000000001)"
+key	themeVariables.gitInv3	"rgb(146.5000000001, 73.2500000001, 0)"
+key	themeVariables.gitInv4	"rgb(146.5000000001, 0, 0)"
+key	themeVariables.gitInv5	"rgb(146.5000000001, 0, 73.2500000001)"
+key	themeVariables.gitInv6	"rgb(0, 146.5000000001, 0)"
+key	themeVariables.gitInv7	"rgb(0, 146.5000000001, 146.5000000001)"
+key	themeVariables.gradientStart	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.gradientStop	"hsl(60, 60%, 83.5294117647%)"
+key	themeVariables.gridColor	"lightgrey"
+key	themeVariables.innerEndBackground	"#9370DB"
+key	themeVariables.labelBackground	"rgba(232,232,232, 0.8)"
+key	themeVariables.labelBackgroundColor	"#ECECFF"
+key	themeVariables.labelBoxBkgColor	"#ECECFF"
+key	themeVariables.labelBoxBorderColor	"#9370DB"
+key	themeVariables.labelColor	"black"
+key	themeVariables.labelTextColor	"black"
+key	themeVariables.lineColor	"#333333"
+key	themeVariables.loopTextColor	"black"
+key	themeVariables.mainBkg	"#ECECFF"
+key	themeVariables.nodeBkg	"#ECECFF"
+key	themeVariables.nodeBorder	"#9370DB"
+key	themeVariables.noteBkgColor	"#fff5ad"
+key	themeVariables.noteBorderColor	"#aaaa33"
+key	themeVariables.noteFontWeight	"normal"
+key	themeVariables.noteTextColor	"black"
+key	themeVariables.personBkg	"#ECECFF"
+key	themeVariables.personBorder	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.pie1	"#ECECFF"
+key	themeVariables.pie10	"hsl(300, 100%, 56.2745098039%)"
+key	themeVariables.pie11	"hsl(150, 100%, 56.2745098039%)"
+key	themeVariables.pie12	"hsl(0, 100%, 66.2745098039%)"
+key	themeVariables.pie2	"#ffffde"
+key	themeVariables.pie3	"hsl(80, 100%, 56.2745098039%)"
+key	themeVariables.pie4	"hsl(240, 100%, 86.2745098039%)"
+key	themeVariables.pie5	"hsl(60, 100%, 63.5294117647%)"
+key	themeVariables.pie6	"hsl(80, 100%, 76.2745098039%)"
+key	themeVariables.pie7	"hsl(300, 100%, 76.2745098039%)"
+key	themeVariables.pie8	"hsl(180, 100%, 56.2745098039%)"
+key	themeVariables.pie9	"hsl(0, 100%, 56.2745098039%)"
+key	themeVariables.pieLegendTextColor	"black"
+key	themeVariables.pieLegendTextSize	"17px"
+key	themeVariables.pieOpacity	"0.7"
+key	themeVariables.pieOuterStrokeColor	"black"
+key	themeVariables.pieOuterStrokeWidth	"2px"
+key	themeVariables.pieSectionTextColor	"#333"
+key	themeVariables.pieSectionTextSize	"17px"
+key	themeVariables.pieStrokeColor	"black"
+key	themeVariables.pieStrokeWidth	"2px"
+key	themeVariables.pieTitleTextColor	"black"
+key	themeVariables.pieTitleTextSize	"25px"
+key	themeVariables.primaryBorderColor	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.primaryColor	"#ECECFF"
+key	themeVariables.primaryTextColor	"#131300"
+key	themeVariables.quadrant1Fill	"#ECECFF"
+key	themeVariables.quadrant1TextFill	"#131300"
+key	themeVariables.quadrant2Fill	"#f1f1ff"
+key	themeVariables.quadrant2TextFill	"#0e0e00"
+key	themeVariables.quadrant3Fill	"#f6f6ff"
+key	themeVariables.quadrant3TextFill	"#090900"
+key	themeVariables.quadrant4Fill	"#fbfbff"
+key	themeVariables.quadrant4TextFill	"#040400"
+key	themeVariables.quadrantExternalBorderStrokeFill	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.quadrantInternalBorderStrokeFill	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.quadrantPointFill	"hsl(240, 100%, NaN%)"
+key	themeVariables.quadrantPointTextFill	"#131300"
+key	themeVariables.quadrantTitleFill	"#131300"
+key	themeVariables.quadrantXAxisTextFill	"#131300"
+key	themeVariables.quadrantYAxisTextFill	"#131300"
+key	themeVariables.radar.axisColor	"#333333"
+key	themeVariables.radar.axisLabelFontSize	12
+key	themeVariables.radar.axisStrokeWidth	2
+key	themeVariables.radar.curveOpacity	0.5
+key	themeVariables.radar.curveStrokeWidth	2
+key	themeVariables.radar.graticuleColor	"#DEDEDE"
+key	themeVariables.radar.graticuleOpacity	0.3
+key	themeVariables.radar.graticuleStrokeWidth	1
+key	themeVariables.radar.legendBoxSize	12
+key	themeVariables.radar.legendFontSize	12
+key	themeVariables.radius	5
+key	themeVariables.rectBkgColor	"hsl(80, 100%, 96.2745098039%)"
+key	themeVariables.relationColor	"#333333"
+key	themeVariables.relationLabelBackground	"rgba(232,232,232, 0.8)"
+key	themeVariables.relationLabelColor	"black"
+key	themeVariables.requirementBackground	"#ECECFF"
+key	themeVariables.requirementBorderColor	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.requirementBorderSize	"1"
+key	themeVariables.requirementTextColor	"#131300"
+key	themeVariables.rowEven	"hsl(240, 100%, 97.2745098039%)"
+key	themeVariables.rowOdd	"hsl(240, 100%, 100%)"
+key	themeVariables.scaleLabelColor	"black"
+key	themeVariables.secondBkg	"#ffffde"
+key	themeVariables.secondaryBorderColor	"hsl(60, 60%, 83.5294117647%)"
+key	themeVariables.secondaryColor	"#ffffde"
+key	themeVariables.secondaryTextColor	"#000021"
+key	themeVariables.sectionBkgColor	"rgba(102, 102, 255, 0.49)"
+key	themeVariables.sectionBkgColor2	"#fff400"
+key	themeVariables.sequenceNumberColor	"white"
+key	themeVariables.signalColor	"#333"
+key	themeVariables.signalTextColor	"#333"
+key	themeVariables.specialStateColor	"#333333"
+key	themeVariables.stateBkg	"#ECECFF"
+key	themeVariables.stateLabelColor	"#131300"
+key	themeVariables.strokeWidth	1
+key	themeVariables.surface0	"hsl(270, 100%, 91.2745098039%)"
+key	themeVariables.surface1	"hsl(270, 100%, 86.2745098039%)"
+key	themeVariables.surface2	"hsl(270, 100%, 81.2745098039%)"
+key	themeVariables.surface3	"hsl(270, 100%, 76.2745098039%)"
+key	themeVariables.surface4	"hsl(270, 100%, 71.2745098039%)"
+key	themeVariables.surfacePeer0	"hsl(270, 100%, 89.2745098039%)"
+key	themeVariables.surfacePeer1	"hsl(270, 100%, 84.2745098039%)"
+key	themeVariables.surfacePeer2	"hsl(270, 100%, 79.2745098039%)"
+key	themeVariables.surfacePeer3	"hsl(270, 100%, 74.2745098039%)"
+key	themeVariables.surfacePeer4	"hsl(270, 100%, 69.2745098039%)"
+key	themeVariables.tagLabelBackground	"#ECECFF"
+key	themeVariables.tagLabelBorder	"hsl(240, 60%, 86.2745098039%)"
+key	themeVariables.tagLabelColor	"#131300"
+key	themeVariables.tagLabelFontSize	"10px"
+key	themeVariables.taskBkgColor	"#8a90dd"
+key	themeVariables.taskBorderColor	"#534fbc"
+key	themeVariables.taskTextClickableColor	"#003163"
+key	themeVariables.taskTextColor	"white"
+key	themeVariables.taskTextDarkColor	"black"
+key	themeVariables.taskTextLightColor	"white"
+key	themeVariables.taskTextOutsideColor	"black"
+key	themeVariables.tertiaryBorderColor	"hsl(80, 60%, 86.2745098039%)"
+key	themeVariables.tertiaryColor	"hsl(80, 100%, 96.2745098039%)"
+key	themeVariables.tertiaryTextColor	"rgb(6.3333333334, 0, 19.0000000001)"
+key	themeVariables.textColor	"#333"
+key	themeVariables.titleColor	"#333"
+key	themeVariables.todayLineColor	"red"
+key	themeVariables.transitionColor	"#333333"
+key	themeVariables.transitionLabelColor	"#333"
+key	themeVariables.useGradient	false
+key	themeVariables.venn1	"hsl(240, 100%, 66.2745098039%)"
+key	themeVariables.venn2	"hsl(60, 100%, 63.5294117647%)"
+key	themeVariables.venn3	"hsl(80, 100%, 56.2745098039%)"
+key	themeVariables.venn4	"hsl(300, 100%, 66.2745098039%)"
+key	themeVariables.venn5	"hsl(180, 100%, 66.2745098039%)"
+key	themeVariables.venn6	"hsl(120, 100%, 63.5294117647%)"
+key	themeVariables.venn7	"hsl(0, 100%, 66.2745098039%)"
+key	themeVariables.venn8	"hsl(180, 100%, 63.5294117647%)"
+key	themeVariables.vennSetTextColor	"#333"
+key	themeVariables.vennTitleTextColor	"#333"
+key	themeVariables.vertLineColor	"navy"
+key	themeVariables.wardley.annotationFill	"white"
+key	themeVariables.wardley.annotationStroke	"#333333"
+key	themeVariables.wardley.annotationTextColor	"#131300"
+key	themeVariables.wardley.axisColor	"#333333"
+key	themeVariables.wardley.axisTextColor	"#131300"
+key	themeVariables.wardley.backgroundColor	"white"
+key	themeVariables.wardley.componentFill	"white"
+key	themeVariables.wardley.componentLabelColor	"#131300"
+key	themeVariables.wardley.componentStroke	"#333333"
+key	themeVariables.wardley.evolutionStroke	"#dc3545"
+key	themeVariables.wardley.gridColor	"lightgrey"
+key	themeVariables.wardley.linkStroke	"#333333"
+key	themeVariables.wardleyEvolutionColor	"#dc3545"
+key	themeVariables.xyChart.backgroundColor	"white"
+key	themeVariables.xyChart.dataLabelColor	"#131300"
+key	themeVariables.xyChart.legendTextColor	"#131300"
+key	themeVariables.xyChart.plotColorPalette	"#ECECFF,#8493A6,#FFC3A0,#DCDDE1,#B8E994,#D1A36F,#C3CDE6,#FFB6C1,#496078,#F8F3E3"
+key	themeVariables.xyChart.titleColor	"#131300"
+key	themeVariables.xyChart.xAxisLabelColor	"#131300"
+key	themeVariables.xyChart.xAxisLineColor	"#131300"
+key	themeVariables.xyChart.xAxisTickColor	"#131300"
+key	themeVariables.xyChart.xAxisTitleColor	"#131300"
+key	themeVariables.xyChart.yAxisLabelColor	"#131300"
+key	themeVariables.xyChart.yAxisLineColor	"#131300"
+key	themeVariables.xyChart.yAxisTickColor	"#131300"
+key	themeVariables.xyChart.yAxisTitleColor	"#131300"
+key	timeline.activationWidth	10
+key	timeline.actorColours.0	"#8FBC8F"
+key	timeline.actorColours.1	"#7CFC00"
+key	timeline.actorColours.2	"#00FFFF"
+key	timeline.actorColours.3	"#20B2AA"
+key	timeline.actorColours.4	"#B0E0E6"
+key	timeline.actorColours.5	"#FFFFE0"
+key	timeline.bottomMarginAdj	1
+key	timeline.boxMargin	10
+key	timeline.boxTextMargin	5
+key	timeline.diagramMarginX	50
+key	timeline.diagramMarginY	10
+key	timeline.disableMulticolor	false
+key	timeline.height	50
+key	timeline.leftMargin	150
+key	timeline.messageAlign	"center"
+key	timeline.messageMargin	35
+key	timeline.noteMargin	10
+key	timeline.rightAngles	false
+key	timeline.sectionColours.0	"#fff"
+key	timeline.sectionFills.0	"#191970"
+key	timeline.sectionFills.1	"#8B008B"
+key	timeline.sectionFills.2	"#4B0082"
+key	timeline.sectionFills.3	"#2F4F4F"
+key	timeline.sectionFills.4	"#800000"
+key	timeline.sectionFills.5	"#8B4513"
+key	timeline.sectionFills.6	"#00008B"
+key	timeline.taskFontFamily	"\"Open Sans\", sans-serif"
+key	timeline.taskFontSize	14
+key	timeline.taskMargin	50
+key	timeline.textPlacement	"fo"
+key	timeline.useMaxWidth	true
+key	timeline.width	150
+key	treeView.defaultIconPack	""
+key	treeView.extensionIcons	{}
+key	treeView.filenameIcons	{}
+key	treeView.lineThickness	1
+key	treeView.paddingX	5
+key	treeView.paddingY	5
+key	treeView.rowIndent	10
+key	treeView.showIcons	false
+key	treeView.useMaxWidth	true
+key	treeView.useWidth	undefined
+key	treemap.borderWidth	1
+key	treemap.diagramPadding	8
+key	treemap.labelFontSize	14
+key	treemap.nodeHeight	40
+key	treemap.nodeWidth	100
+key	treemap.padding	10
+key	treemap.showValues	true
+key	treemap.useMaxWidth	true
+key	treemap.valueFontSize	12
+key	treemap.valueFormat	","
+key	usecase.actorFontFamily	"\"Open Sans\", sans-serif"
+key	usecase.actorFontSize	14
+key	usecase.actorFontWeight	"normal"
+key	usecase.colorScheme	"role"
+key	usecase.diagramPadding	20
+key	usecase.look	"neo"
+key	usecase.minNodeWidth	120
+key	usecase.nodeSpacing	50
+key	usecase.rankSpacing	50
+key	usecase.theme	"redux-color"
+key	usecase.useMaxWidth	true
+key	usecase.usecaseFontFamily	"\"Open Sans\", sans-serif"
+key	usecase.usecaseFontSize	12
+key	usecase.usecaseFontWeight	"normal"
+key	usecase.wrappingWidth	120
+key	venn.height	450
+key	venn.look	"neo"
+key	venn.padding	8
+key	venn.theme	"redux-color"
+key	venn.useDebugLayout	false
+key	venn.useMaxWidth	true
+key	venn.width	800
+key	xyChart.chartOrientation	"vertical"
+key	xyChart.height	500
+key	xyChart.legendFontSize	14
+key	xyChart.legendPadding	10
+key	xyChart.plotReservedSpacePercent	50
+key	xyChart.showDataLabel	false
+key	xyChart.showDataLabelOutsideBar	false
+key	xyChart.showLegend	true
+key	xyChart.showTitle	true
+key	xyChart.titleFontSize	20
+key	xyChart.titlePadding	10
+key	xyChart.useMaxWidth	true
+key	xyChart.useWidth	undefined
+key	xyChart.width	700
+key	xyChart.xAxis.$ref	"#/$defs/XYChartAxisConfig"
+key	xyChart.xAxis.axisLineWidth	2
+key	xyChart.xAxis.labelFontSize	14
+key	xyChart.xAxis.labelPadding	5
+key	xyChart.xAxis.labelRotation	0
+key	xyChart.xAxis.showAxisLine	true
+key	xyChart.xAxis.showLabel	true
+key	xyChart.xAxis.showTick	true
+key	xyChart.xAxis.showTitle	true
+key	xyChart.xAxis.tickLength	5
+key	xyChart.xAxis.tickWidth	2
+key	xyChart.xAxis.titleFontSize	16
+key	xyChart.xAxis.titlePadding	5
+key	xyChart.yAxis.$ref	"#/$defs/XYChartAxisConfig"
+key	xyChart.yAxis.axisLineWidth	2
+key	xyChart.yAxis.labelFontSize	14
+key	xyChart.yAxis.labelPadding	5
+key	xyChart.yAxis.labelRotation	0
+key	xyChart.yAxis.showAxisLine	true
+key	xyChart.yAxis.showLabel	true
+key	xyChart.yAxis.showTick	true
+key	xyChart.yAxis.showTitle	true
+key	xyChart.yAxis.tickLength	5
+key	xyChart.yAxis.tickWidth	2
+key	xyChart.yAxis.titleFontSize	16
+key	xyChart.yAxis.titlePadding	5

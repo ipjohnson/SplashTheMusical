@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8106d06596bb16c0
+accept	yes
+drawn	yes
+node	A	Loop limit	notch-pent
+type	flowchart-v2

@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f4a3a3f1db80733
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+group	ThemeLane	ThemeLane	A,B
+node	A	Themed node	rect
+node	B	Next node	rect
+type	swimlane

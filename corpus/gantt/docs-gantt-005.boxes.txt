@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4cd3811ad968ce17
+box	task	/ Final milestone	642.686	120.686	22.627	22.627
+box	task	/ Initial milestone	91.186	48.686	22.627	22.627
+box	task	/ Task A	130	74	276	20
+box	task	/ Task B	406	98	138	20
+box	task-text	/ Final milestone	669	125.5	73.984	12
+box	task-text	/ Initial milestone	117.5	53.5	75.828	12
+box	task-text	/ Task A	251.797	77.5	32.406	12
+box	task-text	/ Task B	458.492	101.5	33.016	12
+canvas	0	0	784	196
+font	Liberation Sans	138

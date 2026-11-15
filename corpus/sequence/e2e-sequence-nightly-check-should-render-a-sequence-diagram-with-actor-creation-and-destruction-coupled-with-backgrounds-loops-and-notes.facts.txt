@@ -1,0 +1,34 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 940d653f5e3caa5d
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John Second Line	participant
+actor	Lola	Lola	actor
+block	alt	either this
+block	par	this happens in parallel
+block	rect
+block	rect
+divider
+divider	or this
+divider	or this will happen
+drawn	yes
+message	Alice	Bob	dashed	filled	Parallel message 1
+message	Alice	Bob	solid	filled	Hello Bob, how are you?
+message	Alice	Lola	dashed	filled	Parallel message 2
+message	Alice	Lola	solid	filled	No
+message	Alice	Lola	solid	filled	Yes
+message	Alice	Lola	solid	none	Maybe
+message	Bob	Alice	dashed	cross	I am good thanks!
+message	Bob	Alice	dashed	none	Checking with John...
+message	Bob	John	dashed	filled	How about you John?
+message	Bob	John	solid	cross	Hey John - we're still waiting to know how you're doing
+message	Bob	John	solid	cross	I am good thanks!
+message	Bob	John	solid	cross	John! Cmon!
+message	Lola	Alice	dashed	filled	OK
+note	over	John	After a few more moments, John finally snaps out of it.
+note	over	John	John looks like he's still thinking, so Bob prods him a bit.
+note	over	John	John's trying hard not to break his train of thought.
+note	right	John	John thinks a long long time, so long that the text does not fit on a row.
+type	sequence

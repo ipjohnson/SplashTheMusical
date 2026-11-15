@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 660f226017302de5
+box	edge	docSetNav --> tocNodes	346.008	205	0	36
+box	edge	getToc --> tocMappings	123.336	205	0	36
+box	edge	navYml --> getToc	123.336	99	0	36
+box	edge	perRepo --> docSetNav	346.008	99	0	36
+box	edge	siteNav --> pathProvider	121.781	438	90.891	36
+box	edge	siteNav --> sidebar	256.672	438	90.891	36
+box	edge	tocMappings --> siteNav	123.336	290	89.336	36
+box	edge	tocNodes --> siteNav	256.672	290	89.336	36
+box	node	docSetNav	239.336	139	213.344	66
+box	node	getToc	47.336	139	152	66
+box	node	navYml	47.336	54	152	45
+box	node	pathProvider	12	478	219.562	66
+box	node	perRepo	270.008	12	152	87
+box	node	sidebar	271.563	478	152	108
+box	node	siteNav	158.672	330	152	108
+box	node	tocMappings	33.016	245	180.641	45
+box	node	tocNodes	261.125	245	169.766	45
+canvas	4	4	456.68	590
+font	Liberation Sans	626

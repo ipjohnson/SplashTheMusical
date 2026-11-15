@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cbc498f19173b570
+box	message	A --> Book Service	51.313	105	109.688	19.25
+box	message	B --> A	51.313	137	209.688	19.25
+box	participant	A	22	63	78	38
+box	participant	B	222	63	78	38
+box	participant	Book Service	122	63	78	38
+canvas	0	0	322	211
+font	Liberation Sans	40

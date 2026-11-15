@@ -1,0 +1,55 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 35557671593ead76
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	NumLockOff	divider-id-1	136	37
+node	NumLockOn	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	NumLockOff	edge1	1	1	0	0	10	c
+edge	NumLockOff	NumLockOn	edge2	1	1	0	0	10	c
+edge	NumLockOn	NumLockOff	edge3	1	1	0	0	10	c
+size	222	404
+place	divider-id-1_start	111	65	14	14
+place	NumLockOff	111	190.5	136	37
+place	NumLockOn	111	327.5	136	37
+place	divider-id-1	111	202	206	388
+route	divider-id-1_start	NumLockOff	edge1			111,72 111,122 111,172
+route	NumLockOff	NumLockOn	edge2			99.7919708029197,209 69.5,259 99.7919708029197,309
+route	NumLockOn	NumLockOff	edge3			122.2080291970803,309 152.5,259 122.2080291970803,209
+layout	2
+graph	TB	50	20	100	8	8
+node	id-75aaxnn63dm-56_start	id-75aaxnn63dm-56	14	14
+node	CapsLockOff	id-75aaxnn63dm-56	136	37
+node	CapsLockOn	id-75aaxnn63dm-56	136	37
+node	id-75aaxnn63dm-56		0	0
+edge	id-75aaxnn63dm-56_start	CapsLockOff	edge4	1	1	0	0	10	c
+edge	CapsLockOff	CapsLockOn	edge5	1	1	0	0	10	c
+edge	CapsLockOn	CapsLockOff	edge6	1	1	0	0	10	c
+size	222	404
+place	id-75aaxnn63dm-56_start	111	65	14	14
+place	CapsLockOff	111	190.5	136	37
+place	CapsLockOn	111	327.5	136	37
+place	id-75aaxnn63dm-56	111	202	206	388
+route	id-75aaxnn63dm-56_start	CapsLockOff	edge4			111,72 111,122 111,172
+route	CapsLockOff	CapsLockOn	edge5			99.7919708029197,209 69.5,259 99.7919708029197,309
+route	CapsLockOn	CapsLockOff	edge6			122.2080291970803,309 152.5,259 122.2080291970803,209
+layout	3
+graph	TB	50	20	75	8	8
+node	divider-id-1	Active	206	388
+node	id-75aaxnn63dm-56	Active	206	388
+node	Active		0	0
+size	548	479
+place	divider-id-1	146	239.5	206	388
+place	id-75aaxnn63dm-56	402	239.5	206	388
+place	Active	274	239.5	532	463
+layout	4
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Active		532	463
+edge	root_start	Active	edge0	1	1	0	0	10	c
+size	548	543
+place	root_start	274	15	14	14
+place	Active	274	303.5	532	463
+route	root_start	Active	edge0			274,22 274,47 274,72

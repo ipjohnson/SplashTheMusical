@@ -1,0 +1,5 @@
+erDiagram
+    DocumentationSet ||--o{ LinkManifest : "per branch"
+    Registry ||--|| LinkRegistry : "link-index.json"
+    LinkRegistry ||--o{ LinkRegistryEntry : "repository, branch"
+    LinkRegistryEntry ||--|| LinkManifest : "path"

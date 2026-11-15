@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a80b31e4ef67ed8
+box	domain-label	confusion	400.46	319.635	79.081	17.959
+box	item	confusion / 0	399.65	362	80.7	26
+box	item	confusion / 1	399.317	392	81.367	26
+box	item	confusion / 2	398.983	422	82.033	26
+box	title	Confusion Items	369.522	7.916	140.956	20.204
+canvas	0	0	880	680
+font	Liberation Sans	508

@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a3022e6822e9eb0e
+box	section	Section1	10	68	42.813	12
+box	task	Section1 / Today	392	74	317	20
+box	task	Section1 / Yesterday	75	50	317	20
+box	task-text	Section1 / Today	535.82	77.5	29.359	12.283
+box	task-text	Section1 / Yesterday	209.234	53.5	48.531	12.283
+box	title	Hide today marker (vertical line should not be visible)	180.898	9	422.203	20
+canvas	0	0	784	148
+font	Liberation Sans	190

@@ -1,0 +1,45 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 940d653f5e3caa5d
+box	actor	Alice	0	0	150	90
+box	actor	Bob	244	0	150	90
+box	actor	John	650	173	150	90
+box	actor	Lola	1022.373	935	30.255	67.006
+box	actor-bottom	Alice	0	1473	150	90
+box	actor-bottom	Bob	244	1284	150	90
+box	actor-bottom	John	650	710	150	90
+box	actor-bottom	Lola	1022.373	1479	30.255	67.006
+box	block	alt either this	64	884	993.5	356
+box	block	par this happens in parallel	64	1250	984.5	203
+box	message	Alice --> Bob	82	174	230	0
+box	message	Alice --> Bob #2	82	1329	152	0
+box	message	Alice --> Lola	76	963	929.5	0
+box	message	Alice --> Lola #2	82	1141	948.5	0
+box	message	Alice --> Lola #3	82	1230	954.5	0
+box	message	Alice --> Lola #4	82	1443	948.5	0
+box	message	Bob --> Alice	82	317	242	0
+box	message	Bob --> Alice #2	79	504	245	0
+box	message	Bob --> John	326	218	314	0
+box	message	Bob --> John #2	326	361	392	0
+box	message	Bob --> John #3	326	664	392	0
+box	message	Bob --> John #4	326	755	314	0
+box	message	Lola --> Alice	82	1052	950.5	0
+box	message-text	Alice --> Bob	106.872	151.31	174.256	17.238
+box	message-text	Alice --> Bob #2	86.999	1306.31	136.002	17.238
+box	message-text	Alice --> Lola	527.951	940.31	26.099	17.012
+box	message-text	Alice --> Lola #2	542.778	1118.31	20.444	17.012
+box	message-text	Alice --> Lola #3	531.992	1207.31	48.016	17.238
+box	message-text	Alice --> Lola #4	484.999	1420.31	136.002	17.238
+box	message-text	Bob --> Alice	136.433	294.31	127.134	17.238
+box	message-text	Bob --> Alice #2	123	481.31	152	17.238
+box	message-text	Bob --> John	402.647	195.31	154.706	17.238
+box	message-text	Bob --> John #2	455.433	338.31	127.134	17.238
+box	message-text	Bob --> John #3	458.792	641.31	120.416	17.238
+box	message-text	Bob --> John #4	434.666	732.31	90.668	17.012
+box	message-text	Lola --> Alice	545.437	1029.31	23.126	17.012
+box	note	After a few more moments, John finally snaps out of it.	599.5	810	251	54
+box	note	John looks like he's still thinking, so Bob prods him a bit.	650	514	150	89
+box	note	John thinks a long long time, so long that the text does not fit on a row.	750	371	150	89
+box	note	John's trying hard not to break his train of thought.	537.5	674	375	37
+canvas	-50	-10	1212.5	1614
+font	Liberation Sans	1200

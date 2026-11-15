@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a4df0847a6680b16
+box	edge	academic_sources --> expert_voices	651.5	160.5	183.063	0
+box	edge	brief --> web_sources	197.5	160.5	71	9.499
+box	edge	decision --> brief	201.378	208.501	1091.185	9.499
+box	edge	decision --> format_output	1444.563	189.25	139.484	0
+box	edge	expert_voices --> synthesize	990.563	160.5	71	0
+box	edge	research --> done	892.773	262	0	46
+box	edge	start --> research	892.773	53	0	46
+box	edge	synthesize --> decision	1217.563	160.5	71.122	8.517
+box	edge	web_sources --> academic_sources	424.5	160.5	71	0
+box	edge-label	decision --> brief	689	207.5	112.062	21
+box	edge-label	decision --> format_output	1482.062	178.75	68.484	21
+box	group	research	8	103	1769.547	159
+box	node	academic_sources	499.5	138	152	45
+box	node	brief	45.5	166.75	152	45
+box	node	decision	1292.562	166.75	152	45
+box	node	done	807.16	312	171.227	45
+box	node	expert_voices	838.562	138	152	45
+box	node	format_output	1588.047	166.75	152	45
+box	node	start	807.16	8	171.227	45
+box	node	synthesize	1065.563	138	152	45
+box	node	web_sources	272.5	138	152	45
+canvas	0	0	1785.547	365
+font	Liberation Sans	240

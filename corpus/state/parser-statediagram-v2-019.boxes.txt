@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bde7f8455839bc22
+box	edge	State1 --> State2	324.616	103	24.667	95.5
+box	edge	State1 --> [*]end@root	361.877	103	125.231	690.5
+box	edge	State2 --> State3	219.458	241	85.825	95.5
+box	edge	State2 --> [*]end@root	343.95	241	85.825	552.5
+box	edge	State3 --> State3	54.141	444.667	20	90.667
+box	edge	State3 --> [*]end@root	157.848	638	207.49	156.267
+box	edge	State3 --> [*]end@root #2	264.564	638	99.686	155.871
+box	edge	[*]start@State3 --> long1	257.392	404	0	18.5
+box	edge	[*]start@root --> State1	368.616	26	0	34.5
+box	edge	long1 --> ProcessData	257.392	508	0	63.5
+box	edge	long1 --> long1	162.009	458.667	12	18.667
+box	edge-label	State1 --> State2	289.116	143	70.063	21
+box	edge-label	State1 --> [*]end@root	462.108	281	49.047	21
+box	edge-label	State2 --> State3	183.958	281	70.062	21
+box	edge-label	State2 --> [*]end@root	404.775	479.5	49.047	21
+box	edge-label	State3 --> State3	12	479.5	38.141	21
+box	edge-label	State3 --> [*]end@root	78.848	678	157.219	21
+box	edge-label	State3 --> [*]end@root #2	256.067	678	49.047	21
+box	edge-label	long1 --> ProcessData	216.392	532	81.734	21
+box	edge-label	long1 --> long1	98.141	457.5	61.469	21
+box	group	State3	74.141	342	290.634	296
+box	node	ProcessData	189.392	577	136	37
+box	node	State1	300.616	66	136	37
+box	node	State2	256.616	204	136	37
+box	node	[*]end@root	354.877	799	14.013	14
+box	node	[*]start@State3	250.392	390	14	14
+box	node	[*]start@root	361.616	12	14	14
+box	node	long1	174.009	428	166.766	80
+canvas	4	4	515.155	817
+font	Liberation Sans	328

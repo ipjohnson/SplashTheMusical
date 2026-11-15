@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 62fe762a3e110621
+box	edge	MindMap / I am a bang	316.059	205.891	35.972	120.86
+box	edge	MindMap / I am a circle	202.638	198.972	96.128	55.083
+box	edge	MindMap / I am a cloud	323.045	83.819	111.212	97.79
+box	edge	MindMap / I am a hexagon	270.057	51.376	37.443	125.762
+box	edge	MindMap / I am a rounded square	326.778	188.882	131.705	2.363
+box	edge	MindMap / I am a square	326.126	195.895	131.75	40.233
+box	edge	MindMap / I am the default shape	128.99	163.426	167.964	25.81
+box	node	MindMap	266.754	146.488	90.052	90.052
+box	node	MindMap / I am a bang	275.61	302.728	168.125	80
+box	node	MindMap / I am a circle	134.86	206.75	109.527	109.527
+box	node	MindMap / I am a cloud	386.595	34.995	122.347	80.698
+box	node	MindMap / I am a hexagon	189.628	15	152.297	44
+box	node	MindMap / I am a rounded square	398.48	149.613	150	78
+box	node	MindMap / I am a square	403.308	218.509	137.828	44
+box	node	MindMap / I am the default shape	15	144.147	198.328	34
+canvas	5	5	553.48	387.728
+font	Liberation Sans	226

@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 632b53443b0ca687
+box	event	2002 / LinkedIn	200	250	190	50
+box	event	2004 / Facebook	400	250	190	50
+box	event	2004 / Google	400	310	190	50
+box	event	2005 / YouTube	600	250	190	50
+box	event	2006 / Twitter	800	250	190	50
+box	period	2002	200	50	190	66.12
+box	period	2004	400	50	190	66.12
+box	period	2005	600	50	190	66.12
+box	period	2006	800	50	190	66.12
+box	title	History of Social Media Platform	245	-10.358	518.431	37.947
+canvas	100	-61	1190	529.056
+font	Liberation Sans	168

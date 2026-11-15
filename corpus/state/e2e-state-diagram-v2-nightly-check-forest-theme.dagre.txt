@@ -1,0 +1,99 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b2fdf720676ca846
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	NumLockOff	divider-id-1	136	40
+node	NumLockOn	divider-id-1	136	40
+node	divider-id-1		0	0
+edge	divider-id-1_start	NumLockOff	edge1	1	1	0	0	10	c
+edge	NumLockOff	NumLockOn	edge2	1	1	144.953125	24	10	c
+edge	NumLockOn	NumLockOff	edge3	1	1	144.953125	24	10	c
+size	376.4296875	434
+place	divider-id-1_start	188.21484375	65	14	14
+place	NumLockOff	188.21484375	192	136	40
+place	NumLockOn	188.21484375	356	136	40
+place	divider-id-1	188.21484375	217	360.4296875	418
+route	divider-id-1_start	NumLockOff	edge1			188.21484375,72 188.21484375,122 188.21484375,172
+route	NumLockOff	NumLockOn	edge2	105.73828125	274	168.09860899390245,212 105.73828125,274 168.09860899390245,336
+route	NumLockOn	NumLockOff	edge3	270.69140625	274	208.33107850609755,336 270.69140625,274 208.33107850609755,212
+layout	2
+graph	TB	50	20	100	8	8
+node	divider-id-2_start	divider-id-2	14	14
+node	CapsLockOff	divider-id-2	136	40
+node	CapsLockOn	divider-id-2	136	40
+node	divider-id-2		0	0
+edge	divider-id-2_start	CapsLockOff	edge4	1	1	0	0	10	c
+edge	CapsLockOff	CapsLockOn	edge5	1	1	148.515625	24	10	c
+edge	CapsLockOn	CapsLockOff	edge6	1	1	148.515625	24	10	c
+size	381.7734375	434
+place	divider-id-2_start	190.88671875	65	14	14
+place	CapsLockOff	190.88671875	192	136	40
+place	CapsLockOn	190.88671875	356	136	40
+place	divider-id-2	190.88671875	217	365.7734375	418
+route	divider-id-2_start	CapsLockOff	edge4			190.88671875,72 190.88671875,122 190.88671875,172
+route	CapsLockOff	CapsLockOn	edge5	106.62890625	274	170.33603277439025,212 106.62890625,274 170.33603277439025,336
+route	CapsLockOn	CapsLockOff	edge6	275.14453125	274	211.43740472560975,336 275.14453125,274 211.43740472560975,212
+layout	3
+graph	TB	50	20	100	8	8
+node	id-kuc9snt70zj-76_start	id-kuc9snt70zj-76	14	14
+node	ScrollLockOff	id-kuc9snt70zj-76	136	40
+node	ScrollLockOn	id-kuc9snt70zj-76	136	40
+node	id-kuc9snt70zj-76		0	0
+edge	id-kuc9snt70zj-76_start	ScrollLockOff	edge7	1	1	0	0	10	c
+edge	ScrollLockOff	ScrollLockOn	edge8	1	1	148.515625	24	10	c
+edge	ScrollLockOn	ScrollLockOff	edge9	1	1	148.515625	24	10	c
+size	381.7734375	434
+place	id-kuc9snt70zj-76_start	190.88671875	65	14	14
+place	ScrollLockOff	190.88671875	192	136	40
+place	ScrollLockOn	190.88671875	356	136	40
+place	id-kuc9snt70zj-76	190.88671875	217	365.7734375	418
+route	id-kuc9snt70zj-76_start	ScrollLockOff	edge7			190.88671875,72 190.88671875,122 190.88671875,172
+route	ScrollLockOff	ScrollLockOn	edge8	106.62890625	274	170.33603277439025,212 106.62890625,274 170.33603277439025,336
+route	ScrollLockOn	ScrollLockOff	edge9	275.14453125	274	211.43740472560975,336 275.14453125,274 211.43740472560975,212
+layout	4
+graph	TB	50	20	75	8	8
+node	A	SomethingElse	136	40
+node	B	SomethingElse	136	40
+node	SomethingElse		0	0
+edge	A	B	edge10	1	1	0	0	10	c
+edge	B	A	edge11	1	1	0	0	10	c
+size	222	246
+place	A	111	65.5	136	40
+place	B	111	180.5	136	40
+place	SomethingElse	111	123	206	230
+route	A	B	edge10			96.56521739130434,85.5 69.5,123 96.56521739130434,160.5
+route	B	A	edge11			125.43478260869566,160.5 152.5,123 125.43478260869566,85.5
+layout	5
+graph	TB	50	20	75	8	8
+node	divider-id-1	Active	360.4296875	418
+node	divider-id-2	Active	365.7734375	418
+node	id-kuc9snt70zj-76	Active	365.7734375	418
+node	Active		0	0
+size	1277.9765625	509
+place	divider-id-1	223.21484375	254.5	360.4296875	418
+place	divider-id-2	636.31640625	254.5	365.7734375	418
+place	id-kuc9snt70zj-76	1052.08984375	254.5	365.7734375	418
+place	Active	638.98828125	254.5	1261.9765625	493
+layout	6
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Active		1261.9765625	493
+node	SomethingElse		206	230
+node	SomethingElse2		136	40
+node	SomethingElse2----parent		0	0
+node	SomethingElse2----note-13	SomethingElse2----parent	150	78
+edge	SomethingElse2	SomethingElse2----note-13	SomethingElse2-SomethingElse2----note-13	1	1	0	0	10	c
+edge	root_start	Active	edge0	1	1	0	0	10	c
+edge	Active	SomethingElse2	edge12	1	1	0	0	10	c
+size	1277.9765625	1057
+place	root_start	638.98828125	123	14	14
+place	Active	638.98828125	534.5	1261.9765625	493
+place	SomethingElse	798.98828125	123	206	230
+place	SomethingElse2	638.98828125	851	136	40
+place	SomethingElse2----parent	638.98828125	985	220	128
+place	SomethingElse2----note-13	638.98828125	985	150	78
+route	SomethingElse2	SomethingElse2----note-13	SomethingElse2-SomethingElse2----note-13			638.98828125,871 638.98828125,896 638.98828125,921 638.98828125,946
+route	root_start	Active	edge0			638.98828125,130 638.98828125,263 638.98828125,288
+route	Active	SomethingElse2	edge12			638.98828125,781 638.98828125,806 638.98828125,831

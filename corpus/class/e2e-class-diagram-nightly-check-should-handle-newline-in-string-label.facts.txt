@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 432d8273f33f27eb
+accept	yes
+attribute	A	#double bop
+attribute	A	+String boop
+attribute	A	-Int beep
+class	A	This has a newline!
+class	B	This title also has a newline
+drawn	yes
+method	B	+with(more)
+method	B	-methods()
+type	classDiagram

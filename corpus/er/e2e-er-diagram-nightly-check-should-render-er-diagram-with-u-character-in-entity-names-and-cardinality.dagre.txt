@@ -1,0 +1,22 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5bfc42bf4c5a2a2e
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-CUSTOMER-0		119.859375	81
+node	entity-u-1		100	81
+node	entity-ORDER-2		100	81
+node	entity-PROJECT-3		105.34375	81
+node	entity-TEAM_MEMBER-4		148.125	81
+edge	entity-CUSTOMER-0	entity-u-1	id_entity-CUSTOMER-0_entity-u-1_0	1	1	22.578125	21	10	c
+edge	entity-u-1	entity-ORDER-2	id_entity-u-1_entity-ORDER-2_1	1	1	40.46875	21	10	c
+edge	entity-PROJECT-3	entity-TEAM_MEMBER-4	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	1	1	39.703125	21	10	c
+size	414.0546875	461
+place	entity-CUSTOMER-0	67.9296875	48.5	119.859375	81
+place	entity-u-1	67.9296875	230.5	100	81
+place	entity-ORDER-2	67.9296875	412.5	100	81
+place	entity-PROJECT-3	331.9921875	48.5	105.34375	81
+place	entity-TEAM_MEMBER-4	331.9921875	230.5	148.125	81
+route	entity-CUSTOMER-0	entity-u-1	id_entity-CUSTOMER-0_entity-u-1_0	67.9296875	139.5	67.9296875,89 67.9296875,139.5 67.9296875,190
+route	entity-u-1	entity-ORDER-2	id_entity-u-1_entity-ORDER-2_1	67.9296875	321.5	67.9296875,271 67.9296875,321.5 67.9296875,372
+route	entity-PROJECT-3	entity-TEAM_MEMBER-4	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	331.9921875	139.5	331.9921875,89 331.9921875,139.5 331.9921875,190

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 74df22ac9f981a34
+box	edge	classify --> prioritize	36	96	0	217.406
+box	edge	classify --> respond	132	0	212.154	0
+box	edge	implement --> respond	112	37	312.154	622.813
+box	edge	prioritize --> implement	36	362.406	0	270.906
+box	edge-label	classify --> prioritize	27.047	196.203	17.906	21
+box	edge-label	classify --> respond	228.655	-10.5	22.844	21
+box	group	Engineering	-106	499.859	616.154	218.453
+box	group	Product	-106	145.227	616.154	354.633
+box	group	Support	-106	-132	616.154	277.227
+box	node	classify	-59.5	-96	192	192
+box	node	implement	-40	637.313	152	45
+box	node	prioritize	-40	317.406	152	45
+box	node	respond	348.154	-33	152	66
+canvas	-114	-140	632.154	866.313
+font	Liberation Sans	194

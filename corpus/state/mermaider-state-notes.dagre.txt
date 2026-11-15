@@ -1,0 +1,38 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0977316da5c45d0f
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Active		136	37
+node	Paused		136	37
+node	Done		136	37
+node	Active----parent		0	0
+node	Active----note-4	Active----parent	150	72
+node	Paused----parent		0	0
+node	Paused----note-5	Paused----parent	150	72
+node	root_end		14.013293266296387	14
+edge	root_start	Active	edge0	1	1	0	0	10	c
+edge	Active	Paused	edge1	1	1	38.15625	21	10	c
+edge	Paused	Active	edge2	1	1	46.6875	21	10	c
+edge	Active	Done	edge3	1	1	32.6875	21	10	c
+edge	Active	Active----note-4	Active-Active----note-4	1	1	0	0	10	c
+edge	Paused----note-5	Paused	Paused----note-5-Paused	1	1	0	0	10	c
+edge	Done	root_end	edge6	1	1	0	0	10	c
+size	747.578125	459
+place	root_start	393.578125	15	14	14
+place	Active	393.578125	133	136	37
+place	Paused	157.078125	326	136	37
+place	Done	671.578125	326	136	37
+place	Active----parent	458.578125	326	220	122
+place	Active----note-4	458.578125	326	150	72
+place	Paused----parent	157.078125	133	220	122
+place	Paused----note-5	157.078125	133	150	72
+place	root_end	671.578125	444	14.013293266296387	14
+route	root_start	Active	edge0			393.578125,22 393.578125,47 393.578125,72 393.578125,114.5
+route	Active	Paused	edge1	27.078125	229.5	325.578125,144.31787175989086 27.078125,194 27.078125,229.5 27.078125,265 117.65189549180329,307.5
+route	Paused	Active	edge2	328.578125	229.5	209.0904200819672,307.5 328.578125,265 328.578125,229.5 328.578125,194 373.86501024590166,151.5
+route	Active	Done	edge3	671.578125	229.5	461.578125,147.9208633093525 671.578125,194 671.578125,229.5 671.578125,265 671.578125,307.5
+route	Active	Active----note-4	Active-Active----note-4			413.29123975409834,151.5 458.578125,194 458.578125,229.5 458.578125,265 458.578125,290
+route	Paused----note-5	Paused	Paused----note-5-Paused			157.078125,169 157.078125,194 157.078125,229.5 157.078125,265 157.078125,307.5
+route	Done	root_end	edge6			671.578125,344.5 671.578125,387 671.578125,412 671.578125,437

@@ -1,0 +1,56 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 933ab9099f5f04ab
+box	edge	Product Launch / Design	473.306	191.94	133.193	58.302
+box	edge	Product Launch / Design / Brand	635.142	171.108	114.377	13.109
+box	edge	Product Launch / Design / Docs	630.325	122.961	47.107	51.86
+box	edge	Product Launch / Engineering	286.073	232.583	158.63	21.646
+box	edge	Product Launch / Engineering / Feature flags	96.639	215.367	159.629	13.888
+box	edge	Product Launch / Engineering / Load testing	201.892	173.349	57.75	47.659
+box	edge	Product Launch / Finance	434.576	270.973	22.088	112.029
+box	edge	Product Launch / Finance / Forecast	441.125	409.367	42.679	52.604
+box	edge	Product Launch / Finance / Pricing	372.678	408.925	49.025	55.093
+box	edge	Product Launch / Legal	357.976	138.577	91.787	106.325
+box	edge	Product Launch / Legal / Privacy	340.179	53.238	6.384	59.071
+box	edge	Product Launch / Legal / Terms	226.247	82.746	107.836	39.336
+box	edge	Product Launch / Marketing	311.362	262.409	134.523	60.498
+box	edge	Product Launch / Marketing / Email campaign	126.708	300.762	156.175	25.848
+box	edge	Product Launch / Marketing / Landing page	147.043	333.585	136.337	43.149
+box	edge	Product Launch / Marketing / Social	281.709	343.699	12.705	56.924
+box	edge	Product Launch / Operations	464.886	130.304	42.47	111.928
+box	edge	Product Launch / Operations / Dashboards	525.232	58.824	75.312	49.247
+box	edge	Product Launch / Operations / On-call	477.324	45.422	28.657	57.436
+box	edge	Product Launch / Sales	470.868	266.118	110.13	96.078
+box	edge	Product Launch / Sales / Demo env	599.456	385.241	30.892	56.919
+box	edge	Product Launch / Sales / Playbook	606.956	375.254	119.244	26.007
+box	edge	Product Launch / Support	474.377	258.628	142.862	22.867
+box	edge	Product Launch / Support / Runbooks	646.462	288.026	129.32	37.329
+box	edge	Product Launch / Support / Training	646.694	253.782	120.854	26.832
+box	node	Product Launch	392.256	188.947	134.619	134.619
+box	node	Product Launch / Design	575.334	168.925	89.812	34
+box	node	Product Launch / Design / Brand	723.07	152.4	82.703	34
+box	node	Product Launch / Design / Docs	649.291	94.857	76.453	34
+box	node	Product Launch / Engineering	208.508	213.555	125.406	34
+box	node	Product Launch / Engineering / Feature flags	15	197.066	133.391	34
+box	node	Product Launch / Engineering / Load testing	126.729	146.801	127.187	34
+box	node	Product Launch / Finance	383.213	380.719	96.922	34
+box	node	Product Launch / Finance / Forecast	442.13	456.62	102.25	34
+box	node	Product Launch / Finance / Pricing	318.253	458.223	88.906	34
+box	node	Product Launch / Legal	308.596	110.222	79.156	34
+box	node	Product Launch / Legal / Privacy	292.341	21.324	92.453	34
+box	node	Product Launch / Legal / Terms	170.374	60.606	83.562	34
+box	node	Product Launch / Marketing	242.556	312.059	110.25	34
+box	node	Product Launch / Marketing / Email campaign	34.995	281.312	153.828	34
+box	node	Product Launch / Marketing / Landing page	64.25	364.26	136.984	34
+box	node	Product Launch / Marketing / Social	236.653	398.263	83.578	34
+box	node	Product Launch / Operations	453.545	99.28	118.266	34
+box	node	Product Launch / Operations / Dashboards	549.958	33.614	126.281	34
+box	node	Product Launch / Operations / On-call	425.283	15	90.687	34
+box	node	Product Launch / Sales	552.285	355.057	80.031	34
+box	node	Product Launch / Sales / Demo env	581.043	438.343	112.922	34
+box	node	Product Launch / Sales / Playbook	687.942	387.457	105.828	34
+box	node	Product Launch / Support	584.027	266.866	96.047	34
+box	node	Product Launch / Support / Runbooks	734.17	312.516	112.047	34
+box	node	Product Launch / Support / Training	733.582	233.531	97.219	34
+canvas	5	5	851.217	497.223
+font	Liberation Sans	432

@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 201a0912328e98f2
+box	actor	DB	200	0	150	73
+box	actor	Service	0	0	150	73
+box	actor-bottom	DB	200	460	150	73
+box	actor-bottom	Service	0	460	150	73
+box	block	critical Establish a connection to the DB	-9	83	295	357
+box	message	Service --> DB	76	162	195	0
+box	message	Service --> Service	76	249.381	45	23.238
+box	message	Service --> Service #2	76	368.381	45	23.238
+box	message-text	Service --> DB	145.977	139.219	56.047	17.016
+box	message-text	Service --> Service	43.539	228.219	64.922	17.32
+box	message-text	Service --> Service #2	12.555	347.219	126.891	17.32
+canvas	-59	-10	459	584
+font	Liberation Sans	268

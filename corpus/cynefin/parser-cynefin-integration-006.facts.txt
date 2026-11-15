@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a6a3d21e413ea1b
+accept	yes
+drawn	yes
+item	complex	0	Practice
+item	complicated	0	Analysis
+label	Analysis
+label	Pattern found
+label	Practice
+transition	complex	complicated	Pattern found
+type	cynefin

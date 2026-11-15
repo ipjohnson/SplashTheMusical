@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b95e4b648fa83990
+accept	yes
+class	UserService	UserService
+drawn	yes
+method	UserService	+login()
+namespace	Auth	UserService
+type	classDiagram

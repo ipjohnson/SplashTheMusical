@@ -1,0 +1,38 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5baaaaca372acdb9
+box	actor	Audit	794	0	156	71
+box	actor	Auth	229.662	10	90.675	65.875
+box	actor	Queue	600	0	150	65
+box	actor	UserDB	444.782	7.143	60.436	69.732
+box	actor	Web	20	11	94.405	66.875
+box	actor-bottom	Audit	800	796	150	65
+box	actor-bottom	Auth	229.662	806	90.675	68.375
+box	actor-bottom	Web	20	807	94.405	66.375
+box	block	alt Valid credentials	64	207	832	522
+box	block	par Parallel processing	260	340	626	158
+box	message	Audit --> Auth	283	488	591	0
+box	message	Audit --> Auth #2	283	675	591	0
+box	message	Auth --> Audit	280	330	591	0
+box	message	Auth --> Audit #2	280	631	591	0
+box	message	Auth --> Queue	280	286	391	0
+box	message	Auth --> UserDB	280	153	191	0
+box	message	Auth --> Web	79	542	191	0
+box	message	Auth --> Web #2	79	719	191	0
+box	message	Queue --> Auth	283	419	391	0
+box	message	UserDB --> Auth	283	197	187	0
+box	message	Web --> Auth	76	109	195	0
+box	message-text	Audit --> Auth	552.318	464.495	53.363	18.75
+box	message-text	Audit --> Auth #2	552.318	651.495	53.363	18.75
+box	message-text	Auth --> Audit	531.552	306.495	88.897	18.75
+box	message-text	Auth --> Audit #2	538.656	607.495	74.687	18.75
+box	message-text	Auth --> Queue	408.878	262.495	134.245	18.75
+box	message-text	Auth --> UserDB	315.114	129.495	121.773	18.75
+box	message-text	Auth --> Web	122.997	518.495	104.006	18.75
+box	message-text	Auth --> Web #2	122.987	695.495	104.027	18.75
+box	message-text	Queue --> Auth	429.644	395.495	98.711	18.75
+box	message-text	UserDB --> Auth	337.888	173.495	78.224	18.75
+box	message-text	Web --> Auth	125.544	85.495	96.912	18.75
+box	note	All interactions logged	50	739	850	37
+canvas	-50	-10	1050	901
+font	Liberation Sans	648

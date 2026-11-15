@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9b3b0c902d5583a2
+accept	yes
+actor	1	1	participant
+actor	2	2	participant
+actor	3	3	participant
+actor	4	4	participant
+drawn	yes
+message	1	2	solid	filled	single-line text
+message	2	3	solid	filled	multiline text
+note	right	2	single-line text
+note	right	3	multiline text
+type	sequence

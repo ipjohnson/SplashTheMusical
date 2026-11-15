@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b3ea7b01b554303d
+box	cause	Environment	-262.256	498.176	129.828	21.016
+box	cause	Environment / Subject moved too quickly	-323.186	410.042	105.786	34.119
+box	cause	Environment / Too dark	-283.717	453.809	61.355	17.001
+box	cause	Equipment	-295.355	-18.958	116.5	21.32
+box	cause	Equipment / LENS	-326.551	188.559	41.783	17.001
+box	cause	Equipment / LENS / Damaged lens	-364.05	87.081	103.114	17.319
+box	cause	Equipment / LENS / Dirty lens	-339.496	135.71	66.643	17.319
+box	cause	Equipment / LENS / Inappropriate lens	-343.259	30.052	94.238	33.801
+box	cause	Equipment / SENSOR	-326.799	334.446	67.534	17.001
+box	cause	Equipment / SENSOR / Damaged sensor	-348.053	232.969	121.786	17.319
+box	cause	Equipment / SENSOR / Dirty sensor	-328.082	281.598	85.316	17.319
+box	cause	Process	-123.574	-18.958	97.797	21.016
+box	cause	Process / Beautification filter applied	-156.955	296.869	96.02	34.119
+box	cause	Process / Out of focus	-179.963	71.848	86.222	17.001
+box	cause	Process / Protective film not removed	-172.281	219.062	100.411	33.801
+box	cause	Process / Shutter speed too slow	-182.387	141.255	99.608	33.801
+box	cause	User	-71.802	498.176	73.781	21.016
+box	cause	User / Shaky hands	-149.913	436.126	92.457	17.319
+box	head	Blurry Photo	0	340.057	72	105.6
+canvas	-384.108	-38.958	476.108	578.15
+font	Liberation Sans	494

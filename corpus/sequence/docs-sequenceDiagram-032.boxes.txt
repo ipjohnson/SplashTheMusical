@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 07788f7e3ced9064
+box	actor	API	200	0	150	73
+box	actor	BillingService	625	0	150	73
+box	actor	BookingService	425	0	150	73
+box	actor	Consumer	0	0	150	73
+box	actor-bottom	API	200	338	150	73
+box	actor-bottom	BillingService	625	338	150	73
+box	actor-bottom	BookingService	425	338	150	73
+box	actor-bottom	Consumer	0	338	150	73
+box	block	break when the booking process fails	64	171	222	103
+box	message	API --> BillingService	276	318	420	0
+box	message	API --> BookingService	276	161	220	0
+box	message	API --> Consumer	79	264	195	0
+box	message	Consumer --> API	76	117	195	0
+box	message-text	API --> BillingService	416.217	294.711	139.566	17.858
+box	message-text	API --> BookingService	308.648	137.711	154.703	17.858
+box	message-text	API --> Consumer	134.326	240.711	85.348	17.858
+box	message-text	Consumer --> API	116.651	93.711	114.698	17.858
+canvas	-50	-10	875	462
+font	Liberation Sans	364

@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a1deb8db1b3138b
+box	entity	Bundle	338.035	12	100	81
+box	entity	BundleAmend	407.063	194	127.953	81
+box	entity	BundleRegistry	237.563	922	134.938	81
+box	entity	BundledEntry	243	194	124.063	81
+box	entity	ChangelogConfiguration	12	194	191	81
+box	entity	ChangelogEntry	234.828	376	140.406	81
+box	entity	Product	255.031	740	100	81
+box	entity	ProductRelease	235.219	558	139.625	81
+box	entity	Repository	54.039	12	106.922	81
+box	relation	Bundle --> BundleAmend	401.368	93	69.671	101
+box	relation	Bundle --> BundledEntry	305.031	93	69.671	101
+box	relation	BundledEntry --> ChangelogEntry	305.031	275	0	101
+box	relation	ChangelogEntry --> ProductRelease	305.031	457	0	101
+box	relation	Product --> BundleRegistry	305.031	821	0	101
+box	relation	ProductRelease --> Product	305.031	639	0	101
+box	relation	Repository --> ChangelogConfiguration	107.5	93	0	101
+box	relation-label	Bundle --> BundleAmend	442.039	133	57.594	21
+box	relation-label	Bundle --> BundledEntry	283.531	133	42.031	21
+box	relation-label	BundledEntry --> ChangelogEntry	248.031	315	114	21
+box	relation-label	ChangelogEntry --> ProductRelease	278.031	497	53.703	21
+box	relation-label	Product --> BundleRegistry	267.531	861	74.438	21
+box	relation-label	ProductRelease --> Product	281.531	679	46.703	21
+box	relation-label	Repository --> ChangelogConfiguration	62	133	90.281	21
+canvas	4	4	539.016	1007
+font	Liberation Sans	360

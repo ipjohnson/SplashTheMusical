@@ -1,0 +1,34 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e82d65536578bf71
+box	edge	bg --> free	520.667	1182.333	67.333	125.667
+box	edge	bg --> sbg	396	1182.333	67.333	125.667
+box	edge	fg --> bg	414.667	889.333	77.333	125.667
+box	edge	fg --> sfg	280	889.333	77.333	125.667
+box	edge	full --> none	88	263.833	70.833	122.167
+box	edge	full --> ready	209.167	263.833	70.833	122.167
+box	edge	gates --> fg	302	625	84	97
+box	edge	gates --> held	174	625	84	97
+box	edge	ready --> gates	280	519	0	36
+box	edge	start --> full	184	78	0	36
+box	edge-label	bg --> free	580	1251	15.578	21
+box	edge-label	bg --> sbg	385	1251	21.797	21
+box	edge-label	fg --> bg	484	958	15.578	21
+box	edge-label	fg --> sfg	269	958	21.797	21
+box	edge-label	full --> none	77	329	21.797	21
+box	edge-label	full --> ready	272	329	15.578	21
+box	edge-label	gates --> fg	362	665	47.484	21
+box	edge-label	gates --> held	160.5	665	26.469	21
+box	node	bg	396.5	1019	192	192
+box	node	fg	290.5	726	192	192
+box	node	free	512	1312	152	45
+box	node	full	99	118	171	171
+box	node	gates	204	559	152	66
+box	node	held	98	726	152	87
+box	node	none	12	390	152	66
+box	node	ready	204	390	152	129
+box	node	sbg	320	1312	152	150
+box	node	sfg	204	1019	152	150
+box	node	start	108	12	152	66
+canvas	4	4	668	1466
+font	Liberation Sans	904

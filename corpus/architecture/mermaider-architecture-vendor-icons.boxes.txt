@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c44f001fc6712ce5
+box	edge	awsCompute --> awsStorage	243.856	242.305	122.248	0
+box	edge	awsStorage --> search	406.104	16.758	0	265.547
+box	edge	azureCompute --> azureStorage	-273.104	-41.834	120.687	0
+box	edge	gcpCompute --> gcpStorage	244.384	-128.805	121.72	0
+box	edge	gcpStorage --> search	406.104	-88.805	0	105.563
+box	group	awsGroup	121.356	159.805	367.248	182
+box	group	azureGroup	-395.604	-124.334	365.687	182
+box	group	gcpGroup	100.884	-211.305	400.72	182
+box	service	awsCompute	163.856	202.305	80	103.966
+box	service	awsStorage	366.104	202.305	80	103.966
+box	service	azureCompute	-353.104	-81.834	80	103.966
+box	service	azureStorage	-152.418	-81.834	80	103.966
+box	service	gcpCompute	144.817	-168.805	119.135	103.966
+box	service	gcpStorage	354.97	-168.805	102.269	103.966
+box	service	search	358.544	16.758	95.121	103.966
+canvas	-435.604	-251.305	977.209	633.11
+font	Liberation Sans	138

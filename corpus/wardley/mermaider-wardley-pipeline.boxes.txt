@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2cae778e430f1ab6
+box	link	Analyst --> Dashboards	493.017	78.498	34.566	65.005
+box	link	Dashboards --> Storage	490.2	154.8	0	150.012
+box	link	Dashboards --> Storage_Warehouse	491.533	154.65	37.534	164.7
+box	node	Analyst	512.337	63.653	36.126	11.48
+box	node	Dashboards	484.2	131.616	67.919	23.184
+box	node	Storage	485.4	294.416	47.831	21.984
+box	node	Storage_File Store	283.2	308.016	56.798	23.184
+box	node	Storage_Lakehouse	685.2	308.016	62.933	23.184
+box	node	Storage_Warehouse	524.4	308.016	64.762	23.184
+box	title	Data Platform	409.058	15.839	81.883	13.776
+canvas	0	0	900	600
+font	Liberation Sans	360

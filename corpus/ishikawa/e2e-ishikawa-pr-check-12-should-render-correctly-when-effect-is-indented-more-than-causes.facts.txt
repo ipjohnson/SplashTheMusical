@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 615792d6ae3c903f
+accept	yes
+cause	Cause A
+cause	Cause B
+cause	Cause C
+cause	Subcause A1
+cause	Subcause A2
+cause	Subcause B1
+drawn	yes
+head	Problem
+label	Cause A
+label	Cause B
+label	Cause C
+label	Problem
+label	Subcause A1
+label	Subcause A2
+label	Subcause B1
+type	ishikawa

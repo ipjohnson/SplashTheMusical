@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b46ca8f030ae22c7
+box	actor	API	400	0	150	73
+box	actor	Bank	603	0	150	73
+box	actor	Customer	40.336	0	69.328	67.204
+box	actor	Web	200	0	150	73
+box	actor-bottom	API	400	404	150	73
+box	actor-bottom	Bank	603	404	150	73
+box	actor-bottom	Customer	40.336	410	69.328	67.204
+box	actor-bottom	Web	200	404	150	73
+box	message	API --> Bank	486	205	185	0
+box	message	API --> Web	282	293	194	0
+box	message	Bank --> API	486	249	197	0
+box	message	Customer --> Web	82	117	186	0
+box	message	Web --> API	282	161	186	0
+box	message	Web --> Customer	82	337	198	0
+box	message-text	API --> Bank	509.316	182.089	133.369	17.463
+box	message-text	API --> Web	331.977	270.089	88.045	17.408
+box	message-text	Bank --> API	547.761	226.089	68.478	17.463
+box	message-text	Customer --> Web	131.097	94.089	81.806	17.408
+box	message-text	Web --> API	323.26	138.089	97.481	17.408
+box	message-text	Web --> Customer	120.224	314.089	115.552	17.408
+box	note	One order, one transaction	50	347	653	37
+canvas	-50	-10	853	528
+font	Liberation Sans	332

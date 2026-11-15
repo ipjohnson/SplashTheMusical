@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 894ffb08c207d23d
+accept	yes
+actor	API	External Name	boundary
+actor	DB	External DB	database
+drawn	yes
+message	API	DB	solid	filled	Query
+message	DB	API	dashed	filled	Result
+type	sequence

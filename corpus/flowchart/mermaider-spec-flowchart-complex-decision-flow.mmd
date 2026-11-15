@@ -1,0 +1,12 @@
+flowchart TD
+A[Start] --> B{Is it raining?}
+B -->|Yes| C[Take umbrella]
+B -->|No| D{Is it cold?}
+D -->|Yes| E[Wear jacket]
+D -->|No| F[Dress light]
+C --> G[Go outside]
+E --> G
+F --> G
+G --> H{Enjoy?}
+H -->|Yes| I((Done))
+H -->|No| A

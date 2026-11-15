@@ -1,0 +1,31 @@
+erDiagram
+CUSTOMER ||--o{ ORDER : places
+ORDER ||--|{ ORDER_LINE : contains
+ORDER_LINE }|--|| PRODUCT : references
+PRODUCT }o--|| CATEGORY : belongs_to
+CUSTOMER {
+int id PK
+string name
+string email UK
+}
+ORDER {
+int id PK
+date order_date
+string status
+}
+ORDER_LINE {
+int id PK
+int quantity
+decimal unit_price
+}
+PRODUCT {
+int id PK
+string name
+decimal price
+int stock
+}
+CATEGORY {
+int id PK
+string name UK
+string description
+}

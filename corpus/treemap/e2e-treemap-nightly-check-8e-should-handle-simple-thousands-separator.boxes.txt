@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19f64470df2e465b
+box	node	User Counts	10	35	980	355
+box	node	User Counts / Active Users	20	70	864	310
+box	node	User Counts / Churned	894	361	86	19
+box	node	User Counts / Converted	894	70	86	174
+box	node	User Counts / New Signups	894	254	86	97
+canvas	2	27	996	371
+font	Liberation Sans	160

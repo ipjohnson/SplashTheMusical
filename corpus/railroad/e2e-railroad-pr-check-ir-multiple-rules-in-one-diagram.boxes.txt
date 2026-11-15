@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ab5cdff4afbf8154
+box	nonterminal	array / element	144.703	577.461	76.922	37
+box	nonterminal	array / element #2	286.078	577.461	76.922	37
+box	nonterminal	element / array	139.617	121.82	56.453	37.32
+box	nonterminal	element / number	130.719	212.461	74.25	37
+box	nonterminal	element / object	136.492	76.5	62.703	37.32
+box	nonterminal	element / string	138.281	167.141	59.125	37.32
+box	nonterminal	json / element	83.531	11.5	76.922	37
+box	nonterminal	member / element	216.047	663.961	76.922	37
+box	nonterminal	member / string	112.469	663.801	59.125	37.32
+box	nonterminal	number / digit	128.047	730.461	49.359	37.32
+box	nonterminal	object / member	151.828	452.461	78.688	37
+box	nonterminal	object / member #2	294.969	452.461	78.688	37
+box	rule	array	0	537.461	452.453	97
+box	rule	digit	0	815.781	167.047	442
+box	rule	element	0	76.5	239.969	307.961
+box	rule	json	-0.25	11.5	175.703	37
+box	rule	member	0	663.801	307.969	37.32
+box	rule	number	0	730.461	212.406	57.32
+box	rule	object	0	412.461	464	97
+box	terminal	digit / 0	103.141	815.781	28.906	37
+box	terminal	digit / 1	103.141	860.781	28.906	37
+box	terminal	digit / 2	103.141	905.781	28.906	37
+box	terminal	digit / 3	103.141	950.781	28.906	37
+box	terminal	digit / 4	103.141	995.781	28.906	37
+box	terminal	digit / 5	103.141	1040.781	28.906	37
+box	terminal	digit / 6	103.141	1085.781	28.906	37
+box	terminal	digit / 7	103.141	1130.781	28.906	37
+box	terminal	digit / 8	103.141	1175.781	28.906	37
+box	terminal	digit / 9	103.141	1220.781	28.906	37
+box	terminal	element / false	140.945	302.461	53.797	37
+box	terminal	element / null	145.391	347.461	44.906	37
+box	terminal	element / true	144.055	257.461	47.578	37
+canvas	0	0	484	1295.781
+font	Liberation Sans	314

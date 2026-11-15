@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d7e873f33db11d15
+box	edge	[*]start@divider-id-1 --> NumLockOff	128	98	0	18.5
+box	edge	[*]start@divider-id-131 --> ScrollLockOff	128	245	0	18.5
+box	edge	[*]start@divider-id-2 --> CapsLockOff	336	98	0	18.5
+box	group	Active	12	12	440	342
+box	group	divider-id-1	36	60	184	123
+box	group	divider-id-2	244	60	184	123
+box	node	CapsLockOff	268	122	136	37
+box	node	NumLockOff	60	122	136	37
+box	node	ScrollLockOff	60	269	136	37
+box	node	[*]start@divider-id-1	121	84	14	14
+box	node	[*]start@divider-id-2	329	84	14	14
+canvas	4	4	456	358
+font	Liberation Sans	80

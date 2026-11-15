@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d1f89162a665f281
+box	link	API --> Cache	415.673	225.627	108.854	22.746
+box	link	API --> Database	533.87	254.495	153.86	217.011
+box	link	App --> API	535.484	177.187	110.433	69.226
+box	link	Cache --> Database	414.27	228.403	272.461	243.995
+box	link	User --> App	656.43	100.953	149.94	70.494
+box	node	API	524.4	232.416	30.126	23.184
+box	node	App	645	156.816	31.794	23.184
+box	node	Cache	403.8	207.216	42.915	23.184
+box	node	Database	685.2	459.216	56.816	23.184
+box	node	User	805.8	81.216	35.112	23.184
+box	title	Link Types	417.57	15.839	64.861	14.093
+canvas	0	0	900	600
+font	Liberation Sans	186

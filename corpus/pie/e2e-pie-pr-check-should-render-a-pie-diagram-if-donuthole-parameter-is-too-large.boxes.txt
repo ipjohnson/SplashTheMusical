@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7968b00e9a4c7f7b
+box	legend	Keyboard	441	224	94.781	19
+box	legend	Monitor	441	202	78.688	19
+box	legend	Mouse	441	246	73.031	19
+box	legend	Speaker	441	180	85.328	19
+box	slice	Keyboard	40	188.261	185	103.858
+box	slice	Monitor	52.605	225	172.395	177.506
+box	slice	Mouse	43.685	40	181.315	185
+box	slice	Speaker	172.879	40	237.121	370
+box	title	Items Sold	165.945	2	118.109	28
+canvas	0	0	584.781	450
+font	Liberation Sans	96

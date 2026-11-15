@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 79b25409882e9aee
+box	edge	Shapes / Bang	249.115	154.032	116.143	77.355
+box	edge	Shapes / Bang / Plain child	197.715	52.963	33.112	78.922
+box	edge	Shapes / Circle	347.912	254.204	25.997	98.328
+box	edge	Shapes / Circle / Plain child	349.469	381.031	27.99	72.674
+box	edge	Shapes / Cloud	392.419	214.182	106.225	22.422
+box	edge	Shapes / Cloud / Plain child	527.612	169.423	116.405	37.105
+box	edge	Shapes / Hexagon	246.067	243.511	117.167	30.761
+box	edge	Shapes / Hexagon / Plain child	85.819	282.448	131.389	39.982
+box	edge	Shapes / Rounded	380.379	133.287	16.363	91.649
+box	edge	Shapes / Rounded / Plain child	408.477	43.926	47.808	62.668
+box	edge	Shapes / Square	389.406	249.135	86.83	70.217
+box	edge	Shapes / Square / Plain child	502.629	331.619	125.372	24.126
+box	node	Shapes	338.075	200.034	79.336	79.336
+box	node	Shapes / Bang	184.205	107.317	109.219	80
+box	node	Shapes / Bang / Plain child	135.443	22.131	112.938	34
+box	node	Shapes / Circle	310.371	333.327	67.414	67.414
+box	node	Shapes / Circle / Plain child	326.381	450.702	112.938	34
+box	node	Shapes / Cloud	473.474	182.394	81.352	58.904
+box	node	Shapes / Cloud / Plain child	601.84	147.867	112.938	34
+box	node	Shapes / Hexagon	178.535	256.081	106.047	44
+box	node	Shapes / Hexagon / Plain child	15	309.797	112.938	34
+box	node	Shapes / Rounded	351.902	91.52	94.953	54
+box	node	Shapes / Rounded / Plain child	408.914	15	112.937	34
+box	node	Shapes / Square	442.102	306.785	91.594	44
+box	node	Shapes / Square / Plain child	586.262	341.579	112.938	34
+canvas	5	5	719.777	489.702
+font	Liberation Sans	214

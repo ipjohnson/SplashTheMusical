@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e4ffc6a04734084c
+box	node	Scientific Values	10	35	980	355
+box	node	Scientific Values / Value 1	984	70	0	310
+box	node	Scientific Values / Value 3	20	70	959	310
+canvas	2	27	996	371
+font	Liberation Sans	100

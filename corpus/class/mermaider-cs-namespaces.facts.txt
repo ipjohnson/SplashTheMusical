@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02becac93f777eb5
+accept	yes
+attribute	Policy	+bool Allowed
+class	DockerEngine	DockerEngine
+class	LaunchPoint	LaunchPoint
+class	Policy	Policy
+drawn	yes
+namespace	Containers	DockerEngine
+namespace	Execution	LaunchPoint,Policy
+note	Policy	Restrictions
+relation	DockerEngine	Policy	none	arrow	solid	reads
+relation	LaunchPoint	DockerEngine	none	arrow	solid	launches
+type	classDiagram

@@ -37,6 +37,20 @@ run = [
   'node tools/oracle/facts.mjs "${usage_cases}" "${usage_facts}" "${usage_svg}"',
 ]
 
+[tasks.corpus]
+description = "Write the docs, e2e and parser cases of corpus/ from a mermaid checkout. corpus/README.md describes them"
+usage = '''
+arg "<checkout>" help="A checkout of mermaid-js/mermaid at the tag of the mermaid tools/oracle pins"
+'''
+run = 'node tools/corpus/corpus.mjs "${usage_checkout}"'
+
+[tasks.corpus-oracle]
+description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",
+]
+
 [tasks.oracle-test]
 description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, the dumps, and the failures"
 run = [

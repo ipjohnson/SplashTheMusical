@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b2407cbd8da61671
+box	flow	Electricity grid --> Heating and cooling - homes	15	39.936	570	16.123
+box	flow	Electricity grid --> Industry	15	216.152	570	3.877
+box	flow	Electricity grid --> Losses	15	356.215	570	23.877
+box	node	Electricity grid	0	16.123	15	360
+box	node	Heating and cooling - homes	585	0	15	79.873
+box	node	Industry	585	99.873	15	240.312
+box	node	Losses	585	360.184	15	39.816
+canvas	0	0	600	400
+font	Liberation Sans	114

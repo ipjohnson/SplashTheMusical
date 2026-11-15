@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2b97fe630ca1b9c
+box	block	API	217	-68	100.5	40
+box	block	Client	0	-68	100.5	40
+box	block	DB	217	28	100.5	40
+box	block	Queue	0	28	100.5	40
+box	block	Worker	108.5	28	100.5	40
+box	edge	API --> Queue	99.116	-28	122.926	54.382
+box	edge	Client --> API	100.5	-48	112.5	0
+box	edge	Queue --> Worker	100.5	48	4	0
+box	edge	Worker --> DB	209	48	4	0
+box	edge-label	API --> Queue	127.602	-12	62.297	24
+box	edge-label	Client --> API	132.063	-60	53.375	24
+box	edge-label	Queue --> Worker	92.047	36	24.906	24
+box	edge-label	Worker --> DB	196.109	36	33.781	24
+canvas	-5	-73	327.5	146
+font	Liberation Sans	102

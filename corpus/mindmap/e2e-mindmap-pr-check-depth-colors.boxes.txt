@@ -1,0 +1,34 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f6e12972357cf8c7
+box	edge	mindmap / Origins	455.307	528.557	18.709	121.732
+box	edge	mindmap / Origins / Long history	467.499	669.065	150.631	41.122
+box	edge	mindmap / Origins / Popularisation	411.798	679.11	35.833	92.926
+box	edge	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	411.144	800.262	25.097	75.293
+box	edge	mindmap / Research	397.782	382.219	70.824	118.632
+box	edge	mindmap / Research / On Automatic creation	319.41	253.014	62.894	103.507
+box	edge	mindmap / Research / On Automatic creation / Uses	288.394	141.725	19.783	83.871
+box	edge	mindmap / Research / On Automatic creation / Uses / Argument mapping	299.793	103.589	146.278	21.368
+box	edge	mindmap / Research / On Automatic creation / Uses / Creative techniques	120.614	108.333	149.434	17.088
+box	edge	mindmap / Research / On Automatic creation / Uses / Strategic planning	284.975	47	0.107	65.126
+box	edge	mindmap / Research / On effectiveness and features	200.27	373.836	175.513	55.155
+box	edge	mindmap / Tools	491.108	489.671	136.113	21.698
+box	edge	mindmap / Tools / Mermaid	654.824	495.147	109.416	67.051
+box	edge	mindmap / Tools / Pen and paper	656.102	434.256	129.331	47.849
+box	node	mindmap	425.269	462.705	102.052	102.052
+box	node	mindmap / Origins	384.827	618.115	136.402	94
+box	node	mindmap / Origins / Long history	573.014	690.137	119.172	48
+box	node	mindmap / Origins / Popularisation	339.698	762.032	133.406	48
+box	node	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	320.984	860.785	240	58
+box	node	mindmap / Research	312.993	322.34	154.199	94
+box	node	mindmap / Research / On Automatic creation	235.621	204.195	152	72
+box	node	mindmap / Research / On Automatic creation / Uses	250.724	103.126	68.453	48
+box	node	mindmap / Research / On Automatic creation / Uses / Argument mapping	373.319	84.42	175.188	34
+box	node	mindmap / Research / On Automatic creation / Uses / Creative techniques	15	89.629	181.422	34
+box	node	mindmap / Research / On Automatic creation / Uses / Strategic planning	201.06	15	168.094	34
+box	node	mindmap / Research / On effectiveness and features	109.96	385.488	152	96
+box	node	mindmap / Tools	580.497	440.31	123.074	94
+box	node	mindmap / Tools / Mermaid	725.912	553.035	102.234	34
+box	node	mindmap / Tools / Pen and paper	727.009	412.051	144.984	34
+canvas	5	5	876.993	923.785
+font	Liberation Sans	448

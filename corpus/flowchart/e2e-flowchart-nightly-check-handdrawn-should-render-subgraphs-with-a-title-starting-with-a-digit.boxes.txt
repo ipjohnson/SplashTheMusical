@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e4b9df5ca5909744
+box	edge	a1 --> a2	127.16	114.334	0.962	20.236
+box	group	2Two	10.431	10.432	234.674	208.242
+box	node	a1	36.531	60.217	182.496	54.454
+box	node	a2	36.072	138.644	183.267	54.184
+canvas	2.431	2.432	250.674	224.242
+font	Liberation Sans	16

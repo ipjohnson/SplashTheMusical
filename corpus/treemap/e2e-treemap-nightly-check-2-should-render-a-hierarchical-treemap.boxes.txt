@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5c319f2a29b775d3
+box	node	Products	10	35	980	355
+box	node	Products / Clothing	646	70	334	310
+box	node	Products / Clothing / Men's	656	255	314	115
+box	node	Products / Clothing / Men's / Pants	666	290	172	70
+box	node	Products / Clothing / Men's / Shirts	848	290	112	70
+box	node	Products / Clothing / Women's	656	105	314	140
+box	node	Products / Clothing / Women's / Dresses	666	140	193	95
+box	node	Products / Clothing / Women's / Skirts	869	140	91	95
+box	node	Products / Electronics	20	70	616	310
+box	node	Products / Electronics / Accessories	333	270	293	100
+box	node	Products / Electronics / Computers	333	105	293	155
+box	node	Products / Electronics / Phones	30	105	293	265
+canvas	2	27	996	371
+font	Liberation Sans	218

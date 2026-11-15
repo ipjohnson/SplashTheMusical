@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f09b6120b1a54daa
+accept	yes
+drawn	yes
+item	clear	0	Best practice
+item	complex	0	Emergent practice
+item	complex	1	Probe-sense-respond
+label	Best practice
+label	Emergent practice
+label	Probe-sense-respond
+type	cynefin

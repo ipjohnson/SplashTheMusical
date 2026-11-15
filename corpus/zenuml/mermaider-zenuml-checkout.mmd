@@ -1,0 +1,14 @@
+zenuml
+title Checkout
+@Actor Customer
+Shop as "Web Shop"
+Customer->Shop.checkout(cart) {
+  // reserve before charging
+  ok = Inventory.reserve(items)
+  if(ok) {
+    receipt = Payments.charge(card, total)
+    Shop->Mailer: send receipt
+  } else {
+    return "out of stock"
+  }
+}

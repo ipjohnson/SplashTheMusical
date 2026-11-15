@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19c559f6868d629f
+box	edge	claude --> anthropic	188	493.5	320	24.5
+box	edge	daemon --> serve	188	114	344	147.5
+box	edge	serve --> github	688	114	310	0
+box	edge	ssh --> sshd	192	388	344	0
+box	edge-label	claude --> anthropic	293.727	507	136.547	21
+box	edge-label	daemon --> serve	262	166.25	200	42
+box	edge-label	serve --> github	762	92.5	200	42
+box	edge-label	ssh --> sshd	262	366.5	200	42
+box	group	Mac	512	22.5	200	433
+box	group	Runner	12	12	200	528
+box	node	anthropic	512	495.5	152	45
+box	node	claude	36	471	152	45
+box	node	daemon	36	218	152	87
+box	node	github	1002	91.5	152	45
+box	node	home	536	207.5	152	87
+box	node	rhome	36	60	152	108
+box	node	serve	536	70.5	152	87
+box	node	ssh	536	344.5	152	87
+box	node	sshd	36	355	152	66
+canvas	4	4	1158	544.5
+font	Liberation Sans	870

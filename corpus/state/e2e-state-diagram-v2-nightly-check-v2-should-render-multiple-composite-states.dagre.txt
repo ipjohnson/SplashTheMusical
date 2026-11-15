@@ -1,0 +1,67 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f33960772f20a70
+layout	1
+graph	TB	50	20	75	8	8
+node	TV_start	TV	14	14
+node	Off	TV	136	37
+node	On	TV	136	37
+node	TV		0	0
+edge	TV_start	Off	edge1	1	1	93.890625	21	10	c
+edge	On	Off	edge2	1	1	47.46875	21	10	c
+edge	Off	On	edge3	1	1	47.734375	21	10	c
+size	230.40234375	371
+place	TV_start	115.234375	52.5	14	14
+place	Off	115.234375	174	136	37
+place	On	115.234375	307	136	37
+place	TV	115.201171875	185.5	214.40234375	355
+route	TV_start	Off	edge1	115.234375	107.5	115.234375,59.5 115.234375,107.5 115.234375,155.5
+route	On	Off	edge2	149.03515625	240.5	124.63759985902256,288.5 149.03515625,240.5 124.63759985902256,192.5
+route	Off	On	edge3	81.43359375	240.5	105.83115014097744,192.5 81.43359375,240.5 105.83115014097744,288.5
+layout	2
+graph	TB	50	20	100	8	8
+node	Alive	Playing	136	37
+node	Dead	Playing	136	37
+node	Playing		0	0
+edge	Alive	Dead	edge9	1	1	0	0	10	c
+edge	Dead	Alive	edge10	1	1	0	0	10	c
+size	222	290
+place	Alive	111	76.5	136	37
+place	Dead	111	213.5	136	37
+place	Playing	111	145	206	274
+route	Alive	Dead	edge9			99.7919708029197,95 69.5,145 99.7919708029197,195
+route	Dead	Alive	edge10			122.2080291970803,195 152.5,145 122.2080291970803,95
+layout	3
+graph	TB	50	20	75	8	8
+node	Console_start	Console	14	14
+node	Off2	Console	136	37
+node	On2	Console	136	37
+node	Playing	Console	206	274
+node	Console		0	0
+edge	Console_start	Off2	edge5	1	1	93.890625	21	10	c
+edge	On2	Off2	edge6	1	1	47.46875	21	10	c
+edge	Off2	On2	edge7	1	1	47.734375	21	10	c
+edge	On2	Playing	edge8	1	1	0	0	10	c
+size	292	720
+place	Console_start	146	52.5	14	14
+place	Off2	146	174	136	37
+place	On2	146	307	136	37
+place	Playing	146	537.5	206	274
+place	Console	146	360	276	704
+route	Console_start	Off2	edge5	146	107.5	146,59.5 146,107.5 146,155.5
+route	On2	Off2	edge6	193.1328125	240.5	159.11213580827066,288.5 193.1328125,240.5 159.11213580827066,192.5
+route	Off2	On2	edge7	98.93359375	240.5	132.90633811090225,192.5 98.93359375,240.5 132.90633811090225,288.5
+route	On2	Playing	edge8			146,325.5 146,363 146,400.5
+layout	4
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	TV		214.40234375	355
+node	Console		276	704
+edge	root_start	TV	edge0	1	1	0	0	10	c
+edge	TV	Console	edge4	1	1	0	0	10	c
+size	292	1189
+place	root_start	146	15	14	14
+place	TV	146	249.5	214.40234375	355
+place	Console	146	829	276	704
+route	root_start	TV	edge0			146,22 146,47 146,72
+route	TV	Console	edge4			146,427 146,452 146,477

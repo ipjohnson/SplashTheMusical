@@ -1,0 +1,30 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fd8d4f41bf76416f
+accept	yes
+direction	TD
+drawn	yes
+edge	decide	archive	failure
+edge	decide	search	sequence
+edge	gather	plan	sequence
+edge	notes	archive	sequence
+edge	plan	decide	sequence
+edge	search	notes	reference
+flow	archive	Archive	store
+flow	orchestrator	Orchestrator	decide,gather,plan
+flow	workers	Workers	notes,search
+label	Archive
+label	Gather Input
+label	Notes
+label	Orchestrator
+label	Plan
+label	Ready?
+label	Workers
+label	web_search
+node	decide	Ready?	diam	decision
+node	gather	Gather Input	lean-r	input
+node	notes	Notes	lin-doc	refdoc
+node	plan	Plan	rounded	task
+node	search	web_search	fr-rect	tool
+node	store	Store	square	task
+type	agentflow

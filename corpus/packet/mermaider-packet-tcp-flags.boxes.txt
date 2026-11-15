@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 92bacb0204353525
+box	field	0-15	1	15	507	32
+box	field	16-31	513	15	507	32
+box	field	32-63	1	62	1019	32
+box	field	64-95	1	109	1019	32
+box	title	TCP Segment (partial)	443.538	155.114	138.925	15.99
+canvas	0	0	1026	188
+font	Liberation Sans	162

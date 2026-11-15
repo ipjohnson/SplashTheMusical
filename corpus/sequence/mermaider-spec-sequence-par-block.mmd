@@ -1,0 +1,11 @@
+sequenceDiagram
+participant Client
+participant Auth
+participant Data
+Client->>Auth: Validate token
+par Fetch in parallel
+Auth->>Data: Get user profile
+and
+Auth->>Data: Get permissions
+end
+Auth-->>Client: Combined result

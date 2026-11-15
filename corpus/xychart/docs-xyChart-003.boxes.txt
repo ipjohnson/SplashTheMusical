@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fbe6837b9d1a9a5d
+box	axis	x	59.578	440.68	640.422	54.32
+box	axis	y	5	40.854	53.578	398.826
+box	axis-title	x	337.539	477.68	84.5	17.32
+box	axis-title	y	5	212.454	17	56.922
+box	category	Category 1	75.336	451.68	68.484	16
+box	category	Category 2	255.477	451.68	68.484	16
+box	category	Category 3	435.617	451.68	68.484	16
+box	category	Category 4	615.758	451.68	68.484	16
+box	plot	plot	62.078	126.456	635.422	313.224
+box	series	0	109.578	126.456	540.422	228.918
+box	series	1	62.078	164.609	635.422	275.07
+box	series	2	62.078	202.762	635.422	236.918
+box	series	3	109.578	164.609	540.422	228.918
+box	title	Different Colors in xyChart	262.703	8.356	234.172	22.15
+canvas	0	0	700	500
+font	Liberation Sans	210

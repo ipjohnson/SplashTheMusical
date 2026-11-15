@@ -1,0 +1,108 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c56ac247480e3e25
+accept	yes
+cause	1-1
+cause	1-2
+cause	1-3
+cause	1-3 / 1-3-1
+cause	1-3 / 1-3-2
+cause	1-3 / 1-3-3
+cause	1-3 / 1-3-4
+cause	2-1
+cause	2-1 / 2-1-1
+cause	2-1 / 2-1-2
+cause	2-2
+cause	2-2 / 2-2-1
+cause	2-2 / 2-2-2
+cause	2-2 / 2-2-2 / 2-2-2-1
+cause	2-2 / 2-2-2 / 2-2-2-1
+cause	2-2 / 2-2-2 / 2-2-2-1 / 2-2-2-1-1
+cause	2-2 / 2-2-2 / 2-2-2-1 / 2-2-2-1-2
+cause	2-2 / 2-2-2 / 2-2-2-1 / 2-2-2-1-2 / 2-2-2-1-2-1
+cause	2-3
+cause	2-3 / 2-3-1
+cause	Cause 1
+cause	Cause 2
+cause	Cause 3
+cause	Cause 3 / 3-1
+cause	Cause 3 / 3-1 / 3-1-1
+cause	Cause 3 / 3-1 / 3-1-1 / 3-1-1-1
+cause	Cause 3 / 3-1 / 3-1-1 / 3-1-1-1 / 3-1-1-1-1
+cause	Cause 3 / 3-1 / 3-1-1 / 3-1-1-1 / 3-1-1-1-1 / 3-1-1-1-1-1
+cause	Cause 3 / 3-1 / 3-1-1 / 3-1-1-1 / 3-1-1-1-1 / 3-1-1-1-1-1 / 3-1-1-1-1-1-1
+cause	Cause 4
+cause	Cause 4 / 4-1
+cause	Cause 4 / 4-1 / 4-1-1
+cause	Cause 4 / 4-1 / 4-1-2
+cause	Cause 4 / 4-1 / 4-1-3
+cause	Cause 4 / 4-1 / 4-1-4
+cause	Cause 4 / 4-1 / 4-1-5
+cause	Cause 4 / 4-1 / 4-1-6
+cause	Cause 4 / 4-1 / 4-1-7
+cause	Cause 4 / 4-1 / 4-1-8
+cause	Cause 4 / 4-2
+cause	Cause 4 / 4-2 / 4-2-1
+cause	Cause 4 / 4-2 / 4-2-2
+cause	Cause 5
+cause	Cause 5 / 5-1
+cause	Cause 6
+cause	Cause 6 / 6-1
+cause	Cause 6 / 6-2
+cause	Cause 6 / 6-3
+cause	Cause 6 / 6-4
+cause	Cause 6 / 6-5
+cause	Cause 6 / 6-6
+drawn	yes
+head	Very deep
+label	1-1
+label	1-2
+label	1-3-1
+label	1-3-2
+label	1-3-3
+label	1-3-4
+label	2-1
+label	2-1-1
+label	2-1-2
+label	2-2
+label	2-2-1
+label	2-2-2
+label	2-2-2-1
+label	2-2-2-1-1
+label	2-2-2-1-2
+label	2-2-2-1-2-1
+label	2-3
+label	2-3-1
+label	3-1
+label	3-1-1
+label	3-1-1-1
+label	3-1-1-1-1
+label	3-1-1-1-1-1
+label	3-1-1-1-1-1-1
+label	4-1
+label	4-1-1
+label	4-1-2
+label	4-1-3
+label	4-1-4
+label	4-1-5
+label	4-1-6
+label	4-1-7
+label	4-1-8
+label	4-2
+label	4-2-1
+label	4-2-2
+label	5-1
+label	6-1
+label	6-2
+label	6-3
+label	6-4
+label	6-5
+label	6-6
+label	Cause 1
+label	Cause 2
+label	Cause 3
+label	Cause 4
+label	Cause 5
+label	Cause 6
+label	Very deep
+type	ishikawa

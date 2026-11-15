@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 09a6b5bea4819db4
+accept	yes
+actor	Alice	Alice	boundary
+actor	Bob	Bob	participant
+drawn	yes
+message	Alice	Bob	solid	filled	Request from boundary
+message	Bob	Alice	solid	filled	Response to boundary
+type	sequence

@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b632e377520e1f66
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John	participant
+block	par	this happens in parallel
+divider
+drawn	yes
+message	Alice	Bob	dashed	filled	Parallel message 1
+message	Alice	John	dashed	filled	Parallel message 2
+message	Bob	Alice	dashed	filled	Response 1
+message	John	Alice	dashed	filled	Response 2
+type	sequence

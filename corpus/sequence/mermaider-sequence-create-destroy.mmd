@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>Bob: Hello Bob
+  create participant Worker
+  Bob->>Worker: Spawn task
+  Worker->>Worker: Process
+  Worker-->>Bob: Result
+  destroy Worker
+  Bob-xWorker: Terminate
+  Bob-->>Alice: Done

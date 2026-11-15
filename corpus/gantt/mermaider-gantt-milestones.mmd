@@ -1,0 +1,9 @@
+gantt
+  title Release train
+  dateFormat YYYY-MM-DD
+  section Build
+  Implement parser :done, p1, 2026-01-06, 3d
+  Add tests        :active, p2, after p1, 2d
+  section Ship
+  RC cut           :milestone, m1, after p2, 0d
+  GA               :crit, p3, after m1, 5d

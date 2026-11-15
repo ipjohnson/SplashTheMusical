@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0121845722738742
+box	edge	Decision1 --> Process2	625.422	252	357.422	0
+box	edge	Decision1 --> Process3	549.422	274.5	0	203
+box	edge	Decision2 --> Process5	1138.845	252	357.422	252
+box	edge	Decision2 --> Process6	1062.844	526.5	0	203
+box	edge	Process1 --> Decision1	112	252	357.422	0
+box	edge	Process2 --> Decision2	1062.844	274.5	0	203
+box	edge	Process3 --> Process4	549.422	526.5	0	203
+box	edge	Process4 --> Decision2	625.422	504	357.422	252
+box	edge	Process5 --> Finish	1576.267	274.5	0	455
+box	edge	Process6 --> Finish	1138.845	756	357.422	0
+box	edge	Start --> Process1	36	22.5	0	203
+box	group	Dep1	-86	-58.5	1748.267	184.5
+box	group	Dep2	-86	126	1748.267	252
+box	group	Dep3	-86	378	1748.267	252
+box	group	Dep4	-86	630	1748.267	184.5
+box	node	Decision1	473.422	229.5	152	45
+box	node	Decision2	986.844	481.5	152	45
+box	node	Finish	1500.267	733.5	152	45
+box	node	Process1	-40	229.5	152	45
+box	node	Process2	986.844	229.5	152	45
+box	node	Process3	473.422	481.5	152	45
+box	node	Process4	473.422	733.5	152	45
+box	node	Process5	1500.267	229.5	152	45
+box	node	Process6	986.844	733.5	152	45
+box	node	Start	-40	-22.5	152	45
+canvas	-94	-66.5	1764.267	889
+font	Liberation Sans	186

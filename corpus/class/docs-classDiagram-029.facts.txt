@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 594dbbe914ff48d5
+accept	yes
+class	MyClass	MyClass
+drawn	yes
+note		This is a general note
+note	MyClass	This is a note for a class
+type	classDiagram

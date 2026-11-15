@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a4b4d83e12af5a2f
+accept	yes
+drawn	yes
+edge	Dep1.Proc1	Dep1.Proc2	none	arrow	solid
+edge	Dep1.Proc2	Dep1.Proc3	none	arrow	solid
+group	Dep1	Dep1	Dep1.Proc1,Dep1.Proc2,Dep1.Proc3
+node	Dep1.Proc1	Dep1.Proc1	rect
+node	Dep1.Proc2	Dep1.Proc2	rect
+node	Dep1.Proc3	Dep1.Proc3	rect
+type	swimlane

@@ -1,0 +1,66 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e5c6a276a1860bed
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Repository-0		106.921875	81
+node	entity-OpenApiSpec-1		126.40625	81
+node	entity-OpenApiRepository-2		161.40625	81
+node	entity-ApiVersionIndex-3		141.1875	81
+node	entity-ApiDeclaration-4		131.0625	81
+node	entity-Product-5		100	81
+node	entity-ApiSpecVersion-6		138.84375	81
+node	entity-ApiTagGroup-7		121.71875	81
+node	entity-ApiTag-8		100	81
+node	entity-ApiEndpoint-9		115.515625	81
+node	entity-ApiOperation-10		121.71875	81
+node	entity-ApiSchema-11		111.59375	81
+node	entity-ApiSupplementalDoc-12		170.75	81
+node	entity-DocumentationDocument-13		197.984375	81
+edge	entity-Repository-0	entity-OpenApiSpec-1	id_entity-Repository-0_entity-OpenApiSpec-1_0	1	1	133.875	21	10	c
+edge	entity-OpenApiRepository-2	entity-OpenApiSpec-1	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	1	1	132.3125	21	10	c
+edge	entity-OpenApiRepository-2	entity-ApiVersionIndex-3	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	1	1	63.046875	21	10	c
+edge	entity-ApiDeclaration-4	entity-OpenApiSpec-1	id_entity-ApiDeclaration-4_entity-OpenApiSpec-1_3	1	1	107	21	10	c
+edge	entity-ApiDeclaration-4	entity-Product-5	id_entity-ApiDeclaration-4_entity-Product-5_4	1	1	46.703125	21	10	c
+edge	entity-ApiDeclaration-4	entity-ApiSpecVersion-6	id_entity-ApiDeclaration-4_entity-ApiSpecVersion-6_5	1	1	47.46875	21	10	c
+edge	entity-ApiVersionIndex-3	entity-ApiSpecVersion-6	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-6_6	1	1	147.078125	21	10	c
+edge	entity-ApiSpecVersion-6	entity-ApiTagGroup-7	id_entity-ApiSpecVersion-6_entity-ApiTagGroup-7_7	1	1	77.046875	21	10	c
+edge	entity-ApiTagGroup-7	entity-ApiTag-8	id_entity-ApiTagGroup-7_entity-ApiTag-8_8	1	1	26.46875	21	10	c
+edge	entity-ApiTag-8	entity-ApiEndpoint-9	id_entity-ApiTag-8_entity-ApiEndpoint-9_9	1	1	60.71875	21	10	c
+edge	entity-ApiEndpoint-9	entity-ApiOperation-10	id_entity-ApiEndpoint-9_entity-ApiOperation-10_10	1	1	65.390625	21	10	c
+edge	entity-ApiSpecVersion-6	entity-ApiSchema-11	id_entity-ApiSpecVersion-6_entity-ApiSchema-11_11	1	1	76.28125	21	10	c
+edge	entity-ApiSupplementalDoc-12	entity-ApiOperation-10	id_entity-ApiSupplementalDoc-12_entity-ApiOperation-10_12	1	1	99.640625	21	10	c
+edge	entity-ApiSupplementalDoc-12	entity-ApiTag-8	id_entity-ApiSupplementalDoc-12_entity-ApiTag-8_13	1	1	59.171875	21	10	c
+edge	entity-ApiDeclaration-4	entity-ApiSupplementalDoc-12	id_entity-ApiDeclaration-4_entity-ApiSupplementalDoc-12_14	1	1	57.609375	21	10	c
+edge	entity-ApiOperation-10	entity-DocumentationDocument-13	id_entity-ApiOperation-10_entity-DocumentationDocument-13_15	1	1	84.828125	21	10	c
+size	1347.94140625	1371
+place	entity-Repository-0	74.9375	230.5	106.921875	81
+place	entity-OpenApiSpec-1	215.13671875	412.5	126.40625	81
+place	entity-OpenApiRepository-2	609.51171875	48.5	161.40625	81
+place	entity-ApiVersionIndex-3	1207.796875	230.5	141.1875	81
+place	entity-ApiDeclaration-4	577.29296875	230.5	131.0625	81
+place	entity-Product-5	534.66796875	412.5	100	81
+place	entity-ApiSpecVersion-6	794.08984375	412.5	138.84375	81
+place	entity-ApiTagGroup-7	716.73828125	594.5	121.71875	81
+place	entity-ApiTag-8	748.1484375	776.5	100	81
+place	entity-ApiEndpoint-9	748.1484375	958.5	115.515625	81
+place	entity-ApiOperation-10	896.015625	1140.5	121.71875	81
+place	entity-ApiSchema-11	973.39453125	594.5	111.59375	81
+place	entity-ApiSupplementalDoc-12	1254.56640625	594.5	170.75	81
+place	entity-DocumentationDocument-13	896.015625	1322.5	197.984375	81
+route	entity-Repository-0	entity-OpenApiSpec-1	id_entity-Repository-0_entity-OpenApiSpec-1_0	74.9375	321.5	74.9375,271 74.9375,321.5 152.74036315247253,372
+route	entity-OpenApiRepository-2	entity-OpenApiSpec-1	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	274.5546875	230.5	528.80859375,70.42515364610666 274.5546875,139.5 274.5546875,230.5 274.5546875,321.5 241.58097956730768,372
+route	entity-OpenApiRepository-2	entity-ApiVersionIndex-3	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	1207.796875	139.5	690.21484375,60.77505696619897 1207.796875,139.5 1207.796875,190
+route	entity-ApiDeclaration-4	entity-OpenApiSpec-1	id_entity-ApiDeclaration-4_entity-OpenApiSpec-1_3	368.72265625	321.5	511.76171875,259.0915271378807 368.72265625,321.5 278.33984375,375.05201180121065
+route	entity-ApiDeclaration-4	entity-Product-5	id_entity-ApiDeclaration-4_entity-Product-5_4	534.66796875	321.5	558.322501717033,271 534.66796875,321.5 534.66796875,372
+route	entity-ApiDeclaration-4	entity-ApiSpecVersion-6	id_entity-ApiDeclaration-4_entity-ApiSpecVersion-6_5	707.00390625	321.5	635.0214629120879,271 707.00390625,321.5 755.3318166208792,372
+route	entity-ApiVersionIndex-3	entity-ApiSpecVersion-6	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-6_6	1067.2109375	321.5	1145.2284083104396,271 1067.2109375,321.5 863.51171875,389.3696348631988
+route	entity-ApiSpecVersion-6	entity-ApiTagGroup-7	id_entity-ApiSpecVersion-6_entity-ApiTagGroup-7_7	716.73828125	503.5	759.6641483516484,453 716.73828125,503.5 716.73828125,554
+route	entity-ApiTagGroup-7	entity-ApiTag-8	id_entity-ApiTagGroup-7_entity-ApiTag-8_8	716.73828125	685.5	716.73828125,635 716.73828125,685.5 734.169192135989,736
+route	entity-ApiTag-8	entity-ApiEndpoint-9	id_entity-ApiTag-8_entity-ApiEndpoint-9_9	748.1484375	867.5	748.1484375,817 748.1484375,867.5 748.1484375,918
+route	entity-ApiEndpoint-9	entity-ApiOperation-10	id_entity-ApiEndpoint-9_entity-ApiOperation-10_10	748.1484375	1049.5	748.1484375,999 748.1484375,1049.5 835.15625,1103.0460981666401
+route	entity-ApiSpecVersion-6	entity-ApiSchema-11	id_entity-ApiSpecVersion-6_entity-ApiSchema-11_11	973.39453125	503.5	863.51171875,447.7327131715394 973.39453125,503.5 973.39453125,554
+route	entity-ApiSupplementalDoc-12	entity-ApiOperation-10	id_entity-ApiSupplementalDoc-12_entity-ApiOperation-10_12	1279.359375	867.5	1265.6006395947802,635 1279.359375,685.5 1279.359375,776.5 1279.359375,867.5 1279.359375,958.5 1279.359375,1049.5 956.875,1126.0529061710279
+route	entity-ApiSupplementalDoc-12	entity-ApiTag-8	id_entity-ApiSupplementalDoc-12_entity-ApiTag-8_13	1017.0625	685.5	1169.19140625,627.2115672439598 1017.0625,685.5 798.1484375,759.5800964527468
+route	entity-ApiDeclaration-4	entity-ApiSupplementalDoc-12	id_entity-ApiDeclaration-4_entity-ApiSupplementalDoc-12_14	1254.56640625	412.5	642.82421875,239.30492784718138 1254.56640625,321.5 1254.56640625,412.5 1254.56640625,503.5 1254.56640625,554
+route	entity-ApiOperation-10	entity-DocumentationDocument-13	id_entity-ApiOperation-10_entity-DocumentationDocument-13_15	896.015625	1231.5	896.015625,1181 896.015625,1231.5 896.015625,1282

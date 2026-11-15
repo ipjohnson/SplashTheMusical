@@ -1,0 +1,47 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02de9d75d0b69e25
+box	edge	Assembler --> Search	1638.188	234.75	364	6
+box	edge	Assembler --> Site	1638.188	244.65	364	90.85
+box	edge	Catalog --> DocSet	248	274.7	484.719	161.5
+box	edge	Changelog --> Notes	528	303.1	738.188	151.4
+box	edge	Codex --> Site	1638.188	329.75	364	11.6
+box	edge	DocSet --> Assembler	888.719	248.55	1109.469	163.95
+box	edge	DocSet --> Codex	888.719	276.92	1109.469	156.58
+box	edge	DocSet --> Isolated	888.719	48	1109.469	202.28
+box	edge	DocSet --> SpecIndex	888.719	177.4	377.469	81.76
+box	edge	Isolated --> Links	1638.187	148.09	364	16.56
+box	edge	Isolated --> Site	1638.188	152.77	364	176.88
+box	edge	Links --> Assembler	1634.188	170.5	364	62.45
+box	edge	Links --> Codex	1634.188	176.35	364	153.55
+box	edge	Notes --> Site	1422.188	335.5	56	0
+box	edge	OpenApi --> DocSet	528	229.2	204.719	23.3
+box	edge	OpenApi --> SpecIndex	528	23	738.188	198.4
+box	edge	Repo --> Changelog	188	273.05	184	36.05
+box	edge	Repo --> DocSet	188	263.6	544.719	3.6
+box	edge	Repo --> OpenApi	188	225.3	184	36.05
+box	edge	SpecIndex --> Assembler	1422.188	177.4	576	59.45
+box	edge	SpecIndex --> Isolated	1422.188	135	576	27.6
+box	edge-label	DocSet --> SpecIndex	1062.719	166.4	133.469	21
+box	edge-label	OpenApi --> DocSet	588	218.7	88.719	21
+box	edge-label	OpenApi --> SpecIndex	1062.906	12	133.094	21
+box	group	Authoring	352	153.3	560.719	202.3
+box	group	Build	1978.188	67.75	200	314.5
+box	group	Outputs	1246.188	75	412	317.5
+box	group	Reference	72	355.2	200	138
+box	group	Sources	12	195.2	200	118.5
+box	node	Assembler	2002.187	218.25	152	45
+box	node	Catalog	96	403.2	152	66
+box	node	Changelog	376	286.6	152	45
+box	node	Codex	2002.187	313.25	152	45
+box	node	DocSet	736.719	230.6	152	66
+box	node	Isolated	2002.187	123.25	152	45
+box	node	Links	1482.187	148	152	45
+box	node	Notes	1270.188	302.5	152	66
+box	node	OpenApi	376	202.8	152	45
+box	node	Repo	36	244.7	152	45
+box	node	Search	1482.187	218	152	45
+box	node	Site	1482.187	313	152	45
+box	node	SpecIndex	1270.188	137	152	66
+canvas	4	4	2182.188	497.2
+font	Liberation Sans	674

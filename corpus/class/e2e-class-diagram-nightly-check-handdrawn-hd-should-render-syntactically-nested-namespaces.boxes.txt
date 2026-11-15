@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e6bf72728f785c8b
+box	class	Gateway	178.033	60.205	106.919	123.106
+box	class	Repository	283.904	346.267	112.704	144.412
+box	class	UserService	60.17	346.182	125.378	144.357
+box	namespace	Platform	10.461	10.392	435.868	529.88
+box	namespace	Platform.Auth	34.506	296.746	176.255	219.253
+box	namespace	Platform.Data	257.936	296.589	164.276	219.423
+box	relation	Gateway --> Repository	245.009	182.622	95.209	158.016
+box	relation	Gateway --> UserService	122.251	183.168	95.285	157.174
+box	relation-label	Gateway --> Repository	309.231	243.106	60.719	21
+box	relation-label	Gateway --> UserService	92.189	243.106	60.719	21
+canvas	2.461	2.392	451.868	545.88
+font	Liberation Sans	202

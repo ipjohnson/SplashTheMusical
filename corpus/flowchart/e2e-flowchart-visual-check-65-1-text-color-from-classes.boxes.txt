@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 51ac937335dd4d17
+box	edge	Ipsum --> Dolor	356	34.5	36	0
+box	edge	Lorem --> Ipsum	164	34.5	36	0
+box	node	Dolor	396	12	152	45
+box	node	Ipsum	204	12	152	45
+box	node	Lorem	12	12	152	45
+canvas	4	4	552	61
+font	Liberation Sans	30

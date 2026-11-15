@@ -1,0 +1,46 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9bcfd24d8f213bab
+layout	1
+graph	TB	50	20	50	8	8
+node	Group3		0	0
+node	Group2		0	0
+node	Group1		0	0
+node	A1	Group1	152	45
+node	A2	Group1	152	45
+node	A3	Group1	152	45
+node	B1	Group2	152	45
+node	B2	Group2	152	45
+node	B3	Group2	152	45
+node	C1	Group3	152	45
+node	C2	Group3	152	45
+node	C3	Group3	152	45
+edge	A1	A2	L_A1_A2_0	1	1	0	0	10	c
+edge	A2	A3	L_A2_A3_0	1	1	0	0	10	c
+edge	B1	B2	L_B1_B2_0	1	1	0	0	10	c
+edge	B2	B3	L_B2_B3_0	1	1	0	0	10	c
+edge	C1	C2	L_C1_C2_0	1	1	0	0	10	c
+edge	C2	C3	L_C2_C3_0	1	1	0	0	10	c
+edge	A3	B1	L_A3_B1_0	1	1	0	0	10	c
+edge	B3	C1	L_B3_C1_0	1	1	0	0	10	c
+size	238	971
+place	Group3	119	820.5	222	285
+place	Group2	119	485.5	222	285
+place	Group1	119	150.5	222	285
+place	A1	119	55.5	152	45
+place	A2	119	150.5	152	45
+place	A3	119	245.5	152	45
+place	B1	119	390.5	152	45
+place	B2	119	485.5	152	45
+place	B3	119	580.5	152	45
+place	C1	119	725.5	152	45
+place	C2	119	820.5	152	45
+place	C3	119	915.5	152	45
+route	A1	A2	L_A1_A2_0			119,78 119,103 119,128
+route	A2	A3	L_A2_A3_0			119,173 119,198 119,223
+route	B1	B2	L_B1_B2_0			119,413 119,438 119,463
+route	B2	B3	L_B2_B3_0			119,508 119,533 119,558
+route	C1	C2	L_C1_C2_0			119,748 119,773 119,798
+route	C2	C3	L_C2_C3_0			119,843 119,868 119,893
+route	A3	B1	L_A3_B1_0			119,268 119,293 119,318 119,343 119,368
+route	B3	C1	L_B3_C1_0			119,603 119,628 119,653 119,678 119,703

@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 11ca126f6532abac
+accept	yes
+actor	A	Frontend	participant
+actor	B	Backend	participant
+drawn	yes
+message	A	B	solid	filled	GET /data
+message	A	B	solid	filled	Login request
+message	B	A	dashed	filled	Auth token
+note	left	A	Display results
+note	over	A,B	Subsequent requests use JWT
+note	right	B	Validate credentials
+type	sequence

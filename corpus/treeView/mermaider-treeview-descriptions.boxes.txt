@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5afd1b5f68451aa7
+box	node	infrastructure	20	30.742	103.971	17
+box	node	infrastructure / docker	35	166.125	52.439	17
+box	node	infrastructure / docker / Dockerfile	50	193.14	280.461	17.319
+box	node	infrastructure / docker / docker-compose.yml	50	220.308	269.155	17.319
+box	node	infrastructure / k8s	35	247.476	26.688	17
+box	node	infrastructure / k8s / deployment.yaml	50	274.644	228.517	17.319
+box	node	infrastructure / k8s / ingress.yaml	50	329.285	273.846	17.319
+box	node	infrastructure / k8s / service.yaml	50	301.965	260.16	17.319
+box	node	infrastructure / terraform	35	57.758	71.095	17
+box	node	infrastructure / terraform / main.tf	50	84.773	248.064	17
+box	node	infrastructure / terraform / outputs.tf	50	138.957	276.502	17.319
+box	node	infrastructure / terraform / variables.tf	50	111.789	266.721	17.319
+canvas	-0.5	0	335.531	352.727
+font	Liberation Sans	478

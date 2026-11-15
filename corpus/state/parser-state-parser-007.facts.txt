@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e92ad11272dbb957
+accept	yes
+drawn	yes
+node	assemble	assemble	rounded
+node	assemblies	assemblies	rounded
+type	stateDiagram

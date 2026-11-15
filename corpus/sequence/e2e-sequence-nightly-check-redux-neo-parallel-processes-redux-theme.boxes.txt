@@ -1,0 +1,38 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bfc6693b6338b866
+box	actor	Customer	40.335	0	69.329	67.818
+box	actor	Frontend	200	0	150	73
+box	actor	InventoryManager	610.562	0	128.875	67.818
+box	actor	NotificationQueue	1211	0	150	73
+box	actor	Order	853	0	44	67.818
+box	actor	OrdersDB	1050.447	0	71.106	67.818
+box	actor	PaymentService	416.779	0	116.442	67.818
+box	actor-bottom	Customer	40.335	619	69.329	67.818
+box	actor-bottom	Frontend	200	613	150	73
+box	actor-bottom	InventoryManager	610.562	619	128.875	67.818
+box	actor-bottom	Order	853	619	44	67.818
+box	actor-bottom	PaymentService	416.779	619	116.442	67.818
+box	block	par Parallel Processing	464	171	422	158
+box	message	Customer --> Frontend	76	117	192	0
+box	message	Frontend --> Order	276	161	592	0
+box	message	InventoryManager --> Order	676	417	192	0
+box	message	NotificationQueue --> Customer	82	593	1203	0
+box	message	Order --> InventoryManager	682	319	192	0
+box	message	Order --> NotificationQueue	876	549	403	0
+box	message	Order --> OrdersDB	876	461	203	0
+box	message	Order --> PaymentService	482	250	392	0
+box	message	OrdersDB --> Order	882	505	203	0
+box	message	PaymentService --> Order	476	373	392	0
+box	message-text	Customer --> Frontend	131.104	93.314	81.792	18.635
+box	message-text	Frontend --> Order	527.115	137.314	89.77	18.635
+box	message-text	InventoryManager --> Order	719.122	393.314	105.756	18.635
+box	message-text	NotificationQueue --> Customer	617.786	569.314	132.428	18.635
+box	message-text	Order --> InventoryManager	726.898	295.314	102.203	18.635
+box	message-text	Order --> NotificationQueue	1013.562	525.314	128.875	18.635
+box	message-text	Order --> OrdersDB	907.331	437.314	141.338	18.635
+box	message-text	Order --> PaymentService	616.227	226.314	123.547	18.635
+box	message-text	OrdersDB --> Order	940.003	481.314	87.994	18.635
+box	message-text	PaymentService --> Order	603.122	349.314	137.756	18.635
+canvas	-50	-10	1461	737
+font	Liberation Sans	648

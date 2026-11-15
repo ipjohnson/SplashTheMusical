@@ -1,0 +1,9 @@
+stateDiagram-v2
+[*] --> Running
+Running --> Error : exception
+Error --> Recovering : auto_heal
+Recovering --> Running : recovered
+Recovering --> Fatal : max_retries
+Running --> Stopped : shutdown
+Fatal --> Stopped : operator
+Stopped --> [*]

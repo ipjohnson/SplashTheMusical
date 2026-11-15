@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 16bd41b8a1695cac
+box	node	Database	485.4	319.616	55.616	21.984
+box	node	Database_Cloud DB	725.4	333.216	56.798	23.184
+box	node	Database_File System	243	333.216	66.233	23.184
+box	node	Database_NoSQL	604.8	333.216	46.807	23.184
+box	node	Database_SQL DB	444	333.216	50.305	23.184
+box	title	Pipeline Evolution	395.417	15.839	109.166	14.093
+canvas	0	0	900	600
+font	Liberation Sans	220

@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 09ab9737b8c85110
+box	legend	Entertainment	441	213	127.844	19
+box	legend	Food	441	191	60.75	19
+box	legend	Rent	441	235	57.922	19
+box	slice	Entertainment	225	225	155.632	168.282
+box	slice	Food	225	30.75	194.25	299.27
+box	slice	Rent	40	40	261.852	370
+box	title	Budget Allocation	128.398	2	193.203	28.188
+canvas	0	0	617.844	450
+font	Liberation Sans	92

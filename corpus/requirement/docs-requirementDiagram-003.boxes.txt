@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7d0dd6187502e6a8
+box	element	checkout_service	338.578	44	154.313	112
+box	relation	checkout_req --> payment_req	148.289	192	38.355	74
+box	relation	checkout_service --> payment_req	377.38	156	38.354	110
+box	relation-label	checkout_req --> payment_req	99.805	217	96.969	24
+box	relation-label	checkout_service --> payment_req	368.148	217	95.172	24
+box	requirement	checkout_req	8	8	280.578	184
+box	requirement	payment_req	126.16	266	311.703	184
+canvas	0	0	500.891	458
+font	Liberation Sans	544

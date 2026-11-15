@@ -1,0 +1,19 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e91bb71e55c78812
+layout	1
+graph	LR	50	20	75	8	8
+node	UserService	Auth	120.1328125	141
+node	TokenManager	Auth	145.6640625	120
+node	Auth		0	0
+edge	UserService	TokenManager	id_UserService_TokenManager_1	1	1	29.578125	21	10	c
+size	461.375	227
+place	UserService	105.56640625	113.5	120.1328125	141
+place	TokenManager	343.04296875	113.5	145.6640625	120
+place	Auth	230.6875	113.5	445.375	211
+route	UserService	TokenManager	id_UserService_TokenManager_1	217.921875	113.5	165.6328125,113.5 217.921875,113.5 270.2109375,113.5
+layout	2
+graph	TB	50	20	50	8	8
+node	Auth		445.375	211
+size	461.375	227
+place	Auth	230.6875	113.5	445.375	211

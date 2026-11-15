@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 611fe7429bd035b0
+box	actor	B	20	0	77	67.971
+box	actor	C	253	0	44	67.971
+box	actor	COL	794	0	156	73
+box	actor	DB	650	0	50	67.971
+box	actor	E	453	0	44	67.971
+box	actor	FE	1200	0	150	73
+box	actor	LongNameUser	1400	0	150	73
+box	actor	Q	1000	0	150	73
+box	actor-bottom	B	20	573	77	67.971
+box	actor-bottom	C	253	573	44	67.971
+box	actor-bottom	COL	800	567	150	67
+box	actor-bottom	E	453	573	44	67.971
+box	actor-bottom	FE	1200	567	150	73
+box	actor-bottom	LongNameUser	1400	567	150	73
+box	message	B --> FE	76	195	1192	0
+box	message	C --> COL	276	459	592	0
+box	message	C --> DB	276	371	392	0
+box	message	C --> E	276	283	192	0
+box	message	COL --> Q	876	503	192	0
+box	message	DB --> C	282	415	392	0
+box	message	E --> C	282	327	192	0
+box	message	FE --> B	82	151	1192	0
+box	message	FE --> C	282	239	992	0
+box	message	Q --> LongNameUser	1076	547	392	0
+box	message-text	B --> FE	455.917	171.477	432.167	18.941
+box	message-text	C --> COL	558.649	435.477	26.702	18.941
+box	message-text	C --> DB	453.766	347.477	36.469	18.941
+box	message-text	C --> E	343.687	259.477	56.627	18.941
+box	message-text	COL --> Q	942.667	479.477	58.666	18.941
+box	message-text	DB --> C	437.98	391.477	80.041	18.941
+box	message-text	E --> C	321.685	303.477	112.629	18.941
+box	message-text	FE --> B	639.311	128.477	77.377	18.941
+box	message-text	FE --> C	731.321	215.477	93.359	18.941
+box	message-text	Q --> LongNameUser	1088.85	523.477	366.3	18.941
+canvas	-50	-10	1650	691
+font	Liberation Sans	526

@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b9c32bc8814f7211
+box	edge	body --> parser	164	281.667	36	59.333
+box	edge	id --> agent	740	203.5	56	69.4
+box	edge	id --> app	740	291.3	56	208.2
+box	edge	id --> host	740	282.1	56	69.4
+box	edge	id --> stored	740	66	56	197.7
+box	edge	parser --> resolver	356	277.5	36	0
+box	edge	resolver --> id	548	277.5	36	0
+box	edge	typed --> parser	164	214	36	59.333
+box	node	agent	800	160	152	87
+box	node	app	800	456	152	87
+box	node	body	12	297.5	152	87
+box	node	host	800	287	152	129
+box	node	id	588	244.5	152	66
+box	node	parser	204	255	152	45
+box	node	resolver	396	223.5	152	108
+box	node	stored	800	12	152	108
+box	node	typed	12	170.5	152	87
+canvas	4	4	956	547
+font	Liberation Sans	766

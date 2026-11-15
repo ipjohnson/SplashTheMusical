@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9b515d1c744ef17a
+box	legend	Time spent looking for movie	441	202	238.688	19
+box	legend	Time spent watching it	441	224	190.5	19
+box	slice	Time spent looking for movie	40	40	370	370
+box	slice	Time spent watching it	116.26	40	108.74	185
+box	title	NETFLIX	173.602	2	102.797	28
+canvas	0	0	728.688	450
+font	Liberation Sans	126

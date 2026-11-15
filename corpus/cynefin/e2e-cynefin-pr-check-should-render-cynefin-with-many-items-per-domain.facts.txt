@@ -1,0 +1,30 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ef13fe18d309aed5
+accept	yes
+drawn	yes
+item	chaotic	0	Production outage
+item	chaotic	1	Data breach response
+item	clear	0	Deploy to staging
+item	clear	1	Run test suite
+item	clear	2	Merge pull request
+item	complex	0	New product discovery
+item	complex	1	User behavior analysis
+item	complex	2	A/B testing strategy
+item	complicated	0	Performance optimization
+item	complicated	1	Security audit
+item	complicated	2	Database migration
+label	A/B testing strategy
+label	Data breach response
+label	Database migration
+label	Deploy to staging
+label	Merge pull request
+label	New product discovery
+label	Performance optimization
+label	Production outage
+label	Run test suite
+label	Security audit
+label	Software Delivery
+label	User behavior analysis
+title	Software Delivery
+type	cynefin

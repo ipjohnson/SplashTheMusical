@@ -1,0 +1,46 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f2276532490a52d
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-DocumentationFile-1		156.734375	81
+node	entity-Page-2		100	81
+node	entity-FrontMatter-3		112.359375	81
+node	entity-Anchor-4		100	81
+node	entity-Link-5		100	81
+node	entity-InternalLink-6		112.390625	81
+node	entity-CrossLink-7		102.25	81
+node	entity-CrossLinkUri-8		120.125	81
+node	entity-IncludeDirective-9		139.609375	81
+node	entity-Snippet-10		100	81
+node	entity-Applicability-11		113.9375	81
+edge	entity-DocumentationSet-0	entity-DocumentationFile-1	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	1	1	24.90625	21	10	c
+edge	entity-Page-2	entity-FrontMatter-3	id_entity-Page-2_entity-FrontMatter-3_1	1	1	71.59375	21	10	c
+edge	entity-Page-2	entity-Anchor-4	id_entity-Page-2_entity-Anchor-4_2	1	1	49.8125	21	10	c
+edge	entity-Page-2	entity-Link-5	id_entity-Page-2_entity-Link-5_3	1	1	28.015625	21	10	c
+edge	entity-InternalLink-6	entity-Page-2	id_entity-InternalLink-6_entity-Page-2_4	1	1	35.8125	21	10	c
+edge	entity-CrossLink-7	entity-CrossLinkUri-8	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	1	1	66.9375	21	10	c
+edge	entity-IncludeDirective-9	entity-Snippet-10	id_entity-IncludeDirective-9_entity-Snippet-10_6	1	1	44.375	21	10	c
+edge	entity-FrontMatter-3	entity-Applicability-11	id_entity-FrontMatter-3_entity-Applicability-11_7	1	1	63.828125	21	10	c
+size	948.953125	643
+place	entity-DocumentationSet-0	86.3671875	48.5	155.1875	81
+place	entity-DocumentationFile-1	86.3671875	230.5	156.734375	81
+place	entity-Page-2	360.15625	230.5	100	81
+place	entity-FrontMatter-3	113.9765625	412.5	112.359375	81
+place	entity-Anchor-4	360.15625	412.5	100	81
+place	entity-Link-5	600.15625	412.5	100	81
+place	entity-InternalLink-6	360.15625	48.5	112.390625	81
+place	entity-CrossLink-7	610.21875	48.5	102.25	81
+place	entity-CrossLinkUri-8	610.21875	230.5	120.125	81
+place	entity-IncludeDirective-9	871.1484375	48.5	139.609375	81
+place	entity-Snippet-10	871.1484375	230.5	100	81
+place	entity-Applicability-11	113.9765625	594.5	113.9375	81
+route	entity-DocumentationSet-0	entity-DocumentationFile-1	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	86.3671875	139.5	86.3671875,89 86.3671875,139.5 86.3671875,190
+route	entity-Page-2	entity-FrontMatter-3	id_entity-Page-2_entity-FrontMatter-3_1	113.9765625	321.5	310.15625,248.982434705341 113.9765625,321.5 113.9765625,372
+route	entity-Page-2	entity-Anchor-4	id_entity-Page-2_entity-Anchor-4_2	360.15625	321.5	360.15625,271 360.15625,321.5 360.15625,372
+route	entity-Page-2	entity-Link-5	id_entity-Page-2_entity-Link-5_3	600.15625	321.5	410.15625,249.45833333333334 600.15625,321.5 600.15625,372
+route	entity-InternalLink-6	entity-Page-2	id_entity-InternalLink-6_entity-Page-2_4	360.15625	139.5	360.15625,89 360.15625,139.5 360.15625,190
+route	entity-CrossLink-7	entity-CrossLinkUri-8	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	610.21875	139.5	610.21875,89 610.21875,139.5 610.21875,190
+route	entity-IncludeDirective-9	entity-Snippet-10	id_entity-IncludeDirective-9_entity-Snippet-10_6	871.1484375	139.5	871.1484375,89 871.1484375,139.5 871.1484375,190
+route	entity-FrontMatter-3	entity-Applicability-11	id_entity-FrontMatter-3_entity-Applicability-11_7	113.9765625	503.5	113.9765625,453 113.9765625,503.5 113.9765625,554

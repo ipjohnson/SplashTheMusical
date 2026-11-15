@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 73bc66ae906e75f1
+accept	yes
+drawn	yes
+frame	0	01	evt	Inventory.InventoryChanged	201
+frame	1	02	evt	External.InventoryChanged	202
+label	External.InventoryChanged
+label	Stream: Inventory
+lane	201	Stream: Inventory
+lane	202	Stream: External
+type	eventmodeling

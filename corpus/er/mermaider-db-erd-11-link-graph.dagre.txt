@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f0d606bf5f3d9efb
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-LinkManifest-1		118.59375	81
+node	entity-Registry-2		100	81
+node	entity-LinkRegistry-3		117.03125	81
+node	entity-LinkRegistryEntry-4		149.703125	81
+edge	entity-DocumentationSet-0	entity-LinkManifest-1	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	1	1	66.9375	21	10	c
+edge	entity-Registry-2	entity-LinkRegistry-3	id_entity-Registry-2_entity-LinkRegistry-3_1	1	1	88.71875	21	10	c
+edge	entity-LinkRegistry-3	entity-LinkRegistryEntry-4	id_entity-LinkRegistry-3_entity-LinkRegistryEntry-4_2	1	1	111.015625	21	10	c
+edge	entity-LinkRegistryEntry-4	entity-LinkManifest-1	id_entity-LinkRegistryEntry-4_entity-LinkManifest-1_3	1	1	27.25	21	10	c
+size	460.890625	643
+place	entity-DocumentationSet-0	85.59375	412.5	155.1875	81
+place	entity-LinkManifest-1	231.81640625	594.5	118.59375	81
+place	entity-Registry-2	378.0390625	48.5	100	81
+place	entity-LinkRegistry-3	378.0390625	230.5	117.03125	81
+place	entity-LinkRegistryEntry-4	378.0390625	412.5	149.703125	81
+route	entity-DocumentationSet-0	entity-LinkManifest-1	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	85.59375	503.5	85.59375,453 85.59375,503.5 172.51953125,557.5972671172494
+route	entity-Registry-2	entity-LinkRegistry-3	id_entity-Registry-2_entity-LinkRegistry-3_1	378.0390625	139.5	378.0390625,89 378.0390625,139.5 378.0390625,190
+route	entity-LinkRegistry-3	entity-LinkRegistryEntry-4	id_entity-LinkRegistry-3_entity-LinkRegistryEntry-4_2	378.0390625	321.5	378.0390625,271 378.0390625,321.5 378.0390625,372
+route	entity-LinkRegistryEntry-4	entity-LinkManifest-1	id_entity-LinkRegistryEntry-4_entity-LinkManifest-1_3	378.0390625	503.5	378.0390625,453 378.0390625,503.5 291.11328125,557.5972671172494

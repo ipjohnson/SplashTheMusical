@@ -1,0 +1,18 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a194d95f2d926b7e
+layout	1
+graph	LR	50	20	50	8	8
+node	default-index.js		152	45
+node	dot.template.js		152	45
+node	index.js		152	45
+node	module-utl.js		152	45
+edge	default-index.js	dot.template.js	L_default-index.js_dot.template.js_0	1	1	0	0	10	c
+edge	index.js	module-utl.js	L_index.js_module-utl.js_0	1	1	0	0	10	c
+size	370	156
+place	default-index.js	84	30.5	152	45
+place	dot.template.js	286	30.5	152	45
+place	index.js	84	125.5	152	45
+place	module-utl.js	286	125.5	152	45
+route	default-index.js	dot.template.js	L_default-index.js_dot.template.js_0			160,30.5 185,30.5 210,30.5
+route	index.js	module-utl.js	L_index.js_module-utl.js_0			160,125.5 185,125.5 210,125.5

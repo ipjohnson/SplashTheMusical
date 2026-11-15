@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5e09985113aa72b7
+box	axis	x-left	111.336	2.203	32.328	17
+box	axis	x-right	356.336	2.203	32.328	17
+box	quadrant	1	250	31	245	232
+box	quadrant	2	5	31	245	232
+box	quadrant	3	5	263	245	232
+box	quadrant	4	250	263	245	232
+canvas	0	0	500	500
+font	Hiragino Sans	6
+font	蘋方-簡	12

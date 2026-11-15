@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e6436c139b880d36
+accept	yes
+actor	User	User	normal
+direction	LR
+drawn	yes
+label	Sign in
+label	Starts the workflow
+label	User
+note	User	Starts the workflow
+type	usecase
+usecase	Login	Sign in	ellipse

@@ -1,0 +1,72 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fcc69778c4c37f5a
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	NumOff	divider-id-1	136	37
+node	NumOn	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	NumOff	edge1	1	1	0	0	10	c
+edge	NumOff	NumOn	edge2	1	1	0	0	10	c
+size	222	404
+place	divider-id-1_start	111	65	14	14
+place	NumOff	111	190.5	136	37
+place	NumOn	111	327.5	136	37
+place	divider-id-1	111	202	206	388
+route	divider-id-1_start	NumOff	edge1			111,72 111,122 111,172
+route	NumOff	NumOn	edge2			111,209 111,259 111,309
+layout	2
+graph	TB	50	20	100	8	8
+node	divider-id-2_start	divider-id-2	14	14
+node	CapsOff	divider-id-2	136	37
+node	CapsOn	divider-id-2	136	37
+node	divider-id-2		0	0
+edge	divider-id-2_start	CapsOff	edge3	1	1	0	0	10	c
+edge	CapsOff	CapsOn	edge4	1	1	0	0	10	c
+size	222	404
+place	divider-id-2_start	111	65	14	14
+place	CapsOff	111	190.5	136	37
+place	CapsOn	111	327.5	136	37
+place	divider-id-2	111	202	206	388
+route	divider-id-2_start	CapsOff	edge3			111,72 111,122 111,172
+route	CapsOff	CapsOn	edge4			111,209 111,259 111,309
+layout	3
+graph	TB	50	20	100	8	8
+node	id-h8osu61bhnt-48_start	id-h8osu61bhnt-48	14	14
+node	ScrollOff	id-h8osu61bhnt-48	136	37
+node	ScrollOn	id-h8osu61bhnt-48	136	37
+node	id-h8osu61bhnt-48		0	0
+edge	id-h8osu61bhnt-48_start	ScrollOff	edge5	1	1	0	0	10	c
+edge	ScrollOff	ScrollOn	edge6	1	1	0	0	10	c
+size	222	404
+place	id-h8osu61bhnt-48_start	111	65	14	14
+place	ScrollOff	111	190.5	136	37
+place	ScrollOn	111	327.5	136	37
+place	id-h8osu61bhnt-48	111	202	206	388
+route	id-h8osu61bhnt-48_start	ScrollOff	edge5			111,72 111,122 111,172
+route	ScrollOff	ScrollOn	edge6			111,209 111,259 111,309
+layout	4
+graph	TB	50	20	75	8	8
+node	divider-id-1	Active	206	388
+node	divider-id-2	Active	206	388
+node	id-h8osu61bhnt-48	Active	206	388
+node	Active		0	0
+size	804	479
+place	divider-id-1	146	239.5	206	388
+place	divider-id-2	402	239.5	206	388
+place	id-h8osu61bhnt-48	658	239.5	206	388
+place	Active	402	239.5	788	463
+layout	5
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Active		788	463
+node	root_end		14.013293266296387	14
+edge	root_start	Active	edge0	1	1	0	0	10	c
+edge	Active	root_end	edge7	1	1	0	0	10	c
+size	804	607
+place	root_start	402	15	14	14
+place	Active	402	303.5	788	463
+place	root_end	402	592	14.013293266296387	14
+route	root_start	Active	edge0			402,22 402,47 402,72
+route	Active	root_end	edge7			402,535 402,560 402,585

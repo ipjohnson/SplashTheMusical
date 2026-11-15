@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 72ddb9fc72ab937a
+accept	yes
+direction	LR
+drawn	yes
+edge	brief	draft	sequence
+edge	draft	guide	reference
+edge	draft	spellcheck	sequence
+edge	spellcheck	publish	sequence
+label	Brief
+label	Draft copy
+label	Publish
+label	Style guide
+label	spell_check
+node	brief	Brief	lean-r	input
+node	draft	Draft copy	rounded	task
+node	guide	Style guide	lin-doc	refdoc
+node	publish	Publish	hex	action
+node	spellcheck	spell_check	fr-rect	tool
+type	agentflow

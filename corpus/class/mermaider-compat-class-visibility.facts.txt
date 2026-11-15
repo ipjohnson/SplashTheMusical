@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3246c8325cea8735
+accept	yes
+attribute	MyClass	+String publicAttr
+attribute	MyClass	-int privateAttr
+class	MyClass	MyClass
+drawn	yes
+method	MyClass	#protectedMethod() : void
+method	MyClass	+publicMethod() : void
+method	MyClass	-privateMethod() : void
+method	MyClass	~packageMethod() : void
+type	classDiagram

@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0b1f5d541b948e14
+box	edge	triage --> answer	314.75	145.25	152.25	134.75
+box	edge	triage --> bugfix	87	145.25	152.25	134.75
+box	edge	triage --> feature_work	277	183	0	97
+box	edge-label	triage --> answer	440.5	223	52.938	21
+box	edge-label	triage --> bugfix	75	223	23.359	21
+box	edge-label	triage --> feature_work	255	223	43.594	21
+box	node	answer	392	284	150	51
+box	node	bugfix	12	284	150	51
+box	node	feature_work	202	284	150	51
+box	node	triage	192	12	171	171
+canvas	4	4	546	339
+font	Liberation Sans	98

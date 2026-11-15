@@ -1,0 +1,26 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 01f53b9e79db0fe3
+layout	1
+graph	TB	50	20	50	8	8
+node	Animal		139.578125	177
+node	Duck		153.5703125	156
+node	Fish		126.328125	135
+node	Zebra		123.625	135
+node	note0		138.03125	33
+node	note1		149.015625	96
+edge	note1	Duck	edgeNote1	1	1	0	0	10	r
+edge	Animal	Duck	id_Animal_Duck_1	1	1	0	0	10	c
+edge	Animal	Fish	id_Animal_Fish_2	1	1	0	0	10	c
+edge	Animal	Zebra	id_Animal_Zebra_3	1	1	0	0	10	c
+size	625.712890625	399
+place	Animal	467.11328125	96.5	139.578125	177
+place	Duck	84.78515625	313	153.5703125	156
+place	Fish	380.923828125	313	126.328125	135
+place	Zebra	555.900390625	313	123.625	135
+place	note0	278.30859375	96.5	138.03125	33
+place	note1	84.78515625	96.5	149.015625	96
+route	note1	Duck	edgeNote1			84.78515625,144.5 84.78515625,210 84.78515625,235
+route	Animal	Duck	id_Animal_Duck_1			397.32421875,137.93591891781438 275.94921875,210 161.5703125,271.62783522007436
+route	Animal	Fish	id_Animal_Fish_2			399.9082891657489,185 380.923828125,210 380.923828125,245.5
+route	Animal	Zebra	id_Animal_Zebra_3			536.3437586040749,185 555.900390625,210 555.900390625,245.5

@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3a512e31979952f0
+box	node	🚀 rocket-app	19	30.234	107.25	22
+box	node	🚀 rocket-app / ⚙️ config.yaml	34	222.234	106.375	22
+box	node	🚀 rocket-app / 📝 README.md	34	190.234	120.578	22
+box	node	🚀 rocket-app / 📦 packages	34	62.234	98.391	22
+box	node	🚀 rocket-app / 📦 packages / 🎨 ui	49	94.234	39.672	22
+box	node	🚀 rocket-app / 📦 packages / 🛠️ utils	49	126.234	58.344	22
+box	node	🚀 rocket-app / 🧪 tests	34	158.234	62.797	22
+canvas	-0.5	0	160.578	251.016
+font	Apple Color Emoji	14
+font	Liberation Sans	116

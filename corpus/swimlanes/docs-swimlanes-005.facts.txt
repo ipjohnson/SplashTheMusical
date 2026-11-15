@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 60c192d9e1edf6ad
+accept	yes
+drawn	yes
+edge	lead	quote	none	arrow	solid
+edge	quote	review	none	arrow	solid
+edge	review	approve	none	arrow	solid
+group	finance	Finance team	approve,review
+group	sales	Sales team	lead,quote
+node	approve	Approve quote	rect
+node	lead	Qualify lead	rect
+node	quote	Prepare quote	rect
+node	review	Review terms	rect
+type	swimlane

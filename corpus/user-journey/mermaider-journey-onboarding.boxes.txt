@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a3a419e94d1a361b
+box	face	Authenticate / Confirm MFA	810	375	30	30
+box	face	Authenticate / Enter email	610	345	30	30
+box	face	Discover / Open app	210	315	30	30
+box	face	Discover / See welcome	410	285	30	30
+box	face	Success / Reach dashboard	1010	285	30	30
+box	person	System	50	52.077	53.294	18.241
+box	person	User	50	72.077	33.759	18.24
+box	section	Authenticate	550	50	350	50
+box	section	Discover	150	50	350	50
+box	section	Success	950	50	150	50
+box	task	Authenticate / Confirm MFA	750	110	150	50
+box	task	Authenticate / Enter email	550	110	150	50
+box	task	Discover / Open app	150	110	150	50
+box	task	Discover / See welcome	350	110	150	50
+box	task	Success / Reach dashboard	950	110	150	50
+box	title	First-time login	150	-4.847	244.19	37.012
+canvas	0	-25	1300	540
+font	Liberation Sans	218

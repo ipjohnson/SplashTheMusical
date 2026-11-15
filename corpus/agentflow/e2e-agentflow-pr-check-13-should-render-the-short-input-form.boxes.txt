@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7589d5166509dba6
+box	edge	every_morning --> summarise	273.65	117	101.85	56
+box	edge	request --> summarise	129	117	101.85	56
+box	flow	f	12	12	491	240
+box	node	every_morning	272	60	207	57
+box	node	request	36	81	186	36
+box	node	summarise	177.25	177	150	51
+canvas	4	4	507	256
+font	Liberation Sans	124

@@ -1,0 +1,37 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7b827b95e8846857
+layout	1
+graph	TB	140	20	130	8	8
+node	entity-PERSON-3	title3	144.140625	159
+node	title3		0	0
+size	320.140625	305
+place	entity-PERSON-3	160.0703125	152.5	144.140625	159
+place	title3	160.0703125	152.5	304.140625	289
+layout	2
+graph	LR	140	20	105	8	8
+node	entity-CUSTOMER-0	title1	159.703125	159
+node	title1		0	0
+size	280.703125	335
+place	entity-CUSTOMER-0	140.3515625	167.5	159.703125	159
+place	title1	140.3515625	167.5	264.703125	319
+layout	3
+graph	LR	140	20	105	8	8
+node	title3	title2	304.140625	289
+node	entity-CAR-1	title2	100	81
+node	entity-NAMED-DRIVER-2	title2	148.125	81
+node	title2		0	0
+edge	entity-CAR-1	entity-NAMED-DRIVER-2	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	1	1	38.90625	21	10	c
+size	669.046875	686
+place	title3	456.4765625	232.5	304.140625	289
+place	entity-CAR-1	110.5	557.5	100	81
+place	entity-NAMED-DRIVER-2	456.4765625	557.5	148.125	81
+place	title2	334.5234375	343	653.046875	670
+route	entity-CAR-1	entity-NAMED-DRIVER-2	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	232.453125	557.5	160.5,557.5 232.453125,557.5 382.4140625,557.5
+layout	4
+graph	TB	140	20	80	8	8
+node	title2		653.046875	670
+node	title1		264.703125	319
+size	1073.75	686
+place	title2	334.5234375	343	653.046875	670
+place	title1	933.3984375	343	264.703125	319

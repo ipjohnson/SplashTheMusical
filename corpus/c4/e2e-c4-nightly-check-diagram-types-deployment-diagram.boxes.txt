@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 677620407bfe5321
+box	boundary	dbn	566	178	316	248.686
+box	boundary	dc	150	122	782	354.686
+box	boundary	srv	200	178	316	221.179
+box	element	api	250	278	216	71.179
+box	element	db	616	278	216	98.686
+box	rel-label	api --> db	541.165	314.946	64.671	13.801
+box	title	Deployment diagram	291	6.199	147.585	17.12
+canvas	0	-70	1082	646.686
+font	Liberation Sans	328

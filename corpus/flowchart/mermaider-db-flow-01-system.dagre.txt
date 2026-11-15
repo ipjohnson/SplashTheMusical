@@ -1,0 +1,84 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02de9d75d0b69e25
+layout	1
+graph	LR	50	20	50	8	8
+node	Outputs		0	0
+node	Build		0	0
+node	Authoring		0	0
+node	Sources		0	0
+node	Reference		0	0
+node	Catalog	Reference	152	66
+node	Repo	Sources	152	45
+node	DocSet	Authoring	152	66
+node	OpenApi	Authoring	152	45
+node	Changelog	Authoring	152	45
+node	Isolated	Build	152	45
+node	Assembler	Build	152	45
+node	Codex	Build	152	45
+node	Site	Outputs	152	45
+node	Links	Outputs	152	45
+node	SpecIndex	Outputs	152	66
+node	Search	Outputs	152	45
+node	Notes	Outputs	152	66
+edge	Catalog	DocSet	L_Catalog_DocSet_0	1	1	0	0	10	c
+edge	Repo	DocSet	L_Repo_DocSet_0	1	1	0	0	10	c
+edge	Repo	OpenApi	L_Repo_OpenApi_0	1	1	0	0	10	c
+edge	Repo	Changelog	L_Repo_Changelog_0	1	1	0	0	10	c
+edge	OpenApi	SpecIndex	L_OpenApi_SpecIndex_0	1	1	133.09375	21	10	c
+edge	OpenApi	DocSet	L_OpenApi_DocSet_0	1	1	88.71875	21	10	c
+edge	DocSet	SpecIndex	L_DocSet_SpecIndex_0	1	1	133.46875	21	10	c
+edge	SpecIndex	Isolated	L_SpecIndex_Isolated_0	1	1	0	0	10	c
+edge	SpecIndex	Assembler	L_SpecIndex_Assembler_0	1	1	0	0	10	c
+edge	DocSet	Isolated	L_DocSet_Isolated_0	1	1	0	0	10	c
+edge	DocSet	Assembler	L_DocSet_Assembler_0	1	1	0	0	10	c
+edge	DocSet	Codex	L_DocSet_Codex_0	1	1	0	0	10	c
+edge	Isolated	Links	L_Isolated_Links_0	1	1	0	0	10	c
+edge	Links	Assembler	L_Links_Assembler_0	1	1	0	0	10	c
+edge	Links	Codex	L_Links_Codex_0	1	1	0	0	10	c
+edge	Assembler	Site	L_Assembler_Site_0	1	1	0	0	10	c
+edge	Codex	Site	L_Codex_Site_0	1	1	0	0	10	c
+edge	Isolated	Site	L_Isolated_Site_0	1	1	0	0	10	c
+edge	Assembler	Search	L_Assembler_Search_0	1	1	0	0	10	c
+edge	Changelog	Notes	L_Changelog_Notes_0	1	1	0	0	10	c
+edge	Notes	Site	L_Notes_Site_0	1	1	0	0	10	c
+size	2029.1875	642.5
+place	Outputs	1491.1875	138.75	1060	261.5
+place	Build	1491.1875	428.25	606	277.5
+place	Authoring	518.859375	248.5	517.71875	460
+place	Sources	109	211.75	202	369
+place	Reference	361	566.5	202	136
+place	Catalog	361	566.5	152	66
+place	Repo	109	222.5	152	45
+place	DocSet	676.71875	362.25	152	66
+place	OpenApi	361	240.75	152	45
+place	Changelog	676.71875	76	152	45
+place	Isolated	1289.1875	347	152	45
+place	Assembler	1693.1875	509.5	152	45
+place	Codex	1693.1875	414.5	152	45
+place	Site	1920.1875	96	152	45
+place	Links	1491.1875	134	152	45
+place	SpecIndex	1062.1875	201.5	152	66
+place	Search	1920.1875	206.75	152	45
+place	Notes	1062.1875	76	152	66
+route	Catalog	DocSet	L_Catalog_DocSet_0			437,566.5 462,566.5 531.359375,444.5 618.3982712765958,395.25
+route	Repo	DocSet	L_Repo_DocSet_0			123.78048780487805,245 210,376.25 235,376.25 260,376.25 361,376.25 462,376.25 531.359375,376.25 600.71875,369.56978931527465
+route	Repo	OpenApi	L_Repo_OpenApi_0			185,236.23267326732673 210,240.75 235,240.75 260,240.75 285,240.75
+route	Repo	Changelog	L_Repo_Changelog_0			124.51194539249147,200 210,76 235,76 260,76 361,76 462,76 531.359375,76 600.71875,76
+route	OpenApi	SpecIndex	L_OpenApi_SpecIndex_0	676.71875	225.5	437,229.2747524752475 462,225.5 531.359375,225.5 676.71875,225.5 777.71875,225.5 869.453125,225.5 961.1875,225.5 986.1875,219.55940594059405
+route	OpenApi	DocSet	L_OpenApi_DocSet_0	531.359375	274.25	428.8358208955224,263.25 462,274.25 531.359375,274.25 622.208984375,329.25
+route	DocSet	SpecIndex	L_DocSet_SpecIndex_0	869.453125	149.25	692.3666373239437,329.25 777.71875,149.25 869.453125,149.25 961.1875,149.25 998.3980263157895,168.5
+route	SpecIndex	Isolated	L_SpecIndex_Isolated_0			1138.1875,219.55940594059405 1163.1875,225.5 1188.1875,225.5 1270.4837962962963,324.5
+route	SpecIndex	Assembler	L_SpecIndex_Assembler_0			1138.1875,193.9752475247525 1163.1875,191.5 1188.1875,191.5 1289.1875,191.5 1390.1875,191.5 1491.1875,191.5 1592.1875,191.5 1686.0412735849056,487
+route	DocSet	Isolated	L_DocSet_Isolated_0			752.71875,350.7747524752475 777.71875,347 869.453125,347 961.1875,347 1062.1875,347 1163.1875,347 1188.1875,347 1213.1875,347
+route	DocSet	Assembler	L_DocSet_Assembler_0			711.3473214285714,395.25 777.71875,458.5 869.453125,458.5 961.1875,458.5 1062.1875,458.5 1163.1875,458.5 1188.1875,458.5 1289.1875,458.5 1390.1875,458.5 1491.1875,458.5 1592.1875,458.5 1648.6286764705883,487
+route	DocSet	Codex	L_DocSet_Codex_0			740.5082236842105,395.25 777.71875,414.5 869.453125,414.5 961.1875,414.5 1062.1875,414.5 1163.1875,414.5 1188.1875,414.5 1289.1875,414.5 1390.1875,414.5 1491.1875,414.5 1592.1875,414.5 1617.1875,414.5
+route	Isolated	Links	L_Isolated_Links_0			1365.1875,332.8910891089109 1390.1875,328.25 1479.4886583011582,156.5
+route	Links	Assembler	L_Links_Assembler_0			1567.1875,148.1089108910891 1592.1875,152.75 1686.8174929922916,487
+route	Links	Codex	L_Links_Codex_0			1567.1875,119.89108910891089 1592.1875,115.25 1685.593515037594,392
+route	Assembler	Site	L_Assembler_Site_0			1753.7875,487 1794.1875,472 1819.1875,159.25 1884.2586462450593,118.5
+route	Codex	Site	L_Codex_Site_0			1769.1875,414.5 1794.1875,414.5 1819.1875,139.25 1867.6441473988439,118.5
+route	Isolated	Site	L_Isolated_Site_0			1365.1875,354.5247524752475 1390.1875,357 1491.1875,357 1592.1875,357 1693.1875,357 1794.1875,357 1819.1875,101.75 1844.1875,100.32673267326733
+route	Assembler	Search	L_Assembler_Search_0			1769.1875,523.6089108910891 1794.1875,528.25 1819.1875,206.75 1844.1875,206.75
+route	Changelog	Notes	L_Changelog_Notes_0			752.71875,76 777.71875,76 869.453125,76 961.1875,76 986.1875,76
+route	Notes	Site	L_Notes_Site_0			1138.1875,76 1163.1875,76 1188.1875,76 1289.1875,76 1390.1875,76 1491.1875,76 1592.1875,76 1693.1875,76 1794.1875,76 1819.1875,76 1844.1875,80.95049504950495

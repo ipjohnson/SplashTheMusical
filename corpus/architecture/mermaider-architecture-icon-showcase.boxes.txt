@@ -1,0 +1,137 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a54ccb64bbb0505
+box	edge	awsCdn --> awsCache	815.84	356.3	121.005	0
+box	edge	awsCompute --> awsNetworking	574.835	-5.71	0	121.005
+box	edge	awsCompute --> awsStorage	614.835	-45.71	121.005	0
+box	edge	awsDatabase --> awsLoadBalancer	976.845	-5.71	0	121.005
+box	edge	awsLoadBalancer --> awsCache	976.845	195.295	0	121.005
+box	edge	awsNetworking --> awsQueue	574.835	195.295	0	121.005
+box	edge	awsNetworking --> awsServerless	614.835	155.295	121.005	0
+box	edge	awsQueue --> awsCdn	614.835	356.3	121.005	0
+box	edge	awsServerless --> awsCdn	775.84	195.295	0	121.005
+box	edge	awsServerless --> awsLoadBalancer	815.84	155.295	121.005	0
+box	edge	awsStorage --> awsDatabase	815.84	-45.71	121.005	0
+box	edge	awsStorage --> awsServerless	775.84	-5.71	0	121.005
+box	edge	azureCdn --> azureCache	48.083	890.12	121.005	0
+box	edge	azureCompute --> azureNetworking	-192.922	528.11	0	121.005
+box	edge	azureCompute --> azureStorage	-152.922	488.11	121.005	0
+box	edge	azureDatabase --> azureLoadBalancer	209.088	528.11	0	121.005
+box	edge	azureLoadBalancer --> azureCache	209.088	729.115	0	121.005
+box	edge	azureNetworking --> azureQueue	-192.922	729.115	0	121.005
+box	edge	azureNetworking --> azureServerless	-152.922	689.115	121.005	0
+box	edge	azureQueue --> azureCdn	-152.922	890.12	121.005	0
+box	edge	azureServerless --> azureCdn	8.083	729.115	0	121.005
+box	edge	azureServerless --> azureLoadBalancer	48.083	689.115	121.005	0
+box	edge	azureStorage --> azureDatabase	48.083	488.11	121.005	0
+box	edge	azureStorage --> azureServerless	8.083	528.11	0	121.005
+box	edge	dCloud --> dDatabase	691.789	690.993	121.005	0
+box	edge	dCloud --> dDisk	651.789	730.993	0	120.925
+box	edge	dDatabase --> dInternet	852.794	730.993	0	120.925
+box	edge	dDisk --> dInternet	691.789	891.918	121.005	0
+box	edge	dDisk --> dServer	651.789	931.918	0	120.925
+box	edge	dInternet --> dGeneric	852.794	931.918	0	120.925
+box	edge	dServer --> dGeneric	691.789	1092.843	121.005	0
+box	edge	esApm --> esSecurity	-759.066	-576.834	121.005	0
+box	edge	esBeats --> esApm	-799.066	-737.838	0	121.005
+box	edge	esBeats --> esFleet	-759.066	-777.838	121.005	0
+box	edge	esElasticsearch --> esBeats	-799.066	-938.843	0	121.005
+box	edge	esElasticsearch --> esKibana	-759.066	-978.843	121.005	0
+box	edge	esFleet --> esSecurity	-598.061	-737.838	0	121.005
+box	edge	esFleet --> esServerless	-558.061	-777.838	121.005	0
+box	edge	esKibana --> esFleet	-598.061	-938.843	0	121.005
+box	edge	esKibana --> esLogstash	-558.061	-978.843	121.005	0
+box	edge	esLogstash --> esServerless	-397.056	-938.843	0	121.005
+box	edge	esSecurity --> esObservability	-558.061	-576.834	121.005	0
+box	edge	esServerless --> esObservability	-397.056	-737.838	0	121.005
+box	edge	extApi --> extCdn	165.701	-500.39	0	120.988
+box	edge	extApi --> extLoadBalancer	205.701	-540.39	121.045	0
+box	edge	extApiGateway --> extK8s	205.701	-942.358	121.045	0
+box	edge	extApiGateway --> extPool	165.701	-902.358	0	120.988
+box	edge	extCdn --> extCache	205.701	-339.402	121.045	0
+box	edge	extK8s --> extReverseProxy	366.745	-902.358	0	120.988
+box	edge	extLoadBalancer --> extCache	366.745	-500.39	0	120.988
+box	edge	extPod --> extPool	4.656	-741.37	121.045	0
+box	edge	extPod --> extWeb	-35.344	-701.37	0	120.981
+box	edge	extPool --> extApi	165.701	-701.37	0	120.981
+box	edge	extPool --> extReverseProxy	205.701	-741.37	121.045	0
+box	edge	extQueue --> extCdn	4.656	-339.402	121.045	0
+box	edge	extReverseProxy --> extLoadBalancer	366.745	-701.37	0	120.981
+box	edge	extWaf --> extApiGateway	4.656	-942.358	121.045	0
+box	edge	extWaf --> extPod	-35.344	-902.358	0	120.988
+box	edge	extWeb --> extApi	4.656	-540.39	121.045	0
+box	edge	extWeb --> extQueue	-35.344	-500.39	0	120.988
+box	edge	gcpCdn --> gcpCache	-645.34	190.353	121.005	0
+box	edge	gcpCompute --> gcpNetworking	-886.345	-171.657	0	121.005
+box	edge	gcpCompute --> gcpStorage	-846.345	-211.657	121.005	0
+box	edge	gcpDatabase --> gcpLoadBalancer	-484.335	-171.657	0	121.005
+box	edge	gcpLoadBalancer --> gcpCache	-484.335	29.348	0	121.005
+box	edge	gcpNetworking --> gcpQueue	-886.345	29.348	0	121.005
+box	edge	gcpNetworking --> gcpServerless	-846.345	-10.652	121.005	0
+box	edge	gcpQueue --> gcpCdn	-846.345	190.353	121.005	0
+box	edge	gcpServerless --> gcpCdn	-685.34	29.348	0	121.005
+box	edge	gcpServerless --> gcpLoadBalancer	-645.34	-10.652	121.005	0
+box	edge	gcpStorage --> gcpDatabase	-645.34	-211.657	121.005	0
+box	edge	gcpStorage --> gcpServerless	-685.34	-171.657	0	121.005
+box	group	awsPack	473.835	-128.21	613.51	584.01
+box	group	azurePack	-298.922	405.61	623.51	584.01
+box	group	defaultPack	569.289	608.493	366.005	583.851
+box	group	elasticPack	-915.566	-1061.343	633.51	584.01
+box	group	extPack	-117.844	-1024.858	591.589	784.956
+box	group	gcpPack	-986.345	-294.157	612.01	584.01
+box	service	awsCache	936.845	316.3	80	102.954
+box	service	awsCdn	735.84	316.3	80	102.954
+box	service	awsCompute	527.276	-85.71	95.118	103.524
+box	service	awsDatabase	927.054	-85.71	99.582	102.954
+box	service	awsLoadBalancer	918.619	115.295	116.45	120.554
+box	service	awsNetworking	519.292	115.295	111.085	103.524
+box	service	awsQueue	534.835	316.3	80	103.524
+box	service	awsServerless	722.529	115.295	106.621	102.954
+box	service	awsStorage	732.294	-85.71	87.091	103.524
+box	service	azureCache	165.092	850.12	87.992	102.954
+box	service	azureCdn	-31.917	850.12	80	102.954
+box	service	azureCompute	-246.254	448.11	106.664	103.524
+box	service	azureDatabase	153.524	448.11	111.128	102.954
+box	service	azureLoadBalancer	153.524	649.115	111.128	120.553
+box	service	azureNetworking	-249.795	649.115	113.746	121.124
+box	service	azureQueue	-237.82	850.12	89.795	103.524
+box	service	azureServerless	-51.022	649.115	118.21	102.953
+box	service	azureStorage	-41.257	448.11	98.68	103.524
+box	service	dCloud	611.789	650.993	80	102.953
+box	service	dDatabase	812.794	650.993	80	102.953
+box	service	dDisk	611.789	851.918	80	102.954
+box	service	dGeneric	812.794	1052.843	80	103.524
+box	service	dInternet	812.794	851.918	80	102.954
+box	service	dServer	611.789	1052.843	80	102.953
+box	service	esApm	-839.951	-616.834	81.769	103.524
+box	service	esBeats	-843.964	-817.838	89.795	102.954
+box	service	esElasticsearch	-855.489	-1018.843	112.845	120.554
+box	service	esFleet	-638.495	-817.838	80.867	102.954
+box	service	esKibana	-646.951	-1018.843	97.779	102.954
+box	service	esLogstash	-452.17	-1018.843	110.227	103.524
+box	service	esObservability	-455.282	-616.834	116.45	121.124
+box	service	esSecurity	-650.943	-616.834	105.763	103.524
+box	service	esServerless	-454.81	-817.838	115.506	120.554
+box	service	extApi	125.701	-580.39	80	103.524
+box	service	extApiGateway	109.257	-982.358	112.888	103.524
+box	service	extCache	326.746	-379.402	80	102.954
+box	service	extCdn	125.701	-379.402	80	102.954
+box	service	extK8s	326.746	-982.358	80	102.954
+box	service	extLoadBalancer	307.64	-580.39	118.21	120.554
+box	service	extPod	-75.344	-781.37	80	103.524
+box	service	extPool	125.701	-781.37	80	103.524
+box	service	extQueue	-75.344	-379.402	80	103.524
+box	service	extReverseProxy	308.542	-781.37	116.407	121.124
+box	service	extWaf	-75.344	-982.358	80	102.954
+box	service	extWeb	-75.344	-580.39	80	102.954
+box	service	gcpCache	-524.335	150.353	80	103.524
+box	service	gcpCdn	-725.34	150.353	80	103.524
+box	service	gcpCompute	-932.573	-251.657	92.456	103.524
+box	service	gcpDatabase	-532.795	-251.657	96.92	103.524
+box	service	gcpLoadBalancer	-541.23	-50.652	113.789	120.554
+box	service	gcpNetworking	-940.557	-50.652	108.424	103.524
+box	service	gcpQueue	-926.345	150.353	80	103.524
+box	service	gcpServerless	-737.32	-50.652	103.96	103.524
+box	service	gcpStorage	-727.555	-251.657	84.43	103.524
+canvas	-1026.345	-1101.343	2153.689	2333.687
+font	Liberation Sans	1514

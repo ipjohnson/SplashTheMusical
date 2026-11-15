@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eda42f84c242054b
+accept	yes
+drawn	yes
+item	complex	0	Alpha
+item	complex	1	Beta
+item	complicated	0	Gamma
+label	Alpha
+label	Beta
+label	First Diagram
+label	Gamma
+label	Move
+title	First Diagram
+transition	complex	complicated	Move
+type	cynefin

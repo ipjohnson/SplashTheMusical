@@ -1,0 +1,44 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 472a02b3ca9ece10
+box	entity	ApiDeclaration	510.04	12	131.063	81
+box	entity	ApiOperation	399.212	760	121.719	81
+box	entity	ApiSpecVersion	302.962	396	138.844	81
+box	entity	ApiSupplementalDoc	462.384	578	170.75	81
+box	entity	ApiTag	322.384	578	100	81
+box	entity	ApiVersionIndex	307.577	214	141.188	81
+box	entity	OpenApiRepository	175.23	12	161.406	81
+box	entity	OpenApiSpec	135.384	214	126.406	81
+box	entity	Page	731.918	12	100	81
+box	entity	Product	525.572	214	100	81
+box	entity	Repository	12	12	106.922	81
+box	entity	SearchDocument	810.477	214	148.172	81
+box	entity	SearchIndex	871.918	12	118.609	81
+box	relation	ApiDeclaration --> ApiSpecVersion	402.095	93	287.477	303
+box	relation	ApiDeclaration --> OpenApiSpec	225.189	93	322.617	121
+box	relation	ApiDeclaration --> Product	575.572	93	0	121
+box	relation	ApiSpecVersion --> ApiTag	372.384	477	0	101
+box	relation	ApiSupplementalDoc --> ApiOperation	477.025	659	70.734	101
+box	relation	ApiTag --> ApiOperation	372.384	659	70.734	101
+box	relation	ApiVersionIndex --> ApiSpecVersion	372.384	295	5.786	101
+box	relation	OpenApiRepository --> ApiVersionIndex	279.501	93	98.669	121
+box	relation	OpenApiRepository --> OpenApiSpec	198.587	93	33.779	121
+box	relation	OpenApiSpec --> ApiSpecVersion	198.587	295	144.086	101
+box	relation	Page --> SearchDocument	781.918	93	81.283	121
+box	relation	Repository --> OpenApiSpec	65.461	93	106.525	121
+box	relation	SearchIndex --> SearchDocument	905.924	93	25.298	121
+box	relation-label	ApiDeclaration --> ApiSpecVersion	665.572	244	47.469	21
+box	relation-label	ApiDeclaration --> OpenApiSpec	395.439	133	107	21
+box	relation-label	ApiDeclaration --> Product	552.072	133	46.703	21
+box	relation-label	ApiSpecVersion --> ApiTag	358.884	517	26.469	21
+box	relation-label	ApiSupplementalDoc --> ApiOperation	527.259	699	40.484	21
+box	relation-label	ApiTag --> ApiOperation	339.384	699	65.391	21
+box	relation-label	ApiVersionIndex --> ApiSpecVersion	365.671	335	24.125	21
+box	relation-label	OpenApiRepository --> ApiVersionIndex	312.392	133	63.047	21
+box	relation-label	OpenApiRepository --> OpenApiSpec	132.087	133	132.312	21
+box	relation-label	OpenApiSpec --> ApiSpecVersion	163.587	335	69.266	21
+box	relation-label	Page --> SearchDocument	754.418	133	54.484	21
+box	relation-label	Repository --> OpenApiSpec	35.461	133	59.156	21
+box	relation-label	SearchIndex --> SearchDocument	904.723	133	52.156	21
+canvas	4	4	994.527	845
+font	Liberation Sans	552

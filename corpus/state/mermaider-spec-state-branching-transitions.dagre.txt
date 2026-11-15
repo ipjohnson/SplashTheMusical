@@ -1,0 +1,32 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8a8f68dd9af81e2b
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Idle		136	37
+node	Processing		136	37
+node	Success		136	37
+node	Failed		136	37
+node	root_end		14.013293266296387	14
+edge	root_start	Idle	edge0	1	1	0	0	10	c
+edge	Idle	Processing	edge1	1	1	41.234375	21	10	c
+edge	Processing	Success	edge2	1	1	14.796875	21	10	c
+edge	Processing	Failed	edge3	1	1	29.5625	21	10	c
+edge	Success	root_end	edge4	1	1	0	0	10	c
+edge	Failed	Idle	edge5	1	1	28	21	10	c
+edge	Failed	root_end	edge6	1	1	31.921875	21	10	c
+size	338	418
+place	root_start	169	15	14	14
+place	Idle	169	90.5	136	37
+place	Processing	97.08984375	198.5	136	37
+place	Success	76	306.5	136	37
+place	Failed	262	306.5	136	37
+place	root_end	169	403	14.013293266296387	14
+route	root_start	Idle	edge0			169,22 169,47 169,72
+route	Idle	Processing	edge1	97.08984375	144.5	144.36411313657408,109 97.08984375,144.5 97.08984375,180
+route	Processing	Success	edge2	76	252.5	89.86461950231481,217 76,252.5 76,288
+route	Processing	Failed	edge3	190.08984375	252.5	128.95095486111111,217 190.08984375,252.5 237.36411313657408,288
+route	Success	root_end	edge4			76,325 76,360.5 161.9933533668518,399.79803782893765
+route	Failed	Idle	edge5	279.390625	198.5	267.95789930555554,288 279.390625,252.5 279.390625,198.5 279.390625,144.5 206.81901041666666,109
+route	Failed	root_end	edge6	262	360.5	262,325 262,360.5 176.0066466331482,399.79803782893765

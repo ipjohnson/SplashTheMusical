@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 59006578d3540698
+accept	yes
+direction	TD
+drawn	yes
+edge	analyse	lint	sequence
+edge	changes	analyse	sequence
+edge	lint	ok	sequence
+flow	reviewer	Review Agent	analyse,changes,lint,ok
+label	Analyse diff
+label	Clean?
+label	Gather changes
+label	Review Agent
+label	run_linter
+node	analyse	Analyse diff	rounded	task
+node	changes	Gather changes	lean-r	input
+node	lint	run_linter	fr-rect	tool
+node	ok	Clean?	diam	decision
+type	agentflow

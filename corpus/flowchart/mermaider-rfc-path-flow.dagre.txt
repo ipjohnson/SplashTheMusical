@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 660f226017302de5
+layout	1
+graph	TB	50	20	50	8	8
+node	navYml		152	45
+node	getToc		152	66
+node	perRepo		152	87
+node	docSetNav		213.34375	66
+node	tocMappings		180.640625	45
+node	tocNodes		169.765625	45
+node	siteNav		152	108
+node	pathProvider		219.5625	66
+node	sidebar		152	108
+edge	navYml	getToc	L_navYml_getToc_0	1	1	0	0	10	c
+edge	perRepo	docSetNav	L_perRepo_docSetNav_0	1	1	0	0	10	c
+edge	getToc	tocMappings	L_getToc_tocMappings_0	1	1	0	0	10	c
+edge	docSetNav	tocNodes	L_docSetNav_tocNodes_0	1	1	0	0	10	c
+edge	tocMappings	siteNav	L_tocMappings_siteNav_0	1	1	0	0	10	c
+edge	tocNodes	siteNav	L_tocNodes_siteNav_0	1	1	0	0	10	c
+edge	siteNav	pathProvider	L_siteNav_pathProvider_0	1	1	0	0	10	c
+edge	siteNav	sidebar	L_siteNav_sidebar_0	1	1	0	0	10	c
+size	466.6796875	630
+place	navYml	119.3359375	51.5	152	45
+place	getToc	119.3359375	178	152	66
+place	perRepo	352.0078125	51.5	152	87
+place	docSetNav	352.0078125	178	213.34375	66
+place	tocMappings	119.3359375	283.5	180.640625	45
+place	tocNodes	352.0078125	283.5	169.765625	45
+place	siteNav	235.671875	410	152	108
+place	pathProvider	117.78125	568	219.5625	66
+place	sidebar	353.5625	568	152	108
+route	navYml	getToc	L_navYml_getToc_0			119.3359375,74 119.3359375,120 119.3359375,145
+route	perRepo	docSetNav	L_perRepo_docSetNav_0			352.0078125,95 352.0078125,120 352.0078125,145
+route	getToc	tocMappings	L_getToc_tocMappings_0			119.3359375,211 119.3359375,236 119.3359375,261
+route	docSetNav	tocNodes	L_docSetNav_tocNodes_0			352.0078125,211 352.0078125,236 352.0078125,261
+route	tocMappings	siteNav	L_tocMappings_siteNav_0			119.3359375,306 119.3359375,331 159.671875,358.39084010476125
+route	tocNodes	siteNav	L_tocNodes_siteNav_0			352.0078125,306 352.0078125,331 311.671875,358.39084010476125
+route	siteNav	pathProvider	L_siteNav_pathProvider_0			159.671875,460.92856196156396 117.78125,489 117.78125,535
+route	siteNav	sidebar	L_siteNav_sidebar_0			311.671875,460.92856196156396 353.5625,489 353.5625,514

@@ -1,0 +1,53 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c850037e6dbd3068
+box	actor	E	1006.5	0	150	73
+box	actor	G	0	0	150	73
+box	actor	L	675	0	150	73
+box	actor	R	1488.5	0	150	73
+box	actor	W	394	0	150	73
+box	actor-bottom	E	1006.5	1049	150	73
+box	actor-bottom	G	0	1049	150	73
+box	actor-bottom	L	675	1049	150	73
+box	actor-bottom	R	1488.5	1049	150	73
+box	actor-bottom	W	394	1049	150	73
+box	message	E --> G	82	823	1004.5	0
+box	message	E --> R	1088.5	367	468	0
+box	message	G --> W	82	161	380	0
+box	message	G --> W #2	82	617	380	0
+box	message	G --> W #3	82	911	380	0
+box	message	L --> E	757	323	317.5	0
+box	message	L --> E #2	757	779	317.5	0
+box	message	L --> L	751	247.381	45	23.238
+box	message	L --> L #2	751	497.381	45	23.238
+box	message	L --> L #3	751	703.381	45	23.238
+box	message	L --> L #4	751	997.381	45	23.238
+box	message	R --> G	82	411	1486.5	0
+box	message	R --> L	757	455	811.5	0
+box	message	W --> G	82	117	392	0
+box	message	W --> G #2	82	573	392	0
+box	message	W --> G #3	82	867	392	0
+box	message	W --> L	476	205	267	0
+box	message	W --> L #2	476	661	267	0
+box	message	W --> L #3	476	955	267	0
+box	message-text	E --> G	540.27	798.705	81.459	19.958
+box	message-text	E --> R	1114.238	342.705	411.524	19.958
+box	message-text	G --> W	192.114	136.705	153.771	19.958
+box	message-text	G --> W #2	149.462	592.705	239.077	19.958
+box	message-text	G --> W #3	241.887	886.705	54.225	19.958
+box	message-text	L --> E	889.595	298.705	46.81	19.958
+box	message-text	L --> E #2	795.818	754.705	234.364	19.958
+box	message-text	L --> L	479.631	224.705	542.739	19.958
+box	message-text	L --> L #2	614.709	474.705	272.582	19.958
+box	message-text	L --> L #3	548.374	680.705	405.252	19.958
+box	message-text	L --> L #4	493.889	974.705	514.223	19.958
+box	message-text	R --> G	724.672	386.705	194.657	19.958
+box	message-text	R --> L	1035.576	430.705	248.848	19.958
+box	message-text	W --> G	112.965	92.705	324.07	19.958
+box	message-text	W --> G #2	135.175	548.705	279.65	19.958
+box	message-text	W --> G #3	201.822	842.705	146.356	19.958
+box	message-text	W --> L	529.681	180.705	154.637	19.958
+box	message-text	W --> L #2	501.685	636.704	210.63	19.958
+box	message-text	W --> L #3	570.116	930.705	73.767	19.958
+canvas	-50	-10	1738.5	1173
+font	Liberation Sans	1532

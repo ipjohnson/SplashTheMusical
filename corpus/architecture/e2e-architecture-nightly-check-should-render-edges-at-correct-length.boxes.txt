@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 41b2e6a87ce7bfdd
+box	edge	cell --> colspan	0.287	-30.713	120.926	0
+box	edge	cell --> rowspan	-39.713	9.287	0	120.926
+box	service	cell	-79.713	-70.713	80	103.219
+box	service	colspan	121.213	-70.713	80	103.537
+box	service	rowspan	-79.713	130.213	80	103.537
+canvas	-119.713	-110.713	360.926	384.465
+font	Liberation Sans	48

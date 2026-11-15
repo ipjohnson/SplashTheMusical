@@ -1,0 +1,10 @@
+erDiagram
+    Assembly ||--|| NarrativeRepository : "narrative"
+    Assembly ||--|{ Repository : "references"
+    Repository ||--|| ContentSourceBranches : "current / next / edge"
+    PublishEnvironment }o--|| ContentSource : "content_source"
+    ContentSource ||--o{ ContentSourceBranches : "selects branch"
+    Checkout }o--|| Repository : "repository"
+    Checkout ||--o| DocumentationSet : "resolves to"
+    Checkout }o--|| LinkRegistryEntry : "pinned CommitSha"
+    DocumentationSet }o--|| GitOrigin : "origin"

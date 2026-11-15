@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9d9e8eae12a82c66
+box	branch	feature	107.344	30	0	200
+box	branch	main	0	30	0	200
+box	branch-label	feature	72.438	0	67.812	21
+box	branch-label	main	-27.344	0	52.687	21
+box	commit	0	-10	30	20	20
+box	commit	1	97.344	80	20	20
+box	commit	2	-10	130	20	20
+box	commit	3	-10	180	20	20
+box	commit-label	0	-32.383	43.536	22.484	22.484
+box	commit-label	1	68.276	93.536	29.168	29.168
+box	tag	2 / v1.0	6.697	136.697	33.875	33.875
+box	tag	3 / critical fix	6.697	186.697	49.586	49.586
+canvas	-40.383	-8	188.633	252.283
+font	Liberation Sans	72

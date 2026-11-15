@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0dbc2580bfe69106
+box	element	test_entity_name_that_is_extra_long	424.656	66	265.875	58
+box	requirement	test_req	12	12	372.656	166
+canvas	4	4	694.531	182
+font	Liberation Sans	326

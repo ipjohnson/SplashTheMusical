@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8bf67d31dc34d6a5
+accept	yes
+class	Baz	Baz
+class	Foo	Foo
+drawn	yes
+method	Baz	+qux()
+method	Foo	+bar()
+namespace	Outer	Baz,Outer.Inner
+namespace	Outer.Inner	Foo
+type	classDiagram

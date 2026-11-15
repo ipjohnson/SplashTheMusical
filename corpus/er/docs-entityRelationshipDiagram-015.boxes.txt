@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7b827b95e8846857
+box	entity	CAR	278.141	210	100	81
+box	entity	CUSTOMER	490.203	171	159.703	159
+box	entity	NAMED-DRIVER	254.078	360	148.125	81
+box	entity	PERSON	60	108	144.141	159
+box	relation	CAR --> NAMED-DRIVER	328.141	291	0	69
+box	relation-label	CAR --> NAMED-DRIVER	308.641	315	38.906	21
+canvas	4	4	677.906	469
+font	Liberation Sans	252

@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c7c841de88b61d58
+box	element	test harness component	65.297	12	215.313	124
+box	relation	test harness component --> system performance requirement	172.953	136	0	101
+box	relation-label	test harness component --> system performance requirement	133.953	176	77.063	21
+box	requirement	system performance requirement	12	237	321.906	166
+canvas	4	4	337.906	407
+font	Liberation Sans	436

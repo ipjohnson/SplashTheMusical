@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source be30531f0f98e9a6
+accept	yes
+attribute	Class10	int[] id
+class	Class10	Class10<T>
+drawn	yes
+method	Class10	test(int[] ids) : bool
+method	Class10	testArray() : bool[]
+type	classDiagram

@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7ea2572fbd6df147
+box	node	Budget	10	35	980	355
+box	node	Budget / Critical	20	70	831	310
+box	node	Budget / Critical / Salaries	30	105	495	265
+box	node	Budget / Critical / Server Costs	535	105	306	265
+box	node	Budget / Normal	861	70	119	310
+box	node	Budget / Normal / Marketing	871	105	99	196
+box	node	Budget / Normal / Office Supplies	871	311	99	59
+canvas	2	27	996	371
+font	Liberation Sans	214

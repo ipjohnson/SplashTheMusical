@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 11ca126f6532abac
+box	actor	A	0	0	150	73
+box	actor	B	200	0	150	73
+box	actor-bottom	A	0	366	150	73
+box	actor-bottom	B	200	366	150	73
+box	message	A --> B	76	117	192	0
+box	message	A --> B #2	76	299	192	0
+box	message	B --> A	82	208	192	0
+box	message-text	A --> B	123.516	94.219	96.969	17.32
+box	message-text	A --> B #2	135.68	276.219	72.641	17.016
+box	message-text	B --> A	139.75	185.219	76.5	17.016
+box	note	Display results	-100	309	150	37
+box	note	Subsequent requests use JWT	50	218	250	37
+box	note	Validate credentials	300	127	158	37
+canvas	-150	-10	658	490
+font	Liberation Sans	248

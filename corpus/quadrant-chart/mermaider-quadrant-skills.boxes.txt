@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6517fc238382418a
+box	axis	x-left	114.977	476.203	64.047	17.32
+box	axis	x-right	355.875	476.203	46.25	17.32
+box	axis	y-bottom	2.203	315.859	17	94.281
+box	axis	y-top	2.203	102.086	17.32	97.828
+box	point	COBOL	149.192	421.6	42.016	21.797
+box	point	Kubernetes	185.905	82.4	61.391	21.797
+box	point	Python	383.52	82.4	37.359	21.797
+box	point	React	340.12	124.8	31.359	21.797
+box	point	Rust	157.856	167.2	24.688	21.797
+box	quadrant	1	263	45	232	212
+box	quadrant	2	31	45	232	212
+box	quadrant	3	31	257	232	212
+box	quadrant	4	263	257	232	212
+box	title	Technical Skills Matrix	152.195	6.406	195.609	22
+canvas	0	0	500	500
+font	Liberation Sans	246

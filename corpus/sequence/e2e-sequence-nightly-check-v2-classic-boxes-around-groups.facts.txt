@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ac5a11a497d3fbf2
+accept	yes
+actor	actor1	actor1	actor
+actor	boundary2	boundary2	boundary
+actor	control0	control0	control
+actor	database2	database2	database
+actor	entity1	entity1	entity
+actor	participant0	participant0	participant
+box	Group 1	actor1,boundary2,participant0
+box	Group 2	control0,database2,entity1
+drawn	yes
+message	participant0	control0	solid	filled	Cross-group message
+type	sequence

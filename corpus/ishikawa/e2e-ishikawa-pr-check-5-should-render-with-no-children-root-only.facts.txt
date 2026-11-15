@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4f3478d853ae7b21
+accept	yes
+drawn	yes
+head	Problem
+label	Problem
+type	ishikawa

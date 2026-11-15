@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 41e29febcb6136f5
+box	nonterminal	address / domain	252.781	11.5	72.484	37
+box	nonterminal	address / local-part	110.719	11.34	85.812	37.32
+box	nonterminal	domain / label	106.266	316.66	53.813	37
+box	nonterminal	domain / label #2	224.531	316.66	53.813	37
+box	nonterminal	label / ALPHA	127.594	401.66	72.469	37
+box	nonterminal	label / DIGIT	132.492	446.66	62.672	37
+box	nonterminal	local-part / ALPHA	159.594	76.66	72.469	37
+box	nonterminal	local-part / DIGIT	164.492	121.66	62.672	37
+box	rule	address	0	11.34	340.266	37.32
+box	rule	domain	0	296.66	313.344	77
+box	rule	label	0	401.66	255.063	147
+box	rule	local-part	0	76.66	287.063	192
+canvas	0	0	360.266	586.66
+font	Liberation Sans	174

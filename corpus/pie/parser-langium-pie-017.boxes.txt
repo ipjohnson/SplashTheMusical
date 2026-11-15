@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5db79e8ac06e3e3f
+box	legend	GitHub	441	202	74.922	19
+box	legend	GitLab	441	224	72.094	19
+box	slice	GitHub	64.785	40	345.215	370
+box	slice	GitLab	40	40	185	277.5
+box	title	sample wow	156.219	2	137.61	28.188
+canvas	0	0	564.922	450
+font	Liberation Sans	56

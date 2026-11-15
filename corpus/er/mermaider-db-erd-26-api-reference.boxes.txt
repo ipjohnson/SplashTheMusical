@@ -1,0 +1,51 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e5c6a276a1860bed
+box	entity	ApiDeclaration	469.117	194	131.063	81
+box	entity	ApiEndpoint	660.349	942	115.516	81
+box	entity	ApiOperation	607.177	1124	121.719	81
+box	entity	ApiSchema	881.242	578	111.594	81
+box	entity	ApiSpecVersion	789.289	396	138.844	81
+box	entity	ApiSupplementalDoc	508.773	578	170.75	81
+box	entity	ApiTag	668.107	760	100	81
+box	entity	ApiTagGroup	719.523	578	121.719	81
+box	entity	ApiVersionIndex	846.852	194	141.187	81
+box	entity	DocumentationDocument	569.044	1306	197.984	81
+box	entity	OpenApiRepository	427.066	12	161.406	81
+box	entity	OpenApiSpec	174.57	396	126.406	81
+box	entity	Product	425.148	396	100	81
+box	entity	Repository	184.313	194	106.922	81
+box	relation	ApiDeclaration --> ApiSpecVersion	567.967	275	270.936	121
+box	relation	ApiDeclaration --> ApiSupplementalDoc	545.755	275	48.394	303
+box	relation	ApiDeclaration --> OpenApiSpec	264.375	275	236.955	121
+box	relation	ApiDeclaration --> Product	475.148	275	48.394	121
+box	relation	ApiEndpoint --> ApiOperation	684.99	1023	33.117	101
+box	relation	ApiOperation --> DocumentationDocument	668.036	1205	0	101
+box	relation	ApiSpecVersion --> ApiSchema	878.518	477	58.521	101
+box	relation	ApiSpecVersion --> ApiTagGroup	780.383	477	58.521	101
+box	relation	ApiSupplementalDoc --> ApiOperation	569.023	659	82.06	465
+box	relation	ApiSupplementalDoc --> ApiTag	619.273	659	85.5	101
+box	relation	ApiTag --> ApiEndpoint	718.107	841	0	101
+box	relation	ApiTagGroup --> ApiTag	731.44	659	48.943	101
+box	relation	ApiVersionIndex --> ApiSpecVersion	878.518	275	38.927	121
+box	relation	OpenApiRepository --> ApiVersionIndex	531.337	93	386.108	101
+box	relation	OpenApiRepository --> OpenApiSpec	78.5	93	405.702	303
+box	relation	Repository --> OpenApiSpec	237.773	275	0	121
+box	relation-label	ApiDeclaration --> ApiSpecVersion	765.023	335	47.469	21
+box	relation-label	ApiDeclaration --> ApiSupplementalDoc	565.148	426	57.609	21
+box	relation-label	ApiDeclaration --> OpenApiSpec	324.648	335	107	21
+box	relation-label	ApiDeclaration --> Product	451.648	335	46.703	21
+box	relation-label	ApiEndpoint --> ApiOperation	685.107	1063	65.391	21
+box	relation-label	ApiOperation --> DocumentationDocument	625.536	1245	84.828	21
+box	relation-label	ApiSpecVersion --> ApiSchema	898.539	517	76.281	21
+box	relation-label	ApiSpecVersion --> ApiTagGroup	741.383	517	77.047	21
+box	relation-label	ApiSupplementalDoc --> ApiOperation	519.203	881	99.641	21
+box	relation-label	ApiSupplementalDoc --> ApiTag	607.552	699	59.172	21
+box	relation-label	ApiTag --> ApiEndpoint	687.607	881	60.719	21
+box	relation-label	ApiTagGroup --> ApiTag	766.883	699	26.469	21
+box	relation-label	ApiVersionIndex --> ApiSpecVersion	843.445	335	147.078	21
+box	relation-label	OpenApiRepository --> ApiVersionIndex	885.445	133	63.047	21
+box	relation-label	OpenApiRepository --> OpenApiSpec	12	224	132.313	21
+box	relation-label	Repository --> OpenApiSpec	170.773	335	133.875	21
+canvas	4	4	996.836	1391
+font	Liberation Sans	748

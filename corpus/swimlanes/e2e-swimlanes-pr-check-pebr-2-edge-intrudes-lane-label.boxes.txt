@@ -1,0 +1,31 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8fc35557fb030f80
+box	edge	Dep1.Proc1 --> Dep1.Proc2	112	0	357.422	0
+box	edge	Dep1.Proc1 --> Dep1.Proc3	51.2	22.5	939.644	73.5
+box	edge	Dep1.Proc1 --> Dep2.Proc1	20.8	22.5	1114.045	292
+box	edge	Dep1.Proc1 --> Dep2.Proc2	-9.6	22.5	479.022	239.5
+box	edge	Dep1.Proc1 --> Dep2.Proc3	36	-62.5	1636.267	314.5
+box	edge	Dep1.Proc2 --> Dep2.Proc1	574.756	22.5	416.088	203
+box	edge	Dep1.Proc2 --> Dep2.Proc2	524.089	22.5	18.333	203
+box	edge	Dep1.Proc2 --> Dep2.Proc3	549.422	-42.5	1122.844	268
+box	edge	Dep1.Proc3 --> Dep2.Proc1	1062.844	22.5	0	203
+box	edge	Dep1.Proc3 --> Dep2.Proc2	629.422	0	357.422	259
+box	edge	Dep1.Proc3 --> Dep2.Proc3	1138.845	0	437.422	225.5
+box	edge	Dep2.Proc1 --> Dep1.Proc1	-60	26.5	1122.844	268
+box	edge	Dep2.Proc2 --> Dep1.Proc1	36	26.5	437.422	225.5
+box	edge	Dep2.Proc2 --> Dep1.Proc2	481.867	0	139.556	229.5
+box	edge	Dep2.Proc2 --> Dep1.Proc3	625.422	4	357.422	238
+box	edge	Dep2.Proc3 --> Dep1.Proc1	-36	-82.5	1728.267	344.5
+box	edge	Dep2.Proc3 --> Dep1.Proc2	549.422	26.5	1001.511	203
+box	edge	Dep2.Proc3 --> Dep1.Proc3	1142.845	-10	458.755	239.5
+box	group	Dep1	-100	-58.5	1762.267	184.5
+box	group	Dep2	-100	126	1762.267	184.5
+box	node	Dep1.Proc1	-40	-22.5	152	45
+box	node	Dep1.Proc2	473.422	-22.5	152	45
+box	node	Dep1.Proc3	986.845	-22.5	152	45
+box	node	Dep2.Proc1	986.845	229.5	152	45
+box	node	Dep2.Proc2	473.422	229.5	152	45
+box	node	Dep2.Proc3	1500.267	229.5	152	45
+canvas	-108	-90.5	1808.267	413
+font	Liberation Sans	136

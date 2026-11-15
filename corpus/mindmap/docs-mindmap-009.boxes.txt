@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 85604c1294449e7d
+box	node	I am the default shape	15	15	198.328	34
+canvas	5	5	218.328	54
+font	Liberation Sans	44

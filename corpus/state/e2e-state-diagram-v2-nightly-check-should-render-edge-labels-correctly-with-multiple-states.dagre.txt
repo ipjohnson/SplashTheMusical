@@ -1,0 +1,118 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1e359f909af210d7
+layout	1
+graph	TB	50	20	75	8	8
+node	c0	State1_____________	136	37
+node	State1_____________		0	0
+size	222	128
+place	c0	111	64	136	37
+place	State1_____________	111	64	206	112
+layout	2
+graph	TB	50	20	75	8	8
+node	c1	State2_____________	136	37
+node	State2_____________		0	0
+size	222	128
+place	c1	111	64	136	37
+place	State2_____________	111	64	206	112
+layout	3
+graph	TB	50	20	75	8	8
+node	c7	State3_____________	136	37
+node	State3_____________		0	0
+size	222	128
+place	c7	111	64	136	37
+place	State3_____________	111	64	206	112
+layout	4
+graph	TB	50	20	75	8	8
+node	c2	State4_____________	136	37
+node	State4_____________		0	0
+size	222	128
+place	c2	111	64	136	37
+place	State4_____________	111	64	206	112
+layout	5
+graph	TB	50	20	75	8	8
+node	c3	State5_____________	136	37
+node	State5_____________		0	0
+size	222	128
+place	c3	111	64	136	37
+place	State5_____________	111	64	206	112
+layout	6
+graph	TB	50	20	75	8	8
+node	c4	State6_____________	136	37
+node	State6_____________		0	0
+size	222	128
+place	c4	111	64	136	37
+place	State6_____________	111	64	206	112
+layout	7
+graph	TB	50	20	75	8	8
+node	c5	State7_____________	136	37
+node	State7_____________		0	0
+size	222	128
+place	c5	111	64	136	37
+place	State7_____________	111	64	206	112
+layout	8
+graph	TB	50	20	75	8	8
+node	c6	State8_____________	136	37
+node	State8_____________		0	0
+size	222	128
+place	c6	111	64	136	37
+place	State8_____________	111	64	206	112
+layout	9
+graph	TB	50	20	75	8	8
+node	c9	State9_____________	136	37
+node	State9_____________		0	0
+size	222	128
+place	c9	111	64	136	37
+place	State9_____________	111	64	206	112
+layout	10
+graph	TB	50	20	75	8	8
+node	c10	State10_____________	136	37
+node	State10_____________		0	0
+size	222	128
+place	c10	111	64	136	37
+place	State10_____________	111	64	206	112
+layout	11
+graph	TB	50	20	50	8	8
+node	State1_____________		206	112
+node	State2_____________		206	112
+node	State3_____________		206	112
+node	State4_____________		206	112
+node	State5_____________		206	112
+node	State6_____________		206	112
+node	State7_____________		206	112
+node	State8_____________		206	112
+node	State9_____________		206	112
+node	State10_____________		206	112
+node	root_start		14	14
+edge	root_start	State1_____________	edge0	1	1	0	0	10	c
+edge	State1_____________	State2_____________	edge1	1	1	107.671875	21	10	c
+edge	State2_____________	State3_____________	edge2	1	1	107.671875	21	10	c
+edge	State3_____________	State4_____________	edge3	1	1	107.671875	21	10	c
+edge	State4_____________	State5_____________	edge4	1	1	107.671875	21	10	c
+edge	State5_____________	State6_____________	edge5	1	1	107.671875	21	10	c
+edge	State6_____________	State7_____________	edge6	1	1	107.671875	21	10	c
+edge	State7_____________	State8_____________	edge7	1	1	107.671875	21	10	c
+edge	State8_____________	State9_____________	edge8	1	1	107.671875	21	10	c
+edge	State9_____________	State10_____________	edge9	1	1	107.671875	21	10	c
+size	222	1839
+place	State1_____________	111	128	206	112
+place	State2_____________	111	311	206	112
+place	State3_____________	111	494	206	112
+place	State4_____________	111	677	206	112
+place	State5_____________	111	860	206	112
+place	State6_____________	111	1043	206	112
+place	State7_____________	111	1226	206	112
+place	State8_____________	111	1409	206	112
+place	State9_____________	111	1592	206	112
+place	State10_____________	111	1775	206	112
+place	root_start	111	15	14	14
+route	root_start	State1_____________	edge0			111,22 111,47 111,72
+route	State1_____________	State2_____________	edge1	111	219.5	111,184 111,219.5 111,255
+route	State2_____________	State3_____________	edge2	111	402.5	111,367 111,402.5 111,438
+route	State3_____________	State4_____________	edge3	111	585.5	111,550 111,585.5 111,621
+route	State4_____________	State5_____________	edge4	111	768.5	111,733 111,768.5 111,804
+route	State5_____________	State6_____________	edge5	111	951.5	111,916 111,951.5 111,987
+route	State6_____________	State7_____________	edge6	111	1134.5	111,1099 111,1134.5 111,1170
+route	State7_____________	State8_____________	edge7	111	1317.5	111,1282 111,1317.5 111,1353
+route	State8_____________	State9_____________	edge8	111	1500.5	111,1465 111,1500.5 111,1536
+route	State9_____________	State10_____________	edge9	111	1683.5	111,1648 111,1683.5 111,1719

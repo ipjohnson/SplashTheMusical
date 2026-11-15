@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9a39031c41fcb0e6
+accept	no
+# error The source image cannot be decoded.

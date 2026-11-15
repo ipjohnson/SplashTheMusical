@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 075fcd3f1880bdee
+box	link	Mobile App --> API	374.684	403.987	70.233	44.026
+box	node	API	444	383.616	30.126	23.184
+box	node	Mobile App	357.6	424.016	79.489	39.184
+box	title	Coordinate Handling	388.081	15.839	123.839	14.149
+canvas	0	0	900	600
+font	Liberation Sans	318

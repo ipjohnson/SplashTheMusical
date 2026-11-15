@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2d8dbde62f03dd44
+box	node	But _ _ton💓.tsx	20	30.234	126.734	22
+canvas	-0.5	0	151.734	59.016
+font	Apple Color Emoji	2
+font	Liberation Sans	34

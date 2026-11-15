@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 71b020aaa64e5e3d
+box	event	Industry 1.0 / Machinery, Water power, Steam power	200	366.12	190	81.32
+box	event	Industry 2.0 / Electricity, Internal combustion engine, Mass production	400	366.12	190	81.32
+box	event	Industry 3.0 / Electronics, Computers, Automation	600	366.12	190	81.016
+box	event	Industry 4.0 / Internet, Robotics, Internet of Things	800	366.12	190	63.72
+box	event	Industry 5.0 / Artificial intelligence, Big data,3D printing	1000	366.12	190	63.72
+box	period	Industry 1.0	200	166.12	190	66.12
+box	period	Industry 2.0	400	166.12	190	66.12
+box	period	Industry 3.0	600	166.12	190	66.12
+box	period	Industry 4.0	800	166.12	190	66.12
+box	period	Industry 5.0	1000	166.12	190	66.12
+box	section	17th-20th century	200	50	590	66.12
+box	section	21st century	800	50	390	66.12
+box	title	Timeline of Industrial Revolution	345	-10.141	523.501	37.233
+canvas	100	-61	1390	624.561
+font	Liberation Sans	644

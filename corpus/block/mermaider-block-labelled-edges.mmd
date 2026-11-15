@@ -1,0 +1,9 @@
+block-beta
+columns 3
+  Client["Client"] space API["API"]
+  space space space
+  Queue["Queue"] Worker["Worker"] DB["Database"]
+  Client -- "request" --> API
+  API -- "enqueue" --> Queue
+  Queue -- "pull" --> Worker
+  Worker -- "write" --> DB

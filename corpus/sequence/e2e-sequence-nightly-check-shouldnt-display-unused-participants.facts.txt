@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 838ea39b7937cc28
+accept	yes
+actor	a	a	participant
+drawn	yes
+type	sequence

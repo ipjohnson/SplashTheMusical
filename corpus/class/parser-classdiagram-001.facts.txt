@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 89a5d23aee98fddb
+accept	yes
+class	Admin	Admin
+class	User	User
+drawn	yes
+method	Admin	+addUser(user: User)
+method	Admin	+removeUser(user: User)
+method	User	+login(username: String, password: String)
+method	User	+logout()
+namespace	Company	Company.Project
+namespace	Company.Project	Company.Project.Module,User
+namespace	Company.Project.Module	Admin
+type	classDiagram

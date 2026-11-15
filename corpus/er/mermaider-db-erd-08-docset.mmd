@@ -1,0 +1,9 @@
+erDiagram
+    DocumentationSet ||--|| TableOfContents : "toc"
+    TableOfContents ||--o{ TocItem : "entries"
+    TocItem ||--o{ TocItem : "children"
+    DocumentationSet ||--o{ Redirect : "redirects.yml"
+    DocumentationSet ||--o{ CrossLinkDeclaration : "cross_links"
+    DocumentationSet ||--o{ ApiDeclaration : "api"
+    DocumentationSet }o--o{ Product : "products"
+    DocumentationSet }o--o| Registry : "registry"

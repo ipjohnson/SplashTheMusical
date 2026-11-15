@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 258e0afd9bbbfd39
+accept	yes
+attribute	Duck	+String beakColor
+attribute	Duck	+float weight
+attribute	Duck	+int age
+class	Duck	Duck
+drawn	yes
+type	classDiagram

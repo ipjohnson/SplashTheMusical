@@ -1,0 +1,41 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 157071490f97cef4
+box	face	Browse / Land on site	210	285	30	30
+box	face	Browse / Search	410	345	30	30
+box	face	Cart / Add item	610	315	30	30
+box	face	Cart / View cart	810	345	30	30
+box	face	Close / Archive	2410	315	30	30
+box	face	Deliver / Handover	1810	285	30	30
+box	face	Fulfil / Pack	1410	315	30	30
+box	face	Fulfil / Ship	1610	345	30	30
+box	face	Pay / Confirm	1210	285	30	30
+box	face	Pay / Enter card	1010	375	30	30
+box	face	Return / Request	2210	405	30	30
+box	face	Support / Contact	2010	375	30	30
+box	person	Courier	50	53.224	45.847	17.219
+box	person	Visitor	50	73.224	38.636	17.219
+box	person	Warehouse	50	93.224	71.03	17.219
+box	section	Browse	150	50	350	50
+box	section	Cart	550	50	350	50
+box	section	Close	2350	50	150	50
+box	section	Deliver	1750	50	150	50
+box	section	Fulfil	1350	50	350	50
+box	section	Pay	950	50	350	50
+box	section	Return	2150	50	150	50
+box	section	Support	1950	50	150	50
+box	task	Browse / Land on site	150	110	150	50
+box	task	Browse / Search	350	110	150	50
+box	task	Cart / Add item	550	110	150	50
+box	task	Cart / View cart	750	110	150	50
+box	task	Close / Archive	2350	110	150	50
+box	task	Deliver / Handover	1750	110	150	50
+box	task	Fulfil / Pack	1350	110	150	50
+box	task	Fulfil / Ship	1550	110	150	50
+box	task	Pay / Confirm	1150	110	150	50
+box	task	Pay / Enter card	950	110	150	50
+box	task	Return / Request	2150	110	150	50
+box	task	Support / Contact	1950	110	150	50
+box	title	Task and section fills	150	-2.551	297.034	34.439
+canvas	0	-25	2700	540
+font	Liberation Sans	356

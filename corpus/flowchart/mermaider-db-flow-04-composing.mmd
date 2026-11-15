@@ -1,0 +1,32 @@
+flowchart TB
+    subgraph Repos["Repositories (each with its own isolated build)"]
+        R1["elasticsearch"]
+        R2["kibana"]
+        R3["docs-content"]
+        R4["internal-team-docs"]
+    end
+    subgraph Registries["Link registries"]
+        S3Reg["S3 link registry (default docsets)"]
+        CodexReg["Git link index: elastic/codex-link-index, internal/"]
+    end
+    R1 -->|"links.json"| S3Reg
+    R2 -->|"links.json"| S3Reg
+    R3 -->|"links.json"| S3Reg
+    R4 -->|"links.json"| CodexReg
+    subgraph Assembler["Assembler"]
+        AsmCfg["assembler.yml + navigation.yml"]
+        Env["PublishEnvironment: content source to branch"]
+        AsmClone["Clone at registry commits"]
+        AsmBuild["Build each docset, re-homed under its mount path"]
+        AsmOut["Site, redirects, search index, sitemap, deploy plan"]
+    end
+    subgraph CodexB["Codex"]
+        CdxCfg["codex.yml (registry: internal)"]
+        CdxClone["Clone every member, pick docset with matching registry"]
+        CdxBuild["Build each docset under /r/{repo}"]
+        CdxOut["Internal site, grouped"]
+    end
+    S3Reg --> AsmClone
+    AsmCfg --> Env --> AsmClone --> AsmBuild --> AsmOut
+    CodexReg --> CdxClone
+    CdxCfg --> CdxClone --> CdxBuild --> CdxOut

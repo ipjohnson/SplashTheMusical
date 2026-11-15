@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8b5e6ccaa1de2059
+accept	no
+# error No such shape: NotAShape. Shape names should be lowercase.

@@ -1,0 +1,9 @@
+erDiagram
+    Product }o--o| VersioningSystem : "versioning (defaults to id)"
+    Product }o--o| Repository : "repository (defaults to id)"
+    Product ||--|| ProductFeatures : "features"
+    LegacyUrlMapping }o--|| Product : "product"
+    LegacyPage }o--|| LegacyUrlMapping : "matched by base URL"
+    VersioningSystem ||--|| SemVersion : "base"
+    VersioningSystem ||--|| SemVersion : "current"
+    QueryRule }o--o{ SearchDocument : "actions.ids = path"

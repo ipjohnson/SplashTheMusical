@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2232ca046e809f09
+box	class	AveryLongClass	9.453	283	133.969	81
+box	class	C2	472.363	614	41.906	81
+box	class	C3	468.75	283	41.906	81
+box	class	Class01	8	8	136.875	177
+box	class	Class03	194.875	56	76.938	81
+box	class	Class04	194.875	283	76.938	81
+box	class	Class05	321.813	56	76.938	81
+box	class	Class06	321.813	283	76.938	81
+box	class	Class07	560.656	256	181.984	135
+box	class	Class08	613.18	462	76.938	81
+box	class	Class09	451.234	56	76.938	81
+box	class	Class10	578.172	18.5	127.531	156
+box	relation	Class01 --> AveryLongClass	76.438	202.25	0	63.5
+box	relation	Class03 --> Class04	233.344	154.25	0	128.75
+box	relation	Class05 --> Class06	360.281	154.25	0	128.75
+box	relation	Class07 --> Class08	651.648	391	0	71
+box	relation	Class08 --> C2	519.679	549	131.969	92.846
+box	relation	Class09 --> C2	433.75	137	37.678	486.044
+box	relation	Class09 --> C3	489.703	137	0	128.75
+box	relation	Class09 --> Class07	528.172	125.955	123.476	112.795
+box	relation-label	Class01 --> AveryLongClass	62.039	210	28.797	21
+box	relation-label	Class08 --> C2	620.516	568	62.266	21
+box	relation-label	Class09 --> C2	394.07	416	79.359	21
+canvas	0	0	750.641	703
+font	Liberation Sans	430

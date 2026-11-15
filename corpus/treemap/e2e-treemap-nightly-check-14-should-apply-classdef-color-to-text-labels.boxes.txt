@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 57b413e794adbb37
+box	node	Products	10	35	980	355
+box	node	Products / Electronics	20	70	580	310
+box	node	Products / Electronics / Laptops	356	105	234	265
+box	node	Products / Electronics / Phones	30	105	316	265
+box	node	Products / Furniture	610	70	370	310
+box	node	Products / Furniture / Chairs	620	105	350	143
+box	node	Products / Furniture / Tables	620	258	350	112
+canvas	2	27	996	371
+font	Liberation Sans	136

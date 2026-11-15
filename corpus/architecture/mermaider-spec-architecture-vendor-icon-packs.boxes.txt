@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d6625546d2a8baca
+box	edge	compute --> search	-64.713	-3.463	0	120.926
+box	edge	compute --> storage	-24.713	-43.463	120.926	0
+box	group	cloud1	-155.713	-125.963	374.426	382.926
+box	service	compute	-104.713	-83.463	80	103.219
+box	service	search	-112.262	117.463	95.098	103.219
+box	service	storage	96.213	-83.463	80	103.219
+canvas	-195.713	-165.963	454.426	462.926
+font	Liberation Sans	52

@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19c01aaa93ab7b48
+box	node	Budget	10	35	980	355
+box	node	Budget / Marketing	667	70	313	310
+box	node	Budget / Marketing / Advertising	677	105	232	265
+box	node	Budget / Marketing / Events	919	105	51	265
+box	node	Budget / Operations	20	70	637	310
+box	node	Budget / Operations / Equipment	469	105	178	173
+box	node	Budget / Operations / Salaries	30	105	429	265
+box	node	Budget / Operations / Supplies	469	288	178	82
+canvas	2	27	996	371
+font	Liberation Sans	254

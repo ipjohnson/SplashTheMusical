@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 94406dde78fdac8e
+accept	yes
+actor	A	A	participant
+actor	B	B	participant
+drawn	yes
+message	A	B	solid	filled-both	This is a bidirectional message
+message	A	B	solid	none	This is a normal message
+type	sequence

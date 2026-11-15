@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b4993cc8b414ded8
+box	boundary	b	150	435.503	632	261.435
+box	element	c1	466	166	216	111.435
+box	element	c2	516	535.503	216	110.739
+box	element	c3	200	535.503	216	111.435
+box	element	c4	150	166	216	163.503
+box	title	Dynamic diagram for Internet Banking System - API Application	216	5.735	447.019	17.832
+canvas	0	-70	932	866.938
+font	Liberation Sans	1390

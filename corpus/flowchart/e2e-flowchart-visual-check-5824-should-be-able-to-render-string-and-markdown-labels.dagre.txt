@@ -1,0 +1,38 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 705099c9c7d76cb1
+layout	1
+graph	TB	50	20	50	8	8
+node	subgraph1		0	0
+node	mermaid		213	213
+node	v10		152	45
+node	fine		152	45
+node	v11		152	45
+node	broken	subgraph1	205.5	87
+node	B	subgraph1	152	45
+node	githost		152	66
+node	githost2		152	66
+node	a		152	45
+node	b		152	45
+edge	mermaid	v10	L_mermaid_v10_0	1	1	0	0	10	c
+edge	v10	fine	L_v10_fine_0	1	1	23.78125	21	10	c
+edge	mermaid	v11	L_mermaid_v11_0	1	1	0	0	10	c
+edge	v11	broken	L_v11_broken_0	1	1	41.78125	21	10	c
+edge	broken	B	L_broken_B_0	1	1	0	0	10	c
+size	1192.625	627
+place	subgraph1	145.75	503	275.5	232
+place	mermaid	270.125	114.5	213	213
+place	v10	394.5	293.5	152	45
+place	fine	394.5	455.5	152	45
+place	v11	145.75	293.5	152	45
+place	broken	145.75	455.5	205.5	87
+place	B	145.75	571.5	152	45
+place	githost	502.625	114.5	152	66
+place	githost2	704.625	114.5	152	66
+place	a	906.625	114.5	152	45
+place	b	1108.625	114.5	152	45
+route	mermaid	v10	L_mermaid_v10_0			370.8545627376426,221 394.5,246 394.5,271
+route	v10	fine	L_v10_fine_0	394.5	351.5	394.5,316 394.5,351.5 394.5,387 394.5,433
+route	mermaid	v11	L_mermaid_v11_0			169.3954372623574,221 145.75,246 145.75,271
+route	v11	broken	L_v11_broken_0	145.75	351.5	145.75,316 145.75,351.5 145.75,387 145.75,412
+route	broken	B	L_broken_B_0			145.75,499 145.75,524 145.75,549

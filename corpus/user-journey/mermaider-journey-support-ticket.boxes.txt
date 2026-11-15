@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1240f567b3a07774
+box	face	Fix / Ship a patch	1410	315	30	30
+box	face	Fix / Verify with customer	1610	285	30	30
+box	face	Follow up / Send satisfaction survey	2010	285	30	30
+box	face	Follow up / Update the docs	1810	345	30	30
+box	face	Report / Notice the problem	210	375	30	30
+box	face	Report / Open a ticket	610	315	30	30
+box	face	Report / Search the help centre	410	345	30	30
+box	face	Triage / Acknowledge ticket	810	285	30	30
+box	face	Triage / Escalate to engineering	1210	375	30	30
+box	face	Triage / Reproduce the issue	1010	345	30	30
+box	person	Customer	50	52.332	69.308	17.602
+box	person	Engineer	50	72.332	64.037	17.986
+box	person	Support	50	92.332	56.015	17.986
+box	section	Fix	1350	50	350	50
+box	section	Follow up	1750	50	350	50
+box	section	Report	150	50	550	50
+box	section	Triage	750	50	550	50
+box	task	Fix / Ship a patch	1350	110	150	50
+box	task	Fix / Verify with customer	1550	110	150	50
+box	task	Follow up / Send satisfaction survey	1950	110	150	50
+box	task	Follow up / Update the docs	1750	110	150	50
+box	task	Report / Notice the problem	150	110	150	50
+box	task	Report / Open a ticket	550	110	150	50
+box	task	Report / Search the help centre	350	110	150	50
+box	task	Triage / Acknowledge ticket	750	110	150	50
+box	task	Triage / Escalate to engineering	1150	110	150	50
+box	task	Triage / Reproduce the issue	950	110	150	50
+box	title	Resolving a support ticket	150	-4.337	422.541	36.499
+canvas	0	-25	2300	540
+font	Liberation Sans	508

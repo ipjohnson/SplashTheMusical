@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 537afc8cad56364c
+box	field	0-15	1	15	507	32
+box	field	16-31	513	15	507	32
+box	field	32-47	1	62	507	32
+box	field	48-63	513	62	507	32
+box	title	UDP Header	473.461	108.114	79.079	15.705
+canvas	0	0	1026	141
+font	Liberation Sans	132

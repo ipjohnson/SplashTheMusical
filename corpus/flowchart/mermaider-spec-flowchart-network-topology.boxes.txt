@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f425377f1bb1d019
+box	edge	app1 --> db	155.227	565.921	80.6	56
+box	edge	app1 --> nat	176.96	300.921	164.943	220
+box	edge	app2 --> db	276.627	565.921	80.6	56
+box	edge	app2 --> nat	378.96	300.921	12.818	220
+box	edge	internet --> lb	145.613	94.546	99.96	153.375
+box	edge	lb --> app1	120.676	296.921	12.818	220
+box	edge	lb --> app2	170.551	296.921	164.942	220
+box	edge	nat --> internet	266.88	99.921	99.96	152
+box	group	cloud	12	145.921	488.454	613.149
+box	group	priv	55.227	400.921	402	334.149
+box	group	pub	36	203.921	440.454	117
+box	node	app1	79.227	520.921	152	45
+box	node	app2	281.227	520.921	152	45
+box	node	db	184.227	625.921	144	85.149
+box	node	internet	214.266	12	83.921	83.921
+box	node	lb	60	251.921	171.227	45
+box	node	nat	281.227	251.921	171.227	45
+canvas	4	4	504.454	763.069
+font	Liberation Sans	200

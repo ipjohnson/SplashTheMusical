@@ -1,0 +1,21 @@
+classDiagram
+class Shape {
+<<abstract>>
++area() double
+}
+class Drawable {
+<<interface>>
++draw() void
+}
+class Color {
+<<enumeration>>
+RED
+GREEN
+BLUE
+}
+class EventBus {
+<<service>>
++publish(event) void
+}
+Shape <|-- Circle
+Drawable <|.. Circle

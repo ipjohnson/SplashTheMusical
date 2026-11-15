@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2daadf31aeec80e1
+accept	yes
+drawn	yes
+element	c	container	internal	C
+label	C
+type	c4

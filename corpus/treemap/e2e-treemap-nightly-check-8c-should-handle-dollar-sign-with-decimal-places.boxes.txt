@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e0a7836e6a1b1234
+box	node	Product Prices	10	35	980	355
+box	node	Product Prices / Basic	807	299	173	81
+box	node	Product Prices / Enterprise	20	70	514	310
+box	node	Product Prices / Premium	544	70	253	310
+box	node	Product Prices / Standard	807	70	173	219
+canvas	2	27	996	371
+font	Liberation Sans	140

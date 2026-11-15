@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 96f4255597e145f2
+box	actor	Customer_Service	20.734	12	131.266	121
+box	actor	System_Administrator	12	173	140	142
+box	relation	Customer_Service --> Handle_Tickets	152	72.5	36	0
+box	relation	System_Administrator --> Manage_System	152	244	36	0
+box	usecase	Handle_Tickets	192	43.5	160	58
+box	usecase	Manage_System	192	215	160	58
+canvas	-8	-8	380	343
+font	Liberation Sans	126

@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 38e665e1c837aafb
+box	element	a	150	166	216	86.561
+box	element	b	466	166	216	86.561
+box	title	Sprite attribute (not shown by current renderer)	166	5.142	332.471	18.176
+canvas	0	-70	832	422.561
+font	Liberation Sans	254

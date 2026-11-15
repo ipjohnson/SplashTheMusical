@@ -1,0 +1,19 @@
+classDiagram
+namespace Domain {
+class User {
++String name
++login() void
+}
+class Order {
++int id
++submit() void
+}
+}
+namespace Infrastructure {
+class Database {
++connect() void
++query(sql) void
+}
+}
+User --> Order
+Order --> Database

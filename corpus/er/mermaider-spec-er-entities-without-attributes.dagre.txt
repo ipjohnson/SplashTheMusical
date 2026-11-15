@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 54f7f631ccc9b0ae
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-CUSTOMER-0		119.859375	81
+node	entity-ORDER-1		100	81
+node	entity-LINE_ITEM-2		112.359375	81
+node	entity-PRODUCT-3		109.234375	81
+node	entity-CATEGORY-4		117.28125	81
+edge	entity-CUSTOMER-0	entity-ORDER-1	id_entity-CUSTOMER-0_entity-ORDER-1_0	1	1	40.46875	21	10	c
+edge	entity-ORDER-1	entity-LINE_ITEM-2	id_entity-ORDER-1_entity-LINE_ITEM-2_1	1	1	52.15625	21	10	c
+edge	entity-LINE_ITEM-2	entity-PRODUCT-3	id_entity-LINE_ITEM-2_entity-PRODUCT-3_2	1	1	66.15625	21	10	c
+edge	entity-PRODUCT-3	entity-CATEGORY-4	id_entity-PRODUCT-3_entity-CATEGORY-4_3	1	1	68.515625	21	10	c
+size	135.859375	825
+place	entity-CUSTOMER-0	67.9296875	48.5	119.859375	81
+place	entity-ORDER-1	67.9296875	230.5	100	81
+place	entity-LINE_ITEM-2	67.9296875	412.5	112.359375	81
+place	entity-PRODUCT-3	67.9296875	594.5	109.234375	81
+place	entity-CATEGORY-4	67.9296875	776.5	117.28125	81
+route	entity-CUSTOMER-0	entity-ORDER-1	id_entity-CUSTOMER-0_entity-ORDER-1_0	67.9296875	139.5	67.9296875,89 67.9296875,139.5 67.9296875,190
+route	entity-ORDER-1	entity-LINE_ITEM-2	id_entity-ORDER-1_entity-LINE_ITEM-2_1	67.9296875	321.5	67.9296875,271 67.9296875,321.5 67.9296875,372
+route	entity-LINE_ITEM-2	entity-PRODUCT-3	id_entity-LINE_ITEM-2_entity-PRODUCT-3_2	67.9296875	503.5	67.9296875,453 67.9296875,503.5 67.9296875,554
+route	entity-PRODUCT-3	entity-CATEGORY-4	id_entity-PRODUCT-3_entity-CATEGORY-4_3	67.9296875	685.5	67.9296875,635 67.9296875,685.5 67.9296875,736

@@ -1,0 +1,14 @@
+gitGraph
+commit id: "v1.0" tag: "v1.0"
+branch develop
+checkout develop
+commit id: "feat"
+checkout main
+branch hotfix
+checkout hotfix
+commit id: "fix" type: REVERSE
+checkout main
+merge hotfix id: "patch" tag: "v1.0.1"
+checkout develop
+merge hotfix id: "sync"
+commit id: "more-work"

@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 21b7ab1be42a404d
+accept	yes
+direction	TD
+drawn	yes
+edge	researcher	writer	sequence
+flow	researcher	Researcher	gather
+flow	team	Content Team	researcher,writer
+flow	writer	Writer	compose
+label	Compose draft
+label	Content Team
+label	Gather sources
+label	Researcher
+label	Writer
+node	compose	Compose draft	rounded	task
+node	gather	Gather sources	rounded	task
+type	agentflow

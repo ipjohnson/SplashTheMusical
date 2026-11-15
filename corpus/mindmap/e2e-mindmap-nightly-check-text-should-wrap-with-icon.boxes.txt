@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3170766345ca188e
+box	edge	root / A node with an icon and with a long text that wraps to keep the node size in check	105	102	132.284	0
+box	node	root	218.494	85	67.578	34
+box	node	root / A node with an icon and with a long text that wraps to keep the node size in check	15	15	150	174
+canvas	5	5	291.073	194
+font	Liberation Sans	172

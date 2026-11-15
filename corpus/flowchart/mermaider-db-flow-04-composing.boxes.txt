@@ -1,0 +1,41 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5b6681ba3005a8ea
+box	edge	AsmBuild --> AsmOut	312.163	1127.25	0	20
+box	edge	AsmCfg --> Env	265.089	779.25	0	20
+box	edge	AsmClone --> AsmBuild	312.163	1016.25	0	20
+box	edge	CdxBuild --> CdxOut	596.163	1037.25	0	20
+box	edge	CdxCfg --> CdxClone	552.163	779.25	22.267	56
+box	edge	CdxClone --> CdxBuild	596.163	947.25	0	20
+box	edge	CodexReg --> CdxClone	600.7	581.25	39.463	254
+box	edge	Env --> AsmClone	265.089	890.25	25.341	56
+box	edge	R1 --> S3Reg	314	105	84.7	390.5
+box	edge	R2 --> S3Reg	431.3	105	84.7	390.5
+box	edge	R3 --> S3Reg	112	105	254.1	390.5
+box	edge	R4 --> CodexReg	600.7	105	117.3	385.25
+box	edge	S3Reg --> AsmClone	333.896	565.5	64.804	380.75
+box	edge-label	R1 --> S3Reg	285	355.25	57.594	21
+box	edge-label	R2 --> S3Reg	487	355.25	57.594	21
+box	edge-label	R3 --> S3Reg	145.203	355.25	57.594	21
+box	edge-label	R4 --> CodexReg	672.7	355.25	57.594	21
+box	group	Assembler	158.94	665.25	253.223	618
+box	group	CodexB	452.163	665.25	244	486
+box	group	Registries	298.7	446.25	402	159
+box	group	Repos	12	12	806	117
+box	node	AsmBuild	236.163	1040.25	152	87
+box	node	AsmCfg	189.089	713.25	152	66
+box	node	AsmClone	236.163	950.25	152	66
+box	node	AsmOut	236.163	1151.25	152	108
+box	node	CdxBuild	520.163	971.25	152	66
+box	node	CdxCfg	476.163	713.25	152	66
+box	node	CdxClone	520.163	839.25	152	108
+box	node	CdxOut	520.163	1061.25	152	66
+box	node	CodexReg	524.7	494.25	152	87
+box	node	Env	182.94	803.25	164.297	87
+box	node	R1	238	60	152	45
+box	node	R2	440	60	152	45
+box	node	R3	36	60	152	45
+box	node	R4	642	60	152	45
+box	node	S3Reg	322.7	499.5	152	66
+canvas	4	4	822	1287.25
+font	Liberation Sans	1174

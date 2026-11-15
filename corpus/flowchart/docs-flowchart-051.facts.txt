@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ca8d8066bf48b5a3
+accept	yes
+drawn	yes
+node	A	Direct access storage	h-cyl
+type	flowchart-v2

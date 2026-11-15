@@ -1,0 +1,14 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2cc3dea2a3472b22
+layout	1
+graph	TB	50	20	50	8	8
+node	A::B		0	0
+node	IPC::Sender	A::B	104.125	81
+node	RenderProcessHost		157.828125	81
+edge	RenderProcessHost	IPC::Sender	id_RenderProcessHost_IPC::Sender_1	1	1	0	0	10	c
+size	190.125	278
+place	A::B	95.0625	204.5	174.125	131
+place	IPC::Sender	95.0625	204.5	104.125	81
+place	RenderProcessHost	95.0625	48.5	157.828125	81
+route	RenderProcessHost	IPC::Sender	id_RenderProcessHost_IPC::Sender_1			95.0625,89 95.0625,114 95.0625,139 95.0625,164

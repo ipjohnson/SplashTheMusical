@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 30bd5186b8416c3f
+box	title	Your Map Title	507.173	16.108	85.655	14.031
+canvas	0	0	1100	600
+font	Liberation Sans	136

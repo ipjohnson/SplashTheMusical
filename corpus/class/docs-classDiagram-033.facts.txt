@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 35072ea890247cd8
+accept	yes
+class	Animal	Animal
+class	Mineral	Mineral
+drawn	yes
+type	classDiagram

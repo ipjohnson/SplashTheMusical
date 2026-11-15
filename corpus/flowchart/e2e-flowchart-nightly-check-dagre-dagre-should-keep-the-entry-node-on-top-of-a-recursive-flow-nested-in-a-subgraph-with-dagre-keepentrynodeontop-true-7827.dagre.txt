@@ -1,0 +1,49 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a4df0847a6680b16
+layout	1
+graph	LR	50	20	75	8	8
+node	brief	research	152	45
+node	web_sources	research	152	45
+node	academic_sources	research	152	45
+node	expert_voices	research	152	45
+node	synthesize	research	152	45
+node	decision	research	152	45
+node	format_output	research	152	45
+node	research		0	0
+edge	brief	web_sources	L_brief_web_sources_0	1	1	0	0	10	c
+edge	web_sources	academic_sources	L_web_sources_academic_sources_0	1	1	0	0	10	c
+edge	academic_sources	expert_voices	L_academic_sources_expert_voices_0	1	1	0	0	10	c
+edge	expert_voices	synthesize	L_expert_voices_synthesize_0	1	1	0	0	10	c
+edge	synthesize	decision	L_synthesize_decision_0	1	1	0	0	10	c
+edge	decision	brief	L_decision_brief_0	1	1	112.0625	21	10	c
+edge	decision	format_output	L_decision_format_output_0	1	1	68.484375	21	10	c
+size	1785.546875	175
+place	brief	121.5	94.25	152	45
+place	web_sources	348.5	65.5	152	45
+place	academic_sources	575.5	65.5	152	45
+place	expert_voices	914.5625	65.5	152	45
+place	synthesize	1141.5625	65.5	152	45
+place	decision	1368.5625	94.25	152	45
+place	format_output	1664.046875	94.25	152	45
+place	research	892.7734375	87.5	1769.546875	159
+route	brief	web_sources	L_brief_web_sources_0			197.5,74.9988986784141 235,65.5 272.5,65.5
+route	web_sources	academic_sources	L_web_sources_academic_sources_0			424.5,65.5 462,65.5 499.5,65.5
+route	academic_sources	expert_voices	L_academic_sources_expert_voices_0			651.5,65.5 745.03125,65.5 838.5625,65.5
+route	expert_voices	synthesize	L_expert_voices_synthesize_0			990.5625,65.5 1028.0625,65.5 1065.5625,65.5
+route	synthesize	decision	L_synthesize_decision_0			1217.5625,65.5 1255.0625,65.5 1292.5625,74.9988986784141
+route	decision	brief	L_decision_brief_0	745.03125	123	1292.5625,113.5011013215859 1255.0625,123 1141.5625,123 1028.0625,123 914.5625,123 745.03125,123 575.5,123 462,123 348.5,123 235,123 197.5,113.5011013215859
+route	decision	format_output	L_decision_format_output_0	1516.3046875	94.25	1444.5625,94.25 1516.3046875,94.25 1588.046875,94.25
+layout	2
+graph	TB	50	20	50	8	8
+node	research		1769.546875	159
+node	start		171.2268829345703	45
+node	done		171.2268829345703	45
+edge	start	research	L_start_research_0	1	1	0	0	10	c
+edge	research	done	L_research_done_0	1	1	0	0	10	c
+size	1785.546875	365
+place	research	892.7734375	182.5	1769.546875	159
+place	start	892.7734375	30.5	171.2268829345703	45
+place	done	892.7734375	334.5	171.2268829345703	45
+route	start	research	L_start_research_0			892.7734375,53 892.7734375,78 892.7734375,103
+route	research	done	L_research_done_0			892.7734375,262 892.7734375,287 892.7734375,312

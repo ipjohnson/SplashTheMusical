@@ -1,0 +1,7 @@
+sequenceDiagram
+  Client->>+Server: POST /login
+  Server->>+DB: SELECT user
+  DB-->>-Server: User row
+  Server->>+Auth: Validate token
+  Auth-->>-Server: OK
+  Server-->>-Client: 200 JWT

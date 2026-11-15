@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 53f432c62cc59c84
+layout	1
+graph	TB	50	20	50	8	8
+node	navYml		152	45
+node	v1Map		180.640625	66
+node	navV2Yml		152	45
+node	v2Map		180.640625	66
+node	valV1		186	36
+node	valV2		186	36
+node	flag		171	171
+node	provV1		219.5625	87
+node	provV2		219.5625	87
+edge	navYml	v1Map	L_navYml_v1Map_0	1	1	105.0625	21	10	c
+edge	navV2Yml	v2Map	L_navV2Yml_v2Map_0	1	1	122.1875	21	10	c
+edge	v1Map	valV1	L_v1Map_valV1_0	1	1	0	0	10	c
+edge	v2Map	valV2	L_v2Map_valV2_0	1	1	0	0	10	c
+edge	v1Map	flag	L_v1Map_flag_0	1	1	0	0	10	c
+edge	v2Map	flag	L_v2Map_flag_0	1	1	0	0	10	c
+edge	flag	provV1	L_flag_provV1_0	1	1	29.578125	21	10	c
+edge	flag	provV2	L_flag_provV2_0	1	1	24.125	21	10	c
+size	829.1328125	577
+place	navYml	229	30.5	152	45
+place	v1Map	229	157	180.640625	66
+place	navV2Yml	462.3203125	30.5	152	45
+place	v2Map	462.3203125	157	180.640625	66
+place	valV1	101	325.5	186	36
+place	valV2	337	325.5	186	36
+place	flag	576.5703125	325.5	171	171
+place	provV1	441.7890625	525.5	219.5625	87
+place	provV2	711.3515625	525.5	219.5625	87
+route	navYml	v1Map	L_navYml_v1Map_0	229	88.5	229,53 229,88.5 229,124
+route	navV2Yml	v2Map	L_navV2Yml_v2Map_0	462.3203125	88.5	462.3203125,53 462.3203125,88.5 462.3203125,124
+route	v1Map	valV1	L_v1Map_valV1_0			156.17241379310343,190 101,215 101,307.5
+route	v2Map	valV2	L_v2Map_valV2_0			391.0173760775862,190 337,215 337,307.5
+route	v1Map	flag	L_v1Map_flag_0			319.3203125,179.555772335845 461.25,215 491.0703125,243.57384323555314
+route	v2Map	flag	L_v2Map_flag_0			533.0142780172414,190 586.5703125,215 584.307869061086,240
+route	flag	provV1	L_flag_provV1_0	441.7890625	446.5	491.0703125,402.25770925110135 441.7890625,446.5 441.7890625,482
+route	flag	provV2	L_flag_provV2_0	711.3515625	446.5	662.0703125,402.25770925110135 711.3515625,446.5 711.3515625,482

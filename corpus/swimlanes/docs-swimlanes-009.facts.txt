@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d35379f671d80f98
+accept	yes
+drawn	yes
+edge	check	pack	none	arrow	solid
+edge	collect	deliver	none	arrow	solid
+edge	deliver	confirm	none	arrow	solid
+edge	pack	collect	none	arrow	solid
+edge	submit	check	none	arrow	solid
+group	Carrier	Carrier	collect,deliver
+group	Customer	Customer	confirm,submit
+group	Store	Store	check,pack
+node	check	Check order	rect
+node	collect	Collect package	rect
+node	confirm	Confirm delivery	rect
+node	deliver	Deliver package	rect
+node	pack	Pack items	rect
+node	submit	Submit order	rect
+type	swimlane

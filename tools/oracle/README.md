@@ -23,6 +23,11 @@ The run fails in these cases:
 - `mermaid.min.js` does not hold dagre's `layout` function exactly once. The [dagre dumps](#dagre-files) section says
   why the runner looks for it.
 
+The runner reads the cases of the folder and its subfolders. A case in a subfolder, such as `pie/docs-pie-001.mmd`,
+gets its facts, boxes, dagre and SVG files in the same subfolder of the output folders. A case's seed and SVG id come
+from its file name alone. `mise run corpus-oracle` runs it on `corpus/` with the facts folder set to `corpus/`, so each
+case's files sit beside it.
+
 Facts, boxes and dagre files whose case is no longer in the cases folder are deleted. A case that mermaid.js refuses
 has no boxes file and no dagre file.
 
@@ -80,7 +85,7 @@ file show when that happens.
 
 `cases/` holds one case per diagram id of mermaid 12.3.0 and ZenUML, named after the id. It also holds
 `mindmap-tidy-tree.mmd`, which uses the `tidy-tree` layout, and `refused.mmd`, which mermaid.js refuses. These cases
-test the runner. The corpus STM is measured on is a separate folder, `corpus/` in the plan.
+test the runner. The corpus STM is measured on is a separate folder, [`corpus/`](../../corpus/README.md).
 
 ## Facts files
 

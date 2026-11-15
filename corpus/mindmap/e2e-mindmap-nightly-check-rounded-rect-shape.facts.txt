@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 332482160af16e6f
+accept	yes
+drawn	yes
+label	The root
+node	The root	circle
+type	mindmap

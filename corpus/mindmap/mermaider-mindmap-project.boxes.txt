@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fd997942fe932ae0
+box	edge	Project / Development	236.635	235.917	37.03	81.453
+box	edge	Project / Development / Backend	109.468	337.221	107.298	48.676
+box	edge	Project / Development / Frontend	240.196	342.407	48.88	56.955
+box	edge	Project / Planning	294.854	223.027	107.592	5.492
+box	edge	Project / Planning / Requirements	431.742	186.407	122.697	38.397
+box	edge	Project / Planning / Timeline	426.795	240.999	49.88	62.374
+box	edge	Project / Testing	230.982	128.249	41.97	80.705
+box	edge	Project / Testing / Integration	232.653	44.296	40.77	58.349
+box	edge	Project / Testing / Unit Tests	84.741	89.976	124.555	22.319
+box	node	Project	242.234	184.623	75.279	75.279
+box	node	Project / Development	163.286	309.025	134.281	44
+box	node	Project / Development / Backend	44.675	375.094	102.266	34
+box	node	Project / Development / Frontend	246.822	393.745	104.047	34
+box	node	Project / Planning	371.286	202.284	92.281	54
+box	node	Project / Planning / Requirements	498.949	164.927	139.609	34
+box	node	Project / Planning / Timeline	436.106	298.088	99.875	34
+box	node	Project / Testing	177.709	92.941	92.703	44
+box	node	Project / Testing / Integration	224.21	15	115.609	34
+box	node	Project / Testing / Unit Tests	15	70.33	109.953	34
+canvas	5	5	643.559	432.745
+font	Liberation Sans	178

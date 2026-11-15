@@ -1,0 +1,36 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ef6e9a4bdc326466
+box	actor	Alice	0	0	150	73
+box	actor	Bob	478	0	150	73
+box	actor	Charlie	678	0	150	73
+box	actor	David	881.5	0	150	73
+box	actor-bottom	Alice	0	938	150	73
+box	actor-bottom	Bob	478	938	150	73
+box	actor-bottom	Charlie	678	938	150	73
+box	actor-bottom	David	881.5	938	150	73
+box	message	Alice --> Bob	82	164	460	0
+box	message	Alice --> Bob #2	86	252	460	0
+box	message	Alice --> Bob #3	86	340	456	0
+box	message	Alice --> Charlie	82	786	660	0
+box	message	Bob --> Alice	86	208	472	0
+box	message	Bob --> Alice #2	82	296	480	0
+box	message	Bob --> Alice #3	86	384	476	0
+box	message	Bob --> David	564	874	381.5	0
+box	message	Charlie --> Alice	82	830	680	0
+box	message	David --> Bob	564	918	401.5	0
+box	message-text	Alice --> Bob	196.743	140.785	224.514	17.61
+box	message-text	Alice --> Bob #2	158.088	228.785	309.823	17.61
+box	message-text	Alice --> Bob #3	173.272	316.785	275.456	17.61
+box	message-text	Alice --> Charlie	354.326	762.785	109.348	17.751
+box	message-text	Bob --> Alice	206.303	184.785	225.394	17.61
+box	message-text	Bob --> Alice #2	163.637	272.785	310.725	17.61
+box	message-text	Bob --> Alice #3	182.821	360.785	276.358	17.61
+box	message-text	Bob --> David	707.553	850.785	88.895	17.751
+box	message-text	Charlie --> Alice	384.779	806.785	68.441	17.751
+box	message-text	David --> Bob	721.555	894.785	80.889	17.751
+box	note	Mixed with different participants	50	705	931.5	37
+box	note	Normal arrows with central connections	50	83	931.5	37
+box	note	Reverse arrows with central connections	50	394	931.5	37
+canvas	-50	-10	1131.5	1062
+font	Liberation Sans	1230

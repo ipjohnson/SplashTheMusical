@@ -1,0 +1,56 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6f544be817622cab
+box	edge	B --> Pane	1072	481.292	56	28.583
+box	edge	Bd --> Pane	1072	516.125	56	50.167
+box	edge	Chat --> T	356	276.208	96	1.792
+box	edge	D --> S	1284	167.292	36	75.667
+box	edge	E --> X	860	121.958	56	37.667
+box	edge	Enq --> T	356	279.333	96	94.167
+box	edge	Intake --> T	356	282.458	96	186.542
+box	edge	Issue --> T	356	285.583	96	278.917
+box	edge	L --> Pane	1072	396.292	56	107.333
+box	edge	M --> B	860	481.292	56	28.583
+box	edge	M --> Bd	860	516.125	56	50.167
+box	edge	M --> L	860	396.292	56	107.333
+box	edge	New --> T	356	193	96	80.083
+box	edge	P --> Inbox	860	305.292	268	0
+box	edge	Pool --> M	608	484.667	96	27.708
+box	edge	Q --> M	608	399.667	96	107.708
+box	edge	S --> T	612	251.292	712	24.917
+box	edge	Sess --> M	608	517.375	96	52.292
+box	edge	Steward --> T	164	34.5	288	232.333
+box	edge	T --> E	608	121.958	96	145.917
+box	edge	T --> M	608	284.542	96	217.833
+box	edge	T --> P	608	280.375	96	24.917
+box	edge	T --> X	608	174.958	308	97.083
+box	edge	X --> D	1072	167.292	56	0
+box	edge	You --> T	164	119.5	288	150.458
+box	edge-label	P --> Inbox	967.984	294.292	56.031	21
+box	edge-label	S --> T	967.195	240.292	57.609	21
+box	edge-label	Steward --> T	251.195	23.5	57.609	21
+box	edge-label	You --> T	252.367	108.5	55.266	21
+box	node	B	920	458.792	152	45
+box	node	Bd	920	543.792	152	45
+box	node	Chat	204	255.5	152	45
+box	node	D	1132	134.292	152	66
+box	node	E	708	88.958	152	66
+box	node	Enq	204	340.5	152	66
+box	node	Inbox	1132	272.292	152	66
+box	node	Intake	204	446.5	152	45
+box	node	Issue	204	531.5	152	66
+box	node	L	920	373.792	152	45
+box	node	M	708	487.375	152	45
+box	node	New	204	170.5	152	45
+box	node	P	708	282.792	152	45
+box	node	Pane	1132	487.375	152	45
+box	node	Pool	456	462.167	152	45
+box	node	Q	456	377.167	152	45
+box	node	S	1324	224.625	152	45
+box	node	Sess	456	547.167	152	45
+box	node	Steward	12	12	152	45
+box	node	T	456	253.708	152	45
+box	node	X	920	134.292	152	66
+box	node	You	12	97	152	45
+canvas	4	4	1480	601.5
+font	Liberation Sans	734

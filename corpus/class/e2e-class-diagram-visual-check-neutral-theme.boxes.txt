@@ -1,0 +1,52 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source daa2d2b04208bde3
+box	class	Animal	216.504	12	156.078	192
+box	class	Duck	12	297	172.078	168
+box	class	Fish	224.078	297	140.93	144
+box	class	Zebra	405.008	297	137.852	144
+box	class	classA	555.562	120	75.594	84
+box	class	classB	555.562	505	75.594	84
+box	class	classC	677.984	120	75.594	84
+box	class	classD	677.984	505	75.594	84
+box	class	classE	807.859	120	74.719	84
+box	class	classF	808.312	505	73.813	84
+box	class	classG	933.023	120	76.484	84
+box	class	classH	933.469	505	75.594	84
+box	class	classI	1058.352	120	68.484	84
+box	class	classJ	1056.125	505	72.938	84
+box	class	classK	1174.891	120	75.594	84
+box	class	classL	1175.781	505	73.813	84
+box	class	classM	1302.344	120	77.375	84
+box	class	classN	1303.234	505	75.594	84
+box	class	classO	1426.945	120	76.484	84
+box	class	classP	1427.828	505	74.719	84
+box	relation	Animal --> Duck	98.039	221.25	162.484	75.75
+box	relation	Animal --> Fish	294.543	221.25	0	75.75
+box	relation	Animal --> Zebra	328.562	221.25	145.371	75.75
+box	relation	classA --> classB	562.859	221.25	21.234	283.75
+box	relation	classA --> classB #2	602.625	204	21.234	283.75
+box	relation	classC --> classD	683.031	221.25	23.484	283.75
+box	relation	classC --> classD #2	725.047	204	23.484	283.75
+box	relation	classE --> classF	812.969	221.25	23.281	283.75
+box	relation	classE --> classF #2	854.188	204	23.281	283.75
+box	relation	classG --> classH	940.266	210	21.734	295
+box	relation	classG --> classH #2	980.531	204	21.734	295
+box	relation	classI --> classJ	1063.094	204	21.419	301
+box	relation	classI --> classJ #2	1100.674	204	21.419	301
+box	relation	classK --> classL	1179.687	210	24.031	295
+box	relation	classK --> classL #2	1221.656	204	24.031	295
+box	relation	classM --> classN	1310.531	221.25	21.234	283.75
+box	relation	classM --> classN #2	1350.297	204	21.234	283.75
+box	relation	classO --> classP	1430.687	204	25.38	301
+box	relation	classO --> classP #2	1474.307	204	25.38	301
+box	relation-label	classA --> classB	583.859	358.75	79.172	24
+box	relation-label	classC --> classD	704.031	358.75	88.938	24
+box	relation-label	classE --> classF	833.969	358.75	86.297	24
+box	relation-label	classG --> classH	961.266	358.75	81.828	24
+box	relation-label	classI --> classJ	1084.094	358.75	75.594	24
+box	relation-label	classK --> classL	1200.687	358.75	89.844	24
+box	relation-label	classM --> classN	1331.531	358.75	79.156	24
+box	relation-label	classO --> classP	1451.688	358.75	95.156	24
+canvas	4	4	1550.844	593
+font	Liberation Sans	646

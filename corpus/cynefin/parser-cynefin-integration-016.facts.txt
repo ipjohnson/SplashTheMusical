@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 16c3bfad1ed02b16
+accept	yes
+drawn	yes
+item	chaotic	0	Delta
+label	Delta
+label	Second Diagram
+title	Second Diagram
+type	cynefin

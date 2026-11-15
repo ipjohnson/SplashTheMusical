@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0f140efe58a64ff4
+box	edge	process_A --> process_B	194.752	78	37.607	46
+box	edge	process_A --> process_C	89.453	78	37.607	213.786
+box	edge	process_B --> container_Beta	232.359	173	0	92
+box	edge	process_C --> Process_D	160.906	339	0	46
+box	edge-label	process_A --> process_C	57.547	140	63.813	21
+box	edge-label	process_B --> container_Beta	185.93	200.421	92.859	21
+box	group	container_Alpha	8	8	335.359	190
+box	group	container_Beta	13.953	269	283.906	190
+box	node	Process_D	84.906	389	152	45
+box	node	process_A	84.906	33	152	45
+box	node	process_B	156.359	128	152	45
+box	node	process_C	84.906	294	152	45
+canvas	0	0	351.359	467
+font	Liberation Sans	170

@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> First
+  state First {
+    [*] --> Inner1
+    Inner1 --> Inner2 : next
+    Inner2 --> Inner3 : next
+    Inner3 --> [*]
+  }
+  First --> Second
+  state Second {
+    [*] --> Inner4
+    Inner4 --> Inner5 : process
+    Inner5 --> [*]
+  }
+  Second --> [*]

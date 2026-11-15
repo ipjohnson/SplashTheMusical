@@ -1,0 +1,35 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d887fd7185a26d66
+box	actor	Alice	0	0	150	73
+box	actor	Bob	300	0	150	73
+box	actor-bottom	Alice	0	1369	150	73
+box	actor-bottom	Bob	300	1369	150	73
+box	message	Alice --> Bob	82	117	286	0
+box	message	Alice --> Bob #10	94	513	274	0
+box	message	Alice --> Bob #11	82	1261	282	0
+box	message	Alice --> Bob #12	86	1305	282	0
+box	message	Alice --> Bob #13	86	1349	278	0
+box	message	Alice --> Bob #2	82	161	286	0
+box	message	Alice --> Bob #3	82	205	292	0
+box	message	Alice --> Bob #4	82	249	289	0
+box	message	Alice --> Bob #5	82	293	286	0
+box	message	Alice --> Bob #6	82	337	286	0
+box	message	Alice --> Bob #7	82	381	286	0
+box	message	Alice --> Bob #8	82	425	286	0
+box	message	Alice --> Bob #9	94	469	274	0
+box	message-text	Alice --> Bob	162.422	94.219	119.156	17.313
+box	message-text	Alice --> Bob #10	125.391	490.219	199.219	17.313
+box	message-text	Alice --> Bob #11	118.609	1238.219	202.781	17.016
+box	message-text	Alice --> Bob #12	128.844	1282.219	190.313	17.016
+box	message-text	Alice --> Bob #13	134.391	1326.219	175.219	17.016
+box	message-text	Alice --> Bob #2	153.977	138.219	136.047	17.313
+box	message-text	Alice --> Bob #3	150.078	182.219	149.844	17.32
+box	message-text	Alice --> Bob #4	140.633	226.219	166.734	17.32
+box	message-text	Alice --> Bob #5	168.656	270.219	106.688	17.313
+box	message-text	Alice --> Bob #6	160.211	314.219	123.578	17.313
+box	message-text	Alice --> Bob #7	151.305	358.219	141.391	17.32
+box	message-text	Alice --> Bob #8	142.859	402.219	158.281	17.32
+box	message-text	Alice --> Bob #9	133.844	446.219	182.313	17.313
+canvas	-50	-10	550	1493
+font	Liberation Sans	1542

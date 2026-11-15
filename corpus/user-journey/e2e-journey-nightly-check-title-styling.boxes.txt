@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a744d3e50b94b4a6
+box	face	Engagement / Browse Features	610	345	30	30
+box	face	Engagement / Use Core Functionality	810	315	30	30
+box	face	Onboarding / Complete Profile	410	315	30	30
+box	face	Onboarding / Sign Up	210	285	30	30
+box	face	Retention / Invite Friends	1210	345	30	30
+box	face	Retention / Revisit Application	1010	285	30	30
+box	face	Retention / size	1410	-15	30	30
+box	person	John	50	51.821	34.66	19.515
+box	person	Shahir	50	71.821	46.213	19.515
+box	section	Engagement	550	50	350	50
+box	section	Onboarding	150	50	350	50
+box	section	Retention	950	50	550	50
+box	task	Engagement / Browse Features	550	110	150	50
+box	task	Engagement / Use Core Functionality	750	110	150	50
+box	task	Onboarding / Complete Profile	350	110	150	50
+box	task	Onboarding / Sign Up	150	110	150	50
+box	task	Retention / Invite Friends	1150	110	150	50
+box	task	Retention / Revisit Application	950	110	150	50
+box	task	Retention / size	1350	110	150	50
+box	title	User Journey Example	150	-46.556	862.536	88.903
+canvas	0	-25	1700	540
+font	Liberation Sans	310

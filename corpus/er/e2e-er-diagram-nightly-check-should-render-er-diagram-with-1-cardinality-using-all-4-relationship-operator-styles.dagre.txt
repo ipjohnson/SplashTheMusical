@@ -1,0 +1,30 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 506847d59ca36245
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-A-0		100	81
+node	entity-B-1		100	81
+node	entity-C-2		100	81
+node	entity-D-3		100	81
+node	entity-E-4		100	81
+node	entity-F-5		100	81
+node	entity-G-6		100	81
+node	entity-H-7		100	81
+edge	entity-A-0	entity-B-1	id_entity-A-0_entity-B-1_0	1	1	62.25	21	10	c
+edge	entity-C-2	entity-D-3	id_entity-C-2_entity-D-3_1	1	1	82.515625	21	10	c
+edge	entity-E-4	entity-F-5	id_entity-E-4_entity-F-5_2	1	1	72.390625	21	10	c
+edge	entity-G-6	entity-H-7	id_entity-G-6_entity-H-7_3	1	1	72.390625	21	10	c
+size	836	279
+place	entity-A-0	58	48.5	100	81
+place	entity-B-1	58	230.5	100	81
+place	entity-C-2	298	48.5	100	81
+place	entity-D-3	298	230.5	100	81
+place	entity-E-4	538	48.5	100	81
+place	entity-F-5	538	230.5	100	81
+place	entity-G-6	778	48.5	100	81
+place	entity-H-7	778	230.5	100	81
+route	entity-A-0	entity-B-1	id_entity-A-0_entity-B-1_0	58	139.5	58,89 58,139.5 58,190
+route	entity-C-2	entity-D-3	id_entity-C-2_entity-D-3_1	298	139.5	298,89 298,139.5 298,190
+route	entity-E-4	entity-F-5	id_entity-E-4_entity-F-5_2	538	139.5	538,89 538,139.5 538,190
+route	entity-G-6	entity-H-7	id_entity-G-6_entity-H-7_3	778	139.5	778,89 778,139.5 778,190

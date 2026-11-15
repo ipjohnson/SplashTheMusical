@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fcc18dafd415bab6
+accept	yes
+actor	B	Single	boundary
+actor	C	Two lines	control
+actor	DB	Database	database
+actor	P	Plain	participant
+actor	U	Multi line actor	actor
+drawn	yes
+message	P	DB	solid	filled	and one end
+message	U	P	solid	filled	the lifelines should share one start
+type	sequence

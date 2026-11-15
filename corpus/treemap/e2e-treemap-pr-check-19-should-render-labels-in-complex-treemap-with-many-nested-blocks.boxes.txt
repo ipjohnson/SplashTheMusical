@@ -1,0 +1,49 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 033eceaa91f25114
+box	node	🔴 High Activity (Top 50%)	10	35	616	355
+box	node	🔴 High Activity (Top 50%) / packages/app (1115)	20	70	213	116
+box	node	🔴 High Activity (Top 50%) / packages/app-observability (8)	477	333	89	47
+box	node	🔴 High Activity (Top 50%) / packages/app/prisma (11)	379	333	88	47
+box	node	🔴 High Activity (Top 50%) / packages/app/prisma/migrations (11)	477	161	40	105
+box	node	🔴 High Activity (Top 50%) / packages/app/src (844)	20	196	213	91
+box	node	🔴 High Activity (Top 50%) / packages/app/src/lib (707)	20	297	213	83
+box	node	🔴 High Activity (Top 50%) / packages/app/src/routes (353)	243	70	126	87
+box	node	🔴 High Activity (Top 50%) / packages/app/static (15)	379	219	88	47
+box	node	🔴 High Activity (Top 50%) / packages/app/static/icons (8)	576	161	40	105
+box	node	🔴 High Activity (Top 50%) / packages/app/tests (277)	243	167	126	74
+box	node	🔴 High Activity (Top 50%) / packages/app/tests/api (23)	502	70	52	81
+box	node	🔴 High Activity (Top 50%) / packages/app/tests/common (48)	243	334	126	46
+box	node	🔴 High Activity (Top 50%) / packages/app/tests/e2e (245)	243	251	126	73
+box	node	🔴 High Activity (Top 50%) / packages/emails (26)	440	70	52	81
+box	node	🔴 High Activity (Top 50%) / packages/emails/src (18)	564	70	52	81
+box	node	🔴 High Activity (Top 50%) / packages/emails/src/components (8)	477	276	89	47
+box	node	🔴 High Activity (Top 50%) / packages/emails/src/emails (17)	379	161	88	48
+box	node	🔴 High Activity (Top 50%) / packages/llm-prompts (29)	379	70	51	81
+box	node	🔴 High Activity (Top 50%) / packages/llm-prompts/diagram-chat (15)	379	276	88	47
+box	node	🔴 High Activity (Top 50%) / packages/llm-prompts/shared (9)	527	161	39	105
+box	node	🔴 High Activity (Top 50%) / packages/mermaid-pre-render-server (8)	576	276	40	104
+box	node	🟠 Medium Activity (35%)	636	35	245	355
+box	node	🟠 Medium Activity (35%) / packages/app/scripts (1)	810	314	61	66
+box	node	🟠 Medium Activity (35%) / packages/app/static/img (4)	646	219	84	47
+box	node	🟠 Medium Activity (35%) / packages/app/tests/mobile (6)	646	70	48	81
+box	node	🟠 Medium Activity (35%) / packages/app/tests/seed (2)	740	238	60	66
+box	node	🟠 Medium Activity (35%) / packages/eslint-plugin (6)	763	70	49	81
+box	node	🟠 Medium Activity (35%) / packages/eslint-plugin/src (5)	822	70	49	81
+box	node	🟠 Medium Activity (35%) / packages/eslint-plugin/src/rules (5)	646	161	84	48
+box	node	🟠 Medium Activity (35%) / packages/llm-prompts/common (3)	646	333	84	47
+box	node	🟠 Medium Activity (35%) / packages/llm-prompts/diagram-chat/tests (6)	704	70	49	81
+box	node	🟠 Medium Activity (35%) / packages/llm-prompts/shared/patches (2)	810	238	61	66
+box	node	🟠 Medium Activity (35%) / packages/llm-prompts/tests (4)	646	276	84	47
+box	node	🟠 Medium Activity (35%) / packages/mermaid-pre-render-server/src (2)	740	314	60	66
+box	node	🟠 Medium Activity (35%) / packages/mermaid-pre-render-server/tests (3)	740	161	60	67
+box	node	🟠 Medium Activity (35%) / packages/mermaid-pre-render-server/tests/e2e (3)	810	161	61	67
+box	node	🟡 Low Activity (15%) / packages/app-buildship (1)	901	177	34	96
+box	node	🟡 Low Activity (15%) / packages/app-buildship/src (1)	945	177	35	96
+box	node	🟡 Low Activity (15%) / packages/app-buildship/src/cleanupAssets (1)	901	283	34	97
+box	node	🟡 Low Activity (15%) / packages/icons (1)	945	283	35	97
+box	node	🟡 Low Activity (15%) / packages/llm-prompts/regenerate-diagram (1)	901	70	34	97
+box	node	🟡 Low Activity (15%) / packages/llm-prompts/repair-diagram (1)	945	70	35	97
+canvas	2	27	1004.564	371
+font	Apple Color Emoji	6
+font	Liberation Sans	2732

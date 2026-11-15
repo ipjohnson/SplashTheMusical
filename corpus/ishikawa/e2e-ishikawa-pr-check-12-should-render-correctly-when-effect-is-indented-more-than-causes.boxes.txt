@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 615792d6ae3c903f
+box	cause	Cause A	-77.201	177.705	100.484	21.016
+box	cause	Cause B	-131.753	298.732	101.375	21.016
+box	cause	Cause C	-186.298	298.732	102.25	21.016
+box	cause	Subcause A1	-94.107	298.732	134.297	21.016
+box	cause	Subcause A2	-148.214	177.705	134.297	21.016
+box	cause	Subcause B1	-202.767	177.705	135.188	21.016
+box	head	Problem	0	214	74.419	72
+canvas	-222.767	157.705	317.185	182.042
+font	Liberation Sans	122

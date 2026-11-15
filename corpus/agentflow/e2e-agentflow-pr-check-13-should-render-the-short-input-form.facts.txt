@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7589d5166509dba6
+accept	yes
+direction	TD
+drawn	yes
+edge	every_morning	summarise	sequence
+edge	request	summarise	sequence
+flow	f	Morning digest	every_morning,request,summarise
+label	Ad-hoc request
+label	Every weekday 09:00
+label	Morning digest
+label	Summarise inbox
+node	every_morning	Every weekday 09:00	lean-r	input
+node	request	Ad-hoc request	lean-r	input
+node	summarise	Summarise inbox	rounded	task
+type	agentflow

@@ -1,0 +1,46 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 798aea76b96eaa96
+box	branch	b1	0	97	600	0
+box	branch	b2	0	187	600	0
+box	branch	b2-sub	0	547	600	0
+box	branch	b3	0	277	600	0
+box	branch	b4	0	367	600	0
+box	branch	b5	0	457	600	0
+box	branch	main	0	7	600	0
+box	branch-label	b1	-69.344	81	50.344	32
+box	branch-label	b2	-69.344	171	50.344	32
+box	branch-label	b2-sub	-98.891	531	79.891	32
+box	branch-label	b3	-69.344	261	50.344	32
+box	branch-label	b4	-69.344	351	50.344	32
+box	branch-label	b5	-69.344	441	50.344	32
+box	branch-label	main	-85.687	-9	66.688	32
+box	commit	0	3	0	14	14
+box	commit	1	53	90	14	14
+box	commit	10	503	0	14	14
+box	commit	11	553	0	14	14
+box	commit	2	103	180	14	14
+box	commit	3	153	540	14	14
+box	commit	4	203	180	14	14
+box	commit	5	253	270	14	14
+box	commit	6	303	360	14	14
+box	commit	7	353	450	14	14
+box	commit	8	403	0	14	14
+box	commit	9	453	0	14	14
+box	commit-label	0	-0.178	17.985	17.368	17.368
+box	commit-label	1	41.26	107.827	25.622	25.622
+box	commit-label	11	538.819	17.782	27.975	27.975
+box	commit-label	2	87.18	197.752	29.555	29.555
+box	commit-label	3	141.26	557.827	25.622	25.622
+box	commit-label	4	188.819	197.782	27.975	27.975
+box	commit-label	5	241.26	287.827	25.622	25.622
+box	commit-label	6	291.26	377.827	25.622	25.622
+box	commit-label	7	341.26	467.827	25.622	25.622
+box	commit-label	8	393.301	17.865	23.655	23.655
+box	tag	10 / v2.0	488.547	-19.7	34.906	15
+box	tag	4 / sub-merged	171.32	160.262	69.359	15.075
+box	tag	6 / b4-release	274.367	340.3	63.266	15
+box	tag	8 / v1.0	388.547	-19.7	34.906	15
+box	tag	9 / cherry-pick:b2m|parent:b2c1	384.727	-19.76	142.547	15.119
+canvas	-106.891	-27.76	714.891	619.208
+font	Liberation Sans	210

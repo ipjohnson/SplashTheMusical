@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d83bf9578ac1dc44
+box	entity	CUSTOMER	166.617	12	119.859	76
+box	entity	DELIVERY-ADDRESS	12	188	152.047	91.4
+box	entity	INVOICE	288.516	195.7	97.578	76
+box	entity	ORDER	176.547	379.4	100	76
+box	entity	ORDER-ITEM	299.34	555.4	128.672	76
+box	entity	PRODUCT	446.187	379.4	109.234	76
+box	entity	PRODUCT-CATEGORY	426.094	188	149.422	91.4
+box	relation	CUSTOMER --> DELIVERY-ADDRESS	88.023	88	113.559	100
+box	relation	CUSTOMER --> INVOICE	251.512	88	85.793	107.7
+box	relation	CUSTOMER --> ORDER	226.547	88	0	291.4
+box	relation	DELIVERY-ADDRESS --> ORDER	88.023	279.4	118.523	100
+box	relation	INVOICE --> ORDER	246.547	271.7	90.758	107.7
+box	relation	ORDER --> ORDER-ITEM	226.547	455.4	119.017	100
+box	relation	PRODUCT --> ORDER-ITEM	381.788	455.4	119.017	100
+box	relation	PRODUCT-CATEGORY --> PRODUCT	500.805	279.4	0	100
+box	relation-label	CUSTOMER --> DELIVERY-ADDRESS	74.523	128	26.578	20
+box	relation-label	CUSTOMER --> INVOICE	308.805	128	56.937	20
+box	relation-label	CUSTOMER --> ORDER	204.047	223.7	44.469	20
+box	relation-label	DELIVERY-ADDRESS --> ORDER	59.523	319.4	56.141	20
+box	relation-label	INVOICE --> ORDER	314.305	319.4	45.234	20
+box	relation-label	ORDER --> ORDER-ITEM	198.547	495.4	55.375	20
+box	relation-label	PRODUCT --> ORDER-ITEM	466.805	495.4	67.063	20
+box	relation-label	PRODUCT-CATEGORY --> PRODUCT	472.305	319.4	56.156	20
+canvas	4	4	579.516	635.4
+font	Liberation Sans	256

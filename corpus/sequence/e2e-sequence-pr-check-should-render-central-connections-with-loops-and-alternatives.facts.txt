@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 673a341fcd4d8019
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Charlie	Charlie	participant
+block	alt	Success
+block	loop	Every minute
+divider	Failure
+drawn	yes
+message	Alice	Bob	solid	filled	Central heartbeat
+message	Bob	Charlie	dashed	filled	Forward heartbeat
+message	Charlie	Alice	dashed	filled-both	Success response
+message	Charlie	Alice	solid	cross	Failure response
+type	sequence

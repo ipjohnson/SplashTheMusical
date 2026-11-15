@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c97fe4d378535c6b
+accept	yes
+drawn	yes
+edge	choose	reserve	none	arrow	solid
+edge	pay	ship	none	arrow	solid
+edge	reserve	pay	none	arrow	solid	Invoice ready
+group	Buyer	Buyer	choose,pay
+group	Store	Store	reserve,ship
+node	choose	Choose product	rect
+node	pay	Pay invoice	rect
+node	reserve	Reserve stock	rect
+node	ship	Ship product	rect
+type	swimlane

@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4bafaf78477395ec
+box	edge	State1 --> State2	80	103	249.958	115.5
+box	edge	State1 --> State3	158.923	103	190.368	253.5
+box	edge	State1 --> State4	368.625	103	0	115.5
+box	edge	State1 --> State5	387.958	103	156.667	115.5
+box	edge	State1 --> [*]end@root	407.292	103	223.458	54.5
+box	edge	State2 --> State3	80	261	40.257	95.5
+box	edge	[*]start@root --> State1	368.625	26	0	34.5
+box	edge-label	State1 --> State2	43.5	163	72.625	21
+box	edge-label	State1 --> State3	188	232	72.625	21
+box	edge-label	State1 --> State4	332.125	163	72.625	21
+box	edge-label	State1 --> State5	508.125	163	72.625	21
+box	edge-label	State2 --> State3	43.5	301	72.625	21
+box	node	State1	300.625	66	136	37
+box	node	State2	12	224	136	37
+box	node	State3	71.59	362	136	37
+box	node	State4	300.625	224	136	37
+box	node	State5	476.625	224	136	37
+box	node	[*]end@root	623.75	163	14.013	14
+box	node	[*]start@root	361.625	12	14	14
+canvas	4	4	641.763	403
+font	Liberation Sans	180

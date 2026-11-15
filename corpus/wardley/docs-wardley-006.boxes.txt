@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0dba7eb5e8a69ad3
+box	link	Business --> Service	656.084	126.787	110.433	69.226
+box	link	Customer --> Service	656.084	101.587	150.632	94.426
+box	node	Business	749.367	114.053	44.466	11.48
+box	node	Customer	788.464	88.853	46.673	11.48
+box	node	Service	645	182.016	47.345	23.184
+box	title	Anchors	424.457	15.839	51.085	13.776
+canvas	0	0	900	600
+font	Liberation Sans	168

@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c52615a85f0d781b
+accept	yes
+drawn	yes
+item	chaotic	0	Page on-call immediately
+item	clear	0	Restart service
+item	clear	1	Apply known fix
+item	complex	0	Investigate root cause
+item	complex	1	Run chaos experiment
+item	complicated	0	Analyze performance data
+item	complicated	1	Expert review needed
+item	confusion	0	Unknown failure mode
+label	Analyze performance data
+label	Apply known fix
+label	Expert review needed
+label	Incident Response
+label	Investigate root cause
+label	Page on-call immediately
+label	Restart service
+label	Run chaos experiment
+label	Unknown failure mode
+title	Incident Response
+type	cynefin

@@ -1,0 +1,66 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 145f017481e74f0f
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-DocumentationSetNavigation-1		221.34375	81
+node	entity-NavigationNode-2		139.625	81
+node	entity-TocItem-3		100	81
+node	entity-FileNavigation-4		128.71875	81
+node	entity-Page-5		100	81
+node	entity-TocNavigation-6		127.9375	81
+node	entity-TableOfContents-7		144.296875	81
+node	entity-SiteNavigation-8		130.28125	81
+node	entity-SiteMount-9		103.046875	81
+node	entity-SiteSection-10		110.828125	81
+node	entity-Phantom-11		96.046875	81
+node	entity-HomeProvider-12		129.484375	81
+node	entity-SiteMount-9---entity-SiteMount-9---1		0.10000000149011612	0.10000000149011612
+node	entity-SiteMount-9---entity-SiteMount-9---2		0.10000000149011612	0.10000000149011612
+edge	entity-DocumentationSet-0	entity-DocumentationSetNavigation-1	id_entity-DocumentationSet-0_entity-DocumentationSetNavigation-1_0	1	1	36.59375	21	10	c
+edge	entity-DocumentationSetNavigation-1	entity-NavigationNode-2	id_entity-DocumentationSetNavigation-1_entity-NavigationNode-2_1	1	1	24.125	21	10	c
+edge	entity-TocItem-3	entity-NavigationNode-2	id_entity-TocItem-3_entity-NavigationNode-2_2	1	1	43.546875	21	10	c
+edge	entity-FileNavigation-4	entity-Page-5	id_entity-FileNavigation-4_entity-Page-5_3	1	1	38.140625	21	10	c
+edge	entity-TocNavigation-6	entity-TableOfContents-7	id_entity-TocNavigation-6_entity-TableOfContents-7_4	1	1	44.34375	21	10	c
+edge	entity-SiteNavigation-8	entity-SiteMount-9	id_entity-SiteNavigation-8_entity-SiteMount-9_5	1	1	18.6875	21	10	c
+edge	entity-SiteMount-9	entity-SiteMount-9---entity-SiteMount-9---1	entity-SiteMount-9-cyclic-special-0	1	1	0	0	10	c
+edge	entity-SiteMount-9---entity-SiteMount-9---1	entity-SiteMount-9---entity-SiteMount-9---2	entity-SiteMount-9-cyclic-special-1	1	1	49.03125	21	10	c
+edge	entity-SiteMount-9---entity-SiteMount-9---2	entity-SiteMount-9	entity-SiteMount-9-cyclic-special-2	1	1	0	0	10	c
+edge	entity-SiteSection-10	entity-SiteMount-9	id_entity-SiteSection-10_entity-SiteMount-9_7	1	1	49.03125	21	10	c
+edge	entity-SiteNavigation-8	entity-SiteSection-10	id_entity-SiteNavigation-8_entity-SiteSection-10_8	1	1	105.828125	21	10	c
+edge	entity-SiteMount-9	entity-TocNavigation-6	id_entity-SiteMount-9_entity-TocNavigation-6_9	1	1	93.40625	21	10	c
+edge	entity-SiteNavigation-8	entity-Phantom-11	id_entity-SiteNavigation-8_entity-Phantom-11_10	1	1	61.484375	21	10	c
+edge	entity-Phantom-11	entity-TableOfContents-7	id_entity-Phantom-11_entity-TableOfContents-7_11	1	1	18.6875	21	10	c
+edge	entity-SiteMount-9	entity-HomeProvider-12	id_entity-SiteMount-9_entity-HomeProvider-12_12	1	1	109.71875	21	10	c
+size	1385.80859375	825
+place	entity-DocumentationSet-0	118.671875	48.5	155.1875	81
+place	entity-DocumentationSetNavigation-1	118.671875	230.5	221.34375	81
+place	entity-NavigationNode-2	134.65234375	412.5	139.625	81
+place	entity-TocItem-3	419.34375	230.5	100	81
+place	entity-FileNavigation-4	659.34375	48.5	128.71875	81
+place	entity-Page-5	659.34375	230.5	100	81
+place	entity-TocNavigation-6	1077.79296875	594.5	127.9375	81
+place	entity-TableOfContents-7	1203.7890625	776.5	144.296875	81
+place	entity-SiteNavigation-8	1062.140625	48.5	130.28125	81
+place	entity-SiteMount-9	863.765625	412.5	103.046875	81
+place	entity-SiteSection-10	1136.08203125	230.5	110.828125	81
+place	entity-Phantom-11	1329.78515625	594.5	96.046875	81
+place	entity-HomeProvider-12	809.08203125	594.5	129.484375	81
+place	entity-SiteMount-9---entity-SiteMount-9---1	584.2898437492549	594.5	0.10000000149011612	0.10000000149011612
+place	entity-SiteMount-9---entity-SiteMount-9---2	624.3148437496275	776.5	0.10000000149011612	0.10000000149011612
+route	entity-DocumentationSet-0	entity-DocumentationSetNavigation-1	id_entity-DocumentationSet-0_entity-DocumentationSetNavigation-1_0	118.671875	139.5	118.671875,89 118.671875,139.5 118.671875,190
+route	entity-DocumentationSetNavigation-1	entity-NavigationNode-2	id_entity-DocumentationSetNavigation-1_entity-NavigationNode-2_1	118.671875	321.5	118.671875,271 118.671875,321.5 127.54015710851648,372
+route	entity-TocItem-3	entity-NavigationNode-2	id_entity-TocItem-3_entity-NavigationNode-2_2	419.34375	321.5	419.34375,271 419.34375,321.5 204.46484375,390.18482869334946
+route	entity-FileNavigation-4	entity-Page-5	id_entity-FileNavigation-4_entity-Page-5_3	659.34375	139.5	659.34375,89 659.34375,139.5 659.34375,190
+route	entity-TocNavigation-6	entity-TableOfContents-7	id_entity-TocNavigation-6_entity-TableOfContents-7_4	1077.79296875	685.5	1077.79296875,635 1077.79296875,685.5 1147.713877918956,736
+route	entity-SiteNavigation-8	entity-SiteMount-9	id_entity-SiteNavigation-8_entity-SiteMount-9_5	798.6875	230.5	997,71.00038550501156 798.6875,139.5 798.6875,230.5 798.6875,321.5 834.8022836538462,372
+route	entity-SiteMount-9	entity-SiteMount-9---entity-SiteMount-9---1	entity-SiteMount-9-cyclic-special-0			812.2421875,429.27652636488517 584.2898437492549,503.5 584.2898437492549,594.4499999992549
+route	entity-SiteMount-9---entity-SiteMount-9---1	entity-SiteMount-9---entity-SiteMount-9---2	entity-SiteMount-9-cyclic-special-1	584.2898437492549	685.5	584.2898437492549,594.5500000007451 584.2898437492549,685.5 624.2928519910578,776.4499999992549
+route	entity-SiteMount-9---entity-SiteMount-9---2	entity-SiteMount-9	entity-SiteMount-9-cyclic-special-2			624.3368355081972,776.4499999992549 664.33984375,685.5 664.33984375,594.5 664.33984375,503.5 812.2421875,436.0106653869508
+route	entity-SiteSection-10	entity-SiteMount-9	id_entity-SiteSection-10_entity-SiteMount-9_7	1136.08203125	321.5	1136.08203125,271 1136.08203125,321.5 915.2890625,395.28240787227634
+route	entity-SiteNavigation-8	entity-SiteSection-10	id_entity-SiteNavigation-8_entity-SiteSection-10_8	1136.08203125	139.5	1095.0486134958792,89 1136.08203125,139.5 1136.08203125,190
+route	entity-SiteMount-9	entity-TocNavigation-6	id_entity-SiteMount-9_entity-TocNavigation-6_9	1077.79296875	503.5	915.2890625,434.40670000547533 1077.79296875,503.5 1077.79296875,554
+route	entity-SiteNavigation-8	entity-Phantom-11	id_entity-SiteNavigation-8_entity-Phantom-11_10	1329.78515625	321.5	1127.28125,70.64802165885838 1329.78515625,139.5 1329.78515625,230.5 1329.78515625,321.5 1329.78515625,412.5 1329.78515625,503.5 1329.78515625,554
+route	entity-Phantom-11	entity-TableOfContents-7	id_entity-Phantom-11_entity-TableOfContents-7_11	1329.78515625	685.5	1329.78515625,635 1329.78515625,685.5 1259.864247081044,736
+route	entity-SiteMount-9	entity-HomeProvider-12	id_entity-SiteMount-9_entity-HomeProvider-12_12	809.08203125	503.5	839.4284211881868,453 809.08203125,503.5 809.08203125,554

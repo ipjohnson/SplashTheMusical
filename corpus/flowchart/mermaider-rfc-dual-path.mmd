@@ -1,0 +1,9 @@
+flowchart TD
+    navYml[navigation.yml] -->|GetTocMappings| v1Map[V1 NavigationTocMappings]
+    navV2Yml[navigation-v2.yml] -->|GetV2TocMappings| v2Map[V2 NavigationTocMappings]
+    v1Map --> valV1[/"V1 validation"/]
+    v2Map --> valV2[/"V2 validation"/]
+    v1Map --> flag{"nav-v2 flag"}
+    v2Map --> flag
+    flag -->|false| provV1["GlobalNavigationPathProvider\nwith V1 mappings → V1 paths + V1 sidebar"]
+    flag -->|true| provV2["GlobalNavigationPathProvider\nwith V2 mappings → V2 paths + V2 sidebar"]

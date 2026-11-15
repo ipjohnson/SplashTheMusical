@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dbc27530617ea106
+accept	yes
+connector	github	GitHub API
+direction	LR
+drawn	yes
+edge	title	create	sequence
+label	GitHub API
+label	Issue title
+label	create_issue
+node	create	create_issue	fr-rect	tool
+node	title	Issue title	lean-r	input
+type	agentflow

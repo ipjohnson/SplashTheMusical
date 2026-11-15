@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b279103857e8c3e0
+box	cause	Machine	-116.633	-19.537	100.484	21.016
+box	cause	Machine / Calibration	-141.903	213.522	76.44	17.001
+box	cause	Machine / Worn tooling	-170.414	103.492	89.487	17.319
+box	cause	Manpower	-251.006	497.597	114.703	21.32
+box	cause	Manpower / Insufficient training	-288.215	397.674	76.158	34.119
+box	cause	Material	-265.303	-19.537	96.906	21.016
+box	cause	Material / Contamination	-334.498	103.492	103.112	17
+box	cause	Material / Wrong grade	-308.081	213.522	92.159	17.319
+box	cause	Method	-89.883	497.597	93.375	21.016
+box	cause	Method / Missing step	-150.475	406.074	88.878	17.319
+box	head	Manufacturing Defect	0	280.533	122.944	105.6
+canvas	-354.558	-39.537	497.502	578.454
+font	Liberation Sans	254

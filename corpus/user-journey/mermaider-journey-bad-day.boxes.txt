@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d551df64b5350b86
+box	face	Deploy / Fix flaky test	610	375	30	30
+box	face	Deploy / Merge the change	210	285	30	30
+box	face	Deploy / Pipeline fails	410	405	30	30
+box	face	Recover / Celebrate the fix	1210	285	30	30
+box	face	Recover / Postmortem	1010	345	30	30
+box	face	Recover / Rollback	810	375	30	30
+box	person	CI	50	51.694	16.024	19.133
+box	person	Dev	50	71.694	28.46	19.133
+box	person	Ops	50	91.694	29.357	19.133
+box	section	Deploy	150	50	550	50
+box	section	Recover	750	50	550	50
+box	task	Deploy / Fix flaky test	550	110	150	50
+box	task	Deploy / Merge the change	150	110	150	50
+box	task	Deploy / Pipeline fails	350	110	150	50
+box	task	Recover / Celebrate the fix	1150	110	150	50
+box	task	Recover / Postmortem	950	110	150	50
+box	task	Recover / Rollback	750	110	150	50
+box	title	A rough deployment	150	-5.612	327.437	38.265
+canvas	0	-25	1500	540
+font	Liberation Sans	236

@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c5dfab841fac317d
+accept	yes
+drawn	yes
+group	l1	l1	a
+group	l2	l2
+node	a	a	rect
+type	swimlane

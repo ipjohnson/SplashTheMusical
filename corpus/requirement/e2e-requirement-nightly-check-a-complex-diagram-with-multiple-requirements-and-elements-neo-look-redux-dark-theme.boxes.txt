@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 94509ad60e9bcc95
+box	element	hw_element	293.391	12	197.422	124
+box	element	sw_element	12	279	202.875	124
+box	relation	func_req --> perf_req	181.424	670	56.809	101
+box	relation	hw_element --> sys_req	392.102	136	0	101
+box	relation	sw_element --> func_req	113.438	403	21.688	101
+box	relation	sys_req --> func_req	227.724	403	121.969	101
+box	relation	sys_req --> perf_req	356.014	403	78.496	368
+box	relation-label	func_req --> perf_req	145.924	710	70.828	21
+box	relation-label	hw_element --> sys_req	350.102	176	83.281	21
+box	relation-label	sw_element --> func_req	74.438	443	77.063	21
+box	relation-label	sys_req --> func_req	257.052	443	84.859	21
+box	relation-label	sys_req --> perf_req	392.081	576.5	84.859	21
+box	requirement	func_req	32.526	504	297.797	166
+box	requirement	perf_req	110.452	771	373.344	166
+box	requirement	sys_req	254.875	237	274.453	166
+canvas	4	4	533.328	941
+font	Liberation Sans	1056

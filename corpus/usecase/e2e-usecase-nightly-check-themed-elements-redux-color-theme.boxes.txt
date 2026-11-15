@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3a921f4cc5c49968
+box	actor	Business	460	246	76.812	121
+box	actor	Hollow	76	275	76	121
+box	actor	Normal	53.422	12	98.578	121
+box	json	Payload	776.813	193.25	138	118
+box	note	Login	12	173	140	62
+box	relation	Business --> Checkout	536.812	262.25	40.907	44.25
+box	relation	Checkout --> Payload	736.812	252.25	36	0
+box	relation	Hollow --> Reset	152	298	74	37.5
+box	relation	Login --> Checkout	386	198	191.719	44.25
+box	relation	Normal --> Login	152	72.5	70	119.5
+box	relation-label	Login --> Checkout	475	190	46.812	15
+box	usecase	Checkout	576.813	223.25	160	58
+box	usecase	Login	226	169	160	58
+box	usecase	Reset	226	277	152	42
+canvas	-12	-12	950.813	432
+font	Liberation Sans	274

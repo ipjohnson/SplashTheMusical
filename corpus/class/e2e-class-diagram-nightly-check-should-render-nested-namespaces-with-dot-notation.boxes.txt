@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 815ad5199d36d1d6
+box	class	Designer	320.383	391	159.398	120
+box	class	Developer	84	391	138.383	120
+box	class	TechLead	208.285	108	136.703	120
+box	namespace	Company	12	12	539.781	571
+box	namespace	Company.Engineering	36	60	491.781	499
+box	namespace	Company.Engineering.Backend	60	343	186.383	192
+box	namespace	Company.Engineering.Frontend	296.383	343	207.398	192
+box	relation	TechLead --> Designer	295.821	228	104.261	157
+box	relation	TechLead --> Developer	153.191	228	104.261	157
+box	relation-label	TechLead --> Designer	383.082	288	33.469	21
+box	relation-label	TechLead --> Developer	136.191	288	33.469	21
+canvas	4	4	555.781	587
+font	Liberation Sans	216

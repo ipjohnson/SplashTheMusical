@@ -1,0 +1,8 @@
+erDiagram
+    SearchIndex ||--o{ SearchDocument : "contains"
+    Page ||--o| DocumentationDocument : "exported"
+    DocumentationDocument }o--o| Product : "product"
+    DocumentationDocument }o--o{ Product : "related_products"
+    DocumentationDocument ||--o{ ParentDocument : "parents (breadcrumbs)"
+    DocumentationDocument ||--o{ AppliesToEntry : "applies_to"
+    DocumentInference ||--|| DocumentationDocument : "decides product"

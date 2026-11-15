@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 51aab1407c0d1f3d
+box	link	Custom Analytics --> Standardized Reports	405.359	259.896	289.281	33.807
+box	link	Data Collection --> Custom Analytics	204.262	190.785	189.476	66.43
+box	link	Standardized Reports --> Commodity Storage	706.51	295.436	188.98	33.128
+box	link	User Needs --> Data Collection	102.334	87.548	92.132	96.903
+box	node	Commodity Storage	895.4	313.182	102.285	22.418
+box	node	Custom Analytics	393.4	242.781	90.622	22.419
+box	node	Data Collection	192.6	172.381	81.765	22.419
+box	node	Standardized Reports	694.6	277.982	110.638	22.418
+box	node	User Needs	92.2	66.781	66.747	22.419
+box	stage	0	146.841	759.581	53.317	11.225
+box	stage	1	403.114	759.581	42.772	11.225
+box	stage	2	649.674	759.581	51.651	11.225
+box	stage	3	906.221	759.581	40.558	11.225
+box	title	Data Evolution Pipeline	479.988	16.108	140.024	14.031
+canvas	0	0	1100	800
+font	Liberation Sans	314

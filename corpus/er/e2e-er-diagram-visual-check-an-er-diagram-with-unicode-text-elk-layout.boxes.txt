@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e4dcb1b544c27a56
+box	entity	_**testẽζ➕Ø😀㌕ぼ**_	12	12	468.516	280.5
+canvas	4	4	484.516	296.5
+font	Apple Color Emoji	6
+font	Hiragino Sans	4
+font	Liberation Sans	318

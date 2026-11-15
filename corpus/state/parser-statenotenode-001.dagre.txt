@@ -1,0 +1,25 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c33156f713a036c3
+layout	1
+graph	TB	50	20	75	8	8
+node	A	Composite	136	37
+node	B	Composite	136	37
+node	Composite		0	0
+edge	A	B	edge0	1	1	0	0	10	c
+size	222	240
+place	A	111	64	136	37
+place	B	111	176	136	37
+place	Composite	111	120	206	224
+route	A	B	edge0			111,82.5 111,120 111,157.5
+layout	2
+graph	TB	50	20	50	8	8
+node	Composite		206	224
+node	Composite----parent		0	0
+node	Composite----note-1	Composite----parent	150	51
+edge	Composite	Composite----note-1	Composite-Composite----note-1	1	1	0	0	10	c
+size	236	391
+place	Composite	118	120	206	224
+place	Composite----parent	118	332.5	220	101
+place	Composite----note-1	118	332.5	150	51
+route	Composite	Composite----note-1	Composite-Composite----note-1			118,232 118,257 118,282 118,307

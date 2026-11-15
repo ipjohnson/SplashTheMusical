@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b6be622798664b43
+box	relation	Left --> Right	172	41	36	0
+box	usecase	Left	12	12	160	58
+box	usecase	Right	212	12	160	58
+canvas	-8	-8	400	98
+font	Liberation Sans	18

@@ -1,0 +1,45 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02de9d75d0b69e25
+accept	yes
+drawn	yes
+edge	Assembler	Search	none	arrow	solid
+edge	Assembler	Site	none	arrow	solid
+edge	Catalog	DocSet	none	arrow	solid
+edge	Changelog	Notes	none	arrow	solid
+edge	Codex	Site	none	arrow	solid
+edge	DocSet	Assembler	none	arrow	solid
+edge	DocSet	Codex	none	arrow	solid
+edge	DocSet	Isolated	none	arrow	solid
+edge	DocSet	SpecIndex	none	arrow	dotted	api: spec + repository
+edge	Isolated	Links	none	arrow	solid
+edge	Isolated	Site	none	arrow	solid
+edge	Links	Assembler	none	arrow	solid
+edge	Links	Codex	none	arrow	solid
+edge	Notes	Site	none	arrow	solid
+edge	OpenApi	DocSet	none	arrow	dotted	api: local spec
+edge	OpenApi	SpecIndex	none	arrow	solid	published per version
+edge	Repo	Changelog	none	arrow	solid
+edge	Repo	DocSet	none	arrow	solid
+edge	Repo	OpenApi	none	arrow	solid
+edge	SpecIndex	Assembler	none	arrow	solid
+edge	SpecIndex	Isolated	none	arrow	solid
+group	Authoring	Authoring (in each repository)	Changelog,DocSet,OpenApi
+group	Build	Build	Assembler,Codex,Isolated
+group	Outputs	Outputs	Links,Notes,Search,Site,SpecIndex
+group	Reference	Reference data (config/)	Catalog
+group	Sources	Sources	Repo
+node	Assembler	Assembler build	rect
+node	Catalog	Products, versioning systems	rect
+node	Changelog	Changelog entries	rect
+node	Codex	Codex build	rect
+node	DocSet	Documentation sets	rect
+node	Isolated	Isolated build	rect
+node	Links	Link graph	rect
+node	Notes	Release note bundles	rect
+node	OpenApi	OpenAPI specs	rect
+node	Repo	Repositories (Git)	rect
+node	Search	Search indices	rect
+node	Site	HTML sites	rect
+node	SpecIndex	OpenAPI repository	rect
+type	flowchart-v2

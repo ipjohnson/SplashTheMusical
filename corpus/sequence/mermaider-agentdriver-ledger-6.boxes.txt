@@ -1,0 +1,36 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8597f3faf83c6fa1
+box	actor	C	1149	0	150	73
+box	actor	L	396	0	150	73
+box	actor	R	815	0	150	73
+box	actor	V	0	0	150	73
+box	actor-bottom	C	1149	734	150	73
+box	actor-bottom	L	396	734	150	73
+box	actor-bottom	R	815	734	150	73
+box	actor-bottom	V	0	734	150	73
+box	message	L --> L	472	206.381	45	23.238
+box	message	L --> L #2	472	594.381	45	23.238
+box	message	L --> R	478	670	405	0
+box	message	R --> C	897	326	320	0
+box	message	R --> C #2	897	714	320	0
+box	message	R --> L	478	370	417	0
+box	message	V --> L	82	164	382	0
+box	message	V --> L #2	82	508	382	0
+box	message	V --> L #3	82	552	382	0
+box	message	V --> R	82	282	801	0
+box	message-text	L --> L	311.578	184.934	320.844	17.845
+box	message-text	L --> L #2	197.358	572.934	549.285	17.845
+box	message-text	L --> R	511.96	646.934	332.08	17.845
+box	message-text	R --> C	1037.257	302.934	33.487	17.845
+box	message-text	R --> C #2	921.865	690.934	264.27	17.845
+box	message-text	R --> L	509.511	346.934	348.977	17.845
+box	message-text	V --> L	217.553	140.934	104.894	17.845
+box	message-text	V --> L #2	170.585	484.934	198.83	17.845
+box	message-text	V --> L #3	106.901	528.934	326.197	17.845
+box	message-text	V --> R	299.14	258.934	361.719	17.845
+box	note	X and Y stay running in the ledger, and Z keeps running on its runner	217	380	508	37
+box	note	serve starts	50	427	1199	37
+box	note	serve stops while X prepares, Y runs here, and Z runs on a runner	50	83	1199	37
+canvas	-50	-10	1399	858
+font	Liberation Sans	1272

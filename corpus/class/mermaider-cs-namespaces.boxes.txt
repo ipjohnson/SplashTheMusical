@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02becac93f777eb5
+box	class	DockerEngine	506.609	133.75	118.141	81
+box	class	LaunchPoint	193.781	60	108.781	81
+box	class	Policy	171.141	191	131.422	114
+box	namespace	Containers	482.609	85.75	166.141	153
+box	namespace	Execution	147.141	12	179.422	317
+box	note	Restrictions	12	231.5	85.141	33
+box	relation	DockerEngine --> Policy	308.563	184.15	198.047	63.85
+box	relation	LaunchPoint --> DockerEngine	302.563	100.5	198.047	63.85
+box	relation-label	DockerEngine --> Policy	387.07	237	35.031	21
+box	relation-label	LaunchPoint --> DockerEngine	376.563	89.5	56.047	21
+canvas	4	4	652.75	333
+font	Liberation Sans	172

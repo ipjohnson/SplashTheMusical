@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c41ec80b216c2903
+accept	yes
+drawn	yes
+label	Cynefin Framework
+title	Cynefin Framework
+type	cynefin

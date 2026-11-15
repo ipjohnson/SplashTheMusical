@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source caa0d994e5bffc1f
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Ola1	Ola	actor
+actor	Ola2	Ola	participant
+actor	Polo	Polo	participant
+drawn	yes
+message	Alice	Bob	solid	filled	And now?
+message	Alice	Bob	solid	filled	Hello Bob, how are you ?
+message	Alice	Ola1	dashed	cross	Bye!
+message	Alice	Ola2	dashed	cross	Bye for me!
+message	Alice	Ola2	solid	filled	Hello again
+message	Alice	Polo	solid	filled	Hi Polo!
+message	Bob	Alice	solid	filled	Fine, thank you. And you?
+message	Ola1	Alice	solid	filled	Hi too
+message	Ola2	Bob	dashed	none	The end
+message	Polo	Ola1	solid	filled	Hiii
+type	sequence

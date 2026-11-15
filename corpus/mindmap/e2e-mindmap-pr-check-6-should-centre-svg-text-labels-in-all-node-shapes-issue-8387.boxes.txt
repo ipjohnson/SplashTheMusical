@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3ab22619feaed7ac
+box	edge	Cell / Bang	85.962	144.378	90.983	74.123
+box	edge	Cell / Cloud	198.706	52.013	65.789	71.829
+box	edge	Cell / Default	147.379	59.434	34.009	62.304
+box	edge	Cell / Hexagon	195.234	148.344	33.884	68.381
+box	edge	Cell / Rounded	203.492	136.474	100.318	10.562
+box	edge	Cell / Square	75.569	114.99	98.233	17.311
+box	node	Cell	162.383	108.712	52.384	52.384
+box	node	Cell / Bang	21.908	193.583	109.219	71.65
+box	node	Cell / Cloud	240.433	15.763	70.774	51.904
+box	node	Cell / Default	94.84	32.768	90.703	27
+box	node	Cell / Hexagon	184.424	211.506	102.707	37.32
+box	node	Cell / Rounded	271.251	125.107	94.953	47
+box	node	Cell / Square	15	93.726	91.594	37.32
+canvas	5	5.763	371.204	269.471
+font	Liberation Sans	80

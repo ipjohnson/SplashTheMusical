@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7047a4ca2f537f46
+box	edge	internet --> router	441.8	57	199.1	94
+box	edge	nat --> internet	684.9	61	217.1	376
+box	edge	router --> subnet1	237	200	183.067	56
+box	edge	router --> subnet2	463.533	200	225.467	56
+box	edge	subnet1 --> nat	237	377	419.4	56
+box	edge	subnet2 --> nat	689	377	0	56
+box	group	project	12	107	902	399
+box	group	subnet1	36	260	402	117
+box	group	subnet2	488	260	402	117
+box	node	compute1	262	308	152	45
+box	node	compute2	714	308	152	45
+box	node	internet	586.9	12	152	45
+box	node	lb1	60	308	152	45
+box	node	lb2	512	308	152	45
+box	node	nat	613	437	152	45
+box	node	router	365.8	155	152	45
+canvas	4	4	918	510
+font	Liberation Sans	120

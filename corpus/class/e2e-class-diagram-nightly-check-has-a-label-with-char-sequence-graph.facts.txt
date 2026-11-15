@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 22da89b441d9eaad
+accept	yes
+attribute	Person	#double age
+attribute	Person	+String name
+attribute	Person	+Text demographicProfile
+attribute	Person	-Int id
+class	Person	Person
+drawn	yes
+type	classDiagram

@@ -1,0 +1,5 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9b02d91befa4377a
+canvas	4	4	356	67
+font	Liberation Sans	22

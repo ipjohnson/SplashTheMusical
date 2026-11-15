@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f26e04c9435aecbd
+box	edge	Finished --> [*]end@root	80	402	0	34.5
+box	edge	MyChoice --> Drying	169.333	246.667	86.667	35.833
+box	edge	MyChoice --> Washing	80	246.667	86.667	35.833
+box	edge	Off --> On	168	103	0	34.5
+box	edge	On --> MyChoice	168	180	0	34.5
+box	edge	Washing --> Finished	80	325	0	34.5
+box	edge	[*]start@root --> Off	168	26	0	34.5
+box	node	Drying	188	288	136	37
+box	node	Finished	12	365	136	37
+box	node	MyChoice	154	220	28	28
+box	node	Off	100	66	136	37
+box	node	On	100	143	136	37
+box	node	Washing	12	288	136	37
+box	node	[*]end@root	73	442	14.013	14
+box	node	[*]start@root	161	12	14	14
+canvas	4	4	328	460
+font	Liberation Sans	52

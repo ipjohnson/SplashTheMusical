@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3073f6a1cc41765d
+box	class	Repository	12	12	190.906	162
+box	class	UserRepo	20.363	214	174.18	120
+box	relation	Repository --> UserRepo	107.453	191.25	0	22.75
+canvas	4	4	206.906	338
+font	Liberation Sans	192

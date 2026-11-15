@@ -1,0 +1,10 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a913109852024b14
+layout	1
+graph	TB	50	20	50	8	8
+node	angular_velocity		231.25	108
+node	frequency		152	108
+size	449.25	124
+place	angular_velocity	123.625	62	231.25	108
+place	frequency	365.25	62	152	108

@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d6ddd853c63cb0f1
+accept	yes
+drawn	yes
+label	sign
+rule	sign	("+" | "-")
+type	railroad

@@ -224,6 +224,26 @@ test('the dagre hook wraps dagre\'s layout function once and refuses a bundle wi
 	assert.throws(() => hookDagre(code.replace('"  buildLayoutGraph"', '"buildLayoutGraph"')), /found 0 times in mermaid\.min\.js/)
 })
 
+test('a case in a subfolder gets its files beside it, with the output of the same case in a flat folder', () => {
+	const dir = temp()
+	try {
+		fs.mkdirSync(path.join(dir, 'pie'))
+		fs.mkdirSync(path.join(dir, 'flowchart'))
+		fs.copyFileSync(path.join(cases, 'pie.mmd'), path.join(dir, 'pie', 'pie.mmd'))
+		fs.copyFileSync(path.join(cases, 'flowchart-v2.mmd'), path.join(dir, 'flowchart', 'flowchart-v2.mmd'))
+		fs.writeFileSync(path.join(dir, 'pie', 'gone.facts.txt'), '')
+		const result = spawnSync(process.execPath, [path.join(root, 'facts.mjs'), dir, dir], { encoding: 'utf8' })
+		assert.equal(result.status, 0, result.stderr)
+		assert.deepEqual(fs.readdirSync(path.join(dir, 'pie')).sort(), ['pie.boxes.txt', 'pie.facts.txt', 'pie.mmd'])
+		assert.deepEqual(fs.readdirSync(path.join(dir, 'flowchart')).sort(),
+			['flowchart-v2.boxes.txt', 'flowchart-v2.dagre.txt', 'flowchart-v2.facts.txt', 'flowchart-v2.mmd'])
+		for (const f of [...dumpFiles, 'pie/pie.facts.txt', 'pie/pie.boxes.txt', 'flowchart/flowchart-v2.dagre.txt'])
+			assert.ok(fs.readFileSync(path.join(dir, f)).equals(fs.readFileSync(path.join(first, 'facts', path.basename(f)))), f)
+	} finally {
+		fs.rmSync(dir, { recursive: true, force: true })
+	}
+})
+
 test('the run fails when node_modules holds another mermaid than the lock file pins', () => {
 	const dir = copyOfRunner({ pinMermaid: '12.2.0' })
 	try {

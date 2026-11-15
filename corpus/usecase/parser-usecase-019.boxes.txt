@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5dc4f2d0e0271d6b
+box	actor	Admin	12	358.5	76	121
+box	actor	User	12	161.75	76	121
+box	relation	Admin --> Login	88	419	90	0
+box	relation	User --> Login	88	247.5	90	159.5
+box	relation	User --> Logout	88	197	90	0
+box	relation	User --> Register	88	222.25	90	82.75
+box	usecase	Login	182	384	160	58
+box	usecase	Logout	182	168	160	58
+box	usecase	Register	182	276	160	58
+box	usecase	ResetPassword	182	60	160	58
+canvas	-8	-8	394	507.5
+font	Liberation Sans	124

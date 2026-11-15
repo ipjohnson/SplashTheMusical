@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f0c5bc53bd140f3c
+box	actor	AuthService	231.878	0	86.244	68.057
+box	actor	MongoDB	1054.444	0	71.112	68.057
+box	actor	OrderController	634.899	0	110.202	68.057
+box	actor	OrderQueue	1415	0	150	73
+box	actor	Product	862.441	0	55.118	68.057
+box	actor	Products	1209	0	156	73
+box	actor	UI	435	0	77	68.057
+box	actor	User	58.11	0	33.781	68.057
+box	actor-bottom	AuthService	231.878	539	86.244	68.057
+box	actor-bottom	OrderController	634.899	539	110.202	68.057
+box	actor-bottom	Product	862.441	539	55.118	68.057
+box	actor-bottom	Products	1215	533	150	67
+box	actor-bottom	UI	435	539	77	68.057
+box	actor-bottom	User	58.11	539	33.781	68.057
+box	message	AuthService --> UI	276	205	207	0
+box	message	MongoDB --> OrderController	697	425	392	0
+box	message	OrderController --> MongoDB	691	381	392	0
+box	message	OrderController --> OrderQueue	691	469	792	0
+box	message	OrderController --> Product	691	293	192	0
+box	message	OrderQueue --> User	82	513	1407	0
+box	message	Product --> OrderController	697	337	192	0
+box	message	UI --> AuthService	282	161	207	0
+box	message	UI --> OrderController	491	249	192	0
+box	message	User --> UI	76	117	407	0
+box	message-text	AuthService --> UI	307.527	181.348	144.946	19.114
+box	message-text	MongoDB --> OrderController	848.999	401.348	88.003	19.114
+box	message-text	OrderController --> MongoDB	847.877	357.348	78.247	19.114
+box	message-text	OrderController --> OrderQueue	1025.212	445.348	123.575	19.114
+box	message-text	OrderController --> Product	725.212	269.348	123.575	19.114
+box	message-text	OrderQueue --> User	719.782	489.348	132.435	19.114
+box	message-text	Product --> OrderController	760.696	313.348	64.608	19.114
+box	message-text	UI --> AuthService	316.796	137.348	138.408	19.114
+box	message-text	UI --> OrderController	546.101	225.348	81.797	19.114
+box	message-text	User --> UI	231.536	93.348	96.929	19.114
+canvas	-50	-10	1665	657
+font	Liberation Sans	546

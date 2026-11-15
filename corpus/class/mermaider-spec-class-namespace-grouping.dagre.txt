@@ -1,0 +1,20 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 209bb65b7d6f5a14
+layout	1
+graph	TB	50	20	50	8	8
+node	Domain		0	0
+node	Infrastructure		0	0
+node	User	Domain	124.0078125	135
+node	Order	Domain	139.15625	135
+node	Database	Infrastructure	162.9140625	141
+edge	User	Order	id_User_Order_1	1	1	0	0	10	c
+edge	Order	Database	id_Order_Database_2	1	1	0	0	10	c
+size	248.9140625	627
+place	Domain	124.45703125	193	209.15625	370
+place	Infrastructure	124.45703125	523.5	232.9140625	191
+place	User	124.45703125	100.5	124.0078125	135
+place	Order	124.45703125	285.5	139.15625	135
+place	Database	124.45703125	523.5	162.9140625	141
+route	User	Order	id_User_Order_1			124.45703125,168 124.45703125,193 124.45703125,218
+route	Order	Database	id_Order_Database_2			124.45703125,353 124.45703125,378 124.45703125,403 124.45703125,428 124.45703125,453

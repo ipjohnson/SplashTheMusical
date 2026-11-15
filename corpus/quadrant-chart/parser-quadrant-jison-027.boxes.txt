@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4151c69bedef3b86
+box	axis	x-left	114.359	476.203	65.281	17
+box	axis	x-right	346.359	476.203	65.281	17
+box	axis	y-bottom	2.203	330.359	17	65.281
+box	axis	y-top	2.203	118.359	17	65.281
+box	point	产品A	153.942	209.6	32.516	21.797
+box	point	产品B	223.542	366.48	32.516	21.797
+box	quadrant	1	263	45	232	212
+box	quadrant	2	31	45	232	212
+box	quadrant	3	31	257	232	212
+box	quadrant	4	263	257	232	212
+box	title	分析象限图	199.047	6.406	101.906	22
+canvas	0	0	500	500
+font	Liberation Sans	4
+font	蘋方-簡	82

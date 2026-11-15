@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eaf819cfb8594d42
+accept	yes
+drawn	yes
+edge	apply	screen	none	arrow	solid	Application received
+edge	create	notify	none	arrow	solid
+edge	decide	apply	none	arrow	solid	Needs changes
+edge	decide	create	none	arrow	solid	Approved
+edge	notify	sign	none	arrow	solid
+edge	screen	decide	none	arrow	solid
+group	Applicant	Applicant	apply,sign
+group	Reviewer	Reviewer	decide,screen
+group	System	System	create,notify
+node	apply	Submit application	rect
+node	create	Create account	rect
+node	decide	Approved?	diam
+node	notify	Send welcome email	rect
+node	screen	Screen application	rect
+node	sign	Sign agreement	rect
+type	swimlane

@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a913109852024b14
+box	node	angular_velocity	12	12	231.25	108
+box	node	frequency	283.25	12	152	108
+canvas	4	4	439.25	124
+font	Liberation Sans	220

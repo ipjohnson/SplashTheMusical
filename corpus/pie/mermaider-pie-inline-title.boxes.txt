@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 15f8732d58701cfc
+box	legend	Pizza	441	180	63.578	19
+box	legend	Salad	441	246	65.484	19
+box	legend	Sushi	441	202	64.531	19
+box	legend	Tacos	441	224	66.422	19
+box	slice	Pizza	225	40	184.999	351.679
+box	slice	Salad	109.654	40	115.346	185
+box	slice	Sushi	44.638	225	260.63	185
+box	slice	Tacos	40	80.361	185	185.805
+box	title	Team Lunch Vote	128.398	2	193.203	28
+canvas	0	0	556.422	450
+font	Liberation Sans	94

@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ba9e686d5dd1192b
+accept	yes
+direction	TD
+drawn	yes
+edge	file_path	read_file	sequence
+flow	runner	Runner	file_path,read_file
+label	Runner
+label	file_path
+label	read_file
+node	file_path	file_path	lean-r	input
+node	read_file	read_file	fr-rect	tool
+type	agentflow

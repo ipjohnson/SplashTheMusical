@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2de80601d26c0bb7
+accept	yes
+actor	a	Alice	participant
+actor	b	b	participant
+actor	c	c	participant
+actor	d	Donald	actor
+drawn	yes
+message	a	b	solid	filled	Hello Bob?
+message	a	d	solid	filled	Hello Donald?
+message	b	c	dashed	filled	Hello c!
+message	c	b	solid	filled	Hello b?
+type	sequence

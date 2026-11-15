@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0e12225e01eaf29d
+box	title	;Gantt diagram titles support semicolons	231.422	9	321.156	20
+canvas	0	0	784	100
+font	Liberation Sans	80

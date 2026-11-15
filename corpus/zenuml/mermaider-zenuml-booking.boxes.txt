@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source aa1856fa9700853d
+box	fragment	loop attempts < 3	-8.703	302.5	308.703	126
+box	fragment	par	-8.687	626.5	746.688	117
+box	fragment	try	-8.687	228.5	646.688	381
+box	group	Backend	38.5	41.5	252.586	777
+box	message	API --> Audit	58.297	269	520.203	19.25
+box	message	API --> Audit #2	58.297	566	520.203	19.25
+box	message	API --> BookingService	48.297	363	169.703	19.25
+box	message	API --> Calendar	58.297	700	620.203	19.25
+box	message	API --> Client	58.297	489	282.203	19.25
+box	message	API --> Client #2	58.297	667	282.203	19.25
+box	message	API --> booking:Booking	68.313	142	324.031	19.25
+box	message	Client --> API	78.313	105	262.188	19.25
+box	message	booking:Booking --> API	59.297	194	394.203	19.25
+box	participant	API	42	63	78	38
+box	participant	Audit	539.5	63	78	38
+box	participant	BookingService	162.414	63	125.172	38
+box	participant	Calendar	639.035	63	78.93	38
+box	participant	Client	301.5	63	78	38
+box	participant	booking:Booking	393.344	139	132.313	38
+box	title	Booking	5	8.25	64	17.391
+canvas	0	0	749.5	819
+font	Liberation Sans	512

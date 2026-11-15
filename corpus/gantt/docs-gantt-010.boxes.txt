@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eb63c5df30e42f5d
+box	section	Issue1300	10	152	50.766	12
+box	section	Issue19062	10	56	56.891	12
+box	section	Issue193	10	104	44.656	12
+box	section	Issue19401	10	80	56.891	12
+box	section	Issue7441	10	128	50.766	12
+box	task	Issue1300 / 5	75	146	45	20
+box	task	Issue19062 / 71	75	50	634	20
+box	task	Issue193 / 34	75	98	304	20
+box	task	Issue19401 / 36	75	74	321	20
+box	task	Issue7441 / 9	75	122	80	20
+box	task-text	Issue1300 / 5	94.438	149.5	6.125	12
+box	task-text	Issue19062 / 71	385.875	53.5	12.25	12
+box	task-text	Issue193 / 34	220.875	101.5	12.25	12
+box	task-text	Issue19401 / 36	229.375	77.5	12.25	12
+box	task-text	Issue7441 / 9	111.938	125.5	6.125	12
+box	title	Git Issues - days since last update	254.93	9	274.141	20
+canvas	0	0	784	220
+font	Liberation Sans	234

@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8820d4456897471c
+box	card	p1	107.5	-275	185	44
+box	card	p2	107.5	-226	185	44
+box	card	p3	107.5	-177	185	44
+box	card	p4	107.5	-128	185	44
+box	card	p5	312.5	-275	185	56
+box	card	p6	312.5	-214	185	56
+box	column	backlog	100	-300	200	226
+box	column	review	305	-300	200	152
+canvas	90	-310	425	246
+font	Liberation Sans	190

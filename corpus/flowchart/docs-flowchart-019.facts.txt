@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6b1ad0dda6c60bab
+accept	yes
+drawn	yes
+node	A	Christmas	trap-b
+type	flowchart-v2

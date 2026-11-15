@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f840a5f4ecb44970
+box	node	Level 1	10	35	980	355
+box	node	Level 1 / Level 2A	549	70	431	310
+box	node	Level 1 / Level 2A / Level 3A	812	105	158	265
+box	node	Level 1 / Level 2A / Level 3B	559	105	243	265
+box	node	Level 1 / Level 2B	20	70	519	310
+box	node	Level 1 / Level 2B / Level 3C	30	105	329	265
+box	node	Level 1 / Level 2B / Level 3D	369	105	160	265
+box	node	Level 1 / Level 2B / Level 3D / Level 4A	379	140	65	220
+box	node	Level 1 / Level 2B / Level 3D / Level 4B	454	140	65	220
+canvas	2	27	996	371
+font	Liberation Sans	174

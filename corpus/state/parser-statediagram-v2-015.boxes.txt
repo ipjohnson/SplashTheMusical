@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5ec827519cd39fb0
+box	edge	NewValuePreview --> NewValueSelection	236.359	140.5	5.953	135.5
+box	edge	NewValuePreview --> NewValueSelection #2	95.5	140.5	112.166	135.5
+box	edge	NewValueSelection --> NewValuePreview	265.053	135	104.134	135.5
+box	edge	State1 --> State2	242.313	361	0	18.5
+box	edge	[*]start@Configuring --> NewValueSelection	236.359	74	0	18.5
+box	edge-label	NewValuePreview --> NewValueSelection	174.813	195	134.375	21
+box	edge-label	NewValuePreview --> NewValueSelection #2	36	195	118.813	21
+box	edge-label	NewValueSelection --> NewValuePreview	329.188	195	79.125	21
+box	group	Configuring	71.5	12	321.688	458
+box	group	NewValuePreview	150.313	276	184	170
+box	node	NewValueSelection	168.172	98	136.375	37
+box	node	State1	174.313	324	136	37
+box	node	State2	174.313	385	136	37
+box	node	[*]start@Configuring	229.359	60	14	14
+canvas	28	4	388.313	474
+font	Liberation Sans	196

@@ -1,0 +1,29 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0e15d039fbbeacd3
+accept	yes
+connector	llm	LLM API
+direction	TD
+drawn	yes
+edge	city	research	sequence
+edge	render	brand	reference
+edge	research	write	sequence
+edge	researcher	designer	sequence
+flow	coffee_team	Coffee Team	designer,researcher
+flow	designer	Designer	brand,render
+flow	researcher	Researcher	city,research,write
+label	Coffee Team
+label	Designer
+label	LLM API
+label	Nordic Brand Guide
+label	Researcher
+label	city
+label	generate_html
+label	research_location
+label	write_copy
+node	brand	Nordic Brand Guide	lin-doc	refdoc
+node	city	city	lean-r	input
+node	render	generate_html	fr-rect	tool
+node	research	research_location	fr-rect	tool
+node	write	write_copy	fr-rect	tool
+type	agentflow

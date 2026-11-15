@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7a93a47f8874d17c
+accept	yes
+class	Animal	Animal
+class	Duck	Duck with text label
+drawn	yes
+relation	Animal	Duck	triangle	none	solid
+type	classDiagram

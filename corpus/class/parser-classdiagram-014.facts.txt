@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 624277a2cc109443
+accept	yes
+class	Ca-r	Ca-r
+drawn	yes
+type	classDiagram

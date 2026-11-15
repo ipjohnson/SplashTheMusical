@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 201a0912328e98f2
+accept	yes
+actor	DB	DB	participant
+actor	Service	Service	participant
+block	critical	Establish a connection to the DB
+divider	Credentials rejected
+divider	Network timeout
+drawn	yes
+message	Service	DB	dashed	none	connect
+message	Service	Service	dashed	none	Log different error
+message	Service	Service	dashed	none	Log error
+type	sequence

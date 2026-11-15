@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5c8462d01b6cbd7e
+box	event	2200 BC / The first metal objects are made in Britain.Some other nice things happen. it is a good time to be alive.	800	527.536	190	133.816
+box	event	2200 BC / The last major building works are completed at Stonehenge. People now bury their dead in stone circles.	800	366.12	190	151.416
+box	event	2300 BC / New styles of pottery and ways of burying the dead appear.	600	492.641	190	81.32
+box	event	2300 BC / People arrive from Europe and settle in Britain. They bring farming and metalworking.	600	366.12	190	116.52
+box	event	6000 BC / Sea levels rise and Britain becomes an island. The people who live here are hunter-gatherers.	400	366.12	190	134.12
+box	event	7600 BC / Britain's oldest known house was built in Orkney, Scotland	200	366.12	190	98.616
+box	period	2200 BC	800	166.12	190	66.12
+box	period	2300 BC	600	166.12	190	66.12
+box	period	6000 BC	400	166.12	190	66.12
+box	period	7600 BC	200	166.12	190	66.12
+box	section	Bronze Age	600	50	390	66.12
+box	section	Stone Age	200	50	390	66.12
+box	title	England's History Timeline	245	-10.358	431.936	37.947
+canvas	100	-61	1190	838.472
+font	Liberation Sans	1100

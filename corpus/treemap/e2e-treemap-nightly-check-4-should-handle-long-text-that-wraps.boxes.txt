@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ad720a6dcb2450cc
+box	node	Main Category	10	35	980	355
+box	node	Main Category / Short item	713	70	267	310
+box	node	Main Category / This is a very long item name that should wrap to the next line when rendered in the treemap diagram	20	70	683	310
+canvas	2	27	996	371
+font	Liberation Sans	258

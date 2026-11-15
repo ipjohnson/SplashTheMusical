@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7e94c33e07afb965
+box	legend	FAMILY	441	213	81.203	19
+box	legend	FRIENDS	441	191	96.625	19
+box	legend	NOSE	441	235	70.188	19
+box	slice	FAMILY	225	45.812	108.74	179.188
+box	slice	FRIENDS	225	40	46.008	185
+box	slice	NOSE	39.999	40	370	370
+box	title	What Voldemort doesn't have?	55.148	2	339.703	28
+canvas	0	0	586.625	450
+font	Liberation Sans	104

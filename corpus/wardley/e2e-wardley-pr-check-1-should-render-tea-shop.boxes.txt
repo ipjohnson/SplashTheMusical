@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 85cef20adc3672a4
+box	link	Business --> Cup of Tea	661.493	89.107	17.974	100.826
+box	link	Cup of Tea --> Cup	666.264	197.281	159.031	39.357
+box	link	Cup of Tea --> Hot Water	664.69	200.075	182.26	181.61
+box	link	Cup of Tea --> Tea	665.673	198.775	190.334	106.769
+box	link	Hot Water --> Kettle	405.342	386.753	439.916	61.693
+box	link	Hot Water --> Water	852.398	391.799	17.684	86.802
+box	link	Kettle --> Power	404.405	452.589	341.39	225.702
+box	link	Public --> Cup of Tea	665.448	86.505	160.664	106.03
+box	node	Business	658.301	74.412	44.438	11.225
+box	node	Cup	825.12	221.661	32.328	22.419
+box	node	Cup of Tea	654.44	183.421	73.143	18.418
+box	node	Hot Water	845.2	369.502	58.614	22.418
+box	node	Kettle	342.4	443.28	63	12.806
+box	node	Power	723.8	675.6	33	28.806
+box	node	Public	816.125	74.412	29.991	11.225
+box	node	Tea	855.24	292.062	30.114	22.418
+box	node	Water	865.28	468.062	40.286	22.418
+box	title	Tea Shop	522.114	16.108	55.773	14.031
+canvas	0	0	1100	800
+font	Liberation Sans	452

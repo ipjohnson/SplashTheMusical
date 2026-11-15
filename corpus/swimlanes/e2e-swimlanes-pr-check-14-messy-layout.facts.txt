@@ -1,0 +1,98 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cd9b03bdb1b8f0dd
+accept	yes
+drawn	yes
+edge	1	2	none	arrow	solid
+edge	10	11	none	arrow	solid
+edge	11	12	none	arrow	solid
+edge	12	13	none	arrow	solid
+edge	13	14	none	arrow	solid
+edge	14	15	none	arrow	solid
+edge	15	16	none	arrow	solid
+edge	16	17	none	arrow	solid
+edge	17	18	none	arrow	solid
+edge	18	19	none	arrow	solid
+edge	19	20	none	arrow	solid
+edge	2	3	none	arrow	solid
+edge	20	21	none	arrow	solid
+edge	21	22	none	arrow	solid
+edge	22	23	none	arrow	solid
+edge	23	24	none	arrow	solid
+edge	24	25	none	arrow	solid
+edge	25	26	none	arrow	solid
+edge	26	27	none	arrow	solid
+edge	27	28	none	arrow	solid
+edge	28	29	none	arrow	solid
+edge	29	30	none	arrow	solid
+edge	3	4	none	arrow	solid
+edge	30	31	none	arrow	solid
+edge	31	32	none	arrow	solid
+edge	32	33	none	arrow	solid	Warehouse
+edge	32	35	none	arrow	solid	Office
+edge	33	33a	none	arrow	solid	Trade
+edge	33	33b	none	arrow	solid	Non-Trade
+edge	33a	39	none	arrow	solid
+edge	33b	39	none	arrow	solid
+edge	35	36	none	arrow	solid
+edge	36	37	none	arrow	solid
+edge	37	38	none	arrow	solid
+edge	38	39	none	arrow	solid
+edge	4	5	none	arrow	solid
+edge	5	6	none	arrow	solid
+edge	6	7	none	arrow	solid
+edge	7	8	none	arrow	solid	Yes
+edge	7	9	none	arrow	solid	No
+edge	8	9	none	arrow	solid
+edge	9	10	none	arrow	solid
+group	BOD	BOD	22,23
+group	Department_Head	Department Head	19,4
+group	Finance_Head	Finance Head	27
+group	Finance_Manager	Finance Manager	21
+group	General_Manager	General Manager	20,28
+group	Requestor	Requestor	1,15,16,17,18,2,24,3,36,39
+group	Supplier	Supplier	10,30,31,32,37
+group	Supply_Chain_Associate	Supply Chain Associate	11,12,25,29,35,38,5,6,7,8,9
+group	Supply_Chain_Head	Supply Chain Head	13,14,26
+group	Warehouse	Warehouse	33,33a,33b
+node	1	START	stadium
+node	10	Responds to the RFQs	rect
+node	11	Update the RFQs based on the supplier's response	rect
+node	12	Submits the RFQs for Approval	rect
+node	13	Reviews and Approves all RFQs	rect
+node	14	Inform requestor for all information needed for EAF Note: Log Note in PR Request	rect
+node	15	Creates an EAF Request	rect
+node	16	Sets the Purchase Request field	rect
+node	17	Fills out the Expense line based on information given	rect
+node	18	Submits the EAF for Approval	rect
+node	19	Reviews and Approves the EAF	rect
+node	2	Creates a Purchase Request in Approvals	rect
+node	20	Reviews and Approves the EAF	rect
+node	21	Reviews and Approves the EAF	rect
+node	22	Reviews and Approves the EAF	rect
+node	23	Suggest the best Supplier based on all RFQs Note: Log Note in EAF Request	rect
+node	24	Inform Supply Chain Associate regarding the approved EAF Note: Log Note in PR Request	rect
+node	25	Submit chosen RFQ for Approval	rect
+node	26	Reviews and Approves the chosen RFQ	rect
+node	27	Reviews and Approves the chosen RFQ	rect
+node	28	Reviews and Approves the chosen RFQ Note: RFQ will be converted to PO	rect
+node	29	Sends the PO to the Supplier	rect
+node	3	Submits the PR for Approval	rect
+node	30	Responds to the PO	rect
+node	31	Delivers the Goods	rect
+node	32	Delivery Location	diam
+node	33	Trade or Non-Trade Goods?	diam
+node	33a	Perform - Receiving Trade Goods	fr-rect
+node	33b	Perform - Receiving Non-Trade Goods	fr-rect
+node	35	Sets the Requestor as Responsible in Receipt Transfer	rect
+node	36	Receives the Delivered Items	rect
+node	37	Sends SI and DR to Supply Chain Associate	rect
+node	38	Forwards SI and DR to Requestor Note: Log Note in PR Request	rect
+node	39	END	stadium
+node	4	Reviews and Approve the PR	rect
+node	5	Approves the PR	rect
+node	6	Creates a Request for Quotation based on the PR	rect
+node	7	Needs canvassing?	diam
+node	8	Creates 2 or more alternative RFQs	rect
+node	9	Sends all RFQs	rect
+type	swimlane

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5fa9f1e6f236b76b
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Carl	Carl	participant
+actor	D	Donald	actor
+drawn	yes
+message	Alice	Bob	solid	filled	Hello Bob, how are you ?
+message	Alice	Carl	solid	cross	We are too many
+message	Alice	Carl	solid	filled	Hi Carl!
+message	Bob	Alice	solid	filled	Fine, thank you. And you?
+message	Bob	Alice	solid	filled	I agree
+message	Carl	D	solid	filled	Hi!
+type	sequence

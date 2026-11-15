@@ -1,0 +1,68 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9eb5165f742865e
+layout	1
+graph	TB	50	20	125	8	8
+node	Drivers_start	Drivers	14	14
+node	Probe	Drivers	136	37
+node	Drivers		0	0
+edge	Drivers_start	Probe	edge3	1	1	0	0	10	c
+size	222	317
+place	Drivers_start	111	77.5	14	14
+place	Probe	111	228	136	37
+place	Drivers	111	158.5	206	301
+route	Drivers_start	Probe	edge3			111,84.5 111,147 111,209.5
+layout	2
+graph	TB	50	20	75	8	8
+node	Running_start	Running	14	14
+node	Serving	Running	136	37
+node	Running		0	0
+edge	Running_start	Serving	edge5	1	1	0	0	10	c
+size	222	217
+place	Running_start	111	52.5	14	14
+place	Serving	111	153	136	37
+place	Running	111	108.5	206	201
+route	Running_start	Serving	edge5			111,59.5 111,97 111,134.5
+layout	3
+graph	TB	50	20	100	8	8
+node	Kernel_start	Kernel	14	14
+node	Sched	Kernel	136	37
+node	Drivers	Kernel	206	301
+node	Kernel		0	0
+edge	Kernel_start	Sched	edge2	1	1	0	0	10	c
+size	478	531
+place	Kernel_start	111	65	14	14
+place	Sched	111	322.5	136	37
+place	Drivers	332	322.5	206	301
+place	Kernel	239	265.5	462	515
+route	Kernel_start	Sched	edge2			111,72 111,122 111,304
+layout	4
+graph	TB	50	20	75	8	8
+node	Boot_start	Boot	14	14
+node	Firmware	Boot	136	37
+node	Kernel	Boot	462	515
+node	Boot		0	0
+edge	Boot_start	Firmware	edge1	1	1	0	0	10	c
+size	734	695
+place	Boot_start	111	52.5	14	14
+place	Firmware	111	392	136	37
+place	Kernel	460	392	462	515
+place	Boot	367	347.5	718	679
+route	Boot_start	Firmware	edge1			111,59.5 111,97 111,373.5
+layout	5
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Boot		718	679
+node	Running		206	201
+node	root_end		14.013293266296387	14
+edge	root_start	Boot	edge0	1	1	0	0	10	c
+edge	Boot	Running	edge4	1	1	0	0	10	c
+edge	Running	root_end	edge6	1	1	0	0	10	c
+size	734	1074
+place	root_start	367	15	14	14
+place	Boot	367	411.5	718	679
+place	Running	367	901.5	206	201
+place	root_end	367	1059	14.013293266296387	14
+route	root_start	Boot	edge0			367,22 367,47 367,72
+route	Boot	Running	edge4			367,751 367,776 367,801
+route	Running	root_end	edge6			367,1002 367,1027 367,1052

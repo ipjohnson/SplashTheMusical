@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 51c6dff27ae91537
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	actor
+actor	Charlie	Charlie	boundary
+actor	David	David	control
+actor	Eve	Eve	entity
+drawn	yes
+message	Alice	Bob	solid	filled	To actor
+message	Bob	Charlie	dashed	filled	To boundary
+message	Charlie	David	solid	filled	To control
+message	David	Eve	dashed	filled-both	To entity
+message	Eve	Alice	solid	cross	Back to participant
+type	sequence

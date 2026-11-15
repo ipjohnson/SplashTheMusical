@@ -1,0 +1,17 @@
+architecture-beta
+group k8s(cloud)[k8s]
+group ech(cloud)[ECH]
+
+service edot(server)[EDOT] in k8s
+service oteldemo(server)[OtelDemo] in k8s
+service es(server)[Elasticsearch] in ech
+service kbn(server)[Kibana] in ech
+service apm(server)[APM] in ech
+
+junction otlp
+
+edot:L -- R:otlp
+otlp:L -- T:apm
+oteldemo:L -- R:edot
+kbn:L -- T:es
+apm:L -- R:es

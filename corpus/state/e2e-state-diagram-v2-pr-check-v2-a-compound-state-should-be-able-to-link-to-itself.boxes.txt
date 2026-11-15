@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 90e226a62a6c1f18
+box	edge	Active --> Active	76	150	154.789	159
+box	edge	Inactive --> Idle	104	49	0	173.5
+box	edge-label	Active --> Active	216	224	29.578	21
+box	edge-label	Inactive --> Idle	90	89	28	21
+box	group	Active	12	180	184	109
+box	node	Idle	36	228	136	37
+box	node	Inactive	36	12	136	37
+canvas	4	4	249.578	313
+font	Liberation Sans	48

@@ -1,0 +1,48 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fa6b266201b56ece
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-VersioningSystem-0		152.0625	81
+node	entity-SemVersion-1		115.484375	81
+node	entity-Product-2		100	81
+node	entity-Repository-3		106.921875	81
+node	entity-Applicability-4		113.9375	81
+node	entity-ApplicabilityEntry-5		146.609375	81
+node	entity-ProductLifecycle-6		142.71875	81
+node	entity-VersionSpec-7		118.609375	81
+node	entity-ProductRelease-8		139.625	81
+node	entity-ChangelogLifecycle-9		162.203125	81
+edge	entity-VersioningSystem-0	entity-SemVersion-1	id_entity-VersioningSystem-0_entity-SemVersion-1_0	1	1	30.359375	21	10	c
+edge	entity-VersioningSystem-0	entity-SemVersion-1	id_entity-VersioningSystem-0_entity-SemVersion-1_1	1	1	43.578125	21	10	c
+edge	entity-Product-2	entity-VersioningSystem-0	id_entity-Product-2_entity-VersioningSystem-0_2	1	1	63.828125	21	10	c
+edge	entity-Product-2	entity-Repository-3	id_entity-Product-2_entity-Repository-3_3	1	1	61.46875	21	10	c
+edge	entity-Applicability-4	entity-ApplicabilityEntry-5	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	1	1	45.921875	21	10	c
+edge	entity-ApplicabilityEntry-5	entity-ProductLifecycle-6	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	1	1	49.796875	21	10	c
+edge	entity-ApplicabilityEntry-5	entity-VersionSpec-7	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	1	1	45.140625	21	10	c
+edge	entity-ApplicabilityEntry-5	entity-VersioningSystem-0	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	1	1	93.375	21	10	c
+edge	entity-ProductRelease-8	entity-Product-2	id_entity-ProductRelease-8_entity-Product-2_8	1	1	46.703125	21	10	c
+edge	entity-ProductRelease-8	entity-ChangelogLifecycle-9	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	1	1	49.796875	21	10	c
+edge	entity-ChangelogLifecycle-9	entity-ProductLifecycle-6	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	1	1	49.8125	21	10	c
+size	1153.55078125	643
+place	entity-VersioningSystem-0	89.21484375	412.5	152.0625	81
+place	entity-SemVersion-1	89.21484375	594.5	115.484375	81
+place	entity-Product-2	257.11328125	230.5	100	81
+place	entity-Repository-3	358.70703125	412.5	106.921875	81
+place	entity-Applicability-4	622.76953125	48.5	113.9375	81
+place	entity-ApplicabilityEntry-5	722.25	230.5	146.609375	81
+place	entity-ProductLifecycle-6	769.97265625	412.5	142.71875	81
+place	entity-VersionSpec-7	1086.24609375	412.5	118.609375	81
+place	entity-ProductRelease-8	917.17578125	48.5	139.625	81
+place	entity-ChangelogLifecycle-9	1052.5078125	230.5	162.203125	81
+route	entity-VersioningSystem-0	entity-SemVersion-1	id_entity-VersioningSystem-0_entity-SemVersion-1_0	60.73046875	503.5	76.53773179945055,453 60.73046875,503.5 76.53773179945055,554
+route	entity-VersioningSystem-0	entity-SemVersion-1	id_entity-VersioningSystem-0_entity-SemVersion-1_1	117.69921875	503.5	101.89195570054945,453 117.69921875,503.5 101.89195570054945,554
+route	entity-Product-2	entity-VersioningSystem-0	id_entity-Product-2_entity-VersioningSystem-0_2	39.9140625	321.5	207.11328125,251.4485099724835 39.9140625,321.5 67.27328725961539,372
+route	entity-Product-2	entity-Repository-3	id_entity-Product-2_entity-Repository-3_3	358.70703125	321.5	302.3280820741758,271 358.70703125,321.5 358.70703125,372
+route	entity-Applicability-4	entity-ApplicabilityEntry-5	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	722.25	139.5	667.0438058035714,89 722.25,139.5 722.25,190
+route	entity-ApplicabilityEntry-5	entity-ProductLifecycle-6	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	622.76953125	321.5	677.9757254464286,271 622.76953125,321.5 704.4591775412088,372
+route	entity-ApplicabilityEntry-5	entity-VersionSpec-7	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	1086.24609375	321.5	795.5546875,248.82636854361846 1086.24609375,321.5 1086.24609375,372
+route	entity-ApplicabilityEntry-5	entity-VersioningSystem-0	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	175.25	321.5	648.9453125,242.69511254570384 175.25,321.5 127.50521548763737,372
+route	entity-ProductRelease-8	entity-Product-2	id_entity-ProductRelease-8_entity-Product-2_8	257.11328125	139.5	847.36328125,58.12475144399205 257.11328125,139.5 257.11328125,190
+route	entity-ProductRelease-8	entity-ChangelogLifecycle-9	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	1052.5078125	139.5	977.4059709821429,89 1052.5078125,139.5 1052.5078125,190
+route	entity-ChangelogLifecycle-9	entity-ProductLifecycle-6	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	917.17578125	321.5	992.2776227678571,271 917.17578125,321.5 835.4861349587912,372

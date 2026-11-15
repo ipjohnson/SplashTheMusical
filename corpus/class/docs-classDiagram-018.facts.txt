@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 570ea6adde22d184
+accept	yes
+attribute	Rectangle	double height
+attribute	Rectangle	double width
+class	Rectangle	Rectangle
+class	Triangle	Triangle
+drawn	yes
+namespace	BaseShapes	Rectangle,Triangle
+type	classDiagram

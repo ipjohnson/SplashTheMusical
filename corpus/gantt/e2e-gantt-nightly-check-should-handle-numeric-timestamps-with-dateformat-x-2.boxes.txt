@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source af45ed244881bbfc
+box	section	Pipeline	10	56	39.141	12.283
+box	task	Pipeline / Parse JSON p1	75	50	634	20
+box	task-text	Pipeline / Parse JSON p1	353.789	53.5	76.422	12.283
+box	title	Process time profile (ms)	292.477	9	199.047	20
+canvas	0	0	784	124
+font	Liberation Sans	2978

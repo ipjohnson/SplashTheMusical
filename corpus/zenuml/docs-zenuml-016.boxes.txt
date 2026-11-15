@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a12b47cbe7adaf2
+box	fragment	try	1.313	106.5	464.688	270
+box	message	API --> BookingService	191.313	179	199.688	19.25
+box	message	API --> BookingService #2	191.313	333	199.688	19.25
+box	message	API --> Consumer	51.313	256	159.688	19.25
+box	message	Consumer --> API	51.313	147	159.688	19.25
+box	participant	API	172	63	78	38
+box	participant	BookingService	328.414	63	125.172	38
+box	participant	Consumer	27.098	63	87.805	38
+canvas	0	0	477.5	434
+font	Liberation Sans	230

@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 52c1fe35e1cc1c58
+layout	1
+graph	TB	50	20	50	8	8
+node	disk		152	66
+node	v1Load		152	87
+node	uriResolve		152	108
+node	v1Nodes		169.75	66
+node	hasV2		192	192
+node	loadV2		152	87
+node	loadFallback		152	108
+node	v2Nodes		169.75	66
+node	v2NodesFallback		169.75	87
+edge	disk	v1Load	L_disk_v1Load_0	1	1	0	0	10	c
+edge	disk	uriResolve	L_disk_uriResolve_0	1	1	0	0	10	c
+edge	v1Load	v1Nodes	L_v1Load_v1Nodes_0	1	1	0	0	10	c
+edge	uriResolve	hasV2	L_uriResolve_hasV2_0	1	1	0	0	10	c
+edge	hasV2	loadV2	L_hasV2_loadV2_0	1	1	22.84375	21	10	c
+edge	hasV2	loadFallback	L_hasV2_loadFallback_0	1	1	17.90625	21	10	c
+edge	loadV2	v2Nodes	L_loadV2_v2Nodes_0	1	1	0	0	10	c
+edge	loadFallback	v2NodesFallback	L_loadFallback_v2NodesFallback_0	1	1	0	0	10	c
+size	526.5	798
+place	disk	208.3125	41	152	66
+place	v1Load	92.875	178	152	87
+place	uriResolve	323.75	178	152	108
+place	v1Nodes	92.875	378	169.75	66
+place	hasV2	323.75	378	192	192
+place	loadV2	213.875	599	152	87
+place	loadFallback	433.625	599	152	108
+place	v2Nodes	213.875	746.5	169.75	66
+place	v2NodesFallback	433.625	746.5	169.75	87
+route	disk	v1Load	L_disk_v1Load_0			142.63254310344826,74 92.875,99 92.875,134.5
+route	disk	uriResolve	L_disk_uriResolve_0			273.99245689655174,74 323.75,99 323.75,124
+route	v1Load	v1Nodes	L_v1Load_v1Nodes_0			92.875,221.5 92.875,257 92.875,345
+route	uriResolve	hasV2	L_uriResolve_hasV2_0			323.75,232 323.75,257 323.75,282
+route	hasV2	loadV2	L_hasV2_loadV2_0	213.875	509.5	243.53707224334602,474 213.875,509.5 213.875,555.5
+route	hasV2	loadFallback	L_hasV2_loadFallback_0	433.625	509.5	403.962927756654,474 433.625,509.5 433.625,545
+route	loadV2	v2Nodes	L_loadV2_v2Nodes_0			213.875,642.5 213.875,678 213.875,713.5
+route	loadFallback	v2NodesFallback	L_loadFallback_v2NodesFallback_0			433.625,653 433.625,678 433.625,703

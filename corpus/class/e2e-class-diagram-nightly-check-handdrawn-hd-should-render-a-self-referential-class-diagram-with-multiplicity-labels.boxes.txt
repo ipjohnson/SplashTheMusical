@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0536dae1125060e6
+box	class	SelfReferential	103.086	12.107	249.063	159.661
+box	relation	SelfReferential --> SelfReferential	82.444	69.048	20.587	45.567
+box	relation-label	SelfReferential --> SelfReferential	12	58.831	66.938	21
+canvas	4	4.107	356.149	175.661
+font	Liberation Sans	176

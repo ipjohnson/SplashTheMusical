@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9af5cd838dae8a91
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+block	alt	-:<>,
+divider	,<>:-
+drawn	yes
+message	Alice	Bob	solid	none	Hello Bob, how are you?
+message	Bob	Alice	dashed	none	I am good thanks!
+message	Bob	Alice	dashed	none	I am good thanks!
+type	sequence

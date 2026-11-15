@@ -1,0 +1,37 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02a39e38dd571800
+layout	1
+graph	TB	50	20	125	8	8
+node	User	Company.Project.Module	305.3046875	141
+node	Admin	Company.Project.Module	204.109375	162
+node	Report	Company.Project.Module	243.828125	141
+node	Company.Project.Module		0	0
+edge	Admin	User	id_Admin_User_1	1	1	57.59375	21	10	c
+edge	Admin	Report	id_Admin_Report_2	1	1	62.28125	21	10	c
+size	685.1328125	590
+place	User	195.65234375	449	305.3046875	141
+place	Admin	357.935546875	151.5	204.109375	162
+place	Report	520.21875	449	243.828125	141
+place	Company.Project.Module	342.56640625	295	669.1328125	574
+route	Admin	User	id_Admin_User_1	195.65234375	305.5	272.5787971793831,232.5 195.65234375,305.5 195.65234375,378.5
+route	Admin	Report	id_Admin_Report_2	520.21875	305.5	443.2922965706169,232.5 520.21875,305.5 520.21875,378.5
+layout	2
+graph	TB	50	20	100	8	8
+node	Company.Project.Module	Company.Project	669.1328125	574
+node	Company.Project		0	0
+size	755.1328125	690
+place	Company.Project.Module	377.56640625	345	669.1328125	574
+place	Company.Project	377.56640625	345	739.1328125	674
+layout	3
+graph	LR	50	20	75	8	8
+node	Company.Project	Company	739.1328125	674
+node	Company		0	0
+size	830.1328125	760
+place	Company.Project	415.06640625	380	739.1328125	674
+place	Company	415.06640625	380	814.1328125	744
+layout	4
+graph	TB	50	20	50	8	8
+node	Company		814.1328125	744
+size	830.1328125	760
+place	Company	415.06640625	380	814.1328125	744

@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ccd74a06c4a38a48
+accept	yes
+drawn	yes
+label	.gitignore
+node	.gitignore	file
+type	treeView

@@ -1,0 +1,59 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1047e274aebf166b
+layout	1
+graph	TB	50	20	125	8	8
+node	State1	NewValuePreview	136	37
+node	State2	NewValuePreview	136	37
+node	NewValuePreview		0	0
+edge	State1	State2	edge8	1	1	0	0	10	c
+size	222	340
+place	State1	111	89	136	37
+place	State2	111	251	136	37
+place	NewValuePreview	111	170	206	324
+route	State1	State2	edge8			111,107.5 111,170 111,232.5
+layout	2
+graph	TB	50	20	100	8	8
+node	Configuring_start	Configuring	14	14
+node	NewValueSelection	Configuring	136.375	37
+node	NewValuePreview	Configuring	206	324
+node	Configuring		0	0
+edge	Configuring_start	NewValueSelection	edge4	1	1	0	0	10	c
+edge	NewValueSelection	NewValuePreview	edge5	1	1	79.125	21	10	c
+edge	NewValuePreview	NewValueSelection	edge6	1	1	134.375	21	10	c
+edge	NewValuePreview	NewValueSelection	edge7	1	1	118.8125	21	10	c
+size	472.09375	712
+place	Configuring_start	216.125	65	14	14
+place	NewValueSelection	216.125	190.5	136.375	37
+place	NewValuePreview	216.125	492	206	324
+place	Configuring	231.0078125	356	446.015625	696
+route	Configuring_start	NewValueSelection	edge4			216.125,72 216.125,122 216.125,172
+route	NewValueSelection	NewValuePreview	edge5	89.375	269.5	186.44303797468353,209 89.375,269.5 123.83960674157304,330
+route	NewValuePreview	NewValueSelection	edge6	216.125	269.5	216.125,330 216.125,269.5 216.125,209
+route	NewValuePreview	NewValueSelection	edge7	362.71875	269.5	319.125,335.6665956086122 362.71875,269.5 250.4539161392405,209
+layout	3
+graph	TB	50	20	75	8	8
+node	NotShooting_start	NotShooting	14	14
+node	Idle	NotShooting	136	37
+node	Configuring	NotShooting	446.015625	696
+node	NotShooting		0	0
+edge	NotShooting_start	Idle	edge1	1	1	0	0	10	c
+edge	Idle	Configuring	edge2	1	1	56.8125	21	10	c
+edge	Configuring	Idle	edge3	1	1	56.8125	21	10	c
+size	532.015625	1009
+place	NotShooting_start	266.0078125	52.5	14	14
+place	Idle	266.0078125	153	136	37
+place	Configuring	266.0078125	615.5	446.015625	696
+place	NotShooting	266.0078125	504.5	516.015625	993
+route	NotShooting_start	Idle	edge1			266.0078125,59.5 266.0078125,97 266.0078125,134.5
+route	Idle	Configuring	edge2	161.20703125	219.5	236.85270794172934,171.5 161.20703125,219.5 173.91015625,267.5
+route	Configuring	Idle	edge3	370.80859375	219.5	358.10546875,267.5 370.80859375,219.5 295.1629170582707,171.5
+layout	4
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	NotShooting		516.015625	993
+edge	root_start	NotShooting	edge0	1	1	0	0	10	c
+size	532.015625	1073
+place	root_start	266.0078125	15	14	14
+place	NotShooting	266.0078125	568.5	516.015625	993
+route	root_start	NotShooting	edge0			266.0078125,22 266.0078125,47 266.0078125,72

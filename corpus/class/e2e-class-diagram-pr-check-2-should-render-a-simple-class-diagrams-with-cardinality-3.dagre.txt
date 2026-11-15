@@ -1,0 +1,46 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0c98dc9ebb29e752
+layout	1
+graph	TB	50	20	50	8	8
+node	Class01		136.875	177
+node	AveryLongClass		133.96875	81
+node	Class03		76.9375	81
+node	Class04		76.9375	81
+node	Class05		76.9375	81
+node	Class06		76.9375	81
+node	Class07		181.984375	135
+node	Class08		76.9375	81
+node	Class09		76.9375	81
+node	C2		41.90625	81
+node	C3		41.90625	81
+node	Class10		127.53125	156
+edge	Class01	AveryLongClass	id_Class01_AveryLongClass_1	1	1	28.796875	21	10	c
+edge	Class03	Class04	id_Class03_Class04_2	1	1	0	0	10	c
+edge	Class05	Class06	id_Class05_Class06_3	1	1	0	0	10	c
+edge	Class07	Class08	id_Class07_Class08_4	1	1	0	0	10	c
+edge	Class09	C2	id_Class09_C2_5	1	1	79.359375	21	10	c
+edge	Class09	C3	id_Class09_C3_6	1	1	0	0	10	c
+edge	Class09	Class07	id_Class09_Class07_7	1	1	0	0	10	c
+edge	Class08	C2	id_Class08_C2_8	1	1	62.265625	21	10	c
+size	750.640625	703
+place	Class01	76.4375	96.5	136.875	177
+place	AveryLongClass	76.4375	323.5	133.96875	81
+place	Class03	233.34375	96.5	76.9375	81
+place	Class04	233.34375	323.5	76.9375	81
+place	Class05	360.28125	96.5	76.9375	81
+place	Class06	360.28125	323.5	76.9375	81
+place	Class07	651.6484375	323.5	181.984375	135
+place	Class08	651.6484375	502.5	76.9375	81
+place	Class09	489.703125	96.5	76.9375	81
+place	C2	493.31640625	654.5	41.90625	81
+place	C3	489.703125	323.5	41.90625	81
+place	Class10	641.9375	96.5	127.53125	156
+route	Class01	AveryLongClass	id_Class01_AveryLongClass_1	76.4375	220.5	76.4375,185 76.4375,220.5 76.4375,283
+route	Class03	Class04	id_Class03_Class04_2			233.34375,137 233.34375,220.5 233.34375,283
+route	Class05	Class06	id_Class05_Class06_3			360.28125,137 360.28125,220.5 360.28125,283
+route	Class07	Class08	id_Class07_Class08_4			651.6484375,391 651.6484375,426.5 651.6484375,462
+route	Class09	C2	id_Class09_C2_5	433.75	426.5	471.42811239919354,137 433.75,220.5 433.75,323.5 433.75,426.5 433.75,502.5 433.75,578.5 472.36328125,627.7661813889436
+route	Class09	C3	id_Class09_C3_6			489.703125,137 489.703125,220.5 489.703125,283
+route	Class09	Class07	id_Class09_Class07_7			528.171875,125.95515943846785 651.6484375,220.5 651.6484375,256
+route	Class08	C2	id_Class08_C2_8	651.6484375	578.5	651.6484375,543 651.6484375,578.5 514.26953125,644.4424172896158

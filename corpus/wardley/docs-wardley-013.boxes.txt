@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 78f1f8e0586b761b
+box	node	Custom Solution	444	358.416	87.363	23.184
+box	node	Novel Idea	202.8	509.616	61.803	23.184
+box	node	Product	604.8	207.216	48.475	23.184
+box	node	Utility	765.6	56.016	38.449	23.184
+box	stage	0	107.37	558.816	82.26	11.48
+box	stage	1	306.711	558.816	85.578	11.48
+box	stage	2	503.531	558.816	93.937	11.48
+box	stage	3	701.482	558.816	100.036	11.48
+box	title	Dual Label Stages	395.758	15.839	108.484	14.149
+canvas	0	0	900	600
+font	Liberation Sans	298

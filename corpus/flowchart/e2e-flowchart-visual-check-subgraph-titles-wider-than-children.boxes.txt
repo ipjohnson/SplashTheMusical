@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5e74f7bcd6a33e6b
+box	edge	app --> infra	700.906	103.75	155.828	57.75
+box	edge	design --> app	400	155.5	144.906	105.25
+box	edge	org --> platform	164	12	668.734	109.75
+box	edge	org --> product	164	74.25	356.906	99.25
+box	edge	org --> shared	164	87	56	103.75
+box	group	platform	836.734	39.25	228.203	117
+box	group	product	524.906	91	229.828	117
+box	group	shared	224	95.25	218.906	212
+box	node	app	548.906	139	152	45
+box	node	design	248	238.25	152	45
+box	node	icons	248	143.25	152	45
+box	node	infra	860.734	87.25	152	45
+box	node	org	12	58.25	152	45
+canvas	4	4	1068.938	311.25
+font	Liberation Sans	244

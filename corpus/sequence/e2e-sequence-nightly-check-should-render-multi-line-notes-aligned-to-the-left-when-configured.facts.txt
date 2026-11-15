@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2a2482ffc239a4f7
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+drawn	yes
+message	Alice	Bob	solid	filled	I'm short
+message	Bob	Alice	solid	filled	Short as well
+note	left	Alice	I am left aligned but also multiline
+type	sequence

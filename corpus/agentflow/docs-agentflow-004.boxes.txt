@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 72ddb9fc72ab937a
+box	edge	brief --> draft	189	102.623	45	0
+box	edge	draft --> guide	388	107.79	40	39.956
+box	edge	draft --> spellcheck	388	57.5	37.6	39.956
+box	edge	spellcheck --> publish	593.6	57.5	37.6	0
+box	node	brief	12	84.623	186	36
+box	node	draft	238	77.123	150	51
+box	node	guide	428	113.996	167.2	67.492
+box	node	publish	635.2	12	204	91
+box	node	spellcheck	429.6	41	164	33
+canvas	4	4	843.2	185.488
+font	Liberation Sans	88

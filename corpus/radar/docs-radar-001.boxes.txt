@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3e866a35e9ee4a7a
+box	axis	Art	58.394	179.5	15.344	14
+box	axis	English	626.262	507.297	39.359	14
+box	axis	Geography	14.363	507.297	59.375	14
+box	axis	History	331.328	666.797	37.344	14
+box	axis	Math	336.656	20	26.688	14
+box	axis	Science	626.262	179.5	42.703	14
+box	curve	Alice	102.456	95	499.222	465.036
+box	curve	Bob	93.007	139.832	494.176	450.195
+box	legend	Alice	612.5	85.297	42.016	14.203
+box	legend	Bob	612.5	105.297	37.359	14.203
+canvas	0	0	700	700
+font	Liberation Sans	102

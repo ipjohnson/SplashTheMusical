@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c0dde566be4a05ef
+box	section	Polish	10	116	29.969	12
+box	section	Render	10	68	36.078	12
+box	task	Polish / Update docs	651	122	58	20
+box	task	Polish / Update tests	536	98	115	20
+box	task	Render / Print this page	306	74	230	20
+box	task	Render / Spike the renderer	75	50	231	20
+box	task-text	Polish / Update docs	584.234	125.5	61.766	12.283
+box	task-text	Polish / Update tests	562.617	101.5	61.766	12.283
+box	task-text	Render / Print this page	385.836	77.5	70.328	12.283
+box	task-text	Render / Spike the renderer	145.25	53.5	90.5	12.283
+box	title	Shipping this file	326.453	9	131.094	20
+canvas	0	0	784	196
+font	Liberation Sans	412

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fe0b5d9267e0c9d4
+box	class	CEO	273.703	132	54.344	81
+box	class	Developer	84	156	91.703	81
+box	namespace	Company	12	12	340.047	297
+box	namespace	Company.Engineering	36	60	187.703	225
+box	namespace	Company.Engineering.Backend	60	108	139.703	153
+canvas	4	4	356.047	313
+font	Liberation Sans	74

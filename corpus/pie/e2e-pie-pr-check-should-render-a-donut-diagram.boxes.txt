@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 183e2511c066934a
+box	legend	Eat	441	213	47.531	19
+box	legend	Roam	441	235	67.359	19
+box	legend	Sleep	441	191	65.484	19
+box	slice	Eat	64.785	46.304	141.062	141.696
+box	slice	Roam	177.118	40	47.882	113.521
+box	slice	Sleep	40	40	370	370
+box	title	What Koalas Do In A Day	84.648	2	280.703	28.188
+canvas	0	0	557.359	450
+font	Liberation Sans	86

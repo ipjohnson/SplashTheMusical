@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2defd2e6e7fd7d4e
+box	section	new intern	10	176	50.766	12
+box	section	team's critical event	10	80	96.25	12
+box	task	new intern / chilling	450	194	57	20
+box	task	new intern / literature review	75	146	144	20
+box	task	new intern / onboarding	75	122	101	20
+box	task	new intern / project A	219	170	231	20
+box	task	new intern / project B	507	218	202	20
+box	task	team's critical event / boss on leave	450	98	201	20
+box	task	team's critical event / deadline A	495.686	48.686	22.627	22.627
+box	task	team's critical event / deadline B	697.686	72.686	22.627	22.627
+box	task-text	new intern / chilling	461.68	197.5	33.641	12.283
+box	task-text	new intern / literature review	108.18	149.5	77.666	12
+box	task-text	new intern / onboarding	97.969	125.5	55.063	12.283
+box	task-text	new intern / project A	313.094	173.5	42.813	12.283
+box	task-text	new intern / project B	586.289	221.5	43.422	12.283
+box	task-text	team's critical event / boss on leave	516.555	101.5	67.891	12
+box	task-text	team's critical event / deadline A	522	53.5	51.594	12
+box	task-text	team's critical event / deadline B	642	77.5	52	12
+box	title	Adding GANTT diagram to mermaid	248.609	9	286.781	20
+canvas	0	0	784	292
+font	Liberation Sans	356

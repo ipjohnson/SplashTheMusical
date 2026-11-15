@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e367fb06790da27d
+box	link	foo-bar --> baz	294.284	252.787	231.033	144.826
+box	node	baz	524.4	232.416	30.126	23.184
+box	node	foo-bar	283.2	383.616	45.695	23.184
+canvas	0	0	900	600
+font	Liberation Sans	128

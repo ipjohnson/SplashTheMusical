@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 909c0ecf2ca8bc3d
+accept	yes
+drawn	yes
+label	ash
+slice	ash	100
+type	pie

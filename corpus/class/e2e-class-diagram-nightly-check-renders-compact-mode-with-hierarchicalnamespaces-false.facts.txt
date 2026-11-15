@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 191a8124ddc624a7
+accept	yes
+class	CEO	CEO
+class	Designer	Designer
+class	Developer	Developer
+drawn	yes
+method	CEO	+makeDecisions()
+method	Designer	+createMockup()
+method	Developer	+writeCode()
+namespace	Company	CEO
+namespace	Company.Engineering.Backend	Developer
+namespace	Company.Engineering.Frontend	Designer
+relation	CEO	Designer	none	arrow	solid	oversees
+relation	CEO	Developer	none	arrow	solid	oversees
+type	classDiagram

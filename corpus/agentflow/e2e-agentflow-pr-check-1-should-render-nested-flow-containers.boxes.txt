@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bcf1ea55dd416b5b
+box	edge	evaluate --> risk	630	181.5	20	0
+box	edge	extract --> assess	432	169.5	20	0
+box	edge	receive_pr --> analysis	234	181.5	20	0
+box	flow	assess	456	108	372	123
+box	flow	extract	60	108	372	123
+box	flow	pipeline	36	60	816	195
+box	flow	review_agent	12	12	864	267
+box	node	analysis	258	156	150	51
+box	node	evaluate	480	156	150	51
+box	node	receive_pr	84	156	150	51
+box	node	risk	654	156	150	51
+canvas	4	4	880	283
+font	Liberation Sans	208

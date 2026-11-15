@@ -1,0 +1,28 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d4f0d635a88286d9
+accept	yes
+drawn	yes
+edge	clock	ledger	none	arrow	solid
+edge	db	effects	none	arrow	dotted	committed effects
+edge	db	readers	none	arrow	dotted
+edge	db	scheduler	none	arrow	dotted	ready items, live sessions
+edge	effects	targets	none	arrow	solid
+edge	ledger	db	none	arrow	solid	commit
+edge	peer	ledger	none	arrow	dotted
+edge	runner	ledger	none	arrow	solid
+edge	scheduler	ledger	none	arrow	solid	start
+edge	watcher	ledger	none	arrow	solid
+edge	you	ledger	none	arrow	solid
+node	clock	Clock retry due, park due, time limit	rect
+node	db	driver.db SQLite, WAL, synchronous=FULL	cyl
+node	effects	EffectRunner runs the committed effects	rect
+node	ledger	Ledger, the only writer WorkMachine.Next and Policy	rect
+node	peer	Peer link parent or Room, later	rect
+node	readers	Readers API, app, hooks	rect
+node	runner	SessionRunner exit, question, output, lost	rect
+node	scheduler	Scheduler loop settle, select, launch, supervise	rect
+node	targets	SessionRunner, git, GitHub, inbox	rect
+node	watcher	GitHub watcher issues, pull requests, checks	rect
+node	you	You app, API, MCP tools	rect
+type	flowchart-v2

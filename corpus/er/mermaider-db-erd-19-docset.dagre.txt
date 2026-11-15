@@ -1,0 +1,104 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d63a6ade5616d0c8
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-TableOfContents-1		144.296875	81
+node	entity-TocItem-2		100	81
+node	entity-NestedTocItem-3		133.375	81
+node	entity-FileItem-4		100	81
+node	entity-Page-5		100	81
+node	entity-FolderItem-6		106.921875	81
+node	entity-IndexFileItem-7		124.046875	81
+node	entity-CrossLinkItem-8		129.46875	81
+node	entity-CrossLinkUri-9		120.125	81
+node	entity-Cta-10		100	81
+node	entity-Substitution-11		113.171875	81
+node	entity-CrossLinkDeclaration-12		173.0625	81
+node	entity-Repository-13		106.921875	81
+node	entity-Registry-14		100	81
+node	entity-Redirect-15		92.140625	81
+node	entity-ApiDeclaration-16		131.0625	81
+node	entity-Product-17		100	81
+node	entity-ReleaseNotesSubscription-18		204.984375	81
+node	entity-CodexGroup-19		119.390625	81
+node	entity-FeatureToggle-20		129.515625	81
+node	entity-HintSuppression-21		142.734375	81
+node	entity-TocItem-2---entity-TocItem-2---1		0.10000000149011612	0.10000000149011612
+node	entity-TocItem-2---entity-TocItem-2---2		0.10000000149011612	0.10000000149011612
+edge	entity-DocumentationSet-0	entity-TableOfContents-1	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	1	1	18.6875	21	10	c
+edge	entity-TableOfContents-1	entity-TocItem-2	id_entity-TableOfContents-1_entity-TocItem-2_1	1	1	64.59375	21	10	c
+edge	entity-TocItem-2	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2-cyclic-special-0	1	1	0	0	10	c
+edge	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2-cyclic-special-1	1	1	49.03125	21	10	c
+edge	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2	entity-TocItem-2-cyclic-special-2	1	1	0	0	10	c
+edge	entity-NestedTocItem-3	entity-TableOfContents-1	id_entity-NestedTocItem-3_entity-TableOfContents-1_3	1	1	98.046875	21	10	c
+edge	entity-FileItem-4	entity-Page-5	id_entity-FileItem-4_entity-Page-5_4	1	1	17.90625	21	10	c
+edge	entity-FolderItem-6	entity-IndexFileItem-7	id_entity-FolderItem-6_entity-IndexFileItem-7_5	1	1	33.46875	21	10	c
+edge	entity-CrossLinkItem-8	entity-CrossLinkUri-9	id_entity-CrossLinkItem-8_entity-CrossLinkUri-9_6	1	1	54.46875	21	10	c
+edge	entity-TocItem-2	entity-Cta-10	id_entity-TocItem-2_entity-Cta-10_7	1	1	68.5	21	10	c
+edge	entity-DocumentationSet-0	entity-Substitution-11	id_entity-DocumentationSet-0_entity-Substitution-11_8	1	1	29.578125	21	10	c
+edge	entity-DocumentationSet-0	entity-Cta-10	id_entity-DocumentationSet-0_entity-Cta-10_9	1	1	18.6875	21	10	c
+edge	entity-DocumentationSet-0	entity-Cta-10	id_entity-DocumentationSet-0_entity-Cta-10_10	1	1	68.5	21	10	c
+edge	entity-DocumentationSet-0	entity-CrossLinkDeclaration-12	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-12_11	1	1	69.25	21	10	c
+edge	entity-CrossLinkDeclaration-12	entity-Repository-13	id_entity-CrossLinkDeclaration-12_entity-Repository-13_12	1	1	100.390625	21	10	c
+edge	entity-CrossLinkDeclaration-12	entity-Registry-14	id_entity-CrossLinkDeclaration-12_entity-Registry-14_13	1	1	95.703125	21	10	c
+edge	entity-DocumentationSet-0	entity-Redirect-15	id_entity-DocumentationSet-0_entity-Redirect-15_14	1	1	79.359375	21	10	c
+edge	entity-DocumentationSet-0	entity-ApiDeclaration-16	id_entity-DocumentationSet-0_entity-ApiDeclaration-16_15	1	1	18.6875	21	10	c
+edge	entity-ApiDeclaration-16	entity-Product-17	id_entity-ApiDeclaration-16_entity-Product-17_16	1	1	46.703125	21	10	c
+edge	entity-DocumentationSet-0	entity-ReleaseNotesSubscription-18	id_entity-DocumentationSet-0_entity-ReleaseNotesSubscription-18_17	1	1	87.953125	21	10	c
+edge	entity-ReleaseNotesSubscription-18	entity-Product-17	id_entity-ReleaseNotesSubscription-18_entity-Product-17_18	1	1	46.703125	21	10	c
+edge	entity-DocumentationSet-0	entity-Product-17	id_entity-DocumentationSet-0_entity-Product-17_19	1	1	53.703125	21	10	c
+edge	entity-DocumentationSet-0	entity-CodexGroup-19	id_entity-DocumentationSet-0_entity-CodexGroup-19_20	1	1	77.0625	21	10	c
+edge	entity-DocumentationSet-0	entity-FeatureToggle-20	id_entity-DocumentationSet-0_entity-FeatureToggle-20_21	1	1	50.59375	21	10	c
+edge	entity-DocumentationSet-0	entity-HintSuppression-21	id_entity-DocumentationSet-0_entity-HintSuppression-21_22	1	1	56.8125	21	10	c
+size	3473.87109375	744.1000000014901
+place	entity-DocumentationSet-0	2193.83203125	48.5	155.1875	81
+place	entity-TableOfContents-1	3360	230.5	144.296875	81
+place	entity-TocItem-2	3360	412.5	100	81
+place	entity-NestedTocItem-3	3399.18359375	48.5	133.375	81
+place	entity-FileItem-4	58	48.5	100	81
+place	entity-Page-5	58	230.5	100	81
+place	entity-FolderItem-6	310.0234375	48.5	106.921875	81
+place	entity-IndexFileItem-7	310.0234375	230.5	124.046875	81
+place	entity-CrossLinkItem-8	572.109375	48.5	129.46875	81
+place	entity-CrossLinkUri-9	572.109375	230.5	120.125	81
+place	entity-Cta-10	2895.7578125	594.5	100	81
+place	entity-Substitution-11	3064.140625	230.5	113.171875	81
+place	entity-CrossLinkDeclaration-12	2592.234375	230.5	173.0625	81
+place	entity-Repository-13	2713.96484375	412.5	106.921875	81
+place	entity-Registry-14	2450.1328125	412.5	100	81
+place	entity-Redirect-15	2319.6328125	230.5	92.140625	81
+place	entity-ApiDeclaration-16	2068.03125	230.5	131.0625	81
+place	entity-Product-17	1762.7421875	412.5	100	81
+place	entity-ReleaseNotesSubscription-18	1760.0078125	230.5	204.984375	81
+place	entity-CodexGroup-19	1384.1171875	230.5	119.390625	81
+place	entity-FeatureToggle-20	1119.6640625	230.5	129.515625	81
+place	entity-HintSuppression-21	843.5390625	230.5	142.734375	81
+place	entity-TocItem-2---entity-TocItem-2---1	3387.125	594.5	0.10000000149011612	0.10000000149011612
+place	entity-TocItem-2---entity-TocItem-2---2	3332.875	736.0500000007451	0.10000000149011612	0.10000000149011612
+route	entity-DocumentationSet-0	entity-TableOfContents-1	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	3220.57421875	139.5	2271.42578125,55.37712196495286 3220.57421875,139.5 3297.9478665865386,190
+route	entity-TableOfContents-1	entity-TocItem-2	id_entity-TableOfContents-1_entity-TocItem-2_1	3360	321.5	3360,271 3360,321.5 3360,372
+route	entity-TocItem-2	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2-cyclic-special-0			3372.0721153846152,453 3387.125,503.5 3387.125,594.4499999992549
+route	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2-cyclic-special-1	3387.125	685.5	3387.125,594.5500000007451 3387.125,685.5 3332.925000000745,736.0034101382989
+route	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2	entity-TocItem-2-cyclic-special-2			3332.824999999255,736.0346618471442 3168.08984375,685.5 3168.08984375,594.5 3168.08984375,503.5 3310,436.20901097111687
+route	entity-NestedTocItem-3	entity-TableOfContents-1	id_entity-NestedTocItem-3_entity-TableOfContents-1_3	3399.18359375	139.5	3399.18359375,89 3399.18359375,139.5 3377.4388521634614,190
+route	entity-FileItem-4	entity-Page-5	id_entity-FileItem-4_entity-Page-5_4	58	139.5	58,89 58,139.5 58,190
+route	entity-FolderItem-6	entity-IndexFileItem-7	id_entity-FolderItem-6_entity-IndexFileItem-7_5	310.0234375	139.5	310.0234375,89 310.0234375,139.5 310.0234375,190
+route	entity-CrossLinkItem-8	entity-CrossLinkUri-9	id_entity-CrossLinkItem-8_entity-CrossLinkUri-9_6	572.109375	139.5	572.109375,89 572.109375,139.5 572.109375,190
+route	entity-TocItem-2	entity-Cta-10	id_entity-TocItem-2_entity-Cta-10_7	3332.875	503.5	3347.9278846153848,453 3332.875,503.5 2945.7578125,584.0908920305267
+route	entity-DocumentationSet-0	entity-Substitution-11	id_entity-DocumentationSet-0_entity-Substitution-11_8	3064.140625	139.5	2271.42578125,56.613250059470644 3064.140625,139.5 3064.140625,190
+route	entity-DocumentationSet-0	entity-Cta-10	id_entity-DocumentationSet-0_entity-Cta-10_9	2927.5546875	321.5	2271.42578125,58.123569873238466 2927.5546875,139.5 2927.5546875,230.5 2927.5546875,321.5 2927.5546875,412.5 2927.5546875,503.5 2909.909168956044,554
+route	entity-DocumentationSet-0	entity-Cta-10	id_entity-DocumentationSet-0_entity-Cta-10_10	2863.9609375	321.5	2271.42578125,59.0368253542637 2863.9609375,139.5 2863.9609375,230.5 2863.9609375,321.5 2863.9609375,412.5 2863.9609375,503.5 2881.606456043956,554
+route	entity-DocumentationSet-0	entity-CrossLinkDeclaration-12	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-12_11	2592.234375	139.5	2271.42578125,66.22336774813463 2592.234375,139.5 2592.234375,190
+route	entity-CrossLinkDeclaration-12	entity-Repository-13	id_entity-CrossLinkDeclaration-12_entity-Repository-13_12	2713.96484375	321.5	2646.411122081044,271 2713.96484375,321.5 2713.96484375,372
+route	entity-CrossLinkDeclaration-12	entity-Registry-14	id_entity-CrossLinkDeclaration-12_entity-Registry-14_13	2450.1328125	321.5	2528.9913719093406,271 2450.1328125,321.5 2450.1328125,372
+route	entity-DocumentationSet-0	entity-Redirect-15	id_entity-DocumentationSet-0_entity-Redirect-15_14	2319.6328125	139.5	2249.820291037088,89 2319.6328125,139.5 2319.6328125,190
+route	entity-DocumentationSet-0	entity-ApiDeclaration-16	id_entity-DocumentationSet-0_entity-ApiDeclaration-16_15	2068.03125	139.5	2137.843771462912,89 2068.03125,139.5 2068.03125,190
+route	entity-ApiDeclaration-16	entity-Product-17	id_entity-ApiDeclaration-16_entity-Product-17_16	2068.03125	321.5	2068.03125,271 2068.03125,321.5 1812.7421875,397.5960923305269
+route	entity-DocumentationSet-0	entity-ReleaseNotesSubscription-18	id_entity-DocumentationSet-0_entity-ReleaseNotesSubscription-18_17	1760.0078125	139.5	2116.23828125,64.77624956104412 1760.0078125,139.5 1760.0078125,190
+route	entity-ReleaseNotesSubscription-18	entity-Product-17	id_entity-ReleaseNotesSubscription-18_entity-Product-17_18	1760.0078125	321.5	1760.0078125,271 1760.0078125,321.5 1761.5252403846155,372
+route	entity-DocumentationSet-0	entity-Product-17	id_entity-DocumentationSet-0_entity-Product-17_19	1550.6640625	230.5	2116.23828125,59.478518199099916 1550.6640625,139.5 1550.6640625,230.5 1550.6640625,321.5 1712.7421875,391.0456420835482
+route	entity-DocumentationSet-0	entity-CodexGroup-19	id_entity-DocumentationSet-0_entity-CodexGroup-19_20	1384.1171875	139.5	2116.23828125,57.22039249928842 1384.1171875,139.5 1384.1171875,190
+route	entity-DocumentationSet-0	entity-FeatureToggle-20	id_entity-DocumentationSet-0_entity-FeatureToggle-20_21	1119.6640625	139.5	2116.23828125,55.073488928567535 1119.6640625,139.5 1119.6640625,190
+route	entity-DocumentationSet-0	entity-HintSuppression-21	id_entity-DocumentationSet-0_entity-HintSuppression-21_22	843.5390625	139.5	2116.23828125,53.72925869675273 843.5390625,139.5 843.5390625,190

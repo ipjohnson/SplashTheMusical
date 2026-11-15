@@ -1,0 +1,7 @@
+stateDiagram-v2
+[*] --> Received
+Received --> Validated : validate
+Validated --> Enriched : enrich
+Enriched --> Stored : persist
+Stored --> Published : notify
+Published --> [*]

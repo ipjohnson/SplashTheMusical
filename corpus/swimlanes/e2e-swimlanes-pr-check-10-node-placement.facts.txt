@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5f23645b5ce264c5
+accept	yes
+drawn	yes
+edge	D1	D2	none	arrow	solid
+edge	D2	D3	none	arrow	solid
+edge	D3	D4	none	arrow	solid
+edge	D4	D2	none	arrow	solid	No
+edge	D4	T6	none	arrow	solid	Yes
+edge	T6	T5	none	arrow	solid
+edge	Te2	D1	none	arrow	solid	Yes
+edge	Te2	T4	none	arrow	solid	No
+group	D	Development	D1,D2,D3
+group	S	Sales	T5
+group	T	Technical support	T4,T6
+group	Tester	Tester	D4,Te2
+node	D1	Error report	rect
+node	D2	Technical analysis	rect
+node	D3	Fix the issue	rect
+node	D4	Resolved?	diam
+node	T4	Get more details from customer	rect
+node	T5	Confirm with customer	rect
+node	T6	Resolve solution	rect
+node	Te2	Reproduced the issue	diam
+type	swimlane

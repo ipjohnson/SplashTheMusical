@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 35afb2a472e38d68
+box	edge	analyst --> delivery	170.637	312.419	122.627	0
+box	edge	brief --> analyst	-33.941	312.419	124.578	0
+box	edge	db_two --> brief	-73.941	117.751	0	154.668
+box	edge	src_a --> db_one	-253.264	-158.419	0	196.17
+box	edge	src_b --> db_two	-73.941	-158.419	0	196.17
+box	edge	src_c --> db_three	58.66	-158.419	0	196.17
+box	group	output	-156.441	229.919	572.205	182
+box	group	sources	-335.764	-280.919	476.924	182
+box	group	storage	-335.764	-4.749	476.924	182
+box	service	analyst	90.637	272.419	80	103.545
+box	service	brief	-113.941	272.419	80	103.408
+box	service	db_one	-293.264	37.751	80	103.408
+box	service	db_three	18.66	37.751	80	103.408
+box	service	db_two	-113.941	37.751	80	103.408
+box	service	delivery	293.264	272.419	80	103.545
+box	service	src_a	-293.264	-238.419	80	103.408
+box	service	src_b	-113.941	-238.419	80	103.408
+box	service	src_c	18.66	-238.419	80	103.408
+canvas	-375.764	-320.919	831.528	772.838
+font	Liberation Sans	168

@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eeb3df2f69fbb6ce
+box	node	deploy	20	30.894	69.533	17.319
+box	node	deploy / Dockerfile	30	55.336	283.984	25.016
+box	node	deploy / certs	35	112.398	38.235	17
+box	node	deploy / certs / server.crt	50	139.414	83.752	17
+box	node	deploy / certs / server.key	45	163.703	278.984	25.32
+box	node	deploy / nginx.conf	35	85.23	265.91	17.319
+box	node	deploy / scripts	35	193.902	52.439	17.319
+box	node	deploy / scripts / deploy.sh	50	221.222	230.114	17.319
+box	node	deploy / scripts / rollback.sh	50	248.39	76.44	17
+canvas	-0.5	0	325.984	271.68
+font	Liberation Sans	270

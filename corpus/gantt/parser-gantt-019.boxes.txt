@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5a5276d3cad560b8
+box	section	Clickable	10	68	44.641	12
+box	task	Clickable / Calling a callback	392	74	317	20
+box	task	Clickable / Visit mermaidjs	75	50	317	20
+box	task-text	Clickable / Calling a callback	504.336	77.5	92.329	12.331
+box	task-text	Clickable / Visit mermaidjs	192.938	53.5	81.125	12.283
+canvas	0	0	784	148
+font	Liberation Sans	344

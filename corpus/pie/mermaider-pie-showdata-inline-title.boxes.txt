@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 35f5da3c4e179592
+box	legend	Cancelled	441	235	121.234	19
+box	legend	Failed	441	213	101.391	19
+box	legend	Success	441	191	128.781	19
+box	slice	Cancelled	177.76	40	47.24	185
+box	slice	Failed	78.028	46.133	146.972	178.867
+box	slice	Success	40	40	370	370
+box	title	CI Pipeline Outcomes	104.109	2	241.781	28.188
+canvas	0	0	618.781	450
+font	Liberation Sans	130

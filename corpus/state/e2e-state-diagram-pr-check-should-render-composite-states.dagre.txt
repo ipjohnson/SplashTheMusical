@@ -1,0 +1,41 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c512386e92a656dc
+layout	1
+graph	TB	50	20	75	8	8
+node	NotShooting_start	NotShooting	14	14
+node	Idle	NotShooting	136	37
+node	Configuring	NotShooting	136	37
+node	NotShooting		0	0
+edge	NotShooting_start	Idle	edge4	1	1	200	42	10	c
+edge	Idle	Configuring	edge5	1	1	56.8125	21	10	c
+edge	Configuring	Idle	edge6	1	1	200	42	10	c
+size	368.609375	413
+place	NotShooting_start	166.40625	52.5	14	14
+place	Idle	166.40625	195	136	37
+place	Configuring	166.40625	349	136	37
+place	NotShooting	184.3046875	206.5	352.609375	397
+route	NotShooting_start	Idle	edge4	166.40625	118	166.40625,59.5 166.40625,118 166.40625,176.5
+route	Idle	Configuring	edge5	92.203125	272	148.57822646103895,213.5 92.203125,272 148.57822646103895,330.5
+route	Configuring	Idle	edge6	240.609375	272	184.23427353896105,330.5 240.609375,272 184.23427353896105,213.5
+layout	2
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	NotShooting		352.609375	397
+node	A		136	37
+node	B		136	37
+node	C		136	37
+edge	root_start	NotShooting	edge0	1	1	45.125	21	10	c
+edge	NotShooting	A	edge1	1	1	0	0	10	c
+edge	NotShooting	B	edge2	1	1	0	0	10	c
+edge	NotShooting	C	edge3	1	1	0	0	10	c
+size	524	585
+place	root_start	262	15	14	14
+place	NotShooting	262	291.5	352.609375	397
+place	A	76	558.5	136	37
+place	B	262	558.5	136	37
+place	C	448	558.5	136	37
+route	root_start	NotShooting	edge0	262	57.5	262,22 262,57.5 262,93
+route	NotShooting	A	edge1			96.80536912751677,490 76,515 76,540
+route	NotShooting	B	edge2			262,490 262,515 262,540
+route	NotShooting	C	edge3			427.19463087248323,490 448,515 448,540

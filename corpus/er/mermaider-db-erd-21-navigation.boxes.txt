@@ -1,0 +1,44 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 145f017481e74f0f
+box	entity	DocumentationSet	45.078	12	155.187	81
+box	entity	DocumentationSetNavigation	12	194	221.344	81
+box	entity	FileNavigation	398.984	12	128.719	81
+box	entity	HomeProvider	634.758	618	129.484	81
+box	entity	NavigationNode	153.195	436	139.625	81
+box	entity	Page	413.344	194	100	81
+box	entity	Phantom	749.875	315	96.047	81
+box	entity	SiteMount	584.836	436	103.047	81
+box	entity	SiteNavigation	602.305	12	130.281	81
+box	entity	SiteSection	612.031	194	110.828	81
+box	entity	TableOfContents	620.238	800	144.297	81
+box	entity	TocItem	273.344	194	100	81
+box	entity	TocNavigation	466.82	618	127.938	81
+box	relation	DocumentationSet --> DocumentationSetNavigation	122.672	93	0	101
+box	relation	DocumentationSetNavigation --> NavigationNode	122.672	275	80.398	161
+box	relation	FileNavigation --> Page	463.344	93	0	101
+box	relation	Phantom --> TableOfContents	713.103	396	84.796	404
+box	relation	SiteMount --> HomeProvider	650.2	517	49.3	101
+box	relation	SiteMount --> SiteMount	564.836	467	20	19
+box	relation	SiteMount --> TocNavigation	530.789	517	91.729	101
+box	relation	SiteNavigation --> Phantom	695.016	93	102.883	222
+box	relation	SiteNavigation --> SiteMount	562.844	93	77.031	343
+box	relation	SiteNavigation --> SiteSection	667.445	93	0	101
+box	relation	SiteSection --> SiteMount	650.2	275	17.245	161
+box	relation	TocItem --> NavigationNode	242.945	275	80.398	161
+box	relation	TocNavigation --> TableOfContents	530.789	699	140.882	101
+box	relation-label	DocumentationSet --> DocumentationSetNavigation	104.172	133	36.594	21
+box	relation-label	DocumentationSetNavigation --> NavigationNode	110.172	345	24.125	21
+box	relation-label	FileNavigation --> Page	443.844	133	38.141	21
+box	relation-label	Phantom --> TableOfContents	788.398	557	18.688	21
+box	relation-label	SiteMount --> HomeProvider	644.5	557	109.719	21
+box	relation-label	SiteMount --> SiteMount	511.805	466	49.031	21
+box	relation-label	SiteMount --> TocNavigation	483.789	557	93.406	21
+box	relation-label	SiteNavigation --> Phantom	766.898	133	61.484	21
+box	relation-label	SiteNavigation --> SiteMount	553.344	224	18.687	21
+box	relation-label	SiteNavigation --> SiteSection	614.445	133	105.828	21
+box	relation-label	SiteSection --> SiteMount	642.445	345	49.031	21
+box	relation-label	TocItem --> NavigationNode	301.344	345	43.547	21
+box	relation-label	TocNavigation --> TableOfContents	508.289	739	44.344	21
+canvas	4	4	849.922	885
+font	Liberation Sans	540

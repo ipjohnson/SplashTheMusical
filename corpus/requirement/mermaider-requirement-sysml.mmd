@@ -1,0 +1,29 @@
+requirementDiagram
+direction LR
+
+functionalRequirement login {
+id: REQ-1
+text: Users must authenticate.
+risk: medium
+verifymethod: test
+}
+
+performanceRequirement latency {
+id: REQ-2
+text: Auth must complete under 200ms.
+risk: high
+verifymethod: analysis
+}
+
+element auth_service {
+type: service
+docRef: design/auth.md
+}
+
+element login_ui {
+type: ui
+}
+
+auth_service - satisfies -> login
+login_ui - verifies -> login
+latency - derives -> login

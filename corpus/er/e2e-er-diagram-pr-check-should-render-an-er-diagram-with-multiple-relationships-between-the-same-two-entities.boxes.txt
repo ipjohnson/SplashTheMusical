@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e69be9ffc5f38f0f
+box	entity	ADDRESS	45.875	194	107.688	81
+box	entity	CUSTOMER	39.789	12	119.859	81
+box	relation	CUSTOMER --> ADDRESS	45.5	93	39.604	101
+box	relation	CUSTOMER --> ADDRESS #2	114.333	93	39.604	101
+box	relation-label	CUSTOMER --> ADDRESS	12	133	66.938	21
+box	relation-label	CUSTOMER --> ADDRESS #2	98.938	133	109.734	21
+canvas	4	4	212.672	279
+font	Liberation Sans	86

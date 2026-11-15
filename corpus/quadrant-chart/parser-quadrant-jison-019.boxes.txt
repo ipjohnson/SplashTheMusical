@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7070cd77bbb55515
+box	axis	x-left	53.594	476.203	186.813	17.32
+box	axis	x-right	350.992	476.203	56.016	17
+box	axis	y-bottom	2.203	301.633	17.32	122.734
+box	axis	y-top	2.203	122.992	17.32	56.016
+box	point	IBM	256.968	289.4	21.344	26.797
+box	point	Incorta	105.456	331.8	36.688	26.797
+box	point	Microsoft	354.656	141	48.688	26.797
+box	point	Salesforce	257.848	204.6	56.703	26.797
+box	quadrant	1	263	45	232	212
+box	quadrant	2	31	45	232	212
+box	quadrant	3	31	257	232	212
+box	quadrant	4	263	257	232	212
+box	title	Analytics and Business Intelligence Platforms	48.789	6.406	402.422	22.15
+canvas	0	0	500	500
+font	Liberation Sans	330
+font	Zapf Dingbats	2

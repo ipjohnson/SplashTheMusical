@@ -1,0 +1,50 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 369cd9e43450d16b
+box	entity	AnalyticsIntegration	1133.983	497	162.188	81
+box	entity	AssembledDocumentationSet	345.562	254	224.438	81
+box	entity	Assembly	1222.984	12	100.688	81
+box	entity	Build	561.029	12	100	81
+box	entity	BuildStamp	193.969	254	111.594	81
+box	entity	BuildType	973.125	254	101.484	81
+box	entity	CloudfrontRedirectMap	749.156	254	183.969	81
+box	entity	DocumentationSet	380.188	497	155.187	81
+box	entity	FeatureFlag	1336.17	497	115.484	81
+box	entity	GenerationState	12	254	141.969	81
+box	entity	PublishEnvironment	1114.609	254	164.516	81
+box	entity	Redirect	671.559	497	92.141	81
+box	entity	RedirectStore	963.013	497	125.594	81
+box	entity	SearchIndex	803.699	497	118.609	81
+box	entity	SyncPlan	610	254	99.156	81
+box	relation	AssembledDocumentationSet --> DocumentationSet	457.781	335	0	162
+box	relation	Assembly --> PublishEnvironment	1220.953	93	52.375	161
+box	relation	Build --> AssembledDocumentationSet	457.781	93	143.248	161
+box	relation	Build --> BuildStamp	249.766	93	341.264	161
+box	relation	Build --> BuildType	631.029	93	392.838	161
+box	relation	Build --> CloudfrontRedirectMap	621.029	93	220.111	161
+box	relation	Build --> GenerationState	82.984	93	498.045	161
+box	relation	Build --> PublishEnvironment	641.029	93	531.752	161
+box	relation	Build --> SyncPlan	611.029	93	48.549	161
+box	relation	CloudfrontRedirectMap --> Redirect	717.629	335	96.184	162
+box	relation	CloudfrontRedirectMap --> RedirectStore	868.469	335	139.742	162
+box	relation	PublishEnvironment --> AnalyticsIntegration	1211.319	335	3.758	162
+box	relation	PublishEnvironment --> FeatureFlag	1240.222	335	153.69	162
+box	relation	PublishEnvironment --> RedirectStore	1043.409	335	139.007	162
+box	relation	PublishEnvironment --> SearchIndex	863.004	335	290.509	162
+box	relation-label	AssembledDocumentationSet --> DocumentationSet	436.781	425.5	41.25	21
+box	relation-label	Assembly --> PublishEnvironment	1230.828	193	84.047	21
+box	relation-label	Build --> AssembledDocumentationSet	424.281	193	66.922	21
+box	relation-label	Build --> BuildStamp	202.266	193	94.156	21
+box	relation-label	Build --> BuildType	1010.367	193	26.469	21
+box	relation-label	Build --> CloudfrontRedirectMap	799.141	193	83.266	21
+box	relation-label	Build --> GenerationState	49.984	193	65.375	21
+box	relation-label	Build --> PublishEnvironment	1134.258	193	77.047	21
+box	relation-label	Build --> SyncPlan	623.578	193	71.625	21
+box	relation-label	CloudfrontRedirectMap --> Redirect	678.629	425.5	77.812	21
+box	relation-label	CloudfrontRedirectMap --> RedirectStore	954.107	425.5	72.406	21
+box	relation-label	PublishEnvironment --> AnalyticsIntegration	1115.076	415	200	42
+box	relation-label	PublishEnvironment --> FeatureFlag	1353.412	425.5	80.953	21
+box	relation-label	PublishEnvironment --> RedirectStore	1050.673	425.5	28.016	21
+box	relation-label	PublishEnvironment --> SearchIndex	808.504	425.5	108.703	21
+canvas	4	4	1455.654	582
+font	Liberation Sans	750

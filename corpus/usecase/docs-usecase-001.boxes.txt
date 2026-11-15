@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 00339c496aec5a45
+box	actor	Customer	12	28.5	80.688	121
+box	relation	Customer --> Checkout	92.688	89	70	0
+box	usecase	Checkout	166.688	60	160	58
+canvas	-8	-8	378.688	177.5
+font	Liberation Sans	62

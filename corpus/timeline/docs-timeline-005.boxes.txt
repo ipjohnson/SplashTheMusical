@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e2806e53df11c521
+box	event	Bullet 1 / sub-point 1a	200	401.016	190	50
+box	event	Bullet 1 / sub-point 1b	200	461.016	190	50
+box	event	Bullet 1 / sub-point 1c	200	521.016	190	50
+box	event	Bullet 2 / sub-point 2a	400	401.016	190	50
+box	event	Bullet 2 / sub-point 2b	400	461.016	190	50
+box	event	Bullet 3 / sub-point 3a	600	401.016	190	63.416
+box	event	Bullet 3 / sub-point 3b	600	474.431	190	50
+box	event	Bullet 3 / sub-point 3c	600	534.431	190	50
+box	event	Bullet 4 / sub-point 4a	800	401.016	190	50
+box	event	Bullet 4 / sub-point 4b	800	461.016	190	50
+box	period	Bullet 1	200	201.016	190	66.12
+box	period	Bullet 2	400	201.016	190	66.12
+box	period	Bullet 3	600	201.016	190	66.12
+box	period	Bullet 4	800	201.016	190	66.12
+box	section	2023 Q1 Release Personal Tier	200	50	390	101.016
+box	section	2023 Q2 Release XYZ Tier	600	50	390	101.016
+box	title	MermaidChart 2023 Timeline	245	-10.358	457.782	37.947
+canvas	100	-61	1190	753.792
+font	Liberation Sans	456

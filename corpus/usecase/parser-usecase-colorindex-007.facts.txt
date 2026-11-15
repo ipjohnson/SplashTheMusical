@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 326f378c778aaa16
+accept	yes
+actor	User	User	normal
+direction	LR
+drawn	yes
+json	Payload
+label	Payload
+label	Sign in
+label	User
+label	active
+label	true
+row	Payload	0	active	true
+type	usecase
+usecase	Login	Sign in	ellipse

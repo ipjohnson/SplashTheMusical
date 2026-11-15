@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9ed2f5d7510aa6a2
+accept	yes
+drawn	yes
+frame	0	01	ui	CartUI	0
+frame	1	02	cmd	AddItem	100
+frame	2	03	evt	ItemAdded	200
+label	AddItem
+label	CartUI
+label	Command/Read Model
+label	Events
+label	ItemAdded
+label	UI/Automation
+lane	0	UI/Automation
+lane	100	Command/Read Model
+lane	200	Events
+type	eventmodeling

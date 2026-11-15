@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b4b9e11d329da958
+box	actor	Clerk	36	60	108.703	121
+box	relation	Authorize --> Receipt	328.703	120.5	20	0
+box	relation	Clerk --> Authorize	144.703	120.5	20	0
+box	usecase	Authorize	168.703	91.5	160	58
+box	usecase	Receipt	352.703	99.5	152	42
+canvas	-8	-8	556.703	233
+font	Liberation Sans	118

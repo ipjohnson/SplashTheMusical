@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 37236950ce8e1f69
+box	node	file1.js	20	57.91	45.359	17.32
+box	node	file2.ts	20	85.078	46.25	17.016
+box	node	file3.spec.ts	20	139.262	84.484	17.32
+box	node	file7.ts	20	301.508	46.25	17.016
+box	node	folder1	20	30.742	48.922	17.016
+box	node	folder2	20	112.094	48.922	17.016
+box	node	folder3	20	166.43	48.922	17.016
+box	node	folder3 / file4.ts	35	193.445	46.25	17.016
+box	node	folder3 / file5.ts	35	220.461	46.25	17.016
+box	node	folder3 / folder4	35	247.477	48.922	17.016
+box	node	folder3 / folder4 / file6.ts	50	274.492	46.25	17.016
+canvas	-0.5	0	109.484	324.797
+font	Liberation Sans	180

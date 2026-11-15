@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9288050492569224
+box	nonterminal	identifier / letter	114.266	166.5	55.578	37
+box	rule	identifier	0	166.5	184.844	37
+box	rule	letter	0	10	173.266	127
+box	terminal	letter / a	109.359	10	28.906	37
+box	terminal	letter / b	109.359	55	28.906	37
+box	terminal	letter / c	109.813	100	28	37
+canvas	0	0	204.844	241.5
+font	Liberation Sans	58

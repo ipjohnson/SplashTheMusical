@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 958546b64b304077
+box	edge	decide --> archive	193.4	352.6	53.8	366.391
+box	edge	decide --> search	119.6	352.6	38.4	156.4
+box	edge	gather --> plan	183.4	102	0	20
+box	edge	notes --> archive	119.6	640.053	53.8	74.938
+box	edge	plan --> decide	183.4	180	0	20
+box	edge	search --> notes	119.6	549	0	24
+box	flow	archive	143.4	718.991	80	68
+box	flow	orchestrator	64.9	12	237	390
+box	flow	workers	12	462	215.2	206.991
+box	node	decide	96.9	204	174	174
+box	node	gather	88.9	63	189	39
+box	node	notes	36	572.996	167.2	71.991
+box	node	plan	108.4	126	150	54
+box	node	search	37.6	513	164	36
+canvas	4	4	305.9	790.991
+font	Liberation Sans	126

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3d961b410ff69f60
+accept	yes
+class	Admin	Admin
+class	Report	Report
+drawn	yes
+method	Admin	+generateReport()
+method	Report	+generateCSV(data: List)
+method	Report	+generatePDF(data: List)
+namespace	Company	Company.Project
+namespace	Company.Project	Company.Project.Module
+namespace	Company.Project.Module	Admin,Company.Project.Module.SubModule
+namespace	Company.Project.Module.SubModule	Report
+relation	Admin	Report	none	arrow	solid	generates
+type	classDiagram

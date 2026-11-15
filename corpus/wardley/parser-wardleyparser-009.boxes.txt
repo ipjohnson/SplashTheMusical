@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ba9be1c7408f169c
+box	node	Kettle	387.72	358.416	39.579	23.184
+box	title	Test Evolve	415.462	15.839	69.076	13.776
+canvas	0	0	900	600
+font	Liberation Sans	142

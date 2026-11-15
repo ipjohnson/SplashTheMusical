@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8dd9b20bb5d0ea38
+box	edge	Active --> [*]end@root	234.017	543.901	0.519	40.547
+box	edge	CapsOff --> CapsOn	128.787	431.796	0.737	24.315
+box	edge	NumOff --> NumOn	128.656	216.918	0.438	24.296
+box	edge	ScrollOff --> ScrollOn	338.756	217.341	0.886	24.565
+box	edge	[*]start@divider-id-1 --> NumOff	128.681	153.194	0.49	24.258
+box	edge	[*]start@divider-id-2 --> CapsOff	129.035	368.312	0.415	24.36
+box	edge	[*]start@divider-id-27 --> ScrollOff	339.041	153.497	0.564	24.156
+box	edge	[*]start@root --> Active	233.832	26.723	0.882	40.267
+box	group	Active	10.467	65.128	447.327	480.456
+box	group	divider-id-1	35.197	114.25	187.674	191.385
+box	group	divider-id-2	35.088	328.437	188.038	192.356
+box	node	CapsOff	60.364	393.05	138.475	39.494
+box	node	CapsOn	60.227	456.473	138.363	40.045
+box	node	NumOff	60.489	177.851	138.091	39.877
+box	node	NumOn	60.387	241.655	137.375	39.76
+box	node	ScrollOff	270.329	177.994	138.308	40.01
+box	node	ScrollOn	270.147	241.875	138.366	39.743
+box	node	[*]end@root	227.278	584.203	14.363	15.064
+box	node	[*]start@divider-id-1	122.276	138.662	14.894	14.497
+box	node	[*]start@divider-id-2	121.625	353.353	14.657	15.129
+box	node	[*]start@root	226.587	11.723	14.744	14.857
+canvas	2.467	3.723	463.327	603.544
+font	Liberation Sans	94

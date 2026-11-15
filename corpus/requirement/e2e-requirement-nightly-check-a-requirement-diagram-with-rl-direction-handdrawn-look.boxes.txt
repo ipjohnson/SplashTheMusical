@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fb02117944bb4abf
+box	element	test_entity	312.121	43.488	124.54	106.354
+box	relation	test_entity --> test_req	148.466	95.964	163.677	0.966
+box	relation-label	test_entity --> test_req	188.59	85.388	83.281	21
+box	requirement	test_req	12.202	12.033	136.59	168.775
+canvas	4.202	4.033	440.46	184.775
+font	Liberation Sans	254

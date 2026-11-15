@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ade44d5c559d10e3
+box	axis	x	59.578	468	640.422	27
+box	axis	y	5	40.854	53.578	426.146
+box	axis-title	y	5	192.771	17	123.609
+box	category	comedy	68.063	479	49.031	16
+box	category	crime	420.114	479	34.234	16
+box	category	mystery	297.847	479	49	16
+box	category	non fiction	520.202	479	63.828	16
+box	category	other	651.039	479	31.922	16
+box	category	romance	180.228	479	54.469	16
+box	plot	plot	61.228	118.292	637.122	348.708
+box	series	0	61.228	118.292	637.122	348.708
+box	title	Genres in top 100 book survey of 2025	207.453	8.356	344.672	22.15
+canvas	0	0	700	500
+font	Liberation Sans	262

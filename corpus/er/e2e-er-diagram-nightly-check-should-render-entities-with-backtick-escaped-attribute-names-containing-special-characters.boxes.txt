@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 87e0bba1f640bdc8
+box	entity	HOTEL	12	12	295.359	159
+box	entity	ROOM	75.93	272	167.5	119.25
+box	relation	HOTEL --> ROOM	159.68	171	0	101
+box	relation-label	HOTEL --> ROOM	148.18	211	22.578	21
+canvas	4	4	311.359	395.25
+font	Liberation Sans	200

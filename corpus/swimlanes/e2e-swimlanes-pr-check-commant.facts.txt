@@ -1,0 +1,31 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ff2f5ccbcfa35414
+accept	yes
+drawn	yes
+edge	collect	ship	none	arrow	solid
+edge	details	order_complete	none	arrow	solid
+edge	order_complete	details	none	arrow	solid	no
+edge	order_complete	roadmap	none	arrow	solid	yes
+edge	places_order	order_complete	none	arrow	solid
+edge	purchase	received	none	arrow	solid
+edge	received	collect	none	arrow	solid
+edge	roadmap	collect	none	arrow	solid
+edge	roadmap	purchase	none	arrow	solid	no
+edge	sales_process	places_order	none	arrow	solid
+edge	ship	receives_order	none	arrow	solid
+group	customer	customer	places_order,receives_order,sales_process
+group	purchasing	purchasing	purchase,received
+group	sales	sales	details,order_complete
+group	warehouse	warehouse	collect,roadmap,ship
+node	collect	collect products for shipping	rect
+node	details	ask for details	rect
+node	order_complete	order complete?	hex
+node	places_order	places order	rect
+node	purchase	purchase the products	rect
+node	received	order received?	hex
+node	receives_order	receives order	rect
+node	roadmap	product on roadmap?	hex
+node	sales_process	sales_process: sales process	rounded
+node	ship	ship products	rect
+type	swimlane

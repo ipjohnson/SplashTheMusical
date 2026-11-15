@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 11c251bd82893de5
+box	edge	Concurrent --> Finish	152	402	0	18.5
+box	edge	[*]start@Deep --> Done	152	635	0	18.5
+box	edge	[*]start@Finish --> Flush	128	488	0	18.5
+box	edge	[*]start@divider-id-1 --> Left	152	146	0	18.5
+box	edge	[*]start@divider-id-83 --> Right	152	293	0	18.5
+box	group	Concurrent	36	60	232	342
+box	group	Deep	60	573	184	147
+box	group	Finish	36	426	232	318
+box	group	Machine	12	12	280	756
+box	group	divider-id-1	60	108	184	123
+box	node	Done	84	659	136	37
+box	node	Flush	60	512	136	37
+box	node	Left	84	170	136	37
+box	node	Right	84	317	136	37
+box	node	[*]start@Deep	145	621	14	14
+box	node	[*]start@Finish	121	474	14	14
+box	node	[*]start@divider-id-1	145	132	14	14
+canvas	4	4	296	772
+font	Liberation Sans	90

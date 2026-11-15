@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1a2ad30b1e73758d
+accept	yes
+column	root	fix things
+drawn	yes
+label	fix things
+type	kanban

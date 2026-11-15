@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 05c2fad25f09a848
+box	edge	Cloudfront --> Route53	36	148	0	36
+box	edge	Cloudwatch --> Cloudfront	36	60	0	36
+box	node	Cloudfront	12	100	48	48
+box	node	Cloudwatch	12	12	48	48
+box	node	Route53	12	188	48	48
+canvas	4	4	64	240
+font	Liberation Sans	6

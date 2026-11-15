@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4f4f2ecaf79389de
+box	node	App	444	131.616	31.794	23.184
+box	node	Database	445.2	319.616	55.616	21.984
+box	node	Database_SQL DB	444	333.216	50.305	23.184
+box	stage	0	130.159	558.816	36.682	11.48
+box	stage	1	332.271	558.816	34.457	11.48
+box	stage	2	533.262	558.816	34.475	11.48
+box	stage	3	726.218	558.816	50.565	11.48
+box	title	Accepted but not drawn	378.278	15.839	143.444	14.093
+canvas	0	0	900	600
+font	Liberation Sans	176

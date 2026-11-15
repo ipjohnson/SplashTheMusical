@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bc80e69a491d5868
+box	boundary	b0	150	122	732	2492.646
+box	boundary	b1	200	1010.089	632	1554.558
+box	boundary	b2	250	1612.528	316	420.368
+box	boundary	b3	250	2138.896	342.722	375.75
+box	element	SystemA	300	1712.528	216	71.179
+box	element	SystemAA	200	792.271	216	111.817
+box	element	SystemB	300	1883.706	216	99.189
+box	element	SystemC	566	1110.089	216	99.189
+box	element	SystemD	250	1364.431	216	142.097
+box	element	SystemE	250	1110.089	216	154.342
+box	element	SystemF	300	2238.896	239.365	56.561
+box	element	SystemG	300	2395.457	242.722	69.189
+box	element	customerA	200	222	216	185.136
+box	element	customerB	516	222	216	157.125
+box	element	customerC	200	507.136	216	172.125
+box	element	customerD	516	507.136	216	185.136
+box	rel-label	SystemAA --> SystemC	444.711	961.823	75.997	13.163
+box	rel-label	SystemAA --> SystemE	331.265	991.867	27.334	13.163
+box	rel-label	SystemC --> customerA	450.085	773.213	89.325	13.163
+box	rel-label	customerA --> SystemAA	312.833	594.304	27.334	13.163
+box	title	System Context diagram for Internet Banking System	266	5.52	376.901	18.429
+canvas	0	-70	1032	2784.646
+font	Liberation Sans	2162

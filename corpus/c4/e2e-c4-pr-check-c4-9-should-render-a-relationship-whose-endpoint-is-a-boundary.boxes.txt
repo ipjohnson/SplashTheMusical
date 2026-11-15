@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cb3dcdf16505679a
+box	boundary	banking	150	358.179	316	236.179
+box	element	email	150	166	216	86.179
+box	element	spa	200	458.179	216	86.179
+box	rel-label	banking --> email	276.169	299.679	82.627	14
+box	title	Relationship to a boundary	58	6	190.238	17.319
+canvas	0	-70	616	764.358
+font	Liberation Sans	290

@@ -1,0 +1,27 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 05d276d9a69a668d
+box	face	Another section / P task	1210	285	30	30
+box	face	Another section / Q task	1410	285	30	30
+box	face	Another section / R task	1610	285	30	30
+box	face	Documentation / A task	210	285	30	30
+box	face	Documentation / B task	410	345	30	30
+box	face	Documentation / C task	610	285	30	30
+box	face	Documentation / D task	810	285	30	30
+box	face	Documentation / E task	1010	285	30	30
+box	person	Alice	50	72.459	34.686	16.964
+box	person	Bob	50	92.459	28.476	16.964
+box	person	Charlie	50	112.459	50.704	16.964
+box	section	Another section	1150	50	550	50
+box	section	Documentation	150	50	950	50
+box	task	Another section / P task	1150	110	150	50
+box	task	Another section / Q task	1350	110	150	50
+box	task	Another section / R task	1550	110	150	50
+box	task	Documentation / A task	150	110	150	50
+box	task	Documentation / B task	350	110	150	50
+box	task	Documentation / C task	550	110	150	50
+box	task	Documentation / D task	750	110	150	50
+box	task	Documentation / E task	950	110	150	50
+box	title	Adding journey diagram functionality to mermaid	150	-6.505	790.808	38.776
+canvas	0	-25	1900	540
+font	Liberation Sans	276

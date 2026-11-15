@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9f2d2f5666a5a78
+box	edge	Cancelled --> [*]end@root	235.003	318	102.658	423.5
+box	edge	Confirmed --> Shipped	158.25	241	0	111.5
+box	edge	Delivered --> [*]end@root	80	610	157.997	131.5
+box	edge	Pending --> Cancelled	244.411	103	93.25	172.5
+box	edge	Pending --> Confirmed	158.25	103	47.495	95.5
+box	edge	Refunded --> [*]end@root	236.5	687	0	54.5
+box	edge	Returned --> Refunded	236.5	533	0	111.5
+box	edge	Shipped --> Delivered	80	395	58.917	172.5
+box	edge	Shipped --> Returned	177.583	395	58.917	95.5
+box	edge	[*]start@root --> Pending	225.078	26	0	34.5
+box	edge-label	Confirmed --> Shipped	131.75	289	52.156	21
+box	edge-label	Pending --> Cancelled	314.661	143	45.922	21
+box	edge-label	Pending --> Confirmed	119.75	143	76.281	21
+box	edge-label	Returned --> Refunded	188	581	96.516	21
+box	edge-label	Shipped --> Delivered	59	435	41.25	21
+box	edge-label	Shipped --> Returned	190.5	435	91.062	21
+box	node	Cancelled	269.661	281	136	37
+box	node	Confirmed	90.25	204	136	37
+box	node	Delivered	12	573	136	37
+box	node	Pending	157.078	66	136	37
+box	node	Refunded	168.5	650	136	37
+box	node	Returned	168.5	496	136	37
+box	node	Shipped	90.25	358	136	37
+box	node	[*]end@root	230.997	747	14.013	14
+box	node	[*]start@root	218.078	12	14	14
+canvas	4	4	409.661	765
+font	Liberation Sans	234

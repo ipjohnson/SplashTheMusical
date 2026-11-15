@@ -1,0 +1,48 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a7b68ddf9d862933
+accept	yes
+drawn	yes
+edge	C1	S1	none	arrow	solid
+edge	D1	D2	none	arrow	solid
+edge	D2	D3	none	arrow	solid
+edge	D3	D4	none	arrow	solid
+edge	D4	D2	none	arrow	solid	No
+edge	D4	T6	none	arrow	solid	Yes
+edge	S1	S2	none	arrow	solid	Yes
+edge	S1	T1	none	arrow	solid	No
+edge	S2	T3	none	arrow	solid
+edge	T1	T2	none	arrow	solid	No
+edge	T1	Te1	none	arrow	solid	Yes
+edge	T2	T3	none	arrow	solid
+edge	T3	Finished1	none	arrow	solid
+edge	T4	C2	none	arrow	solid	No
+edge	T5	Finished2	none	arrow	solid
+edge	T6	T5	none	arrow	solid
+edge	Te1	Te2	none	arrow	solid
+edge	Te2	D1	none	arrow	solid	Yes
+edge	Te2	T4	none	arrow	solid	No
+group	C	Customer	C1,C2,Finished1,Finished2
+group	D	Development	D1,D2,D3
+group	S	Sales	S1,S2,T3,T5
+group	T	Technical support	T1,T2,T4,T6
+group	Tester	Tester	D4,Te1,Te2
+node	C1	Customer requests help or reports errors	stadium
+node	C2	More feedback	rect
+node	D1	Error report	rect
+node	D2	Technical analysis	rect
+node	D3	Fix the issue	rect
+node	D4	Resolved?	diam
+node	Finished1	Finished	stadium
+node	Finished2	Finished	stadium
+node	S1	Sales issue	diam
+node	S2	Resolve the issue and respond to customer	rect
+node	T1	New issue	diam
+node	T2	Resolve solution	rect
+node	T3	Confirm with customer	rect
+node	T4	Get more details from customer	rect
+node	T5	Confirm with customer	rect
+node	T6	Resolve solution	rect
+node	Te1	Test the issue	rect
+node	Te2	Reproduced the issue	diam
+type	swimlane

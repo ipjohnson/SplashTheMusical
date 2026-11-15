@@ -1,0 +1,49 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ac8600ffaf7582b8
+box	branch	branch1	0	88	900	0
+box	branch	branch2	0	178	900	0
+box	branch	branch3	0	268	900	0
+box	branch	branch4	0	358	900	0
+box	branch	branch5	0	448	900	0
+box	branch	branch6	0	538	900	0
+box	branch	branch7	0	628	900	0
+box	branch	main	0	-2	900	0
+box	branch-label	branch1	-110.828	77.5	75.828	21
+box	branch-label	branch2	-110.828	167.5	75.828	21
+box	branch-label	branch3	-110.828	257.5	75.828	21
+box	branch-label	branch4	-110.828	347.5	75.828	21
+box	branch-label	branch5	-110.828	437.5	75.828	21
+box	branch-label	branch6	-110.828	527.5	75.828	21
+box	branch-label	branch7	-110.828	617.5	75.828	21
+box	branch-label	main	-87.688	-12.5	52.687	21
+box	commit	0	0	-12	20	20
+box	commit	1	50	78	20	20
+box	commit	10	500	-12	20	20
+box	commit	11	550	528	20	20
+box	commit	12	600	-12	20	20
+box	commit	13	650	618	20	20
+box	commit	14	700	-12	20	20
+box	commit	15	750	708	20	20
+box	commit	16	800	-12	20	20
+box	commit	17	850	798	20	20
+box	commit	2	100	-12	20	20
+box	commit	3	150	168	20	20
+box	commit	4	200	-12	20	20
+box	commit	5	250	258	20	20
+box	commit	6	300	-12	20	20
+box	commit	7	350	348	20	20
+box	commit	8	400	-12	20	20
+box	commit	9	450	438	20	20
+box	commit-label	0	-28.729	8.458	44.943	44.943
+box	commit-label	1	21.271	98.458	44.943	44.943
+box	commit-label	11	521.271	548.458	44.943	44.943
+box	commit-label	13	621.271	638.458	44.943	44.943
+box	commit-label	15	721.271	728.458	44.943	44.943
+box	commit-label	17	817.191	818.382	48.877	48.877
+box	commit-label	3	121.271	188.458	44.943	44.943
+box	commit-label	5	221.271	278.458	44.943	44.943
+box	commit-label	7	321.271	368.458	44.943	44.943
+box	commit-label	9	421.271	458.458	44.943	44.943
+canvas	-118.828	-20.5	1026.828	895.759
+font	Liberation Sans	316

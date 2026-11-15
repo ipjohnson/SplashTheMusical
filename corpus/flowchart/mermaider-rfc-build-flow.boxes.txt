@@ -1,0 +1,44 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9030927aa46339a4
+box	edge	docsetV1 --> v1SiteNav	335.733	147	367.774	264
+box	edge	docsetV1 --> v2SiteNav	207.523	147	84.743	257
+box	edge	docsetV2 --> v2SiteNav	89.64	147	144.126	257
+box	edge	flag --> emitV1	321	1037.833	87.099	122.167
+box	edge	flag --> emitV2	458.432	1037.833	87.099	122.167
+box	edge	navV2Yml --> v2SiteNav	299.766	314	81.742	90
+box	edge	navYml --> v1SiteNav	583.508	314	38	97
+box	edge	v1Map --> valV1	643.508	580	0	36
+box	edge	v1SiteNav --> v1Map	643.508	460	0	50
+box	edge	v2Map --> valV2	266.766	580	0	36
+box	edge	v2SiteNav --> v2Map	266.766	474	0	36
+box	edge	valV1 --> errV1	668.674	765.833	0	122.167
+box	edge	valV1 --> flag	458.432	765.833	159.909	147.334
+box	edge	valV2 --> errV2	222.152	765.833	19.447	122.167
+box	edge	valV2 --> flag	291.932	765.833	116.167	147.334
+box	edge-label	docsetV1 --> v2SiteNav	173.023	274	68.484	21
+box	edge-label	flag --> emitV1	306	1103	29.578	21
+box	edge-label	flag --> emitV2	533.031	1103	24.125	21
+box	edge-label	valV1 --> errV1	659.674	831	17.906	21
+box	edge-label	valV1 --> flag	535.534	831	29.578	21
+box	edge-label	valV2 --> errV2	213.152	831	17.906	21
+box	edge-label	valV2 --> flag	344.739	831	29.578	21
+box	group	config	281.508	221	402	117
+box	group	repos	12	12	402	159
+box	node	docsetV1	238	81	152	66
+box	node	docsetV2	36	60	152	87
+box	node	emitV1	228.734	1164	184.531	129
+box	node	emitV2	453.266	1164	184.531	129
+box	node	errV1	583.061	892	171.227	45
+box	node	errV2	136.539	892	171.227	45
+box	node	flag	348.266	892	171	171
+box	node	navV2Yml	305.508	269	152	45
+box	node	navYml	507.508	269	152	45
+box	node	v1Map	553.187	514	180.641	66
+box	node	v1SiteNav	567.508	415	152	45
+box	node	v2Map	176.445	514	180.641	66
+box	node	v2SiteNav	190.766	408	152	66
+box	node	valV1	558.508	620	171	171
+box	node	valV2	181.766	620	171	171
+canvas	4	4	758.288	1297
+font	Liberation Sans	792

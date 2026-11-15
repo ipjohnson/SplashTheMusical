@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 413f83af96b77d66
+accept	no
+# error Parsing failed: Lexer error on line 1, column 6: unexpected character: ->u<- at offset: 5, skipped 11 characters.

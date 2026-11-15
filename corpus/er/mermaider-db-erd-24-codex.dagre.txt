@@ -1,0 +1,30 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f00e45290e6cf71d
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-CodexSite-0		104.59375	81
+node	entity-Registry-1		100	81
+node	entity-CodexGroup-2		119.390625	81
+node	entity-CodexDocumentationSet-3		195.65625	81
+node	entity-DocumentationSet-4		155.1875	81
+node	entity-LinkRegistry-5		117.03125	81
+edge	entity-CodexSite-0	entity-Registry-1	id_entity-CodexSite-0_entity-Registry-1_0	1	1	138.90625	21	10	c
+edge	entity-CodexSite-0	entity-CodexGroup-2	id_entity-CodexSite-0_entity-CodexGroup-2_1	1	1	42.8125	21	10	c
+edge	entity-CodexSite-0	entity-CodexDocumentationSet-3	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	1	1	108.921875	21	10	c
+edge	entity-CodexDocumentationSet-3	entity-DocumentationSet-4	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	1	1	41.25	21	10	c
+edge	entity-CodexDocumentationSet-3	entity-CodexGroup-2	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	1	1	77.0625	21	10	c
+edge	entity-Registry-1	entity-LinkRegistry-5	id_entity-Registry-1_entity-LinkRegistry-5_5	1	1	200	42	10	c
+size	729.64453125	482
+place	entity-CodexSite-0	312.80859375	48.5	104.59375	81
+place	entity-Registry-1	108	230.5	100	81
+place	entity-CodexGroup-2	366.2109375	433.5	119.390625	81
+place	entity-CodexDocumentationSet-3	604.47265625	230.5	195.65625	81
+place	entity-DocumentationSet-4	644.05078125	433.5	155.1875	81
+place	entity-LinkRegistry-5	108	433.5	117.03125	81
+route	entity-CodexSite-0	entity-Registry-1	id_entity-CodexSite-0_entity-Registry-1_0	108	139.5	260.51171875,71.73640594304896 108,139.5 108,190
+route	entity-CodexSite-0	entity-CodexGroup-2	id_entity-CodexSite-0_entity-CodexGroup-2_1	312.80859375	230.5	312.80859375,89 312.80859375,139.5 312.80859375,230.5 312.80859375,332 344.90261314655174,393
+route	entity-CodexSite-0	entity-CodexDocumentationSet-3	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	604.47265625	139.5	365.10546875,64.81677068545255 604.47265625,139.5 604.47265625,190
+route	entity-CodexDocumentationSet-3	entity-DocumentationSet-4	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	644.05078125	332	620.264913023399,271 644.05078125,332 644.05078125,393
+route	entity-CodexDocumentationSet-3	entity-CodexGroup-2	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	465.828125	332	549.1514393472906,271 465.828125,332 405.9596674876847,393
+route	entity-Registry-1	entity-LinkRegistry-5	id_entity-Registry-1_entity-LinkRegistry-5_5	108	332	108,271 108,332 108,393

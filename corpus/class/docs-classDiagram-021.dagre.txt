@@ -1,0 +1,27 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f609930d3f256adb
+layout	1
+graph	LR	50	20	75	8	8
+node	UserService	Platform.Auth	120.1328125	141
+node	Platform.Auth	Platform	0	0
+node	Gateway	Platform	102.21875	120
+node	Repository	Platform.Data	107.640625	141
+node	Platform.Data	Platform	0	0
+node	Platform		0	0
+edge	Gateway	UserService	id_Gateway_UserService_1	1	1	60.71875	21	10	c
+edge	Gateway	Repository	id_Gateway_Repository_2	1	1	60.71875	21	10	c
+size	524.0703125	498
+place	UserService	381.00390625	133.5	120.1328125	141
+place	Platform.Auth	381.00390625	133.5	195.1328125	211
+place	Gateway	96.609375	249	102.21875	120
+place	Repository	381.00390625	364.5	107.640625	141
+place	Platform.Data	381.00390625	364.5	195.1328125	211
+place	Platform	262.03515625	249	508.0703125	482
+route	Gateway	UserService	id_Gateway_UserService_1	215.578125	133.5	147.71875,199.38081166272656 215.578125,133.5 283.4375,133.5 320.9375,133.5
+route	Gateway	Repository	id_Gateway_Repository_2	215.578125	364.5	147.71875,298.61918833727344 215.578125,364.5 283.4375,364.5 327.18359375,364.5
+layout	2
+graph	TB	50	20	50	8	8
+node	Platform		508.0703125	482
+size	524.0703125	498
+place	Platform	262.03515625	249	508.0703125	482

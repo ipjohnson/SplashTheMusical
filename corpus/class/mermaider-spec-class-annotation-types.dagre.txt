@@ -1,0 +1,20 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a6808a279b1fb38
+layout	1
+graph	TB	50	20	50	8	8
+node	Shape		155.921875	141
+node	Drawable		143.84375	141
+node	Color		120.5	177
+node	EventBus		189.7578125	141
+node	Circle		62.921875	81
+edge	Shape	Circle	id_Shape_Circle_1	1	1	0	0	10	c
+edge	Drawable	Circle	id_Drawable_Circle_2	1	1	0	0	10	c
+size	776.0234375	324
+place	Shape	85.9609375	96.5	155.921875	141
+place	Drawable	285.84375	96.5	143.84375	141
+place	Color	468.015625	96.5	120.5	177
+place	EventBus	673.14453125	96.5	189.7578125	141
+place	Circle	185.90234375	275.5	62.921875	81
+route	Shape	Circle	id_Shape_Circle_1			85.9609375,167 85.9609375,210 154.44140625,254.88100449482118
+route	Drawable	Circle	id_Drawable_Circle_2			285.84375,167 285.84375,210 217.36328125,254.88100449482118

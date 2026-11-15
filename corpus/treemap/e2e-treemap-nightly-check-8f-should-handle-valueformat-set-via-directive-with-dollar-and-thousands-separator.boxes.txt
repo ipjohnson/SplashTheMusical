@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1427c8c1069fe9de
+box	node	Sales by Region	10	35	980	355
+box	node	Sales by Region / East	749	70	231	242
+box	node	Sales by Region / North	749	322	231	58
+box	node	Sales by Region / South	431	70	308	310
+box	node	Sales by Region / West	20	70	401	310
+canvas	2	27	996	371
+font	Liberation Sans	148

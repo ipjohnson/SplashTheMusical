@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2487a21c5f75fdc6
+box	edge	Configuring --> Idle	65.594	140.5	19.34	135.5
+box	edge	Idle --> Configuring	123.067	135	19.34	135.5
+box	edge	[*]start@NotShooting --> Idle	104	74	0	18.5
+box	edge-label	Configuring --> Idle	37.094	195	56.813	21
+box	edge-label	Idle --> Configuring	113.906	195	56.813	21
+box	group	NotShooting	12	12	184	325
+box	node	Configuring	36	276	136	37
+box	node	Idle	36	98	136	37
+box	node	[*]start@NotShooting	97	60	14	14
+canvas	4	4	200	341
+font	Liberation Sans	118

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c41ec80b216c2903
+box	domain-label	chaotic	210.667	449.635	58.666	17.959
+box	domain-label	clear	619.989	449.635	40.023	17.959
+box	domain-label	complex	206.221	149.635	67.558	17.959
+box	domain-label	complicated	592.006	149.635	95.988	17.959
+box	title	Cynefin Framework	356.508	7.916	166.998	20.571
+canvas	0	0	880	680
+font	Liberation Sans	444

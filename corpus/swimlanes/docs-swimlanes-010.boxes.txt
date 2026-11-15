@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eaf819cfb8594d42
+box	edge	apply --> screen	36	22.5	0	373
+box	edge	create --> notify	601.864	953.938	220.195	0
+box	edge	decide --> apply	116	0	409.864	336.5
+box	edge	decide --> create	525.864	507.5	0	419.937
+box	edge	notify --> sign	902.059	26.5	0	894.437
+box	edge	screen --> decide	112	422	324.364	0
+box	edge-label	apply --> screen	-24	190	120	42
+box	edge-label	decide --> apply	270.284	-10.5	97.297	21
+box	edge-label	decide --> create	495.895	708.969	59.938	21
+box	group	Applicant	-86	-58.5	1074.059	177.25
+box	group	Reviewer	-86	118.75	1074.059	528.734
+box	group	System	-86	647.484	1074.059	375.453
+box	node	apply	-40	-22.5	152	45
+box	node	create	449.864	931.438	152	45
+box	node	decide	440.864	336.5	171	171
+box	node	notify	826.059	920.937	152	66
+box	node	screen	-40	399.5	152	45
+box	node	sign	826.059	-22.5	152	45
+canvas	-94	-66.5	1090.059	1097.438
+font	Liberation Sans	310

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source df13c1b9dfa70137
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John	participant
+block	loop	HealthCheck
+drawn	yes
+message	Alice	John	solid	filled	Hello John, how are you?
+message	Bob	John	dashed	filled	Jolly good!
+message	John	Alice	dashed	filled	Great!
+message	John	Bob	solid	filled	How about you?
+message	John	John	solid	filled	Fight against hypochondria
+note	right	John	Rational thoughts!
+type	sequence

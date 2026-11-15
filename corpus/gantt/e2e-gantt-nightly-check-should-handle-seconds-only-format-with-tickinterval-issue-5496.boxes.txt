@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dfb240d9594adcf8
+box	section	Network Request	10	56	84.375	12.283
+box	task	Network Request / RTT	75	50	634	20
+box	task-text	Network Request / RTT	381.406	53.5	21.188	12
+canvas	0	0	784	124
+font	Liberation Sans	414

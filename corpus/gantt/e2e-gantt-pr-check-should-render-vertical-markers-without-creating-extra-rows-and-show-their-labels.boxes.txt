@@ -1,0 +1,45 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 37fbdcb540b44f50
+box	task	/ Final vert	630	35	1.6	88
+box	task	/ Final vert #2	630	35	1.6	88
+box	task	/ Final vert #3	630	35	1.6	88
+box	task	/ Final vert #4	630	35	1.6	88
+box	task	/ Final vert #5	630	35	1.6	88
+box	task	/ Final vert #6	630	35	1.6	88
+box	task	/ Initial vert	75	35	1.6	88
+box	task	/ Initial vert #2	75	35	1.6	88
+box	task	/ Initial vert #3	75	35	1.6	88
+box	task	/ Initial vert #4	75	35	1.6	88
+box	task	/ Initial vert #5	75	35	1.6	88
+box	task	/ Initial vert #6	75	35	1.6	88
+box	task	/ Middle vert	372	35	1.6	88
+box	task	/ Middle vert #2	372	35	1.6	88
+box	task	/ Middle vert #3	372	35	1.6	88
+box	task	/ Middle vert #4	372	35	1.6	88
+box	task	/ Middle vert #5	372	35	1.6	88
+box	task	/ Middle vert #6	372	35	1.6	88
+box	task	/ Task A	115	50	59	20
+box	task	/ Task B	412	74	158	20
+box	task-text	/ Final vert	599.156	129	61.688	17
+box	task-text	/ Final vert #2	599.156	129	61.688	17
+box	task-text	/ Final vert #3	599.156	129	61.688	17
+box	task-text	/ Final vert #4	599.156	129	61.688	17
+box	task-text	/ Final vert #5	599.156	129	61.688	17
+box	task-text	/ Final vert #6	599.156	129	61.688	17
+box	task-text	/ Initial vert	42.898	129	64.203	17
+box	task-text	/ Initial vert #2	42.898	129	64.203	17
+box	task-text	/ Initial vert #3	42.898	129	64.203	17
+box	task-text	/ Initial vert #4	42.898	129	64.203	17
+box	task-text	/ Initial vert #5	42.898	129	64.203	17
+box	task-text	/ Initial vert #6	42.898	129	64.203	17
+box	task-text	/ Middle vert	335.32	129	73.359	17
+box	task-text	/ Middle vert #2	335.32	129	73.359	17
+box	task-text	/ Middle vert #3	335.32	129	73.359	17
+box	task-text	/ Middle vert #4	335.32	129	73.359	17
+box	task-text	/ Middle vert #5	335.32	129	73.359	17
+box	task-text	/ Middle vert #6	335.32	129	73.359	17
+box	task-text	/ Task A	128.297	53.5	32.406	12
+box	task-text	/ Task B	474.492	77.5	33.016	12
+canvas	0	0	784	148
+font	Liberation Sans	490

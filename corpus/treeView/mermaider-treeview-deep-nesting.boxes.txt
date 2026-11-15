@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0d2fafb14337ea19
+box	node	app	20	30.894	28.438	17.319
+box	node	app / domain	35	58.062	56.86	17
+box	node	app / domain / order	50	383.469	40.876	17
+box	node	app / domain / order / Order.cs	65	464.515	60.438	17
+box	node	app / domain / order / commands	65	410.484	84.423	17
+box	node	app / domain / order / commands / PlaceOrder.cs	80	437.5	100.423	17
+box	node	app / domain / user	50	85.078	33.782	17
+box	node	app / domain / user / User.cs	65	356.453	53.313	17
+box	node	app / domain / user / commands	65	112.094	84.423	17
+box	node	app / domain / user / commands / CreateUser.cs	80	139.109	101.314	17
+box	node	app / domain / user / commands / UpdateUser.cs	80	166.277	104.877	17.319
+box	node	app / domain / user / events	65	275.101	50.673	17
+box	node	app / domain / user / events / UserCreated.cs	80	302.117	111.096	17
+box	node	app / domain / user / events / UserUpdated.cs	80	329.285	114.658	17.319
+box	node	app / domain / user / queries	65	193.598	56.892	17.319
+box	node	app / domain / user / queries / GetUserById.cs	80	220.918	111.971	17.319
+box	node	app / domain / user / queries / ListUsers.cs	80	248.086	87.08	17
+canvas	-0.5	0	199.719	487.805
+font	Liberation Sans	312

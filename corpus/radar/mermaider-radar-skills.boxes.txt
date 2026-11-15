@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f2a5f81e83434856
+box	axis	Backend	537.503	605.873	46.703	14
+box	axis	Design	331.32	20	37.359	14
+box	axis	DevOps	119.137	605.873	43.359	14
+box	axis	Frontend	653.387	240.424	48.031	14
+box	axis	Testing	8.582	240.424	38.031	14
+box	legend	Team A	612.5	85.297	56.031	14.203
+box	legend	Team B	612.5	105.297	56.688	14.203
+box	title	Skills Assessment	285.977	-2.797	128.047	17
+canvas	0	0	700	700
+font	Liberation Sans	126

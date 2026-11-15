@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0b4854266094cee1
+box	axis	A	345.992	20	8.016	14
+box	axis	B	626.262	507.297	8.016	14
+box	axis	C	65.066	507.297	8.672	14
+box	curve	c1	87.449	249.685	444.021	262.834
+box	legend	c1	612.5	85.297	28.688	14.203
+box	title	Best Radar Ever	291.305	-2.797	117.391	17
+canvas	0	0	700	700
+font	Liberation Sans	40
