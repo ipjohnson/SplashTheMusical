@@ -18,7 +18,12 @@
   <!-- src/ projects: the trim, AOT and single-file analyzers -->
   <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('src/'))">
     <IsAotCompatible>true</IsAotCompatible>
+    <PackageIcon>06-nuget-purple.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('src/'))">
+    <None Include="$(MSBuildThisFileDirectory)artwork/06-nuget-purple.png" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
   <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('tests/'))">
     <IsTestProject>true</IsTestProject>
