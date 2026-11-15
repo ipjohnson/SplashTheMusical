@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+  # The l4 job of this run skips its cache. A runner image can change the fonts Chromium falls back to without changing
+  # the cache key.
+  schedule:
+    - cron: "17 5 * * 1"
 
 permissions:
   contents: read
@@ -100,14 +104,40 @@ jobs:
           STM_SVG_DIR: ${{ github.workspace }}/.artifacts/stm/svg
         run: dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/StmSvgsTests/*"
 
+      # mermaid.js's SVGs and rasters depend on the pinned packages, the oracle scripts, the bundled fonts, the corpus
+      # sources and the runner's fallback fonts. ImageOS, such as macos15, stands for the last.
+      - name: Name the cache of mermaid.js's SVGs and rasters
+        id: oracle-key
+        run: |
+          prefix="l4-oracle-${RUNNER_OS}-${RUNNER_ARCH}-${ImageOS}-"
+          echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
+          echo "key=${prefix}${{ hashFiles('tools/oracle/package-lock.json', 'tools/oracle/*.mjs', 'tools/oracle/fonts/**', 'corpus/**/*.mmd', 'corpus/config.txt') }}" >> "$GITHUB_OUTPUT"
+
+      # A partial match restores rasters that raster.mjs checks against each SVG's hash before it reuses them.
+      - name: Restore mermaid.js's SVGs and rasters
+        id: oracle-cache
+        if: github.event_name != 'schedule'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            .artifacts/corpus/svg
+            .artifacts/corpus/raster
+          key: ${{ steps.oracle-key.outputs.key }}
+          restore-keys: ${{ steps.oracle-key.outputs.prefix }}
+
       - name: Rewrite the oracle output of the corpus and write mermaid.js's SVGs
+        if: steps.oracle-cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p .artifacts
           node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg > .artifacts/corpus-oracle.log
 
+      # The scheduled run saves no cache, so it draws only the rasters it scores, as a run without the folder does.
       - name: Rasterize and score both SVGs of every case
-        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster
+        env:
+          ORACLE_RASTER_DIR: ${{ github.event_name != 'schedule' && '.artifacts/corpus/raster' || '' }}
+        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
 
+      # On a cache hit facts.mjs did not run, so this checks only corpus/l4.txt.
       - name: Fail when the committed oracle output or corpus/l4.txt is stale
         run: |
           changed=$(git status --porcelain -- corpus)
@@ -117,6 +147,15 @@ jobs:
             echo "::error::The committed corpus output differs from what the pinned mermaid.js and STM write. Run mise run raster and commit corpus/."
             exit 1
           fi
+
+      - name: Save mermaid.js's SVGs and rasters
+        if: github.event_name != 'schedule' && steps.oracle-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            .artifacts/corpus/svg
+            .artifacts/corpus/raster
+          key: ${{ steps.oracle-key.outputs.key }}
 
       # The artifact only helps a reader, so a full storage quota does not fail the job.
       - name: Upload the scores and the side-by-side images of failing cases
