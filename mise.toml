@@ -45,6 +45,14 @@ arg "<checkout>" help="A checkout of mermaid-js/mermaid at the tag of the mermai
 '''
 run = 'node tools/corpus/corpus.mjs "${usage_checkout}"'
 
+[tasks.upstream-generate]
+description = "Write the MermaidConfig classes in src/SplashTheMusical/Config/Generated from a mermaid checkout's config schema"
+usage = '''
+arg "<checkout>" help="A checkout of mermaid-js/mermaid at the tag of the mermaid tools/oracle pins"
+flag "--check" help="Write nothing, and fail when a generated file differs from the committed one"
+'''
+run = 'dotnet run --project tools/SplashTheMusical.Upstream -- config "${usage_checkout}" $([ "${usage_check:-false}" = "true" ] && echo --check)'
+
 [tasks.corpus-oracle]
 description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
 run = [

@@ -25,7 +25,13 @@ mise run bench             # STM's stages on corpus/benchmarks/cases.txt, JIT an
 mise run bench-compare     # fail when a run is more than 10% worse than docs/benchmarks/stm.md
 mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the budget STM is held to
 mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
+mise run upstream-generate <checkout>          # rewrite src/SplashTheMusical/Config/Generated from mermaid's config schema
+mise run upstream-generate <checkout> --check  # fail when the generated files differ from the committed ones
 ```
+
+`upstream-generate` takes a checkout of mermaid-js/mermaid at the tag of the mermaid `tools/oracle` pins. The files in
+`src/SplashTheMusical/Config/Generated` are only written by it. `DefaultConfigTests` compares the default `MermaidConfig`
+with the oracle's `corpus/config.txt`.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 
@@ -52,6 +58,7 @@ Build output goes to `.artifacts/`.
 | `tests/SplashTheMusical.Tests` | Unit tests. |
 | `tests/SplashTheMusical.Conformance` | The harness that compares STM with the mermaid.js oracle. |
 | `tests/SplashTheMusical.Benchmarks` | BenchmarkDotNet. |
+| `tools/SplashTheMusical.Upstream` | Generates code from a mermaid checkout: today the `MermaidConfig` classes from `config.schema.yaml`. |
 | `tools/oracle` | Node: runs the pinned mermaid.js in headless Chromium and writes the facts STM is compared against. |
 
 ## Rules
