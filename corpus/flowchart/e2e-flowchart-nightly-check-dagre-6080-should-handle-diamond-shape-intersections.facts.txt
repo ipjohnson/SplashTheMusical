@@ -33,4 +33,6 @@ node	n5	Evaluate	diam
 node	n6	Option 1	rect
 node	n7	Option 2	rect
 node	n8	Option 3	rect
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

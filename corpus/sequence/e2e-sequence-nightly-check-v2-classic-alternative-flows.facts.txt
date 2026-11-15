@@ -11,4 +11,5 @@ message	A	B	solid	filled	Request
 message	A	B	solid	filled	Request
 message	B	A	dashed	cross	Failure
 message	B	A	dashed	filled	Success
+preamble-config	look	"classic"
 type	sequence

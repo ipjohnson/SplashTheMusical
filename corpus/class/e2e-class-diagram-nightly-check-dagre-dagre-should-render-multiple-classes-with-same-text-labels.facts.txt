@@ -6,6 +6,9 @@ class	C1	Class with text label
 class	C2	Class with text label
 class	C3	Class with text label
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	C1	C2	none	arrow	solid
 relation	C3	C2	none	arrow	dashed
 type	classDiagram

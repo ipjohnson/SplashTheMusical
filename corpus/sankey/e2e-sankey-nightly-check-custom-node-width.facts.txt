@@ -6,4 +6,6 @@ drawn	yes
 flow	a	b	10
 label	a
 label	b
+preamble-config	sankey.nodeWidth	20
+preamble-config	sankey.useMaxWidth	false
 type	sankey

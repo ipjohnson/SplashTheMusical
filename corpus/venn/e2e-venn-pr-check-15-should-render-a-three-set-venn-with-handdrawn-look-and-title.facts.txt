@@ -3,6 +3,9 @@
 # source 71898f5dabbee603
 accept	yes
 drawn	yes
+preamble-config	fontFamily	"courier"
+preamble-config	handDrawnSeed	1
+preamble-config	look	"handDrawn"
 set	Backend		10
 set	DevOps		10
 set	Frontend		10

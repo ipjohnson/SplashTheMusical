@@ -6,4 +6,5 @@ drawn	yes
 edge	A	B	none	arrow	solid
 node	A	This is bold and italic text	rect
 node	B	A second markdown label	rect
+preamble-config	htmlLabels	true
 type	flowchart-v2

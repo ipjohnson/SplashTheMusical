@@ -35,4 +35,6 @@ node	[*]start@divider-id-2		sm-circ
 node	[*]start@divider-id-67		sm-circ
 node	[*]start@root		sm-circ
 note	SomethingElse2	This is the note to the right.
+preamble-config	logLevel	0
+preamble-config	theme	"dark"
 type	stateDiagram

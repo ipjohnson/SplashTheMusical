@@ -9,4 +9,6 @@ group	subbe	subbe	A
 node	A	A	diam
 node	B	B	rect
 node	C	C	rect
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

@@ -10,6 +10,8 @@ label	Categories
 label	Multiple Bar Plots
 label	Values
 orientation	horizontal
+preamble-config	xyChart.chartOrientation	"horizontal"
+preamble-config	xyChart.showDataLabel	true
 series	bar	10,50,90
 title	Multiple Bar Plots
 type	xychart

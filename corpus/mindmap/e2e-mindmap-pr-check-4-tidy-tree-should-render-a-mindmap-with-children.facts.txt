@@ -23,4 +23,5 @@ node	This is a mindmap / child2 / grandchild 4	default
 node	This is a mindmap / child3	default
 node	This is a mindmap / child3 / grandchild 5	default
 node	This is a mindmap / child3 / grandchild 6	default
+preamble-config	layout	"tidy-tree"
 type	mindmap

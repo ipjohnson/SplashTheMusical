@@ -8,6 +8,10 @@ label	Iron
 label	Key elements in Product X
 label	Magnesium
 label	Potassium
+preamble-config	pie.donutHole	0.2
+preamble-config	pie.highlightSlice	"Potassium"
+preamble-config	pie.textPosition	0.5
+preamble-config	themeVariables.pieOuterStrokeWidth	"5px"
 showdata	yes
 slice	Calcium	42.96
 slice	Iron	5

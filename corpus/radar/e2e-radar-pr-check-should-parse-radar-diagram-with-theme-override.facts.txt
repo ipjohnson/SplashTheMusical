@@ -11,4 +11,7 @@ label	A
 label	B
 label	C
 label	mycurve
+preamble-config	theme	"base"
+preamble-config	themeVariables.cScale0	"#FF0000"
+preamble-config	themeVariables.fontSize	80
 type	radar

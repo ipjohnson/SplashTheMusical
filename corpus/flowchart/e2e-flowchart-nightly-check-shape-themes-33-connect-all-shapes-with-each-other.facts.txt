@@ -18,4 +18,6 @@ node	n11	This is a label for bow-rect shape	bow-rect
 node	n22	This is a label for tagged-document shape	tag-doc
 node	n33	This is a label for divided-rectangle shape	div-rect
 node	n44		cross-circ
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
 type	flowchart-v2

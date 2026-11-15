@@ -16,6 +16,7 @@ label	Juliett
 label	Kilo
 label	Lima
 label	Slice palette
+preamble-config	theme	"redux-color"
 slice	Alpha	20
 slice	Bravo	16
 slice	Charlie	14

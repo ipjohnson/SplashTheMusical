@@ -26,6 +26,7 @@ label	p
 label	q
 label	r
 label	s
+preamble-config	xyChart.showDataLabel	true
 series	bar	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000,8000,10000,5000,7600,4999,11000,5000,6000
 title	Sales Revenue
 type	xychart

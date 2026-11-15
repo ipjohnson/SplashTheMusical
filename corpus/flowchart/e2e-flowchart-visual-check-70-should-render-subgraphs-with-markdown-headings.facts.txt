@@ -7,4 +7,5 @@ edge	a1	a2	none	arrow	solid
 group	**strong**	strong	a1,a2
 node	a1	a1	rect
 node	a2	a2	rect
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

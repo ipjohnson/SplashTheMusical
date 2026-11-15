@@ -23,6 +23,7 @@ label	test
 label	test
 label	test
 label	test
+preamble-config	look	"handDrawn"
 relation	T1	T2	zero-or-one	one-or-more	identifying	test
 relation	T1	T3	one	one	identifying	test
 relation	T2	T3	one-or-more	zero-or-one	non-identifying	test

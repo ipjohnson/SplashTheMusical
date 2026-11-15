@@ -34,5 +34,7 @@ period		2006
 period		2007
 period		2008
 period		2010
+preamble-config	logLevel	"debug"
+preamble-config	theme	"neutral"
 title	History of Social Media Platform
 type	timeline

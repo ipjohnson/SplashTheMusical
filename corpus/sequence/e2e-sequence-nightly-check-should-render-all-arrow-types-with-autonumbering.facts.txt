@@ -20,4 +20,7 @@ message	Bob	Alice	dashed	filled	Dotted with reverse central
 message	Charlie	Dave	dashed	filled-both	Bidirectional dotted (<<-->>)
 message	Charlie	Dave	dashed	none	Dotted open arrow (-->)
 message	Charlie	Dave	dashed	open	Dotted point async (--)
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

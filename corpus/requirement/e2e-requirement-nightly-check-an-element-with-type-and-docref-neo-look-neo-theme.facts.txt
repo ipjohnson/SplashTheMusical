@@ -11,6 +11,8 @@ label	perf_req
 label	test suite
 label	test_suite
 label	verifies
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 relation	test_suite	perf_req	verifies
 requirement	perf_req	requirement	1	latency under 100ms.	high	test
 type	requirement

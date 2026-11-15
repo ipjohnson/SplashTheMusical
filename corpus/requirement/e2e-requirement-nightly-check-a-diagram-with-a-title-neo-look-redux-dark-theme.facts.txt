@@ -10,6 +10,9 @@ label	simulation
 label	sys_req
 label	test_entity
 label	the test text.
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark"
+preamble-title	Requirement Diagram Title
 relation	test_entity	sys_req	satisfies
 requirement	sys_req	requirement	1	the test text.	high	test
 type	requirement

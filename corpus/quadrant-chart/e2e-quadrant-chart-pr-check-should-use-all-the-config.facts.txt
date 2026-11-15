@@ -28,6 +28,22 @@ point	Campaign C	0.57	0.69
 point	Campaign D	0.78	0.34
 point	Campaign E	0.4	0.34
 point	Campaign F	0.35	0.78
+preamble-config	quadrantChart.chartHeight	600
+preamble-config	quadrantChart.chartWidth	600
+preamble-config	quadrantChart.pointLabelFontSize	20
+preamble-config	quadrantChart.pointRadius	10
+preamble-config	quadrantChart.pointTextPadding	20
+preamble-config	quadrantChart.quadrantExternalBorderStrokeWidth	5
+preamble-config	quadrantChart.quadrantInternalBorderStrokeWidth	3
+preamble-config	quadrantChart.quadrantLabelFontSize	20
+preamble-config	quadrantChart.quadrantPadding	20
+preamble-config	quadrantChart.quadrantTextTopPadding	40
+preamble-config	quadrantChart.titleFontSize	10
+preamble-config	quadrantChart.titlePadding	20
+preamble-config	quadrantChart.xAxisLabelFontSize	20
+preamble-config	quadrantChart.xAxisLabelPadding	20
+preamble-config	quadrantChart.yAxisLabelFontSize	20
+preamble-config	quadrantChart.yAxisLabelPadding	20
 quadrant	1	We should expand
 quadrant	2	Need to promote
 quadrant	3	Re-evaluate

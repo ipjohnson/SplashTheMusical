@@ -16,4 +16,8 @@ node	done	Done	circle
 node	fix	Fix issues	rect
 node	start	Start	stadium
 node	task	Do work	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
+preamble-config	look	"handDrawn"
 type	swimlane

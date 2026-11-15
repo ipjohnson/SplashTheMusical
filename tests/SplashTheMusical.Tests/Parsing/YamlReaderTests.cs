@@ -149,6 +149,21 @@ public class YamlReaderTests
 	public void ABlockScalarInASequence() => Json("- |\n  x\n- y").Should().Be("""["x\n","y"]""");
 
 	[Test]
+	[Arguments("a: b\n  c", """{"a":"b c"}""")]
+	[Arguments("- b\n  c", """["b c"]""")]
+	[Arguments("- a\n  - b", """["a - b"]""")]
+	[Arguments("a: b\n\n\n  c # d\ne: f", """{"a":"b\n\nc","e":"f"}""")]
+	[Arguments("a:\n  b\n  c\nd: e", """{"a":"b c","d":"e"}""")]
+	public void APlainScalarFoldsTheMoreIndentedLinesBelowIt(string yaml, string json) => Json(yaml).Should().Be(json);
+
+	[Test]
+	[Arguments("a: \"b\n c\"", """{"a":"b c"}""")]
+	[Arguments("a: 'b\n c'", """{"a":"b c"}""")]
+	[Arguments("a: \"x  \n\n   y\\\n   z\"", """{"a":"x\nyz"}""")]
+	[Arguments("a: 'x \n\n y''z'", """{"a":"x\ny'z"}""")]
+	public void AQuotedScalarFoldsItsLines(string yaml, string json) => Json(yaml).Should().Be(json);
+
+	[Test]
 	public void ATopLevelScalarIsItsValue() => Json("hello world").Should().Be("\"hello world\"");
 
 	[Test]
@@ -164,11 +179,7 @@ public class YamlReaderTests
 	[Arguments("---\na: 1", "Document markers are not supported.", 1, 1)]
 	[Arguments("a: 1\n---\nb: 2", "Document markers are not supported.", 2, 1)]
 	[Arguments("a: 1\n...", "Document markers are not supported.", 2, 1)]
-	[Arguments("a: b\n  c", "Plain scalars that continue on the next line are not supported.", 2, 3)]
-	[Arguments("- b\n  c", "Plain scalars that continue on the next line are not supported.", 2, 3)]
 	[Arguments("[a\n b]", "Plain scalars that continue on the next line are not supported.", 2, 2)]
-	[Arguments("a: \"b\n c\"", "Quoted scalars that continue on the next line are not supported.", 1, 4)]
-	[Arguments("a: 'b\n c'", "Quoted scalars that continue on the next line are not supported.", 1, 4)]
 	[Arguments("[a: 1]", "Single-pair mappings inside a flow sequence are not supported.", 1, 3)]
 	[Arguments("a: |2\n  x", "Indentation indicators on block scalars are not supported.", 1, 5)]
 	[Arguments("a: >-1\n  x", "Indentation indicators on block scalars are not supported.", 1, 6)]
@@ -189,7 +200,7 @@ public class YamlReaderTests
 	[Arguments("a: b: c", "A mapping value is not allowed here.", 1, 5)]
 	[Arguments("a: \"b\" c", "Unexpected content after the value.", 1, 8)]
 	[Arguments("a: 1\n  b: 2", "Bad indentation of a mapping entry.", 2, 3)]
-	[Arguments("- a\n  - b", "Plain scalars that continue on the next line are not supported.", 2, 3)]
+	[Arguments("a: b # c\n  d", "Bad indentation of a mapping entry.", 2, 3)]
 	[Arguments("a: - b", "A block sequence cannot start on the line of its key.", 1, 4)]
 	[Arguments("a: 1\nb", "Expected a mapping entry.", 2, 1)]
 	[Arguments("- a\nb: 1", "Unexpected content after the document.", 2, 1)]

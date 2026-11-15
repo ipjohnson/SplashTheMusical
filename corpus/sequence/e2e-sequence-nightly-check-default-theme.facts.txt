@@ -17,4 +17,6 @@ message	John	Alice	dashed	filled	Hi Alice, I can hear you!
 message	John	Alice	dashed	filled	I feel great!
 message	John	Alice	dashed	none	Great!
 note	right	John	John is perceptive
+preamble-config	logLevel	0
+preamble-config	theme	"default"
 type	sequence

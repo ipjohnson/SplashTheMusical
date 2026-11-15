@@ -11,4 +11,6 @@ node	a	a	rect
 node	b	b	rect
 node	c	c	rect
 node	d	d	rect
+preamble-config	flowchart.inheritDir	true
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

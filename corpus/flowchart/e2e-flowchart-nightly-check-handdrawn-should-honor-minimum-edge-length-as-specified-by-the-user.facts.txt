@@ -24,4 +24,6 @@ node	L2	L2	rect
 node	M1	M1	rect
 node	R1	R1	rect
 node	R2	R2	rect
+preamble-config	handDrawnSeed	1
+preamble-config	look	"handDrawn"
 type	flowchart-v2

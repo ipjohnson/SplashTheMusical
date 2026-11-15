@@ -13,4 +13,5 @@ node	Market Share / Company A	0.35
 node	Market Share / Company B	0.25
 node	Market Share / Company C	0.15
 node	Market Share / Others	0.25
+preamble-config	treemap.valueFormat	"$.1%"
 type	treemap

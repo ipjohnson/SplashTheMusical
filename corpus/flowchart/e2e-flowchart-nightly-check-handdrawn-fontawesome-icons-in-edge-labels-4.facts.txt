@@ -12,4 +12,12 @@ node	a	a	rect
 node	b	b	rect
 node	f	f	rect
 node	i	i	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
+preamble-config	theme	"base"
+preamble-config	themeVariables.darkMode	true
+preamble-config	themeVariables.primaryColor	"#411d4e"
+preamble-config	themeVariables.titleColor	"white"
 type	flowchart-v2

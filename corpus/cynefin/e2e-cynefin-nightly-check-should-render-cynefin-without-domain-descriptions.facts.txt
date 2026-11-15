@@ -8,5 +8,6 @@ item	complex	0	Item A
 label	Item A
 label	Item B
 label	Minimal Labels
+preamble-config	cynefin.showDomainDescriptions	false
 title	Minimal Labels
 type	cynefin

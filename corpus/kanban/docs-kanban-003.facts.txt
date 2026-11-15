@@ -42,4 +42,5 @@ label	knsv
 label	knsv
 label	knsv
 label	last item
+preamble-config	kanban.ticketBaseUrl	"https://mermaidchart.atlassian.net/browse/#TICKET#"
 type	kanban

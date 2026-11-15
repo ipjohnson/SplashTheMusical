@@ -6,4 +6,6 @@ drawn	yes
 edge	hello	default	none	arrow	solid
 node	default	default	rect
 node	hello	hello	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

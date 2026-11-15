@@ -8,4 +8,5 @@ flow	b	c	10
 label	a
 label	b
 label	c
+preamble-config	sankey.labelStyle	"legacy"
 type	sankey

@@ -28,6 +28,21 @@ point	Campaign C	0.57	0.69
 point	Campaign D	0.78	0.34
 point	Campaign E	0.4	0.34
 point	Campaign F	0.35	0.78
+preamble-config	themeVariables.quadrant1Fill	"#b4dcff"
+preamble-config	themeVariables.quadrant1TextFill	"#ff0000"
+preamble-config	themeVariables.quadrant2Fill	"#fef0ff"
+preamble-config	themeVariables.quadrant2TextFill	"#2d00df"
+preamble-config	themeVariables.quadrant3Fill	"#fffaf0"
+preamble-config	themeVariables.quadrant3TextFill	"#00ffda"
+preamble-config	themeVariables.quadrant4Fill	"#f0fff2"
+preamble-config	themeVariables.quadrant4TextFill	"#e68300"
+preamble-config	themeVariables.quadrantExternalBorderStrokeFill	"#ff1010"
+preamble-config	themeVariables.quadrantInternalBorderStrokeFill	"#3636f2"
+preamble-config	themeVariables.quadrantPointFill	"#0149ff"
+preamble-config	themeVariables.quadrantPointTextFill	"#dc00ff"
+preamble-config	themeVariables.quadrantTitleFill	"#00ea19"
+preamble-config	themeVariables.quadrantXAxisTextFill	"#ffb500"
+preamble-config	themeVariables.quadrantYAxisTextFill	"#fae604"
 quadrant	1	We should expand
 quadrant	2	Need to promote
 quadrant	3	Re-evaluate

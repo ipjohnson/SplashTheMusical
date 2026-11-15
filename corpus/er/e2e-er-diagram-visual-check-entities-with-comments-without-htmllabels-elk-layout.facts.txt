@@ -23,5 +23,7 @@ label	string
 label	string
 label	title
 label	writes
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 relation	AUTHOR_WITH_LONG_ENTITY_NAME	BOOK	one-or-more	one-or-more	non-identifying	writes
 type	er

@@ -10,6 +10,8 @@ label	Auditor
 label	Browse catalogue
 label	Checkout
 label	Customer
+preamble-config	theme	"redux-color"
+preamble-config	usecase.colorScheme	"rotate"
 relation	Auditor	Checkout	association	none	arrow		1
 relation	Browse	Checkout	association	none	arrow		1
 relation	Customer	Browse	association	none	arrow		1

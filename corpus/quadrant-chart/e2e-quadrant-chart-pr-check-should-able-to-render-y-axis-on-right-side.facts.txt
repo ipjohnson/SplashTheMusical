@@ -16,6 +16,7 @@ label	Need to promote
 label	Re-evaluate
 label	Reach and engagement of campaigns
 label	We should expand
+preamble-config	quadrantChart.yAxisPosition	"right"
 quadrant	1	We should expand
 quadrant	2	Need to promote
 quadrant	3	Re-evaluate

@@ -13,4 +13,6 @@ message	Alice	Carl	solid	filled	Hi Carl!
 message	Bob	Alice	solid	filled	Fine, thank you. And you?
 message	Bob	Alice	solid	filled	I agree
 message	Carl	D	solid	filled	Hi!
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	sequence

@@ -8,6 +8,8 @@ label	Categories
 label	Single Bar Chart
 label	Value
 orientation	horizontal
+preamble-config	xyChart.chartOrientation	"horizontal"
+preamble-config	xyChart.showDataLabel	true
 series	bar	75
 title	Single Bar Chart
 type	xychart

@@ -7,6 +7,8 @@ class	classB	classB
 class	classC	classC
 class	classD	classD
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
 relation	classA	classB	none	none	solid	Inheritance
 relation	classA	classC	none	none	solid	link
 relation	classB	classD	none	none	solid

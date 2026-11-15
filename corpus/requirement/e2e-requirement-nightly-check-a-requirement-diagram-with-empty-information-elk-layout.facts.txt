@@ -6,5 +6,6 @@ drawn	yes
 element	test_entity
 label	test_entity
 label	test_req
+preamble-config	layout	"elk"
 requirement	test_req	requirement
 type	requirement

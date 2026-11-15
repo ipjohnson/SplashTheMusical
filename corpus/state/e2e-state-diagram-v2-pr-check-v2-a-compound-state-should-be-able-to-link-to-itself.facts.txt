@@ -8,4 +8,5 @@ edge	Inactive	Idle	none	arrow	solid	ACT
 group	Active	Active	Idle
 node	Idle	Idle	rounded
 node	Inactive	Inactive	rounded
+preamble-config	logLevel	0
 type	stateDiagram

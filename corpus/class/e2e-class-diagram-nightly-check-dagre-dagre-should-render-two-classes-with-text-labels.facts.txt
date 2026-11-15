@@ -5,5 +5,8 @@ accept	yes
 class	C1	Class 1 with text label
 class	C2	Class 2 with chars @?
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	C1	C2	none	arrow	solid
 type	classDiagram

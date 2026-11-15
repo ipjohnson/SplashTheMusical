@@ -11,4 +11,6 @@ group	S2	S2	sub4
 node	sub1	sub1	rounded
 node	sub2	sub2	rounded
 node	sub4	sub4	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

@@ -20,6 +20,7 @@ label	listen to the events
 label	register slug
 label	run the prebuilt job
 label	set Darkoob slug as hook for an Event
+preamble-config	journey.useMaxWidth	true
 section	Darkoob
 section	Darkoob
 section	External Service

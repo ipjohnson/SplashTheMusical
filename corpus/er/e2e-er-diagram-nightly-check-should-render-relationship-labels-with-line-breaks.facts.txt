@@ -35,6 +35,7 @@ label	string
 label	string
 label	string
 label	string
+preamble-config	logLevel	1
 relation	p	a	one	zero-or-one	identifying	has one
 relation	p	b	one	zero-or-one	identifying	has one two
 relation	p	c	one	zero-or-one	identifying	has one two three

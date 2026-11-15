@@ -8,4 +8,5 @@ drawn	yes
 method	Class10	size()
 note		I love this diagram! Do you love it?
 note	Class10	Cool class I said it's very cool class!
+preamble-config	logLevel	1
 type	classDiagram

@@ -10,4 +10,5 @@ message	Alice	John	solid	filled	Hello John, how are you?
 message	Alice	John	solid	filled	John, can you hear me?
 message	John	Alice	dashed	filled	Hi Alice, I can hear you!
 message	John	Alice	dashed	filled	I feel great!
+preamble-config	theme	"dark"
 type	sequence

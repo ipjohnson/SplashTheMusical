@@ -18,4 +18,6 @@ node	Configuring	Configuring	rounded
 node	Idle	Idle	rounded
 node	[*]start@NotShooting		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

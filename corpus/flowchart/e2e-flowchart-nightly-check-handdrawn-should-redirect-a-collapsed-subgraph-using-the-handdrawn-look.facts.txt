@@ -6,4 +6,6 @@ drawn	yes
 edge	X	grp	none	arrow	solid
 node	X	X	rect
 node	grp	Hand Drawn Group	collapsedGroup
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

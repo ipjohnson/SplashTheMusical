@@ -15,4 +15,8 @@ label	2
 label	3
 label	4
 label	5
+preamble-config	gitGraph.parallelCommits	false
+preamble-config	gitGraph.rotateCommitLabel	false
+preamble-config	gitGraph.showBranches	false
+preamble-config	gitGraph.showCommitLabel	true
 type	gitGraph

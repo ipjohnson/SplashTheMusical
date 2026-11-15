@@ -9,6 +9,7 @@ label	Checkout from website
 label	E-Commerce
 label	Me
 label	Order from website
+preamble-config	journey.useMaxWidth	false
 section	Checkout from website
 section	Order from website
 task	Checkout from website	Add payment details	5	Me

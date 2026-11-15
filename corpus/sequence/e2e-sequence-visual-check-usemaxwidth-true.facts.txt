@@ -22,4 +22,5 @@ message	Bob	Alice	dashed	none	Checking with John...
 message	Bob	John	dashed	filled	How about you John?
 message	Bob	John	solid	cross	I am good thanks!
 note	right	John	Bob thinks a long long time, so long that the text does not fit on a row.
+preamble-config	sequence.useMaxWidth	true
 type	sequence

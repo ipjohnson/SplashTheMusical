@@ -17,4 +17,5 @@ node	C	API	rect
 node	D	Database	cyl
 node	E	Auth Service	rect
 node	F	Sessions	cyl
+preamble-config	layout	"dagre"
 type	flowchart-v2

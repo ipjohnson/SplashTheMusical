@@ -11,4 +11,6 @@ group	s1	APA	D
 icon	I	fa:fa-code
 node	D	Use the editor	diam
 node	I	Text	diam
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

@@ -14,4 +14,6 @@ node	C	Let me think... Do I want something for work, something to spend every fr
 node	D	Laptop	stadium
 node	E	iPhone	stadium
 node	F	Car wroom wroom	stadium
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

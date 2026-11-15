@@ -16,4 +16,6 @@ label	Fetch
 label	Normalise
 label	Validate
 label	Warehouse
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	block

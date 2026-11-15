@@ -18,4 +18,6 @@ node	D	Laptop	rect
 node	E	iPhone	rect
 node	F	Car	rect
 node	G	Another	rect
+preamble-config	logLevel	0
+preamble-config	theme	"neutral"
 type	flowchart-v2

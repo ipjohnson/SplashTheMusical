@@ -8,4 +8,9 @@ drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you? If you are not available right now, I can leave you a message. Please get back to me as soon as you can!
 message	Bob	Alice	solid	filled	Fine!
 note	left	Alice	Bob thinks
+preamble-config	sequence.fontFamily	"Menlo"
+preamble-config	sequence.fontSize	18
+preamble-config	sequence.fontWeight	400
+preamble-config	sequence.wrap	true
+preamble-config	theme	"dark"
 type	sequence

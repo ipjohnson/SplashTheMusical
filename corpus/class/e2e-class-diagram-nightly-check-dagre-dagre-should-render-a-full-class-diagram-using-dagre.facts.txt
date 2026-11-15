@@ -31,6 +31,9 @@ method	Class07	equals()
 method	Class10	test()
 note		I love this diagram! Do you love it?
 note	Class10	Cool class I said it's very cool class!
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	Class01	AveryLongClass	triangle	none	solid	Cool
 relation	Class03	Class04	diamond-filled	none	solid		1	*
 relation	Class05	Class06	diamond	none	solid		1	many

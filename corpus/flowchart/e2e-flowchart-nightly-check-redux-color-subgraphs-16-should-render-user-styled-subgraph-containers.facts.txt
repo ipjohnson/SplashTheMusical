@@ -10,4 +10,5 @@ group	Two	Two	Z
 node	X	node	rect
 node	Y	node	rect
 node	Z	node	rect
+preamble-config	theme	"redux-dark-color"
 type	flowchart-v2

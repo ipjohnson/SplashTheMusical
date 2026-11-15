@@ -18,6 +18,7 @@ node	App	App	component	70	75
 node	Cache	Cache	component	40	50
 node	Database	Database	component	60	30
 node	User	User	anchor	85	95
+preamble-config	theme	"dark"
 size	1100	800
 title	Theme Test - dark
 trend	Database	80	30

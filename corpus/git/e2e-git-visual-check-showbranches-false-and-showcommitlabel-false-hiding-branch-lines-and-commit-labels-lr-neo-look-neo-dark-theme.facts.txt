@@ -20,4 +20,6 @@ label	develop
 label	main
 label	merge-1
 label	v1.0
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 type	gitGraph

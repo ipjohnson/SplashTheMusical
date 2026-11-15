@@ -17,4 +17,5 @@ node	B	Facebook	rounded
 node	C	Coffee	rounded
 node	D	Car	rounded
 node	E	GitHub	rounded
+preamble-config	theme	"default"
 type	flowchart-v2

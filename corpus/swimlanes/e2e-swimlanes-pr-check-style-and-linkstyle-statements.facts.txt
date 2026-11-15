@@ -7,4 +7,6 @@ edge	A	B	none	arrow	solid
 group	StyledLane	StyledLane	A,B
 node	A	Styled node	rect
 node	B	Linked node	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
 type	swimlane

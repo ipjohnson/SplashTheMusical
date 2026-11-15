@@ -6,12 +6,6 @@ using System.Text.Json;
 namespace SplashTheMusical.Parsing;
 
 /// <summary>
-/// A <c>%%{type: arguments}%%</c> directive. <see cref="Arguments"/> is the parsed JSON, a string when the arguments are
-/// one word, or <c>null</c> when there are none.
-/// </summary>
-internal sealed record MermaidDirective(string Type, MermaidValue? Arguments);
-
-/// <summary>
 /// Reads a <c>%%{ ... }%%</c> directive the way mermaid.js's <c>detectDirective</c> does in
 /// <c>packages/mermaid/src/utils.ts</c>. Its pattern is
 /// <c>%%{\s*(?:(\w+)\s*:|(\w+))\s*(?:(\w+)|((?:(?!}%%).|\r?\n)*))?\s*(?:}%%)?</c>. One word after the colon is kept as a
@@ -25,8 +19,9 @@ internal static class DirectiveReader
 	/// <summary>
 	/// Reads the directive at the cursor, which is at <c>%%{</c>. Returns <c>false</c>, without moving, when no type name
 	/// follows <c>%%{</c>, because mermaid.js does not treat that as a directive. Otherwise moves past the directive and
-	/// returns <c>true</c>. <paramref name="directive"/> is <c>null</c> when the arguments are not valid JSON, which
-	/// mermaid.js logs and ignores, and <paramref name="diagnostics"/> gets a warning.
+	/// returns <c>true</c>. When the arguments are not valid JSON, which mermaid.js logs and ignores,
+	/// <paramref name="directive"/> holds them in <see cref="MermaidDirective.InvalidArguments"/> and
+	/// <paramref name="diagnostics"/> gets a warning.
 	/// </summary>
 	/// <exception cref="MermaidResourceLimitException">The JSON nests deeper than <see cref="ResourceLimits.MaxRecursionDepth"/>.</exception>
 	public static bool TryRead(
@@ -75,6 +70,7 @@ internal static class DirectiveReader
 					line,
 					column));
 				cursor.Advance(EndAfterClose(source, end));
+				directive = new MermaidDirective(type, null) { InvalidArguments = json.ToString() };
 				return true;
 			}
 		}

@@ -37,4 +37,5 @@ node	45	SAM.CommonFA.MetricPreOpportunity	rounded
 node	46	SAM.CommonFA.MetricOpportunity	rounded
 node	47	SAM.CommonFA.FMESummary	rounded
 node	48	SAM.CommonFA.CommonFAFinanceBudget	rounded
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

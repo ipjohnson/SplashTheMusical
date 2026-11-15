@@ -28,6 +28,8 @@ label	one-or-more-to-many-non-identifying
 label	one-to-many-identifying
 label	one-to-one-identifying
 label	one-to-zero-or-one-non-identifying
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 relation	ENTITY_A0	ENTITY_B0	one	one	identifying	one-to-one-identifying
 relation	ENTITY_A1	ENTITY_B1	one	zero-or-more	identifying	one-to-many-identifying
 relation	ENTITY_A2	ENTITY_B2	zero-or-more	zero-or-more	identifying	many-to-many-identifying

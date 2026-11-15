@@ -3,4 +3,5 @@
 # source 38cbd99bd9797b93
 accept	yes
 drawn	yes
+preamble-config	logLevel	1
 type	er

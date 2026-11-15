@@ -22,4 +22,5 @@ node	[*]start@Deep		sm-circ
 node	[*]start@Finish		sm-circ
 node	[*]start@divider-id-1		sm-circ
 node	[*]start@divider-id-91		sm-circ
+preamble-config	theme	"redux-dark"
 type	stateDiagram

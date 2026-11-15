@@ -17,4 +17,7 @@ node	c	c	rect
 node	d	The dog in the hog	rounded
 node	g	g	rect
 node	h	h	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

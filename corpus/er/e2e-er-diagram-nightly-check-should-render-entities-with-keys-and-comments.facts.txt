@@ -26,5 +26,6 @@ label	string
 label	title
 label	title comment
 label	writes
+preamble-config	logLevel	1
 relation	AUTHOR_WITH_LONG_ENTITY_NAME	BOOK	one-or-more	one-or-more	non-identifying	writes
 type	er

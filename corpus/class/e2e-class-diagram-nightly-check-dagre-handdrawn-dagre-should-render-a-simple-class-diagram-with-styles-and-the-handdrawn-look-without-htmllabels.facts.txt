@@ -4,4 +4,8 @@
 accept	yes
 class	Class10	Class10
 drawn	yes
+preamble-config	htmlLabels	false
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 type	classDiagram

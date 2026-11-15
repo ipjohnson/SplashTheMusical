@@ -6,4 +6,8 @@ drawn	yes
 edge	id1	id2	none	arrow	solid
 node	id1	Start	rounded
 node	id2	Stop	rounded
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

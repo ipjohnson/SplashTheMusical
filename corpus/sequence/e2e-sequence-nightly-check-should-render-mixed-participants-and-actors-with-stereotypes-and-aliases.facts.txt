@@ -19,4 +19,7 @@ message	OrderSvc	Gateway	dashed	filled	Order confirmed
 message	OrderSvc	Logs	solid	filled	Log transaction
 message	OrderSvc	Queue	solid	filled	Queue for processing as well
 message	Queue	OrderSvc	dashed	filled	Processing started AS Well
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

@@ -22,4 +22,10 @@ node	E	Can answer?	diam
 node	F	Answer	rounded
 node	F2	Answer	rounded
 node	G	Investigate	rounded
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	layout	"swimlane"
+preamble-config	logLevel	0
+preamble-config	swimlane.ignoreCrossLaneEdges	true
+preamble-config	swimlane.optimizeRanksByCrossings	true
 type	swimlane

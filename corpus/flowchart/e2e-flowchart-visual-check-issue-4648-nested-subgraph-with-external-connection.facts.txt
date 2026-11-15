@@ -12,4 +12,7 @@ node	D1	D1	rect
 node	D2	D2	rect
 node	D3	D3	rect
 node	E1	E1	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

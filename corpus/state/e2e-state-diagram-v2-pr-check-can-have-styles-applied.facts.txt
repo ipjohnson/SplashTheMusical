@@ -4,4 +4,6 @@
 accept	yes
 drawn	yes
 node	AState	AState	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

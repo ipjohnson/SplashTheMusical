@@ -17,5 +17,7 @@ label	name
 label	officer_of_firm
 label	string
 label	turnover
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 relation	PRIVATE_FINANCIAL_INSTITUTION	EMPLOYEE	one	one-or-more	non-identifying	employs
 type	er

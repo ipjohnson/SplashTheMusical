@@ -19,4 +19,5 @@ node	mindmap / Origins / Long history / Popularisation	default
 node	mindmap / Research	hex
 node	mindmap / Research / Uses	rect
 node	mindmap / Research / Uses / Creative techniques	default
+preamble-config	mindmap.colorBy	"depth"
 type	mindmap

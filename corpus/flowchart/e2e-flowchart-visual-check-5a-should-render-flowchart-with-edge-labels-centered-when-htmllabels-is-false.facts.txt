@@ -8,4 +8,6 @@ edge	B	C	none	arrow	solid	second
 node	A	Start	rect
 node	B	Middle	rect
 node	C	End	rect
+preamble-config	htmlLabels	false
+preamble-config	logLevel	1
 type	flowchart-v2

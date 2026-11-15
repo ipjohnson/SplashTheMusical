@@ -12,4 +12,5 @@ drawn	yes
 message	Alice	Bob	solid	filled	Request A
 message	Alice	Bob	solid	filled	Request B
 message	Alice	Bob	solid	filled	Request C
+preamble-config	themeCSS	".loopText { fill: #ffffff !important; } .labelBox { fill: red !important; }"
 type	sequence

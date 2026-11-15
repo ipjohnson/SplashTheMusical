@@ -9,6 +9,7 @@ entity	GENRE	GENRE
 label	AUTHOR
 label	BOOK
 label	GENRE
+preamble-config	logLevel	1
 relation	AUTHOR	GENRE	one-or-more	one-or-more	non-identifying
 relation	BOOK	AUTHOR	one-or-more	one-or-more	non-identifying
 relation	BOOK	GENRE	one-or-more	one-or-more	non-identifying

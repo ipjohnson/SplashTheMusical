@@ -8,4 +8,5 @@ edge	[*]start@root	State1	none	arrow	solid
 node	State1	State1	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	state.useMaxWidth	true
 type	stateDiagram

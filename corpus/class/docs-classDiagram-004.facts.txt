@@ -8,4 +8,5 @@ class	BankAccount	BankAccount
 drawn	yes
 method	BankAccount	+deposit(amount)
 method	BankAccount	+withdrawal(amount)
+preamble-title	Bank example
 type	classDiagram

@@ -12,4 +12,7 @@ message	Bob	Bob	dashed	filled	Dotted arrow self-reference
 message	Bob	Bob	solid	cross	Cross arrow self-reference
 message	Charlie	Charlie	dashed	cross	Dotted cross self-reference
 message	Charlie	Charlie	solid	none	Open arrow self-reference
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

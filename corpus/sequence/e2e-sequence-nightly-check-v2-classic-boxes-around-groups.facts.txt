@@ -12,4 +12,5 @@ box	Group 1	actor1,boundary2,participant0
 box	Group 2	control0,database2,entity1
 drawn	yes
 message	participant0	control0	solid	filled	Cross-group message
+preamble-config	look	"classic"
 type	sequence

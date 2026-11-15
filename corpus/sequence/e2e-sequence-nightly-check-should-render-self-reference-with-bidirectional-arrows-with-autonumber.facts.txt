@@ -10,4 +10,7 @@ message	Alice	Alice	dashed	filled-both	Another bidirectional dotted
 message	Alice	Alice	solid	filled-both	Bidirectional solid self-reference
 message	Bob	Bob	dashed	filled-both	Bidirectional dotted self-reference
 message	Charlie	Charlie	solid	filled-both	Another bidirectional solid
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

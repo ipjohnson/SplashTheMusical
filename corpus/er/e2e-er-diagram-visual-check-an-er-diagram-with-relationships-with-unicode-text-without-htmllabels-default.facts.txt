@@ -16,5 +16,6 @@ label	__hẽ😀__
 label	ema*i*l
 label	string
 label	string
+preamble-config	htmlLabels	false
 relation	person	a	one	zero-or-one	identifying	__hẽ😀__
 type	er

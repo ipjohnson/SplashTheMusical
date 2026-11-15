@@ -4,4 +4,6 @@
 accept	yes
 drawn	yes
 node	A	Christmas	rect
+preamble-config	handDrawnSeed	1
+preamble-config	look	"handDrawn"
 type	flowchart-v2

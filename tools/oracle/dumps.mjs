@@ -72,6 +72,16 @@ export function hookDagre(code) {
 	return code.slice(0, found[0].index) + hook + code.slice(found[0].index + head.length)
 }
 
+// mermaid.min.js with its preprocessDiagram set on globalThis.__oraclePreprocess. preprocessDiagram returns the front
+// matter title and the config of the front matter and the directives, which no public function returns together. The
+// function is found by the name label minification keeps; the run fails when it is not found exactly once.
+export function hookPreprocess(code) {
+	const found = [...code.matchAll(/[\w$]+\(([\w$]+),"preprocessDiagram"\);/g)]
+	if (found.length !== 1) throw new Error(`preprocessDiagram found ${found.length} times in mermaid.min.js, expected once; the preprocess hook in tools/oracle/dumps.mjs needs updating`)
+	const end = found[0].index + found[0][0].length
+	return code.slice(0, end) + `globalThis.__oraclePreprocess=${found[0][1]};` + code.slice(end)
+}
+
 // In the page: the computed variables of each theme and the default config, as lines of `<kind>\t<fields>`. A value is
 // JSON, `undefined` for a key that is present without a value, or NaN or Infinity as JavaScript writes them. Nested
 // objects and arrays are flattened into dotted paths; an empty one is written as {} or [].

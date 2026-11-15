@@ -3,6 +3,9 @@
 # source f92f7baf401bebde
 accept	yes
 drawn	yes
+preamble-config	fontFamily	"courier"
+preamble-config	handDrawnSeed	1
+preamble-config	look	"handDrawn"
 set	A		10
 set	B		10
 type	venn

@@ -18,4 +18,6 @@ node	n11		choice
 node	n22	This is a label for note shape	note
 node	n33	This is a label for stadium shape	stadium
 node	n44	This is a label for odd shape	odd
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	flowchart-v2

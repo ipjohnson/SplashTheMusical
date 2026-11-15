@@ -9,6 +9,7 @@ label	ADDRESS
 label	CUSTOMER
 label	invoiced at
 label	receives goods at
+preamble-config	logLevel	1
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	invoiced at
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	receives goods at
 type	er

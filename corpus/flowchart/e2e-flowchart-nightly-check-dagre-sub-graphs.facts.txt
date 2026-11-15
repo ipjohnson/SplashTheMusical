@@ -11,4 +11,6 @@ node	A	A	rect
 node	C	Evaluate	diam
 node	D	Option 1	rect
 node	E	Option 2	circle
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

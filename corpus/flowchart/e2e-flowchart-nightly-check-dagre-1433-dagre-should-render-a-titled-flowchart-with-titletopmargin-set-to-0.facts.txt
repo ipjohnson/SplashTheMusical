@@ -6,4 +6,6 @@ drawn	yes
 edge	A	B	none	arrow	solid
 node	A	A	rect
 node	B	B	rect
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

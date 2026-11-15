@@ -27,4 +27,6 @@ node	[*]start@divider-id-1		sm-circ
 node	[*]start@divider-id-119		sm-circ
 node	[*]start@divider-id-2		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

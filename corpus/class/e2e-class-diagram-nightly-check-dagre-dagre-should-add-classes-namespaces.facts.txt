@@ -8,5 +8,8 @@ class	C3	C3
 class	C4	C4
 drawn	yes
 namespace	Namespace1	C1,C2
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	C1	C2	none	arrow	solid
 type	classDiagram

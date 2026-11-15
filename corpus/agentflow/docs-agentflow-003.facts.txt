@@ -28,4 +28,7 @@ node	guide	Tone of voice	lin-doc	refdoc
 node	lookup	changelog_search	fr-rect	tool
 node	ok	Accurate?	diam	decision
 node	publish	Publish	hex	action
+preamble-config	layout	"dagre"
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	agentflow

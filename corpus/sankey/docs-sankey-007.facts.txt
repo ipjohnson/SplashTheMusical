@@ -10,4 +10,7 @@ label	Electricity grid
 label	Heating and cooling - homes
 label	Industry
 label	Losses
+preamble-config	sankey.nodePadding	20
+preamble-config	sankey.nodeWidth	15
+preamble-config	sankey.showValues	false
 type	sankey

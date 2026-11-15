@@ -25,4 +25,9 @@ node	folder3 / file4.ts	file
 node	folder3 / file5.ts	file
 node	folder3 / folder4	file
 node	folder3 / folder4 / file6.ts	file
+preamble-config	themeVariables.treeView.labelColor	"#FF0000"
+preamble-config	themeVariables.treeView.labelFontSize	"20px"
+preamble-config	themeVariables.treeView.lineColor	"#00FF00"
+preamble-config	treeView.lineThickness	3
+preamble-config	treeView.rowIndent	80
 type	treeView

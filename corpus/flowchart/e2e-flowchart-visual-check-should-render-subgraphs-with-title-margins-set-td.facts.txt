@@ -17,4 +17,6 @@ node	f1	f1	rect
 node	f2	f2	rect
 node	i1	i1	rect
 node	i2	i2	rect
+preamble-config	flowchart.subGraphTitleMargin.bottom	16
+preamble-config	flowchart.subGraphTitleMargin.top	8
 type	flowchart-v2

@@ -7,4 +7,6 @@ actor	Bob	Bob	participant
 drawn	yes
 message	Alice	Bob	solid	filled	I'm short
 message	Bob	Alice	solid	filled	Short as well
+preamble-config	sequence.actorFontFamily	"times"
+preamble-config	sequence.actorFontSize	18
 type	sequence

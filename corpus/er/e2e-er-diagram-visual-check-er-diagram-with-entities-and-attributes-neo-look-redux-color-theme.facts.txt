@@ -35,6 +35,8 @@ label	string
 label	string
 label	string
 label	string
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 relation	ORDER	LINE-ITEM	one	one-or-more	identifying	contains
 type	er

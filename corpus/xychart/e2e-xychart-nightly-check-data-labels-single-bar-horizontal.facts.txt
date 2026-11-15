@@ -8,6 +8,8 @@ label	Revenue (in $)
 label	Sales Revenue
 label	jan
 orientation	horizontal
+preamble-config	xyChart.chartOrientation	"horizontal"
+preamble-config	xyChart.showDataLabel	true
 series	bar	4000
 title	Sales Revenue
 type	xychart

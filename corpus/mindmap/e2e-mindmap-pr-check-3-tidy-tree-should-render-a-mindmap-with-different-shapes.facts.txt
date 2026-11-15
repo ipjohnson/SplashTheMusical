@@ -36,4 +36,5 @@ node	mindmap / Tools	default
 node	mindmap / Tools / I am a cloud	cloud
 node	mindmap / Tools / I am a cloud / I am a bang	bang
 node	mindmap / Tools / I am a cloud / I am a bang / Tools	default
+preamble-config	layout	"tidy-tree"
 type	mindmap

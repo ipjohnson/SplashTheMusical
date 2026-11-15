@@ -11,6 +11,7 @@ label	mystery
 label	non fiction
 label	other
 label	romance
+preamble-config	xyChart.showDataLabel	true
 series	bar	12,2,20,25,17,24
 title	Genres in top 100 book survey of 2025
 type	xychart

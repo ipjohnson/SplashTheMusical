@@ -11,6 +11,7 @@ label	Description wrapping
 label	Person
 label	System
 label	Uses
+preamble-config	wrap	true
 rel	p	s	one	Uses
 title	Description wrapping
 type	c4

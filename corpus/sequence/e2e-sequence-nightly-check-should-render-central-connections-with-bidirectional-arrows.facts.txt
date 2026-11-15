@@ -7,4 +7,7 @@ actor	Bob	Bob	participant
 drawn	yes
 message	Alice	Bob	dashed	filled-both	Bidirectional dotted
 message	Alice	Bob	solid	filled-both	Bidirectional solid
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

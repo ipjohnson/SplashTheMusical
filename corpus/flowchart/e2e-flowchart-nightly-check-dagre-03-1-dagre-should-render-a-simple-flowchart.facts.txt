@@ -15,4 +15,5 @@ node	C	Let me think	diam
 node	D	Laptop	rect
 node	E	iPhone	rect
 node	F	Car	rect
+preamble-config	layout	"dagre"
 type	flowchart-v2

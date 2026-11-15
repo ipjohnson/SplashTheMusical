@@ -23,4 +23,5 @@ node	src / components	dir
 node	src / components / Button.tsx	file
 node	src / components / Header.tsx	file
 node	src / index.js	file
+preamble-config	treeView.showIcons	true
 type	treeView

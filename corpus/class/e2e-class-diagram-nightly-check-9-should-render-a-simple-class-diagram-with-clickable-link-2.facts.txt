@@ -16,6 +16,8 @@ class	Class10	Class10<T>
 drawn	yes
 method	Class01	size()
 method	Class10	test()
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
 relation	Class01	AveryLongClass	triangle	none	solid	Cool
 relation	Class03	Class04	diamond-filled	none	solid
 relation	Class08	C2	arrow	arrow	solid	Cool label

@@ -22,5 +22,8 @@ period		2002
 period		2004
 period		2005
 period		2006
+preamble-config	logLevel	"debug"
+preamble-config	theme	"base"
+preamble-config	timeline.disableMulticolor	true
 title	History of Social Media Platform
 type	timeline

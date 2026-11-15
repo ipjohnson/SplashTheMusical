@@ -13,4 +13,5 @@ node	mindmap is a long thing / A	default
 node	mindmap is a long thing / B	default
 node	mindmap is a long thing / C	default
 node	mindmap is a long thing / D	default
+preamble-config	layout	"tidy-tree"
 type	mindmap

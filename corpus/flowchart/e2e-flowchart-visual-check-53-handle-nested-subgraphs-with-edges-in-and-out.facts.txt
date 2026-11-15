@@ -19,4 +19,7 @@ node	lb1	lb1	rect
 node	lb2	lb2	rect
 node	nat	nat	rect
 node	router	router	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

@@ -10,4 +10,7 @@ node	A		circle
 node	B		circle
 node	C		circle
 node	D		circle
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

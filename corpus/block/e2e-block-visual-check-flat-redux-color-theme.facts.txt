@@ -9,4 +9,6 @@ drawn	yes
 label	One
 label	Three
 label	Two
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 type	block

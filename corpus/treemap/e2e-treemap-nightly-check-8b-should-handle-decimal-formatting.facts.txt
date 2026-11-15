@@ -13,4 +13,5 @@ node	Metrics / Bounce Rate	0.672
 node	Metrics / Click-through Rate	0.129
 node	Metrics / Conversion Rate	0.057
 node	Metrics / Engagement	0.452
+preamble-config	treemap.valueFormat	".2f"
 type	treemap

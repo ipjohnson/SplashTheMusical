@@ -11,4 +11,7 @@ message	Bob	Alice	solid	filled	Circle at source with solid arrow (RTL)
 message	Bob	Alice	solid	none	Circle at source with open arrow (RTL)
 message	Charlie	Alice	dashed	cross	Circle at source with cross arrow (RTL)
 message	Charlie	Bob	dashed	filled	Circle at source with dotted arrow (RTL)
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

@@ -3,6 +3,7 @@
 # source 1d9202a2ef1f19d2
 accept	yes
 drawn	yes
+preamble-config	theme	"redux-color"
 set	A		10
 set	B		10
 type	venn

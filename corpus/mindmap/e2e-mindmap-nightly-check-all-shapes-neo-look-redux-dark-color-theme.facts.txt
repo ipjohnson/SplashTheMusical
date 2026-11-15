@@ -61,4 +61,6 @@ node	All Shapes / Square Branch	default
 node	All Shapes / Square Branch / Square Node	rect
 node	All Shapes / Square Branch / Square Node / Another Square	rect
 node	All Shapes / Square Branch / Square Node / Nested Square	rect
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	mindmap

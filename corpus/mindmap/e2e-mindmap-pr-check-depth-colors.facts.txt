@@ -33,4 +33,17 @@ node	mindmap / Research / On effectiveness and features	rect
 node	mindmap / Tools	hex
 node	mindmap / Tools / Mermaid	default
 node	mindmap / Tools / Pen and paper	default
+preamble-config	look	"neo"
+preamble-config	mindmap.colorBy	"depth"
+preamble-config	theme	"base"
+preamble-config	themeVariables.cScale1	"#bfdbfe"
+preamble-config	themeVariables.cScale2	"#bbf7d0"
+preamble-config	themeVariables.cScale3	"#fde68a"
+preamble-config	themeVariables.cScaleLabel0	"#ffffff"
+preamble-config	themeVariables.cScaleLabel1	"#172554"
+preamble-config	themeVariables.cScaleLabel2	"#14532d"
+preamble-config	themeVariables.cScaleLabel3	"#451a03"
+preamble-config	themeVariables.git0	"#374151"
+preamble-config	themeVariables.gitBranchLabel0	"#ffffff"
+preamble-config	themeVariables.useGradient	false
 type	mindmap

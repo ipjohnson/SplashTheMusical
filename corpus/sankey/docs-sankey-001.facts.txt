@@ -119,4 +119,5 @@ label	Tidal
 label	UK land based bioenergy
 label	Wave
 label	Wind
+preamble-config	sankey.showValues	false
 type	sankey

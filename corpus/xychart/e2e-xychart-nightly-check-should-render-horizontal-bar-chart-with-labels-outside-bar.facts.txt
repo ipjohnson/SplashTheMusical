@@ -19,6 +19,9 @@ label	nov
 label	oct
 label	sep
 orientation	horizontal
+preamble-config	xyChart.chartOrientation	"horizontal"
+preamble-config	xyChart.showDataLabel	true
+preamble-config	xyChart.showDataLabelOutsideBar	true
 series	bar	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000
 title	Sales Revenue
 type	xychart

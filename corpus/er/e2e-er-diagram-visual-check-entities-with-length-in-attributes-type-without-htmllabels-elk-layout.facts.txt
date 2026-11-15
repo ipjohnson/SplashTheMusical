@@ -11,4 +11,6 @@ label	description
 label	name
 label	string(255)
 label	varchar(99)
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 type	er

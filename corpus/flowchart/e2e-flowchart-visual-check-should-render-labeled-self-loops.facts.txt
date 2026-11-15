@@ -8,4 +8,6 @@ edge	A	B	none	arrow	solid
 edge	B	B	none	arrow	solid	again
 node	A	Start	rect
 node	B	Process	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	htmlLabels	false
 type	flowchart-v2

@@ -11,4 +11,6 @@ label	A
 label	B
 label	C
 label	mycurve
+preamble-config	radar.axisLabelFactor	1.25
+preamble-config	radar.marginTop	80
 type	radar

@@ -11,4 +11,5 @@ node	a1	a1	rect
 node	a2	a2	rect
 node	b1	b1	rect
 node	b2	b2	rect
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

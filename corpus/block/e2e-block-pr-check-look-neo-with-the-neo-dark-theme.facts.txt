@@ -22,6 +22,8 @@ label	Process A
 label	Process B
 label	Start
 label	Yes
+preamble-config	look	"neo"
+preamble-config	theme	"neo-dark"
 space		1
 space		2
 space		2

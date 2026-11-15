@@ -12,5 +12,6 @@ label	Item B
 label	Item C
 label	Item D
 label	Straight Boundaries
+preamble-config	cynefin.boundaryAmplitude	0
 title	Straight Boundaries
 type	cynefin

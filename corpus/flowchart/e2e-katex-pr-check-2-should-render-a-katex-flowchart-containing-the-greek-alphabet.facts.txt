@@ -6,4 +6,5 @@ drawn	yes
 edge	A	B	none	arrow	solid
 node	A	αβγδϵζηθικλμνξοπρστυϕχψω	rect
 node	B	ABΓΔEZHΘIKΛMNΞOΠPΣTΥΦXΨΩ	rect
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

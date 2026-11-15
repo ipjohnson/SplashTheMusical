@@ -14,4 +14,5 @@ node	A	one	rect
 node	B	two	rect
 node	C	three	rect
 node	D	four	rect
+preamble-config	theme	"redux-dark-color"
 type	flowchart-v2

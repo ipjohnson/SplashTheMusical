@@ -6,4 +6,6 @@ drawn	yes
 group	roundWithTitle	roundWithTitle	C
 node	C	Black with white text	rounded
 node	D	Black with white text	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

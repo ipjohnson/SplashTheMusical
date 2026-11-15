@@ -23,4 +23,8 @@ node	D	D	rect
 node	E	E	rect
 node	F	F	rect
 node	G	G	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

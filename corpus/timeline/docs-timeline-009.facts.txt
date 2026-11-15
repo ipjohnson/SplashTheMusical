@@ -34,5 +34,12 @@ period		2006
 period		2007
 period		2008
 period		2010
+preamble-config	logLevel	"debug"
+preamble-config	theme	"default"
+preamble-config	themeVariables.cScale0	"#ff0000"
+preamble-config	themeVariables.cScale1	"#00ff00"
+preamble-config	themeVariables.cScale2	"#0000ff"
+preamble-config	themeVariables.cScaleLabel0	"#ffffff"
+preamble-config	themeVariables.cScaleLabel2	"#ffffff"
 title	History of Social Media Platform
 type	timeline

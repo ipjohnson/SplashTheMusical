@@ -13,4 +13,5 @@ node	package.json	file
 node	src	dir
 node	src / App.tsx	file
 node	src / index.js	file
+preamble-config	treeView.showIcons	true
 type	treeView

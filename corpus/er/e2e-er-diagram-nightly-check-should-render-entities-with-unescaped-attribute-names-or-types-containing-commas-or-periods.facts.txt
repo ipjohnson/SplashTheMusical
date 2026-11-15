@@ -23,5 +23,6 @@ label	price_per_night
 label	room.number
 label	string
 label	string
+preamble-config	loglevel	1
 relation	HOTEL	ROOM	one	zero-or-more	identifying	has
 type	er

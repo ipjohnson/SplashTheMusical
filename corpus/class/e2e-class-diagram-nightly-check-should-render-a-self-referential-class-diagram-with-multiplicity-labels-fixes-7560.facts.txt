@@ -7,5 +7,7 @@ attribute	SelfReferential	+int id
 attribute	SelfReferential	+int self_referential_id
 class	SelfReferential	SelfReferential
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
 relation	SelfReferential	SelfReferential	none	arrow	solid	referenced	1	0..1
 type	classDiagram

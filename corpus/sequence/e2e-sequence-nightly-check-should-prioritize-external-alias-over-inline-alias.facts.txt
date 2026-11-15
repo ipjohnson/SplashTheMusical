@@ -7,4 +7,7 @@ actor	DB	External DB	database
 drawn	yes
 message	API	DB	solid	filled	Query
 message	DB	API	dashed	filled	Result
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

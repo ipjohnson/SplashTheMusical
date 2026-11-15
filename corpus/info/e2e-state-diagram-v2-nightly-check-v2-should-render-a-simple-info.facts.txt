@@ -4,4 +4,6 @@
 accept	yes
 drawn	yes
 label	12.3.0
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	1
 type	info

@@ -29,4 +29,8 @@ node	I	I	rect
 node	Sys1	Sys1	rect
 node	exit	Exit	rounded
 node	id1	Database	cyl
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	swimlane

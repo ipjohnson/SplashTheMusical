@@ -17,4 +17,5 @@ node	A / D	default
 node	A / E	default
 node	A / F	default
 node	A / G	default
+preamble-config	layout	"tidy-tree"
 type	mindmap

@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 import { extractFacts } from './extract.mjs'
-import { configDumps, dagreLayouts, hookDagre, readShapes, readThemeNames } from './dumps.mjs'
+import { configDumps, dagreLayouts, hookDagre, hookPreprocess, readShapes, readThemeNames } from './dumps.mjs'
 
 const [, , casesDir, factsDir, svgDir] = process.argv
 if (!casesDir || !factsDir) {
@@ -129,7 +129,7 @@ await page.evaluate(async (family, aliases, faces) => {
 	style.textContent = `* { font-family: "${family}" !important; }`
 	document.head.append(style)
 }, fontFamily, ['Helvetica', 'Verdana'], fontFaces)
-await page.addScriptTag({ content: hookDagre(fs.readFileSync(path.join(mermaidDir, 'dist', 'mermaid.min.js'), 'utf8')) })
+await page.addScriptTag({ content: hookPreprocess(hookDagre(fs.readFileSync(path.join(mermaidDir, 'dist', 'mermaid.min.js'), 'utf8'))) })
 // ZenUML is an external diagram, as it is for mermaid-cli and the mermaid live editor.
 await page.addScriptTag({ path: path.join(root, 'node_modules', '@mermaid-js', 'mermaid-zenuml', 'dist', 'mermaid-zenuml.min.js') })
 await page.addScriptTag({

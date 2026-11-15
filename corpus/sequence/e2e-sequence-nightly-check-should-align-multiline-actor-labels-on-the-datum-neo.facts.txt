@@ -10,4 +10,6 @@ actor	U	Multi line actor	actor
 drawn	yes
 message	P	DB	solid	filled	and one end
 message	U	P	solid	filled	the lifelines should share one start
+preamble-config	look	"neo"
+preamble-config	theme	"redux-color"
 type	sequence

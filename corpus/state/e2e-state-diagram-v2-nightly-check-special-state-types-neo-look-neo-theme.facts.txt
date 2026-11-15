@@ -17,4 +17,6 @@ node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
 node	fork_state		fork
 node	join_state		fork
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	stateDiagram

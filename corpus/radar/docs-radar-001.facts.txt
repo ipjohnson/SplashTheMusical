@@ -19,4 +19,5 @@ label	Geography
 label	History
 label	Math
 label	Science
+preamble-title	Grades
 type	radar

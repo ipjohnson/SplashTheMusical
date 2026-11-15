@@ -6,4 +6,7 @@ drawn	yes
 edge	a	b	none	arrow	solid
 node	a	<strong> Haiya</strong>	rect
 node	b	b	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	htmlLabels	false
+preamble-config	look	"handDrawn"
 type	flowchart-v2

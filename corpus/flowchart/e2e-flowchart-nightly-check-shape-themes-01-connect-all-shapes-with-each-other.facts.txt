@@ -18,4 +18,6 @@ node	n11	This is a label for sloped-rectangle shape	sl-rect
 node	n22	This is a label for horizontal-cylinder shape	h-cyl
 node	n33	This is a label for flipped-triangle shape	flip-tri
 node	n44		hourglass
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	flowchart-v2

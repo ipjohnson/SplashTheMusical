@@ -9,4 +9,5 @@ edge	B	C	none	arrow	solid
 node	A	Start	rect
 node	B	Middle	rect
 node	C	End	rect
+preamble-config	layout	"elk.rectpacking"
 type	flowchart-v2

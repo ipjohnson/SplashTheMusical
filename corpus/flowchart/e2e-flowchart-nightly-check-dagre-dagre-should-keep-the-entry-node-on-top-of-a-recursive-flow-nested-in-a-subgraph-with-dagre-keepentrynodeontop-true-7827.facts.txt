@@ -22,4 +22,5 @@ node	format_output	format_output	rect
 node	start	Start	stadium
 node	synthesize	synthesize	rect
 node	web_sources	web_sources	rect
+preamble-config	layout	"dagre"
 type	flowchart-v2

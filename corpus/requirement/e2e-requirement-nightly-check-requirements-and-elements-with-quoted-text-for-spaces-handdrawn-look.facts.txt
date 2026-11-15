@@ -8,5 +8,6 @@ label	1
 label	test entity name that is extra long with spaces
 label	test req name with spaces
 label	the test text that is long and takes up a lot of space.
+preamble-config	look	"handDrawn"
 requirement	test req name with spaces	requirement	1	the test text that is long and takes up a lot of space.	high	test
 type	requirement

@@ -13,6 +13,9 @@ namespace	Company	Company.Engineering
 namespace	Company.Engineering	Company.Engineering.Backend,Company.Engineering.Frontend,TechLead
 namespace	Company.Engineering.Backend	Developer
 namespace	Company.Engineering.Frontend	Designer
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	TechLead	Designer	none	arrow	solid	leads
 relation	TechLead	Developer	none	arrow	solid	leads
 type	classDiagram

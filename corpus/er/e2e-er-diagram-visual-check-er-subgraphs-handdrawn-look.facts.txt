@@ -8,5 +8,6 @@ entity	ORDER	ORDER
 label	CUSTOMER
 label	ORDER
 label	places
+preamble-config	look	"handDrawn"
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 type	er

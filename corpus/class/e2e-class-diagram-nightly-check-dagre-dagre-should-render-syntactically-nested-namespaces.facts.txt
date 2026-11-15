@@ -14,6 +14,9 @@ method	UserService	+logout()
 namespace	Platform	Gateway,Platform.Auth,Platform.Data
 namespace	Platform.Auth	UserService
 namespace	Platform.Data	Repository
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	Gateway	Repository	none	arrow	solid	delegates
 relation	Gateway	UserService	none	arrow	solid	delegates
 type	classDiagram

@@ -23,6 +23,7 @@ label	dotted-dotted
 label	dotted-solid
 label	solid-dotted
 label	solid-solid
+preamble-config	logLevel	1
 relation	A	B	one	one	identifying	solid-solid
 relation	C	D	one	one	non-identifying	dotted-dotted
 relation	E	F	one	one	non-identifying	dotted-solid

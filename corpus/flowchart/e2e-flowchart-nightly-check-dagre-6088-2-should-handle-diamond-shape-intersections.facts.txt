@@ -15,4 +15,6 @@ node	E	Q	rect
 node	F	Q	rect
 node	I	X	diam
 node	a	a	rect
+preamble-config	flowchart.titleTopMargin	0
+preamble-config	layout	"dagre"
 type	flowchart-v2

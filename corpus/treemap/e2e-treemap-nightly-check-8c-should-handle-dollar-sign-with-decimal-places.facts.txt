@@ -13,4 +13,5 @@ node	Product Prices / Basic	19.99
 node	Product Prices / Enterprise	199.99
 node	Product Prices / Premium	99.99
 node	Product Prices / Standard	49.99
+preamble-config	treemap.valueFormat	"$.2f"
 type	treemap

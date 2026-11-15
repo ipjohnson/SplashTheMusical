@@ -25,6 +25,7 @@ label	liable for
 label	ordered in
 label	places
 label	receives
+preamble-config	layout	"elk"
 relation	CUSTOMER	DELIVERY-ADDRESS	one-or-more	one-or-more	non-identifying	has
 relation	CUSTOMER	INVOICE	one	zero-or-more	identifying	liable for
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places

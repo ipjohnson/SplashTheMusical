@@ -9,4 +9,5 @@ node	A	From x(t)	rect
 node	B	x~(t)	diam
 node	C	From x(t) to y(t)	rect
 node	D	x~(t)	diam
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

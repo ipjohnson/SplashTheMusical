@@ -120,6 +120,18 @@ Every accepted case has these facts:
 | `type` | the diagram id mermaid's detector chose | Model |
 | `drawn` | `yes` when the SVG shows a shape or a non-empty text with a size, outside `defs` and markers, else `no` | DOM |
 
+A case with front matter or directives also has these facts:
+
+| Fact | Fields | Source |
+|---|---|---|
+| `preamble-title` | the front matter title | `preprocessDiagram` |
+| `preamble-config` | path, value | `preprocessDiagram` |
+
+`preamble-config` holds the config of the front matter and the `init` and `wrap` directives, merged as mermaid.js merges
+them before it applies the config. Its paths and values are written as in [`config.txt`](#theme-variables). The runner
+reads both from mermaid's `preprocessDiagram`, which no public function returns. `hookPreprocess` in `dumps.mjs` sets it
+on `globalThis` when it loads `mermaid.min.js`, and fails when it does not find the function exactly once.
+
 Most types also have `label` facts. A `label` fact names a label from the model that the DOM shows. A label counts as
 shown when its letters and digits, case-folded, occur in the drawn text joined the same way. Longer labels are matched
 first, and each match is used once, so two equal labels need two drawn copies.

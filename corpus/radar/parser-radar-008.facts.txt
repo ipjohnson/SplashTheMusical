@@ -11,4 +11,7 @@ label	A
 label	B
 label	C
 label	mycurve
+preamble-config	theme	"base"
+preamble-config	themeVariables.fontSize	10
+preamble-config	themeVariables.radar.axisColor	"#FF0000"
 type	radar

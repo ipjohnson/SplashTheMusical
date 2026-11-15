@@ -25,4 +25,5 @@ label	8-abcdefg
 label	develop
 label	feature
 label	main
+preamble-config	gitGraph.parallelCommits	true
 type	gitGraph

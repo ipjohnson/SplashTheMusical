@@ -10,4 +10,7 @@ message	Alice	Bob	dashed	filled	Dotted open arrow
 message	Alice	Bob	solid	cross	Solid cross
 message	Alice	Bob	solid	filled	Solid open arrow
 message	Alice	Bob	solid	none	Solid arrow
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

@@ -12,4 +12,6 @@ node	1B	1B	rect
 node	1C	1C	rect
 node	D	D	rect
 node	E	E	rect
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

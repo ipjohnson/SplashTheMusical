@@ -8,5 +8,6 @@ label	1
 label	test_entity_name_that_is_extra_long
 label	test_req
 label	the test text that is long and takes up a lot of space.
+preamble-config	look	"handDrawn"
 requirement	test_req	requirement	1	the test text that is long and takes up a lot of space.	high	test
 type	requirement

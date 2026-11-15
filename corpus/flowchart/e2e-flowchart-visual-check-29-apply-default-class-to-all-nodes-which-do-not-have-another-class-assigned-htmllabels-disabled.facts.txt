@@ -11,4 +11,6 @@ node	A	myClass1	rect
 node	B	default	rect
 node	C	default	rect
 node	D	myClass2	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

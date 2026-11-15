@@ -27,4 +27,9 @@ node	M	red text	trap-t
 node	N	blue text	rect
 node	O	red text	dbl-circ
 node	P	blue text	dbl-circ
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	2
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

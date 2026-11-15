@@ -23,4 +23,5 @@ node	D	D	rect
 node	E	E	rect
 node	F	F	rect
 node	G	G	rect
+preamble-config	fontFamily	"courier"
 type	flowchart-v2

@@ -18,6 +18,7 @@ label	invoiced at
 label	liable for
 label	places
 label	receives goods at
+preamble-config	htmlLabels	false
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	invoiced at
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	receives goods at
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places

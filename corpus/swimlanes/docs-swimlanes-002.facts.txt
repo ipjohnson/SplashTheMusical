@@ -15,4 +15,6 @@ node	Invoice	Raise invoice	rect
 node	Pay	Pay	rect
 node	Pick	Pick items	rect
 node	Ship	Ship order	rect
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	swimlane

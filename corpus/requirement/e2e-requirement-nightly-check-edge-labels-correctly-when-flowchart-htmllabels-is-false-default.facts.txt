@@ -21,6 +21,7 @@ label	the test text.
 label	traces
 label	verifies
 label	word doc
+preamble-config	flowchart.htmlLabels	false
 relation	test_entity	test_req2	satisfies
 relation	test_entity2	test_req	copies
 relation	test_entity2	test_req	verifies

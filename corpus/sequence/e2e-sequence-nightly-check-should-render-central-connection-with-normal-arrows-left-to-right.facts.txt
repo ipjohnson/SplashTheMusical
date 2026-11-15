@@ -11,4 +11,7 @@ message	Alice	Bob	dashed	filled	Dotted arrow with circle at destination
 message	Alice	Bob	dashed	open	Close arrow with circle at destination
 message	Alice	Bob	solid	filled	Solid arrow with circle at destination
 message	Alice	Bob	solid	none	Open arrow with circle at destination
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

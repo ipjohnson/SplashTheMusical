@@ -6,4 +6,5 @@ drawn	yes
 edge	[*]start@root	Yswsii	none	arrow	solid
 node	Yswsii	Your state with spaces in it	rounded
 node	[*]start@root		sm-circ
+preamble-config	logLevel	0
 type	stateDiagram

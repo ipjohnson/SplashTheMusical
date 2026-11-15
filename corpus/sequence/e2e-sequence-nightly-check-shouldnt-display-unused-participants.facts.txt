@@ -4,4 +4,5 @@
 accept	yes
 actor	a	a	participant
 drawn	yes
+preamble-config	sequence.sequence.hideUnusedParticipants	true
 type	sequence

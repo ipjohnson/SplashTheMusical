@@ -9,4 +9,7 @@ node	default-index.js	default-index.js	rect
 node	dot.template.js	dot.template.js	rect
 node	index.js	index.js	rect
 node	module-utl.js	module-utl.js	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

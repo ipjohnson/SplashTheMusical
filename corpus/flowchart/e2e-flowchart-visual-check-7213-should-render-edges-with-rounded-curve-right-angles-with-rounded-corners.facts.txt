@@ -13,4 +13,5 @@ node	B	Decision	diam
 node	C	Process 1	rect
 node	D	Process 2	rect
 node	E	End	rect
+preamble-config	flowchart.curve	"rounded"
 type	flowchart-v2

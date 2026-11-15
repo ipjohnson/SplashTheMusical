@@ -36,4 +36,7 @@ node	K	K	rect
 node	L	L	rect
 node	M	M	rect
 node	N	N	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

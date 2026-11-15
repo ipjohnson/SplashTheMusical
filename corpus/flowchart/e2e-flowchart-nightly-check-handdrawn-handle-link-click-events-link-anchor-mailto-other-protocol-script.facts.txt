@@ -16,4 +16,7 @@ node	D	mailto test	rect
 node	E	other protocol test	rect
 node	F	script test	rect
 node	TITLE	Link Click Events (click the nodes below)	rect
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

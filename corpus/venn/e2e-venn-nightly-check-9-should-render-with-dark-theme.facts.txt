@@ -3,6 +3,7 @@
 # source 7f879b5156f88b88
 accept	yes
 drawn	yes
+preamble-config	theme	"dark"
 set	A		10
 set	B		10
 set	C		10

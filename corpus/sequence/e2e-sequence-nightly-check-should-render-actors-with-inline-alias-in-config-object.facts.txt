@@ -10,4 +10,7 @@ message	G	S	solid	filled	Process
 message	G	U	dashed	filled	Result
 message	S	G	dashed	filled	Response
 message	U	G	solid	filled	Request
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

@@ -7,4 +7,5 @@ actor	Bob	Bob	participant
 drawn	yes
 message	A	Bob	solid	filled	Hola
 message	Bob	A	dashed	none	Pasten !
+preamble-config	logLevel	0
 type	sequence

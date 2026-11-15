@@ -9,4 +9,6 @@ label	A
 label	B
 node	a	A	square	task
 node	b	B	square	task
+preamble-config	agentflow.nodeSpacing	70
+preamble-config	agentflow.rankSpacing	70
 type	agentflow

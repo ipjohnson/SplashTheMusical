@@ -8,4 +8,6 @@ class	Class10	Class10
 drawn	yes
 method	Class10	test(List<int> ids) : List<bool>
 method	Class10	testArray() : bool[]
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
 type	classDiagram

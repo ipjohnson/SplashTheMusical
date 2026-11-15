@@ -7,4 +7,5 @@ edge	API	Client	none	arrow	solid
 edge	Client	API	none	arrow	solid
 node	API	API	rect
 node	Client	Client	rect
+preamble-config	flowchart.stepDuration	0.5
 type	flowchart-v2

@@ -12,6 +12,7 @@ method	Developer	+writeCode()
 namespace	Company	CEO
 namespace	Company.Engineering.Backend	Developer
 namespace	Company.Engineering.Frontend	Designer
+preamble-config	class.hierarchicalNamespaces	false
 relation	CEO	Designer	none	arrow	solid	oversees
 relation	CEO	Developer	none	arrow	solid	oversees
 type	classDiagram

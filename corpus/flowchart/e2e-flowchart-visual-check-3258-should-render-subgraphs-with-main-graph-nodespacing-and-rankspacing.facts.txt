@@ -10,4 +10,7 @@ node	A	A	rect
 node	B	B	rect
 node	C	C	rect
 node	D	D	rect
+preamble-config	flowchart.nodeSpacing	1
+preamble-config	flowchart.rankSpacing	1
+preamble-title	Subgraph nodeSpacing and rankSpacing example
 type	flowchart-v2

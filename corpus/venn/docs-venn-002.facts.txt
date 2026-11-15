@@ -7,6 +7,8 @@ label	Buildable
 label	Marketable
 label	Ship it
 label	Sustainable
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 set	Desirable		10
 set	Feasible		10
 set	Viable		10

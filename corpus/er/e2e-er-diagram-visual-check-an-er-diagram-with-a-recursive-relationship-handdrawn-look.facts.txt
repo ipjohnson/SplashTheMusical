@@ -12,6 +12,7 @@ label	ORDER
 label	contains
 label	places
 label	refers
+preamble-config	look	"handDrawn"
 relation	CUSTOMER	CUSTOMER	one	zero-or-more	non-identifying	refers
 relation	CUSTOMER	ORDER	one	zero-or-more	identifying	places
 relation	ORDER	LINE-ITEM	one	one-or-more	identifying	contains

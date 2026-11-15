@@ -9,6 +9,7 @@ label	ADDRESS
 label	CUSTOMER
 label	invoiced at
 label	receives goods at
+preamble-config	look	"handDrawn"
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	invoiced at
 relation	CUSTOMER	ADDRESS	one	one-or-more	identifying	receives goods at
 type	er

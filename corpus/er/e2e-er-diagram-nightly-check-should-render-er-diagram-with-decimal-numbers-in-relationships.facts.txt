@@ -18,6 +18,7 @@ label	ORDER
 label	contains
 label	has
 label	references
+preamble-config	logLevel	1
 relation	1.0	ORDER	one	one-or-more	identifying	contains
 relation	2.5	1.5	one	one	identifying	has
 relation	CUSTOMER	3.14	one	zero-or-more	identifying	references

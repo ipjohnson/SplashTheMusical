@@ -10,4 +10,7 @@ message	API	Auth	solid	filled	Login request
 message	Auth	API	dashed	filled	Token
 message	Auth	DB	solid	filled	Query user
 message	DB	Auth	dashed	filled	User data
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

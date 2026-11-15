@@ -4,6 +4,7 @@
 accept	yes
 drawn	yes
 label	Only 0 matters
+preamble-title	Dirac delta function
 series	line	0,0.5,1
 type	xychart
 x-axis	Only 0 matters

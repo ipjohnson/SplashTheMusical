@@ -4,4 +4,6 @@
 accept	yes
 drawn	yes
 node	A	Google	rounded
+preamble-config	look	"handDrawn"
+preamble-config	securityLevel	"loose"
 type	stateDiagram

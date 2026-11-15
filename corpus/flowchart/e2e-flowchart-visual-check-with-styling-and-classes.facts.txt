@@ -9,4 +9,6 @@ node	A	A	rect
 node	B	The cat in the hat	rect
 node	id1	Start	rounded
 node	id2	Stop	rounded
+preamble-config	flowchart.htmlLabels	true
+preamble-config	flowchart.titleTopMargin	0
 type	flowchart-v2

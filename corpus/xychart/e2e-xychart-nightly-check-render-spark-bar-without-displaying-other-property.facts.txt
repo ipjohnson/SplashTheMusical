@@ -3,6 +3,17 @@
 # source 33eda566f100b4b6
 accept	yes
 drawn	yes
+preamble-config	theme	"dark"
+preamble-config	xyChart.height	20
+preamble-config	xyChart.width	200
+preamble-config	xyChart.xAxis.showAxisLine	false
+preamble-config	xyChart.xAxis.showLabel	false
+preamble-config	xyChart.xAxis.showTick	false
+preamble-config	xyChart.xAxis.showTitle	false
+preamble-config	xyChart.yAxis.showAxisLine	false
+preamble-config	xyChart.yAxis.showLabel	false
+preamble-config	xyChart.yAxis.showTick	false
+preamble-config	xyChart.yAxis.showTitle	false
 series	bar	5000,9000,7500,6200,9500,5500,11000,8200,9200,9500,7000,8800
 type	xychart
 x-axis

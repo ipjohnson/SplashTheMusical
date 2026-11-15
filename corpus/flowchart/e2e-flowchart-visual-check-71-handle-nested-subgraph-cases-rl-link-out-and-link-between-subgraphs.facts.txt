@@ -11,4 +11,7 @@ group	S2	S2	sub4
 node	sub1	sub1	rect
 node	sub2	sub2	rect
 node	sub4	sub4	rect
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

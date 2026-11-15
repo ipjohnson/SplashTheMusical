@@ -10,4 +10,6 @@ node	State1	State1	rounded
 node	State2	State2	rounded
 node	[*]end@root		fr-circ
 node	[*]start@root		sm-circ
+preamble-config	look	"classic"
+preamble-config	theme	"default"
 type	stateDiagram

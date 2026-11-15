@@ -26,5 +26,7 @@ label	string
 label	summary
 label	varchar(50)
 label	varchar(99)
+preamble-config	htmlLabels	false
+preamble-config	layout	"elk"
 relation	BOOK	STORE	zero-or-more	zero-or-more	non-identifying	soldBy
 type	er

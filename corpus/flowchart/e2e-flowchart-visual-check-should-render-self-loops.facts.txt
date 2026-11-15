@@ -17,4 +17,6 @@ node	A	A	rect
 node	B1	B1	rect
 node	C2	C2	rect
 node	D1	D1	rect
+preamble-config	flowchart.subGraphTitleMargin.bottom	5
+preamble-config	flowchart.subGraphTitleMargin.top	10
 type	flowchart-v2

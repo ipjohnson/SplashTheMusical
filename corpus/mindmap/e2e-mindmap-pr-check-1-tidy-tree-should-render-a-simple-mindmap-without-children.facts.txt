@@ -9,4 +9,5 @@ label	mindmap
 node	mindmap	circle
 node	mindmap / A	default
 node	mindmap / B	default
+preamble-config	layout	"tidy-tree"
 type	mindmap

@@ -5,5 +5,8 @@ accept	yes
 class	Animal	Animal
 class	Duck	Duck with text label
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 relation	Animal	Duck	triangle	none	solid
 type	classDiagram

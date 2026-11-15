@@ -87,4 +87,6 @@ node	ca122290_1ec3_e711_8c5a_005056ad0002	Shared Report Server	rounded
 node	d6072290_1ec3_e711_8c5a_005056ad0002	DBServer	rounded
 node	db052290_1ec3_e711_8c5a_005056ad0002	Shared Business Logic Server:Service 2	rounded
 node	f4112290_1ec3_e711_8c5a_005056ad0002	[DBServer\SharedDbInstance]	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

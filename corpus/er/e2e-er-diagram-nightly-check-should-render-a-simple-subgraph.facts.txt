@@ -7,4 +7,5 @@ entity	CUSTOMER	CUSTOMER
 entity	ORDER	ORDER
 label	CUSTOMER
 label	ORDER
+preamble-config	logLevel	1
 type	er

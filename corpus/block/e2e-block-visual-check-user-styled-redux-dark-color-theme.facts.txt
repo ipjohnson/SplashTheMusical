@@ -9,4 +9,6 @@ block	palette		composite	1
 drawn	yes
 label	Mine
 label	Palette
+preamble-config	look	"neo"
+preamble-config	theme	"redux-dark-color"
 type	block

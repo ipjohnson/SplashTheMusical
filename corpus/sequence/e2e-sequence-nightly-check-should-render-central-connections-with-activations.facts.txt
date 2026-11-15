@@ -9,4 +9,7 @@ drawn	yes
 message	Alice	Bob	solid	filled	Activate Bob
 message	Bob	Alice	solid	filled	Response to Alice
 message	Bob	Charlie	dashed	filled	Message to Charlie
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

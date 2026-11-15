@@ -5,4 +5,5 @@ accept	yes
 drawn	yes
 icon	A	fa:fa-bell
 node	A	Bell	rounded
+preamble-config	theme	"dark"
 type	flowchart-v2

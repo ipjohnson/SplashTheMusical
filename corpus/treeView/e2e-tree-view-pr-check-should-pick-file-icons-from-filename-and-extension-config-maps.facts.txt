@@ -15,4 +15,10 @@ node	src / data.xyz	file
 node	src / index.ts	file
 node	src / main.py	file
 node	src / unmapped.bin	file
+preamble-config	treeView.defaultIconPack	"material-icon-theme"
+preamble-config	treeView.extensionIcons..py	"none"
+preamble-config	treeView.extensionIcons..ts	"typescript"
+preamble-config	treeView.extensionIcons..xyz	"javascript"
+preamble-config	treeView.filenameIcons.README.md	"fa:bell"
+preamble-config	treeView.showIcons	true
 type	treeView

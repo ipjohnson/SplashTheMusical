@@ -5,4 +5,7 @@ accept	yes
 attribute	Foo	+String bar
 class	Foo	Foo
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 type	classDiagram

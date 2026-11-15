@@ -6,4 +6,8 @@ drawn	yes
 edge	a	b	none	arrow	solid
 node	a	Lorem 'ipsum' dolor 'sit' amet, 'consectetur' adipiscing 'elit'.	hex
 node	b	Lorem "ipsum" dolor "sit" amet,"consectetur" adipiscing "elit".	hex
+preamble-config	flowchart.htmlLabels	true
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	securityLevel	"loose"
 type	flowchart-v2

@@ -21,4 +21,5 @@ message	A	database5	solid	filled	Hello database
 message	A	entity4	solid	filled	Hello entity
 message	A	participant0	solid	filled	Hello participant
 message	A	queue7	solid	filled	Hello queue
+preamble-config	look	"classic"
 type	sequence

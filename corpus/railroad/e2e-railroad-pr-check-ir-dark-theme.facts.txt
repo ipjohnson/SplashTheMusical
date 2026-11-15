@@ -18,6 +18,7 @@ label	object
 label	string
 label	true
 label	value
+preamble-config	theme	"dark"
 rule	digit	("0" | "1" | "2" | "3")
 rule	number	{<digit>}1..
 rule	value	(<string> | <number> | <object> | <array> | "true" | "false" | "null")

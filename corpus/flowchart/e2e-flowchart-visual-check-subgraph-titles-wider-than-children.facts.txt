@@ -16,4 +16,5 @@ node	design	design	rect
 node	icons	icons	rect
 node	infra	infra	rect
 node	org	Org	rect
+preamble-config	layout	"elk"
 type	flowchart-v2

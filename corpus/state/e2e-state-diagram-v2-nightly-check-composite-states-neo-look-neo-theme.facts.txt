@@ -18,4 +18,6 @@ node	[*]end@Active		fr-circ
 node	[*]end@root		fr-circ
 node	[*]start@Active		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	look	"neo"
+preamble-config	theme	"neo"
 type	stateDiagram

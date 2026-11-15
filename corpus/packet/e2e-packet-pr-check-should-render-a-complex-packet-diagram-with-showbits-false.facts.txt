@@ -37,4 +37,6 @@ label	URG
 label	Urgent Pointer
 label	Window
 label	data
+preamble-config	packet.showBits	false
+preamble-title	Packet Diagram
 type	packet

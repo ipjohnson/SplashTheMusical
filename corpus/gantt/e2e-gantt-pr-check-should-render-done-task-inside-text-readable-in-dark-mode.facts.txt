@@ -9,6 +9,7 @@ label	Critical tasks
 label	Done
 label	Done critical
 label	Gantt dark mode done-task inside-text readability
+preamble-config	theme	"dark"
 section	A section
 section	Critical tasks
 task	A section	Active		2014-01-20 00:00	2014-02-03 00:00	active

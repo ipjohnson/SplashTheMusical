@@ -7,4 +7,5 @@ entity	c	CUSTOMER
 entity	p	PERSON
 label	CUSTOMER
 label	PERSON
+preamble-config	look	"handDrawn"
 type	er

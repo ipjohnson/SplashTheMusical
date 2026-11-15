@@ -14,5 +14,6 @@ label	price
 label	string
 label	title
 label	writes
+preamble-config	logLevel	1
 relation	AUTHOR	BOOK	one-or-more	one-or-more	non-identifying	writes
 type	er

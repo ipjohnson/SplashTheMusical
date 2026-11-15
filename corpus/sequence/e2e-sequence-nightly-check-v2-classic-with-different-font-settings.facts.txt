@@ -8,4 +8,12 @@ actor	participant0	participant0	participant
 drawn	yes
 message	participant0	actor1	solid	filled	Regular message
 note	right	actor1	Regular note
+preamble-config	look	"classic"
+preamble-config	sequence.actorFontFamily	"courier"
+preamble-config	sequence.actorFontSize	14
+preamble-config	sequence.messageFontFamily	"Arial"
+preamble-config	sequence.messageFontSize	12
+preamble-config	sequence.noteAlign	"left"
+preamble-config	sequence.noteFontFamily	"times"
+preamble-config	sequence.noteFontSize	16
 type	sequence

@@ -12,4 +12,5 @@ node	A	a	rect
 node	B	b	rect
 node	D	d	rect
 node	second	Second	collapsedGroup
+preamble-config	theme	"redux-dark"
 type	flowchart-v2

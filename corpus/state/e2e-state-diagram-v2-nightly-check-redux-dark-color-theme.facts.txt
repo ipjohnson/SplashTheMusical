@@ -21,4 +21,5 @@ node	[*]end@Working		fr-circ
 node	[*]end@root		fr-circ
 node	[*]start@Working		sm-circ
 node	[*]start@root		sm-circ
+preamble-config	theme	"redux-dark-color"
 type	stateDiagram

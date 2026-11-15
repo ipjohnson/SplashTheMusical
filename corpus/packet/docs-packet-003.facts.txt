@@ -11,4 +11,7 @@ label	DATA
 label	EN
 label	RESERVED
 label	TYPE
+preamble-config	packet.bitOrder	"descending"
+preamble-config	packet.bitsPerRow	16
+preamble-config	packet.showBits	true
 type	packet

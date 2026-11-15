@@ -15,4 +15,5 @@ node	Step	Step	rounded
 node	[*]start@Outer		sm-circ
 node	[*]start@Pinned		sm-circ
 node	[*]start@Plain		sm-circ
+preamble-config	theme	"redux-dark-color"
 type	stateDiagram

@@ -7,6 +7,7 @@ label	Bandy
 label	Football
 label	Ice-Hockey
 label	Sports in Sweden
+preamble-config	theme	"default"
 slice	Bandy	40
 slice	Football	90
 slice	Ice-Hockey	80

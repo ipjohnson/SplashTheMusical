@@ -9,5 +9,8 @@ method	TokenManager	+generate()
 method	UserService	+login()
 method	UserService	+logout()
 namespace	Auth	TokenManager,UserService
+preamble-config	htmlLabels	true
+preamble-config	logLevel	1
+preamble-config	look	"handDrawn"
 relation	UserService	TokenManager	none	arrow	solid	uses
 type	classDiagram

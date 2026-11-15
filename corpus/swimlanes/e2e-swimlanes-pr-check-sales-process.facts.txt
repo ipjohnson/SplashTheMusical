@@ -45,4 +45,7 @@ node	T5	Confirm with customer	rect
 node	T6	Resolve solution	rect
 node	Te1	Test the issue	rect
 node	Te2	Reproduced the issue	diam
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
+preamble-config	logLevel	0
 type	swimlane

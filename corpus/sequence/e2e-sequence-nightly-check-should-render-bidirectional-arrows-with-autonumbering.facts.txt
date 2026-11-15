@@ -12,4 +12,7 @@ message	Bob	Alice	solid	filled-both	Bidirectional solid right to left
 message	Bob	Charlie	solid	filled-both	Bidirectional solid
 message	Charlie	Alice	dashed	filled-both	Bidirectional dotted right to left
 message	Charlie	Bob	dashed	filled-both	Bidirectional dotted
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
+preamble-config	theme	"base"
 type	sequence

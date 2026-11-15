@@ -23,4 +23,5 @@ label	dev
 label	feat
 label	main
 label	v2
+preamble-config	gitGraph.parallelCommits	true
 type	gitGraph

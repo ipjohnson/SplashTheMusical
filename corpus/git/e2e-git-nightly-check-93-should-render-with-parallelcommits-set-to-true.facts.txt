@@ -23,4 +23,8 @@ label	7
 label	develop
 label	feature
 label	main
+preamble-config	gitGraph.parallelCommits	true
+preamble-config	gitGraph.rotateCommitLabel	false
+preamble-config	gitGraph.showBranches	true
+preamble-config	gitGraph.showCommitLabel	true
 type	gitGraph

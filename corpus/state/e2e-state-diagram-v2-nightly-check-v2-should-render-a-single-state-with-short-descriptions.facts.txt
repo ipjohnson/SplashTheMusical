@@ -5,4 +5,6 @@ accept	yes
 drawn	yes
 node	long1	A long long name	rounded
 node	longlonglongid	A	rounded
+preamble-config	fontFamily	"courier"
+preamble-config	logLevel	0
 type	stateDiagram

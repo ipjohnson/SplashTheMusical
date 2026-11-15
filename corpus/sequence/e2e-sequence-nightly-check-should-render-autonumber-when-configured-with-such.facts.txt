@@ -13,4 +13,6 @@ message	John	Alice	dashed	filled	Great!
 message	John	Bob	solid	filled	How about you?
 message	John	John	solid	filled	Fight against hypochondria
 note	right	John	Rational thoughts!
+preamble-config	sequence.actorMargin	50
+preamble-config	sequence.showSequenceNumbers	true
 type	sequence

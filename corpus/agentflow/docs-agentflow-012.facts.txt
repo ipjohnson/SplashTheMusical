@@ -10,4 +10,5 @@ label	a
 label	b
 node	a	a	fr-rect	tool
 node	b	b	fr-rect	tool
+preamble-config	layout	"elk"
 type	agentflow

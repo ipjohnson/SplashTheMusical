@@ -12,4 +12,5 @@ commit	4	main	normal
 drawn	yes
 label	develop
 label	main
+preamble-config	gitGraph.parallelCommits	true
 type	gitGraph

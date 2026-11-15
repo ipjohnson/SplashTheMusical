@@ -8,4 +8,5 @@ drawn	yes
 message	Alice	Bob	solid	filled	I'm short
 message	Bob	Alice	solid	filled	Short as well
 note	left	Alice	I am right aligned
+preamble-config	sequence.noteAlign	"right"
 type	sequence

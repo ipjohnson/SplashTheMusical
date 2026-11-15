@@ -16,4 +16,8 @@ label	main
 label	v1.0
 label	v1.1
 label	v2.0
+preamble-config	gitGraph.parallelCommits	false
+preamble-config	gitGraph.rotateCommitLabel	false
+preamble-config	gitGraph.showBranches	true
+preamble-config	gitGraph.showCommitLabel	false
 type	gitGraph

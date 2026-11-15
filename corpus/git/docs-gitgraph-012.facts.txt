@@ -29,4 +29,7 @@ label	fix(api): ...
 label	fix(client): .extra long label..
 label	main
 label	test(client): ...
+preamble-config	gitGraph.rotateCommitLabel	true
+preamble-config	logLevel	"debug"
+preamble-config	theme	"base"
 type	gitGraph

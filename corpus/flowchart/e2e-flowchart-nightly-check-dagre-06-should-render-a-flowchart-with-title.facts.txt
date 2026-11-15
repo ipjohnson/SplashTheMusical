@@ -8,4 +8,6 @@ edge	A	C	none	arrow	solid
 node	A	A	rect
 node	B	B	rect
 node	C	C	rect
+preamble-config	layout	"dagre"
+preamble-title	Test Title
 type	flowchart-v2

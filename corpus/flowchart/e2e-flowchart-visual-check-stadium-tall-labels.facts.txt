@@ -14,4 +14,6 @@ node	C	OneTwoThreeFourFiveSixSevenEightNineTenElevenTwelve	stadium
 node	D	Done	stadium
 node	E	Another path	stadium
 node	R	A long stadiumlabel that wrapsinto many lineswithout losing itscircular end capsor letting text crossthe border	rect
+preamble-config	fontFamily	"courier"
+preamble-config	htmlLabels	false
 type	flowchart-v2

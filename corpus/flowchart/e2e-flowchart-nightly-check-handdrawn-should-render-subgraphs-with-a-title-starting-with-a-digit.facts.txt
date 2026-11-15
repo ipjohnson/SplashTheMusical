@@ -7,4 +7,6 @@ edge	a1	a2	none	arrow	solid
 group	2Two	2Two	a1,a2
 node	a1	a1	rect
 node	a2	a2	rect
+preamble-config	fontFamily	"courier"
+preamble-config	look	"handDrawn"
 type	flowchart-v2

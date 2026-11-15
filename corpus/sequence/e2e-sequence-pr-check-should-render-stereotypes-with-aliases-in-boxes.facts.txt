@@ -23,4 +23,7 @@ message	Svc	DB	solid	filled	Query data
 message	UI	API	solid	filled	HTTP request
 message	UI	User	dashed	filled	Display
 message	User	UI	solid	filled	Click button
+preamble-config	look	"classic"
+preamble-config	sequence.diagramMarginX	50
+preamble-config	sequence.diagramMarginY	10
 type	sequence

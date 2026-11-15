@@ -11,6 +11,9 @@ class	Bike	Bike
 class	IdCard	IdCard
 class	Student	Student
 drawn	yes
+preamble-config	htmlLabels	true
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	Student	Bike	none	diamond	solid	rides	1	1
 relation	Student	IdCard	none	diamond	solid	carries	1	1
 type	classDiagram

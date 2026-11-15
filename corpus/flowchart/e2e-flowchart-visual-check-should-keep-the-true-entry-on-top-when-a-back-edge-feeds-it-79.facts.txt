@@ -15,4 +15,6 @@ node	format_json	Format JSON	rect
 node	new_york	Check New York time	rect
 node	san_francisco	Check San Francisco time	rect
 node	stockholm	Check the current local time in Stockholm	rect
+preamble-config	elk.keepEntryNodeOnTop	true
+preamble-config	layout	"elk"
 type	flowchart-v2

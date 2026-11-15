@@ -18,4 +18,6 @@ node	n11	This is a label for notched-pentagon shape	notch-pent
 node	n22	This is a label for lined-cylinder shape	lin-cyl
 node	n33	This is a label for stacked-document shape	docs
 node	n44	This is a label for half-rounded-rectangle shape	delay
+preamble-config	look	"neo"
+preamble-config	theme	"redux"
 type	flowchart-v2

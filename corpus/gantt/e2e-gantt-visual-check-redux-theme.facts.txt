@@ -15,6 +15,7 @@ label	Review
 label	Section banding
 label	Synthesis
 label	Wireframes
+preamble-config	theme	"redux"
 section	Build
 section	Design
 section	Discovery

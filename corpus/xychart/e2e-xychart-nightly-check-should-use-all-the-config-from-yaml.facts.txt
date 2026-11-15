@@ -19,6 +19,28 @@ label	nov
 label	oct
 label	sep
 orientation	horizontal
+preamble-config	theme	"forest"
+preamble-config	xyChart.chartOrientation	"horizontal"
+preamble-config	xyChart.height	600
+preamble-config	xyChart.plotReservedSpacePercent	60
+preamble-config	xyChart.showDataLabel	true
+preamble-config	xyChart.titleFontSize	10
+preamble-config	xyChart.titlePadding	5
+preamble-config	xyChart.width	1000
+preamble-config	xyChart.xAxis.axisLineWidth	5
+preamble-config	xyChart.xAxis.labelFontSize	20
+preamble-config	xyChart.xAxis.labelPadding	10
+preamble-config	xyChart.xAxis.tickLength	10
+preamble-config	xyChart.xAxis.tickWidth	5
+preamble-config	xyChart.xAxis.titleFontSize	30
+preamble-config	xyChart.xAxis.titlePadding	20
+preamble-config	xyChart.yAxis.axisLineWidth	5
+preamble-config	xyChart.yAxis.labelFontSize	20
+preamble-config	xyChart.yAxis.labelPadding	10
+preamble-config	xyChart.yAxis.tickLength	10
+preamble-config	xyChart.yAxis.tickWidth	5
+preamble-config	xyChart.yAxis.titleFontSize	30
+preamble-config	xyChart.yAxis.titlePadding	20
 series	bar	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000
 series	line	5000,6000,7500,8200,9500,10500,11000,10200,9200,8500,7000,6000
 title	Sales Revenue

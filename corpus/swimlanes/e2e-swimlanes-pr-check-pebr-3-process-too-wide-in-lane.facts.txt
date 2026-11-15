@@ -9,4 +9,6 @@ group	Dep1	Dep1	Dep1.Proc1,Dep1.Proc2,Dep1.Proc3
 node	Dep1.Proc1	Dep1.Proc1	rect
 node	Dep1.Proc2	Dep1.Proc2	rect
 node	Dep1.Proc3	Dep1.Proc3	rect
+preamble-config	flowchart.htmlLabels	false
+preamble-config	flowchart.useMaxWidth	false
 type	swimlane

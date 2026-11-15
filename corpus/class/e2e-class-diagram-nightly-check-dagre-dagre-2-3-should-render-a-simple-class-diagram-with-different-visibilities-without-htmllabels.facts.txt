@@ -12,5 +12,8 @@ drawn	yes
 method	Class01	#protectedMethod()
 method	Class01	+publicMethod()
 method	Class01	-privateMethod()
+preamble-config	htmlLabels	false
+preamble-config	layout	"dagre"
+preamble-config	logLevel	1
 relation	Class01	AveryLongClass	triangle	none	solid	Cool
 type	classDiagram
