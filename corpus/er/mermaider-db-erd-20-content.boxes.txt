@@ -1,0 +1,84 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ad319d041d947e8c
+box	entity	Anchor	1295.851	678	100	81
+box	entity	Applicability	361.172	678	113.938	81
+box	entity	ApplicabilityEntry	344.836	860	146.609	81
+box	entity	ChangelogDirective	12	416	162.187	81
+box	entity	CrossLink	1430.438	12	102.25	81
+box	entity	CrossLinkUri	1421.5	194	120.125	81
+box	entity	Cta	221.172	678	100	81
+box	entity	Directive	668.695	416	94.469	81
+box	entity	DocumentationFile	92.299	194	156.734	81
+box	entity	DocumentationSet	93.072	12	155.188	81
+box	entity	FrontMatter	513.912	416	112.359	81
+box	entity	Heading	970.527	416	92.156	81
+box	entity	Image	527.759	194	100	81
+box	entity	ImageLink	525.463	12	104.594	81
+box	entity	IncludeDirective	1581.625	194	139.609	81
+box	entity	InternalLink	944.78	12	112.391	81
+box	entity	LegacyPage	515.109	678	117.844	81
+box	entity	Link	803.164	416	100	81
+box	entity	ListingGroup	858.813	678	119.391	81
+box	entity	Page	729.158	194	100	81
+box	entity	PageCardDirective	670.056	12	157.5	81
+box	entity	PageSubstitution	672.953	678	145.859	81
+box	entity	Product	81.172	678	100	81
+box	entity	RelatedLearningDirective	288.259	12	197.203	81
+box	entity	RelatedLearningLink	302.642	194	168.437	81
+box	entity	SettingsDirective	1231.383	12	145.047	81
+box	entity	SettingsReference	1226.312	194	155.188	81
+box	entity	Snippet	1601.43	416	100	81
+box	entity	VersionSpec	358.836	1042	118.609	81
+box	relation	Applicability --> ApplicabilityEntry	418.141	759	0	101
+box	relation	ApplicabilityEntry --> VersionSpec	418.141	941	0	101
+box	relation	ChangelogDirective --> Product	93.094	497	24.745	181
+box	relation	CrossLink --> CrossLinkUri	1481.562	93	0	101
+box	relation	DocumentationSet --> DocumentationFile	170.666	93	0	101
+box	relation	FrontMatter --> Applicability	418.141	497	145.354	181
+box	relation	FrontMatter --> Cta	271.172	497	279.129	181
+box	relation	FrontMatter --> LegacyPage	574.031	497	2.658	181
+box	relation	FrontMatter --> ListingGroup	603.078	497	315.43	181
+box	relation	FrontMatter --> PageSubstitution	589.883	497	155.999	181
+box	relation	FrontMatter --> Product	144.505	497	392.601	181
+box	relation	Heading --> Anchor	1016.605	497	305.246	181
+box	relation	ImageLink --> Image	577.759	93	0	101
+box	relation	IncludeDirective --> Snippet	1651.43	275	0	141
+box	relation	InternalLink --> Anchor	1016.374	93	337.477	585
+box	relation	InternalLink --> Page	792.491	93	193.086	101
+box	relation	Page --> Anchor	805.825	275	532.027	403
+box	relation	Page --> Directive	715.93	275	49.895	141
+box	relation	Page --> FrontMatter	570.092	275	182.399	141
+box	relation	Page --> Heading	792.491	275	224.114	141
+box	relation	Page --> Link	779.158	275	74.006	141
+box	relation	PageCardDirective --> Page	748.806	93	17.018	101
+box	relation	RelatedLearningDirective --> RelatedLearningLink	386.861	93	0	101
+box	relation	SettingsDirective --> SettingsReference	1303.906	93	0	101
+box	relation	Snippet --> Anchor	1369.851	497	281.578	181
+box	relation-label	Applicability --> ApplicabilityEntry	395.141	799	45.922	21
+box	relation-label	ApplicabilityEntry --> VersionSpec	395.141	981	45.141	21
+box	relation-label	ChangelogDirective --> Product	63.094	577	59.156	21
+box	relation-label	CrossLink --> CrossLinkUri	1448.062	133	66.937	21
+box	relation-label	DocumentationSet --> DocumentationFile	158.166	133	24.906	21
+box	relation-label	FrontMatter --> Applicability	386.141	577	63.828	21
+box	relation-label	FrontMatter --> Cta	254.172	577	33.469	21
+box	relation-label	FrontMatter --> LegacyPage	525.531	577	96.531	21
+box	relation-label	FrontMatter --> ListingGroup	880.508	577	75.5	21
+box	relation-label	FrontMatter --> PageSubstitution	734.383	577	22.578	21
+box	relation-label	FrontMatter --> Product	142.25	577	53.703	21
+box	relation-label	Heading --> Anchor	1003.605	577	25.688	21
+box	relation-label	ImageLink --> Image	568.259	133	18.672	21
+box	relation-label	IncludeDirective --> Snippet	1637.43	355	27.25	21
+box	relation-label	InternalLink --> Anchor	1152.449	355	50.594	21
+box	relation-label	InternalLink --> Page	844.931	133	27.25	21
+box	relation-label	Page --> Anchor	1102.684	446	55.266	21
+box	relation-label	Page --> Directive	689.43	355	52.156	21
+box	relation-label	Page --> FrontMatter	537.092	355	65.312	21
+box	relation-label	Page --> Heading	995.105	355	42.031	21
+box	relation-label	Page --> Link	826.664	355	52.156	21
+box	relation-label	PageCardDirective --> Page	721.806	133	53.703	21
+box	relation-label	RelatedLearningDirective --> RelatedLearningLink	377.861	133	17.906	21
+box	relation-label	SettingsDirective --> SettingsReference	1289.906	133	27.25	21
+box	relation-label	Snippet --> Anchor	1616.93	577	68.484	21
+canvas	4	4	1725.234	1127
+font	Liberation Sans	1060

@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9f721cb5d99f9e6d
+box	edge	namedState1 --> bigState1	113.273	49	0	116.5
+box	edge	namedState2 --> bigState2	355.82	49	0	116.5
+box	edge-label	namedState1 --> bigState1	13.273	89	200	42
+box	edge-label	namedState2 --> bigState2	255.82	89	200	42
+box	group	bigState1	12	171	202.547	109
+box	group	bigState2	254.547	171	202.547	109
+box	node	bigState1InternalState	36	219	154.547	37
+box	node	bigState2InternalState	278.547	219	154.547	37
+box	node	namedState1	45.273	12	136	37
+box	node	namedState2	287.82	12	136	37
+canvas	4	4	461.094	284
+font	Liberation Sans	332

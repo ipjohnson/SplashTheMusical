@@ -1,0 +1,66 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 255e0b540b4cbe03
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Repository-0		106.921875	81
+node	entity-DocumentationSet-1		155.1875	81
+node	entity-Registry-2		100	81
+node	entity-LinkRegistry-3		117.03125	81
+node	entity-LinkRegistryEntry-4		149.703125	81
+node	entity-LinkManifest-5		118.59375	81
+node	entity-Assembly-6		100.6875	81
+node	entity-PublishEnvironment-7		164.515625	81
+node	entity-CodexSite-8		104.59375	81
+node	entity-TableOfContents-9		144.296875	81
+node	entity-DocumentationFile-10		156.734375	81
+node	entity-Product-11		100	81
+node	entity-VersioningSystem-12		152.0625	81
+node	entity-ChangelogConfiguration-13		191	81
+node	entity-Bundle-14		100	81
+edge	entity-Repository-0	entity-DocumentationSet-1	id_entity-Repository-0_entity-DocumentationSet-1_0	1	1	141.515625	21	10	c
+edge	entity-DocumentationSet-1	entity-Registry-2	id_entity-DocumentationSet-1_entity-Registry-2_1	1	1	45.90625	21	10	c
+edge	entity-Registry-2	entity-LinkRegistry-3	id_entity-Registry-2_entity-LinkRegistry-3_2	1	1	85.625	21	10	c
+edge	entity-LinkRegistry-3	entity-LinkRegistryEntry-4	id_entity-LinkRegistry-3_entity-LinkRegistryEntry-4_3	1	1	78.609375	21	10	c
+edge	entity-LinkRegistryEntry-4	entity-LinkManifest-5	id_entity-LinkRegistryEntry-4_entity-LinkManifest-5_4	1	1	27.25	21	10	c
+edge	entity-DocumentationSet-1	entity-LinkManifest-5	id_entity-DocumentationSet-1_entity-LinkManifest-5_5	1	1	94.1875	21	10	c
+edge	entity-Assembly-6	entity-Repository-0	id_entity-Assembly-6_entity-Repository-0_6	1	1	66.15625	21	10	c
+edge	entity-Assembly-6	entity-PublishEnvironment-7	id_entity-Assembly-6_entity-PublishEnvironment-7_7	1	1	84.046875	21	10	c
+edge	entity-CodexSite-8	entity-Registry-2	id_entity-CodexSite-8_entity-Registry-2_8	1	1	77.046875	21	10	c
+edge	entity-DocumentationSet-1	entity-TableOfContents-9	id_entity-DocumentationSet-1_entity-TableOfContents-9_9	1	1	18.6875	21	10	c
+edge	entity-DocumentationSet-1	entity-DocumentationFile-10	id_entity-DocumentationSet-1_entity-DocumentationFile-10_10	1	1	52.15625	21	10	c
+edge	entity-DocumentationSet-1	entity-Product-11	id_entity-DocumentationSet-1_entity-Product-11_11	1	1	53.703125	21	10	c
+edge	entity-Product-11	entity-VersioningSystem-12	id_entity-Product-11_entity-VersioningSystem-12_12	1	1	63.828125	21	10	c
+edge	entity-Repository-0	entity-ChangelogConfiguration-13	id_entity-Repository-0_entity-ChangelogConfiguration-13_13	1	1	90.28125	21	10	c
+edge	entity-Product-11	entity-Bundle-14	id_entity-Product-11_entity-Bundle-14_14	1	1	68.5	21	10	c
+size	1273.06640625	1189
+place	entity-Repository-0	792.0625	230.5	106.921875	81
+place	entity-DocumentationSet-1	635.515625	412.5	155.1875	81
+place	entity-Registry-2	82.8515625	594.5	100	81
+place	entity-LinkRegistry-3	82.8515625	776.5	117.03125	81
+place	entity-LinkRegistryEntry-4	82.8515625	958.5	149.703125	81
+place	entity-LinkManifest-5	494.12890625	1140.5	118.59375	81
+place	entity-Assembly-6	929.921875	48.5	100.6875	81
+place	entity-PublishEnvironment-7	1067.78125	230.5	164.515625	81
+place	entity-CodexSite-8	82.8515625	412.5	104.59375	81
+place	entity-TableOfContents-9	345	594.5	144.296875	81
+place	entity-DocumentationFile-10	635.515625	594.5	156.734375	81
+place	entity-Product-11	903.8828125	594.5	100	81
+place	entity-VersioningSystem-12	630.640625	776.5	152.0625	81
+place	entity-ChangelogConfiguration-13	948.609375	412.5	191	81
+place	entity-Bundle-14	1036.8984375	776.5	100	81
+route	entity-Repository-0	entity-DocumentationSet-1	id_entity-Repository-0_entity-DocumentationSet-1_0	635.515625	321.5	738.6015625,261.5766044515421 635.515625,321.5 635.515625,372
+route	entity-DocumentationSet-1	entity-Registry-2	id_entity-DocumentationSet-1_entity-Registry-2_1	42.11328125	503.5	557.921875,424.39923047047284 42.11328125,503.5 64.72078897664835,554
+route	entity-Registry-2	entity-LinkRegistry-3	id_entity-Registry-2_entity-LinkRegistry-3_2	82.8515625	685.5	82.8515625,635 82.8515625,685.5 82.8515625,736
+route	entity-LinkRegistry-3	entity-LinkRegistryEntry-4	id_entity-LinkRegistry-3_entity-LinkRegistryEntry-4_3	82.8515625	867.5	82.8515625,817 82.8515625,867.5 82.8515625,918
+route	entity-LinkRegistryEntry-4	entity-LinkManifest-5	id_entity-LinkRegistryEntry-4_entity-LinkManifest-5_4	82.8515625	1049.5	82.8515625,999 82.8515625,1049.5 434.83203125,1127.3798617113223
+route	entity-DocumentationSet-1	entity-LinkManifest-5	id_entity-DocumentationSet-1_entity-LinkManifest-5_5	1213.9921875	776.5	713.109375,424.70625295428454 1213.9921875,503.5 1213.9921875,594.5 1213.9921875,685.5 1213.9921875,776.5 1213.9921875,867.5 1213.9921875,958.5 1213.9921875,1049.5 553.42578125,1133.0041104810484
+route	entity-Assembly-6	entity-Repository-0	id_entity-Assembly-6_entity-Repository-0_6	792.0625	139.5	879.578125,81.7315538932336 792.0625,139.5 792.0625,190
+route	entity-Assembly-6	entity-PublishEnvironment-7	id_entity-Assembly-6_entity-PublishEnvironment-7_7	1067.78125	139.5	980.265625,81.7315538932336 1067.78125,139.5 1067.78125,190
+route	entity-CodexSite-8	entity-Registry-2	id_entity-CodexSite-8_entity-Registry-2_8	179.9921875	503.5	126.08447802197801,453 179.9921875,503.5 126.08447802197801,554
+route	entity-DocumentationSet-1	entity-TableOfContents-9	id_entity-DocumentationSet-1_entity-TableOfContents-9_9	345	503.5	557.921875,436.80516861184316 345,503.5 345,554
+route	entity-DocumentationSet-1	entity-DocumentationFile-10	id_entity-DocumentationSet-1_entity-DocumentationFile-10_10	635.515625	503.5	635.515625,453 635.515625,503.5 635.515625,554
+route	entity-DocumentationSet-1	entity-Product-11	id_entity-DocumentationSet-1_entity-Product-11_11	903.8828125	503.5	713.109375,438.8110826467934 903.8828125,503.5 903.8828125,554
+route	entity-Product-11	entity-VersioningSystem-12	id_entity-Product-11_entity-VersioningSystem-12_12	630.640625	685.5	853.8828125,611.1518942101501 630.640625,685.5 630.640625,736
+route	entity-Repository-0	entity-ChangelogConfiguration-13	id_entity-Repository-0_entity-ChangelogConfiguration-13_13	948.609375	321.5	845.5234375,261.5766044515421 948.609375,321.5 948.609375,372
+route	entity-Product-11	entity-Bundle-14	id_entity-Product-11_entity-Bundle-14_14	1036.8984375	685.5	953.8828125,628.7065076941149 1036.8984375,685.5 1036.8984375,736

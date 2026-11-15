@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 60c192d9e1edf6ad
+box	edge	lead --> quote	112	0	357.422	0
+box	edge	quote --> review	549.422	22.5	0	203
+box	edge	review --> approve	625.422	252	357.422	0
+box	group	finance	-86	126	1234.844	184.5
+box	group	sales	-86	-58.5	1234.844	184.5
+box	node	approve	986.844	229.5	152	45
+box	node	lead	-40	-22.5	152	45
+box	node	quote	473.422	-22.5	152	45
+box	node	review	473.422	229.5	152	45
+canvas	-94	-66.5	1250.844	385
+font	Liberation Sans	144

@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 104ccbc8526468a2
+box	legend	__proto__	441	191	98.757	19
+box	legend	constructor	441	213	106.094	19
+box	legend	prototype	441	235	92.891	19
+box	slice	__proto__	40	40	370	370
+box	slice	constructor	47.101	43.468	177.899	181.532
+box	slice	prototype	189.348	40	35.652	185
+box	title	Unsafe props test	127.031	2	195.938	28.188
+canvas	0	0	596.094	450
+font	Liberation Sans	108

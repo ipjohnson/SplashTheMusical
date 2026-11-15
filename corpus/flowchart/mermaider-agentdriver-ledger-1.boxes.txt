@@ -1,0 +1,31 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d4f0d635a88286d9
+box	edge	clock --> ledger	472	99	0	56
+box	edge	db --> effects	525.69	495.378	12.533	142
+box	edge	db --> readers	569.668	494.29	126.475	37.088
+box	edge	db --> scheduler	339.496	494.29	167.281	143.088
+box	edge	effects --> targets	525.69	728.378	0	36
+box	edge	ledger --> db	494.318	267	43.905	97
+box	edge	peer --> ledger	516.635	99	339.365	56
+box	edge	runner --> ledger	280	99	169.682	56
+box	edge	scheduler --> ledger	262.432	271	187.25	370.378
+box	edge	watcher --> ledger	494.318	99	169.682	56
+box	edge	you --> ledger	88	99	339.365	56
+box	edge-label	db --> effects	470.69	557.878	109.453	21
+box	edge-label	db --> scheduler	283.432	557.878	159.516	21
+box	edge-label	ledger --> db	515.223	307	45.125	21
+box	edge-label	scheduler --> ledger	248.432	421.189	27.234	21
+box	node	clock	396	12	152	87
+box	node	db	465.332	368	145.781	127.378
+box	node	effects	449.69	641.378	152	87
+box	node	ledger	395.047	159	153.906	108
+box	node	peer	780	12	152	87
+box	node	readers	620.143	535.378	152	66
+box	node	runner	204	12	152	87
+box	node	scheduler	241.496	641.378	152	87
+box	node	targets	449.69	768.378	152	66
+box	node	watcher	588	12	152	87
+box	node	you	12	12	152	87
+canvas	4	4	936	838.378
+font	Liberation Sans	908

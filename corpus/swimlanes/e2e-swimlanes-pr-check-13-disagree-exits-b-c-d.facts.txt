@@ -1,0 +1,34 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f0ab98250e965e0
+accept	yes
+drawn	yes
+edge	A	Sys1	none	arrow	solid
+edge	B	C	none	arrow	solid	Agree
+edge	B	exit	none	arrow	solid	Disagree
+edge	C	D	none	arrow	solid	Agree
+edge	C	exit	none	arrow	solid	Disagree
+edge	D	E	none	arrow	solid	Agree
+edge	D	exit	none	arrow	solid	Disagree
+edge	E	F	none	arrow	solid
+edge	F	G	none	arrow	solid
+edge	G	H	none	arrow	solid
+edge	H	I	none	arrow	solid
+edge	I	exit	none	arrow	solid
+edge	Sys1	B	none	arrow	solid
+group	X1	X1	A,B,I,id1
+group	X2	X2	C,D,F,G,H,exit
+group	X3	X3	E,Sys1
+node	A	Start	rounded
+node	B	B------	hex
+node	C	C------------	hex
+node	D	D	hex
+node	E	E	rect
+node	F	F	rect
+node	G	G	notch-pent
+node	H	H-	rect
+node	I	I	rect
+node	Sys1	Sys1	rect
+node	exit	Exit	rounded
+node	id1	Database	cyl
+type	swimlane

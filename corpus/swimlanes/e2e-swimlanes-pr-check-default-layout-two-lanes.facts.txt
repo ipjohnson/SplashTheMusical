@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2b31c7d17c9c4df9
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+group	Delivery	Delivery	B
+group	Intake	Intake	A
+node	A	Request	rect
+node	B	Build	rect
+type	swimlane

@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9872c740ecae2406
+box	legend	Chrome	441	169	129.734	19
+box	legend	Edge	441	235	99.516	19
+box	legend	Firefox	441	213	111.766	19
+box	legend	Other	441	257	88.141	19
+box	legend	Safari	441	191	113.672	19
+box	slice	Chrome	73.309	40	336.691	370
+box	slice	Edge	92.552	62.883	132.448	162.117
+box	slice	Firefox	69.425	95.839	155.575	129.161
+box	slice	Other	135.876	40	89.124	185
+box	slice	Safari	40	124.893	185	206.007
+box	title	Browser Market Share	100.648	2	248.703	28
+canvas	0	0	619.734	450
+font	Liberation Sans	180

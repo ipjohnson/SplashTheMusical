@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 092b8799be12b419
+box	legend	Bread	441	279	67.375	19
+box	legend	Cheese	441	191	80.609	19
+box	legend	Eggs	441	235	60.75	19
+box	legend	Fruits	441	169	64.5	19
+box	legend	Meat	441	257	59.797	19
+box	legend	Milk	441	213	52.24	19
+box	legend	Vegetables	441	147	106.141	19
+box	slice	Bread	167.832	40	57.168	185
+box	slice	Cheese	225	225	175.945	108.74
+box	slice	Eggs	75.332	225	149.668	185
+box	slice	Fruits	225	225	185	57.168
+box	slice	Meat	40.001	49.055	184.999	284.685
+box	slice	Milk	225	225	149.668	185
+box	slice	Vegetables	225	40	185	185
+box	title	Weekly Grocery Consumption for a Family of 4	-33.891	2	517.781	28.188
+canvas	-33.891	0	630.031	450
+font	Liberation Sans	202

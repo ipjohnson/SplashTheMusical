@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 75b2fb2621fcf888
+accept	yes
+drawn	yes
+item	complex	0	A
+label	A
+type	cynefin

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f506e18f5570ec8
+accept	yes
+actor	A	A	actor
+actor	B	B	boundary
+drawn	yes
+message	A	B	dashed	cross	--x message 5
+message	A	B	dashed	filled	-->> message 1
+message	A	B	dashed	filled	-->>+ message 7
+message	A	B	dashed	none	--> message 3
+message	A	B	solid	cross	-x message 4
+message	A	B	solid	filled	->> message 0
+message	A	B	solid	filled	->>+ message 6
+message	A	B	solid	none	-> message 2
+type	sequence

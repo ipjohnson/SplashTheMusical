@@ -1,0 +1,42 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 66551afa970dece8
+box	section	A section multiline	10	86.5	44.641	23
+box	section	Critical tasks multiline	10	206.5	62.344	23
+box	section	Documentation multiline	10	314.5	74	23
+box	section	Last section multiline	10	386.5	58.703	23
+box	task	A section multiline / Active task	187	74	149	20
+box	task	A section multiline / Completed task	75	50	75	20
+box	task	A section multiline / Future task	336	98	187	20
+box	task	A section multiline / Future task2	523	122	186	20
+box	task	Critical tasks multiline / Add to mermaid	634	266	38	20
+box	task	Critical tasks multiline / Completed task in the critical line	75	146	37	20
+box	task	Critical tasks multiline / Create tests for parser	261	194	112	20
+box	task	Critical tasks multiline / Create tests for renderer	560	242	74	20
+box	task	Critical tasks multiline / Future task in critical line	373	218	187	20
+box	task	Critical tasks multiline / Implement parser and jison	150	170	74	20
+box	task	Documentation multiline / Add another diagram to demo page	299	338	74	20
+box	task	Documentation multiline / Add gantt diagram to demo page	299	314	31	20
+box	task	Documentation multiline / Describe gantt syntax	150	290	149	20
+box	task	Last section multiline / Add another diagram to demo page	516	410	75	20
+box	task	Last section multiline / Add gantt diagram to demo page	485	386	31	20
+box	task	Last section multiline / Describe gantt syntax	373	362	112	20
+box	task-text	A section multiline / Active task	234.906	77.5	53.201	12
+box	task-text	A section multiline / Completed task	155	53.5	76.441	12.283
+box	task-text	A section multiline / Future task	401.984	101.5	55.038	12
+box	task-text	A section multiline / Future task2	585.43	125.5	61.141	12
+box	task-text	Critical tasks multiline / Add to mermaid	551.344	269.5	77.656	12
+box	task-text	Critical tasks multiline / Completed task in the critical line	117	149.5	160.797	12.283
+box	task-text	Critical tasks multiline / Create tests for parser	262.281	197.5	109.438	12.283
+box	task-text	Critical tasks multiline / Create tests for renderer	435.156	245.5	119.844	12
+box	task-text	Critical tasks multiline / Future task in critical line	405.977	221.5	121.047	12
+box	task-text	Critical tasks multiline / Implement parser and jison	229	173.5	132.688	12.283
+box	task-text	Documentation multiline / Add another diagram to demo page	378	341.5	173.063	12.283
+box	task-text	Documentation multiline / Add gantt diagram to demo page	335	317.5	160.234	12.283
+box	task-text	Documentation multiline / Describe gantt syntax	171.609	293.5	105.781	12.283
+box	task-text	Last section multiline / Add another diagram to demo page	337.938	413.5	173.063	12.283
+box	task-text	Last section multiline / Add gantt diagram to demo page	521	389.5	160.234	12.283
+box	task-text	Last section multiline / Describe gantt syntax	376.109	365.5	105.781	12.283
+box	title	GANTT diagram with multiline section titles	220.602	9	342.797	20
+canvas	0	0	784	484
+font	Liberation Sans	1074

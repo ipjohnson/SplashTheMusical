@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 249e90c1f6680fbc
+accept	yes
+actor	Previous	Previous	normal
+direction	LR
+drawn	yes
+label	Previous
+label	Published
+relation	Previous	Published	association	none	arrow		1
+type	usecase
+usecase	Published	Published	ellipse

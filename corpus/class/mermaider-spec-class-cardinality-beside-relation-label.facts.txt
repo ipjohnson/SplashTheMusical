@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9661b41b07fef28c
+accept	yes
+class	Duck	Duck
+class	Pond	Pond
+class	Wing	Wing
+drawn	yes
+relation	Duck	Wing	diamond-filled	none	solid	has		2
+relation	Pond	Duck	diamond	none	solid	holds		many
+type	classDiagram

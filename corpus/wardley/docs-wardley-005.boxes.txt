@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f8939bf3c47509e8
+box	link	end-user --> real-time processing	375.173	100.623	431.054	171.954
+box	node	end-user	805.8	81.216	53.48	23.184
+box	node	real-time processing	363.6	257.616	104.027	23.184
+box	title	Hyphenated Names	391.561	15.839	116.879	14.093
+canvas	0	0	900	600
+font	Liberation Sans	196

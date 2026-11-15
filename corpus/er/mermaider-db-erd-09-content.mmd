@@ -1,0 +1,9 @@
+erDiagram
+    DocumentationSet ||--o{ DocumentationFile : "files"
+    Page ||--o| FrontMatter : "front matter"
+    Page ||--o{ Anchor : "anchors"
+    Page ||--o{ Link : "links"
+    InternalLink }o--|| Page : "target"
+    CrossLink }o--|| CrossLinkUri : "repo://path"
+    IncludeDirective }o--|| Snippet : "include"
+    FrontMatter ||--o| Applicability : "applies_to"

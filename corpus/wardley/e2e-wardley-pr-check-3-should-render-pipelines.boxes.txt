@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f96c4d1d0c4bb24
+box	link	Kettle --> Power	588.082	343.238	160.118	332.955
+box	link	User --> Kettle_Electric Kettle	550.671	89.162	28.777	255.595
+box	node	Kettle	580.34	320.701	38.362	21.219
+box	node	Kettle_Campfire Kettle	339.4	344.72	68.861	43.806
+box	node	Kettle_Electric Kettle	520.12	344.72	66	43.806
+box	node	Kettle_Smart Kettle	740.88	344.72	54.983	43.806
+box	node	Power	744.8	665.182	42.325	22.418
+box	node	User	544	66.781	35.112	22.419
+box	title	Kettle Evolution Pipeline	476.141	16.108	147.719	14.031
+canvas	0	0	1100	800
+font	Liberation Sans	272

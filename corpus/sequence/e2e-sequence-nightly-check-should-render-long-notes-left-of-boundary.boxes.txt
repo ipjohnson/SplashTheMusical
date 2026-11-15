@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6b2a62a49028059a
+box	actor	Alice	20	0	77	67.725
+box	actor	Bob	260.769	0	28.462	67.725
+box	actor-bottom	Alice	20	234	77	67.725
+box	actor-bottom	Bob	260.769	234	28.462	67.725
+box	message	Alice --> Bob	76	117	192	0
+box	message	Bob --> Alice	82	208	192	0
+box	message-text	Alice --> Bob	155.554	93.124	32.891	18.45
+box	message-text	Bob --> Alice	120.932	184.124	114.136	18.45
+box	note	Extremely utterly long line of longness which had previously overflown the actor box as it is much longer than what it should be	-865	127	915	37
+canvas	-915	-10	1315	352
+font	Liberation Sans	328

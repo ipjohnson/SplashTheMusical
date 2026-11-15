@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d74b96913df15a11
+box	node	Section 1	707	35	283	355
+box	node	Section 1 / Leaf 1.1	717	70	126	310
+box	node	Section 1 / Section 1.2	853	70	127	310
+box	node	Section 1 / Section 1.2 / Leaf 1.2.1	863	105	107	265
+box	node	Section 2	10	35	687	355
+box	node	Section 2 / Leaf 2.1	317	70	370	190
+box	node	Section 2 / Leaf 2.2	20	70	287	310
+box	node	Section 2 / Leaf 2.3	317	270	370	110
+canvas	2	27	996	371
+font	Liberation Sans	174

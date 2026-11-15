@@ -1,0 +1,27 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a2005e915d162e82
+accept	yes
+drawn	yes
+frame	0	01	cmd	UpdateCartCommand	100
+frame	1	02	evt	CartUpdatedEvent	200	{ a: b }
+frame	2	03	rmo	CartItemsReadModel	100
+frame	3	04	evt	ProductDescriptionUpdatedEvent	200	{ a: { c: d } }
+frame	4	05	evt	ProductTitleUpdatedEvent	200	{ "a": { "c": true } }
+frame	5	06	evt	ProductCountIncrementedEvent	200	" { "a": { "c": true } } "
+label	CartItemsReadModel
+label	CartUpdatedEvent
+label	Command/Read Model
+label	Events
+label	ProductCountIncrementedEvent
+label	ProductDescriptionUpdatedEvent
+label	ProductTitleUpdatedEvent
+label	UpdateCartCommand
+lane	100	Command/Read Model
+lane	200	Events
+relation	01	02
+relation	01	04
+relation	01	05
+relation	01	06
+relation	02	03
+type	eventmodeling

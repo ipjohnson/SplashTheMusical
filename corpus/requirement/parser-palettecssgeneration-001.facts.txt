@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f39800db141f1931
+accept	no
+# error Parse error on line 1:

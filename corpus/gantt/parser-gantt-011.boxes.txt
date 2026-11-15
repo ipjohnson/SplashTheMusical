@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source be750d0db13216a9
+box	title	Adding gantt diagram functionality to mermaid	208.898	9	366.203	20
+canvas	0	0	784	100
+font	Liberation Sans	90

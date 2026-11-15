@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a3eb97f24466a1c
+box	class	Car	57.81	452	120.883	135
+box	class	Electric	12	12	178.875	162
+box	class	Engine	44.576	627	147.352	135
+box	class	Truck	218.693	452	145.836	135
+box	class	Vehicle	201.902	214	139.563	198
+box	relation	Car --> Engine	118.251	604.25	0	22.75
+box	relation	Electric --> Car	101.437	191.25	0	260.75
+box	relation	Vehicle --> Car	135.065	429.25	116.691	22.75
+box	relation	Vehicle --> Truck	291.611	429.25	0	22.75
+box	relation-label	Electric --> Car	76.438	302.5	49.047	21
+canvas	4	4	368.529	766
+font	Liberation Sans	452

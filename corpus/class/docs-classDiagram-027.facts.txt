@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3efc2c903a0e392e
+accept	yes
+annotation	Shape	«interface»
+attribute	Shape	noOfVertices
+class	Shape	Shape
+drawn	yes
+method	Shape	draw()
+type	classDiagram

@@ -1,0 +1,40 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 87417851e9b63c15
+box	edge	A --> B	-395.953	22.5	348	0
+box	edge	B --> C	108.047	22.5	96	0
+box	edge	C --> D	284.047	45	0	46
+box	edge	D --> E	185.047	140	99	372.5
+box	edge	D --> H	288.047	140	0	46
+box	edge	E --> F	-139.953	539	348	0
+box	edge	F --> G	-219.953	561.5	0	161.5
+box	edge	H --> I	360.047	212.5	113.953	0
+box	edge	I --> J	554	235	0	162
+box	edge	I --> K	554	212.5	96	510.5
+box	edge	J --> E	364.047	539	113.953	0
+box	edge	K --> L	364.047	749.5	113.953	0
+box	edge	L --> M	112.047	749.5	96	0
+box	edge	L --> N	284.047	772	0	46
+box	edge-label	I --> J	494	276	120	84
+box	edge-label	I --> K	641.047	449.25	17.906	21
+box	group	Car	-597.953	-36	252	939
+box	group	Constr	158.047	-36	252	939
+box	group	Fun	-345.953	-36	252	939
+box	group	Legal	410.047	-36	287.906	939
+box	group	Sales	-93.953	-36	252	939
+box	node	A	-547.953	0	152	45
+box	node	B	-43.953	0	152	45
+box	node	C	208.047	0	152	45
+box	node	D	208.047	95	152	45
+box	node	E	208.047	516.5	152	45
+box	node	F	-295.953	516.5	152	45
+box	node	G	-295.953	727	152	45
+box	node	H	208.047	190	152	45
+box	node	I	478	190	152	45
+box	node	J	478	401	152	276
+box	node	K	478	727	152	45
+box	node	L	208.047	727	152	45
+box	node	M	-43.953	727	152	45
+box	node	N	208.047	822	152	45
+canvas	-605.953	-44	1311.906	955
+font	Liberation Sans	512

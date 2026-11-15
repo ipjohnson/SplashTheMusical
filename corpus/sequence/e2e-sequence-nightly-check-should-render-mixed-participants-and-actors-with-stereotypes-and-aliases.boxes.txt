@@ -1,0 +1,35 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f266bf717bdfbe9
+box	actor	Client	28.805	-5	92.39	81.802
+box	actor	DB	894.142	7.143	113.717	69.66
+box	actor	Gateway	220	11	101.644	66.802
+box	actor	Logs	1070	0	156	71
+box	actor	OrderSvc	425.7	10	98.6	65.802
+box	actor	Queue	676	0	150	65
+box	actor-bottom	Client	28.805	520	92.39	81.802
+box	actor-bottom	Gateway	220	536	101.644	66.302
+box	actor-bottom	Logs	1076	525	150	65
+box	actor-bottom	OrderSvc	425.7	535	98.6	68.302
+box	message	Client --> Gateway	76	109	195	0
+box	message	DB --> OrderSvc	479	373	471	0
+box	message	Gateway --> Client	79	505	195	0
+box	message	Gateway --> OrderSvc	276	153	195	0
+box	message	Logs --> OrderSvc	479	417	671	0
+box	message	OrderSvc --> DB	476	241	471	0
+box	message	OrderSvc --> Gateway	279	461	195	0
+box	message	OrderSvc --> Logs	476	285	671	0
+box	message	OrderSvc --> Queue	476	197	271	0
+box	message	Queue --> OrderSvc	479	329	271	0
+box	message-text	Client --> Gateway	133.13	85.006	81.74	18.605
+box	message-text	DB --> OrderSvc	671.025	349.006	87.95	18.605
+box	message-text	Gateway --> Client	131.69	481.006	90.619	18.605
+box	message-text	Gateway --> OrderSvc	324.832	129.006	98.336	18.605
+box	message-text	Logs --> OrderSvc	788.322	393.006	53.357	18.605
+box	message-text	OrderSvc --> DB	672.901	217.006	78.198	18.605
+box	message-text	OrderSvc --> Gateway	319.256	437.006	115.487	18.605
+box	message-text	OrderSvc --> Logs	757.348	261.006	109.303	18.605
+box	message-text	OrderSvc --> Queue	508.934	173.006	206.133	18.605
+box	message-text	Queue --> OrderSvc	518.752	305.006	192.496	18.605
+canvas	-50	-10	1326	630
+font	Liberation Sans	592

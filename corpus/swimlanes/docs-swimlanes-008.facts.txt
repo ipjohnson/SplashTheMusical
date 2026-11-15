@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4eca0116897bbb8d
+accept	yes
+drawn	yes
+edge	request	triage	none	arrow	solid
+edge	triage	resolve	none	arrow	solid
+group	Customer	Customer	request
+group	Engineering	Engineering	resolve
+group	Support	Support	triage
+node	request	Open request	rect
+node	resolve	Resolve	rect
+node	triage	Triage	rect
+type	swimlane

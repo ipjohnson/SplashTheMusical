@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 79622b23eebce2dd
+box	class	Admin	84	156	67.563	81
+box	class	User	90.211	306	55.141	81
+box	namespace	Company	12	12	211.563	447
+box	namespace	Company.Project	36	60	163.563	375
+box	namespace	Company.Project.Module	60	108	115.563	303
+box	relation	Admin --> User	117.781	237	0	63
+box	relation-label	Admin --> User	88.781	261	57.594	21
+canvas	4	4	227.563	463
+font	Liberation Sans	72

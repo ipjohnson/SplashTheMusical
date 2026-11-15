@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 885c8b1b173cbaf7
+box	edge	[*]start@First --> second	104	148	0	18.5
+box	edge	[*]start@NamedComposite --> namedSimple	328	148	0	18.5
+box	edge	[*]start@root --> First	104	26	113	54.5
+box	edge	[*]start@root --> NamedComposite	215	25.731	113	54.769
+box	edge	namedSimple --> [*]end@NamedComposite	328	209	0	18.5
+box	edge	second --> [*]end@First	104	209	0	18.5
+box	group	First	12	86	184	185
+box	group	NamedComposite	236	86	184	185
+box	node	[*]end@First	97	233	14.013	14
+box	node	[*]end@NamedComposite	321	233	14.013	14
+box	node	[*]start@First	97	134	14	14
+box	node	[*]start@NamedComposite	321	134	14	14
+box	node	[*]start@root	210	12	14	14
+box	node	namedSimple	260	172	136	37
+box	node	second	36	172	136	37
+canvas	4	4	424	275
+font	Liberation Sans	84

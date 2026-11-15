@@ -1,0 +1,6 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 17ebac640d541188
+accept	yes
+drawn	no
+type	stateDiagram

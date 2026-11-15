@@ -1,0 +1,66 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b27d981c9dfb12a3
+layout	1
+graph	LR	50	20	50	8	8
+node	Outputs		0	0
+node	Build		0	0
+node	External		0	0
+node	Inputs		0	0
+node	Checkout	Inputs	152	87
+node	Vocab	Inputs	152	87
+node	LinkReg	External	152	45
+node	OpenApiRepo	External	152	66
+node	Bundles	External	152	66
+node	DocSet	Build	152	66
+node	Toc	Build	152	45
+node	Content	Build	152	66
+node	Nav	Build	152	45
+node	Html	Outputs	152	66
+node	Manifest	Outputs	152	66
+node	Redirects	Outputs	152	45
+node	State	Outputs	152	66
+edge	Checkout	DocSet	L_Checkout_DocSet_0	1	1	0	0	10	c
+edge	Vocab	DocSet	L_Vocab_DocSet_0	1	1	0	0	10	c
+edge	DocSet	Toc	L_DocSet_Toc_0	1	1	0	0	10	c
+edge	Toc	Nav	L_Toc_Nav_0	1	1	0	0	10	c
+edge	DocSet	Content	L_DocSet_Content_0	1	1	0	0	10	c
+edge	Content	Nav	L_Content_Nav_0	1	1	0	0	10	c
+edge	LinkReg	Content	L_LinkReg_Content_0	1	1	69.25	21	10	c
+edge	OpenApiRepo	Content	L_OpenApiRepo_Content_0	1	1	18.6875	21	10	c
+edge	Bundles	Content	L_Bundles_Content_0	1	1	87.953125	21	10	c
+edge	Nav	Html	L_Nav_Html_0	1	1	0	0	10	c
+edge	Nav	Manifest	L_Nav_Manifest_0	1	1	0	0	10	c
+edge	DocSet	Redirects	L_DocSet_Redirects_0	1	1	0	0	10	c
+edge	Manifest	LinkReg	L_Manifest_LinkReg_0	1	1	113.65625	21	10	c
+size	1781.609375	779
+place	Outputs	992	239.5	202	463
+place	Build	1016.8046875	624	1513.609375	245
+place	External	1357.65625	308	202	347
+place	Inputs	109	624	202	294
+place	Checkout	109	555.5	152	87
+place	Vocab	109	692.5	152	87
+place	LinkReg	1357.65625	192	152	45
+place	OpenApiRepo	1357.65625	297.5	152	66
+place	Bundles	1357.65625	413.5	152	66
+place	DocSet	361	678.5	152	66
+place	Toc	563	585.25	152	45
+place	Content	1672.609375	603.25	152	66
+place	Nav	765	585.25	152	45
+place	Html	992	76	152	66
+place	Manifest	992	192	152	66
+place	Redirects	992	297.5	152	45
+place	State	992	403	152	66
+route	Checkout	DocSet	L_Checkout_DocSet_0			185,555.5 210,555.5 235,555.5 260,555.5 333.9024390243902,645.5
+route	Vocab	DocSet	L_Vocab_DocSet_0			185,692.5 210,692.5 235,692.5 260,692.5 285,689.0346534653465
+route	DocSet	Toc	L_DocSet_Toc_0			396.7426273458445,645.5 462,585.25 487,585.25
+route	Toc	Nav	L_Toc_Nav_0			639,585.25 664,585.25 689,585.25
+route	DocSet	Content	L_DocSet_Content_0			437,681.509900990099 462,682.5 563,682.5 664,682.5 765,682.5 866,682.5 891,682.5 992,682.5 1093,682.5 1174.828125,682.5 1256.65625,682.5 1357.65625,682.5 1458.65625,682.5 1527.6328125,682.5 1612.2405855678232,636.25
+route	Content	Nav	L_Content_Nav_0			1596.609375,630.6406342620036 1527.6328125,655.5 1458.65625,655.5 1357.65625,655.5 1256.65625,655.5 1174.828125,655.5 1093,655.5 992,655.5 891,655.5 866,655.5 797.3487544483986,607.75
+route	LinkReg	Content	L_LinkReg_Content_0	1527.6328125	543	1433.65625,192 1458.65625,192 1527.6328125,543 1596.609375,571.6655844155844
+route	OpenApiRepo	Content	L_OpenApiRepo_Content_0	1527.6328125	584	1433.65625,297.5 1458.65625,297.5 1527.6328125,584 1596.609375,593.1587136929461
+route	Bundles	Content	L_Bundles_Content_0	1527.6328125	625	1433.65625,413.5 1458.65625,413.5 1527.6328125,625 1596.609375,614.6518429703077
+route	Nav	Html	L_Nav_Html_0			822.1698113207547,562.75 866,545.5 891,545.5 984.9009584664536,109
+route	Nav	Manifest	L_Nav_Manifest_0			841,597.6658415841584 866,601.75 891,601.75 983.8657718120805,225
+route	DocSet	Redirects	L_DocSet_Redirects_0			437,696.559405940594 462,702.5 563,702.5 664,702.5 765,702.5 866,702.5 891,702.5 986.3888888888889,320
+route	Manifest	LinkReg	L_Manifest_LinkReg_0	1174.828125	192	1068,192 1093,192 1174.828125,192 1256.65625,192 1281.65625,192

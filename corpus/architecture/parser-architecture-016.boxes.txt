@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dd5bc95d2c550e19
+box	service	columnar	87.788	18	80	103.219
+box	service	rowspan	-87.788	18	80	103.537
+canvas	-127.788	-22	335.575	183.539
+font	Liberation Sans	30

@@ -1,0 +1,28 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b279103857e8c3e0
+accept	yes
+cause	Machine
+cause	Machine / Calibration
+cause	Machine / Worn tooling
+cause	Manpower
+cause	Manpower / Insufficient training
+cause	Material
+cause	Material / Contamination
+cause	Material / Wrong grade
+cause	Method
+cause	Method / Missing step
+drawn	yes
+head	Manufacturing Defect
+label	Calibration
+label	Contamination
+label	Insufficient training
+label	Machine
+label	Manpower
+label	Manufacturing Defect
+label	Material
+label	Method
+label	Missing step
+label	Worn tooling
+label	Wrong grade
+type	ishikawa

@@ -1,0 +1,42 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 26b6ea69f8de7127
+layout	1
+graph	LR	50	20	50	8	8
+node	Session		0	0
+node	serve		0	0
+node	library	serve	152	66
+node	resolver	serve	152	108
+node	relay	serve	152	108
+node	claude	Session	152	66
+node	proxy	Session	152	66
+node	srt	Session	152	87
+node	local	Session	152	66
+node	remote		152	45
+node	connector		152	66
+edge	resolver	claude	L_resolver_claude_0	1	1	200	63	10	c
+edge	claude	proxy	L_claude_proxy_0	1	1	29.578125	21	10	c
+edge	proxy	srt	L_proxy_srt_0	1	1	0	0	10	c
+edge	srt	local	L_srt_local_0	1	1	0	0	10	c
+edge	proxy	relay	L_proxy_relay_0	1	1	66.921875	21	10	c
+edge	relay	remote	L_relay_remote_0	1	1	86.390625	21	10	c
+edge	claude	connector	L_claude_connector_0	1	1	120.640625	21	10	c
+size	1549.953125	633.5
+place	Session	988.4765625	101.75	1106.953125	187.5
+place	serve	618.28125	478.5	1220.5625	294
+place	library	1127.5625	399.5	152	66
+place	resolver	109	478.5	152	108
+place	relay	1127.5625	536.5	152	108
+place	claude	536	122.25	152	66
+place	proxy	858.640625	101.75	152	66
+place	srt	1127.5625	86.5	152	87
+place	local	1440.953125	86.5	152	66
+place	remote	1440.953125	536.5	152	45
+place	connector	858.640625	263.5	152	66
+route	resolver	claude	L_resolver_claude_0	310	478.5	185,478.5 310,478.5 435,478.5 526.6442105263158,155.25
+route	claude	proxy	L_claude_proxy_0	697.3203125	101.75	612,112.59219574797811 697.3203125,101.75 782.640625,101.75
+route	proxy	srt	L_proxy_srt_0			934.640625,93.13039625820696 993.1015625,86.5 1051.5625,86.5
+route	srt	local	L_srt_local_0			1203.5625,86.5 1228.5625,86.5 1296.7578125,86.5 1364.953125,86.5
+route	proxy	relay	L_proxy_relay_0	993.1015625	125.75	934.640625,115.31527801987102 993.1015625,125.75 1109.8853469263543,482.5
+route	relay	remote	L_relay_remote_0	1296.7578125	536.5	1203.5625,536.5 1228.5625,536.5 1296.7578125,536.5 1364.953125,536.5
+route	claude	connector	L_claude_connector_0	697.3203125	146.25	612,133.55669766090367 697.3203125,146.25 813.2370402452026,230.5

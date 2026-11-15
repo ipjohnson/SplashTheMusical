@@ -1,0 +1,23 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3c2374dfd2b62dd0
+accept	yes
+drawn	yes
+edge	23	24	none	arrow	solid
+edge	24	25	none	arrow	solid
+edge	25	26	none	arrow	solid
+edge	26	27	none	arrow	solid
+edge	27	28	none	arrow	solid
+group	BOD	BOD	23
+group	Finance_Head	Finance Head	27
+group	General_Manager	General Manager	28
+group	Requestor	Requestor	24
+group	Supply_Chain_Associate	Supply Chain Associate	25
+group	Supply_Chain_Head	Supply Chain Head	26
+node	23	Suggest the best Supplier based on all RFQs Note: Log Note in EAF Request	rect
+node	24	Inform Supply Chain Associate regarding the approved EAF Note: Log Note in PR Request	rect
+node	25	Submit chosen RFQ for Approval	rect
+node	26	26: Reviews and Approves the chosen RFQ	rect
+node	27	27: Reviews and Approves the chosen RFQ	rect
+node	28	28: Reviews and Approves the chosen RFQ Note: RFQ will be converted to PO	rect
+type	swimlane

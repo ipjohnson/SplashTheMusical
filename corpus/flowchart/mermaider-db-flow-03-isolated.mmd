@@ -1,0 +1,34 @@
+flowchart LR
+    subgraph Inputs["Inputs"]
+        Checkout["Checkout (one repository, one branch)"]
+        Vocab["Shared vocabulary (config/)"]
+    end
+    subgraph External["Read from outside, never checked out"]
+        LinkReg["Link registry"]
+        OpenApiRepo["OpenAPI repository"]
+        Bundles["Release note bundles (CDN)"]
+    end
+    subgraph Build["Isolated build"]
+        DocSet["Documentation set (docset.yml)"]
+        Toc["Table of contents"]
+        Content["Content: pages, snippets, images"]
+        Nav["Navigation tree"]
+    end
+    subgraph Outputs["Outputs"]
+        Html["HTML, llms.txt, Pagefind"]
+        Manifest["Link manifest (links.json)"]
+        Redirects["redirects.json"]
+        State["Generation state (.doc.state)"]
+    end
+    Checkout --> DocSet
+    Vocab --> DocSet
+    DocSet --> Toc --> Nav
+    DocSet --> Content
+    Content --> Nav
+    LinkReg -->|"cross_links"| Content
+    OpenApiRepo -->|"api"| Content
+    Bundles -->|"release_notes"| Content
+    Nav --> Html
+    Nav --> Manifest
+    DocSet --> Redirects
+    Manifest -->|"published on push"| LinkReg

@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f64cf73a31272a4f
+box	event	Q1 2025 / Alpha Release	200	250	190	50
+box	event	Q2 2025 / Beta Launch	400	250	190	50
+box	event	Q2 2025 / Partner Onboarding	400	310	190	50
+box	event	Q3 2025 / GA Release	600	250	190	50
+box	event	Q4 2025 / Enterprise Features	800	250	190	50
+box	period	Q1 2025	200	50	190	66.12
+box	period	Q2 2025	400	50	190	66.12
+box	period	Q3 2025	600	50	190	66.12
+box	period	Q4 2025	800	50	190	66.12
+box	title	Product Roadmap	245	-10.358	291.127	37.947
+canvas	100	-61	1190	529.056
+font	Liberation Sans	228

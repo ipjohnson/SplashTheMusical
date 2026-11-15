@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c899f7d0ed74c43d
+accept	yes
+direction	LR
+drawn	yes
+label	Login
+type	usecase
+usecase	Login	Login	ellipse

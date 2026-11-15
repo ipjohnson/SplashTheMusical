@@ -1,0 +1,34 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 117201a14a668273
+box	edge	mindmap / Origins	435.195	410.844	1.892	86.239
+box	edge	mindmap / Origins / Long history	451.546	517.113	118.09	42.071
+box	edge	mindmap / Origins / Popularisation	391.095	524.498	37.909	55.959
+box	edge	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	386.489	607.385	18.107	69.004
+box	edge	mindmap / Research	375.366	296.073	51.817	86.892
+box	edge	mindmap / Research / On Automatic creation	339.34	211.996	22.795	57.257
+box	edge	mindmap / Research / On Automatic creation / Uses	297.266	126.203	29.729	58.485
+box	edge	mindmap / Research / On Automatic creation / Uses / Argument mapping	305.169	80.262	145.62	29.583
+box	edge	mindmap / Research / On Automatic creation / Uses / Creative techniques	120.634	95.57	154.912	15.745
+box	edge	mindmap / Research / On Automatic creation / Uses / Strategic planning	248.097	44.736	34.448	55.36
+box	edge	mindmap / Research / On effectiveness and features	196.202	285.506	156.661	24.486
+box	edge	mindmap / Tools	449.76	397.624	108.309	12.916
+box	edge	mindmap / Tools / Mermaid	585.913	419.886	79.724	46.605
+box	edge	mindmap / Tools / Pen and paper	586.159	359.584	84.339	45.599
+box	node	mindmap	389.84	350.822	90.052	90.052
+box	node	mindmap / Origins	392.073	495.079	90.687	34
+box	node	mindmap / Origins / Long history	520.181	547.218	127.172	34
+box	node	mindmap / Origins / Popularisation	311.979	575.876	141.406	34
+box	node	mindmap / Origins / Popularisation / British popular psychology author Tony Buzan	288.404	661.898	240	58
+box	node	mindmap / Research	313.441	266.189	108.484	34
+box	node	mindmap / Research / On Automatic creation	235.081	181.06	197.422	34
+box	node	mindmap / Research / On Automatic creation / Uses	252.243	95.832	76.453	34
+box	node	mindmap / Research / On Automatic creation / Uses / Argument mapping	377.895	60.276	175.187	34
+box	node	mindmap / Research / On Automatic creation / Uses / Creative techniques	15	77.053	181.422	34
+box	node	mindmap / Research / On Automatic creation / Uses / Strategic planning	156.125	15	168.094	34
+box	node	mindmap / Research / On effectiveness and features	101.936	283.309	158.891	58
+box	node	mindmap / Tools	534.284	395.316	77.359	34
+box	node	mindmap / Tools / Mermaid	627.469	457.061	102.234	34
+box	node	mindmap / Tools / Pen and paper	611.201	335.45	144.984	34
+canvas	5	5	761.185	724.898
+font	Liberation Sans	446

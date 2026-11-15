@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c67983f90c5105b8
+box	actor	Analyst	12	69.5	76	121
+box	json	Payload	328	12	229.781	236
+box	relation	Analyst --> Inspect	88	130	36	0
+box	relation	Inspect --> Payload	288	130	36	0
+box	usecase	Inspect	128	101	160	58
+canvas	-8	-8	585.781	276
+font	Liberation Sans	228

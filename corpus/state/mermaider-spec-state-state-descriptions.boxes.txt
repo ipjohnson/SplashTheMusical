@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 519968f549316e7b
+box	edge	Booting --> Ready	80	124	0	95.5
+box	edge	Processing --> Ready	99.333	288.5	0	95.5
+box	edge	Ready --> Processing	60.667	283	0	95.5
+box	edge	[*]start@root --> Booting	80	26	0	34.5
+box	edge-label	Booting --> Ready	51	164	57.594	21
+box	edge-label	Processing --> Ready	85.887	323	31.156	21
+box	edge-label	Ready --> Processing	35.184	323	46.703	21
+box	node	Booting	12	66	136	58
+box	node	Processing	12	384	136	37
+box	node	Ready	12	225	136	58
+box	node	[*]start@root	73	12	14	14
+canvas	4	4	152	425
+font	Liberation Sans	160

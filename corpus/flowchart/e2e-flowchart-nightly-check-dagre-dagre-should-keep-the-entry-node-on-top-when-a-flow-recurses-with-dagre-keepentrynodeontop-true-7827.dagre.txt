@@ -1,0 +1,34 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 789e224e0b08cfb7
+layout	1
+graph	TB	50	20	50	8	8
+node	brief		152	45
+node	web_sources		152	45
+node	academic_sources		152	45
+node	expert_voices		152	45
+node	synthesize		152	45
+node	decision		152	45
+node	format_output		152	45
+edge	brief	web_sources	L_brief_web_sources_0	1	1	0	0	10	c
+edge	web_sources	academic_sources	L_web_sources_academic_sources_0	1	1	0	0	10	c
+edge	academic_sources	expert_voices	L_academic_sources_expert_voices_0	1	1	0	0	10	c
+edge	expert_voices	synthesize	L_expert_voices_synthesize_0	1	1	0	0	10	c
+edge	synthesize	decision	L_synthesize_decision_0	1	1	0	0	10	c
+edge	decision	brief	L_decision_brief_0	1	1	112.0625	21	10	c
+edge	decision	format_output	L_decision_format_output_0	1	1	68.484375	21	10	c
+size	259.03125	673
+place	brief	139.5	30.5	152	45
+place	web_sources	84	125.5	152	45
+place	academic_sources	84	220.5	152	45
+place	expert_voices	84	336.5	152	45
+place	synthesize	84	431.5	152	45
+place	decision	139.5	526.5	152	45
+place	format_output	139.5	642.5	152	45
+route	brief	web_sources	L_brief_web_sources_0			113.21052631578948,53 84,78 84,103
+route	web_sources	academic_sources	L_web_sources_academic_sources_0			84,148 84,173 84,198
+route	academic_sources	expert_voices	L_academic_sources_expert_voices_0			84,243 84,278.5 84,314
+route	expert_voices	synthesize	L_expert_voices_synthesize_0			84,359 84,384 84,409
+route	synthesize	decision	L_synthesize_decision_0			84,454 84,479 113.21052631578948,504
+route	decision	brief	L_decision_brief_0	195	278.5	165.78947368421052,504 195,479 195,431.5 195,384 195,336.5 195,278.5 195,220.5 195,173 195,125.5 195,78 165.78947368421052,53
+route	decision	format_output	L_decision_format_output_0	139.5	584.5	139.5,549 139.5,584.5 139.5,620

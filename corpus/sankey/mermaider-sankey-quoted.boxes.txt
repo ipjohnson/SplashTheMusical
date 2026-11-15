@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1b32f15a25d444ef
+box	flow	Pumped heat --> Heating and cooling, commercial	10	305.735	580	42.538
+box	flow	Pumped heat --> Heating and cooling, homes	10	129.213	580	0
+box	flow	Solar thermal --> Heating and cooling, commercial	10	397.791	580	0
+box	flow	Solar thermal --> Heating and cooling, homes	10	266.196	580	121.617
+box	node	Heating and cooling, commercial	590	300.965	10	99.035
+box	node	Heating and cooling, homes	590	0	10	273.965
+box	node	Pumped heat	0	0	10	353.044
+box	node	Solar thermal	0	380.044	10	19.956
+canvas	0	0	600	400
+font	Liberation Sans	212

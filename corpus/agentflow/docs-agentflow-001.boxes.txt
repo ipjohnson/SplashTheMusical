@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 55831a75f37d1eeb
+box	edge	analyse --> lint	129	171	0	20
+box	edge	changes --> analyse	129	96	0	20
+box	edge	lint --> ok	129	228	0	20
+box	flow	reviewer	12	12	234	435
+box	node	analyse	54	120	150	51
+box	node	changes	36	60	186	36
+box	node	lint	47	195	164	33
+box	node	ok	44	252	171	171
+canvas	4	4	250	451
+font	Liberation Sans	108

@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d6bf06b2e30e86d7
+accept	yes
+drawn	yes
+label	rule
+label	test
+rule	rule	"test"
+type	railroadAbnf

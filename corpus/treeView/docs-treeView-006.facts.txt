@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4d3420e45f7a8f7d
+accept	yes
+drawn	yes
+label	index.js
+label	package.json
+label	src
+node	package.json	file
+node	src	dir
+node	src / index.js	file
+type	treeView

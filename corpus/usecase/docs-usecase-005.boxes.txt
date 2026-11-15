@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 512322076f2110a9
+box	actor	Awesome	35.766	334	116.234	121
+box	actor	Fallback	12	656	140	142
+box	actor	Hollow	54.969	173	97.031	121
+box	actor	Icon	34.719	495	117.281	121
+box	actor	Normal	51.859	12	100.141	121
+box	relation	Awesome --> Manage	152	394.5	56	0
+box	relation	Fallback --> Manage	152	413.5	75.562	313.5
+box	relation	Hollow --> Manage	152	233.5	60.414	151.5
+box	relation	Icon --> Manage	152	404	60.414	151.5
+box	relation	Normal --> Manage	152	72.5	75.562	303
+box	usecase	Manage	212	365.5	160	58
+canvas	-8	-8	400	826
+font	Liberation Sans	162

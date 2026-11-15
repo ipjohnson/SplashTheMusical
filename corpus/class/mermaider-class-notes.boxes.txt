@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 124f31422216c97a
+box	class	User	151.205	266	123.242	135
+box	class	UserService	12	85	197.93	141
+box	note	Core domain entity	249.93	193	129.516	33
+box	note	Handles all user CRUD	32.605	12	156.719	33
+box	relation	UserService --> User	110.965	226	84.654	34
+canvas	4	4	383.445	405
+font	Liberation Sans	242

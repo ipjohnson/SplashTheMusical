@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 320d5234dfd5cdef
+box	nonterminal	number / digit	128.047	347.301	49.359	37.32
+box	nonterminal	value / array	120.945	145.641	56.453	37.32
+box	nonterminal	value / number	112.047	55.32	74.25	37
+box	nonterminal	value / object	117.82	100.32	62.703	37.32
+box	nonterminal	value / string	119.609	10	59.125	37.32
+box	rule	digit	0	432.621	167.047	172
+box	rule	number	0	347.301	212.406	57.32
+box	rule	value	0	10	221.297	307.961
+box	terminal	digit / 0	103.141	432.621	28.906	37
+box	terminal	digit / 1	103.141	477.621	28.906	37
+box	terminal	digit / 2	103.141	522.621	28.906	37
+box	terminal	digit / 3	103.141	567.621	28.906	37
+box	terminal	value / false	122.273	235.961	53.797	37
+box	terminal	value / null	126.719	280.961	44.906	37
+box	terminal	value / true	125.383	190.961	47.578	37
+canvas	0	0	241.297	642.621
+font	Liberation Sans	134

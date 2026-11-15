@@ -1,0 +1,25 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 031b0c65ab5f4702
+accept	yes
+drawn	yes
+edge	A	A2	none	arrow	solid
+edge	A2	B	none	arrow	solid	Yes
+edge	A2	E	none	arrow	solid	No
+edge	B	C	none	arrow	solid	Yes
+edge	B	E	none	arrow	solid	No
+edge	E	F	none	arrow	solid	Yes
+edge	E	G	none	arrow	solid	No
+edge	G	F2	none	arrow	solid
+group	StatusSeeker	StatusSeeker	A,A2
+group	subGraph1	Head of Engineering	E,F,F2,G
+group	subGraph2	Tech Lead	B,C
+node	A	Incoming query	rounded
+node	A2	Knows which team?	diam
+node	B	Can answer?	diam
+node	C	Answer	rounded
+node	E	Can answer?	diam
+node	F	Answer	rounded
+node	F2	Answer	rounded
+node	G	Investigate	rounded
+type	swimlane

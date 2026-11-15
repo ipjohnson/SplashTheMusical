@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b46ca8f030ae22c7
+accept	yes
+actor	API	API gateway	participant
+actor	Bank	Bank	participant
+actor	Customer	Customer	actor
+actor	Web	Web app	participant
+drawn	yes
+message	API	Bank	solid	filled	Authorise payment
+message	API	Web	dashed	filled	201 Created
+message	Bank	API	dashed	filled	Approved
+message	Customer	Web	solid	filled	Place order
+message	Web	API	solid	filled	POST /orders
+message	Web	Customer	dashed	filled	Order confirmed
+note	over	Customer,Bank	One order, one transaction
+type	sequence

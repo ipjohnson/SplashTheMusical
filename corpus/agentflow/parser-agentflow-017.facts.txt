@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5c2c5f401272f762
+accept	yes
+connector	github
+direction	TD
+drawn	yes
+type	agentflow

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1e9ed2e0b793393a
+box	class	TokenManager	35.827	273.469	149.459	123.26
+box	class	UserService	48.302	60.278	124.813	144.369
+box	namespace	Auth	10.511	10.386	200.967	412.232
+box	relation	UserService --> TokenManager	110.862	204.221	0.437	62.916
+box	relation-label	UserService --> TokenManager	95.729	228.369	29.578	21
+canvas	2.511	2.386	216.967	428.232
+font	Liberation Sans	154

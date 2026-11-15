@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8dfe9a424d0b625f
+accept	yes
+drawn	yes
+group	Sales	Sales	lead,quote
+node	lead	Qualify lead	rect
+node	quote	Prepare quote	rect
+type	swimlane

@@ -1,0 +1,100 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9b5192218252a0ec
+box	actor	Alice	0	0	150	73
+box	actor	Bob	313	0	150	73
+box	actor	Charlie	613	0	150	73
+box	actor	David	937	0	150	73
+box	actor-bottom	Alice	0	3204	150	73
+box	actor-bottom	Bob	313	3204	150	73
+box	actor-bottom	Charlie	613	3204	150	73
+box	actor-bottom	David	937	3204	150	73
+box	message	Alice --> Alice	76	1993.381	45	23.238
+box	message	Alice --> Alice #2	79	2679.381	50.311	23.238
+box	message	Alice --> Bob	82	164	299	0
+box	message	Alice --> Bob #10	94	3052	287	0
+box	message	Alice --> Bob #2	82	296	299	0
+box	message	Alice --> Bob #3	94	610	287	0
+box	message	Alice --> Bob #4	82	1191	295	0
+box	message	Alice --> Bob #5	82	1323	295	0
+box	message	Alice --> Bob #6	86	1637	291	0
+box	message	Alice --> Bob #7	86	1769	291	0
+box	message	Alice --> Bob #8	98	1860	279	0
+box	message	Alice --> Bob #9	82	2876	299	0
+box	message	Alice --> Charlie	82	208	605	0
+box	message	Alice --> Charlie #2	82	1235	595	0
+box	message	Alice --> Charlie #3	86	1681	591	0
+box	message	Alice --> David	82	252	923	0
+box	message	Alice --> David #2	82	1279	925	0
+box	message	Alice --> David #3	86	1725	921	0
+box	message	Bob --> Alice	82	387	311	0
+box	message	Bob --> Alice #2	82	519	311	0
+box	message	Bob --> Alice #3	82	1414	315	0
+box	message	Bob --> Alice #4	82	1546	315	0
+box	message	Bob --> Bob	389	2067.381	45	23.238
+box	message	Bob --> Bob #2	392	2753.381	50.311	23.238
+box	message	Bob --> Charlie	395	431	289	0
+box	message	Bob --> Charlie #2	399	2920	278	0
+box	message	Bob --> Charlie #3	395	3096	286	0
+box	message	Bob --> David	395	475	610	0
+box	message	Charlie --> Bob	395	1458	302	0
+box	message	Charlie --> Charlie	689	2141.381	45	23.238
+box	message	Charlie --> David	707	654	298	0
+box	message	Charlie --> David #2	711	1904	290	0
+box	message	Charlie --> David #3	695	2964	310	0
+box	message	Charlie --> David #4	699	3140	306	0
+box	message	David --> Alice	76	1502	945	0
+box	message	David --> Alice #2	86	3184	931	0
+box	message	David --> David	1013	2215.381	45	23.238
+box	message-text	Alice --> Alice	7.118	1972.177	137.764	17.16
+box	message-text	Alice --> Alice #2	-10.32	2658.177	178.64	17.159
+box	message-text	Alice --> Bob	169.453	141.177	119.093	17.35
+box	message-text	Alice --> Bob #10	169.334	3029.177	125.34	17.159
+box	message-text	Alice --> Bob #2	158.339	273.177	141.322	17.358
+box	message-text	Alice --> Bob #3	140.901	587.177	182.198	17.35
+box	message-text	Alice --> Bob #4	122.117	1168.177	209.766	17.16
+box	message-text	Alice --> Bob #5	119.022	1300.177	215.957	17.16
+box	message-text	Alice --> Bob #6	152.574	1614.177	152.852	17.16
+box	message-text	Alice --> Bob #7	149.917	1746.177	158.165	17.16
+box	message-text	Alice --> Bob #8	110.689	1837.177	242.622	17.16
+box	message-text	Alice --> Bob #9	166.334	2853.177	125.333	17.358
+box	message-text	Alice --> Charlie	307.122	185.177	149.756	17.358
+box	message-text	Alice --> Charlie #2	266.34	1212.177	221.319	17.16
+box	message-text	Alice --> Charlie #3	296.785	1658.177	164.429	17.16
+box	message-text	Alice --> David	487.693	229.177	106.613	17.35
+box	message-text	Alice --> David #2	435.338	1256.177	213.324	17.358
+box	message-text	Alice --> David #3	466.234	1702.177	155.533	17.358
+box	message-text	Bob --> Alice	167.02	364.177	135.96	17.35
+box	message-text	Bob --> Alice #2	155.905	496.177	158.19	17.358
+box	message-text	Bob --> Alice #3	146.352	1391.177	181.296	17.16
+box	message-text	Bob --> Alice #4	143.695	1523.177	186.61	17.16
+box	message-text	Bob --> Bob	314.329	2046.177	149.342	17.16
+box	message-text	Bob --> Bob #2	296.891	2732.177	190.217	17.159
+box	message-text	Bob --> Charlie	453.676	408.177	166.647	17.358
+box	message-text	Bob --> Charlie #2	450.994	2897.177	168.012	17.159
+box	message-text	Bob --> Charlie #3	479.451	3073.177	111.098	17.358
+box	message-text	Bob --> David	635.248	452.177	123.505	17.35
+box	message-text	Charlie --> Bob	446.563	1435.177	192.874	17.16
+box	message-text	Charlie --> Charlie	618.778	2120.177	140.445	17.358
+box	message-text	Charlie --> David	750.455	631.177	199.09	17.35
+box	message-text	Charlie --> David #2	722.9	1881.177	254.2	17.16
+box	message-text	Charlie --> David #3	788.331	2941.177	117.338	17.358
+box	message-text	Charlie --> David #4	794.341	3117.177	109.319	17.159
+box	message-text	David --> Alice	454.011	1479.177	183.978	17.358
+box	message-text	David --> Alice #2	488.125	3161.177	121.75	17.159
+box	message-text	David --> David	941.461	2194.177	143.077	17.16
+box	note	BIDIRECTIONAL ARROWS	50	529	987	37
+box	note	BIDIRECTIONAL WITH CENTRAL CONNECTIONS	50	1779	987	37
+box	note	CENTRAL CONNECTIONS (Circle at destination)	50	1110	987	37
+box	note	CENTRAL CONNECTIONS DUAL (Circles at both ends)	50	1556	987	37
+box	note	CENTRAL CONNECTIONS REVERSE (Circle at source)	50	1333	987	37
+box	note	DOTTED ARROWS (Dashed line)	50	306	987	37
+box	note	DOTTED REVERSE ARROWS	50	887	987	37
+box	note	MIXED COMPLEX SCENARIO	50	2795	987	37
+box	note	REVERSE ARROWS (Half arrows)	50	664	987	37
+box	note	SELF-REFERENCES (Same participant)	50	1914	987	37
+box	note	SELF-REFERENCES BIDIRECTIONAL	50	2600	987	37
+box	note	SELF-REFERENCES WITH REVERSE ARROWS	50	2257	987	37
+box	note	SOLID ARROWS (Filled arrowhead)	50	83	987	37
+canvas	-60.5	-10	1223	3328
+font	Liberation Sans	3546

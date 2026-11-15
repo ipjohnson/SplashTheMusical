@@ -1,0 +1,13 @@
+treeView-beta
+    infrastructure/
+        terraform/
+            main.tf ## root module
+            variables.tf ## input variables
+            outputs.tf ## exported values
+        docker/
+            Dockerfile ## multi-stage build
+            docker-compose.yml ## local dev stack
+        k8s/
+            deployment.yaml ## pod spec
+            service.yaml ## load balancer
+            ingress.yaml ## external routing

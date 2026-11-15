@@ -1,0 +1,40 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7319f0e75b2e1686
+box	edge	1Leftofmid --> db1	101.845	60.577	0	161.682
+box	edge	1Leftofmid --> mid	101.845	60.577	190.483	0
+box	edge	1RightOfMid --> 2RightOfMid	471.444	60.577	183.993	0
+box	edge	1RightOfMid --> db4	471.444	60.577	0	161.682
+box	edge	2Leftofmid --> 1Leftofmid	-84.076	60.577	185.921	0
+box	edge	2Leftofmid --> db2	-84.076	60.577	0	161.682
+box	edge	2RightOfMid --> 3RightOfMid	655.437	60.577	191.783	0
+box	edge	2RightOfMid --> db5	655.437	60.577	0	161.682
+box	edge	3Leftofmid --> 2Leftofmid	-276.776	60.577	192.7	0
+box	edge	3Leftofmid --> db3	-276.776	60.577	0	161.682
+box	edge	3RightOfMid --> db6	847.22	60.577	0	161.682
+box	edge	edge --> firewall	-526.321	-148.259	588.166	0
+box	edge	firewall --> server	141.845	-148.259	110.483	0
+box	edge	mid --> 1RightOfMid	292.328	60.577	179.116	0
+box	edge	server --> mid	292.328	-108.259	0	168.835
+box	edge	server1 --> edge	-727.22	-148.259	120.899	0
+box	group	federated	-849.72	-230.759	372.399	182
+box	group	on_prem	-359.276	-230.759	1288.996	592.518
+box	junction	1Leftofmid	61.845	20.577	80	80
+box	junction	1RightOfMid	431.444	20.577	80	80
+box	junction	2Leftofmid	-124.076	20.577	80	80
+box	junction	2RightOfMid	615.437	20.577	80	80
+box	junction	3Leftofmid	-316.776	20.577	80	80
+box	junction	3RightOfMid	807.22	20.577	80	80
+box	junction	mid	252.328	20.577	80	80
+box	service	db1	61.845	222.259	80	102.597
+box	service	db2	-124.076	222.259	80	102.597
+box	service	db3	-316.776	222.259	80	102.597
+box	service	db4	431.444	222.259	80	102.597
+box	service	db5	615.437	222.259	80	102.597
+box	service	db6	807.22	222.259	80	102.597
+box	service	edge	-611.663	-188.259	90.684	103.542
+box	service	firewall	47.646	-188.259	108.399	102.597
+box	service	server	252.328	-188.259	80	102.597
+box	service	server1	-807.22	-188.259	80	103.542
+canvas	-889.72	-270.759	1859.44	672.518
+font	Liberation Sans	160

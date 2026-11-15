@@ -1,0 +1,38 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a1deb8db1b3138b
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Repository-0		106.921875	81
+node	entity-ChangelogConfiguration-1		191	81
+node	entity-ChangelogEntry-2		140.40625	81
+node	entity-ProductRelease-3		139.625	81
+node	entity-Product-4		100	81
+node	entity-Bundle-5		100	81
+node	entity-BundledEntry-6		124.0625	81
+node	entity-BundleAmend-7		127.953125	81
+node	entity-BundleRegistry-8		134.9375	81
+edge	entity-Repository-0	entity-ChangelogConfiguration-1	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	1	1	90.28125	21	10	c
+edge	entity-ChangelogEntry-2	entity-ProductRelease-3	id_entity-ChangelogEntry-2_entity-ProductRelease-3_1	1	1	53.703125	21	10	c
+edge	entity-ProductRelease-3	entity-Product-4	id_entity-ProductRelease-3_entity-Product-4_2	1	1	46.703125	21	10	c
+edge	entity-Bundle-5	entity-BundledEntry-6	id_entity-Bundle-5_entity-BundledEntry-6_3	1	1	42.03125	21	10	c
+edge	entity-BundledEntry-6	entity-ChangelogEntry-2	id_entity-BundledEntry-6_entity-ChangelogEntry-2_4	1	1	114	21	10	c
+edge	entity-Bundle-5	entity-BundleAmend-7	id_entity-Bundle-5_entity-BundleAmend-7_5	1	1	57.59375	21	10	c
+edge	entity-Product-4	entity-BundleRegistry-8	id_entity-Product-4_entity-BundleRegistry-8_6	1	1	74.4375	21	10	c
+size	739.015625	1007
+place	entity-Repository-0	103.5	48.5	106.921875	81
+place	entity-ChangelogConfiguration-1	103.5	230.5	191	81
+place	entity-ChangelogEntry-2	401.03125	412.5	140.40625	81
+place	entity-ProductRelease-3	401.03125	594.5	139.625	81
+place	entity-Product-4	401.03125	776.5	100	81
+place	entity-Bundle-5	534.03515625	48.5	100	81
+place	entity-BundledEntry-6	401.03125	230.5	124.0625	81
+place	entity-BundleAmend-7	667.0390625	230.5	127.953125	81
+place	entity-BundleRegistry-8	401.03125	958.5	134.9375	81
+route	entity-Repository-0	entity-ChangelogConfiguration-1	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	103.5	139.5	103.5,89 103.5,139.5 103.5,190
+route	entity-ChangelogEntry-2	entity-ProductRelease-3	id_entity-ChangelogEntry-2_entity-ProductRelease-3_1	401.03125	503.5	401.03125,453 401.03125,503.5 401.03125,554
+route	entity-ProductRelease-3	entity-Product-4	id_entity-ProductRelease-3_entity-Product-4_2	401.03125	685.5	401.03125,635 401.03125,685.5 401.03125,736
+route	entity-Bundle-5	entity-BundledEntry-6	id_entity-Bundle-5_entity-BundledEntry-6_3	401.03125	139.5	484.03515625,82.70952157185232 401.03125,139.5 401.03125,190
+route	entity-BundledEntry-6	entity-ChangelogEntry-2	id_entity-BundledEntry-6_entity-ChangelogEntry-2_4	401.03125	321.5	401.03125,271 401.03125,321.5 401.03125,372
+route	entity-Bundle-5	entity-BundleAmend-7	id_entity-Bundle-5_entity-BundleAmend-7_5	667.0390625	139.5	584.03515625,82.70952157185232 667.0390625,139.5 667.0390625,190
+route	entity-Product-4	entity-BundleRegistry-8	id_entity-Product-4_entity-BundleRegistry-8_6	401.03125	867.5	401.03125,817 401.03125,867.5 401.03125,918

@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9096ddb20609feee
+accept	yes
+actor	boundary	boundary	boundary
+drawn	yes
+message	boundary	boundary	solid	none	test
+type	sequence

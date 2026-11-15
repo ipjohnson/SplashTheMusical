@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5e38e7c293502bc1
+box	edge	A mindmap with a fairly long root title / A branch with a descriptive name	199.978	375.587	7.136	187.269
+box	edge	A mindmap with a fairly long root title / A branch with a descriptive name / A leaf that explains something at length	209.903	588.561	94.824	96.804
+box	edge	A mindmap with a fairly long root title / A branch with a descriptive name / Short	66.638	586.117	120.255	79.491
+box	edge	A mindmap with a fairly long root title / Another considerably wordy branch	208.331	163.341	7.853	182.271
+box	edge	A mindmap with a fairly long root title / Another considerably wordy branch / Also a longer leaf label here	217.814	46.968	5.68	86.419
+box	node	A mindmap with a fairly long root title	94.846	247.759	225.679	225.679
+box	node	A mindmap with a fairly long root title / A branch with a descriptive name	124.406	526.845	150	102
+box	node	A mindmap with a fairly long root title / A branch with a descriptive name / A leaf that explains something at length	195.223	667.08	240	58
+box	node	A mindmap with a fairly long root title / A branch with a descriptive name / Short	15	656.879	78.25	34
+box	node	A mindmap with a fairly long root title / Another considerably wordy branch	136.83	102.354	160	92
+box	node	A mindmap with a fairly long root title / Another considerably wordy branch / Also a longer leaf label here	105.298	15	238.359	34
+canvas	5	5	440.223	730.08
+font	Liberation Sans	356

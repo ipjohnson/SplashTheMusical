@@ -20,7 +20,7 @@ mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifac
 mise run oracle-test
 ```
 
-`mise install` also provides Node 22 for the oracle. `tools/oracle/README.md` describes its outputs.
+`mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
 
 Without mise:
 

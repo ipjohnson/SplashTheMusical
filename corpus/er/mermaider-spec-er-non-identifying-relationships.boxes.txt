@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9cc58e614d6e51a2
+box	entity	CATEGORY	149.875	12	117.281	81
+box	entity	CHILD	12	194	100	81
+box	entity	MEMBER	306.43	194	101.453	81
+box	entity	PARENT	14.125	12	95.75	81
+box	entity	PRODUCT	153.898	194	109.234	81
+box	entity	TEAM	307.156	12	100	81
+box	relation	CATEGORY --> PRODUCT	208.516	93	0	101
+box	relation	PARENT --> CHILD	62	93	0	101
+box	relation	TEAM --> MEMBER	357.156	93	0	101
+box	relation-label	CATEGORY --> PRODUCT	180.016	133	56.797	21
+box	relation-label	PARENT --> CHILD	50.5	133	22.578	21
+box	relation-label	TEAM --> MEMBER	331.156	133	51.375	21
+canvas	4	4	411.883	279
+font	Liberation Sans	114

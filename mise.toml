@@ -7,7 +7,8 @@ DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1"
 
 [tools]
 dotnet = "10"
-node = "22"
+# puppeteer in tools/oracle needs 22.12.0 or later, and "22" accepts any 22.x that is installed.
+node = "22.23"
 
 [tasks.build]
 description = "Build the solution"
@@ -35,6 +36,20 @@ arg "[svg]" help="Folder the SVGs go to" default=".artifacts/oracle/svg"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
   'node tools/oracle/facts.mjs "${usage_cases}" "${usage_facts}" "${usage_svg}"',
+]
+
+[tasks.corpus]
+description = "Write the docs, e2e and parser cases of corpus/ from a mermaid checkout. corpus/README.md describes them"
+usage = '''
+arg "<checkout>" help="A checkout of mermaid-js/mermaid at the tag of the mermaid tools/oracle pins"
+'''
+run = 'node tools/corpus/corpus.mjs "${usage_checkout}"'
+
+[tasks.corpus-oracle]
+description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",
 ]
 
 [tasks.oracle-test]

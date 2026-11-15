@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 36c6fc573d45b552
+layout	1
+graph	TB	50	20	50	8	8
+node	ILogger		248.125	162
+node	ConsoleLogger		264.8203125	156
+node	FileLogger		249.265625	177
+edge	ILogger	ConsoleLogger	id_ILogger_ConsoleLogger_1	1	1	0	0	10	c
+edge	ILogger	FileLogger	id_ILogger_FileLogger_2	1	1	0	0	10	c
+size	580.0859375	405
+place	ILogger	293.931640625	89	248.125	162
+place	ConsoleLogger	140.41015625	308.5	264.8203125	156
+place	FileLogger	447.453125	308.5	249.265625	177
+route	ILogger	ConsoleLogger	id_ILogger_ConsoleLogger_1			176.61805350825472,170 140.41015625,195 140.41015625,230.5
+route	ILogger	FileLogger	id_ILogger_FileLogger_2			411.2452277417453,170 447.453125,195 447.453125,220

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 96718dcd4137bcae
+box	actor	Hollow	54	173	76	121
+box	actor	Normal	54	12	76	121
+box	usecase	Business	12	334	160	58
+box	usecase	Ellipse	12	432	160	58
+box	usecase	RectCase	16	530	152	42
+canvas	-8	-8	200	600
+font	Liberation Sans	72

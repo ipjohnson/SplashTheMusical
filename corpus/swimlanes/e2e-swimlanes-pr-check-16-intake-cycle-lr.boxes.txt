@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 030afda223c8b3ef
+box	edge	decision --> fix	773.02	31.306	582.142	326.937
+box	edge	fix --> task	782.757	-0.107	440.909	0.441
+box	edge	start --> task	147.512	-0.312	363.916	0.268
+box	edge	task --> decision	646.749	27.191	0.632	200.189
+box	edge-label	decision --> fix	1346.032	182.1	17.906	21
+box	group	Intake	-124.098	-64.911	1622.144	196.172
+box	group	Review	-123.839	126.709	1621.776	395.46
+box	node	decision	521.501	232.076	252.182	252.912
+box	node	fix	1224.122	-27.091	262.537	54.558
+box	node	start	-76.332	-19.374	224.917	39.097
+box	node	task	515.451	-27.186	263.658	54.556
+canvas	-132.098	-72.911	1638.144	603.08
+font	Liberation Sans	84

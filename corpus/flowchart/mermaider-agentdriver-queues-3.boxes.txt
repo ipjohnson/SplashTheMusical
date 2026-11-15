@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 28e88699a5978f9b
+box	edge	code --> steward	360	23	1193.297	88.75
+box	edge	events --> code	1513.297	160.5	36	94.5
+box	edge	inputs --> steward	164	129.917	36	0
+box	edge	policy --> suggestion	642.469	209.667	171.719	45.333
+box	edge	policy --> tools	642.469	128	171.719	45.333
+box	edge	steward --> policy	356	148.083	130.469	43.417
+box	edge	suggestion --> you	970.187	255	36	0
+box	edge	tools --> code	970.187	128	579.109	0
+box	edge	you --> events	1162.187	255	195.109	0
+box	edge-label	code --> steward	844.367	12	99.641	21
+box	edge-label	policy --> suggestion	682.469	244	95.719	21
+box	edge-label	policy --> tools	706.586	117	47.484	21
+box	edge-label	steward --> policy	396	180.5	54.469	21
+box	edge-label	tools --> code	1202.188	117	119.109	21
+box	edge-label	you --> events	1231	244	61.484	21
+box	node	code	1553.297	53	152	150
+box	node	events	1361.297	201	152	108
+box	node	inputs	12	65.417	152	129
+box	node	policy	490.469	127	152	129
+box	node	steward	204	65.417	152	129
+box	node	suggestion	818.187	222	152	66
+box	node	tools	818.187	74	152	108
+box	node	you	1010.187	211.5	152	87
+canvas	4	4	1709.297	313
+font	Liberation Sans	962

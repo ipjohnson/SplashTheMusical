@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 24989f1ad331515f
+box	axis	Features	626.262	507.297	47.359	14
+box	axis	Price	336.328	20	27.344	14
+box	axis	Quality	626.262	179.5	37.359	14
+box	axis	Speed	39.035	507.297	34.703	14
+box	axis	Support	328.984	666.797	42.031	14
+box	axis	UX	57.066	179.5	16.672	14
+box	curve	Product A	77.183	109.552	537.584	482.065
+box	curve	Product B	85.233	162.906	529.533	348.926
+box	legend	Product A	612.5	85.297	68.031	14.203
+box	legend	Product B	612.5	105.297	68.703	14.203
+box	title	Product Comparison	277.078	-2.797	145.844	17.32
+canvas	0	0	700	700
+font	Liberation Sans	140

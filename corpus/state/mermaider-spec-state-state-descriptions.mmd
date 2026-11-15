@@ -1,0 +1,8 @@
+stateDiagram-v2
+[*] --> Booting
+Booting : System is starting up
+Booting --> Ready : initialized
+Ready : Accepting connections
+Ready --> Processing : request
+Processing : Handling request
+Processing --> Ready : done

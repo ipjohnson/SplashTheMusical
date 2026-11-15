@@ -1,0 +1,44 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2fee8dd28373870b
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	State1		136	37
+node	State2		136	37
+node	State3		136	37
+node	State4		136	37
+node	State5		136	37
+node	root_end		14.013293266296387	14
+edge	root_start	State1	edge0	1	1	0	0	10	c
+edge	State1	State2	edge1	1	1	0	0	10	c
+edge	State1	State3	edge2	1	1	0	0	10	c
+edge	State1	State4	edge3	1	1	0	0	10	c
+edge	State1	State5	edge4	1	1	0	0	10	c
+edge	State2	State3	edge5	1	1	0	0	10	c
+edge	State2	State4	edge6	1	1	0	0	10	c
+edge	State2	State5	edge7	1	1	0	0	10	c
+edge	State3	State4	edge8	1	1	0	0	10	c
+edge	State3	State5	edge9	1	1	0	0	10	c
+edge	State4	State5	edge10	1	1	0	0	10	c
+edge	State5	root_end	edge11	1	1	0	0	10	c
+size	398	529
+place	root_start	147.5	15	14	14
+place	State1	147.5	90.5	136	37
+place	State2	312	177.5	136	37
+place	State3	209	264.5	136	37
+place	State4	322	351.5	136	37
+place	State5	76	438.5	136	37
+place	root_end	76	514	14.013293266296387	14
+route	root_start	State1	edge0			147.5,22 147.5,47 147.5,72
+route	State1	State2	edge1			215.5,108.48176291793314 312,134 312,159
+route	State1	State3	edge2			156.00574712643677,109 167.5,134 167.5,177.5 167.5,221 191.35057471264366,246
+route	State1	State4	edge3			129.85057471264366,109 106,134 106,177.5 106,221 106,264.5 106,308 254,337.80555555555554
+route	State1	State5	edge4			104.33333333333334,109 46,134 46,177.5 46,221 46,264.5 46,308 46,351.5 46,395 63.241379310344826,420
+route	State2	State3	edge5			290.0977011494253,196 260.5,221 230.9022988505747,246
+route	State2	State4	edge6			316.2528735632184,196 322,221 322,264.5 322,308 322,333
+route	State2	State5	edge7			244,189.52439024390245 66,221 66,264.5 66,308 66,351.5 66,395 71.74712643678161,420
+route	State3	State4	edge8			265.5632183908046,283 342,308 330.5057471264368,333
+route	State3	State5	edge9			156.68965517241378,283 86,308 86,351.5 86,395 80.25287356321839,420
+route	State4	State5	edge10			322,370 322,395 144,426.4756097560976
+route	State5	root_end	edge11			76,457 76,482 76,507

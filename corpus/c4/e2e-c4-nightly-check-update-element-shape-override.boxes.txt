@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7b5b4bf337c44bda
+box	element	a	150	166	216	86.179
+box	element	b	466	166	216	86.561
+box	element	c	150	352.561	216	114.069
+box	title	UpdateElementStyle shape override (folder not yet supported)	166	5.143	439.172	18.176
+canvas	0	-70	832	636.63
+font	Liberation Sans	354

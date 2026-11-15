@@ -1,0 +1,39 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b13c9bb3fd5df7a9
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+edge	B	C	none	arrow	solid
+edge	C	D	none	arrow	solid
+edge	D	E	none	arrow	solid
+edge	D	H	none	arrow	solid
+edge	E	F	none	arrow	solid
+edge	F	G	none	arrow	solid
+edge	H	I	none	arrow	solid
+edge	I	J	none	arrow	solid	Yes
+edge	I	K	none	arrow	solid	N
+edge	J	E	none	arrow	solid
+edge	K	L	none	arrow	solid
+edge	L	M	none	arrow	solid
+edge	L	N	none	arrow	solid
+group	Car	Car	A
+group	Constr	Constr	C,D,E,H,L,N
+group	Fun	Fun	F,G
+group	Legal	Legal	I,J,K
+group	Sales	Sales	B,M
+node	A	A	rect
+node	B	B	rect
+node	C	C	rect
+node	D	D	rect
+node	E	E	rect
+node	F	F	rect
+node	G	G	rect
+node	H	H	rect
+node	I	I	rect
+node	J	J	rect
+node	K	K	rect
+node	L	L	rect
+node	M	M	rect
+node	N	N	rect
+type	swimlane

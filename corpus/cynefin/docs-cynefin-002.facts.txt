@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1065e06731e40265
+accept	yes
+drawn	yes
+item	chaotic	0	Crisis management
+item	clear	0	Standard pricing
+item	complex	0	Market research
+item	complicated	0	Competitive analysis
+label	Best practice codified
+label	Competitive analysis
+label	Complacency
+label	Crisis management
+label	Market research
+label	Pattern identified
+label	Stabilized
+label	Standard pricing
+label	Strategy Categorization
+title	Strategy Categorization
+transition	chaotic	complex	Stabilized
+transition	clear	chaotic	Complacency
+transition	complex	complicated	Pattern identified
+transition	complicated	clear	Best practice codified
+type	cynefin

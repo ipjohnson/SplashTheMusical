@@ -1,0 +1,379 @@
+# mermaid.js shape table. Refresh with: mise run oracle
+# mermaid 12.3.0
+alias	bang	bang
+alias	bow-tie-rectangle	bow-rect
+alias	brace-l	brace
+alias	card	notch-rect
+alias	circ	circle
+alias	cloud	cloud
+alias	collate	hourglass
+alias	com-link	bolt
+alias	comment	brace
+alias	crossed-circle	cross-circ
+alias	curved-trapezoid	curv-trap
+alias	cylinder	cyl
+alias	das	h-cyl
+alias	data-store	datastore
+alias	database	cyl
+alias	db	cyl
+alias	decision	diam
+alias	diamond	diam
+alias	directory	folder
+alias	disk	lin-cyl
+alias	display	curv-trap
+alias	div-proc	div-rect
+alias	divided-process	div-rect
+alias	divided-rectangle	div-rect
+alias	doc	doc
+alias	document	doc
+alias	documents	docs
+alias	double-circle	dbl-circ
+alias	event	rounded
+alias	extract	tri
+alias	filled-circle	f-circ
+alias	flipped-triangle	flip-tri
+alias	framed-circle	fr-circ
+alias	framed-rectangle	fr-rect
+alias	half-rounded-rectangle	delay
+alias	hexagon	hex
+alias	horizontal-cylinder	h-cyl
+alias	hourglass	hourglass
+alias	in-out	lean-r
+alias	internal-storage	win-pane
+alias	inv-trapezoid	trap-t
+alias	join	fork
+alias	junction	f-circ
+alias	lean-left	lean-l
+alias	lean-right	lean-r
+alias	lightning-bolt	bolt
+alias	lin-proc	lin-rect
+alias	lined-cylinder	lin-cyl
+alias	lined-document	lin-doc
+alias	lined-process	lin-rect
+alias	lined-rectangle	lin-rect
+alias	loop-limit	notch-pent
+alias	manual	trap-t
+alias	manual-file	flip-tri
+alias	manual-input	sl-rect
+alias	notched-pentagon	notch-pent
+alias	notched-rectangle	notch-rect
+alias	out-in	lean-l
+alias	paper-tape	flag
+alias	pill	stadium
+alias	prepare	hex
+alias	priority	trap-b
+alias	proc	rect
+alias	process	rect
+alias	processes	st-rect
+alias	procs	st-rect
+alias	question	diam
+alias	rectangle	rect
+alias	shaded-process	lin-rect
+alias	sloped-rectangle	sl-rect
+alias	small-circle	sm-circ
+alias	st-doc	docs
+alias	stacked-document	docs
+alias	stacked-rectangle	st-rect
+alias	start	sm-circ
+alias	stop	fr-circ
+alias	stored-data	bow-rect
+alias	subproc	fr-rect
+alias	subprocess	fr-rect
+alias	subroutine	fr-rect
+alias	summary	cross-circ
+alias	tag-doc	tag-doc
+alias	tag-proc	tag-rect
+alias	tagged-document	tag-doc
+alias	tagged-process	tag-rect
+alias	tagged-rectangle	tag-rect
+alias	terminal	stadium
+alias	trapezoid	trap-b
+alias	trapezoid-bottom	trap-b
+alias	trapezoid-top	trap-t
+alias	triangle	tri
+alias	window-pane	win-pane
+internal-alias	doublecircle	dbl-circ
+internal-alias	forkJoin	fork
+internal-alias	inv_trapezoid	trap-t
+internal-alias	lean_left	lean-l
+internal-alias	lean_right	lean-r
+internal-alias	rect_left_inv_arrow	odd
+internal-alias	roundedRect	rounded
+internal-alias	squareRect	rect
+internal-alias	stateEnd	fr-circ
+internal-alias	stateStart	sm-circ
+key	anchor	anchor
+key	bang	bang
+key	block_arrow	block_arrow
+key	bolt	lightningBolt
+key	bow-rect	bowTieRect
+key	bow-tie-rectangle	bowTieRect
+key	bpmn-activity	bpmnActivity
+key	bpmn-annotation	bpmnAnnotation
+key	bpmn-boundary	bpmnBoundary
+key	bpmn-data	bpmnDataObject
+key	bpmn-data-store	bpmnDataStore
+key	bpmn-end	bpmnEnd
+key	bpmn-gateway	bpmnGateway
+key	bpmn-intermediate	bpmnIntermediate
+key	bpmn-start	bpmnStart
+key	brace	curlyBraceLeft
+key	brace-l	curlyBraceLeft
+key	brace-r	curlyBraceRight
+key	braces	curlyBraces
+key	browser	browser
+key	bucket	bucket
+key	card	card
+key	choice	choice
+key	circ	circle
+key	circle	circle
+key	classBox	classBox
+key	cloud	cloud
+key	collapsedGroup	collapsedGroup
+key	collate	hourglass
+key	com-link	lightningBolt
+key	comment	curlyBraceLeft
+key	composite	composite
+key	console	consoleWindow
+key	cross-circ	crossedCircle
+key	crossed-circle	crossedCircle
+key	curv-trap	curvedTrapezoid
+key	curved-trapezoid	curvedTrapezoid
+key	cyl	cylinder
+key	cylinder	cylinder
+key	das	tiltedCylinder
+key	data-store	datastore
+key	database	cylinder
+key	datastore	datastore
+key	db	cylinder
+key	dbl-circ	doublecircle
+key	decision	question
+key	defaultMindmapNode	defaultMindmapNode
+key	delay	halfRoundedRectangle
+key	diam	question
+key	diamond	question
+key	directory	folder
+key	disk	linedCylinder
+key	display	curvedTrapezoid
+key	div-proc	dividedRectangle
+key	div-rect	dividedRectangle
+key	divided-process	dividedRectangle
+key	divided-rectangle	dividedRectangle
+key	doc	waveEdgedRectangle
+key	docs	multiWaveEdgedRectangle
+key	document	waveEdgedRectangle
+key	documents	multiWaveEdgedRectangle
+key	double-circle	doublecircle
+key	doublecircle	doublecircle
+key	erBox	erBox
+key	event	roundedRect
+key	extract	triangle
+key	f-circ	filledCircle
+key	filled-circle	filledCircle
+key	flag	waveRectangle
+key	flip-tri	flippedTriangle
+key	flipped-triangle	flippedTriangle
+key	folder	folder
+key	fork	forkJoin
+key	forkJoin	forkJoin
+key	fr-circ	stateEnd
+key	fr-rect	subroutine
+key	framed-circle	stateEnd
+key	framed-rectangle	subroutine
+key	h-cyl	tiltedCylinder
+key	half-rounded-rectangle	halfRoundedRectangle
+key	hex	hexagon
+key	hexagon	hexagon
+key	horizontal-cylinder	tiltedCylinder
+key	hourglass	hourglass
+key	icon	icon
+key	iconCircle	iconCircle
+key	iconRounded	iconRounded
+key	iconSquare	iconSquare
+key	imageSquare	imageSquare
+key	in-out	lean_right
+key	internal-storage	windowPane
+key	inv-trapezoid	inv_trapezoid
+key	inv_trapezoid	inv_trapezoid
+key	join	forkJoin
+key	junction	filledCircle
+key	kanbanItem	kanbanItem
+key	labelRect	labelRect
+key	lean-l	lean_left
+key	lean-left	lean_left
+key	lean-r	lean_right
+key	lean-right	lean_right
+key	lean_left	lean_left
+key	lean_right	lean_right
+key	lightning-bolt	lightningBolt
+key	lin-cyl	linedCylinder
+key	lin-doc	linedWaveEdgedRect
+key	lin-proc	shadedProcess
+key	lin-rect	shadedProcess
+key	lined-cylinder	linedCylinder
+key	lined-document	linedWaveEdgedRect
+key	lined-process	shadedProcess
+key	lined-rectangle	shadedProcess
+key	loop-limit	trapezoidalPentagon
+key	manual	inv_trapezoid
+key	manual-file	flippedTriangle
+key	manual-input	slopedRect
+key	mindmapCircle	mindmapCircle
+key	notch-pent	trapezoidalPentagon
+key	notch-rect	card
+key	notched-pentagon	trapezoidalPentagon
+key	notched-rectangle	card
+key	note	note
+key	odd	rect_left_inv_arrow
+key	out-in	lean_left
+key	paper-tape	waveRectangle
+key	person	person
+key	pill	stadium
+key	prepare	hexagon
+key	priority	trapezoid
+key	proc	squareRect
+key	process	squareRect
+key	processes	multiRect
+key	procs	multiRect
+key	question	question
+key	rect	squareRect
+key	rectWithTitle	rectWithTitle
+key	rect_left_inv_arrow	rect_left_inv_arrow
+key	rectangle	squareRect
+key	requirementBox	requirementBox
+key	rounded	roundedRect
+key	roundedRect	roundedRect
+key	shaded-process	shadedProcess
+key	sl-rect	slopedRect
+key	sloped-rectangle	slopedRect
+key	sm-circ	stateStart
+key	small-circle	stateStart
+key	squareRect	squareRect
+key	st-doc	multiWaveEdgedRectangle
+key	st-rect	multiRect
+key	stacked-document	multiWaveEdgedRectangle
+key	stacked-rectangle	multiRect
+key	stadium	stadium
+key	start	stateStart
+key	state	state
+key	stateEnd	stateEnd
+key	stateStart	stateStart
+key	stop	stateEnd
+key	stored-data	bowTieRect
+key	subproc	subroutine
+key	subprocess	subroutine
+key	subroutine	subroutine
+key	summary	crossedCircle
+key	tag-doc	taggedWaveEdgedRectangle
+key	tag-proc	taggedRect
+key	tag-rect	taggedRect
+key	tagged-document	taggedWaveEdgedRectangle
+key	tagged-process	taggedRect
+key	tagged-rectangle	taggedRect
+key	terminal	stadium
+key	text	text
+key	trap-b	trapezoid
+key	trap-t	inv_trapezoid
+key	trapezoid	trapezoid
+key	trapezoid-bottom	trapezoid
+key	trapezoid-top	inv_trapezoid
+key	tri	triangle
+key	triangle	triangle
+key	usecaseActor	usecaseActor
+key	usecaseActorAwesome	usecaseActorAwesome
+key	usecaseActorHollow	usecaseActorHollow
+key	usecaseActorIcon	usecaseActorIcon
+key	usecaseBusiness	usecaseBusiness
+key	usecaseEllipse	usecaseEllipse
+key	usecaseJsonTable	usecaseJsonTable
+key	win-pane	windowPane
+key	window-pane	windowPane
+shape	bang	Bang	Bang	Bang	bang
+shape	bolt	Lightning Bolt	Com Link	Communication link	lightningBolt
+shape	bow-rect	Bow Tie Rectangle	Stored Data	Stored data	bowTieRect
+shape	brace	Curly Brace	Comment	Adds a comment	curlyBraceLeft
+shape	brace-r	Curly Brace	Comment Right	Adds a comment	curlyBraceRight
+shape	braces	Curly Braces	Comment with braces on both sides	Adds a comment	curlyBraces
+shape	browser	Browser	Browser	Browser window	browser
+shape	bucket	Bucket	Bucket	Object storage bucket	bucket
+shape	circle	Circle	Start	Starting point	circle
+shape	cloud	Cloud	Cloud	cloud	cloud
+shape	console	Console (terminal window)	Console	Terminal or console window	consoleWindow
+shape	cross-circ	Crossed Circle	Summary	Summary	crossedCircle
+shape	curv-trap	Curved Trapezoid	Display	Represents a display	curvedTrapezoid
+shape	cyl	Cylinder	Database	Database storage	cylinder
+shape	datastore	Data Store	Data Store	Data flow diagram data store	datastore
+shape	dbl-circ	Double Circle	Stop	Represents a stop point	doublecircle
+shape	delay	Half-Rounded Rectangle	Delay	Represents a delay	halfRoundedRectangle
+shape	diam	Diamond	Decision	Decision-making step	question
+shape	div-rect	Divided Rectangle	Divided Process	Divided process shape	dividedRectangle
+shape	doc	Document	Document	Represents a document	waveEdgedRectangle
+shape	docs	Stacked Document	Multi-Document	Multiple documents	multiWaveEdgedRectangle
+shape	f-circ	Filled Circle	Junction	Junction point	filledCircle
+shape	flag	Flag	Paper Tape	Paper tape	waveRectangle
+shape	flip-tri	Flipped Triangle	Manual File	Manual file operation	flippedTriangle
+shape	folder	Folder	Folder	Folder or directory	folder
+shape	fork	Filled Rectangle	Fork/Join	Fork or join in process flow	forkJoin
+shape	fr-circ	Framed Circle	Stop	Stop point	stateEnd
+shape	fr-rect	Framed Rectangle	Subprocess	Subprocess	subroutine
+shape	h-cyl	Horizontal Cylinder	Direct Access Storage	Direct access storage	tiltedCylinder
+shape	hex	Hexagon	Prepare Conditional	Preparation or condition step	hexagon
+shape	hourglass	Hourglass	Collate	Represents a collate operation	hourglass
+shape	lean-l	Lean Left	Data Input/Output	Represents output or input	lean_left
+shape	lean-r	Lean Right	Data Input/Output	Represents input or output	lean_right
+shape	lin-cyl	Lined Cylinder	Disk Storage	Disk storage	linedCylinder
+shape	lin-doc	Lined Document	Lined Document	Lined document	linedWaveEdgedRect
+shape	lin-rect	Lined Rectangle	Lined/Shaded Process	Lined process shape	shadedProcess
+shape	notch-pent	Trapezoidal Pentagon	Loop Limit	Loop limit step	trapezoidalPentagon
+shape	notch-rect	Notched Rectangle	Card	Represents a card	card
+shape	odd	Odd	Odd	Odd shape	rect_left_inv_arrow
+shape	person	Person	Person	Person (circular head above a rounded body)	person
+shape	rect	Rectangle	Process	Standard process shape	squareRect
+shape	rounded	Rounded Rectangle	Event	Represents an event	roundedRect
+shape	sl-rect	Sloped Rectangle	Manual Input	Manual input step	slopedRect
+shape	sm-circ	Small Circle	Start	Small starting point	stateStart
+shape	st-rect	Stacked Rectangle	Multi-Process	Multiple processes	multiRect
+shape	stadium	Stadium	Terminal Point	Terminal point	stadium
+shape	tag-doc	Tagged Document	Tagged Document	Tagged document	taggedWaveEdgedRectangle
+shape	tag-rect	Tagged Rectangle	Tagged Process	Tagged process	taggedRect
+shape	text	Text Block	Text Block	Text block	text
+shape	trap-b	Trapezoid Base Bottom	Priority Action	Priority action	trapezoid
+shape	trap-t	Trapezoid Base Top	Manual Operation	Represents a manual task	inv_trapezoid
+shape	tri	Triangle	Extract	Extraction process	triangle
+shape	win-pane	Window Pane	Internal Storage	Internal storage	windowPane
+undocumented	anchor	anchor
+undocumented	block_arrow	block_arrow
+undocumented	bpmn-activity	bpmnActivity
+undocumented	bpmn-annotation	bpmnAnnotation
+undocumented	bpmn-boundary	bpmnBoundary
+undocumented	bpmn-data	bpmnDataObject
+undocumented	bpmn-data-store	bpmnDataStore
+undocumented	bpmn-end	bpmnEnd
+undocumented	bpmn-gateway	bpmnGateway
+undocumented	bpmn-intermediate	bpmnIntermediate
+undocumented	bpmn-start	bpmnStart
+undocumented	choice	choice
+undocumented	classBox	classBox
+undocumented	collapsedGroup	collapsedGroup
+undocumented	composite	composite
+undocumented	defaultMindmapNode	defaultMindmapNode
+undocumented	erBox	erBox
+undocumented	icon	icon
+undocumented	iconCircle	iconCircle
+undocumented	iconRounded	iconRounded
+undocumented	iconSquare	iconSquare
+undocumented	imageSquare	imageSquare
+undocumented	kanbanItem	kanbanItem
+undocumented	labelRect	labelRect
+undocumented	mindmapCircle	mindmapCircle
+undocumented	note	note
+undocumented	rectWithTitle	rectWithTitle
+undocumented	requirementBox	requirementBox
+undocumented	state	state
+undocumented	usecaseActor	usecaseActor
+undocumented	usecaseActorAwesome	usecaseActorAwesome
+undocumented	usecaseActorHollow	usecaseActorHollow
+undocumented	usecaseActorIcon	usecaseActorIcon
+undocumented	usecaseBusiness	usecaseBusiness
+undocumented	usecaseEllipse	usecaseEllipse
+undocumented	usecaseJsonTable	usecaseJsonTable

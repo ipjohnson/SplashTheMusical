@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 69d4addf71b5e353
+box	entity	ACTIVE_ENTITY	12	31.125	148.141	81
+box	entity	CONNECTED_A	415.922	50.25	145.797	81
+box	entity	CONNECTED_B	415.922	232.25	145.797	81
+box	entity	ISOLATED_ENTITY	200.141	12	175.781	119.25
+box	relation	CONNECTED_A --> CONNECTED_B	488.82	131.25	0	101
+box	relation-label	CONNECTED_A --> CONNECTED_B	467.32	171.25	42.031	21
+canvas	4	4	565.719	317.25
+font	Liberation Sans	154

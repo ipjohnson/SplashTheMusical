@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 982f0e4d525246b6
+accept	yes
+drawn	yes
+edge	API	Cache	none	arrow	solid
+edge	API	DB	none	arrow	solid
+edge	State	API	none	arrow	solid
+edge	UI	API	none	arrow	solid
+edge	UI	State	none	arrow	solid
+group	Backend	Backend	API,Cache,DB
+group	Frontend	Frontend	State,UI
+node	API	REST API	rect
+node	Cache	Redis	cyl
+node	DB	Database	cyl
+node	State	Redux	rect
+node	UI	React App	rect
+type	flowchart-v2

@@ -1,0 +1,34 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0d65c6d0a5ad4ca1
+layout	1
+graph	TB	50	20	100	8	8
+node	Developer	Company.Engineering.Backend	138.3828125	120
+node	Company.Engineering.Backend	Company.Engineering	0	0
+node	TechLead	Company.Engineering	136.703125	120
+node	Designer	Company.Engineering.Frontend	159.3984375	120
+node	Company.Engineering.Frontend	Company.Engineering	0	0
+node	Company.Engineering		0	0
+edge	TechLead	Developer	id_TechLead_Developer_1	1	1	33.46875	21	10	c
+edge	TechLead	Designer	id_TechLead_Designer_2	1	1	33.46875	21	10	c
+size	513.78125	577
+place	Developer	132.19140625	409	138.3828125	120
+place	Company.Engineering.Backend	132.19140625	409	208.3828125	220
+place	TechLead	251.63671875	118	136.703125	120
+place	Designer	371.08203125	409	159.3984375	120
+place	Company.Engineering.Frontend	371.08203125	409	229.3984375	220
+place	Company.Engineering	256.890625	288.5	497.78125	561
+route	TechLead	Developer	id_TechLead_Developer_1	132.19140625	238.5	192.16187435165975,178 132.19140625,238.5 132.19140625,299 132.19140625,349
+route	TechLead	Designer	id_TechLead_Designer_2	371.08203125	238.5	311.1115631483402,178 371.08203125,238.5 371.08203125,299 371.08203125,349
+layout	2
+graph	LR	50	20	75	8	8
+node	Company.Engineering	Company	497.78125	561
+node	Company		0	0
+size	588.78125	647
+place	Company.Engineering	294.390625	323.5	497.78125	561
+place	Company	294.390625	323.5	572.78125	631
+layout	3
+graph	TB	50	20	50	8	8
+node	Company		572.78125	631
+size	588.78125	647
+place	Company	294.390625	323.5	572.78125	631

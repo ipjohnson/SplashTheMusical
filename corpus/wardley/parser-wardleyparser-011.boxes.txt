@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8708b623ff99a768
+box	node	A	594	432.816	20.673	23.184
+box	title	Test Size	573.154	16.61	53.691	13.776
+canvas	0	0	1200	900
+font	Liberation Sans	128

@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f799b57e24609acc
+accept	no
+# error org.eclipse.elk.graph.json.JsonImportException: Referenced shape does not exist: connectors

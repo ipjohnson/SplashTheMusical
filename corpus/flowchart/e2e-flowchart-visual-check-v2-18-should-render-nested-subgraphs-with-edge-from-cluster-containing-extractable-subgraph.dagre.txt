@@ -1,0 +1,56 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 96b5313f34f7a55a
+layout	1
+graph	TB	50	20	125	8	8
+node	ga	gsub	152	45
+node	abc	gsub	152	45
+node	abcd	gsub	152	45
+node	gsub		0	0
+size	642	186
+place	ga	119	93	152	45
+place	abc	321	93	152	45
+place	abcd	523	93	152	45
+place	gsub	321	93	626	170
+layout	2
+graph	LR	50	20	75	8	8
+node	aa	asub	152	45
+node	asub		0	0
+size	243	131
+place	aa	121.5	65.5	152	45
+place	asub	121.5	65.5	227	115
+layout	3
+graph	TB	50	20	100	8	8
+node	gsub	fsub	626	170
+node	fsub		0	0
+size	712	286
+place	gsub	356	143	626	170
+place	fsub	356	143	696	270
+layout	4
+graph	LR	50	20	75	8	8
+node	fsub	esub	696	270
+node	esub		0	0
+size	787	356
+place	fsub	393.5	178	696	270
+place	esub	393.5	178	771	340
+layout	5
+graph	TB	50	20	50	8	8
+node	bsub		0	0
+node	esub	bsub	771	340
+node	csub	bsub	0	0
+node	dsub	csub	0	0
+node	asub		227	115
+node	a		152	45
+node	da	dsub	152	45
+edge	da	a	L_da_a_0	1	1	0	0	10	c
+edge	da	a	L_bsub_a_0	1	1	0	0	10	c
+size	1401	601
+place	bsub	569.5	253	1123	490
+place	esub	428.5	253	771	340
+place	csub	980	253	262	440
+place	dsub	980	253	222	390
+place	asub	1279.5	253	227	115
+place	a	980	570.5	152	45
+place	da	980	253	152	45
+route	da	a	L_da_a_0			975.9038461538462,275.5 944.5,448 944.5,473 944.5,498 944.5,523 963.1842105263158,548
+route	da	a	L_bsub_a_0			985.25,275.5 1025.5,448 1025.5,473 1025.5,498 1025.5,523 1001.5526315789474,548

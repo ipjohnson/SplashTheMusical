@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2280fedda14e5f9
+accept	yes
+actor	A	A	participant
+actor	B	B	participant
+actor	C	C	participant
+block	alt	Retry
+block	loop	Every minute
+block	opt	Same messages
+block	par	Ping B
+divider	Give up
+divider	Ping C
+drawn	yes
+message	A	B	solid	filled	again
+message	A	B	solid	filled	ping
+message	A	C	solid	filled	ping
+message	A	C	solid	filled	stop
+message	C	A	dashed	filled	pong
+type	sequence

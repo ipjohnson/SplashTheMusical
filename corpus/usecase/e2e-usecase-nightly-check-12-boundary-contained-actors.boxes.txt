@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9c6319d0034b6ae3
+box	actor	Chef	212.625	60	76	121
+box	actor	Guest	12	157.433	126.625	121
+box	relation	Chef --> PrepareMeal	288.625	103.933	56	0
+box	relation	Chef --> ReviewMeal	288.625	137.067	56	68.867
+box	relation	Guest --> ReviewMeal	138.625	217.933	206	0
+box	usecase	PrepareMeal	348.625	74.933	160	58
+box	usecase	ReviewMeal	348.625	182.933	160	58
+canvas	-8	-8	560.625	306.433
+font	Liberation Sans	128

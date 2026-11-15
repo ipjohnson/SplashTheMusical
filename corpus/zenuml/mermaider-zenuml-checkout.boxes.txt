@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9e21bfadc30e172
+box	fragment	alt ok	-8.687	224.5	606.688	231
+box	message	Customer --> Shop	75.813	105	128.688	19.25
+box	message	Inventory --> Shop	189.797	190	142.703	19.25
+box	message	Payments --> Shop	179.797	318	252.703	19.25
+box	message	Shop --> Customer	55.797	429	148.703	19.25
+box	message	Shop --> Inventory	198.813	157	132.688	19.25
+box	message	Shop --> Mailer	188.797	351	349.703	19.25
+box	message	Shop --> Payments	188.797	285	242.703	19.25
+box	participant	Customer	29.824	63	111.352	38
+box	participant	Inventory	298.594	63	79.813	38
+box	participant	Mailer	499.5	63	78	38
+box	participant	Payments	395.93	63	85.141	38
+box	participant	Shop	167.289	63	88.422	38
+box	title	Checkout	5	8.25	72.906	17
+canvas	0	0	609.5	531
+font	Liberation Sans	392

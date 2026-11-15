@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d34688197fc3593a
+box	edge	**Root** with a second line Unicode works too: 🤓 / Regular labels still works	110	85	183.494	0
+box	edge	**Root** with a second line Unicode works too: 🤓 / The dog in **the** hog... a *very long text* that wraps to a new line	323.494	85	183.495	0
+box	node	**Root** with a second line Unicode works too: 🤓	228.494	27	160	116
+box	node	**Root** with a second line Unicode works too: 🤓 / Regular labels still works	15	51	160	68
+box	node	**Root** with a second line Unicode works too: 🤓 / The dog in **the** hog... a *very long text* that wraps to a new line	441.989	15	160	140
+canvas	5	5	606.989	160
+font	Apple Color Emoji	2
+font	Liberation Sans	260

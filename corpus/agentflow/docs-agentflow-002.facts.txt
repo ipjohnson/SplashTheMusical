@@ -1,0 +1,31 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c01cb465b4b372eb
+accept	yes
+direction	TD
+drawn	yes
+edge	brief	writer	sequence
+edge	check	ok	sequence
+edge	draft	guide	reference
+edge	draft	lookup	sequence
+edge	ok	publish	sequence
+edge	writer	reviewer	sequence
+flow	reviewer	Review Agent	check,ok
+flow	writer	Drafting Agent	draft,guide,lookup
+label	Accurate?
+label	Check the claims
+label	Draft the notes
+label	Drafting Agent
+label	Publish
+label	Release brief
+label	Review Agent
+label	Tone of voice
+label	changelog_search
+node	brief	Release brief	lean-r	input
+node	check	Check the claims	rounded	task
+node	draft	Draft the notes	rounded	task
+node	guide	Tone of voice	lin-doc	refdoc
+node	lookup	changelog_search	fr-rect	tool
+node	ok	Accurate?	diam	decision
+node	publish	Publish	hex	action
+type	agentflow

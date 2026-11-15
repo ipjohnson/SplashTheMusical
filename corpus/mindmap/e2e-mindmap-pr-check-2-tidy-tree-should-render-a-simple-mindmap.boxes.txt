@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 10718bf1285476f5
+box	edge	mindmap is a long thing / A	-166.34	-10	71	30
+box	edge	mindmap is a long thing / B	95.34	-10	71	30
+box	edge	mindmap is a long thing / C	-166.34	20	71	24
+box	edge	mindmap is a long thing / D	95.34	20	71	24
+box	node	mindmap is a long thing	-95.34	-75.34	190.68	190.68
+box	node	mindmap is a long thing / A	-217.012	-27	50.672	34
+box	node	mindmap is a long thing / B	166.34	-27	50.672	34
+box	node	mindmap is a long thing / C	-217.903	27	51.563	34
+box	node	mindmap is a long thing / D	166.34	27	51.562	34
+canvas	-227.903	-85.34	455.805	210.68
+font	Liberation Sans	54

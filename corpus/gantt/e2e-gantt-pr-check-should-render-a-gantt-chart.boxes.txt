@@ -1,0 +1,42 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3a12dccd6926abee
+box	section	A section	10	92	44.641	12
+box	section	Critical tasks	10	212	62.344	12
+box	section	Documentation	10	320	74	12
+box	section	Last section	10	392	58.703	12
+box	task	A section / Active task	187	74	149	20
+box	task	A section / Completed task	75	50	75	20
+box	task	A section / Future task	336	98	187	20
+box	task	A section / Future task2	523	122	186	20
+box	task	Critical tasks / Add to mermaid	634	266	38	20
+box	task	Critical tasks / Completed task in the critical line	75	146	37	20
+box	task	Critical tasks / Create tests for parser	261	194	112	20
+box	task	Critical tasks / Create tests for renderer	560	242	74	20
+box	task	Critical tasks / Future task in critical line	373	218	187	20
+box	task	Critical tasks / Implement parser and jison	150	170	74	20
+box	task	Documentation / Add another diagram to demo page	299	338	74	20
+box	task	Documentation / Add gantt diagram to demo page	299	314	31	20
+box	task	Documentation / Describe gantt syntax	150	290	149	20
+box	task	Last section / Add another diagram to demo page	516	410	75	20
+box	task	Last section / Add gantt diagram to demo page	485	386	31	20
+box	task	Last section / Describe gantt syntax	373	362	112	20
+box	task-text	A section / Active task	234.906	77.5	53.201	12
+box	task-text	A section / Completed task	155	53.5	76.441	12.283
+box	task-text	A section / Future task	401.984	101.5	55.038	12
+box	task-text	A section / Future task2	585.43	125.5	61.141	12
+box	task-text	Critical tasks / Add to mermaid	551.344	269.5	77.656	12
+box	task-text	Critical tasks / Completed task in the critical line	117	149.5	160.797	12.283
+box	task-text	Critical tasks / Create tests for parser	262.281	197.5	109.438	12.283
+box	task-text	Critical tasks / Create tests for renderer	435.156	245.5	119.844	12
+box	task-text	Critical tasks / Future task in critical line	405.977	221.5	121.047	12
+box	task-text	Critical tasks / Implement parser and jison	229	173.5	132.688	12.283
+box	task-text	Documentation / Add another diagram to demo page	378	341.5	173.063	12.283
+box	task-text	Documentation / Add gantt diagram to demo page	335	317.5	160.234	12.283
+box	task-text	Documentation / Describe gantt syntax	171.609	293.5	105.781	12.283
+box	task-text	Last section / Add another diagram to demo page	337.938	413.5	173.063	12.283
+box	task-text	Last section / Add gantt diagram to demo page	521	389.5	160.234	12.283
+box	task-text	Last section / Describe gantt syntax	376.109	365.5	105.781	12.283
+box	title	Adding GANTT diagram to mermaid	248.609	9	286.781	20
+canvas	0	0	784	484
+font	Liberation Sans	978

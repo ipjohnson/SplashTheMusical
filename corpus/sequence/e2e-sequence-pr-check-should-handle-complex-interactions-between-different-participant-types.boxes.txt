@@ -1,0 +1,48 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1f1a81fb1851ac4c
+box	actor	AuditLogs	1219	27	156	73
+box	actor	AuthService	436.882	27	86.235	67.247
+box	actor	LoginUI	225	27	82.569	67.479
+box	actor	Order	878	27	44	67.247
+box	actor	OrderQueue	1025	27	150	73
+box	actor	User	63.116	27	33.767	67.247
+box	actor	UserDB	652.005	27	55.989	67.247
+box	actor-bottom	AuditLogs	1225	927	150	67
+box	actor-bottom	AuthService	436.882	933	86.235	67.247
+box	actor-bottom	LoginUI	225	933	82.569	67.479
+box	actor-bottom	Order	878	933	44	67.247
+box	actor-bottom	User	63.116	933	33.767	67.247
+box	block	alt Valid credentials	59	286	1262	621
+box	block	loop Until confirmed	69	631	1042	133
+box	block	par Place order	69	419	1242	202
+box	box	Authentication	-20	-5	800	1025
+box	box	Order Processing	800	-5	600	1025
+box	message	AuthService --> LoginUI	287	365	192	0
+box	message	AuthService --> LoginUI #2	287	853	192	0
+box	message	AuthService --> UserDB	481	232	192	0
+box	message	LoginUI --> AuthService	281	188	192	0
+box	message	LoginUI --> User	87	409	192	0
+box	message	LoginUI --> User #2	87	897	192	0
+box	message	Order --> AuditLogs	901	611	392	0
+box	message	Order --> OrderQueue	901	542	192	0
+box	message	Order --> User	87	754	812	0
+box	message	OrderQueue --> Order	907	710	192	0
+box	message	User --> LoginUI	81	144	192	0
+box	message	User --> Order	81	498	812	0
+box	message	UserDB --> AuthService	487	276	192	0
+box	message-text	AuthService --> LoginUI	352.778	341.822	60.443	17.495
+box	message-text	AuthService --> LoginUI #2	358.551	829.822	48.898	17.495
+box	message-text	AuthService --> UserDB	537.444	208.822	79.112	17.726
+box	message-text	LoginUI --> AuthService	348.692	164.822	56.616	17.495
+box	message-text	LoginUI --> User	149.82	385.822	66.361	17.495
+box	message-text	LoginUI --> User #2	163.889	873.822	38.221	17.726
+box	message-text	Order --> AuditLogs	1071.216	587.822	51.567	17.495
+box	message-text	Order --> OrderQueue	968.113	518.822	57.774	17.495
+box	message-text	Order --> User	453.444	730.822	79.112	17.495
+box	message-text	OrderQueue --> Order	953.66	686.822	98.681	17.726
+box	message-text	User --> LoginUI	116.991	120.822	120.019	17.495
+box	message-text	User --> Order	450.113	474.822	73.773	17.495
+box	message-text	UserDB --> AuthService	548.332	252.822	69.335	17.495
+canvas	-50	-10	1480	1061
+font	Liberation Sans	662

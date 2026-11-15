@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b40170663d47fe4e
+accept	no
+# error No such shape: Rounded. Shape names should be lowercase.

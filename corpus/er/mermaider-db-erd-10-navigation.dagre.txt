@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2b1a674ef529935
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-TocItem-0		100	81
+node	entity-NavigationNode-1		139.625	81
+node	entity-SiteNavigation-2		130.28125	81
+node	entity-SiteMount-3		103.046875	81
+node	entity-Phantom-4		96.046875	81
+edge	entity-TocItem-0	entity-NavigationNode-1	id_entity-TocItem-0_entity-NavigationNode-1_0	1	1	43.546875	21	10	c
+edge	entity-SiteNavigation-2	entity-SiteMount-3	id_entity-SiteNavigation-2_entity-SiteMount-3_1	1	1	18.6875	21	10	c
+edge	entity-SiteMount-3	entity-NavigationNode-1	id_entity-SiteMount-3_entity-NavigationNode-1_2	1	1	59.140625	21	10	c
+edge	entity-SiteNavigation-2	entity-Phantom-4	id_entity-SiteNavigation-2_entity-Phantom-4_3	1	1	61.484375	21	10	c
+size	595.09375	461
+place	entity-TocItem-0	58	230.5	100	81
+place	entity-NavigationNode-1	178.76171875	412.5	139.625	81
+place	entity-SiteNavigation-2	419.296875	48.5	130.28125	81
+place	entity-SiteMount-3	299.5234375	230.5	103.046875	81
+place	entity-Phantom-4	539.0703125	230.5	96.046875	81
+route	entity-TocItem-0	entity-NavigationNode-1	id_entity-TocItem-0_entity-NavigationNode-1_0	58	321.5	58,271 58,321.5 125.01611864697801,372
+route	entity-SiteNavigation-2	entity-SiteMount-3	id_entity-SiteNavigation-2_entity-SiteMount-3_1	299.5234375	139.5	365.9911143543956,89 299.5234375,139.5 299.5234375,190
+route	entity-SiteMount-3	entity-NavigationNode-1	id_entity-SiteMount-3_entity-NavigationNode-1_2	299.5234375	321.5	299.5234375,271 299.5234375,321.5 232.50731885302199,372
+route	entity-SiteNavigation-2	entity-Phantom-4	id_entity-SiteNavigation-2_entity-Phantom-4_3	539.0703125	139.5	472.6026356456044,89 539.0703125,139.5 539.0703125,190

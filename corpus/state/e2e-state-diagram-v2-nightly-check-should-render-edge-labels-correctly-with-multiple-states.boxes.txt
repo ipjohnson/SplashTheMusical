@@ -1,0 +1,45 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1e359f909af210d7
+box	edge	State1_____________ --> State2_____________	104	175	0	95.5
+box	edge	State2_____________ --> State3_____________	104	385	0	95.5
+box	edge	State3_____________ --> State4_____________	104	595	0	95.5
+box	edge	State4_____________ --> State5_____________	104	805	0	95.5
+box	edge	State5_____________ --> State6_____________	104	1015	0	95.5
+box	edge	State6_____________ --> State7_____________	104	1225	0	95.5
+box	edge	State7_____________ --> State8_____________	104	1435	0	95.5
+box	edge	State8_____________ --> State9_____________	104	1645	0	95.5
+box	edge	State9_____________ --> State10_____________	104	1855	0	95.5
+box	edge	[*]start@root --> State1_____________	104	26	0	34.5
+box	edge-label	State1_____________ --> State2_____________	50	215	107.672	21
+box	edge-label	State2_____________ --> State3_____________	50	425	107.672	21
+box	edge-label	State3_____________ --> State4_____________	50	635	107.672	21
+box	edge-label	State4_____________ --> State5_____________	50	845	107.672	21
+box	edge-label	State5_____________ --> State6_____________	50	1055	107.672	21
+box	edge-label	State6_____________ --> State7_____________	50	1265	107.672	21
+box	edge-label	State7_____________ --> State8_____________	50	1475	107.672	21
+box	edge-label	State8_____________ --> State9_____________	50	1685	107.672	21
+box	edge-label	State9_____________ --> State10_____________	50	1895	107.672	21
+box	group	State10_____________	12	1956	184	109
+box	group	State1_____________	12	66	184	109
+box	group	State2_____________	12	276	184	109
+box	group	State3_____________	12	486	184	109
+box	group	State4_____________	12	696	184	109
+box	group	State5_____________	12	906	184	109
+box	group	State6_____________	12	1116	184	109
+box	group	State7_____________	12	1326	184	109
+box	group	State8_____________	12	1536	184	109
+box	group	State9_____________	12	1746	184	109
+box	node	[*]start@root	97	12	14	14
+box	node	c0	36	114	136	37
+box	node	c1	36	324	136	37
+box	node	c10	36	2004	136	37
+box	node	c2	36	744	136	37
+box	node	c3	36	954	136	37
+box	node	c4	36	1164	136	37
+box	node	c5	36	1374	136	37
+box	node	c6	36	1584	136	37
+box	node	c7	36	534	136	37
+box	node	c9	36	1794	136	37
+canvas	4	4	200	2069
+font	Liberation Sans	712

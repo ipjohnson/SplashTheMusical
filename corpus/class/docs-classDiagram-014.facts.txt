@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 029e13c779ccef5e
+accept	yes
+class	classA	classA
+class	classB	classB
+class	classC	classC
+class	classD	classD
+class	classE	classE
+class	classF	classF
+drawn	yes
+relation	classA	classB	triangle	none	solid	implements
+relation	classC	classD	diamond-filled	none	solid	composition
+relation	classE	classF	diamond	none	solid	aggregation
+type	classDiagram

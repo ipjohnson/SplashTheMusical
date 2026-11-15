@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 53f432c62cc59c84
+box	edge	flag --> provV1	193.719	409.833	104.615	122.167
+box	edge	flag --> provV2	348.667	409.833	104.615	122.167
+box	edge	navV2Yml --> v2Map	445.333	57	0	97
+box	edge	navYml --> v1Map	201.667	57	0	97
+box	edge	v1Map --> flag	228.44	224	69.893	61.167
+box	edge	v1Map --> valV1	105	224	69.893	36
+box	edge	v2Map --> flag	348.667	224	69.893	61.167
+box	edge	v2Map --> valV2	472.107	224	69.893	36
+box	edge-label	flag --> provV1	178.719	475	29.578	21
+box	edge-label	flag --> provV2	440.781	475	24.125	21
+box	edge-label	navV2Yml --> v2Map	383.833	97	122.188	21
+box	edge-label	navYml --> v1Map	148.667	97	105.063	21
+box	node	flag	238.5	264	171	171
+box	node	navV2Yml	369.333	12	152	45
+box	node	navYml	125.667	12	152	45
+box	node	provV1	83.938	536	219.563	87
+box	node	provV2	343.5	536	219.563	87
+box	node	v1Map	111.346	158	180.641	66
+box	node	v2Map	355.013	158	180.641	66
+box	node	valV1	12	264	186	36
+box	node	valV2	449	264	186	36
+canvas	4	4	639	627
+font	Liberation Sans	582

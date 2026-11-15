@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source de87bd5b6a6220c8
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Charlie	Charlie	participant
+drawn	yes
+message	Bob	Alice	dashed	open	Close arrow with circle at destination (RTL)
+message	Bob	Alice	solid	filled	Solid arrow with circle at destination (RTL)
+message	Bob	Alice	solid	none	Open arrow with circle at destination (RTL)
+message	Charlie	Alice	dashed	cross	Cross arrow with circle at destination (RTL)
+message	Charlie	Bob	dashed	filled	Dotted arrow with circle at destination (RTL)
+type	sequence

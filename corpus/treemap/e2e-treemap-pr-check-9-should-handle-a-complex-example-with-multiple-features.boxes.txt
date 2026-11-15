@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5efef8b83be2c5c5
+box	node	Company Budget	10	35	980	355
+box	node	Company Budget / Engineering	20	70	387	310
+box	node	Company Budget / Engineering / Backend	30	105	283	147
+box	node	Company Budget / Engineering / DevOps	323	105	74	265
+box	node	Company Budget / Engineering / Frontend	30	262	283	108
+box	node	Company Budget / Marketing	770	70	210	310
+box	node	Company Budget / Marketing / Digital	780	105	115	210
+box	node	Company Budget / Marketing / Events	905	105	65	210
+box	node	Company Budget / Marketing / Print	780	325	190	45
+box	node	Company Budget / Sales	417	70	343	310
+box	node	Company Budget / Sales / Channel	427	277	323	93
+box	node	Company Budget / Sales / Direct	427	105	323	162
+canvas	2	27	996	371
+font	Liberation Sans	326

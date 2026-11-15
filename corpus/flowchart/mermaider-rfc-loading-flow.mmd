@@ -1,0 +1,10 @@
+flowchart TD
+    disk["All repos cloned to disk prior to build"]
+    disk --> v1Load["Load docset.yml + toc.yml\n(every repo)"]
+    disk --> uriResolve["navigation-v2.yml URI resolved\nto repo checkout on disk"]
+    v1Load --> v1Nodes["V1 TableOfContentNodes"]
+    uriResolve --> hasV2{"docset-v2.yml\npresent?"}
+    hasV2 -->|Yes| loadV2["Load toc-v2.yml\n(required — no fallback to toc.yml)"]
+    hasV2 -->|No| loadFallback["Use V1 toc nodes as fallback\nemits migration-progress warning"]
+    loadV2 --> v2Nodes["V2 TableOfContentNodes"]
+    loadFallback --> v2NodesFallback["V2 TableOfContentNodes\n(V1 structure)"]

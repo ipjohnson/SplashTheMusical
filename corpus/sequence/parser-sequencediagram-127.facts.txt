@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ad0510ddfd47f226
+accept	yes
+actor	API	External Name	boundary
+drawn	yes
+message	API	API	solid	filled	test
+type	sequence

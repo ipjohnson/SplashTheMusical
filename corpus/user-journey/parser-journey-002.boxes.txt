@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 70eeba3202bb2398
+box	title	Adding journey diagram functionality to mermaid	150	-6	790.859	38.165
+canvas	0	-25	400	90
+font	Liberation Sans	94

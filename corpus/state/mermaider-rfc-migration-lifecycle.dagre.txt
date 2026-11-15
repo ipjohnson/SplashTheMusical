@@ -1,0 +1,34 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7bbff52b691148bf
+layout	1
+graph	TB	50	20	50	8	8
+node	NotStarted		136	37
+node	ShadowNav		136	58
+node	VirtualRemap		136	58
+node	PhysicalRestructure		136	58
+node	Cutover		136	37
+node	root_start		14	14
+node	root_end		14.013293266296387	14
+edge	root_start	NotStarted	edge0	1	1	0	0	10	c
+edge	NotStarted	ShadowNav	edge1	1	1	200	42	10	c
+edge	ShadowNav	VirtualRemap	edge2	1	1	200	42	10	c
+edge	VirtualRemap	PhysicalRestructure	edge3	1	1	200	63	10	c
+edge	VirtualRemap	Cutover	edge4	1	1	154.390625	21	10	c
+edge	PhysicalRestructure	Cutover	edge5	1	1	133.859375	21	10	c
+edge	Cutover	root_end	edge6	1	1	0	0	10	c
+size	373.390625	760
+place	NotStarted	175.29296875	90.5	136	37
+place	ShadowNav	175.29296875	230	136	58
+place	VirtualRemap	175.29296875	380	136	58
+place	PhysicalRestructure	265.390625	551	136	58
+place	Cutover	175.29296875	669.5	136	37
+place	root_start	175.29296875	15	14	14
+place	root_end	175.29296875	745	14.013293266296387	14
+route	root_start	NotStarted	edge0			175.29296875,22 175.29296875,47 175.29296875,72
+route	NotStarted	ShadowNav	edge1	175.29296875	155	175.29296875,109 175.29296875,155 175.29296875,201
+route	ShadowNav	VirtualRemap	edge2	175.29296875	305	175.29296875,259 175.29296875,305 175.29296875,351
+route	VirtualRemap	PhysicalRestructure	edge3	265.390625	465.5	205.8524077119883,409 265.390625,465.5 265.390625,522
+route	VirtualRemap	Cutover	edge4	85.1953125	551	144.7335297880117,409 85.1953125,465.5 85.1953125,551 85.1953125,615.5 144.4261791087963,651
+route	PhysicalRestructure	Cutover	edge5	265.390625	615.5	265.390625,580 265.390625,615.5 206.1597583912037,651
+route	Cutover	root_end	edge6			175.29296875,688 175.29296875,713 175.29296875,738

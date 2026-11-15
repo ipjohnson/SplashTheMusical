@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 025597d98c4285c0
+box	fragment	loop i < 10	1.313	178.5	340.188	146
+box	message	A --> B	172.313	145	109.688	19.25
+box	message	_STARTER_ --> B	56.813	259	218.188	19.25
+box	participant	A	143	63	78	38
+box	participant	B	243	63	78	38
+box	participant	_STARTER_	37.5	63	78	38
+canvas	0	0	353	382
+font	Liberation Sans	108

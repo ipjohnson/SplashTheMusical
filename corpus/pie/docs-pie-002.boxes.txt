@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0618966cc9f61ec4
+box	legend	Calcium	441	180	140.125	19
+box	legend	Iron	441	246	74.922	19
+box	legend	Magnesium	441	224	166.594	19
+box	legend	Potassium	441	202	158.078	19
+box	slice	Calcium	225	40	185	333.084
+box	slice	Iron	171.951	40	53.049	149.554
+box	slice	Magnesium	83.232	47.769	131.158	153.46
+box	slice	Potassium	30.751	100.201	310.682	319.048
+box	title	Key elements in Product X	77.703	2	294.594	28.188
+canvas	0	0	656.594	450
+font	Liberation Sans	184

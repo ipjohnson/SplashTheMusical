@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 64c54187c516e383
+box	edge	A --> B	80	49	0	95.5
+box	edge-label	A --> B	33	89	93.391	21
+box	node	A	12	12	136	37
+box	node	B	12	150	136	37
+canvas	4	4	152	191
+font	Liberation Sans	36

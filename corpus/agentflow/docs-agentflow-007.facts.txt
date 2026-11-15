@@ -1,0 +1,19 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f5eb8cfb8dfe7949
+accept	yes
+direction	TD
+drawn	yes
+edge	index	corpus	reference
+edge	summarise	corpus	reference
+flow	indexer	Indexer	index
+flow	summariser	Summariser	summarise
+label	Build index
+label	Indexer
+label	Shared corpus
+label	Summarise
+label	Summariser
+node	corpus	Shared corpus	lin-doc	refdoc
+node	index	Build index	rounded	task
+node	summarise	Summarise	rounded	task
+type	agentflow

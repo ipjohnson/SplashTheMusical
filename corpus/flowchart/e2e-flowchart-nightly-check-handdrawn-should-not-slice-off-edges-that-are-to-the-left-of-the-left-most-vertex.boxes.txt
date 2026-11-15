@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a2c7b77c44f921c4
+box	edge	eat --> sleep	143.896	161.188	71.793	36.006
+box	edge	sleep --> work	103.093	70.533	0.814	130.544
+box	edge	work --> eat	144.076	66.32	71.761	36.28
+box	edge	work --> sleep	62.178	65.905	1.033	131.525
+box	node	eat	124.293	106.69	182.622	54.536
+box	node	sleep	11.958	201.217	182.439	54.527
+box	node	work	12.015	12.169	182.789	54.503
+canvas	3.958	4.169	310.957	259.575
+font	Liberation Sans	24

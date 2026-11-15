@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7e29a4621891e3f9
+box	edge	root / Geography	158.378	110.998	6.204	57.344
+box	edge	root / Geography / Mountains	84.32	40.432	69.47	47.221
+box	edge	root / Geography / Rocks	179.4	43.809	83.798	45.16
+box	edge	root / Photograph	150.024	198.191	5.349	57.421
+box	edge	root / Photograph / Landscape	96.519	282.165	42.626	52.192
+box	edge	root / Photograph / Waterfall	162.894	275.197	125.729	40.997
+box	node	root	122.975	166.255	67.578	34
+box	node	root / Geography	106.609	79.085	119.172	34
+box	node	root / Geography / Mountains	15	15	113.828	34
+box	node	root / Geography / Rocks	234.176	19.693	84.453	34
+box	node	root / Photograph	87.266	253.547	122.734	34
+box	node	root / Photograph / Landscape	27.882	328.975	118.297	34
+box	node	root / Photograph / Waterfall	251.618	303.844	102.531	34
+canvas	5	5	359.15	367.975
+font	Liberation Sans	110

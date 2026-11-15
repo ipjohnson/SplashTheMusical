@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0807c6f7a9b20f69
+box	fragment	alt condition	-18.703	170.5	349.203	140
+box	message	A --> B	158.313	137	105.688	19.25
+box	message	A --> Client	31.297	263	132.703	19.25
+box	message	A --> Client #2	51.313	345	112.688	19.25
+box	message	B --> A	138.297	231	125.703	19.25
+box	message	Client --> A	61.313	105	102.688	19.25
+box	participant	A	132	63	78	38
+box	participant	B	232	63	78	38
+box	participant	Client	32	63	78	38
+box	title	Reply message	5	8.25	116.516	17.391
+canvas	0	0	342	420
+font	Liberation Sans	192

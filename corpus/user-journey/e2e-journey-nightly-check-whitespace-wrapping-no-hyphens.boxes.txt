@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5b4b994c929f3fbf
+box	face	Test / TextWithSpaces	404.781	285	30	30
+box	section	Test	344.781	50	150	50
+box	task	Test / TextWithSpaces	344.781	110	150	50
+box	title	Whitespace Test	344.781	-5.635	264.319	37.652
+canvas	0	-25	889.563	540
+font	Liberation Sans	224

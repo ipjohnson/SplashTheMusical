@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0ff30fff6b41fcbd
+box	block	Auth	0	-44	136.063	40
+box	block	Billing	144.063	-44	136.063	40
+box	block	Cache	288.125	52	136.063	40
+box	block	Core	0	4	568.25	40
+box	block	Postgres	0	52	280.125	40
+box	block	Reports	432.188	-44	136.063	40
+box	block	Search	288.125	-44	136.063	40
+box	block	Storage	432.188	52	136.063	40
+box	block	UI	0	-92	568.25	40
+box	edge	Auth --> Core	136.063	-8.889	54.118	12.022
+box	edge	Billing --> Core	242.107	-4	8.676	5.782
+box	edge	Reports --> Core	378.069	-8.889	54.119	12.022
+box	edge	Search --> Core	317.467	-4	8.676	5.782
+box	edge	UI --> Auth	139.967	-52	54.119	12.021
+box	edge	UI --> Reports	374.164	-52	54.119	12.021
+canvas	-5	-97	578.25	194
+font	Liberation Sans	156

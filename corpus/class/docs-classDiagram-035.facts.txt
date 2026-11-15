@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b748773195c45c55
+accept	yes
+attribute	Animal	-int sizeInFeet
+class	Animal	Animal
+drawn	yes
+method	Animal	-canEat()
+type	classDiagram

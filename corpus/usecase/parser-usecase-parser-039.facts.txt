@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8c848c98d0e2e3bf
+accept	yes
+boundary	Billing	Billing	rect	Invoice
+boundary	Payment_service	Payment service	package	Authorize
+direction	LR
+drawn	yes
+label	Authorize payment
+label	Billing
+label	Create invoice
+label	Payment service
+type	usecase
+usecase	Authorize	Authorize payment	ellipse			Payment_service
+usecase	Invoice	Create invoice	rect			Billing

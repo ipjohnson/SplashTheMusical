@@ -1,0 +1,94 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 86ce734ac0ee5f4e
+layout	1
+graph	LR	50	20	50	8	8
+node	Ledger		230.609375	177
+node	WorkMachine		410.8359375	141
+node	Policy		260.3125	162
+node	Scheduler		193.2578125	204
+node	IGate		340.765625	141
+node	IEffectHandler		205.4453125	156
+node	SessionRunner		126.703125	81
+node	IClaudeProcess		129.0625	102
+node	ClaudeProcess		125.171875	81
+node	RunnerProcess		127.484375	81
+node	IWatcher		164.84375	141
+node	GitHubWatcher		125.375	81
+node	ClockWatcher		116.84375	81
+node	ProcessWatcher		133.203125	81
+node	UsageWatcher		120.75	81
+node	EffectRunner		171.828125	141
+node	SqliteStore		218.546875	162
+node	Views		200.265625	162
+node	IPeerLink		222.421875	162
+node	Exporter		81.578125	81
+node	Importer		80.796875	81
+edge	Ledger	WorkMachine	id_Ledger_WorkMachine_1	1	1	77.046875	21	10	c
+edge	Ledger	Policy	id_Ledger_Policy_2	1	1	70.796875	21	10	c
+edge	Ledger	SqliteStore	id_Ledger_SqliteStore_3	1	1	95.734375	21	10	c
+edge	Ledger	EffectRunner	id_Ledger_EffectRunner_4	1	1	39.6875	21	10	c
+edge	Scheduler	Ledger	id_Scheduler_Ledger_5	1	1	122.90625	21	10	c
+edge	Scheduler	IGate	id_Scheduler_IGate_6	1	1	63.046875	21	10	c
+edge	Scheduler	SqliteStore	id_Scheduler_SqliteStore_7	1	1	111.28125	21	10	c
+edge	EffectRunner	IEffectHandler	id_EffectRunner_IEffectHandler_8	1	1	44.359375	21	10	c
+edge	IEffectHandler	SessionRunner	id_IEffectHandler_SessionRunner_9	1	1	0	0	10	c
+edge	SessionRunner	IClaudeProcess	id_SessionRunner_IClaudeProcess_10	1	1	79.375	21	10	c
+edge	IClaudeProcess	ClaudeProcess	id_IClaudeProcess_ClaudeProcess_11	1	1	0	0	10	c
+edge	IClaudeProcess	RunnerProcess	id_IClaudeProcess_RunnerProcess_12	1	1	0	0	10	c
+edge	SessionRunner	Ledger	id_SessionRunner_Ledger_13	1	1	175.890625	21	10	c
+edge	IWatcher	GitHubWatcher	id_IWatcher_GitHubWatcher_14	1	1	0	0	10	c
+edge	IWatcher	ClockWatcher	id_IWatcher_ClockWatcher_15	1	1	0	0	10	c
+edge	IWatcher	ProcessWatcher	id_IWatcher_ProcessWatcher_16	1	1	0	0	10	c
+edge	IWatcher	UsageWatcher	id_IWatcher_UsageWatcher_17	1	1	0	0	10	c
+edge	IWatcher	Ledger	id_IWatcher_Ledger_18	1	1	79.390625	21	10	c
+edge	Views	SqliteStore	id_Views_SqliteStore_19	1	1	84.078125	21	10	c
+edge	IPeerLink	Ledger	id_IPeerLink_Ledger_20	1	1	83.265625	21	10	c
+edge	Ledger	IPeerLink	id_Ledger_IPeerLink_21	1	1	87.171875	21	10	c
+edge	Exporter	SqliteStore	id_Exporter_SqliteStore_22	1	1	35.03125	21	10	c
+edge	Importer	Ledger	id_Importer_Ledger_23	1	1	111.265625	21	10	c
+size	2323.4609375	1657.75
+place	Ledger	544.546875	620.5	230.609375	177
+place	WorkMachine	1066.08203125	948	410.8359375	141
+place	Policy	1066.08203125	746.5	260.3125	162
+place	Scheduler	104.62890625	1503.25	193.2578125	204
+place	IGate	544.546875	1579.25	340.765625	141
+place	IEffectHandler	1600.11328125	545	205.4453125	156
+place	SessionRunner	1816.1875	433	126.703125	81
+place	IClaudeProcess	2073.4453125	433	129.0625	102
+place	ClaudeProcess	2251.71875	433	125.171875	81
+place	RunnerProcess	2251.71875	302	127.484375	81
+place	IWatcher	104.62890625	324.5	164.84375	141
+place	GitHubWatcher	544.546875	441.5	125.375	81
+place	ClockWatcher	544.546875	310.5	116.84375	81
+place	ProcessWatcher	544.546875	179.5	133.203125	81
+place	UsageWatcher	544.546875	48.5	120.75	81
+place	EffectRunner	1066.08203125	545	171.828125	141
+place	SqliteStore	1066.08203125	1213	218.546875	162
+place	Views	544.546875	1246.75	200.265625	162
+place	IPeerLink	1066.08203125	343.5	222.421875	162
+place	Exporter	544.546875	1418.25	81.578125	81
+place	Importer	104.62890625	710	80.796875	81
+route	Ledger	WorkMachine	id_Ledger_WorkMachine_1	787.796875	1089.75	590.4235398907832,709 787.796875,1089.75 927.6756572420635,1018.5
+route	Ledger	Policy	id_Ledger_Policy_2	787.796875	935.75	612.8343452616971,709 787.796875,935.75 946.974513911823,827.5
+route	Ledger	SqliteStore	id_Ledger_SqliteStore_3	787.796875	835	644.9087631118881,709 787.796875,835 1006.4494977678571,1132
+route	Ledger	EffectRunner	id_Ledger_EffectRunner_4	787.796875	545	659.8515625,584.711700282631 787.796875,545 980.16796875,545
+route	Scheduler	Ledger	id_Scheduler_Ledger_5	287.7109375	1620.25	201.2578125,1565.0014561863918 287.7109375,1620.25 521.8112106151538,709
+route	Scheduler	IGate	id_Scheduler_IGate_6	287.7109375	1579.25	201.2578125,1543.362057009964 287.7109375,1579.25 374.1640625,1579.25
+route	Scheduler	SqliteStore	id_Scheduler_SqliteStore_7	544.546875	1120.25	153.3870451207572,1401.25 287.7109375,1120.25 544.546875,1120.25 787.796875,1120.25 956.80859375,1176.5801224014263
+route	EffectRunner	IEffectHandler	id_EffectRunner_IEffectHandler_8	1384.4453125	545	1151.99609375,545 1384.4453125,545 1497.390625,545
+route	IEffectHandler	SessionRunner	id_IEffectHandler_SessionRunner_9			1702.8359375,545 1727.8359375,545 1784.2389439174108,473.5
+route	SessionRunner	IClaudeProcess	id_SessionRunner_IClaudeProcess_10	1944.2265625	433	1879.5390625,433 1944.2265625,433 2008.9140625,433
+route	IClaudeProcess	ClaudeProcess	id_IClaudeProcess_ClaudeProcess_11			2137.9765625,433 2162.9765625,433 2189.1328125,433
+route	IClaudeProcess	RunnerProcess	id_IClaudeProcess_RunnerProcess_12			2108.300989980916,382 2162.9765625,302 2187.9765625,302
+route	SessionRunner	Ledger	id_SessionRunner_Ledger_13	1384.4453125	115.5	1804.9174581692914,392.5 1727.8359375,115.5 1600.11328125,115.5 1384.4453125,115.5 1066.08203125,115.5 787.796875,115.5 587.1758353960396,532
+route	IWatcher	GitHubWatcher	id_IWatcher_GitHubWatcher_14			167.13390965496367,395 287.7109375,531 481.859375,463.3448060836502
+route	IWatcher	ClockWatcher	id_IWatcher_ClockWatcher_15			187.05078125,358.4894173120826 287.7109375,400 486.125,330.8583574144487
+route	IWatcher	ProcessWatcher	id_IWatcher_ProcessWatcher_16			187.05078125,299.51440184343596 287.7109375,269 477.9453125,202.7087452471483
+route	IWatcher	UsageWatcher	id_IWatcher_UsageWatcher_17			173.83685908176943,254 287.7109375,138 484.171875,69.53896577946767
+route	IWatcher	Ledger	id_IWatcher_Ledger_18	287.7109375	107.5	164.1094740063364,254 287.7109375,107.5 500.23892086988303,532
+route	Views	SqliteStore	id_Views_SqliteStore_19	787.796875	1246.75	644.6796875,1246.75 787.796875,1246.75 956.80859375,1226.2525161072977
+route	IPeerLink	Ledger	id_IPeerLink_Ledger_20	787.796875	85	978.8824271639265,262.5 787.796875,85 584.7478553921569,532
+route	Ledger	IPeerLink	id_Ledger_IPeerLink_21	787.796875	343.5	622.2639327617328,532 787.796875,343.5 954.87109375,343.5
+route	Exporter	SqliteStore	id_Exporter_SqliteStore_22	787.796875	1418.25	585.3359375,1418.25 787.796875,1418.25 956.80859375,1293.5949312895664
+route	Importer	Ledger	id_Importer_Ledger_23	287.7109375	710	145.02734375,710 287.7109375,710 429.2421875,660.6803954372624

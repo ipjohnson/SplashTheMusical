@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7479c3d34d8c1a95
+accept	yes
+class	classA	classA
+class	classB	classB
+class	classC	classC
+class	classD	classD
+drawn	yes
+relation	classA	classB	none	none	solid	Inheritance
+relation	classA	classC	none	none	solid	link
+relation	classB	classD	none	none	solid
+relation	classC	classD	none	none	solid	link
+type	classDiagram

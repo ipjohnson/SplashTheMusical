@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7248ea5268eb0c35
+box	element	test_entity	360.664	302.992	124.454	106.608
+box	element	test_entity2	99.959	12.193	176.427	127.39
+box	element	test_entity3	259.751	822.841	232.942	127.501
+box	relation	test_entity --> test_req2	404.523	409.397	18.618	101.531
+box	relation	test_entity2 --> test_req	187.618	139.455	0.678	101.217
+box	relation	test_entity3 --> test_req5	277.223	949.993	99.03	101.073
+box	relation	test_req --> test_req2	207.174	409.216	136.562	101.289
+box	relation	test_req --> test_req3	121.79	409.495	46.859	101.171
+box	relation	test_req3 --> test_req4	121.528	679.337	0.965	101.857
+box	relation	test_req4 --> test_req5	121.455	949.581	98.933	101.417
+box	relation	test_req5 --> test_req6	248.706	1219.699	0.561	101.685
+box	relation-label	test_entity --> test_req2	380.792	449.551	83.281	21
+box	relation-label	test_entity2 --> test_req	150.908	179.39	73.172	21
+box	relation-label	test_entity3 --> test_req5	336.794	990.084	77.063	21
+box	relation-label	test_req --> test_req2	263.115	449.551	70.828	21
+box	relation-label	test_req --> test_req3	79.515	449.551	84.859	21
+box	relation-label	test_req3 --> test_req4	79.515	719.709	84.859	21
+box	relation-label	test_req4 --> test_req5	83.015	990.084	77.844	21
+box	relation-label	test_req5 --> test_req6	211.405	1259.944	74.734	21
+box	requirement	test_req	119.891	240.56	136.398	169.161
+box	requirement	test_req2	272.072	510.55	204.196	168.915
+box	requirement	test_req3	12.198	510.712	220.03	169.159
+box	requirement	test_req4	24.831	780.743	194.615	169.375
+box	requirement	test_req5	152.965	1051.16	192.078	168.86
+box	requirement	test_req6	165.719	1320.942	166.893	169.124
+canvas	4.198	4.193	496.495	1493.873
+font	Liberation Sans	1708

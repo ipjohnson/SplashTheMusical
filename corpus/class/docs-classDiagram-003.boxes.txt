@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 686bace011d6cb07
+box	class	Customer	110.496	8	156.953	144
+box	class	LineItem	8	483	143.633	120
+box	class	Order	110.273	226	157.398	168
+box	class	Payment	201.633	468	192.992	150
+box	relation	Customer --> Order	188.973	152	0	68
+box	relation	Order --> LineItem	79.816	406.808	21.824	76.192
+box	relation	Order --> Payment	264.751	394	33.378	68
+box	relation-label	Customer --> Order	165.848	177	46.25	24
+box	relation-label	Order --> LineItem	50.02	419	59.594	24
+box	relation-label	Order --> Payment	263.887	419	68.484	24
+canvas	0	0	402.625	626
+font	Liberation Sans	328

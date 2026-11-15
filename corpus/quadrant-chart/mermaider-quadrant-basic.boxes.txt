@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7efa6cf2d57dc013
+box	axis	x-left	111.125	476.203	71.75	17
+box	axis	x-right	341.352	476.203	75.297	17.32
+box	axis	y-bottom	2.203	322.094	17.32	81.813
+box	axis	y-top	2.203	108.313	17.32	85.375
+box	point	Feature A	376.184	82.4	52.031	21.797
+box	point	Feature B	97.448	336.8	52.703	21.797
+box	point	Feature C	282.72	294.4	53.359	21.797
+box	point	Feature D	143.52	124.8	53.359	21.797
+box	quadrant	1	263	45	232	212
+box	quadrant	2	31	45	232	212
+box	quadrant	3	31	257	232	212
+box	quadrant	4	263	257	232	212
+box	title	Priority Matrix	188.883	6.406	122.234	22.15
+canvas	0	0	500	500
+font	Liberation Sans	252

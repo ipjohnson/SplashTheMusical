@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9c587a03aa6be23f
+box	face	Checkout from website / Add payment details	410	285	30	30
+box	face	Order from website / Add to cart	210	285	30	30
+box	person	Me	50	53	22.234	17
+box	section	Checkout from website	350	50	150	50
+box	section	Order from website	150	50	150	50
+box	task	Checkout from website / Add payment details	350	110	150	50
+box	task	Order from website / Add to cart	150	110	150	50
+box	title	E-Commerce	150	-6	208.578	38
+canvas	0	-25	700	540
+font	Liberation Sans	160

@@ -1,0 +1,12 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2895b0f44973a933
+layout	1
+graph	TB	50	20	50	8	8
+node	n0		162	55
+node	n1		162	55
+node	n2		162	55
+size	602	71
+place	n0	89	35.5	162	55
+place	n1	301	35.5	162	55
+place	n2	513	35.5	162	55

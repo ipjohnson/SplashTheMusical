@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 360d43ba5a882882
+accept	yes
+boundary	sb1	Payment service	package	Authorize
+direction	LR
+drawn	yes
+label	Authorize payment
+label	Payment service
+type	usecase
+usecase	Authorize	Authorize payment	ellipse			sb1

@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 58d05b223eab0fcc
+box	axis	x	67.672	441	632.328	54
+box	axis	y	5	40.854	61.672	399.146
+box	axis-title	x	366.938	478	33.797	17
+box	axis-title	y	5	186.841	17.313	108.469
+box	category	Apr 2022	69.234	452	56.828	16
+box	category	Apr 2024	641.609	452	56.828	16
+box	category	Feb 2023	211.156	452	59.172	16
+box	category	Jul 2023	357.367	452	52.938	16
+box	category	Sep 2023	496.953	452	59.953	16
+box	plot	plot	81.969	70.507	615.063	359.075
+box	series	0	81.969	70.507	615.063	359.075
+box	title	Smallest AI models scoring above 60% on MMLU	164.844	8.356	437.984	22.15
+canvas	0	0	700	500
+font	Liberation Sans	364

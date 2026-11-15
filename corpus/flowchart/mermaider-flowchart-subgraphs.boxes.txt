@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 982f0e4d525246b6
+box	edge	API --> Cache	226.733	387	75.267	56
+box	edge	API --> DB	108	387	75.267	56
+box	edge	State --> API	226.733	210	22.767	128
+box	edge	UI --> API	160.5	105	22.767	233
+box	edge	UI --> State	226.733	105	22.767	56
+box	group	Backend	12	294	386	262.149
+box	group	Frontend	105	12	244.5	222
+box	node	API	129	342	152	45
+box	node	Cache	230	447	144	85.149
+box	node	DB	36	447	144	85.149
+box	node	State	173.5	165	152	45
+box	node	UI	129	60	152	45
+canvas	4	4	402	560.149
+font	Liberation Sans	100

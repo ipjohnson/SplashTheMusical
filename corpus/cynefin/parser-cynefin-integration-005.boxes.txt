@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6b45ce1f4439a0c8
+box	domain-label	complex	206.221	149.635	67.558	17.959
+box	item	complex / 0	218.328	215	43.344	26
+canvas	0	0	880	680
+font	Liberation Sans	418

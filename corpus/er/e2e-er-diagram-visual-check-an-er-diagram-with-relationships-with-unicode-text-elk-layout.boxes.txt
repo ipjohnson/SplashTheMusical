@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ac192d4768bbcb5e
+box	entity	a	12	232.25	164.641	79.5
+box	entity	person	21.461	12	145.719	119.25
+box	relation	person --> a	94.32	131.25	0	101
+box	relation-label	person --> a	76.82	171.25	34.344	21
+canvas	4	4	180.641	315.75
+font	Apple Color Emoji	4
+font	Liberation Sans	116

@@ -1,0 +1,26 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0f140efe58a64ff4
+layout	1
+graph	TB	50	20	50	8	8
+node	container_Alpha		0	0
+node	container_Beta		0	0
+node	process_C	container_Beta	152	45
+node	Process_D	container_Beta	152	45
+node	process_A	container_Alpha	152	45
+node	process_B	container_Alpha	152	45
+edge	process_C	Process_D	L_process_C_Process_D_0	1	1	0	0	10	c
+edge	process_A	process_B	L_process_A_process_B_0	1	1	0	0	10	c
+edge	process_A	process_C	L_process_A_process_C_0	1	1	63.8125	21	10	c
+edge	process_B	process_C	L_process_B_container_Beta_0	1	1	92.859375	21	10	c
+size	351.359375	467
+place	container_Alpha	175.6796875	103	335.359375	190
+place	container_Beta	155.90625	364	283.90625	190
+place	process_C	160.90625	316.5	152	45
+place	Process_D	160.90625	411.5	152	45
+place	process_A	160.90625	55.5	152	45
+place	process_B	232.359375	150.5	152	45
+route	process_C	Process_D	L_process_C_Process_D_0			160.90625,339 160.90625,364 160.90625,389
+route	process_A	process_B	L_process_A_process_B_0			194.75246710526315,78 232.359375,103 232.359375,128
+route	process_A	process_C	L_process_A_process_C_0	89.453125	150.5	127.06003289473685,78 89.453125,103 89.453125,150.5 89.453125,198 89.453125,233.5 89.453125,269 127.06003289473685,294
+route	process_B	process_C	L_process_B_container_Beta_0	232.359375	233.5	232.359375,173 232.359375,198 232.359375,233.5 232.359375,269 194.75246710526315,294

@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c976b4a6f081802a
+box	entity	AUTHOR_WITH_LONG_ENTITY_NAME	15.78	12.06	308.406	73.142
+box	entity	BOOK	12.088	185.091	315.804	176.775
+box	relation	AUTHOR_WITH_LONG_ENTITY_NAME --> BOOK	169.714	84.585	0.78	100.626
+box	relation-label	AUTHOR_WITH_LONG_ENTITY_NAME --> BOOK	149.402	125.142	40.583	20
+canvas	4.088	4.06	331.804	365.805
+font	Liberation Sans	536

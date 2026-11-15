@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ecd9cdf38ec9a5a7
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Product-0		100	81
+node	entity-VersioningSystem-1		152.0625	81
+node	entity-Repository-2		106.921875	81
+node	entity-ProductFeatures-3		143.5	81
+node	entity-LegacyUrlMapping-4		156.734375	81
+node	entity-LegacyPage-5		117.84375	81
+node	entity-SemVersion-6		115.484375	81
+node	entity-QueryRule-7		106.921875	81
+node	entity-SearchDocument-8		148.171875	81
+edge	entity-Product-0	entity-VersioningSystem-1	id_entity-Product-0_entity-VersioningSystem-1_0	1	1	156.421875	21	10	c
+edge	entity-Product-0	entity-Repository-2	id_entity-Product-0_entity-Repository-2_1	1	1	154.078125	21	10	c
+edge	entity-Product-0	entity-ProductFeatures-3	id_entity-Product-0_entity-ProductFeatures-3_2	1	1	50.59375	21	10	c
+edge	entity-LegacyUrlMapping-4	entity-Product-0	id_entity-LegacyUrlMapping-4_entity-Product-0_3	1	1	46.703125	21	10	c
+edge	entity-LegacyPage-5	entity-LegacyUrlMapping-4	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	1	1	138.53125	21	10	c
+edge	entity-VersioningSystem-1	entity-SemVersion-6	id_entity-VersioningSystem-1_entity-SemVersion-6_5	1	1	30.359375	21	10	c
+edge	entity-VersioningSystem-1	entity-SemVersion-6	id_entity-VersioningSystem-1_entity-SemVersion-6_6	1	1	43.578125	21	10	c
+edge	entity-QueryRule-7	entity-SearchDocument-8	id_entity-QueryRule-7_entity-SearchDocument-8_7	1	1	109.359375	21	10	c
+size	716.62109375	825
+place	entity-Product-0	342.08203125	412.5	100	81
+place	entity-VersioningSystem-1	86.2109375	594.5	152.0625	81
+place	entity-Repository-2	355.703125	594.5	106.921875	81
+place	entity-ProductFeatures-3	620.9140625	594.5	143.5	81
+place	entity-LegacyUrlMapping-4	342.08203125	230.5	156.734375	81
+place	entity-LegacyPage-5	342.08203125	48.5	117.84375	81
+place	entity-SemVersion-6	86.2109375	776.5	115.484375	81
+place	entity-QueryRule-7	634.53515625	48.5	106.921875	81
+place	entity-SearchDocument-8	634.53515625	230.5	148.171875	81
+route	entity-Product-0	entity-VersioningSystem-1	id_entity-Product-0_entity-VersioningSystem-1_0	86.2109375	503.5	292.08203125,430.2823916461841 86.2109375,503.5 86.2109375,554
+route	entity-Product-0	entity-Repository-2	id_entity-Product-0_entity-Repository-2_1	355.703125	503.5	348.1441663804945,453 355.703125,503.5 355.703125,554
+route	entity-Product-0	entity-ProductFeatures-3	id_entity-Product-0_entity-ProductFeatures-3_2	620.9140625	503.5	392.08203125,428.8180678331769 620.9140625,503.5 620.9140625,554
+route	entity-LegacyUrlMapping-4	entity-Product-0	id_entity-LegacyUrlMapping-4_entity-Product-0_3	342.08203125	321.5	342.08203125,271 342.08203125,321.5 342.08203125,372
+route	entity-LegacyPage-5	entity-LegacyUrlMapping-4	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	342.08203125	139.5	342.08203125,89 342.08203125,139.5 342.08203125,190
+route	entity-VersioningSystem-1	entity-SemVersion-6	id_entity-VersioningSystem-1_entity-SemVersion-6_5	57.7265625	685.5	73.53382554945055,635 57.7265625,685.5 73.53382554945055,736
+route	entity-VersioningSystem-1	entity-SemVersion-6	id_entity-VersioningSystem-1_entity-SemVersion-6_6	114.6953125	685.5	98.88804945054945,635 114.6953125,685.5 98.88804945054945,736
+route	entity-QueryRule-7	entity-SearchDocument-8	id_entity-QueryRule-7_entity-SearchDocument-8_7	634.53515625	139.5	634.53515625,89 634.53515625,139.5 634.53515625,190

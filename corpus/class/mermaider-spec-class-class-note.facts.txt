@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d5c789d567330186
+accept	yes
+class	Animal	Animal
+drawn	yes
+note	Animal	Can be wild or domestic
+type	classDiagram

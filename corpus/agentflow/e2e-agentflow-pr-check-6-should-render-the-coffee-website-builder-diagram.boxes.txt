@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b56d0d19ee4f14bb
+box	edge	bilingual --> gen_html	239.3	632	0	112
+box	edge	brief --> write_copy	239.3	276	0	20
+box	edge	city --> research_loc	239.3	144	0	20
+box	edge	english_copy --> translate_sv	239.3	408	0	112
+box	edge	gen_html --> html_out	135	781	80.567	56
+box	edge	gen_html --> nordic	263.033	781	80.567	60
+box	edge	research_loc --> brief	239.3	201	0	20
+box	edge	translate_sv --> bilingual	239.3	557	0	20
+box	edge	write_copy --> english_copy	239.3	333	0	20
+box	flow	build_site	12	12	463.2	944.492
+box	flow	designer	36	700	415.2	232.492
+box	flow	researcher	122.3	60	234	372
+box	flow	translator	127.534	476	223.531	180
+box	node	bilingual	164.3	581	150	51
+box	node	brief	164.3	225	150	51
+box	node	city	146.3	108	186	36
+box	node	english_copy	164.3	357	150	51
+box	node	gen_html	157.3	748	164	33
+box	node	html_out	60	841	150	51
+box	node	nordic	260	840.996	167.2	67.492
+box	node	research_loc	157.3	168	164	33
+box	node	translate_sv	151.534	524	175.531	33
+box	node	write_copy	157.3	300	164	33
+canvas	4	4	479.2	960.492
+font	Liberation Sans	334

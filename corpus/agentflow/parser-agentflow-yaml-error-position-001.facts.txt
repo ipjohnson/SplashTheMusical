@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4e55b3f8be1bee69
+accept	no
+# error name of an alias node must contain at least one character (3:31)

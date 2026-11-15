@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 48b724d65c7171fc
+box	edge	Evaluate --> checkResult	256	103	112.667	34.5
+box	edge	Negative --> Retry	432	309	24.667	54.5
+box	edge	Neutral --> [*]end@root	167.002	309	88.998	54.5
+box	edge	Positive --> [*]end@root	80	309	88.998	54.5
+box	edge	Retry --> Evaluate	407.333	108.5	112.667	260.5
+box	edge	[*]start@root --> Evaluate	388	26	0	34.5
+box	edge	checkResult --> Negative	258	169	174	97.5
+box	edge	checkResult --> Neutral	256	171	0	95.5
+box	edge	checkResult --> Positive	80	169	174	97.5
+box	edge-label	checkResult --> Negative	397.5	211	68.875	21
+box	edge-label	checkResult --> Neutral	221.5	211	68.875	21
+box	edge-label	checkResult --> Positive	45.5	211	68.875	21
+box	node	Evaluate	320	66	136	37
+box	node	Negative	364	272	136	37
+box	node	Neutral	188	272	136	37
+box	node	Positive	12	272	136	37
+box	node	Retry	408	369	136	37
+box	node	[*]end@root	161.998	369	14.013	14
+box	node	[*]start@root	381	12	14	14
+box	node	checkResult	242	143	28	28
+canvas	4	4	548	410
+font	Liberation Sans	144

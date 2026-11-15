@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 05dbacdd63a5ee8e
+accept	yes
+drawn	yes
+item	complex	0	Emergent work
+item	complicated	0	Expert work
+label	Emergent work
+label	Expert work
+label	Pattern found
+label	Self-loop Handling
+title	Self-loop Handling
+transition	complex	complicated	Pattern found
+type	cynefin

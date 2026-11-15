@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c98c84882c2b5392
+box	edge	Client --> backend	164	45.746	36	0
+box	edge	backend --> Mail	329.719	45.746	36	0
+box	node	Client	12	23.246	152	45
+box	node	Mail	369.719	11.996	152	67.492
+box	node	backend	204	13.246	125.719	65
+canvas	4	3.996	525.719	83.492
+font	Liberation Sans	58

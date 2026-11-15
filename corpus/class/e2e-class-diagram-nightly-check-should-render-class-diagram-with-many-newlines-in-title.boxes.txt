@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7650a8e74adfe293
+box	class	This Title Has Many Newlines	12	12	139.164	303
+canvas	4	4	155.164	319
+font	Liberation Sans	166

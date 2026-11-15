@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b20c85d25fc97944
+box	legend	Back	159.055	453	59.818	19
+box	legend	Goalkeeper	159.055	431	109.891	19
+box	legend	Midfielder	159.055	475	95.703	19
+box	legend	Striker	159.055	497	71.125	19
+box	slice	Back	161.726	83.282	248.274	326.718
+box	slice	Goalkeeper	225	40	118.916	185
+box	slice	Midfielder	40	132.5	185	266.343
+box	slice	Striker	64.785	40	160.215	185
+box	title	Football Team Member Position	49.453	2	351.094	28
+canvas	0	0	490	538
+font	Liberation Sans	144

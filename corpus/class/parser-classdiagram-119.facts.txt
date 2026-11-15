@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d38b1261725ae867
+accept	yes
+attribute	C1	+member1
+class	C1	Class 1 with text label
+class	C2	C2
+drawn	yes
+relation	C1	C2	none	arrow	solid
+type	classDiagram

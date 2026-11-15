@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d85436bace2b6f19
+box	title	Custom Size	362.213	16.108	75.574	14.286
+canvas	0	0	800	1000
+font	Liberation Sans	130

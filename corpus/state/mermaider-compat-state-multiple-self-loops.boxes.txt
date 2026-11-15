@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source aeab6a8baaa88ac6
+box	edge	Ready --> Ready	438.5	420.778	20	1.444
+box	edge	Ready --> Ready #2	307.875	419.333	150.625	4.333
+box	edge	Ready --> Ready #3	234.844	417.889	223.656	7.222
+box	edge	Ready --> Ready #4	106.297	416.444	352.203	10.111
+box	edge	Ready --> Stopped	526.5	440	0	95.5
+box	edge	WaitingForIP --> WaitingForInit	526.5	164	0	95.5
+box	edge	WaitingForInit --> Ready	526.5	302	0	95.5
+box	edge	[*]start@root --> WaitingForIP	526.5	26	0	95.5
+box	edge-label	Ready --> Ready	327.875	411	106.625	21
+box	edge-label	Ready --> Ready #2	254.844	411	49.031	21
+box	edge-label	Ready --> Ready #3	126.297	411	104.547	21
+box	edge-label	Ready --> Ready #4	12	411	90.297	21
+box	edge-label	Ready --> Stopped	482.5	480	87.938	21
+box	edge-label	WaitingForIP --> WaitingForInit	471	204	110.516	21
+box	edge-label	WaitingForInit --> Ready	466.5	342	119.078	21
+box	edge-label	[*]start@root --> WaitingForIP	484.5	66	83.266	21
+box	node	Ready	458.5	403	136	37
+box	node	Stopped	458.5	541	136	37
+box	node	WaitingForIP	458.5	127	136	37
+box	node	WaitingForInit	458.5	265	136	37
+box	node	[*]start@root	519.5	12	14	14
+canvas	4	4	598.5	582
+font	Liberation Sans	298

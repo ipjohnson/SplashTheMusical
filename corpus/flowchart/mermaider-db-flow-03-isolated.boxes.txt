@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b27d981c9dfb12a3
+box	edge	Bundles --> Content	664	511.62	901.656	155.13
+box	edge	Checkout --> DocSet	188	272.8	104	112.6
+box	edge	Content --> Nav	660	400.6	68	84.38
+box	edge	DocSet --> Content	448	403.9	56	94.4
+box	edge	DocSet --> Redirects	448	198.5	640	183.2
+box	edge	DocSet --> Toc	448	392.8	56	0
+box	edge	LinkReg --> Content	664	449.15	901.656	78.85
+box	edge	Manifest --> LinkReg	1244	420	317.656	21.35
+box	edge	Nav --> Html	884	304	204	88.8
+box	edge	Nav --> Manifest	884	400.6	204	19.4
+box	edge	OpenApiRepo --> Content	664	502.74	901.656	67.26
+box	edge	Toc --> Nav	660	392.8	68	0
+box	edge	Vocab --> DocSet	188	400.2	104	9.6
+box	edge-label	Bundles --> Content	1124.023	638	87.953	21
+box	edge-label	LinkReg --> Content	1133.375	517	69.25	21
+box	edge-label	Manifest --> LinkReg	1318	409	113.656	21
+box	edge-label	OpenApiRepo --> Content	1158.656	559	18.688	21
+box	group	Build	272	297.3	636	258
+box	group	External	1497.078	374.75	244.578	349
+box	group	Inputs	12	181.3	200	296
+box	group	Outputs	1068	12	200	465
+box	node	Bundles	1565.656	633.75	152	66
+box	node	Checkout	36	229.3	152	87
+box	node	Content	508	465.3	152	66
+box	node	DocSet	296	359.8	152	66
+box	node	Html	1092	271	152	66
+box	node	LinkReg	1565.656	422.75	152	45
+box	node	Manifest	1092	387	152	66
+box	node	Nav	732	374.2	152	45
+box	node	OpenApiRepo	1565.656	517.75	152	66
+box	node	Redirects	1092	176	152	45
+box	node	State	1092	60	152	66
+box	node	Toc	508	370.3	152	45
+box	node	Vocab	36	366.3	152	87
+canvas	4	4	1745.656	727.75
+font	Liberation Sans	830

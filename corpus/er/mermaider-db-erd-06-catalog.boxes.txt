@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f1cd4fb2dd7a90bd
+box	entity	LegacyUrlMapping	94.41	12	156.734	81
+box	entity	Product	122.777	194	100	81
+box	entity	Repository	204.063	376	106.922	81
+box	entity	VersioningSystem	12	376	152.063	81
+box	relation	LegacyUrlMapping --> Product	172.777	93	0	101
+box	relation	Product --> Repository	186.111	275	71.413	101
+box	relation	Product --> VersioningSystem	88.031	275	71.413	101
+box	relation-label	LegacyUrlMapping --> Product	149.277	133	46.703	21
+box	relation-label	Product --> Repository	226.523	315	61.469	21
+box	relation-label	Product --> VersioningSystem	56.031	315	63.828	21
+canvas	4	4	314.984	461
+font	Liberation Sans	152

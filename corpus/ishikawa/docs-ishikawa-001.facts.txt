@@ -1,0 +1,44 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b3ea7b01b554303d
+accept	yes
+cause	Environment
+cause	Environment / Subject moved too quickly
+cause	Environment / Too dark
+cause	Equipment
+cause	Equipment / LENS
+cause	Equipment / LENS / Damaged lens
+cause	Equipment / LENS / Dirty lens
+cause	Equipment / LENS / Inappropriate lens
+cause	Equipment / SENSOR
+cause	Equipment / SENSOR / Damaged sensor
+cause	Equipment / SENSOR / Dirty sensor
+cause	Process
+cause	Process / Beautification filter applied
+cause	Process / Out of focus
+cause	Process / Protective film not removed
+cause	Process / Shutter speed too slow
+cause	User
+cause	User / Shaky hands
+drawn	yes
+head	Blurry Photo
+label	Beautification filter applied
+label	Blurry Photo
+label	Damaged lens
+label	Damaged sensor
+label	Dirty lens
+label	Dirty sensor
+label	Environment
+label	Equipment
+label	Inappropriate lens
+label	LENS
+label	Out of focus
+label	Process
+label	Protective film not removed
+label	SENSOR
+label	Shaky hands
+label	Shutter speed too slow
+label	Subject moved too quickly
+label	Too dark
+label	User
+type	ishikawa

@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 254237d5abc35e02
+accept	yes
+drawn	yes
+edge	Split	Neighbour	none	arrow	solid
+edge	[*]start@Neighbour	After	none	arrow	solid
+edge	[*]start@divider-id-1	Left	none	arrow	solid
+edge	[*]start@divider-id-103	Right	none	arrow	solid
+group	Neighbour	Neighbour	After,[*]start@Neighbour
+group	Split	Split	divider-id-1,divider-id-103
+group	divider-id-1		Left,[*]start@divider-id-1
+group	divider-id-103		Right,[*]start@divider-id-103
+node	After	After	rounded
+node	Left	Left	rounded
+node	Right	Right	rounded
+node	[*]start@Neighbour		sm-circ
+node	[*]start@divider-id-1		sm-circ
+node	[*]start@divider-id-103		sm-circ
+type	stateDiagram

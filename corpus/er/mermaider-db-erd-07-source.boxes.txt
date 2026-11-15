@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 796f57f1e169bdfa
+box	entity	Checkout	289	12	99.156	81
+box	entity	ContentSource	27.555	194	133.406	81
+box	entity	ContentSourceBranches	265.082	376	192.547	81
+box	entity	DocumentationSet	69.895	376	155.188	81
+box	entity	LinkRegistryEntry	347.883	194	149.703	81
+box	entity	PublishEnvironment	12	12	164.516	81
+box	entity	Repository	200.961	194	106.922	81
+box	relation	Checkout --> LinkRegistryEntry	351.771	93	70.964	101
+box	relation	Checkout --> Repository	254.422	93	70.964	101
+box	relation	PublishEnvironment --> ContentSource	94.258	93	0	101
+box	relation	Repository --> ContentSourceBranches	268.909	275	92.447	101
+box	relation	Repository --> DocumentationSet	147.488	275	92.447	101
+box	relation-label	Checkout --> LinkRegistryEntry	376.734	133	91.047	21
+box	relation-label	Checkout --> Repository	233.922	133	40.469	21
+box	relation-label	PublishEnvironment --> ContentSource	46.258	133	95.734	21
+box	relation-label	Repository --> ContentSourceBranches	302.855	315	116.75	21
+box	relation-label	Repository --> DocumentationSet	99.988	315	94.828	21
+canvas	4	4	501.586	461
+font	Liberation Sans	340

@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c6acddf6caf45ab1
+box	event	2002 / LinkedIn	200	366.12	190	50
+box	event	2004 / Facebook	400	366.12	190	50
+box	event	2004 / Google	400	426.12	190	50
+box	event	2006 / Twitter	600	366.12	190	50
+box	event	2010 / Instagram	800	366.12	190	50
+box	event	2016 / TikTok	1000	366.12	190	50
+box	event	2019 / Threads	1200	366.12	190	50
+box	period	2002	200	166.12	190	66.12
+box	period	2004	400	166.12	190	66.12
+box	period	2006	600	166.12	190	66.12
+box	period	2010	800	166.12	190	66.12
+box	period	2016	1000	166.12	190	66.12
+box	period	2019	1200	166.12	190	66.12
+box	section	Early Days	200	50	390	66.12
+box	section	Growth	600	50	390	66.12
+box	section	Modern Era	1000	50	390	66.12
+box	title	History of Social Media	445	-10.422	372.201	38.535
+canvas	100	-61	1590	645.177
+font	Liberation Sans	248

@@ -1,0 +1,48 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 330b2d93e12c5899
+layout	1
+graph	TB	50	20	75	8	8
+node	Loop_start	Loop	14	14
+node	Spin	Loop	136	37
+node	Loop		0	0
+edge	Loop_start	Spin	edge1	1	1	0	0	10	c
+size	222	217
+place	Loop_start	111	52.5	14	14
+place	Spin	111	153	136	37
+place	Loop	111	108.5	206	201
+route	Loop_start	Spin	edge1			111,59.5 111,97 111,134.5
+layout	2
+graph	TB	50	20	75	8	8
+node	Exit_start	Exit	14	14
+node	Bye	Exit	136	37
+node	Exit		0	0
+edge	Exit_start	Bye	edge4	1	1	0	0	10	c
+size	222	217
+place	Exit_start	111	52.5	14	14
+place	Bye	111	153	136	37
+place	Exit	111	108.5	206	201
+route	Exit_start	Bye	edge4			111,59.5 111,97 111,134.5
+layout	3
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Loop		206	201
+node	Exit		206	201
+node	Loop---Loop---1		0.10000000149011612	0.10000000149011612
+node	Loop---Loop---2		0.10000000149011612	0.10000000149011612
+edge	Loop---Loop---1	Loop---Loop---2	Loop-cyclic-special-1	1	1	0	0	10	c
+edge	root_start	Loop	edge0	1	1	0	0	10	c
+edge	Loop	Loop---Loop---1	Loop-cyclic-special-0	1	1	0	0	10	c
+edge	Loop---Loop---2	Loop	Loop-cyclic-special-2	1	1	0	0	10	c
+edge	Loop	Exit	edge3	1	1	0	0	10	c
+size	375.05000000074506	582.1000000014901
+place	root_start	264.05000000074506	15	14	14
+place	Loop	264.05000000074506	172.5	206	201
+place	Exit	111	423.5	206	201
+place	Loop---Loop---1	264.05000000074506	423.5	0.10000000149011612	0.10000000149011612
+place	Loop---Loop---2	281.5750000011176	574.0500000007451	0.10000000149011612	0.10000000149011612
+route	Loop---Loop---1	Loop---Loop---2	Loop-cyclic-special-1			264.05000000074506,423.55000000074506 264.05000000074506,549 281.5400199606765,574
+route	root_start	Loop	edge0			264.05000000074506,22 264.05000000074506,47 264.05000000074506,72
+route	Loop	Loop---Loop---1	Loop-cyclic-special-0			264.05000000074506,273 264.05000000074506,298 264.05000000074506,423.44999999925494
+route	Loop---Loop---2	Loop	Loop-cyclic-special-2			281.6099800415587,574 299.1000000014901,549 299.1000000014901,423.5 299.1000000014901,298 292.11792828819426,273
+route	Loop	Exit	edge3			161.05000000074506,256.95932701690344 111,298 111,323

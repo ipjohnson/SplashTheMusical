@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2a86a66620eaf3a7
+box	entity	DEAD_PARROT	12.006	12.329	147.151	84.761
+box	entity	HERMIT	199.637	12.265	96.4	84.383
+box	entity	RECLUSE	335.8	12.515	109.574	84.38
+box	entity	SOCIALITE	332.079	198.151	116.598	84.848
+box	relation	RECLUSE --> SOCIALITE	390.108	96.684	0.588	101.526
+box	relation	SOCIALITE --> SOCIALITE	311.861	229.962	20.55	20.535
+box	relation-label	RECLUSE --> SOCIALITE	369.838	136.761	40.469	21
+box	relation-label	SOCIALITE --> SOCIALITE	226.336	229.685	81.703	21
+canvas	4.006	4.265	452.671	286.734
+font	Liberation Sans	172

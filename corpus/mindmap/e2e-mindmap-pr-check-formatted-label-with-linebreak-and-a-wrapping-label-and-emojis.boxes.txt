@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 86f0d1de88ad4fae
+box	edge	`**Start** with a second line 😎` / `The dog in **the** hog... a *very long text* about it Word!`	110	73	183.494	0
+box	node	`**Start** with a second line 😎`	228.494	27	160	92
+box	node	`**Start** with a second line 😎` / `The dog in **the** hog... a *very long text* about it Word!`	15	15	160	116
+canvas	5	5	393.494	136
+font	Apple Color Emoji	2
+font	Liberation Sans	186

@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9cb66c38e51b5a4d
+box	actor	Admin	96	12	76	121
+box	actor	Person	212	12	76	121
+box	relation	Admin --> Person	172	72.5	22.75	0
+box	relation	ApplyCoupon --> Checkout	167.093	192	161.814	0
+box	relation	ApplyCoupon --> Checkout #2	167.093	212	148.564	0
+box	relation	Checkout --> Payment	488	202	122.813	0
+box	relation-label	ApplyCoupon --> Checkout	227.422	184.5	45.156	15
+box	relation-label	Checkout --> Payment	528	194	46.813	15
+box	usecase	ApplyCoupon	12	173	160	58
+box	usecase	Checkout	328	173	160	58
+box	usecase	Payment	614.813	173	160	58
+canvas	-8	-8	802.813	259
+font	Liberation Sans	108

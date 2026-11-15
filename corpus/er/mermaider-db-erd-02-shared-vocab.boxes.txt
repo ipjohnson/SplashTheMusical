@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fa6b266201b56ece
+box	entity	Applicability	140.35	12	113.937	81
+box	entity	ApplicabilityEntry	124.014	194	146.609	81
+box	entity	ChangelogLifecycle	310.623	194	162.203	81
+box	entity	Product	571.353	194	100	81
+box	entity	ProductLifecycle	205.824	396	142.719	81
+box	entity	ProductRelease	466.742	12	139.625	81
+box	entity	Repository	581.225	396	106.922	81
+box	entity	SemVersion	413.548	578	115.484	81
+box	entity	VersionSpec	12	396	118.609	81
+box	entity	VersioningSystem	389.163	396	152.062	81
+box	relation	Applicability --> ApplicabilityEntry	197.318	93	0	101
+box	relation	ApplicabilityEntry --> ProductLifecycle	197.318	275	59.412	121
+box	relation	ApplicabilityEntry --> VersionSpec	71.305	275	94.361	121
+box	relation	ApplicabilityEntry --> VersioningSystem	228.971	275	214.213	121
+box	relation	ChangelogLifecycle --> ProductLifecycle	297.637	275	94.088	121
+box	relation	Product --> Repository	634.686	275	0	121
+box	relation	Product --> VersioningSystem	487.204	275	120.815	121
+box	relation	ProductRelease --> ChangelogLifecycle	391.725	93	124.893	101
+box	relation	ProductRelease --> Product	556.492	93	64.861	101
+box	relation	VersioningSystem --> SemVersion	443.184	477	12.193	101
+box	relation	VersioningSystem --> SemVersion #2	487.204	477	0	101
+box	relation-label	Applicability --> ApplicabilityEntry	174.318	133	45.922	21
+box	relation-label	ApplicabilityEntry --> ProductLifecycle	172.42	335	49.797	21
+box	relation-label	ApplicabilityEntry --> VersionSpec	48.305	335	45.141	21
+box	relation-label	ApplicabilityEntry --> VersioningSystem	369.006	335	93.375	21
+box	relation-label	ChangelogLifecycle --> ProductLifecycle	290.107	335	49.813	21
+box	relation-label	Product --> Repository	603.686	335	61.469	21
+box	relation-label	Product --> VersioningSystem	482.382	335	63.828	21
+box	relation-label	ProductRelease --> ChangelogLifecycle	366.725	133	49.797	21
+box	relation-label	ProductRelease --> Product	597.853	133	46.703	21
+box	relation-label	VersioningSystem --> SemVersion	428.004	517	30.359	21
+box	relation-label	VersioningSystem --> SemVersion #2	465.415	517	43.578	21
+canvas	4	4	692.147	663
+font	Liberation Sans	450

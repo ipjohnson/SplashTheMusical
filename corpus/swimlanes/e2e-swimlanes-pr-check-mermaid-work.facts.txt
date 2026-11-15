@@ -1,0 +1,34 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dbf4d0f09bee6b77
+accept	yes
+drawn	yes
+edge	A1	G1	none	arrow	solid
+edge	A2	G2	none	arrow	solid
+edge	C1	C3	none	arrow	solid
+edge	C2	C3	none	arrow	solid
+edge	C3	G2	none	arrow	solid
+edge	G1	G3	none	arrow	solid
+edge	G2	G3	none	arrow	solid
+edge	G3	C1	none	arrow	solid
+edge	G3	C2	none	arrow	solid
+edge	R1	R2	none	arrow	solid
+edge	R2	G3	none	arrow	solid
+group	L1	Community / Users	A1,A2
+group	L2	GitHub System of Record	G1,G2,G3
+group	L3	Full-time OS Team\nOmkar • Darshan • Shubham	C1,C2,C3,C4
+group	L4	Senior project members\n(pre-Mermaid Chart maintainers)	S1
+group	L5	Team Lead & Release Manager\nAshish Jain	R1,R2
+node	A1	Report issue	rect
+node	A2	Submit PR	rect
+node	C1	Daily call coordinate + unblock	rect
+node	C2	Dev sync Tue/Thu triage + plan complex items	rect
+node	C3	Implement work Shubham: layout algorithms focus	rect
+node	C4	Peer review	rect
+node	G1	GitHub Issues	rect
+node	G2	GitHub Pull Requests	rect
+node	G3	GitHub Projects (tracking + prioritization)	rect
+node	R1	Owns release process planning + cut release	rect
+node	R2	Biweekly release	rect
+node	S1	Escalated review (deeper expertise / historical context)	rect
+type	swimlane

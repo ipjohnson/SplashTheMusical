@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6ec7fbd26a98b047
+box	edge	classify --> policy	95.6	153	56.017	305
+box	edge	classify --> severity	199.083	153	25.517	56
+box	edge	draft --> send	230.2	721.492	0	20
+box	edge	escalate --> audit	280.7	782.238	203.1	60.254
+box	edge	lookup --> draft	230.2	646.492	0	20
+box	edge	page --> handoff	483.8	666.746	0	24
+box	edge	resolve --> audit	230.2	802.492	30.5	36
+box	edge	severity --> escalate	243.884	364.716	239.916	217.03
+box	edge	severity --> resolve	199.7	364.716	30.5	196.776
+box	edge	ticket --> classify	175.35	96	0	20
+box	edge-label	severity --> escalate	470.3	481.246	26.469	21
+box	edge-label	severity --> resolve	219.2	481.246	21.016	21
+box	flow	audit	230.7	842.492	80	65
+box	flow	escalate	376.2	585.746	215.2	196.492
+box	flow	resolve	124.2	565.492	212	237
+box	flow	triage	58.35	12	275.75	396
+box	node	classify	93.35	120	164	33
+box	node	draft	155.2	670.492	150	51
+box	node	handoff	400.2	690.742	167.2	67.492
+box	node	lookup	148.2	613.492	164	33
+box	node	page	401.8	633.746	164	33
+box	node	policy	12	457.996	167.2	67.492
+box	node	send	148.2	745.492	164	33
+box	node	severity	139.6	213	171	171
+box	node	ticket	82.35	60	186	36
+canvas	4	4	718.1	911.492
+font	Liberation Sans	336

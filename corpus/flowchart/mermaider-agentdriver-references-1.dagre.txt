@@ -1,0 +1,40 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b9c32bc8814f7211
+layout	1
+graph	LR	50	20	50	8	8
+node	typed		152	87
+node	parser		152	45
+node	body		152	87
+node	resolver		152	108
+node	id		152	66
+node	stored		152	108
+node	agent		152	87
+node	host		152	129
+node	app		152	87
+edge	typed	parser	L_typed_parser_0	1	1	0	0	10	c
+edge	body	parser	L_body_parser_0	1	1	0	0	10	c
+edge	parser	resolver	L_parser_resolver_0	1	1	0	0	10	c
+edge	resolver	id	L_resolver_id_0	1	1	0	0	10	c
+edge	id	stored	L_id_stored_0	1	1	0	0	10	c
+edge	id	agent	L_id_agent_0	1	1	0	0	10	c
+edge	id	host	L_id_host_0	1	1	0	0	10	c
+edge	id	app	L_id_app_0	1	1	0	0	10	c
+size	976	577
+place	typed	84	220	152	87
+place	parser	286	288.5	152	45
+place	body	84	357	152	87
+place	resolver	488	288.5	152	108
+place	id	690	288.5	152	66
+place	stored	892	62	152	108
+place	agent	892	209.5	152	87
+place	host	892	367.5	152	129
+place	app	892	525.5	152	87
+route	typed	parser	L_typed_parser_0			160,220 185,220 252.82481751824818,266
+route	body	parser	L_body_parser_0			160,357 185,357 252.82481751824818,311
+route	parser	resolver	L_parser_resolver_0			362,288.5 387,288.5 412,288.5
+route	resolver	id	L_resolver_id_0			564,288.5 589,288.5 614,288.5
+route	id	stored	L_id_stored_0			704.7152317880794,255.5 791,62 816,62
+route	id	agent	L_id_agent_0			732.1898734177215,255.5 791,209.5 816,209.5
+route	id	host	L_id_host_0			732.1898734177215,321.5 791,367.5 816,367.5
+route	id	app	L_id_app_0			704.0632911392405,321.5 791,525.5 816,525.5

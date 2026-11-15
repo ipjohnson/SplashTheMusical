@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8b4cf7c3adaa9c5f
+box	edge	IsPositive --> if_state	168	103	0	34.5
+box	edge	[*]start@root --> IsPositive	168	26	0	34.5
+box	edge	if_state --> False	80	169.667	86.667	96.833
+box	edge	if_state --> True	169.333	169.667	86.667	96.833
+box	edge-label	if_state --> False	58.5	211	42.422	21
+box	edge-label	if_state --> True	230.5	211	50.594	21
+box	node	False	12	272	136	37
+box	node	IsPositive	100	66	136	37
+box	node	True	188	272	136	37
+box	node	[*]start@root	161	12	14	14
+box	node	if_state	154	143	28	28
+canvas	4	4	328	313
+font	Liberation Sans	72

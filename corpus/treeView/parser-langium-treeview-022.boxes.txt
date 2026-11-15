@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dc34281d7f94c232
+box	node	docker-compose.yml	20	30.893	147.537	17.321
+canvas	-0.5	0	172.609	54.336
+font	Liberation Sans	38

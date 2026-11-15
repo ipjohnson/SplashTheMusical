@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e88b986370a6f021
+box	actor	Queue	200	0	150	73
+box	actor	Service	0	0	150	73
+box	actor-bottom	Queue	200	329	150	73
+box	actor-bottom	Service	0	329	150	73
+box	message	Queue --> Queue	276	233.381	45	23.238
+box	message	Queue --> Service	82	309	192	0
+box	message	Service --> Queue	76	191	192	0
+box	message	Service --> Service	76	115.381	45	23.238
+box	message-text	Queue --> Queue	212.859	212.219	126.281	17.32
+box	message-text	Queue --> Service	164.664	286.219	26.695	17.016
+box	message-text	Service --> Queue	153.313	168.219	37.375	17.016
+box	message-text	Service --> Service	47.094	94.219	57.813	17.016
+canvas	-50	-10	451	453
+font	Liberation Sans	118

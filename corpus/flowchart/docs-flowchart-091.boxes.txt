@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bfb627615d02eaff
+box	edge	API --> Client	168	38.667	36	0
+box	edge	Client --> API	164	30.333	36	0
+box	node	API	204	12	152	45
+box	node	Client	12	12	152	45
+canvas	4	4	360	61
+font	Liberation Sans	18

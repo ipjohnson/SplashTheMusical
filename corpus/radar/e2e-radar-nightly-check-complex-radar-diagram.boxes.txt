@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a80f918578da582
+box	axis	Agility	333.992	20	32.016	14
+box	axis	Intelligence	-14.106	240.424	60.719	14
+box	axis	Speed	653.387	240.424	34.703	14
+box	axis	Stamina	118.465	605.873	44.031	14
+box	axis	Strength	537.503	605.873	45.375	14
+box	legend	Naruto Uzumaki	612.5	85.297	102.031	14.203
+box	legend	Ninja3	612.5	125.297	50.031	14.203
+box	legend	Sasuke	612.5	105.297	56.031	14.203
+box	title	My favorite ninjas	287.75	-2.797	124.5	17.32
+canvas	0	0	700	700
+font	Liberation Sans	166

@@ -1,0 +1,46 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3bf8156297ac7c6
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-DocumentationSet-0		155.1875	81
+node	entity-TableOfContents-1		144.296875	81
+node	entity-TocItem-2		100	81
+node	entity-Redirect-3		92.140625	81
+node	entity-CrossLinkDeclaration-4		173.0625	81
+node	entity-ApiDeclaration-5		131.0625	81
+node	entity-Product-6		100	81
+node	entity-Registry-7		100	81
+node	entity-TocItem-2---entity-TocItem-2---1		0.10000000149011612	0.10000000149011612
+node	entity-TocItem-2---entity-TocItem-2---2		0.10000000149011612	0.10000000149011612
+edge	entity-DocumentationSet-0	entity-TableOfContents-1	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	1	1	18.6875	21	10	c
+edge	entity-TableOfContents-1	entity-TocItem-2	id_entity-TableOfContents-1_entity-TocItem-2_1	1	1	42.03125	21	10	c
+edge	entity-TocItem-2	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2-cyclic-special-0	1	1	0	0	10	c
+edge	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2-cyclic-special-1	1	1	49.03125	21	10	c
+edge	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2	entity-TocItem-2-cyclic-special-2	1	1	0	0	10	c
+edge	entity-DocumentationSet-0	entity-Redirect-3	id_entity-DocumentationSet-0_entity-Redirect-3_3	1	1	79.359375	21	10	c
+edge	entity-DocumentationSet-0	entity-CrossLinkDeclaration-4	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	1	1	69.25	21	10	c
+edge	entity-DocumentationSet-0	entity-ApiDeclaration-5	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	1	1	18.6875	21	10	c
+edge	entity-DocumentationSet-0	entity-Product-6	id_entity-DocumentationSet-0_entity-Product-6_6	1	1	53.703125	21	10	c
+edge	entity-DocumentationSet-0	entity-Registry-7	id_entity-DocumentationSet-0_entity-Registry-7_7	1	1	45.90625	21	10	c
+size	1456.5625	642.2000000029802
+place	entity-DocumentationSet-0	757	48.5	155.1875	81
+place	entity-TableOfContents-1	80.1484375	230.5	144.296875	81
+place	entity-TocItem-2	80.1484375	412.5	100	81
+place	entity-Redirect-3	338.3671875	230.5	92.140625	81
+place	entity-CrossLinkDeclaration-4	610.96875	230.5	173.0625	81
+place	entity-ApiDeclaration-5	903.03125	230.5	131.0625	81
+place	entity-Product-6	1158.5625	230.5	100	81
+place	entity-Registry-7	1398.5625	230.5	100	81
+place	entity-TocItem-2---entity-TocItem-2---1	40.12343749962747	533.0500000007451	0.10000000149011612	0.10000000149011612
+place	entity-TocItem-2---entity-TocItem-2---2	80.1484375	634.1500000022352	0.10000000149011612	0.10000000149011612
+route	entity-DocumentationSet-0	entity-TableOfContents-1	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	80.1484375	139.5	679.40625,58.93217101238501 80.1484375,139.5 80.1484375,190
+route	entity-TableOfContents-1	entity-TocItem-2	id_entity-TableOfContents-1_entity-TocItem-2_1	80.1484375	321.5	80.1484375,271 80.1484375,321.5 80.1484375,372
+route	entity-TocItem-2	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2-cyclic-special-0			60.011636257576555,453 40.12343749962747,493 40.12343749962747,533
+route	entity-TocItem-2---entity-TocItem-2---1	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2-cyclic-special-1	40.12343749962747	583.6000000014901	40.12343749962747,533.1000000014901 40.12343749962747,583.6000000014901 80.10884798407893,634.1000000014901
+route	entity-TocItem-2---entity-TocItem-2---2	entity-TocItem-2	entity-TocItem-2-cyclic-special-2			80.18802701592107,634.1000000014901 120.17343750037253,583.6000000014901 120.17343750037253,533.0500000007451 120.17343750037253,493 100.28523874242345,453
+route	entity-DocumentationSet-0	entity-Redirect-3	id_entity-DocumentationSet-0_entity-Redirect-3_3	338.3671875	139.5	679.40625,65.36688438928805 338.3671875,139.5 338.3671875,190
+route	entity-DocumentationSet-0	entity-CrossLinkDeclaration-4	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	610.96875	139.5	692.008070054945,89 610.96875,139.5 610.96875,190
+route	entity-DocumentationSet-0	entity-ApiDeclaration-5	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	903.03125	139.5	821.991929945055,89 903.03125,139.5 903.03125,190
+route	entity-DocumentationSet-0	entity-Product-6	id_entity-DocumentationSet-0_entity-Product-6_6	1158.5625	139.5	834.59375,66.08389105058366 1158.5625,139.5 1158.5625,190
+route	entity-DocumentationSet-0	entity-Registry-7	id_entity-DocumentationSet-0_entity-Registry-7_7	1398.5625	139.5	834.59375,59.505991232342915 1398.5625,139.5 1398.5625,190

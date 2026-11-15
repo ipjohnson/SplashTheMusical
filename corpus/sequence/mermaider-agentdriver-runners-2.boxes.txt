@@ -1,0 +1,32 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 84fe40b454974ae3
+box	actor	A	0	0	160	73
+box	actor	D	745	0	156	73
+box	actor	G	1374	0	150	73
+box	actor	R	379	0	154	73
+box	actor	S	1061	0	150	73
+box	actor-bottom	A	0	492	160	73
+box	actor-bottom	D	745	492	156	73
+box	actor-bottom	G	1374	492	150	73
+box	actor-bottom	R	379	492	154	73
+box	actor-bottom	S	1061	492	150	73
+box	message	A --> R	81	117	368	0
+box	message	D --> R	463	428	359	0
+box	message	D --> S	824	205	305	0
+box	message	G --> S	1143	340	305	0
+box	message	R --> A	87	472	368	0
+box	message	R --> D	457	161	359	0
+box	message	S --> D	830	384	305	0
+box	message	S --> G	1137	296	305	0
+box	message-text	A --> R	112.1	93.74	305.799	18.643
+box	message-text	D --> R	584.319	404.74	117.361	18.643
+box	message-text	D --> S	862.309	181.74	229.382	18.643
+box	message-text	G --> S	1225.311	316.74	141.377	18.643
+box	message-text	R --> A	212.578	448.74	116.843	18.643
+box	message-text	R --> D	488.551	137.74	296.898	18.643
+box	message-text	S --> D	965.668	360.74	34.665	18.643
+box	message-text	S --> G	1201.105	272.74	177.789	18.643
+box	note	own branch only, unbundle into its clone, value check if a grant is active	873	215	526	37
+canvas	-50	-10	1624	616
+font	Liberation Sans	868

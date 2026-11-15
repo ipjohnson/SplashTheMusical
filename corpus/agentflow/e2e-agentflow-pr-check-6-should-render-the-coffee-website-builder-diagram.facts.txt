@@ -1,0 +1,44 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b56d0d19ee4f14bb
+accept	yes
+direction	TD
+drawn	yes
+edge	bilingual	gen_html	sequence
+edge	brief	write_copy	sequence
+edge	city	research_loc	sequence
+edge	english_copy	translate_sv	sequence
+edge	gen_html	html_out	sequence
+edge	gen_html	nordic	reference
+edge	research_loc	brief	sequence
+edge	translate_sv	bilingual	sequence
+edge	write_copy	english_copy	sequence
+flow	build_site	Build Site	designer,researcher,translator
+flow	designer	Designer	gen_html,html_out,nordic
+flow	researcher	Researcher	brief,city,english_copy,research_loc,write_copy
+flow	translator	Translator	bilingual,translate_sv
+label	Bilingual Page
+label	Build Site
+label	Designer
+label	English Copy
+label	HTML Website
+label	Research Brief
+label	Researcher
+label	Translator
+label	city
+label	generate_html
+label	nordic_design
+label	research_location
+label	translate_to_swedish
+label	write_copy
+node	bilingual	Bilingual Page	square	task
+node	brief	Research Brief	square	task
+node	city	city	lean-r	input
+node	english_copy	English Copy	square	task
+node	gen_html	generate_html	fr-rect	tool
+node	html_out	HTML Website	square	task
+node	nordic	nordic_design	lin-doc	refdoc
+node	research_loc	research_location	fr-rect	tool
+node	translate_sv	translate_to_swedish	fr-rect	tool
+node	write_copy	write_copy	fr-rect	tool
+type	agentflow

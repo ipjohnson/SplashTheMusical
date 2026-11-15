@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7677982d4cd415d8
+accept	yes
+drawn	yes
+edge	Browse	Pay	none	arrow	solid
+edge	Pay	Invoice	none	arrow	solid
+edge	Pay	Pick	none	arrow	solid
+edge	Pick	Ship	none	arrow	solid
+group	Customer	Customer	Browse,Pay
+group	Finance	Finance	Invoice
+group	Warehouse	Warehouse	Pick,Ship
+node	Browse	Browse catalogue	rect
+node	Invoice	Raise invoice	rect
+node	Pay	Pay	rect
+node	Pick	Pick items	rect
+node	Ship	Ship order	rect
+type	swimlane

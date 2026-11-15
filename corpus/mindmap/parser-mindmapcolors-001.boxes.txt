@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a87ea9462a152168
+box	edge	Root / Owner A	261.779	232.152	32.905	74.151
+box	edge	Root / Owner A / Repo A	207.907	141.842	39.848	63.873
+box	edge	Root / Owner A / Repo A / Leaf A	72.657	120.95	112.341	7.205
+box	edge	Root / Owner A / Repo A / Leaf B	206.533	50.487	31.711	65.142
+box	edge	Root / Owner B	308.155	333.069	41.38	73.134
+box	edge	Root / Owner B / Repo B	364.343	432.293	36.664	64.392
+box	edge	Root / Owner B / Repo B / Leaf C	415.853	522.754	36.683	64.401
+box	node	Root	270.042	289.288	61.452	61.452
+box	node	Root / Owner A	204.015	196.441	103.359	44
+box	node	Root / Owner A / Repo A	153.725	107.115	92.484	44
+box	node	Root / Owner A / Repo A / Leaf A	15	97.99	85.375	44
+box	node	Root / Owner A / Repo A / Leaf B	201.677	15	86.266	44
+box	node	Root / Owner B	304.796	397.258	104.25	44
+box	node	Root / Owner B / Repo B	361.741	487.72	93.375	44
+box	node	Root / Owner B / Repo B / Leaf C	416.39	578.189	87.141	44
+canvas	5	5	508.531	627.189
+font	Liberation Sans	96

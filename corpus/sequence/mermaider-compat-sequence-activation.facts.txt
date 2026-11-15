@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3e056715ab82665d
+accept	yes
+actor	Client	Client	participant
+actor	DB	DB	participant
+actor	Server	Server	participant
+drawn	yes
+message	Client	Server	solid	filled	POST /login
+message	DB	Server	dashed	filled	User row
+message	Server	Client	dashed	filled	200 JWT
+message	Server	DB	solid	filled	SELECT user
+type	sequence

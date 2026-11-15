@@ -1,0 +1,44 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a973fa9ca594741
+accept	yes
+attribute	Class01	#int protectedMarmoset
+attribute	Class01	+int publicGorilla
+attribute	Class01	-int privateChimp
+attribute	Class01	<<interface>>
+attribute	Class01	int chimp
+attribute	Class01	int gorilla
+attribute	Class07	Object[] elementData
+attribute	Class10	<<service>>
+attribute	Class10	int id
+class	AveryLongClass	AveryLongClass
+class	C2	C2
+class	C3	C3
+class	Class01	Class01
+class	Class03	Class03
+class	Class04	Class04
+class	Class05	Class05
+class	Class06	Class06
+class	Class07	Class07
+class	Class08	Class08
+class	Class09	Class09
+class	Class10	Class10
+class	Class11	Class11
+class	Class12	Class12
+drawn	yes
+method	Class01	size()
+method	Class07	equals()
+method	Class10	test()
+note		I love this diagram! Do you love it?
+note	Class10	Cool class I said it's very cool class!
+relation	Class01	AveryLongClass	triangle	none	solid	Cool
+relation	Class03	Class04	diamond-filled	none	solid		1	*
+relation	Class05	Class06	diamond	none	solid		1	many
+relation	Class07	Class08	none	none	dashed		1	*
+relation	Class08	C2	arrow	arrow	solid	Cool label
+relation	Class09	C2	none	arrow	solid	Where am i?	1	*
+relation	Class09	C3	none	diamond-filled	solid		*	*
+relation	Class09	Class07	none	triangle	solid		1	1
+relation	Class11	Class12	none	arrow	dashed
+relation	Class12	Class08	triangle	none	dashed
+type	classDiagram

@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c3efd67d65111049
+accept	yes
+block	block1	Block 1	rect	1
+drawn	yes
+label	Block 1
+type	block

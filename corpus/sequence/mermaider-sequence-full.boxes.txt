@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b0593c30fe56f535
+box	actor	B	400	0	150	73
+box	actor	DB	600	0	150	73
+box	actor	F	200	0	150	73
+box	actor	U	58.11	0	33.78	67.174
+box	actor-bottom	B	400	782	150	73
+box	actor-bottom	DB	600	782	150	73
+box	actor-bottom	F	200	782	150	73
+box	actor-bottom	U	58.11	788	33.78	67.174
+box	block	alt Valid	240	306	270	225
+box	block	loop Every 30s	264	629	222	133
+box	message	B --> DB	480	252	184	0
+box	message	B --> F	282	385	188	0
+box	message	B --> F #2	282	521	188	0
+box	message	B --> F #3	282	575	188	0
+box	message	B --> F #4	282	752	192	0
+box	message	DB --> B	486	296	184	0
+box	message	F --> B	276	161	188	0
+box	message	F --> B #2	276	708	192	0
+box	message	F --> U	82	619	192	0
+box	message	U --> F	76	117	192	0
+box	message-text	B --> DB	523.262	229.124	97.476	17.347
+box	message-text	B --> F	344.008	362.124	63.985	17.347
+box	message-text	B --> F #2	312.871	498.124	126.258	17.347
+box	message-text	B --> F #3	356.883	552.124	38.235	17.347
+box	message-text	B --> F #4	366.446	729.124	23.107	17.347
+box	message-text	DB --> B	562	273.124	32.031	17.347
+box	message-text	F --> B	328.368	138.124	83.263	17.347
+box	message-text	F --> B #2	336.882	685.124	70.236	17.347
+box	message-text	F --> U	117.979	596.124	120.041	17.347
+box	message-text	U --> F	135.561	94.124	72.878	17.413
+box	note	Hash & verify	500	171	150	37
+box	note	Session established	250	395	250	37
+canvas	-50	-10	850	906
+font	Liberation Sans	414

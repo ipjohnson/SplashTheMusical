@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d910f268dacea35f
+box	flow	Signups --> Trials	206.667	80	186.667	0.726
+box	flow	Trials --> Churned	403.333	104.726	186.667	26.274
+box	flow	Trials --> Paid	403.333	24	186.667	0.726
+box	flow	Visitors --> Signups	10	200	186.667	0
+box	node	Churned	590	75	10	112
+box	node	Paid	590	0	10	48
+box	node	Signups	196.667	0	10	400
+box	node	Trials	393.333	0.726	10	160
+box	node	Visitors	0	0	10	400
+canvas	0	0	600	400
+font	Liberation Sans	108

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8d6bcca7ffb80ca8
+box	legend	Africa	441	268	65.469	19
+box	legend	Asia Pacific	441	202	109.875	19
+box	legend	Europe	441	180	76.828	19
+box	legend	Latin America	441	224	125	19
+box	legend	Middle East	441	246	110.828	19
+box	legend	North America	441	158	129.703	19
+box	slice	Africa	201.813	40	23.187	185
+box	slice	Asia Pacific	40	90.141	185	192.027
+box	slice	Europe	49.055	225	265.069	185
+box	slice	Latin America	98.359	49.055	126.641	175.945
+box	slice	Middle East	167.832	41.459	57.168	183.541
+box	slice	North America	225	40	185	347.117
+box	title	Revenue by Region	115.203	2	219.594	28.188
+canvas	0	0	619.703	450
+font	Liberation Sans	186

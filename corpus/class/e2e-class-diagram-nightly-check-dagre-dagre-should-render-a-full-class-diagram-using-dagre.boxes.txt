@@ -1,0 +1,34 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a973fa9ca594741
+box	class	AveryLongClass	39.789	356.5	133.969	81
+box	class	C2	886.73	698	41.906	81
+box	class	C3	529.422	356.5	41.906	81
+box	class	Class01	8	8	197.547	240
+box	class	Class03	255.547	87.5	76.938	81
+box	class	Class04	255.547	356.5	76.938	81
+box	class	Class05	382.484	87.5	76.937	81
+box	class	Class06	382.484	356.5	76.937	81
+box	class	Class07	621.328	329.5	181.984	135
+box	class	Class08	978.164	546	76.938	81
+box	class	Class09	511.906	87.5	76.938	81
+box	class	Class10	853.312	319	127.531	156
+box	class	Class11	1229.391	87.5	76.172	81
+box	class	Class12	1229.008	356.5	76.938	81
+box	note	Cool class I said it's very cool class!	834.266	101	165.625	54
+box	note	I love this diagram! Do you love it?	1049.891	101	129.5	54
+box	relation	Class01 --> AveryLongClass	106.773	265.25	0	91.25
+box	relation	Class03 --> Class04	294.016	185.75	0	170.75
+box	relation	Class05 --> Class06	420.953	185.75	0	170.75
+box	relation	Class07 --> Class08	712.32	464.5	265.844	112.393
+box	relation	Class08 --> C2	933.558	633	83.075	87.451
+box	relation	Class09 --> C2	494.422	168.5	386.407	565.061
+box	relation	Class09 --> C3	550.375	168.5	0	170.75
+box	relation	Class09 --> Class07	588.844	164.938	123.476	147.312
+box	relation	Class11 --> Class12	1267.477	168.5	0	182
+box	relation	Class12 --> Class08	1055.102	454.75	212.375	120.095
+box	relation-label	Class01 --> AveryLongClass	92.375	273	28.797	21
+box	relation-label	Class08 --> C2	985.5	652	62.266	21
+box	relation-label	Class09 --> C2	454.742	500	79.359	21
+canvas	0	0	1313.945	787
+font	Liberation Sans	710

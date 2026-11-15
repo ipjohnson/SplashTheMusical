@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 44d75d9bb8f958b6
+accept	yes
+actor	actor1	actor1	actor
+actor	boundary2	boundary2	boundary
+actor	control3	control3	control
+actor	participant0	participant0	participant
+block	par	Parallel actions
+divider
+divider
+drawn	yes
+message	boundary2	control3	solid	filled	Message 2
+message	participant0	actor1	solid	filled	Message 0
+type	sequence

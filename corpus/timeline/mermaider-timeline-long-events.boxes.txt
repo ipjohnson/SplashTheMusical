@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 52b4d5df1b41830b
+box	event	2010 / First paying customer signs up	200	457.441	190	63.72
+box	event	2010 / Two friends start building a prototype in a garage	200	366.12	190	81.32
+box	event	2012 / Seed round closes and the first five engineers join	400	366.12	190	81.32
+box	event	2015 / Launches the self-serve plan	600	457.136	190	63.72
+box	event	2015 / Opens the first international office in Berlin	600	366.12	190	81.016
+box	event	2018 / Acquires a small analytics startup to extend the platform	800	366.12	190	81.32
+box	event	2023 / Reaches ten thousand customers across forty countries	1000	366.12	190	98.616
+box	period	2010	200	166.12	190	66.12
+box	period	2012	400	166.12	190	66.12
+box	period	2015	600	166.12	190	66.12
+box	period	2018	800	166.12	190	66.12
+box	period	2023	1000	166.12	190	66.12
+box	section	Founding	200	50	390	66.12
+box	section	Scale	600	50	390	66.12
+box	section	Today	1000	50	190	66.12
+box	title	Company History	345	-10.141	279.939	37.233
+canvas	100	-61	1390	698.281
+font	Liberation Sans	710

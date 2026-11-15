@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9fcc974f0ae400ed
+box	element	a	150	166	216	71.179
+box	element	b	466	166	216	71.179
+box	rel-label	a --> b	415.997	196.283	38.005	12.735
+box	title	Bidirectional relationship	166	5.143	173.361	18.176
+canvas	0	-70	832	407.179
+font	Liberation Sans	140

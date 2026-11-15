@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5c2f341c1f2358c8
+accept	yes
+attribute	Dummy_Class	String data
+class	Dummy_Class	Dummy_Class
+drawn	yes
+method	Dummy_Class	void methods()
+type	classDiagram

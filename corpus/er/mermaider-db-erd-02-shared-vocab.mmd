@@ -1,0 +1,12 @@
+erDiagram
+    VersioningSystem ||--|| SemVersion : "base"
+    VersioningSystem ||--|| SemVersion : "current"
+    Product }o--o| VersioningSystem : "versioning"
+    Product }o--o| Repository : "repository"
+    Applicability ||--o{ ApplicabilityEntry : "per key"
+    ApplicabilityEntry }o--|| ProductLifecycle : "lifecycle"
+    ApplicabilityEntry }o--o| VersionSpec : "version"
+    ApplicabilityEntry }o--|| VersioningSystem : "key resolves to"
+    ProductRelease }o--|| Product : "product"
+    ProductRelease }o--|| ChangelogLifecycle : "lifecycle"
+    ChangelogLifecycle }o--|| ProductLifecycle : "maps to"

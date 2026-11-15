@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 689fdb8c1b7f6950
+box	boundary	b	150	122	316	236.561
+box	element	s	200	222	216	86.561
+box	title	Generic boundary	58	6	127.113	17.319
+canvas	0	-70	616	528.561
+font	Liberation Sans	152

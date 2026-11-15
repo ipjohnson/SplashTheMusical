@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f5bb03c5502df455
+box	entity	AssembledDocumentationSet	363.437	194	224.438	81
+box	entity	Assembly	102.977	12	100.688	81
+box	entity	Build	669.859	12	100	81
+box	entity	CloudfrontRedirectMap	627.875	194	183.969	81
+box	entity	PublishEnvironment	158.922	194	164.516	81
+box	entity	Repository	12	194	106.922	81
+box	entity	SearchIndex	181.875	376	118.609	81
+box	entity	SyncPlan	851.844	194	99.156	81
+box	relation	Assembly --> PublishEnvironment	166.768	93	74.411	101
+box	relation	Assembly --> Repository	65.461	93	74.411	101
+box	relation	Build --> AssembledDocumentationSet	475.656	93	224.203	101
+box	relation	Build --> CloudfrontRedirectMap	719.859	93	0	101
+box	relation	Build --> SyncPlan	739.859	93	161.563	101
+box	relation	PublishEnvironment --> SearchIndex	241.18	275	0	101
+box	relation-label	Assembly --> PublishEnvironment	198.68	133	84.047	21
+box	relation-label	Assembly --> Repository	31.961	133	66.156	21
+box	relation-label	Build --> AssembledDocumentationSet	442.156	133	66.922	21
+box	relation-label	Build --> CloudfrontRedirectMap	677.859	133	83.266	21
+box	relation-label	Build --> SyncPlan	880.422	133	41.266	21
+box	relation-label	PublishEnvironment --> SearchIndex	206.18	315	69.781	21
+canvas	4	4	955	461
+font	Liberation Sans	338

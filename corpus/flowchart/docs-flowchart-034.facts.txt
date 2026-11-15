@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d47a9e81b902e765
+accept	yes
+drawn	yes
+node	A	Datastore	datastore
+type	flowchart-v2

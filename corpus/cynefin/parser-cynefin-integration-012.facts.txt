@@ -1,0 +1,30 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 20776efb70f2ecb2
+accept	yes
+drawn	yes
+item	chaotic	0	Incident response
+item	clear	0	Deployment checklist
+item	complex	0	Retrospectives
+item	complex	1	Pair programming
+item	complicated	0	Code review
+item	complicated	1	Architecture decisions
+item	confusion	0	New initiative
+label	Architecture decisions
+label	Best practice found
+label	Code review
+label	Crisis detected
+label	Deployment checklist
+label	Incident response
+label	New initiative
+label	Pair programming
+label	Pattern emerges
+label	Retrospectives
+label	Stabilized
+label	Team Practices
+title	Team Practices
+transition	chaotic	complex	Stabilized
+transition	complex	complicated	Pattern emerges
+transition	complicated	clear	Best practice found
+transition	confusion	chaotic	Crisis detected
+type	cynefin

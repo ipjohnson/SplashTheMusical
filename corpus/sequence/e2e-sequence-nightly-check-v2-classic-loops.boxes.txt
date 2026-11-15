@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1a3187434fe0624d
+box	actor	actor1	252.766	-5	44.469	81
+box	actor	boundary2	420	11	92.813	66.32
+box	actor	participant0	0	0	150	65
+box	actor-bottom	actor1	252.766	281	44.469	81
+box	actor-bottom	boundary2	420	297	92.813	65.82
+box	actor-bottom	participant0	0	286	150	65
+box	block	loop For each participant	64	75	222	191
+box	message	participant0 --> actor1	76	168	195	0
+box	message	participant0 --> actor1 #2	76	212	195	0
+box	message	participant0 --> actor1 #3	76	256	195	0
+box	message-text	participant0 --> actor1	134.867	145.219	78.266	17.32
+box	message-text	participant0 --> actor1 #2	134.867	189.219	78.266	17.32
+box	message-text	participant0 --> actor1 #3	134.867	233.219	78.266	17.32
+canvas	-50	-10	650	372
+font	Liberation Sans	212

@@ -1,0 +1,8 @@
+railroad-beta
+title Statement
+statement = choice(
+	sequence(terminal("if"), nonterminal("expr"), nonterminal("block"), optional(sequence(terminal("else"), nonterminal("block")))),
+	sequence(terminal("while"), nonterminal("expr"), nonterminal("block")),
+	sequence(nonterminal("expr"), terminal(";"))
+) ;
+block = sequence(terminal("{"), zeroOrMore(nonterminal("statement")), terminal("}")) ;

@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 45ddd87c281c015e
+box	event	1972 / C	200	250	190	50
+box	event	1983 / C++	400	250	190	50
+box	event	1991 / Python	600	250	190	50
+box	event	1995 / Java	800	250	190	50
+box	event	1995 / JavaScript	800	310	190	50
+box	event	1995 / Ruby	800	370	190	50
+box	event	2009 / Go	1000	250	190	50
+box	event	2015 / Rust	1200	250	190	50
+box	event	2016 / .NET Core	1400	250	190	50
+box	period	1972	200	50	190	66.12
+box	period	1983	400	50	190	66.12
+box	period	1991	600	50	190	66.12
+box	period	1995	800	50	190	66.12
+box	period	2009	1000	50	190	66.12
+box	period	2015	1200	50	190	66.12
+box	period	2016	1400	50	190	66.12
+box	title	Programming Language Milestones	545	-9.682	572.69	36.842
+canvas	100	-61	1790	585.177
+font	Liberation Sans	204

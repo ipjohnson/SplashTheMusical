@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 51ac937335dd4d17
+layout	1
+graph	LR	50	20	50	8	8
+node	Lorem		152	45
+node	Ipsum		152	45
+node	Dolor		152	45
+edge	Lorem	Ipsum	L_Lorem_Ipsum_0	1	1	0	0	10	c
+edge	Ipsum	Dolor	L_Ipsum_Dolor_0	1	1	0	0	10	c
+size	572	61
+place	Lorem	84	30.5	152	45
+place	Ipsum	286	30.5	152	45
+place	Dolor	488	30.5	152	45
+route	Lorem	Ipsum	L_Lorem_Ipsum_0			160,30.5 185,30.5 210,30.5
+route	Ipsum	Dolor	L_Ipsum_Dolor_0			362,30.5 387,30.5 412,30.5

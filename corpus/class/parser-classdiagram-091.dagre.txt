@@ -1,0 +1,34 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6fd900c2fbb1e389
+layout	1
+graph	TB	50	20	50	8	8
+node	Class1		69.15625	81
+node	Class02		76.9375	81
+node	Class03		76.9375	81
+node	Class04		76.9375	81
+node	Class05		76.9375	81
+node	Class06		76.9375	81
+node	Class07		76.9375	81
+node	Class08		76.9375	81
+node	Class09		76.9375	81
+edge	Class1	Class02	id_Class1_Class02_1	1	1	0	0	10	c
+edge	Class03	Class04	id_Class03_Class04_2	1	1	0	0	10	c
+edge	Class05	Class06	id_Class05_Class06_3	1	1	0	0	10	c
+edge	Class07	Class08	id_Class07_Class08_4	1	1	0	0	10	c
+edge	Class09	Class1	id_Class09_Class1_5	1	1	0	0	10	c
+size	473.75	359
+place	Class1	46.46875	179.5	69.15625	81
+place	Class02	46.46875	310.5	76.9375	81
+place	Class03	173.40625	48.5	76.9375	81
+place	Class04	173.40625	179.5	76.9375	81
+place	Class05	300.34375	48.5	76.9375	81
+place	Class06	300.34375	179.5	76.9375	81
+place	Class07	427.28125	48.5	76.9375	81
+place	Class08	427.28125	179.5	76.9375	81
+place	Class09	46.46875	48.5	76.9375	81
+route	Class1	Class02	id_Class1_Class02_1			46.46875,220 46.46875,245 46.46875,270
+route	Class03	Class04	id_Class03_Class04_2			173.40625,89 173.40625,114 173.40625,139
+route	Class05	Class06	id_Class05_Class06_3			300.34375,89 300.34375,114 300.34375,139
+route	Class07	Class08	id_Class07_Class08_4			427.28125,89 427.28125,114 427.28125,139
+route	Class09	Class1	id_Class09_Class1_5			46.46875,89 46.46875,114 46.46875,139

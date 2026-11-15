@@ -1,0 +1,36 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 49d5c4dfe55711ec
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-SearchIndex-0		118.609375	81
+node	entity-SearchDocument-1		148.171875	81
+node	entity-Page-2		100	81
+node	entity-DocumentationDocument-3		197.984375	81
+node	entity-Product-4		100	81
+node	entity-ParentDocument-5		145.0625	81
+node	entity-AppliesToEntry-6		133.390625	81
+node	entity-DocumentInference-7		162.1875	81
+edge	entity-SearchIndex-0	entity-SearchDocument-1	id_entity-SearchIndex-0_entity-SearchDocument-1_0	1	1	52.15625	21	10	c
+edge	entity-Page-2	entity-DocumentationDocument-3	id_entity-Page-2_entity-DocumentationDocument-3_1	1	1	54.484375	21	10	c
+edge	entity-DocumentationDocument-3	entity-Product-4	id_entity-DocumentationDocument-3_entity-Product-4_2	1	1	46.703125	21	10	c
+edge	entity-DocumentationDocument-3	entity-Product-4	id_entity-DocumentationDocument-3_entity-Product-4_3	1	1	104.296875	21	10	c
+edge	entity-DocumentationDocument-3	entity-ParentDocument-5	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	1	1	141.625	21	10	c
+edge	entity-DocumentationDocument-3	entity-AppliesToEntry-6	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	1	1	63.828125	21	10	c
+edge	entity-DocumentInference-7	entity-DocumentationDocument-3	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	1	1	98.84375	21	10	c
+size	843.04296875	461
+place	entity-SearchIndex-0	82.0859375	48.5	118.609375	81
+place	entity-SearchDocument-1	82.0859375	230.5	148.171875	81
+place	entity-Page-2	395.1640625	48.5	100	81
+place	entity-DocumentationDocument-3	417.640625	230.5	197.984375	81
+place	entity-Product-4	226.58984375	412.5	100	81
+place	entity-ParentDocument-5	489.12109375	412.5	145.0625	81
+place	entity-AppliesToEntry-6	768.34765625	412.5	133.390625	81
+place	entity-DocumentInference-7	666.2578125	48.5	162.1875	81
+route	entity-SearchIndex-0	entity-SearchDocument-1	id_entity-SearchIndex-0_entity-SearchDocument-1_0	82.0859375	139.5	82.0859375,89 82.0859375,139.5 82.0859375,190
+route	entity-Page-2	entity-DocumentationDocument-3	id_entity-Page-2_entity-DocumentationDocument-3_1	395.1640625	139.5	395.1640625,89 395.1640625,139.5 407.63731971153845,190
+route	entity-DocumentationDocument-3	entity-Product-4	id_entity-DocumentationDocument-3_entity-Product-4_2	178.83984375	321.5	318.6484375,268.223030114668 178.83984375,321.5 205.33847012362637,372
+route	entity-DocumentationDocument-3	entity-Product-4	id_entity-DocumentationDocument-3_entity-Product-4_3	286.375	321.5	359.22020947802196,271 286.375,321.5 253.19752317994505,372
+route	entity-DocumentationDocument-3	entity-ParentDocument-5	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	489.12109375	321.5	449.453361092033,271 489.12109375,321.5 489.12109375,372
+route	entity-DocumentationDocument-3	entity-AppliesToEntry-6	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	768.34765625	321.5	516.6328125,256.1860805738408 768.34765625,321.5 768.34765625,372
+route	entity-DocumentInference-7	entity-DocumentationDocument-3	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	666.2578125	139.5	666.2578125,89 666.2578125,139.5 516.6328125,194.2664267982277

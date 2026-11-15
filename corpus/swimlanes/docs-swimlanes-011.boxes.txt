@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 27ad3133a24aae1a
+box	edge	collect --> validate	-284.344	45	0	99
+box	edge	decide --> collect	-380.344	22.5	272	306
+box	edge	decide --> schedule	62.656	328.5	168.844	0
+box	edge	review --> decide	-22.844	193	0	46
+box	edge	schedule --> complete	311.5	351	0	109
+box	edge	validate --> review	-208.344	170.5	105.5	0
+box	edge-label	decide --> collect	-253.297	318	17.906	21
+box	edge-label	decide --> schedule	137.656	318	22.844	21
+box	group	Delivery	112.656	-36	397.687	581
+box	group	Intake	-410.344	-36	252	581
+box	group	Review	-158.344	-36	271	581
+box	node	collect	-360.344	0	152	45
+box	node	complete	235.5	464	152	45
+box	node	decide	-107.844	243	171	171
+box	node	review	-98.844	148	152	45
+box	node	schedule	235.5	306	152	45
+box	node	validate	-360.344	148	152	45
+canvas	-418.344	-44	936.688	597
+font	Liberation Sans	204

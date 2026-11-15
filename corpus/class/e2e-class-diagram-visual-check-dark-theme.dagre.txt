@@ -1,0 +1,84 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source df1262f42e99476d
+layout	1
+graph	TB	50	20	50	8	8
+node	Animal		156.078125	192
+node	Duck		172.078125	168
+node	Fish		140.9296875	144
+node	Zebra		137.8515625	144
+node	classA		75.59375	84
+node	classB		75.59375	84
+node	classC		75.59375	84
+node	classD		75.59375	84
+node	classE		74.71875	84
+node	classF		73.8125	84
+node	classG		76.484375	84
+node	classH		75.59375	84
+node	classI		68.484375	84
+node	classJ		72.9375	84
+node	classK		75.59375	84
+node	classL		73.8125	84
+node	classM		77.375	84
+node	classN		75.59375	84
+node	classO		76.484375	84
+node	classP		74.71875	84
+edge	Animal	Duck	id_Animal_Duck_1	1	1	0	0	10	c
+edge	Animal	Fish	id_Animal_Fish_2	1	1	0	0	10	c
+edge	Animal	Zebra	id_Animal_Zebra_3	1	1	0	0	10	c
+edge	classA	classB	id_classA_classB_4	1	1	0	0	10	c
+edge	classC	classD	id_classC_classD_5	1	1	0	0	10	c
+edge	classE	classF	id_classE_classF_6	1	1	0	0	10	c
+edge	classG	classH	id_classG_classH_7	1	1	0	0	10	c
+edge	classI	classJ	id_classI_classJ_8	1	1	0	0	10	c
+edge	classK	classL	id_classK_classL_9	1	1	0	0	10	c
+edge	classM	classN	id_classM_classN_10	1	1	0	0	10	c
+edge	classO	classP	id_classO_classP_11	1	1	0	0	10	c
+edge	classA	classB	id_classA_classB_12	1	1	79.171875	24	10	c
+edge	classC	classD	id_classC_classD_13	1	1	88.9375	24	10	c
+edge	classE	classF	id_classE_classF_14	1	1	86.296875	24	10	c
+edge	classG	classH	id_classG_classH_15	1	1	81.828125	24	10	c
+edge	classI	classJ	id_classI_classJ_16	1	1	75.59375	24	10	c
+edge	classK	classL	id_classK_classL_17	1	1	89.84375	24	10	c
+edge	classM	classN	id_classM_classN_18	1	1	79.15625	24	10	c
+edge	classO	classP	id_classO_classP_19	1	1	95.15625	24	10	c
+size	1618.69140625	450
+place	Animal	300.54296875	104	156.078125	192
+place	Duck	94.0390625	358	172.078125	168
+place	Fish	300.54296875	358	140.9296875	144
+place	Zebra	489.93359375	358	137.8515625	144
+place	classA	646.65625	104	75.59375	84
+place	classB	646.65625	358	75.59375	84
+place	classC	772.25	104	75.59375	84
+place	classD	772.25	358	75.59375	84
+place	classE	900.52734375	104	74.71875	84
+place	classF	900.52734375	358	73.8125	84
+place	classG	1026.4765625	104	76.484375	84
+place	classH	1026.4765625	358	75.59375	84
+place	classI	1150.7421875	104	68.484375	84
+place	classJ	1150.7421875	358	72.9375	84
+place	classK	1274.1171875	104	75.59375	84
+place	classL	1274.1171875	358	73.8125	84
+place	classM	1402.28125	104	77.375	84
+place	classN	1402.28125	358	75.59375	84
+place	classO	1529.32421875	104	76.484375	84
+place	classP	1529.32421875	358	74.71875	84
+route	Animal	Duck	id_Animal_Duck_1			222.50390625,154.26149626406885 94.0390625,237 94.0390625,274
+route	Animal	Fish	id_Animal_Fish_2			300.54296875,200 300.54296875,237 300.54296875,286
+route	Animal	Zebra	id_Animal_Zebra_3			378.58203125,158.80311030443033 489.93359375,237 489.93359375,286
+route	classA	classB	id_classA_classB_4			625.0684621710526,146 578.294921875,237 622.927524535124,316
+route	classC	classD	id_classC_classD_5			761.8277138157895,146 739.24609375,237 760.7940986570248,316
+route	classE	classF	id_classE_classF_6			890.5565378289474,146 868.953125,237 889.567697572314,316
+route	classG	classH	id_classG_classH_7			1016.6155427631579,146 995.25,237 1015.637590392562,316
+route	classI	classJ	id_classI_classJ_8			1140.7393092105262,146 1119.06640625,237 1139.7472882231405,316
+route	classK	classL	id_classK_classL_9			1263.7627467105262,146 1241.328125,237 1262.7358600206612,316
+route	classM	classN	id_classM_classN_10			1392.560855263158,146 1371.5,237 1391.5968491735537,316
+route	classO	classP	id_classO_classP_11			1518.653988486842,146 1495.53515625,237 1517.5957838326447,316
+route	classA	classB	id_classA_classB_12	679.66015625	237	657.0785361842105,146 679.66015625,237 658.1121513429752,316
+route	classC	classD	id_classC_classD_13	804.484375	237	782.4292763157895,146 804.484375,237 783.438791322314,316
+route	classE	classF	id_classE_classF_14	932.1015625	237	910.4981496710526,146 932.1015625,237 911.486989927686,316
+route	classG	classH	id_classG_classH_15	1058.15234375	237	1036.4794407894738,146 1058.15234375,237 1037.4714617768595,316
+route	classI	classJ	id_classI_classJ_16	1183.53125	237	1161.0966282894738,146 1183.53125,237 1162.1235149793388,316
+route	classK	classL	id_classK_classL_17	1306.578125	237	1284.368009868421,146 1306.578125,237 1285.3846203512396,316
+route	classM	classN	id_classM_classN_18	1435.95703125	237	1412.915707236842,146 1435.95703125,237 1413.9703641528927,316
+route	classO	classP	id_classO_classP_19	1563.11328125	237	1539.994449013158,146 1563.11328125,237 1541.0526536673553,316

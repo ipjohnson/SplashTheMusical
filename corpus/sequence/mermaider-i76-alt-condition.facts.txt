@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c4e325811e7ca018
+accept	yes
+actor	A	A	participant
+actor	B	B	participant
+actor	C	C	participant
+block	alt	condition one
+divider	condition two
+drawn	yes
+message	A	B	solid	filled	request
+message	A	C	dashed	filled	do the second thing
+message	A	C	solid	filled	do the first thing
+message	B	A	dashed	filled	response
+type	sequence

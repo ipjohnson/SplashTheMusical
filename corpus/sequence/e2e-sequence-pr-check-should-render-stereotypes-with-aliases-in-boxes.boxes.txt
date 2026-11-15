@@ -1,0 +1,41 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c431ee03060a0f5f
+box	actor	API	445	38	90.845	66.62
+box	actor	Cache	1075.566	36	88.869	68.62
+box	actor	DB	879.141	34.143	81.718	69.478
+box	actor	Svc	646.238	37	107.523	65.621
+box	actor	UI	225	38	105.199	66.62
+box	actor	User	46.681	22	66.638	81.62
+box	actor-bottom	API	445	607	90.845	66.12
+box	actor-bottom	Cache	1075.566	606	88.869	68.12
+box	actor-bottom	Svc	646.238	606	107.523	68.121
+box	actor-bottom	UI	225	607	105.199	66.12
+box	actor-bottom	User	46.681	591	66.638	81.62
+box	box	Backend Layer	400	-5	400	705
+box	box	Data Layer	820	-5	400	705
+box	box	Frontend Layer	-20	-5	400	705
+box	message	API --> Svc	501	224	195	0
+box	message	API --> UI	284	532	215	0
+box	message	Cache --> Svc	704	312	415	0
+box	message	DB --> Svc	704	400	215	0
+box	message	Svc --> API	504	488	195	0
+box	message	Svc --> Cache	701	268	415	0
+box	message	Svc --> Cache #2	701	444	415	0
+box	message	Svc --> DB	701	356	215	0
+box	message	UI --> API	281	180	215	0
+box	message	UI --> User	84	576	195	0
+box	message	User --> UI	81	136	195	0
+box	message-text	API --> Svc	570.124	200.299	57.752	18.24
+box	message-text	API --> UI	375.107	508.299	33.786	18.24
+box	message-text	Cache --> Svc	870.247	288.299	83.505	18.24
+box	message-text	DB --> Svc	795.107	376.299	33.786	18.24
+box	message-text	Svc --> API	565.999	464.3	72.002	18.241
+box	message-text	Svc --> Cache	862.791	244.3	92.418	18.24
+box	message-text	Svc --> Cache #2	859.669	420.299	98.662	18.241
+box	message-text	Svc --> DB	769.45	332.3	79.101	18.241
+box	message-text	UI --> API	339.397	156.3	99.206	18.241
+box	message-text	UI --> User	155.793	552.299	52.414	18.241
+box	message-text	User --> UI	137.234	112.3	83.531	18.24
+canvas	-50	-10	1300	711
+font	Liberation Sans	528

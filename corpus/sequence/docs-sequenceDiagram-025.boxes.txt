@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 40a5ae34a0899545
+box	actor	Alice	0	0	150	90
+box	actor	John	200	0	150	90
+box	actor-bottom	Alice	0	235	150	90
+box	actor-bottom	John	200	235	150	90
+box	message	Alice --> John	76	151	198	0
+box	message-text	Alice --> John	126.969	128.219	96.063	17.32
+box	note	A typical interaction But now in two lines	50	161	250	54
+canvas	-50	-10	450	376
+font	Liberation Sans	192

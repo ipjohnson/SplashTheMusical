@@ -1,0 +1,38 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 18edf1e21f3b25f2
+box	actor	A	0	0	150	73
+box	actor	B	200	0	150	73
+box	actor	C	400	0	150	73
+box	actor	D	600	0	150	73
+box	actor	E	800	0	150	73
+box	actor	G	1000	0	150	73
+box	actor-bottom	A	0	790	150	73
+box	actor-bottom	B	200	790	150	73
+box	actor-bottom	C	400	790	150	73
+box	actor-bottom	D	600	790	150	73
+box	actor-bottom	E	800	790	150	73
+box	actor-bottom	G	1000	790	150	73
+box	block	opt this is a nested opt with a long title that will overflow	860	448	230	164
+box	block	opt this is an opt with a long title that will overflow	260	127	230	164
+box	block	opt this is another opt with a long title that will overflow	664	345	436	381
+box	message	A --> B	76	117	188	0
+box	message	A --> D	76	335	592	0
+box	message	B --> C	280	237	184	0
+box	message	C --> B	286	281	184	0
+box	message	D --> A	82	770	592	0
+box	message	D --> E	676	438	188	0
+box	message	E --> E	880	654.381	45	23.238
+box	message	E --> G	880	558	184	0
+box	message	G --> E	886	602	184	0
+box	message-text	A --> B	146.881	93.885	46.238	17.539
+box	message-text	A --> D	348.881	311.885	46.238	17.539
+box	message-text	B --> C	348.881	213.885	46.238	17.539
+box	message-text	C --> B	353.997	257.885	48.007	17.539
+box	message-text	D --> A	343.77	746.885	68.46	17.668
+box	message-text	D --> E	746.881	414.885	46.238	17.539
+box	message-text	E --> E	856.881	632.885	46.238	17.539
+box	message-text	E --> G	948.881	534.885	46.238	17.539
+box	message-text	G --> E	953.997	578.885	48.007	17.539
+canvas	-50	-10	1250	914
+font	Liberation Sans	484

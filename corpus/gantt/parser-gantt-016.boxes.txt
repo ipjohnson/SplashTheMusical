@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1780a07049618a20
+box	section	Documentation	10	92	74	12
+box	task	Documentation / task A	519	50	63	20
+box	task	Documentation / task B	582	74	127	20
+box	task	Documentation / task C	75	98	444	20
+box	task	Documentation / task D	519	122	63	20
+box	task-text	Documentation / task A	535.516	53.5	29.969	12
+box	task-text	Documentation / task B	630.211	77.5	30.578	12
+box	task-text	Documentation / task C	281.406	101.5	31.188	12
+box	task-text	Documentation / task D	534.906	125.5	31.188	12
+box	title	Adding gantt diagram functionality to mermaid	208.898	9	366.203	20
+canvas	0	0	784	196
+font	Liberation Sans	384

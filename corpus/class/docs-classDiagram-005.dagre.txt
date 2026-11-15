@@ -1,0 +1,14 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 498d9363ba8ed96f
+layout	1
+graph	TB	50	20	50	8	8
+node	Animal		70.6875	81
+node	Vehicle		72.265625	81
+node	Car		47.359375	81
+edge	Vehicle	Car	id_Vehicle_Car_1	1	1	0	0	10	c
+size	208.953125	228
+place	Animal	43.34375	48.5	70.6875	81
+place	Vehicle	164.8203125	48.5	72.265625	81
+place	Car	164.8203125	179.5	47.359375	81
+route	Vehicle	Car	id_Vehicle_Car_1			164.8203125,89 164.8203125,114 164.8203125,139

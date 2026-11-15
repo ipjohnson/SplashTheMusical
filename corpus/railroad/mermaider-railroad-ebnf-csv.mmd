@@ -1,0 +1,8 @@
+railroad-ebnf-beta
+title "CSV Record"
+(* ISO 14977 comment *)
+record = field { "," field } ;
+field = quoted | bare ;
+quoted = '"' { char - '"' | '""' } '"' ;
+bare = [ char { char } ] ;
+char = ? any character except a line break ? ;

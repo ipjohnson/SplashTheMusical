@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3ed71c734c4a7031
+box	edge	db --> server	-20.914	-43.461	121.827	0
+box	edge	disk1 --> server	-60.914	-3.461	0	120.923
+box	edge	disk2 --> db	140.914	-3.461	0	120.923
+box	group	api	-143.414	-125.961	366.827	382.923
+box	service	db	100.914	-83.461	80	103.219
+box	service	disk1	-100.914	117.461	80	103.537
+box	service	disk2	100.914	117.461	80	103.537
+box	service	server	-100.914	-83.461	80	103.219
+canvas	-183.414	-165.961	446.827	462.923
+font	Liberation Sans	72

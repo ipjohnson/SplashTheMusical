@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d534cb78203b61cc
+accept	yes
+actor	A	A	participant
+actor	B	B	participant
+block	loop	Wrapped loop
+block	par	Wrapped parallel
+divider
+drawn	yes
+message	A	B	solid	filled	Message in loop
+message	A	B	solid	filled	Parallel message 1 with explicit line break
+message	A	B	solid	filled	This is a very long message that should wrap properly in the diagram rendering
+message	B	A	solid	filled	Parallel message 2 with explicit line break
+note	over	A,B	This is a very long note that should also wrap properly when rendered in the diagram
+note	right	B	This is a long note in a loop
+type	sequence

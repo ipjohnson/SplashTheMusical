@@ -1,0 +1,65 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d637094dd39ae470
+layout	1
+graph	TB	50	20	75	8	8
+node	First_start	First	14	14
+node	fir	First	136	37
+node	First_end	First	14.013293266296387	14
+node	First		0	0
+edge	First_start	fir	edge3	1	1	0	0	10	c
+edge	fir	First_end	edge4	1	1	0	0	10	c
+size	222	306
+place	First_start	111	52.5	14	14
+place	fir	111	153	136	37
+place	First_end	111	253.5	14.013293266296387	14
+place	First	111	153	206	290
+route	First_start	fir	edge3			111,59.5 111,97 111,134.5
+route	fir	First_end	edge4			111,171.5 111,209 111,246.5
+layout	2
+graph	TB	50	20	75	8	8
+node	Second_start	Second	14	14
+node	sec	Second	136	37
+node	Second_end	Second	14.013293266296387	14
+node	Second		0	0
+edge	Second_start	sec	edge5	1	1	0	0	10	c
+edge	sec	Second_end	edge6	1	1	0	0	10	c
+size	222	306
+place	Second_start	111	52.5	14	14
+place	sec	111	153	136	37
+place	Second_end	111	253.5	14.013293266296387	14
+place	Second	111	153	206	290
+route	Second_start	sec	edge5			111,59.5 111,97 111,134.5
+route	sec	Second_end	edge6			111,171.5 111,209 111,246.5
+layout	3
+graph	TB	50	20	75	8	8
+node	Third_start	Third	14	14
+node	thi	Third	136	37
+node	Third_end	Third	14.013293266296387	14
+node	Third		0	0
+edge	Third_start	thi	edge7	1	1	0	0	10	c
+edge	thi	Third_end	edge8	1	1	0	0	10	c
+size	222	306
+place	Third_start	111	52.5	14	14
+place	thi	111	153	136	37
+place	Third_end	111	253.5	14.013293266296387	14
+place	Third	111	153	206	290
+route	Third_start	thi	edge7			111,59.5 111,97 111,134.5
+route	thi	Third_end	edge8			111,171.5 111,209 111,246.5
+layout	4
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	First		206	290
+node	Second		206	290
+node	Third		206	290
+edge	root_start	First	edge0	1	1	0	0	10	c
+edge	First	Second	edge1	1	1	0	0	10	c
+edge	First	Third	edge2	1	1	0	0	10	c
+size	478	710
+place	root_start	239	15	14	14
+place	First	239	217	206	290
+place	Second	111	557	206	290
+place	Third	367	557	206	290
+route	root_start	First	edge0			239,22 239,47 239,72
+route	First	Second	edge1			136,353.796875 111,387 111,412
+route	First	Third	edge2			342,353.796875 367,387 367,412

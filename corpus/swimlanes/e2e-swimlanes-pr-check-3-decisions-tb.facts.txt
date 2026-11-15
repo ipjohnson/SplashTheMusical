@@ -1,0 +1,31 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 10bc51fb1bbe83ff
+accept	yes
+drawn	yes
+edge	Decision1	Process2	none	arrow	solid
+edge	Decision1	Process3	none	arrow	solid
+edge	Decision2	Process5	none	arrow	solid
+edge	Decision2	Process6	none	arrow	solid
+edge	Process1	Decision1	none	arrow	solid
+edge	Process2	Decision2	none	arrow	solid
+edge	Process3	Process4	none	arrow	solid
+edge	Process4	Decision2	none	arrow	solid
+edge	Process5	Finish	none	arrow	solid
+edge	Process6	Finish	none	arrow	solid
+edge	Start	Process1	none	arrow	solid
+group	Dep1	Dep1	Start
+group	Dep2	Dep2	Decision1,Process1,Process2,Process5
+group	Dep3	Dep3	Decision2,Process3
+group	Dep4	Dep4	Finish,Process4,Process6
+node	Decision1	Decision1	rect
+node	Decision2	Decision2	rect
+node	Finish	Finish	rect
+node	Process1	Process1	rect
+node	Process2	Process2	rect
+node	Process3	Process3	rect
+node	Process4	Process4	rect
+node	Process5	Process5	rect
+node	Process6	Process6	rect
+node	Start	Start	rect
+type	swimlane

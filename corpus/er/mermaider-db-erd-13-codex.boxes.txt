@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3e8237fe8deee81
+box	entity	CodexDocumentationSet	152	194	195.656	81
+box	entity	CodexGroup	278.777	376	119.391	81
+box	entity	CodexSite	103.617	12	104.594	81
+box	entity	DocumentationSet	83.59	376	155.187	81
+box	entity	Registry	12	194	100	81
+box	relation	CodexDocumentationSet --> CodexGroup	279.104	275	59.368	101
+box	relation	CodexDocumentationSet --> DocumentationSet	161.184	275	59.368	101
+box	relation	CodexSite --> CodexDocumentationSet	170.013	93	79.815	101
+box	relation	CodexSite --> Registry	62	93	79.815	101
+box	relation-label	CodexDocumentationSet --> CodexGroup	299.473	315	77.063	21
+box	relation-label	CodexDocumentationSet --> DocumentationSet	140.184	315	41.25	21
+box	relation-label	CodexSite --> CodexDocumentationSet	195.328	133	108.922	21
+box	relation-label	CodexSite --> Registry	23	133	77.047	21
+canvas	4	4	402.168	461
+font	Liberation Sans	218

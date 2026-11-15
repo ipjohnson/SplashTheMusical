@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d6b3d7c2435fd4c2
+box	class	classA	12.422	12	69.156	81
+box	class	classB	12.422	194	69.156	81
+box	class	classC	121.578	12	69.156	81
+box	class	classD	121.578	194	69.156	81
+box	class	classE	230.734	12	68.375	81
+box	class	classF	231.125	194	67.594	81
+box	class	classG	339.109	12	69.938	81
+box	class	classH	339.5	194	69.156	81
+box	class	classI	450.602	12	62.937	81
+box	class	classJ	448.656	194	66.828	81
+box	class	classK	554.703	12	69.156	81
+box	class	classL	555.484	194	67.594	81
+box	class	classM	663.859	12	70.703	81
+box	class	classN	664.633	194	69.156	81
+box	class	classO	774.563	12	69.937	81
+box	class	classP	775.344	194	68.375	81
+box	relation	classA --> classB	47	93	0	83.75
+box	relation	classC --> classD	156.156	93	0	83.75
+box	relation	classE --> classF	264.922	93	0	83.75
+box	relation	classG --> classH	374.078	93	0	95
+box	relation	classI --> classJ	482.07	93	0	101
+box	relation	classK --> classL	589.281	93	0	95
+box	relation	classM --> classN	699.211	93	0	83.75
+box	relation	classO --> classP	809.531	93	0	101
+box	relation-label	classA --> classB	12	133	69.281	21
+box	relation-label	classC --> classD	117.156	133	77.828	21
+box	relation-label	classE --> classF	226.922	133	75.516	21
+box	relation-label	classG --> classH	338.078	133	71.594	21
+box	relation-label	classI --> classJ	448.57	133	66.141	21
+box	relation-label	classK --> classL	549.781	133	78.625	21
+box	relation-label	classM --> classN	664.211	133	69.266	21
+box	relation-label	classO --> classP	767.531	133	83.266	21
+canvas	4	4	854.797	279
+font	Liberation Sans	368

@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fcdc99680de18240
+box	edge	awsVpc --> awsCompute	194.407	304.821	120.687	0
+box	edge	azureVnet --> azureCompute	26.751	45.344	120.687	0
+box	edge	gcpVpc --> gcpCompute	-235.094	-190.821	120.687	0
+box	group	awsNet	71.907	222.321	365.687	182
+box	group	azureNet	-95.749	-37.156	365.687	182
+box	group	gcpNet	-357.594	-273.321	386.687	182
+box	service	awsCompute	315.094	264.821	80	103.57
+box	service	awsVpc	114.407	264.821	80	103.57
+box	service	azureCompute	147.438	5.344	80	103.57
+box	service	azureVnet	-53.249	5.344	80	103.57
+box	service	gcpCompute	-134	-230.821	119.186	103.57
+box	service	gcpVpc	-315.094	-230.821	80	103.57
+canvas	-397.594	-313.321	875.188	757.641
+font	Liberation Sans	92

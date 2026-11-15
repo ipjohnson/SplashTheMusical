@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b84c6b56f24cd18a
+box	actor	App	600	0	150	73
+box	actor	Browser	0	0	150	73
+box	actor	CDN	200	0	150	73
+box	actor	Cache	800	0	150	73
+box	actor	DB	1000	0	150	73
+box	actor	LB	400	0	150	73
+box	actor-bottom	App	600	533	150	73
+box	actor-bottom	Browser	0	533	150	73
+box	actor-bottom	CDN	200	533	150	73
+box	actor-bottom	Cache	800	533	150	73
+box	actor-bottom	DB	1000	533	150	73
+box	actor-bottom	LB	400	533	150	73
+box	message	App --> Cache	676	249	192	0
+box	message	App --> Cache #2	676	425	192	0
+box	message	App --> DB	676	337	392	0
+box	message	App --> LB	482	469	192	0
+box	message	Browser --> CDN	76	117	192	0
+box	message	Browser --> LB	76	161	392	0
+box	message	Cache --> App	682	293	192	0
+box	message	DB --> App	682	381	392	0
+box	message	LB --> App	476	205	192	0
+box	message	LB --> Browser	82	513	392	0
+box	message-text	App --> Cache	725.774	225.885	92.451	17.539
+box	message-text	App --> Cache #2	752.879	401.885	38.241	17.539
+box	message-text	App --> DB	850.214	313.885	43.572	17.668
+box	message-text	App --> LB	541.989	445.885	72.023	17.668
+box	message-text	Browser --> CDN	126.659	93.885	90.683	17.539
+box	message-text	Browser --> LB	230.209	137.885	83.582	17.668
+box	message-text	Cache --> App	761.558	269.885	32.885	17.539
+box	message-text	DB --> App	855.329	357.885	45.341	17.539
+box	message-text	LB --> App	542.665	181.885	58.67	17.539
+box	message-text	LB --> Browser	241.989	489.885	72.023	17.668
+canvas	-50	-10	1250	657
+font	Liberation Sans	288

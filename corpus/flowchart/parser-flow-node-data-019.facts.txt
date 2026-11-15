@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 88f8ca17710da23a
+accept	yes
+drawn	yes
+node	A	This is a label	diam
+type	flowchart-v2

@@ -1,0 +1,27 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 49d5c4dfe55711ec
+box	entity	AppliesToEntry	464.813	396	133.391	81
+box	entity	DocumentInference	357.151	12	162.187	81
+box	entity	DocumentationDocument	200.172	194	197.984	81
+box	entity	Page	217.151	12	100	81
+box	entity	ParentDocument	279.751	396	145.063	81
+box	entity	Product	108.433	396	100	81
+box	entity	SearchDocument	12	194	148.172	81
+box	entity	SearchIndex	26.781	12	118.609	81
+box	relation	DocumentInference --> DocumentationDocument	328.828	93	109.417	101
+box	relation	DocumentationDocument --> AppliesToEntry	352.559	275	178.949	121
+box	relation	DocumentationDocument --> ParentDocument	316.962	275	35.319	121
+box	relation	DocumentationDocument --> Product	110.581	275	135.187	121
+box	relation	DocumentationDocument --> Product #2	171.766	275	109.599	121
+box	relation	Page --> DocumentationDocument	267.151	93	2.349	101
+box	relation	SearchIndex --> SearchDocument	86.086	93	0	101
+box	relation-label	DocumentInference --> DocumentationDocument	388.745	133	98.844	21
+box	relation-label	DocumentationDocument --> AppliesToEntry	499.508	335	63.828	21
+box	relation-label	DocumentationDocument --> ParentDocument	281.282	335	141.625	21
+box	relation-label	DocumentationDocument --> Product	87.081	335	46.703	21
+box	relation-label	DocumentationDocument --> Product #2	153.784	335	104.297	21
+box	relation-label	Page --> DocumentationDocument	239.651	133	54.484	21
+box	relation-label	SearchIndex --> SearchDocument	59.586	133	52.156	21
+canvas	4	4	602.204	481
+font	Liberation Sans	374

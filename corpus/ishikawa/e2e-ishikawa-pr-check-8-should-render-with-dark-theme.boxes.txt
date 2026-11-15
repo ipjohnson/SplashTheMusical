@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a08ef984b8e4dba6
+box	cause	Process	-103.692	-20.348	97.797	21.016
+box	cause	Process / Out of focus	-153.619	116.435	86.222	17.001
+box	cause	User	-91.684	496.786	73.781	21.016
+box	cause	User / Shaky hands	-159.854	364.002	92.457	17.319
+box	head	Blurry Photo	0	197.2	72	105.6
+canvas	-179.912	-40.348	271.912	578.15
+font	Liberation Sans	90

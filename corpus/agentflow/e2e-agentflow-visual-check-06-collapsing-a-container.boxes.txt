@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c02c64e654fcdb45
+box	edge	processing --> publish	138	235	0	94
+box	edge	receive --> processing	138	96	0	70
+box	flow	intake	21	12	234	108
+box	flow	output	12	285	252	163
+box	flow	processing	95.367	170	85.266	65
+box	node	publish	36	333	204	91
+box	node	receive	45	60	186	36
+canvas	4	4	268	452
+font	Liberation Sans	88

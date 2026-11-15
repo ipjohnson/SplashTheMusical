@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3bbb46e454d50a62
+accept	no
+# error Duplicate event modeling frame ID "01" on line 4

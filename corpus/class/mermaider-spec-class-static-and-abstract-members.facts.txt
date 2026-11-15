@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 60f41b0484033728
+accept	yes
+attribute	MathUtils	+PI$ double
+class	MathUtils	MathUtils
+drawn	yes
+method	MathUtils	+add(a, b) : int
+method	MathUtils	+compute() : void
+type	classDiagram

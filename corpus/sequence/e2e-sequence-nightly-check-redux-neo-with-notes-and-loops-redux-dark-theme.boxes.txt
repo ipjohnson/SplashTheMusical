@@ -1,0 +1,42 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9be7bba123eec1af
+box	actor	Admin	52.339	0	45.322	68.073
+box	actor	AuthService	465	0	98.108	68.073
+box	actor	Dashboard	243	0	150	73
+box	actor	Logs	1245	0	156	73
+box	actor	UserDB	1092.014	0	55.972	68.073
+box	actor	UserManager	671.567	0	96.866	68.073
+box	actor	UserProfile	880.452	0	79.097	68.073
+box	actor-bottom	Admin	52.339	717	45.322	68.073
+box	actor-bottom	AuthService	465	717	98.108	68.073
+box	actor-bottom	Dashboard	243	711	150	73
+box	actor-bottom	Logs	1251	711	150	67
+box	actor-bottom	UserManager	671.567	717	96.866	68.073
+box	actor-bottom	UserProfile	880.452	717	79.097	68.073
+box	block	loop Authentication check	307	127	224	147
+box	message	Admin --> Dashboard	76	117	235	0
+box	message	AuthService --> Dashboard	325	264	194	0
+box	message	Dashboard --> AuthService	319	220	194	0
+box	message	Dashboard --> Logs	319	647	1000	0
+box	message	Dashboard --> UserManager	319	318	394	0
+box	message	Logs --> Admin	82	691	1243	0
+box	message	UserDB --> UserManager	727	406	392	0
+box	message	UserManager --> Dashboard	325	603	394	0
+box	message	UserManager --> UserDB	721	362	392	0
+box	message	UserManager --> UserProfile	721	515	192	0
+box	message	UserProfile --> UserManager	727	559	192	0
+box	message-text	Admin --> Dashboard	107.784	92.901	172.433	19.146
+box	message-text	AuthService --> Dashboard	366.896	239.901	110.209	19.146
+box	message-text	Dashboard --> AuthService	350.246	195.901	131.508	19.146
+box	message-text	Dashboard --> Logs	766.124	622.901	105.751	19.146
+box	message-text	Dashboard --> UserManager	481.792	293.901	68.417	19.146
+box	message-text	Logs --> Admin	670.674	666.901	66.652	19.146
+box	message-text	UserDB --> UserManager	863.453	381.901	119.093	19.146
+box	message-text	UserManager --> Dashboard	474.016	578.901	95.969	19.146
+box	message-text	UserManager --> UserDB	873.458	337.901	87.084	19.146
+box	message-text	UserManager --> UserProfile	763.691	490.901	106.619	19.146
+box	message-text	UserProfile --> UserManager	768.793	534.901	108.414	19.146
+box	note	Encrypted data requires decryption	1145	416	156	55
+canvas	-50	-10	1501	835
+font	Liberation Sans	656

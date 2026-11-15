@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 15ceda2980d9d152
+accept	yes
+drawn	yes
+label	Adding journey diagram functionality to mermaid
+title	Adding journey diagram functionality to mermaid
+type	journey

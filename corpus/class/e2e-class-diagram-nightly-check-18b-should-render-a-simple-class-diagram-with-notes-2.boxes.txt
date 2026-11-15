@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6e5f485522d85ac9
+box	class	Class10	221.961	106	84.703	135
+box	note	Cool class I said it's very cool class!	181.5	12	165.625	54
+box	note	I love this diagram! Do you love it?	12	12	129.5	54
+canvas	4	4	351.125	245
+font	Liberation Sans	184

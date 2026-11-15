@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 20f32830793e5aa3
+accept	yes
+actor	Client	Client	actor
+actor	CloudService	CloudService	boundary
+actor	DataProcessor	DataProcessor	control
+actor	EventBus	EventBus	queue
+actor	MobileApp	MobileApp	participant
+actor	Transaction	Transaction	entity
+actor	TransactionsDB	TransactionsDB	database
+block	alt	Authentication successful
+divider	Authentication failed
+drawn	yes
+message	Client	MobileApp	solid	filled	Initiate transaction
+message	CloudService	MobileApp	dashed	filled	Auth token
+message	CloudService	MobileApp	dashed	filled	Error
+message	DataProcessor	Transaction	solid	filled	Create transaction
+message	EventBus	Client	dashed	filled	Notification
+message	MobileApp	Client	dashed	filled	Show error
+message	MobileApp	CloudService	solid	filled	Authenticate
+message	MobileApp	DataProcessor	solid	filled	Process data
+message	Transaction	EventBus	solid	filled	Publish event
+message	Transaction	TransactionsDB	solid	filled	Save record
+message	TransactionsDB	Transaction	dashed	filled	Confirmation
+type	sequence

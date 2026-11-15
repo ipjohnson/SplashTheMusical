@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dc1c5ee8407dd1e6
+accept	yes
+direction	LR
+drawn	no
+type	usecase

@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b1fd98db92529050
+accept	yes
+drawn	yes
+label	xAxisName
+label	yAxisName
+series	line	10,20,30
+type	xychart
+x-axis	xAxisName
+y-axis	yAxisName

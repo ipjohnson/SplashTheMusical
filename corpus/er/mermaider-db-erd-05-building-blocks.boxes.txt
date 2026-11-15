@@ -1,0 +1,65 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b69bc2e5e9b184f9
+box	entity	ApiReference	310.171	598	124.828	81
+box	entity	Assembly	1053.448	12	100.688	81
+box	entity	Catalog	553.679	214	100	81
+box	entity	CodexSite	488.285	800	104.594	81
+box	entity	Content	577.259	598	100	81
+box	entity	DocumentationSet	639.493	396	155.187	81
+box	entity	LinkManifest	714.295	800	118.594	81
+box	entity	LinkRegistry	683.443	1002	117.031	81
+box	entity	Navigation	916.315	598	106.156	81
+box	entity	OpenApiRepository	12	1002	161.406	81
+box	entity	OpenApiSpec	29.5	800	126.406	81
+box	entity	Registry	559.329	1184	100	81
+box	entity	ReleaseNotes	225.203	800	127.937	81
+box	entity	Repository	106.783	214	106.922	81
+box	entity	SearchIndex	1095.077	214	118.609	81
+box	entity	SiteNavigation	924.796	214	130.281	81
+box	relation	ApiReference --> OpenApiSpec	110.438	679	262.147	121
+box	relation	Assembly --> LinkRegistry	766.217	93	467.469	909
+box	relation	Assembly --> Repository	160.244	93	919.342	121
+box	relation	Assembly --> SearchIndex	1111.86	93	42.521	121
+box	relation	Assembly --> SiteNavigation	989.936	93	105.787	121
+box	relation	Catalog --> DocumentationSet	617.013	295	122.606	101
+box	relation	Catalog --> ReleaseNotes	289.171	295	301.175	505
+box	relation	CodexSite --> LinkRegistry	554.68	881	163.021	121
+box	relation	CodexSite --> Registry	491.582	881	104.414	303
+box	relation	Content --> LinkManifest	640.592	679	116.568	121
+box	relation	Content --> ReleaseNotes	316.156	679	297.769	121
+box	relation	DocumentationSet --> ApiReference	372.585	477	303.946	121
+box	relation	DocumentationSet --> Content	627.259	477	76.31	121
+box	relation	DocumentationSet --> LinkManifest	730.606	477	83.94	323
+box	relation	DocumentationSet --> Navigation	757.643	477	197.39	121
+box	relation	LinkManifest --> LinkRegistry	741.959	881	31.633	121
+box	relation	LinkRegistry --> Registry	622.662	1083	119.297	101
+box	relation	OpenApiSpec --> OpenApiRepository	92.703	881	0	121
+box	relation	Repository --> DocumentationSet	181.974	295	512.582	101
+box	relation	Repository --> OpenApiSpec	58.687	295	79.826	505
+box	relation	Repository --> ReleaseNotes	160.244	295	101.943	505
+box	relation	SiteNavigation --> Navigation	983.753	295	6.184	303
+box	relation-label	ApiReference --> OpenApiSpec	319.085	719	107	21
+box	relation-label	Assembly --> LinkRegistry	1176.686	537	113.578	21
+box	relation-label	Assembly --> Repository	126.744	153	66.156	21
+box	relation-label	Assembly --> SearchIndex	1103.381	153	101.172	21
+box	relation-label	Assembly --> SiteNavigation	944.936	153	89.5	21
+box	relation-label	Catalog --> DocumentationSet	676.618	335	125.297	21
+box	relation-label	Catalog --> ReleaseNotes	262.171	537	53.703	21
+box	relation-label	CodexSite --> LinkRegistry	512.581	921	153.266	21
+box	relation-label	CodexSite --> Registry	452.582	1032	77.047	21
+box	relation-label	Content --> LinkManifest	617.454	719	166.516	21
+box	relation-label	Content --> ReleaseNotes	465.134	719	130	21
+box	relation-label	DocumentationSet --> ApiReference	363.085	537	18.688	21
+box	relation-label	DocumentationSet --> Content	600.759	537	52.156	21
+box	relation-label	DocumentationSet --> LinkManifest	767.046	628	94.187	21
+box	relation-label	DocumentationSet --> Navigation	867.186	537	102.75	21
+box	relation-label	LinkManifest --> LinkRegistry	739.592	921	67.719	21
+box	relation-label	LinkRegistry --> Registry	692.959	1123	97.281	21
+box	relation-label	OpenApiSpec --> OpenApiRepository	54.703	921	75.516	21
+box	relation-label	Repository --> DocumentationSet	174.343	335	94.828	21
+box	relation-label	Repository --> OpenApiSpec	28.687	537	59.156	21
+box	relation-label	Repository --> ReleaseNotes	115.103	537	90.281	21
+box	relation-label	SiteNavigation --> Navigation	966.936	426	45.922	21
+canvas	4	4	1294.264	1269
+font	Liberation Sans	962

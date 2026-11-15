@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e8b9c18297d18e58
+accept	yes
+attribute	BankAccount	+BigDecimal balance
+attribute	BankAccount	+String owner
+class	BankAccount	BankAccount
+drawn	yes
+method	BankAccount	+deposit(amount)
+method	BankAccount	+withdrawal(amount)
+type	classDiagram

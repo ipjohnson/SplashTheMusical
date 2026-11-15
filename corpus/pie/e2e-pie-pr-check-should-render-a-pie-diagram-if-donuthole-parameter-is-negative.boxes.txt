@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source acbe829ef225ac14
+box	legend	Cat	441	213	48.469	19
+box	legend	Dog	441	191	53.188	19
+box	legend	Fish	441	235	54.125	19
+box	slice	Cat	39.999	90.38	198.1	319.62
+box	slice	Dog	225	40	185.004	369.536
+box	slice	Fish	98.104	40	126.896	185
+box	title	Owned Pet	163.156	2	123.688	28
+canvas	0	0	544.125	450
+font	Liberation Sans	56

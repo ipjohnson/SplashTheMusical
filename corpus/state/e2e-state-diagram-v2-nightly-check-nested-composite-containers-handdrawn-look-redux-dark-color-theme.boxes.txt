@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4d110b00a43e449e
+box	edge	Boot --> Running	233.583	463.642	0.951	40.114
+box	edge	Running --> [*]end@root	233.414	654.336	0.832	40.373
+box	edge	[*]start@Boot --> Firmware	104.376	129.611	0.325	24.392
+box	edge	[*]start@Drivers --> Probe	314.153	327.851	1.016	24.301
+box	edge	[*]start@Kernel --> Sched	289.755	176.55	0.871	24.228
+box	edge	[*]start@Running --> Serving	233.736	566.284	0.642	24.305
+box	edge	[*]start@root --> Boot	233.538	25.919	0.8	40.712
+box	group	Boot	10.174	65.103	447.229	399.674
+box	group	Drivers	219.804	263.08	189.602	153.833
+box	group	Kernel	194.548	111.507	241.854	330.777
+box	group	Running	140.463	502.362	187.995	153.5
+box	node	Firmware	36.104	153.913	137.375	39.905
+box	node	Probe	245.284	352.504	138.647	39.929
+box	node	Sched	221.203	200.905	137.534	40.176
+box	node	Serving	165.442	590.756	137.557	40.027
+box	node	[*]end@root	226.639	694.436	15.038	15.424
+box	node	[*]start@Boot	97.206	114.237	15.093	15.203
+box	node	[*]start@Drivers	306.581	312.777	16.013	14.968
+box	node	[*]start@Kernel	281.969	162.568	15.561	14.219
+box	node	[*]start@Running	226.731	551.593	14.596	14.701
+box	node	[*]start@root	225.952	11.97	15.692	14.49
+canvas	2.174	3.97	463.229	713.89
+font	Liberation Sans	98

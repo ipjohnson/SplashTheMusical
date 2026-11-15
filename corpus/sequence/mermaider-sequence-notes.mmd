@@ -1,0 +1,9 @@
+sequenceDiagram
+  participant A as Frontend
+  participant B as Backend
+  A->>B: Login request
+  Note right of B: Validate credentials
+  B-->>A: Auth token
+  Note over A,B: Subsequent requests use JWT
+  A->>B: GET /data
+  Note left of A: Display results

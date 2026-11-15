@@ -1,0 +1,15 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 805cb0b9ab39bd66
+layout	1
+graph	LR	50	20	75	8	8
+node	This\n  Title\n  Has\n  Many\n  Newlines	testingNamespace	139.1640625	303
+node	testingNamespace		0	0
+size	230.1640625	389
+place	This\n  Title\n  Has\n  Many\n  Newlines	115.08203125	194.5	139.1640625	303
+place	testingNamespace	115.08203125	194.5	214.1640625	373
+layout	2
+graph	TB	50	20	50	8	8
+node	testingNamespace		214.1640625	373
+size	230.1640625	389
+place	testingNamespace	115.08203125	194.5	214.1640625	373

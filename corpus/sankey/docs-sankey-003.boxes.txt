@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2134589c75e25712
+box	flow	Bio-conversion --> Gas	10	345.111	580	18.739
+box	flow	Bio-conversion --> Losses	10	11.967	580	35.261
+box	flow	Bio-conversion --> Solid	10	175.817	580	8.261
+box	node	Bio-conversion	0	35.261	10	346
+box	node	Gas	590	327.701	10	72.299
+box	node	Losses	590	0	10	23.934
+box	node	Solid	590	50.934	10	249.767
+canvas	0	-1.033	600	401.033
+font	Liberation Sans	108

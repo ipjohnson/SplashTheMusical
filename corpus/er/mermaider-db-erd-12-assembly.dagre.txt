@@ -1,0 +1,34 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f5bb03c5502df455
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Assembly-0		100.6875	81
+node	entity-Repository-1		106.921875	81
+node	entity-PublishEnvironment-2		164.515625	81
+node	entity-SearchIndex-3		118.609375	81
+node	entity-Build-4		100	81
+node	entity-AssembledDocumentationSet-5		224.4375	81
+node	entity-CloudfrontRedirectMap-6		183.96875	81
+node	entity-SyncPlan-7		99.15625	81
+edge	entity-Assembly-0	entity-Repository-1	id_entity-Assembly-0_entity-Repository-1_0	1	1	66.15625	21	10	c
+edge	entity-Assembly-0	entity-PublishEnvironment-2	id_entity-Assembly-0_entity-PublishEnvironment-2_1	1	1	84.046875	21	10	c
+edge	entity-PublishEnvironment-2	entity-SearchIndex-3	id_entity-PublishEnvironment-2_entity-SearchIndex-3_2	1	1	69.78125	21	10	c
+edge	entity-Build-4	entity-AssembledDocumentationSet-5	id_entity-Build-4_entity-AssembledDocumentationSet-5_3	1	1	66.921875	21	10	c
+edge	entity-Build-4	entity-CloudfrontRedirectMap-6	id_entity-Build-4_entity-CloudfrontRedirectMap-6_4	1	1	83.265625	21	10	c
+edge	entity-Build-4	entity-SyncPlan-7	id_entity-Build-4_entity-SyncPlan-7_5	1	1	41.265625	21	10	c
+size	1355	461
+place	entity-Assembly-0	199.3203125	48.5	100.6875	81
+place	entity-Repository-1	61.4609375	230.5	106.921875	81
+place	entity-PublishEnvironment-2	337.1796875	230.5	164.515625	81
+place	entity-SearchIndex-3	337.1796875	412.5	118.609375	81
+place	entity-Build-4	1015.859375	48.5	100	81
+place	entity-AssembledDocumentationSet-5	671.65625	230.5	224.4375	81
+place	entity-CloudfrontRedirectMap-6	1015.859375	230.5	183.96875	81
+place	entity-SyncPlan-7	1297.421875	230.5	99.15625	81
+route	entity-Assembly-0	entity-Repository-1	id_entity-Assembly-0_entity-Repository-1_0	61.4609375	139.5	148.9765625,81.7315538932336 61.4609375,139.5 61.4609375,190
+route	entity-Assembly-0	entity-PublishEnvironment-2	id_entity-Assembly-0_entity-PublishEnvironment-2_1	337.1796875	139.5	249.6640625,81.7315538932336 337.1796875,139.5 337.1796875,190
+route	entity-PublishEnvironment-2	entity-SearchIndex-3	id_entity-PublishEnvironment-2_entity-SearchIndex-3_2	337.1796875	321.5	337.1796875,271 337.1796875,321.5 337.1796875,372
+route	entity-Build-4	entity-AssembledDocumentationSet-5	id_entity-Build-4_entity-AssembledDocumentationSet-5_3	671.65625	139.5	965.859375,61.71893867175088 671.65625,139.5 671.65625,190
+route	entity-Build-4	entity-CloudfrontRedirectMap-6	id_entity-Build-4_entity-CloudfrontRedirectMap-6_4	1015.859375	139.5	1015.859375,89 1015.859375,139.5 1015.859375,190
+route	entity-Build-4	entity-SyncPlan-7	id_entity-Build-4_entity-SyncPlan-7_5	1297.421875	139.5	1065.859375,64.65982241953385 1297.421875,139.5 1297.421875,190

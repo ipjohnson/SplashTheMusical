@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ada1a07b563aaded
+accept	no
+# error end of the stream or a document separator is expected (6:7)

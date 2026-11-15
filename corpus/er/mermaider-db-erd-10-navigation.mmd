@@ -1,0 +1,5 @@
+erDiagram
+    TocItem ||--|| NavigationNode : "mirrors"
+    SiteNavigation ||--|{ SiteMount : "toc"
+    SiteMount }o--|| NavigationNode : "re-homes"
+    SiteNavigation ||--o{ Phantom : "phantoms"

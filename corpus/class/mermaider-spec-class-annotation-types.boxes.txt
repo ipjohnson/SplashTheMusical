@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a6808a279b1fb38
+box	class	Circle	153.441	229	62.922	81
+box	class	Color	391.766	12	120.5	177
+box	class	Drawable	207.922	48	143.844	141
+box	class	EventBus	552.266	30	189.758	141
+box	class	Shape	12	48	155.922	141
+box	relation	Drawable --> Circle	192.056	206.25	87.788	22.75
+box	relation	Shape --> Circle	89.961	206.25	87.788	22.75
+canvas	4	4	746.023	314
+font	Liberation Sans	278

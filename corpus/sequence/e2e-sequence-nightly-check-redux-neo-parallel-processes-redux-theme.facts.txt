@@ -1,0 +1,25 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bfc6693b6338b866
+accept	yes
+actor	Customer	Customer	actor
+actor	Frontend	Frontend	participant
+actor	InventoryManager	InventoryManager	control
+actor	NotificationQueue	NotificationQueue	queue
+actor	Order	Order	entity
+actor	OrdersDB	OrdersDB	database
+actor	PaymentService	PaymentService	boundary
+block	par	Parallel Processing
+divider
+drawn	yes
+message	Customer	Frontend	solid	filled	Place order
+message	Frontend	Order	solid	filled	Create order
+message	InventoryManager	Order	dashed	filled	Items reserved
+message	NotificationQueue	Customer	dashed	filled	Order confirmation
+message	Order	InventoryManager	solid	filled	Reserve items
+message	Order	NotificationQueue	solid	filled	Send confirmation
+message	Order	OrdersDB	solid	filled	Save finalized order
+message	Order	PaymentService	solid	filled	Process payment
+message	OrdersDB	Order	dashed	filled	Order saved
+message	PaymentService	Order	dashed	filled	Payment confirmed
+type	sequence

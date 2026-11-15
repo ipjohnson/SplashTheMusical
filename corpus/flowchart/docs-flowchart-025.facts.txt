@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 26d721957df8d7a3
+accept	yes
+drawn	yes
+node	A	Terminal point	stadium
+type	flowchart-v2

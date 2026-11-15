@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 88396f2d845ab8cd
+box	node	Data Store	445.2	269.216	60.603	21.984
+box	node	Data Store_batch-loader	604.8	282.816	69.588	23.184
+box	node	Data Store_real-time queue	249.2	294	69.489	28.296
+canvas	0	0	900	600
+font	Liberation Sans	182

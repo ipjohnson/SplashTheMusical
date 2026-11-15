@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 74df22ac9f981a34
+accept	yes
+drawn	yes
+edge	classify	prioritize	none	arrow	solid	No
+edge	classify	respond	none	arrow	solid	Yes
+edge	implement	respond	none	arrow	solid
+edge	prioritize	implement	none	arrow	solid
+group	Engineering	Engineering	implement
+group	Product	Product	prioritize
+group	Support	Support	classify,respond
+node	classify	Can support solve it?	diam
+node	implement	Implement fix	rect
+node	prioritize	Prioritize fix	rect
+node	respond	Respond to customer	rect
+type	swimlane

@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e13577f76590bd76
+accept	yes
+class	Car	Car<T>
+class	Driver	Driver
+class	Person	Person
+class	Wheel	Wheel
+drawn	yes
+relation	Car	Person	none	none	solid	< owns
+relation	Car	Wheel	diamond-filled	none	solid	have 4 >
+relation	Driver	Car	none	none	solid	drives >
+type	classDiagram

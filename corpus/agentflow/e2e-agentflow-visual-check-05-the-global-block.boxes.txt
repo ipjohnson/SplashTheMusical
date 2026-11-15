@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d0e1efdd3ab6d4f4
+box	edge	index --> corpus	111	111	94.467	74
+box	edge	summarise --> corpus	254.533	111	94.467	74
+box	flow	indexer	12	12	198	123
+box	flow	summariser	250	12	198	123
+box	node	corpus	146.4	184.996	167.2	67.492
+box	node	index	36	60	150	51
+box	node	summarise	274	60	150	51
+canvas	4	4	452	256.488
+font	Liberation Sans	100

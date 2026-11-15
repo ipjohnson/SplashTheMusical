@@ -1,0 +1,29 @@
+classDiagram
+class Vehicle {
+<<abstract>>
++String make
++int year
++start() void
++stop() void
+}
+class Car {
++int doors
++drive() void
+}
+class Truck {
++double payload
++haul() void
+}
+class Electric {
+<<interface>>
++charge() void
++batteryLevel() int
+}
+Vehicle <|-- Car
+Vehicle <|-- Truck
+Electric <|.. Car : optional
+Car *-- Engine
+class Engine {
++int horsepower
++String type
+}

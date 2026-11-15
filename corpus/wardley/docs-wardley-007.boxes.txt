@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eaade9886d10fc14
+box	link	Legacy System --> New Platform	371.823	229.973	35.755	89.654
+box	node	Legacy System	363.6	308.016	82.359	23.184
+box	node	New Platform	403.8	207.216	74.018	23.184
+box	title	Inertia	431.103	15.839	37.872	13.776
+canvas	0	0	900	600
+font	Liberation Sans	172

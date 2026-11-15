@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 461ef6018efa9f60
+accept	yes
+class	Foo	Foo
+drawn	yes
+namespace	A	A.B
+namespace	A.B	Foo
+type	classDiagram

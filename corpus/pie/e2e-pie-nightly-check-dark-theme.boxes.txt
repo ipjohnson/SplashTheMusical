@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 169d9c74c13d91f9
+box	legend	Bandy	441	191	70.203	19
+box	legend	Football	441	235	82.484	19
+box	legend	Ice-Hockey	441	213	107.031	19
+box	slice	Bandy	225	40	172.212	185
+box	slice	Football	40.001	40	184.999	351.679
+box	slice	Ice-Hockey	144.732	157.412	265.268	252.588
+box	title	Sports in Sweden	127.023	2	195.953	28.188
+canvas	0	0	597.031	450
+font	Liberation Sans	96

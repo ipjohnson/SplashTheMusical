@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4814bc421d5a64bd
+box	event	Installation (7.5.3) / Installation Activities (7.5.3)	1400	366.12	190	63.712
+box	event	Management Resposibility (5) / Management Reviews (5.6)	400	439.833	190	63.712
+box	event	Management Resposibility (5) / Planning Activities (5.4)	400	366.12	190	63.712
+box	event	Post-Market Activities (8) / Adverse Events (8.2.3)	1800	486.12	190	63.712
+box	event	Post-Market Activities (8) / Complaints (8.2.2)	1800	426.12	190	50
+box	event	Post-Market Activities (8) / Feedback (8.2.1)	1800	366.12	190	50
+box	event	Production (7.5) / Production Activities (7.5.1)	1200	366.12	190	63.712
+box	event	Production (7.5) / Production Feedback (8.2.1)	1200	439.833	190	63.712
+box	event	Purchasing (7.4) / Purchasing Information (7.4.2)	1000	439.833	190	63.712
+box	event	Purchasing (7.4) / Purchasing Process (7.4.1)	1000	366.12	190	63.712
+box	event	Quality Management System (4) / Regulatory Compliance (4.1.1)	200	366.12	190	63.72
+box	event	Quality Management System (4) / Risk Management (4.1.2)	200	439.841	190	63.712
+box	event	Research and Development (7.3) / Inputs (7.3.3)	800	426.12	190	50
+box	event	Research and Development (7.3) / Outputs (7.3.4)	800	486.12	190	50
+box	event	Research and Development (7.3) / Review (7.3.5)	800	546.12	190	50
+box	event	Research and Development (7.3) / RnD Planning (7.3.2)	800	366.12	190	50
+box	event	Research and Development (7.3) / Validation (7.3.7)	800	666.12	190	50
+box	event	Research and Development (7.3) / Verification (7.3.6)	800	606.12	190	50
+box	event	Resource Management (6) / Human Resources (6.2)	600	366.12	190	63.712
+box	event	Resource Management (6) / Infrastructure (6.3)	600	439.833	190	50
+box	event	Servicing (7.5.4) / Servicing Activities (7.5.4)	1600	366.12	190	63.712
+box	period	Installation (7.5.3)	1400	166.12	190	66.12
+box	period	Management Resposibility (5)	400	166.12	190	66.12
+box	period	Post-Market Activities (8)	1800	166.12	190	66.12
+box	period	Production (7.5)	1200	166.12	190	66.12
+box	period	Purchasing (7.4)	1000	166.12	190	66.12
+box	period	Quality Management System (4)	200	166.12	190	66.12
+box	period	Research and Development (7.3)	800	166.12	190	66.12
+box	period	Resource Management (6)	600	166.12	190	66.12
+box	period	Servicing (7.5.4)	1600	166.12	190	66.12
+box	section	Planning	200	50	590	66.12
+box	section	Post-Production	1800	50	190	66.12
+box	section	Realization	800	50	990	66.12
+box	title	Medical Device Lifecycle	745	-10.728	396.451	39.108
+canvas	100	-61	2190	869.939
+font	Liberation Sans	1432

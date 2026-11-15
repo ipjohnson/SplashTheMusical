@@ -1,0 +1,16 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 88ac37be776fbca1
+box	section	Build	10	68	24.469	12
+box	section	Ship	10	116	22.031	12.283
+box	task	Build / Add tests	265	74	127	20
+box	task	Build / Implement parser	75	50	190	20
+box	task	Ship / GA	392	122	317	20
+box	task	Ship / RC cut	380.686	96.686	22.627	22.627
+box	task-text	Build / Add tests	305.57	77.5	45.859	12
+box	task-text	Build / Implement parser	127.203	53.5	85.594	12.283
+box	task-text	Ship / GA	542.547	125.5	15.906	12
+box	task-text	Ship / RC cut	407	101.5	33.999	12
+box	title	Release train	338.969	9	106.063	20
+canvas	0	0	784	196
+font	Liberation Sans	330

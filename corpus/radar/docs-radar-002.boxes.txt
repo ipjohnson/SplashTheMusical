@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d61082d634c469eb
+box	axis	Ambiance	-22.375	343	53.375	14
+box	axis	Food Quality	315.977	20	68.047	14
+box	axis	Price	336.328	666.797	27.344	14
+box	axis	Service	669	343	40.016	14
+box	legend	Restaurant A	612.5	85.297	85.375	14.203
+box	legend	Restaurant B	612.5	105.297	86.047	14.203
+box	legend	Restaurant C	612.5	125.297	86.703	14.203
+box	legend	Restaurant D	612.5	145.297	86.703	14.203
+box	title	Restaurant Comparison	265.516	-2.797	168.969	17.32
+canvas	0	0	700	700
+font	Liberation Sans	202

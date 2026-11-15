@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3f22eb0a8bc9b51a
+box	entity	Assembly	522.409	12	100.688	81
+box	entity	Checkout	229.719	12	99.156	81
+box	entity	ContentSource	747.531	194	133.406	81
+box	entity	ContentSourceBranches	536.02	376	192.547	81
+box	entity	DocumentationSet	201.703	194	155.187	81
+box	entity	GitOrigin	231.68	376	95.234	81
+box	entity	LinkRegistryEntry	12	194	149.703	81
+box	entity	NarrativeRepository	543.813	194	163.719	81
+box	entity	PublishEnvironment	731.977	12	164.516	81
+box	entity	Repository	396.891	194	106.922	81
+box	relation	Assembly --> NarrativeRepository	586.201	93	39.471	101
+box	relation	Assembly --> Repository	464.839	93	94.466	101
+box	relation	Checkout --> DocumentationSet	279.297	93	0	101
+box	relation	Checkout --> LinkRegistryEntry	86.852	93	172.656	101
+box	relation	Checkout --> Repository	299.086	93	136.779	101
+box	relation	ContentSource --> ContentSourceBranches	661.051	275	153.184	101
+box	relation	DocumentationSet --> GitOrigin	279.297	275	0	101
+box	relation	PublishEnvironment --> ContentSource	814.234	93	0	101
+box	relation	Repository --> ContentSourceBranches	450.352	275	153.184	101
+box	relation-label	Assembly --> NarrativeRepository	598.172	133	54.469	21
+box	relation-label	Assembly --> Repository	458.836	133	66.156	21
+box	relation-label	Checkout --> DocumentationSet	245.297	133	67.703	21
+box	relation-label	Checkout --> LinkRegistryEntry	26.852	133	119.062	21
+box	relation-label	Checkout --> Repository	377.367	133	61.469	21
+box	relation-label	ContentSource --> ContentSourceBranches	768.734	315	90.281	21
+box	relation-label	DocumentationSet --> GitOrigin	261.797	315	34.25	21
+box	relation-label	PublishEnvironment --> ContentSource	766.234	133	95.734	21
+box	relation-label	Repository --> ContentSourceBranches	387.852	315	124.531	21
+canvas	4	4	900.492	461
+font	Liberation Sans	500

@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 38d4cbad533b67d2
+accept	yes
+drawn	yes
+node	A	Christmas	rect
+type	flowchart-v2

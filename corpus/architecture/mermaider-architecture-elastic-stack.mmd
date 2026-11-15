@@ -1,0 +1,11 @@
+architecture-beta
+group stack(cloud)[Elastic Stack]
+service beats(elastic:beats)[Beats] in stack
+service ls(elastic:logstash)[Logstash] in stack
+service es(elastic:elasticsearch)[Elasticsearch] in stack
+service kbn(elastic:kibana)[Kibana] in stack
+service fleet(elastic:fleet)[Fleet] in stack
+beats:R -- L:ls
+ls:R -- L:es
+es:R -- L:kbn
+fleet:T -- B:beats

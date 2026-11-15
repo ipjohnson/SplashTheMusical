@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 030afda223c8b3ef
+accept	yes
+drawn	yes
+edge	decision	fix	none	arrow	solid	No
+edge	fix	task	none	arrow	solid
+edge	start	task	none	arrow	solid
+edge	task	decision	none	arrow	solid
+group	Intake	Intake	fix,start,task
+group	Review	Review	decision
+node	decision	Ready?	diam
+node	fix	Fix issues	rect
+node	start	Start	stadium
+node	task	Do work	rect
+type	swimlane

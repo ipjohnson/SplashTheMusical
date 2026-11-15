@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 52c1fe35e1cc1c58
+box	edge	disk --> uriResolve	229.313	78	88.438	36
+box	edge	disk --> v1Load	96.875	78	88.438	46.5
+box	edge	hasV2 --> loadFallback	346.417	429.333	76.208	125.667
+box	edge	hasV2 --> loadV2	212.875	429.333	76.208	136.167
+box	edge	loadFallback --> v2NodesFallback	422.625	667	0	36
+box	edge	loadV2 --> v2Nodes	212.875	656.5	0	46.5
+box	edge	uriResolve --> hasV2	317.75	226	0	36
+box	edge	v1Load --> v1Nodes	96.875	215.5	0	46.5
+box	edge-label	hasV2 --> loadFallback	413.625	498	17.906	21
+box	edge-label	hasV2 --> loadV2	201.375	498	22.844	21
+box	node	disk	131.313	12	152	66
+box	node	hasV2	222.25	266	192	192
+box	node	loadFallback	346.625	559	152	108
+box	node	loadV2	136.875	569.5	152	87
+box	node	uriResolve	241.75	118	152	108
+box	node	v1Load	20.875	128.5	152	87
+box	node	v1Nodes	12	266	169.75	66
+box	node	v2Nodes	128	707	169.75	66
+box	node	v2NodesFallback	337.75	707	169.75	87
+canvas	4	4	511.5	798
+font	Liberation Sans	692

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 680dabefb0143911
+box	edge	apm --> es	-228.579	-23.866	271.362	0
+box	edge	edot --> otlp	-165.555	258.839	194.952	0
+box	edge	kbn --> es	-228.579	-144.839	231.379	80.973
+box	edge	oteldemo --> edot	109.397	258.839	120.682	0
+box	edge	otlp --> apm	-188.579	-63.866	91.725	322.705
+box	group	ech	-271.079	-227.339	364.862	302.973
+box	group	k8s	-13.103	176.339	365.682	182
+box	junction	otlp	-205.555	218.839	80	80
+box	service	apm	-228.579	-63.866	80	103.219
+box	service	edot	29.397	218.839	80	103.219
+box	service	es	-44.764	-63.866	95.095	103.219
+box	service	kbn	-228.579	-184.839	80	103.219
+box	service	oteldemo	230.079	218.839	80	103.219
+canvas	-311.079	-267.339	703.658	665.677
+font	Liberation Sans	80

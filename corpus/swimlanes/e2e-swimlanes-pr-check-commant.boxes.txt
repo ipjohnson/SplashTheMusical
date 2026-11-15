@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ff2f5ccbcfa35414
+box	edge	collect --> ship	1080.347	671.797	268.615	0
+box	edge	details --> order_complete	563.108	296.61	365.24	0.89
+box	edge	order_complete --> details	566.308	284	358.04	0
+box	edge	order_complete --> roadmap	458.308	340	0	271.797
+box	edge	places_order --> order_complete	458.308	22.5	0	201.5
+box	edge	purchase --> received	534.308	1093.172	358.04	0
+box	edge	received --> collect	1004.347	719.297	0	317.875
+box	edge	roadmap --> collect	566.308	671.797	358.04	0
+box	edge	roadmap --> purchase	458.308	727.797	0	328.375
+box	edge	sales_process --> places_order	111	0	267.308	0
+box	edge	ship --> receives_order	1428.963	26.5	0	622.797
+box	edge-label	order_complete --> details	739.538	273.5	15.578	21
+box	edge-label	order_complete --> roadmap	447.409	467.398	21.797	21
+box	edge-label	roadmap --> purchase	450.519	883.484	15.578	21
+box	group	customer	-85	-72	1599.963	204
+box	group	purchasing	-85	838.34	1599.963	346.832
+box	group	sales	-85	132	1599.963	284.199
+box	group	warehouse	-85	416.199	1599.963	422.141
+box	node	collect	928.347	628.297	152	87
+box	node	details	928.347	261.5	152	45
+box	node	order_complete	350.308	228	216	112
+box	node	places_order	382.308	-22.5	152	45
+box	node	purchase	382.308	1060.172	152	66
+box	node	received	896.347	1037.172	216	112
+box	node	receives_order	1352.963	-22.5	152	45
+box	node	roadmap	350.308	615.797	216	112
+box	node	sales_process	-39	-36	150	72
+box	node	ship	1352.963	649.297	152	45
+canvas	-93	-80	1615.963	1273.172
+font	Liberation Sans	428

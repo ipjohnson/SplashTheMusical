@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 288f69d6bad3aced
+accept	yes
+class	IPC::Sender	IPC::Sender
+drawn	yes
+namespace	A::B	IPC::Sender
+type	classDiagram

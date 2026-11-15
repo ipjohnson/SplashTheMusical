@@ -1,0 +1,36 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a927d017b093b97
+box	edge	root / Node1	162.199	159.783	109.87	66.053
+box	edge	root / Node10	182.531	155.507	87.797	20.767
+box	edge	root / Node11	77.413	142.317	192.528	9.035
+box	edge	root / Node12	184.679	118.447	86.024	28.84
+box	edge	root / Node13	298.773	109.388	88.668	36.903
+box	edge	root / Node14	299.919	147.388	151.626	4.247
+box	edge	root / Node15	294.916	163.243	68.802	77.042
+box	edge	root / Node2	299.306	156.319	166.307	49.318
+box	edge	root / Node3	298.826	157.691	66.557	26.984
+box	edge	root / Node4	176.523	69.898	96.447	73.096
+box	edge	root / Node5	275.516	46.94	8.072	90.174
+box	edge	root / Node6	262.243	166.73	19.575	92.469
+box	edge	root / Node7	295.578	61.035	81.174	80.46
+box	edge	root / Node8	282.813	99.722	1.507	37.345
+box	edge	root / Node9	269.817	166.52	11.139	40.592
+box	node	root	251.136	135.055	67.578	34
+box	node	root / Node1	105.766	216.565	87.156	34
+box	node	root / Node10	119.911	162.727	96.047	34
+box	node	root / Node11	15	124.614	94.859	34
+box	node	root / Node12	122.433	96.68	96.047	34
+box	node	root / Node13	353.266	86.625	96.047	34
+box	node	root / Node14	418.516	129.968	96.047	34
+box	node	root / Node15	325.686	234.473	96.047	34
+box	node	root / Node2	436.416	192.901	87.156	34
+box	node	root / Node3	335.705	173.311	87.156	34
+box	node	root / Node4	120.99	43.837	87.156	34
+box	node	root / Node5	230.6	15	87.156	34
+box	node	root / Node6	215.559	256.874	87.156	34
+box	node	root / Node7	343.827	33.475	87.156	34
+box	node	root / Node8	238.631	67.734	87.156	34
+box	node	root / Node9	222.27	204.578	87.156	34
+canvas	5	5	528.573	295.874
+font	Liberation Sans	170

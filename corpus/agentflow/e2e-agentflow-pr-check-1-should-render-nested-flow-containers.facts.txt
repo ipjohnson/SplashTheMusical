@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bcf1ea55dd416b5b
+accept	yes
+direction	LR
+drawn	yes
+edge	evaluate	risk	sequence
+edge	extract	assess	sequence
+edge	receive_pr	analysis	sequence
+flow	assess	Assess Risk	evaluate,risk
+flow	extract	Extract Changes	analysis,receive_pr
+flow	pipeline	Review Pipeline	assess,extract
+flow	review_agent	Code Review Agent	pipeline
+label	Assess Risk
+label	Code Analysis
+label	Code Review Agent
+label	Evaluate
+label	Extract Changes
+label	Receive PR
+label	Review Pipeline
+label	Risk Assessment
+node	analysis	Code Analysis	square	task
+node	evaluate	Evaluate	rect	task
+node	receive_pr	Receive PR	rect	task
+node	risk	Risk Assessment	square	task
+type	agentflow

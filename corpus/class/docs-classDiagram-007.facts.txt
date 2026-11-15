@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 01f18827962a86cd
+accept	yes
+class	Animal Class!	Animal Class!
+class	Car Class	Car Class
+drawn	yes
+relation	Animal Class!	Car Class	none	arrow	solid
+type	classDiagram

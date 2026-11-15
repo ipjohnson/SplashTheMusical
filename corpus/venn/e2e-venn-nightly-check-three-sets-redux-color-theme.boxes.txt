@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dfb83d14867d6b1b
+box	set	Desirable	191.171	179.017	255.983	255.983
+box	set	Feasible	352.847	179.017	255.983	255.983
+box	set	Viable	272.009	39	255.983	255.983
+box	union	Desirable,Feasible,Viable	354.482	207.777	91.037	87.206
+canvas	0	0	800	450
+font	Liberation Sans	86

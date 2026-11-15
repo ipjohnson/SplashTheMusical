@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9d74c99b21700b53
+box	cause	Hardware	-124.384	-19.306	109.359	21.016
+box	cause	Hardware / Disk	-145.947	170.528	31.115	17.001
+box	cause	Hardware / Disk / Bad sectors	-169.195	48.42	84.441	17.001
+box	cause	Hardware / Disk / Full capacity	-188.682	107.364	88.879	17.319
+box	cause	Hardware / Memory	-151.037	288.417	57.752	17.319
+box	cause	Hardware / Memory / Leak detected	-169.541	225.253	100.473	17.001
+box	cause	Software	-91.452	497.828	103.141	21.016
+box	cause	Software / Bug	-120.082	394.517	28.454	17.319
+box	cause	Software / Bug / Race condition	-171.54	448.657	105.786	17.001
+box	head	Server Outage	0	304.343	72	105.6
+canvas	-208.725	-39.306	300.725	578.15
+font	Liberation Sans	184

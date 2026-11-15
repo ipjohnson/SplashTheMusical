@@ -1,0 +1,15 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a925440eb2750e8
+accept	yes
+actor	B	Bound	boundary
+actor	C	Ctrl	control
+actor	Co	Coll	collections
+actor	DB	Database	database
+actor	E	Ent	entity
+actor	Plain	Plain	participant
+actor	Q	Que	queue
+actor	User	User	actor
+drawn	yes
+message	User	DB	solid	filled	query
+type	sequence

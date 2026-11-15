@@ -1,0 +1,6 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a38563979d0c96ce
+accept	yes
+drawn	yes
+type	gantt

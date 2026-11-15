@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 01f53b9e79db0fe3
+accept	yes
+attribute	Animal	+String gender
+attribute	Animal	+int age
+attribute	Duck	+String beakColor
+attribute	Fish	-int sizeInFeet
+attribute	Zebra	+bool is_wild
+class	Animal	Animal
+class	Duck	Duck
+class	Fish	Fish
+class	Zebra	Zebra
+drawn	yes
+method	Animal	+isMammal()
+method	Animal	+mate()
+method	Duck	+quack()
+method	Duck	+swim()
+method	Fish	-canEat()
+method	Zebra	+run()
+note		From Duck till Zebra
+note	Duck	can fly can swim can dive can help in debugging
+relation	Animal	Duck	triangle	none	solid
+relation	Animal	Fish	triangle	none	solid
+relation	Animal	Zebra	triangle	none	solid
+type	classDiagram

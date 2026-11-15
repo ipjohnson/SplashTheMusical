@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f0c5bc53bd140f3c
+accept	yes
+actor	AuthService	AuthService	control
+actor	MongoDB	MongoDB	database
+actor	OrderController	OrderController	control
+actor	OrderQueue	OrderQueue	queue
+actor	Product	Product	entity
+actor	Products	Products	collections
+actor	UI	UI	boundary
+actor	User	User	actor
+drawn	yes
+message	AuthService	UI	dashed	filled	Authentication token
+message	MongoDB	OrderController	dashed	filled	Order saved
+message	OrderController	MongoDB	solid	filled	Save order
+message	OrderController	OrderQueue	solid	filled	Process payment
+message	OrderController	Product	solid	filled	Check availability
+message	OrderQueue	User	dashed	filled	Order confirmation
+message	Product	OrderController	dashed	filled	Available
+message	UI	AuthService	solid	filled	Validate credentials
+message	UI	OrderController	solid	filled	Place order
+message	User	UI	solid	filled	Login request
+type	sequence

@@ -1,0 +1,21 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 27ad3133a24aae1a
+accept	yes
+drawn	yes
+edge	collect	validate	none	arrow	solid
+edge	decide	collect	none	arrow	solid	No
+edge	decide	schedule	none	arrow	solid	Yes
+edge	review	decide	none	arrow	solid
+edge	schedule	complete	none	arrow	solid
+edge	validate	review	none	arrow	solid
+group	Delivery	Delivery	complete,schedule
+group	Intake	Intake	collect,validate
+group	Review	Review	decide,review
+node	collect	Collect request	rect
+node	complete	Complete work	rect
+node	decide	Ready?	diam
+node	review	Review request	rect
+node	schedule	Schedule work	rect
+node	validate	Validate details	rect
+type	swimlane

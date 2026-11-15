@@ -1,0 +1,19 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d35379f671d80f98
+box	edge	check --> pack	112	252	357.422	0
+box	edge	collect --> deliver	625.422	504	357.422	0
+box	edge	deliver --> confirm	1062.845	26.5	0	455
+box	edge	pack --> collect	549.422	274.5	0	203
+box	edge	submit --> check	36	22.5	0	203
+box	group	Carrier	-86	378	1234.844	184.5
+box	group	Customer	-86	-58.5	1234.844	184.5
+box	group	Store	-86	126	1234.844	252
+box	node	check	-40	229.5	152	45
+box	node	collect	473.422	481.5	152	45
+box	node	confirm	986.845	-22.5	152	45
+box	node	deliver	986.845	481.5	152	45
+box	node	pack	473.422	229.5	152	45
+box	node	submit	-40	-22.5	152	45
+canvas	-94	-66.5	1250.844	637
+font	Liberation Sans	198

@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b78c67f92fed5ef8
+box	legend	Cats	441	213	56.969	19
+box	legend	Dogs	441	191	61.688	19
+box	legend	Rats	441	235	56.969	19
+box	slice	Cats	57.377	40	167.623	185
+box	slice	Dogs	40	40	370	370
+box	title	Pets adopted by volunteers	73.508	2	302.984	28.188
+canvas	0	0	551.688	450
+font	Liberation Sans	88

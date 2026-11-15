@@ -1,0 +1,29 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dc499b08daad0644
+box	face	Darkoob / Make preBuilt	562.234	285	30	30
+box	face	Darkoob / Map slug to a Prebuilt Job	962.234	285	30	30
+box	face	Darkoob / check for inputs	1762.234	285	30	30
+box	face	Darkoob / register slug	762.234	285	30	30
+box	face	Darkoob / run the prebuilt job	1962.234	285	30	30
+box	face	External Service / call darkoob endpoint	1562.234	285	30	30
+box	face	External Service / listen to the events	1362.234	285	30	30
+box	face	External Service / set Darkoob slug as hook for an Event	1162.234	285	30	30
+box	person	Darkoob user	50	53.712	95.924	16.61
+box	person	DarkoobAPI	50	133.712	86.165	16.61
+box	person	External Service	50	153.712	116.375	16.61
+box	person	admin Exjjjnjjjj qwerty	50	173.712	151.879	16.61
+box	section	Darkoob	502.234	50	550	50
+box	section	Darkoob #2	1702.234	50	350	50
+box	section	External Service	1102.234	50	550	50
+box	task	Darkoob / Make preBuilt	502.234	110	150	50
+box	task	Darkoob / Map slug to a Prebuilt Job	902.234	110	150	50
+box	task	Darkoob / check for inputs	1702.234	110	150	50
+box	task	Darkoob / register slug	702.234	110	150	50
+box	task	Darkoob / run the prebuilt job	1902.234	110	150	50
+box	task	External Service / call darkoob endpoint	1502.234	110	150	50
+box	task	External Service / listen to the events	1302.234	110	150	50
+box	task	External Service / set Darkoob slug as hook for an Event	1102.234	110	150	50
+box	title	Web hook life cycle	502.234	-4.898	312.945	36.909
+canvas	0	-25	2604.469	540
+font	Liberation Sans	786

@@ -1,0 +1,72 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8ed44819b1c0951c
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	A	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	A	edge0	1	1	0	0	10	c
+size	222	267
+place	divider-id-1_start	111	65	14	14
+place	A	111	190.5	136	37
+place	divider-id-1	111	133.5	206	251
+route	divider-id-1_start	A	edge0			111,72 111,122 111,172
+layout	2
+graph	TB	50	20	100	8	8
+node	id-jr4ld1ave4-147_start	id-jr4ld1ave4-147	14	14
+node	B	id-jr4ld1ave4-147	136	37
+node	id-jr4ld1ave4-147		0	0
+edge	id-jr4ld1ave4-147_start	B	edge1	1	1	0	0	10	c
+size	222	267
+place	id-jr4ld1ave4-147_start	111	65	14	14
+place	B	111	190.5	136	37
+place	id-jr4ld1ave4-147	111	133.5	206	251
+route	id-jr4ld1ave4-147_start	B	edge1			111,72 111,122 111,172
+layout	3
+graph	TB	50	20	100	8	8
+node	divider-id-2_start	divider-id-2	14	14
+node	C	divider-id-2	136	37
+node	divider-id-2		0	0
+edge	divider-id-2_start	C	edge2	1	1	0	0	10	c
+size	222	267
+place	divider-id-2_start	111	65	14	14
+place	C	111	190.5	136	37
+place	divider-id-2	111	133.5	206	251
+route	divider-id-2_start	C	edge2			111,72 111,122 111,172
+layout	4
+graph	TB	50	20	100	8	8
+node	id-1dajjmruesg-148_start	id-1dajjmruesg-148	14	14
+node	D	id-1dajjmruesg-148	136	37
+node	id-1dajjmruesg-148		0	0
+edge	id-1dajjmruesg-148_start	D	edge3	1	1	0	0	10	c
+size	222	267
+place	id-1dajjmruesg-148_start	111	65	14	14
+place	D	111	190.5	136	37
+place	id-1dajjmruesg-148	111	133.5	206	251
+route	id-1dajjmruesg-148_start	D	edge3			111,72 111,122 111,172
+layout	5
+graph	TB	50	20	75	8	8
+node	divider-id-1	First	206	251
+node	id-jr4ld1ave4-147	First	206	251
+node	First		0	0
+size	548	342
+place	divider-id-1	146	171	206	251
+place	id-jr4ld1ave4-147	402	171	206	251
+place	First	274	171	532	326
+layout	6
+graph	TB	50	20	75	8	8
+node	divider-id-2	Second	206	251
+node	id-1dajjmruesg-148	Second	206	251
+node	Second		0	0
+size	548	342
+place	divider-id-2	146	171	206	251
+place	id-1dajjmruesg-148	402	171	206	251
+place	Second	274	171	532	326
+layout	7
+graph	TB	50	20	50	8	8
+node	First		532	326
+node	Second		532	326
+size	1130	342
+place	First	274	171	532	326
+place	Second	856	171	532	326

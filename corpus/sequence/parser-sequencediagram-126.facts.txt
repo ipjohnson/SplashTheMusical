@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6f932b980b6b8166
+accept	yes
+actor	DB	User Database	database
+actor	U	End User	actor
+drawn	yes
+message	DB	U	dashed	filled	Result
+message	U	DB	solid	filled	Query
+type	sequence

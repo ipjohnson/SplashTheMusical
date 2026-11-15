@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ae3015c3aa9f2ac0
+box	event	1957 / First artificial satellite	200	424.8	190	50
+box	event	1957 / Sputnik 1 launched	200	364.8	190	50
+box	event	1961 / First human in orbit	400	424.8	190	50
+box	event	1961 / Yuri Gagarin in space	400	364.8	190	50
+box	event	1969 / Apollo 11 moon landing	600	364.8	190	50
+box	event	1969 / Neil Armstrong's first steps	600	424.8	190	60.2
+box	event	1972 / Last Apollo mission	800	364.8	190	50
+box	event	2012 / Curiosity rover on Mars	1000	364.8	190	50
+box	event	2020 / Commercial spaceflight	1200	424.8	190	50
+box	event	2020 / SpaceX Crew Dragon	1200	364.8	190	50
+box	event	2021 / James Webb Space Telescope	1400	364.8	190	60.2
+box	event	2021 / Perseverance rover on Mars	1400	435	190	60.2
+box	period	1957	200	164.8	190	64.8
+box	period	1961	400	164.8	190	64.8
+box	period	1969	600	164.8	190	64.8
+box	period	1972	800	164.8	190	64.8
+box	period	2012	1000	164.8	190	64.8
+box	period	2020	1200	164.8	190	64.8
+box	period	2021	1400	164.8	190	64.8
+box	section	Early Era	200	50	390	64.8
+box	section	Modern Era	1000	50	590	64.8
+box	section	Moon Era	600	50	390	64.8
+box	title	Space Exploration Milestones	550	-7.399	419.016	34.249
+canvas	100	-57	1790	667
+font	Liberation Sans	698

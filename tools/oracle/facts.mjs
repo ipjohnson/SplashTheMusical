@@ -1,6 +1,7 @@
-// Renders every .mmd in a folder with the mermaid.js that package-lock.json pins, in one headless page, and writes
-// <name>.facts.txt per case, <name>.boxes.txt per accepted case and <name>.dagre.txt per accepted flowchart, state,
-// class and ER case. It also writes themes.txt, config.txt and shapes.txt. tools/oracle/README.md describes the
+// Renders every .mmd in a folder and its subfolders with the mermaid.js that package-lock.json pins, in one headless
+// page, and writes <name>.facts.txt per case, <name>.boxes.txt per accepted case and <name>.dagre.txt per accepted
+// flowchart, state, class and ER case, in the case's subfolder. It also writes themes.txt, config.txt and shapes.txt to
+// the top of the facts folder. tools/oracle/README.md describes the
 // formats. extract.mjs says which facts come from mermaid's parsed model and which from its rendered DOM.
 //
 //   node facts.mjs <cases-dir> <facts-dir> [svg-dir]
@@ -27,7 +28,7 @@ const root = path.dirname(fileURLToPath(import.meta.url))
 const problems = checkPinned(root)
 if (problems.length) {
 	for (const p of problems) console.error(p)
-	console.error('run npm ci in tools/oracle')
+	console.error('run npm ci in tools/oracle with the Node mise.toml pins')
 	process.exit(1)
 }
 const mermaidDir = path.join(root, 'node_modules', 'mermaid')
@@ -177,13 +178,23 @@ const shapeLines = [
 ].map(f => f.join('\t').replace(/\t+$/, '')).sort()
 fs.writeFileSync(path.join(factsDir, 'shapes.txt'), [...dumpHeader('shape table'), ...shapeLines].join('\n') + '\n')
 
-const names = fs.readdirSync(casesDir).filter(f => f.endsWith('.mmd')).sort().map(f => f.slice(0, -4))
+// The files of a folder and its subfolders, as paths relative to it with / between folders.
+const filesUnder = dir =>
+	fs.readdirSync(dir, { recursive: true, withFileTypes: true })
+		.filter(e => e.isFile())
+		.map(e => path.relative(dir, path.join(e.parentPath, e.name)).split(path.sep).join('/'))
+		.sort()
+// A case in a subfolder, such as flowchart/e2e-basic, writes its files to the same subfolder of the facts folder. Its
+// seed and SVG id come from its file name, so moving a case to another folder does not change its output.
+const names = filesUnder(casesDir).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4))
 let accepted = 0
 const dagreNames = new Set()
 for (const name of names) {
 	const source = fs.readFileSync(path.join(casesDir, name + '.mmd'), 'utf8')
-	await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
-	const result = await page.evaluate(extractFacts, source, name, shapes)
+	const baseName = path.posix.basename(name)
+	fs.mkdirSync(path.dirname(path.join(factsDir, name)), { recursive: true })
+	await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(baseName))
+	const result = await page.evaluate(extractFacts, source, baseName, shapes)
 	if (result.unknownType) {
 		console.error(`${name}: no extractor for mermaid diagram type '${result.unknownType}'; add one to tools/oracle/extract.mjs`)
 		await browser.close()
@@ -206,19 +217,22 @@ for (const name of names) {
 	const dagreFile = path.join(factsDir, name + '.dagre.txt')
 	const type = result.facts?.find(f => f.startsWith('type\t'))?.slice(5)
 	if (result.error === undefined && dagreTypes.has(type)) {
-		await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
-		const layouts = await page.evaluate(dagreLayouts, source, name, init)
+		await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(baseName))
+		const layouts = await page.evaluate(dagreLayouts, source, baseName, init)
 		fs.writeFileSync(dagreFile, ['# mermaid.js dagre layouts. Refresh with: mise run oracle', ...header.slice(1), ...layouts].join('\n') + '\n')
 		dagreNames.add(name + '.dagre.txt')
 	} else if (fs.existsSync(dagreFile)) fs.unlinkSync(dagreFile)
-	if (svgDir && result.svg) fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
+	if (svgDir && result.svg) {
+		fs.mkdirSync(path.dirname(path.join(svgDir, name)), { recursive: true })
+		fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
+	}
 	if (result.error === undefined) accepted++
 	console.log(`${result.error === undefined ? 'ok ' : 'err'}  ${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
 }
 
 const keep = new Set([...names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']), ...dagreNames])
 const perCase = f => f.endsWith('.facts.txt') || f.endsWith('.boxes.txt') || f.endsWith('.dagre.txt')
-for (const f of fs.readdirSync(factsDir).filter(f => perCase(f) && !keep.has(f)).sort()) {
+for (const f of filesUnder(factsDir).filter(f => perCase(f) && !keep.has(f))) {
 	fs.unlinkSync(path.join(factsDir, f))
 	console.log(`del  ${f}`)
 }

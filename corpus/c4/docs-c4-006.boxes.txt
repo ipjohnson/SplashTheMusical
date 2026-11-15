@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 90f106b92d608998
+box	boundary	apache	250	723.435	316	261.435
+box	boundary	apache2	716	723.435	316	261.817
+box	boundary	bb2	666	667.435	416	367.817
+box	boundary	bigbankdb01	200	1141.252	416	419.503
+box	boundary	bigbankdb02	666	1141.252	416	419.503
+box	boundary	browser	566	194	316	261.435
+box	boundary	comp	516	122	416	383.435
+box	boundary	dn	200	667.435	416	367.435
+box	boundary	mob	150	122	316	261.435
+box	boundary	oracle	250	1197.252	316	313.503
+box	boundary	oracle2	716	1197.252	316	313.503
+box	boundary	plc	150	611.435	982	999.32
+box	element	api	300	823.435	216	111.435
+box	element	db	300	1297.252	216	163.503
+box	element	db2	766	1297.252	216	163.503
+box	element	mobile	200	222	216	111.435
+box	element	spa	616	294	216	111.435
+box	element	web	766	823.435	216	111.817
+box	rel-label	api --> db	412.878	1090.338	133.245	14.717
+box	rel-label	api --> db2	588.742	1092.646	133.245	14.717
+box	rel-label	db --> db2	641.017	1363.28	95.967	14.717
+box	rel-label	mobile --> api	358.033	572.712	97.934	14.717
+box	rel-label	spa --> api	566.033	568.712	97.934	14.717
+box	rel-label	web --> spa	799.074	568.712	208.797	14.717
+box	title	Deployment Diagram for Internet Banking System - Live	391	5.283	395.544	18.036
+canvas	0	-70	1282	1780.755
+font	Liberation Sans	2914

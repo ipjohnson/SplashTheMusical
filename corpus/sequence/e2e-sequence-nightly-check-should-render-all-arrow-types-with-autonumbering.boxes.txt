@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1184eb58dee0ba0b
+box	actor	Alice	0	0	150	73
+box	actor	Bob	299	0	150	73
+box	actor	Charlie	599	0	150	73
+box	actor	Dave	872	0	150	73
+box	actor-bottom	Alice	0	1369	150	73
+box	actor-bottom	Bob	299	1369	150	73
+box	actor-bottom	Charlie	599	1369	150	73
+box	actor-bottom	Dave	872	1369	150	73
+box	message	Alice --> Bob	82	117	285	0
+box	message	Alice --> Bob #2	82	293	285	0
+box	message	Alice --> Bob #3	94	469	273	0
+box	message	Alice --> Bob #4	82	1261	281	0
+box	message	Alice --> Charlie	82	205	591	0
+box	message	Alice --> Charlie #2	82	381	585	0
+box	message	Alice --> Charlie #3	86	1349	577	0
+box	message	Bob --> Alice	82	161	297	0
+box	message	Bob --> Alice #2	82	337	297	0
+box	message	Bob --> Alice #3	82	1305	301	0
+box	message	Charlie --> Dave	681	249	262	0
+box	message	Charlie --> Dave #2	681	425	259	0
+box	message	Charlie --> Dave #3	693	513	247	0
+box	message-text	Alice --> Bob	162.418	93.915	119.164	17.624
+box	message-text	Alice --> Bob #2	168.657	269.915	106.686	17.624
+box	message-text	Alice --> Bob #3	133.844	445.915	182.312	17.624
+box	message-text	Alice --> Bob #4	118.602	1237.915	202.795	17.174
+box	message-text	Alice --> Charlie	300.067	181.915	149.866	17.632
+box	message-text	Alice --> Charlie #2	301.305	357.915	141.391	17.632
+box	message-text	Alice --> Charlie #3	284.388	1325.915	175.224	17.173
+box	message-text	Bob --> Alice	159.977	137.915	136.046	17.624
+box	message-text	Bob --> Alice #2	166.204	313.915	123.591	17.624
+box	message-text	Bob --> Alice #3	134.841	1281.915	190.317	17.174
+box	message-text	Charlie --> Dave	725.626	225.915	166.748	17.632
+box	message-text	Charlie --> Dave #2	728.852	401.915	158.296	17.632
+box	message-text	Charlie --> Dave #3	711.38	489.915	199.24	17.624
+canvas	-50	-10	1122	1493
+font	Liberation Sans	1586

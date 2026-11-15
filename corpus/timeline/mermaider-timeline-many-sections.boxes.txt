@@ -1,0 +1,36 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 500e046507612ec9
+box	event	Apr / Beta	800	365.823	190	50
+box	event	Apr / Docs	800	425.823	190	50
+box	event	Aug / Pricing	1600	365.823	190	50
+box	event	Dec / Retrospective	2400	365.823	190	50
+box	event	Feb / Customer interviews	400	425.823	190	50
+box	event	Feb / Prototype	400	365.823	190	50
+box	event	Jan / Planning	200	365.823	190	50
+box	event	Jul / Scale-out	1400	365.823	190	50
+box	event	Jun / Launch	1200	365.823	190	50
+box	event	Mar / Alpha	600	365.823	190	50
+box	event	May / Feedback	1000	365.823	190	50
+box	event	Nov / Security audit	2200	365.823	190	50
+box	event	Oct / Enterprise	2000	365.823	190	50
+box	event	Sep / Partnerships	1800	365.823	190	50
+box	period	Apr	800	165.823	190	66.12
+box	period	Aug	1600	165.823	190	66.12
+box	period	Dec	2400	165.823	190	66.12
+box	period	Feb	400	165.823	190	66.12
+box	period	Jan	200	165.823	190	66.12
+box	period	Jul	1400	165.823	190	66.12
+box	period	Jun	1200	165.823	190	66.12
+box	period	Mar	600	165.823	190	66.12
+box	period	May	1000	165.823	190	66.12
+box	period	Nov	2200	165.823	190	66.12
+box	period	Oct	2000	165.823	190	66.12
+box	period	Sep	1800	165.823	190	66.12
+box	section	Q1	200	50	590	65.823
+box	section	Q2	800	50	590	65.823
+box	section	Q3	1400	50	590	65.823
+box	section	Q4	2000	50	590	65.823
+box	title	A Year in Product	1045	-12.03	279.984	39.148
+canvas	100	-61	2790	644.88
+font	Liberation Sans	378

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 27b80ce42095556f
+box	node	Market Share	10	35	980	355
+box	node	Market Share / Company A	20	70	330	310
+box	node	Market Share / Company B	360	70	475	150
+box	node	Market Share / Company C	845	70	135	310
+box	node	Market Share / Others	360	230	475	150
+canvas	2	27	996	371
+font	Liberation Sans	142

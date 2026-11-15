@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 417888e1d1a2fc1d
+box	class	ConsoleLogger	12	214	199.445	156
+box	class	FileLogger	251.445	214	183.891	177
+box	class	ILogger	136.182	12	182.75	162
+box	relation	ILogger --> ConsoleLogger	111.723	191.25	88.709	22.75
+box	relation	ILogger --> FileLogger	254.682	191.25	88.709	22.75
+canvas	4	4	439.336	395
+font	Liberation Sans	378

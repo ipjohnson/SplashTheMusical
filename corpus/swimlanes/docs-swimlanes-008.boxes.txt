@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4eca0116897bbb8d
+box	edge	request --> triage	36	22.5	0	203
+box	edge	triage --> resolve	36	274.5	0	203
+box	group	Customer	-86	-58.5	208	184.5
+box	group	Engineering	-86	378	208	184.5
+box	group	Support	-86	126	208	252
+box	node	request	-40	-22.5	152	45
+box	node	resolve	-40	481.5	152	45
+box	node	triage	-40	229.5	152	45
+canvas	-94	-66.5	224	637
+font	Liberation Sans	102

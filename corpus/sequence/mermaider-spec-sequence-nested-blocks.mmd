@@ -1,0 +1,14 @@
+sequenceDiagram
+participant Client
+participant API
+participant DB
+alt Cache Hit
+API-->>Client: Cached
+else Cache Miss
+API->>DB: Query
+loop Retry on failure
+DB->>DB: Process
+end
+DB-->>API: Result
+API-->>Client: Fresh
+end

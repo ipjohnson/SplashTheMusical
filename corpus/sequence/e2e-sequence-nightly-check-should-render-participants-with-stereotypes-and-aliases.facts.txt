@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7714370453ca51dd
+accept	yes
+actor	API	Public API	boundary
+actor	Auth	Auth Controller	control
+actor	Cache	Cache Layer	entity
+actor	DB	User Database	database
+drawn	yes
+message	API	Auth	solid	filled	Authenticate request
+message	Auth	API	dashed	filled	Token
+message	Auth	Cache	solid	filled	Store session
+message	Auth	DB	solid	filled	Query user
+message	Cache	Auth	dashed	filled	Confirmed
+message	DB	Auth	dashed	filled	User data
+type	sequence

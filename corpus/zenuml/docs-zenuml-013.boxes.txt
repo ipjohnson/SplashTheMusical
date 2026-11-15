@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 84c5a29040879018
+box	fragment	alt is_sick	1.313	138.5	330.188	181
+box	message	Alice --> Bob	61.313	105	210.688	19.25
+box	message	Bob --> Alice	51.313	199	220.688	19.25
+box	message	Bob --> Alice #2	51.313	276	220.688	19.25
+box	participant	Alice	32	63	78	38
+box	participant	Bob	233	63	78	38
+canvas	0	0	343	377
+font	Liberation Sans	194

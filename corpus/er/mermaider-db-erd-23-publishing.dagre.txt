@@ -1,0 +1,66 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 369cd9e43450d16b
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Assembly-0		100.6875	81
+node	entity-PublishEnvironment-1		164.515625	81
+node	entity-FeatureFlag-2		115.484375	81
+node	entity-AnalyticsIntegration-3		162.1875	81
+node	entity-SearchIndex-4		118.609375	81
+node	entity-RedirectStore-5		125.59375	81
+node	entity-Build-6		100	81
+node	entity-BuildType-7		101.484375	81
+node	entity-AssembledDocumentationSet-8		224.4375	81
+node	entity-DocumentationSet-9		155.1875	81
+node	entity-GenerationState-10		141.96875	81
+node	entity-BuildStamp-11		111.59375	81
+node	entity-CloudfrontRedirectMap-12		183.96875	81
+node	entity-Redirect-13		92.140625	81
+node	entity-SyncPlan-14		99.15625	81
+edge	entity-Assembly-0	entity-PublishEnvironment-1	id_entity-Assembly-0_entity-PublishEnvironment-1_0	1	1	84.046875	21	10	c
+edge	entity-PublishEnvironment-1	entity-FeatureFlag-2	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	1	1	80.953125	21	10	c
+edge	entity-PublishEnvironment-1	entity-AnalyticsIntegration-3	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	1	1	200	42	10	c
+edge	entity-PublishEnvironment-1	entity-SearchIndex-4	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	1	1	108.703125	21	10	c
+edge	entity-PublishEnvironment-1	entity-RedirectStore-5	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	1	1	28.015625	21	10	c
+edge	entity-Build-6	entity-BuildType-7	id_entity-Build-6_entity-BuildType-7_5	1	1	26.46875	21	10	c
+edge	entity-Build-6	entity-PublishEnvironment-1	id_entity-Build-6_entity-PublishEnvironment-1_6	1	1	77.046875	21	10	c
+edge	entity-Build-6	entity-AssembledDocumentationSet-8	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	1	1	66.921875	21	10	c
+edge	entity-AssembledDocumentationSet-8	entity-DocumentationSet-9	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	1	1	41.25	21	10	c
+edge	entity-Build-6	entity-GenerationState-10	id_entity-Build-6_entity-GenerationState-10_9	1	1	65.375	21	10	c
+edge	entity-Build-6	entity-BuildStamp-11	id_entity-Build-6_entity-BuildStamp-11_10	1	1	94.15625	21	10	c
+edge	entity-Build-6	entity-CloudfrontRedirectMap-12	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	1	1	83.265625	21	10	c
+edge	entity-CloudfrontRedirectMap-12	entity-Redirect-13	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	1	1	77.8125	21	10	c
+edge	entity-CloudfrontRedirectMap-12	entity-RedirectStore-5	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	1	1	72.40625	21	10	c
+edge	entity-Build-6	entity-SyncPlan-14	id_entity-Build-6_entity-SyncPlan-14_14	1	1	71.625	21	10	c
+size	2187.2421875	482
+place	entity-Assembly-0	295.0859375	48.5	100.6875	81
+place	entity-PublishEnvironment-1	394.375	230.5	164.515625	81
+place	entity-FeatureFlag-2	65.7421875	433.5	115.484375	81
+place	entity-AnalyticsIntegration-3	344.578125	433.5	162.1875	81
+place	entity-SearchIndex-4	624.9765625	433.5	118.609375	81
+place	entity-RedirectStore-5	887.078125	433.5	125.59375	81
+place	entity-Build-6	1507.40625	48.5	100	81
+place	entity-BuildType-7	667.375	230.5	101.484375	81
+place	entity-AssembledDocumentationSet-8	970.3359375	230.5	224.4375	81
+place	entity-DocumentationSet-9	1184.203125	433.5	155.1875	81
+place	entity-GenerationState-10	1293.5390625	230.5	141.96875	81
+place	entity-BuildStamp-11	1560.3203125	230.5	111.59375	81
+place	entity-CloudfrontRedirectMap-12	1848.1015625	230.5	183.96875	81
+place	entity-Redirect-13	1988.8828125	433.5	92.140625	81
+place	entity-SyncPlan-14	2129.6640625	230.5	99.15625	81
+route	entity-Assembly-0	entity-PublishEnvironment-1	id_entity-Assembly-0_entity-PublishEnvironment-1_0	295.0859375	139.5	295.0859375,89 295.0859375,139.5 350.1859117445055,190
+route	entity-PublishEnvironment-1	entity-FeatureFlag-2	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	65.7421875	332	312.1171875,255.90576488767385 65.7421875,332 65.7421875,393
+route	entity-PublishEnvironment-1	entity-AnalyticsIntegration-3	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	344.578125	332	374.50531096059115,271 344.578125,332 344.578125,393
+route	entity-PublishEnvironment-1	entity-SearchIndex-4	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	624.9765625	332	476.6328125,266.70603381102416 624.9765625,332 624.9765625,393
+route	entity-PublishEnvironment-1	entity-RedirectStore-5	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	800.20703125	332	476.6328125,251.0729644923142 800.20703125,332 852.4152747844828,393
+route	entity-Build-6	entity-BuildType-7	id_entity-Build-6_entity-BuildType-7_5	667.375	139.5	1457.40625,53.91646516126632 667.375,139.5 667.375,190
+route	entity-Build-6	entity-PublishEnvironment-1	id_entity-Build-6_entity-PublishEnvironment-1_6	465.53125	139.5	1457.40625,52.86712657468506 465.53125,139.5 426.0434409340659,190
+route	entity-Build-6	entity-AssembledDocumentationSet-8	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	970.3359375	139.5	1457.40625,56.9718888646447 970.3359375,139.5 970.3359375,190
+route	entity-AssembledDocumentationSet-8	entity-DocumentationSet-9	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	1184.203125	332	1055.6721059113302,271 1184.203125,332 1184.203125,393
+route	entity-Build-6	entity-GenerationState-10	id_entity-Build-6_entity-GenerationState-10_9	1293.5390625	139.5	1457.40625,69.77488584474887 1293.5390625,139.5 1293.5390625,190
+route	entity-Build-6	entity-BuildStamp-11	id_entity-Build-6_entity-BuildStamp-11_10	1560.3203125	139.5	1530.9559151785713,89 1560.3203125,139.5 1560.3203125,190
+route	entity-Build-6	entity-CloudfrontRedirectMap-12	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	1848.1015625	139.5	1557.40625,61.85504139053865 1848.1015625,139.5 1848.1015625,190
+route	entity-CloudfrontRedirectMap-12	entity-Redirect-13	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	1988.8828125	332	1904.2753617610838,271 1988.8828125,332 1988.8828125,393
+route	entity-CloudfrontRedirectMap-12	entity-RedirectStore-5	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	988.859375	332	1756.1171875,241.3658701799369 988.859375,332 927.690347906404,393
+route	entity-Build-6	entity-SyncPlan-14	id_entity-Build-6_entity-SyncPlan-14_14	2129.6640625	139.5	1557.40625,55.81208175871637 2129.6640625,139.5 2129.6640625,190

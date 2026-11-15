@@ -1,0 +1,19 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 77fabe641126da3f
+accept	yes
+class	Gateway	Gateway
+class	Repository	Repository
+class	UserService	UserService
+drawn	yes
+method	Gateway	+route()
+method	Repository	+find()
+method	Repository	+save()
+method	UserService	+login()
+method	UserService	+logout()
+namespace	Platform	Gateway,Platform.Auth,Platform.Data
+namespace	Platform.Auth	UserService
+namespace	Platform.Data	Repository
+relation	Gateway	Repository	none	arrow	solid	delegates
+relation	Gateway	UserService	none	arrow	solid	delegates
+type	classDiagram

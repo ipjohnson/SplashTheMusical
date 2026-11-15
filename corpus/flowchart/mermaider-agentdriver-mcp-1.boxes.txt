@@ -1,0 +1,28 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 26b6ea69f8de7127
+box	edge	claude --> connector	688	271.8	884.219	4.75
+box	edge	claude --> proxy	688	228.45	145.578	28.55
+box	edge	proxy --> relay	192	128.4	645.578	85.25
+box	edge	proxy --> srt	989.578	221.05	20	0
+box	edge	relay --> remote	188	60.45	320	39.15
+box	edge	resolver --> claude	188	264.4	344	123.6
+box	edge	srt --> local	1165.578	221.05	20	0
+box	edge-label	claude --> connector	1415.578	265.55	120.641	21
+box	edge-label	claude --> proxy	748	217.95	29.578	21
+box	edge-label	proxy --> relay	448.539	203.15	66.922	21
+box	edge-label	relay --> remote	318.805	49.45	86.391	21
+box	edge-label	resolver --> claude	262	281.75	200	63
+box	group	Session	512	129.55	853.578	191.85
+box	group	serve	12	12	200	454
+box	node	claude	536	231.4	152	66
+box	node	connector	1576.219	243.55	152	66
+box	node	library	36	218	152	66
+box	node	local	1189.578	188.05	152	66
+box	node	proxy	837.578	188.05	152	66
+box	node	relay	36	60	152	108
+box	node	remote	512	37.95	152	45
+box	node	resolver	36	334	152	108
+box	node	srt	1013.578	177.55	152	87
+canvas	4	4	1732.219	470
+font	Liberation Sans	876

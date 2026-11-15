@@ -1,0 +1,50 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 255e0b540b4cbe03
+box	entity	Assembly	222.063	12	100.687	81
+box	entity	Bundle	279.312	780	100	81
+box	entity	ChangelogConfiguration	179.852	376	191	81
+box	entity	CodexSite	723.203	376	104.594	81
+box	entity	DocumentationFile	487.813	598	156.734	81
+box	entity	DocumentationSet	410.852	376	155.188	81
+box	entity	LinkManifest	589.135	1144	118.594	81
+box	entity	LinkRegistry	676.031	780	117.031	81
+box	entity	LinkRegistryEntry	659.695	962	149.703	81
+box	entity	Product	196.297	598	100	81
+box	entity	PublishEnvironment	102.289	194	164.516	81
+box	entity	Registry	684.547	598	100	81
+box	entity	Repository	306.805	194	106.922	81
+box	entity	TableOfContents	12	598	144.297	81
+box	entity	VersioningSystem	87.25	780	152.062	81
+box	relation	Assembly --> PublishEnvironment	184.547	93	74.411	101
+box	relation	Assembly --> Repository	285.854	93	74.411	101
+box	relation	CodexSite --> Registry	747.88	457	27.62	141
+box	relation	DocumentationSet --> DocumentationFile	510.977	457	55.203	141
+box	relation	DocumentationSet --> LinkManifest	466.813	457	165.188	687
+box	relation	DocumentationSet --> Product	246.297	457	219.617	141
+box	relation	DocumentationSet --> Registry	533.508	457	187.706	141
+box	relation	DocumentationSet --> TableOfContents	84.148	457	359.234	141
+box	relation	LinkRegistry --> LinkRegistryEntry	734.547	861	0	101
+box	relation	LinkRegistryEntry --> LinkManifest	664.865	1043	69.682	101
+box	relation	Product --> Bundle	259.63	679	69.682	101
+box	relation	Product --> VersioningSystem	163.281	679	69.682	101
+box	relation	Registry --> LinkRegistry	734.547	679	0	101
+box	relation	Repository --> ChangelogConfiguration	275.352	275	70.427	101
+box	relation	Repository --> DocumentationSet	374.753	275	113.693	101
+box	relation-label	Assembly --> PublishEnvironment	142.047	133	84.047	21
+box	relation-label	Assembly --> Repository	326.766	133	66.156	21
+box	relation-label	CodexSite --> Registry	736.5	537	77.047	21
+box	relation-label	DocumentationSet --> DocumentationFile	539.68	537	52.156	21
+box	relation-label	DocumentationSet --> LinkManifest	419.312	810	94.188	21
+box	relation-label	DocumentationSet --> Product	219.297	537	53.703	21
+box	relation-label	DocumentationSet --> Registry	670.594	537	45.906	21
+box	relation-label	DocumentationSet --> TableOfContents	74.648	537	18.688	21
+box	relation-label	LinkRegistry --> LinkRegistryEntry	695.047	901	78.609	21
+box	relation-label	LinkRegistryEntry --> LinkManifest	720.547	1083	27.25	21
+box	relation-label	Product --> Bundle	294.812	719	68.5	21
+box	relation-label	Product --> VersioningSystem	131.281	719	63.828	21
+box	relation-label	Registry --> LinkRegistry	691.547	719	85.625	21
+box	relation-label	Repository --> ChangelogConfiguration	229.852	315	90.281	21
+box	relation-label	Repository --> DocumentationSet	417.445	315	141.516	21
+canvas	4	4	831.797	1229
+font	Liberation Sans	708

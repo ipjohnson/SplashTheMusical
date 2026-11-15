@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0fa06d84d8b1a983
+box	flow	Gross Profit --> Op Expenses	484	279.256	306	27.538
+box	flow	Gross Profit --> Op Profit	484	391.578	148	13.414
+box	flow	Mac --> Products	10	242.442	148	8.986
+box	flow	Op Profit --> Net Profit	642	414.468	148	13.048
+box	flow	Op Profit --> Tax	642	341.167	148	13.952
+box	flow	Products --> Revenue	168	175.114	148	27.934
+box	flow	Revenue --> Cost of Revenue	326	115.604	464	41.56
+box	flow	Revenue --> Gross Profit	326	353.165	148	12.978
+box	flow	Services --> Revenue	10	399.048	306	62.052
+box	flow	Wearables --> Products	10	311.765	148	62.986
+box	flow	iPad --> Products	10	276.854	148	35.986
+box	flow	iPhone --> Products	10	102.239	148	18.014
+box	node	Cost of Revenue	790	4.388	10	222.433
+box	node	Gross Profit	474	281.359	10	169.567
+box	node	Mac	0	231.478	10	39.898
+box	node	Net Profit	790	377.643	10	99.746
+box	node	Op Expenses	790	253.821	10	50.87
+box	node	Op Profit	632	345.643	10	118.697
+box	node	Products	158	18.014	10	314.199
+box	node	Revenue	316	45.948	10	392
+box	node	Services	0	422.198	10	77.802
+box	node	Tax	790	331.691	10	18.952
+box	node	Wearables	0	354.303	10	40.896
+box	node	iPad	0	298.377	10	28.926
+box	node	iPhone	0	0	10	204.478
+canvas	-92.141	0	1029.672	500
+font	Liberation Sans	604

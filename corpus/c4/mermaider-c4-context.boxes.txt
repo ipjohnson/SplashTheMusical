@@ -1,0 +1,13 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a934820ed0582d23
+box	element	banking	466	166	216	99.189
+box	element	customer	150	166	216	185.136
+box	element	mail	150	451.136	216	99.189
+box	element	mainframe	466	451.136	216	141.714
+box	rel-label	banking --> mail	416.003	352.856	75.995	12.735
+box	rel-label	banking --> mainframe	573.837	352.856	27.327	12.735
+box	rel-label	customer --> banking	387.166	235.674	27.327	12.735
+box	title	System Context diagram for Internet Banking System	166	5.143	376.89	18.176
+canvas	0	-70	832	762.85
+font	Liberation Sans	778

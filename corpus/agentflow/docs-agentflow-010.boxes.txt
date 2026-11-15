@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4c546d7812fae4ab
+box	edge	city --> research	153	144	0	20
+box	edge	render --> brand	153	387	0	24
+box	edge	research --> write	153	201	0	20
+box	edge	researcher --> designer	153	282	0	20
+box	flow	coffee_team	12	12	282	545.988
+box	flow	designer	45.4	306	215.2	227.988
+box	flow	researcher	36	60	234	222
+box	node	brand	69.4	410.994	167.2	98.988
+box	node	city	60	108	186	36
+box	node	render	71	354	164	33
+box	node	research	71	168	164	33
+box	node	write	71	225	164	33
+canvas	4	4	488	561.988
+font	Liberation Sans	196

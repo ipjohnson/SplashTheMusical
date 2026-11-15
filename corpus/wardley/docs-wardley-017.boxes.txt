@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fcf464d599f56ace
+box	link	Legacy --> Modern	534.91	278.758	191.981	168.485
+box	link	Modern --> AI	335.016	201.312	189.768	71.375
+box	node	AI	323.4	182.016	23.453	23.184
+box	node	Legacy	725.4	434.016	46.251	23.184
+box	node	Modern	524.4	257.616	47.919	23.184
+box	title	Forces	429.345	15.839	41.309	13.776
+canvas	0	0	900	600
+font	Liberation Sans	206

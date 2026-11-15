@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 523a58a98fa46f9e
+accept	yes
+actor	A	Alice, the talkative one	participant
+actor	John	John	participant
+drawn	yes
+message	A	John	solid	filled	Hello John, how are you today? I'm feeling quite verbose today.
+message	A	John	solid	filled	John, can you hear me? If you are not available, we can talk later.
+message	John	A	dashed	filled	Hi Alice, I can hear you! I was finishing up an important meeting.
+message	John	A	dashed	filled	I feel great! I was not ignoring you. I am sorry you had to wait for a response.
+type	sequence

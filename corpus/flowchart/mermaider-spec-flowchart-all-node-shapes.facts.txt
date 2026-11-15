@@ -1,0 +1,29 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f1a7c7bcdfcbef27
+accept	yes
+drawn	yes
+edge	A	B	none	arrow	solid
+edge	B	C	none	arrow	solid
+edge	C	D	none	arrow	solid
+edge	D	E	none	arrow	solid
+edge	E	F	none	arrow	solid
+edge	F	G	none	arrow	solid
+edge	G	H	none	arrow	solid
+edge	H	I	none	arrow	solid
+edge	I	J	none	arrow	solid
+edge	J	K	none	arrow	solid
+edge	K	L	none	arrow	solid
+node	A	Rectangle	rect
+node	B	Rounded	rounded
+node	C	Stadium	stadium
+node	D	Diamond	diam
+node	E	Circle	circle
+node	F	Asymmetric	odd
+node	G	Hexagon	hex
+node	H	Subroutine	fr-rect
+node	I	Cylinder	cyl
+node	J	Trapezoid	trap-b
+node	K	Trapezoid Alt	trap-t
+node	L	Double Circle	dbl-circ
+type	flowchart-v2

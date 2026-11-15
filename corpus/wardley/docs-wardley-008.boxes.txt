@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6ac86d29b6ee9eca
+box	link	Custom App --> Managed Service	375.473	250.827	350.054	73.146
+box	link	Custom App --> Off-the-shelf Tool	574.341	128.291	153.317	192.219
+box	link	Customer --> Custom App	733.888	154.26	75.423	165.481
+box	link	Off-the-shelf Tool --> Cloud Platform	254.928	74.129	309.745	48.542
+box	node	Cloud Platform	237	46.016	96.135	39.184
+box	node	Custom App	719.4	298.016	84.475	39.184
+box	node	Customer	788.464	139.253	46.673	11.48
+box	node	Managed Service	357.6	222.416	107.83	39.184
+box	node	Off-the-shelf Tool	558.6	96.416	105.785	39.184
+box	title	Sourcing Strategy	395.767	15.839	108.466	14.149
+canvas	0	0	900	600
+font	Liberation Sans	272

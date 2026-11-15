@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 15f8732d58701cfc
+accept	yes
+drawn	yes
+label	Pizza
+label	Salad
+label	Sushi
+label	Tacos
+label	Team Lunch Vote
+slice	Pizza	12
+slice	Salad	3
+slice	Sushi	8
+slice	Tacos	5
+title	Team Lunch Vote
+type	pie

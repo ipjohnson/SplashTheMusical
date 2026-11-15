@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3e8237fe8deee81
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-CodexSite-0		104.59375	81
+node	entity-Registry-1		100	81
+node	entity-CodexDocumentationSet-2		195.65625	81
+node	entity-DocumentationSet-3		155.1875	81
+node	entity-CodexGroup-4		119.390625	81
+edge	entity-CodexSite-0	entity-Registry-1	id_entity-CodexSite-0_entity-Registry-1_0	1	1	77.046875	21	10	c
+edge	entity-CodexSite-0	entity-CodexDocumentationSet-2	id_entity-CodexSite-0_entity-CodexDocumentationSet-2_1	1	1	108.921875	21	10	c
+edge	entity-CodexDocumentationSet-2	entity-DocumentationSet-3	id_entity-CodexDocumentationSet-2_entity-DocumentationSet-3_2	1	1	41.25	21	10	c
+edge	entity-CodexDocumentationSet-2	entity-CodexGroup-4	id_entity-CodexDocumentationSet-2_entity-CodexGroup-4_3	1	1	77.0625	21	10	c
+size	552.16796875	461
+place	entity-CodexSite-0	201.9140625	48.5	104.59375	81
+place	entity-Registry-1	58	230.5	100	81
+place	entity-CodexDocumentationSet-2	345.828125	230.5	195.65625	81
+place	entity-DocumentationSet-3	207.18359375	412.5	155.1875	81
+place	entity-CodexGroup-4	484.47265625	412.5	119.390625	81
+route	entity-CodexSite-0	entity-Registry-1	id_entity-CodexSite-0_entity-Registry-1_0	58	139.5	149.6171875,81.56845448129852 58,139.5 58,190
+route	entity-CodexSite-0	entity-CodexDocumentationSet-2	id_entity-CodexSite-0_entity-CodexDocumentationSet-2_1	345.828125	139.5	254.2109375,81.56845448129852 345.828125,139.5 345.828125,190
+route	entity-CodexDocumentationSet-2	entity-DocumentationSet-3	id_entity-CodexDocumentationSet-2_entity-DocumentationSet-3_2	207.18359375	321.5	284.1236907623626,271 207.18359375,321.5 207.18359375,372
+route	entity-CodexDocumentationSet-2	entity-CodexGroup-4	id_entity-CodexDocumentationSet-2_entity-CodexGroup-4_3	484.47265625	321.5	407.5325592376374,271 484.47265625,321.5 484.47265625,372

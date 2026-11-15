@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d309d432954ba3e4
+accept	yes
+actor	A	Database Server	database
+actor	B	Message Queue	queue
+drawn	yes
+message	A	B	solid	filled	Send message
+type	sequence

@@ -1,0 +1,74 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d7d7b46a1767502b
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	NumLockOff	divider-id-1	136	37
+node	NumLockOn	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	NumLockOff	edge1	1	1	0	0	10	c
+edge	NumLockOff	NumLockOn	edge2	1	1	126.828125	21	10	c
+edge	NumLockOn	NumLockOff	edge3	1	1	126.828125	21	10	c
+size	349.2421875	425
+place	divider-id-1_start	174.62109375	65	14	14
+place	NumLockOff	174.62109375	190.5	136	37
+place	NumLockOn	174.62109375	348.5	136	37
+place	divider-id-1	174.62109375	212.5	333.2421875	409
+route	divider-id-1_start	NumLockOff	edge1			174.62109375,72 174.62109375,122 174.62109375,172
+route	NumLockOff	NumLockOn	edge2	101.20703125	269.5	157.4291930379747,209 101.20703125,269.5 157.4291930379747,330
+route	NumLockOn	NumLockOff	edge3	248.03515625	269.5	191.8129944620253,330 248.03515625,269.5 191.8129944620253,209
+layout	2
+graph	TB	50	20	100	8	8
+node	divider-id-2_start	divider-id-2	14	14
+node	CapsLockOff	divider-id-2	136	37
+node	CapsLockOn	divider-id-2	136	37
+node	divider-id-2		0	0
+edge	divider-id-2_start	CapsLockOff	edge4	1	1	0	0	10	c
+edge	CapsLockOff	CapsLockOn	edge5	1	1	129.953125	21	10	c
+edge	CapsLockOn	CapsLockOff	edge6	1	1	129.953125	21	10	c
+size	353.9296875	425
+place	divider-id-2_start	176.96484375	65	14	14
+place	CapsLockOff	176.96484375	190.5	136	37
+place	CapsLockOn	176.96484375	348.5	136	37
+place	divider-id-2	176.96484375	212.5	337.9296875	409
+route	divider-id-2_start	CapsLockOff	edge4			176.96484375,72 176.96484375,122 176.96484375,172
+route	CapsLockOff	CapsLockOn	edge5	101.98828125	269.5	159.4070411392405,209 101.98828125,269.5 159.4070411392405,330
+route	CapsLockOn	CapsLockOff	edge6	251.94140625	269.5	194.5226463607595,330 251.94140625,269.5 194.5226463607595,209
+layout	3
+graph	TB	50	20	100	8	8
+node	id-ess39b53l3k-120_start	id-ess39b53l3k-120	14	14
+node	ScrollLockOff	id-ess39b53l3k-120	136	37
+node	ScrollLockOn	id-ess39b53l3k-120	136	37
+node	id-ess39b53l3k-120		0	0
+edge	id-ess39b53l3k-120_start	ScrollLockOff	edge7	1	1	0	0	10	c
+edge	ScrollLockOff	ScrollLockOn	edge8	1	1	129.953125	21	10	c
+edge	ScrollLockOn	ScrollLockOff	edge9	1	1	129.953125	21	10	c
+size	353.9296875	425
+place	id-ess39b53l3k-120_start	176.96484375	65	14	14
+place	ScrollLockOff	176.96484375	190.5	136	37
+place	ScrollLockOn	176.96484375	348.5	136	37
+place	id-ess39b53l3k-120	176.96484375	212.5	337.9296875	409
+route	id-ess39b53l3k-120_start	ScrollLockOff	edge7			176.96484375,72 176.96484375,122 176.96484375,172
+route	ScrollLockOff	ScrollLockOn	edge8	101.98828125	269.5	159.4070411392405,209 101.98828125,269.5 159.4070411392405,330
+route	ScrollLockOn	ScrollLockOff	edge9	251.94140625	269.5	194.5226463607595,330 251.94140625,269.5 194.5226463607595,209
+layout	4
+graph	TB	50	20	75	8	8
+node	divider-id-1	Active	333.2421875	409
+node	divider-id-2	Active	337.9296875	409
+node	id-ess39b53l3k-120	Active	337.9296875	409
+node	Active		0	0
+size	1195.1015625	500
+place	divider-id-1	209.62109375	250	333.2421875	409
+place	divider-id-2	595.20703125	250	337.9296875	409
+place	id-ess39b53l3k-120	983.13671875	250	337.9296875	409
+place	Active	597.55078125	250	1179.1015625	484
+layout	5
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Active		1179.1015625	484
+edge	root_start	Active	edge0	1	1	0	0	10	c
+size	1195.1015625	564
+place	root_start	597.55078125	15	14	14
+place	Active	597.55078125	314	1179.1015625	484
+route	root_start	Active	edge0			597.55078125,22 597.55078125,47 597.55078125,72

@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a923b1139c420356
+box	section	Section	10	68	36.703	12
+box	task	Section / A task	75	50	536	20
+box	task	Section / Another task	611	74	98	20
+box	task-text	Section / A task	328.016	53.5	29.976	12
+box	task-text	Section / Another task	629.117	77.5	61.773	12
+canvas	0	0	784	148
+font	Liberation Sans	270

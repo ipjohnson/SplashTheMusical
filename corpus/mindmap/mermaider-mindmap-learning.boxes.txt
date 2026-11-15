@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02e1229e8158aa21
+box	edge	Web Development / Backend	228.85	312.563	78.39	123.914
+box	edge	Web Development / Backend / .NET	228.827	461.844	40.302	63.971
+box	edge	Web Development / Backend / Node.js	105.836	455.825	101.56	50.438
+box	edge	Web Development / Cloud	207.797	152.04	98.643	135.713
+box	edge	Web Development / Cloud / AWS	67.16	95.973	117.588	39.19
+box	edge	Web Development / Cloud / Azure	203.577	46.278	25.559	79.351
+box	edge	Web Development / Frontend	330.108	302.009	148.46	21.222
+box	edge	Web Development / Frontend / CSS	508.196	327.921	107.852	18.742
+box	edge	Web Development / Frontend / HTML	501.409	248.099	40.645	64.56
+box	edge	Web Development / Frontend / JavaScript	489.704	340.338	3.046	68.374
+box	node	Web Development	238.508	223.135	153.503	153.503
+box	node	Web Development / Backend	174.698	422.153	92.266	54
+box	node	Web Development / Backend / .NET	238.898	521.506	76.453	34
+box	node	Web Development / Backend / Node.js	45.277	495.935	94.25	34
+box	node	Web Development / Cloud	143.891	101.506	114.766	80
+box	node	Web Development / Cloud / AWS	15	74.23	75.859	34
+box	node	Web Development / Cloud / Azure	192.836	15	81.797	34
+box	node	Web Development / Frontend	446.394	298.353	94.047	54
+box	node	Web Development / Frontend / CSS	594.373	332.231	72.906	34
+box	node	Web Development / Frontend / HTML	508.264	218.405	83.563	34
+box	node	Web Development / Frontend / JavaScript	431.685	406.697	114.703	34
+canvas	5	5	672.279	560.506
+font	Liberation Sans	142

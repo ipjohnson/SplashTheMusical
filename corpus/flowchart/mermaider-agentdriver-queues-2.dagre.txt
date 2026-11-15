@@ -1,0 +1,48 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e82d65536578bf71
+layout	1
+graph	TB	50	20	50	8	8
+node	start		152	66
+node	full		171	171
+node	none		152	66
+node	ready		152	129
+node	gates		152	66
+node	held		152	87
+node	fg		192	192
+node	sfg		152	150
+node	bg		192	192
+node	sbg		152	150
+node	free		152	45
+edge	start	full	L_start_full_0	1	1	0	0	10	c
+edge	full	none	L_full_none_0	1	1	21.796875	21	10	c
+edge	full	ready	L_full_ready_0	1	1	15.578125	21	10	c
+edge	ready	gates	L_ready_gates_0	1	1	0	0	10	c
+edge	gates	held	L_gates_held_0	1	1	26.46875	21	10	c
+edge	gates	fg	L_gates_fg_0	1	1	47.484375	21	10	c
+edge	fg	sfg	L_fg_sfg_0	1	1	21.796875	21	10	c
+edge	fg	bg	L_fg_bg_0	1	1	15.578125	21	10	c
+edge	bg	sbg	L_bg_sbg_0	1	1	21.796875	21	10	c
+edge	bg	free	L_bg_free_0	1	1	15.578125	21	10	c
+size	693	1366
+place	start	185	41	152	66
+place	full	185	209.5	171	171
+place	none	84	430.5	152	66
+place	ready	286	430.5	152	129
+place	gates	286	578	152	66
+place	held	175	778	152	87
+place	fg	397	778	192	192
+place	sfg	286	1041	152	150
+place	bg	508	1041	192	192
+place	sbg	407	1283	152	150
+place	free	609	1283	152	45
+route	start	full	L_start_full_0			185,74 185,99 185,124
+route	full	none	L_full_none_0	84	330.5	113.63223140495867,295 84,330.5 84,397.5
+route	full	ready	L_full_ready_0	286	330.5	256.3677685950413,295 286,330.5 286,366
+route	ready	gates	L_ready_gates_0			286,495 286,520 286,545
+route	gates	held	L_gates_held_0	175	646.5	232.52554744525548,611 175,646.5 175,734.5
+route	gates	fg	L_gates_fg_0	397	646.5	339.4744525547445,611 397,646.5 397,682
+route	fg	sfg	L_fg_sfg_0	286	909.5	315.9657794676806,874 286,909.5 286,966
+route	fg	bg	L_fg_bg_0	508	909.5	478.0342205323194,874 508,909.5 508,945
+route	bg	sbg	L_bg_sbg_0	407	1172.5	434.26615969581746,1137 407,1172.5 407,1208
+route	bg	free	L_bg_free_0	609	1172.5	581.7338403041825,1137 609,1172.5 609,1260.5

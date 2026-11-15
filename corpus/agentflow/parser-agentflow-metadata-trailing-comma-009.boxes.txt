@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a388a7287df6fe73
+box	edge	query --> fetch_issues	189	121	45	0
+box	node	fetch_issues	238	104.5	164	33
+box	node	query	12	103	186	36
+canvas	4	4	406	143
+font	Liberation Sans	54

@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bdb1f809ff730903
+box	boundary	b0	150	122	632	871.76
+box	boundary	b1	200	513.136	345.586	430.624
+box	element	SystemAA	516	222	216	111.817
+box	element	SystemC	250	794.571	216	99.189
+box	element	customerA	200	222	216	185.136
+box	element	msgQueue	250	613.136	245.586	81.435
+box	rel-label	SystemAA --> SystemC	489.513	558.844	76.008	13.077
+box	rel-label	SystemAA --> msgQueue	493.143	468.127	105.356	13.188
+box	rel-label	customerA --> SystemAA	441.521	293.709	27.342	13.077
+box	title	System Context diagram with ComponentQueue_Ext	216	5.735	375.042	17.832
+canvas	0	-70	932	1163.76
+font	Liberation Sans	1008

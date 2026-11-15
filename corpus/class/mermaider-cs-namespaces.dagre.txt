@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02becac93f777eb5
+layout	1
+graph	LR	50	20	50	8	8
+node	Execution		0	0
+node	Containers		0	0
+node	LaunchPoint	Execution	108.78125	81
+node	Policy	Execution	131.421875	114
+node	DockerEngine	Containers	118.140625	81
+node	note0		85.140625	33
+edge	note0	Policy	edgeNote0	1	1	0	0	10	r
+edge	LaunchPoint	DockerEngine	id_LaunchPoint_DockerEngine_1	1	1	56.046875	21	10	c
+edge	DockerEngine	Policy	id_DockerEngine_Policy_2	1	1	35.03125	21	10	c
+size	665.421875	454
+place	Execution	332.7109375	100	649.421875	184
+place	Containers	331.8984375	370.5	168.140625	151
+place	LaunchPoint	87.390625	100	108.78125	81
+place	Policy	566.7109375	100	131.421875	114
+place	DockerEngine	331.8984375	370.5	118.140625	81
+place	note0	331.8984375	243.5	85.140625	33
+route	note0	Policy	edgeNote0			339.62634923398326,227 415.96875,64 458.484375,64 501,78.14220746408719
+route	LaunchPoint	DockerEngine	id_LaunchPoint_DockerEngine_1	194.8046875	100	141.78125,100 194.8046875,100 247.828125,100 319.311200323475,330
+route	DockerEngine	Policy	id_DockerEngine_Policy_2	458.484375	130.75	390.96875,370.5 415.96875,370.5 458.484375,130.75 501,118.67019779109218

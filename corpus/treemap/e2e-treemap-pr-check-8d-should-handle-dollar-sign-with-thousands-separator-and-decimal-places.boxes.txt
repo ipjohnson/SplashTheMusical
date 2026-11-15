@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e5d4a6dfe612f3ef
+box	node	Revenue	10	35	980	355
+box	node	Revenue / Q1	582	252	398	128
+box	node	Revenue / Q2	582	70	398	172
+box	node	Revenue / Q3	322	70	250	310
+box	node	Revenue / Q4	20	70	292	310
+canvas	2	27	996	371
+font	Liberation Sans	100

@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c98c84882c2b5392
+layout	1
+graph	LR	50	20	50	8	8
+node	backend		125.71875	65
+node	Client		152	45
+node	Mail		152	67.49201202392578
+edge	Client	backend	L_Client_API_0	1	1	0	0	10	c
+edge	backend	Mail	L_Orders_Mail_0	1	1	0	0	10	c
+size	545.71875	83.49201202392578
+place	backend	272.859375	41.74600601196289	125.71875	65
+place	Client	84	41.74600601196289	152	45
+place	Mail	461.71875	41.74600601196289	152	67.49201202392578
+route	Client	backend	L_Client_API_0			160,41.74600601196289 185,41.74600601196289 210,41.74600601196289
+route	backend	Mail	L_Orders_Mail_0			335.71875,41.74600601196289 360.71875,41.74600601196289 385.71875,41.74600601196289

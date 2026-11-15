@@ -1,0 +1,44 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b854a6f49b60d200
+box	section	A section	10	92	44.641	12
+box	section	Critical tasks	10	224	62.344	12
+box	section	Documentation	10	344	74	12
+box	section	Last section	10	416	58.703	12
+box	task	A section / Active task	161	74	145	20
+box	task	A section / Completed task	75	50	58	20
+box	task	A section / Future task	306	98	201	20
+box	task	A section / Future task2	507	122	202	20
+box	task	Critical tasks / Add to mermaid	594	266	29	20
+box	task	Critical tasks / Completed task in the critical line	75	146	29	20
+box	task	Critical tasks / Create tests for parser	190	194	144	20
+box	task	Critical tasks / Create tests for renderer	536	242	58	20
+box	task	Critical tasks / Functionality added	611.686	288.686	22.627	22.627
+box	task	Critical tasks / Future task in critical line	334	218	202	20
+box	task	Critical tasks / Implement parser and jison	133	170	57	20
+box	task	Documentation / Add another diagram to demo page	277	362	57	20
+box	task	Documentation / Add gantt diagram to demo page	277	338	24	20
+box	task	Documentation / Describe gantt syntax	133	314	86	20
+box	task	Last section / Add another diagram to demo page	502	434	58	20
+box	task	Last section / Add gantt diagram to demo page	478	410	24	20
+box	task	Last section / Describe gantt syntax	334	386	87	20
+box	task-text	A section / Active task	206.906	77.5	53.201	12
+box	task-text	A section / Completed task	138	53.5	76.441	12.283
+box	task-text	A section / Future task	378.984	101.5	55.038	12
+box	task-text	A section / Future task2	577.43	125.5	61.141	12
+box	task-text	Critical tasks / Add to mermaid	589.172	269.5	77.656	12
+box	task-text	Critical tasks / Completed task in the critical line	109	149.5	160.797	12.283
+box	task-text	Critical tasks / Create tests for parser	207.281	197.5	109.438	12.283
+box	task-text	Critical tasks / Create tests for renderer	599	245.5	119.844	12
+box	task-text	Critical tasks / Functionality added	638	293.5	95.686	12.283
+box	task-text	Critical tasks / Future task in critical line	374.477	221.5	121.047	12
+box	task-text	Critical tasks / Implement parser and jison	195	173.5	132.688	12.283
+box	task-text	Documentation / Add another diagram to demo page	339	365.5	173.063	12.283
+box	task-text	Documentation / Add gantt diagram to demo page	306	341.5	160.234	12.283
+box	task-text	Documentation / Describe gantt syntax	171.109	317.5	105.781	12.283
+box	task-text	Last section / Add another diagram to demo page	565	437.5	173.063	12.283
+box	task-text	Last section / Add gantt diagram to demo page	507	413.5	160.234	12.283
+box	task-text	Last section / Describe gantt syntax	373.109	389.5	105.781	12.283
+box	title	Adding GANTT diagram functionality to mermaid	198.578	9	386.844	20
+canvas	0	0	784	508
+font	Liberation Sans	1174

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d8ead8f62367856a
+box	nonterminal	bare / char	105.813	415.32	51.125	37
+box	nonterminal	bare / char #2	186.938	415.32	51.125	37
+box	nonterminal	field / bare	111.594	160.32	52.031	37
+box	nonterminal	field / quoted	103.141	115	68.938	37.32
+box	nonterminal	quoted / char	178.422	245.32	51.125	37
+box	nonterminal	record / field	99.141	30	49.359	37
+box	nonterminal	record / field #2	212.953	30	49.359	37
+box	rule	bare	0	375.32	293.063	97
+box	rule	char	0	501.66	382.297	37.32
+box	rule	field	0	115	207.078	82.32
+box	rule	quoted	0	225.32	391.25	122
+box	rule	record	0	10	297.312	77
+box	special	char / any character except a line break	84.922	501.66	282.375	37.32
+canvas	0	0	411.25	576.98
+font	Liberation Sans	222

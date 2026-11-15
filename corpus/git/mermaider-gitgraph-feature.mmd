@@ -1,0 +1,14 @@
+gitGraph
+commit id: "init"
+branch feature-a
+checkout feature-a
+commit id: "a1"
+commit id: "a2"
+checkout main
+branch feature-b
+checkout feature-b
+commit id: "b1"
+checkout main
+merge feature-a id: "merge-a"
+merge feature-b id: "merge-b"
+commit id: "release" tag: "v2.0"

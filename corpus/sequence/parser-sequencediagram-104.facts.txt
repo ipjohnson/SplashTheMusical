@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 707468b6e366a690
+accept	yes
+actor	Gina	Gina	database
+actor	Harry	Harry	database
+drawn	yes
+type	sequence

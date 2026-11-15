@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f0d606bf5f3d9efb
+box	entity	DocumentationSet	12	376	155.188	81
+box	entity	LinkManifest	126.52	558	118.594	81
+box	entity	LinkRegistry	223.523	194	117.031	81
+box	entity	LinkRegistryEntry	207.188	376	149.703	81
+box	entity	Registry	232.039	12	100	81
+box	relation	DocumentationSet --> LinkManifest	89.594	457	79.79	101
+box	relation	LinkRegistry --> LinkRegistryEntry	282.039	275	0	101
+box	relation	LinkRegistryEntry --> LinkManifest	202.249	457	79.79	101
+box	relation	Registry --> LinkRegistry	282.039	93	0	101
+box	relation-label	DocumentationSet --> LinkManifest	56.094	497	66.938	21
+box	relation-label	LinkRegistry --> LinkRegistryEntry	226.039	315	111.016	21
+box	relation-label	LinkRegistryEntry --> LinkManifest	268.039	497	27.25	21
+box	relation-label	Registry --> LinkRegistry	237.539	133	88.719	21
+canvas	4	4	360.891	643
+font	Liberation Sans	224

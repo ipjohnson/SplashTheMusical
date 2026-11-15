@@ -1,0 +1,53 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8375051aace412a1
+layout	1
+graph	TB	50	20	125	8	8
+node	Third_start	Third	14	14
+node	third	Third	136	37
+node	Third_end	Third	14.013293266296387	14
+node	Third		0	0
+edge	Third_start	third	edge4	1	1	0	0	10	c
+edge	third	Third_end	edge5	1	1	0	0	10	c
+size	222	456
+place	Third_start	111	77.5	14	14
+place	third	111	228	136	37
+place	Third_end	111	378.5	14.013293266296387	14
+place	Third	111	228	206	440
+route	Third_start	third	edge4			111,84.5 111,147 111,209.5
+route	third	Third_end	edge5			111,246.5 111,309 111,371.5
+layout	2
+graph	TB	50	20	100	8	8
+node	Second_start	Second	14	14
+node	second	Second	136	37
+node	Third	Second	206	440
+node	Second		0	0
+edge	Second_start	second	edge2	1	1	0	0	10	c
+edge	second	Third	edge3	1	1	0	0	10	c
+size	292	807
+place	Second_start	146	65	14	14
+place	second	146	190.5	136	37
+place	Third	146	529	206	440
+place	Second	146	403.5	276	791
+route	Second_start	second	edge2			146,72 146,122 146,172
+route	second	Third	edge3			146,209 146,259 146,309
+layout	3
+graph	TB	50	20	75	8	8
+node	First_start	First	14	14
+node	Second	First	276	791
+node	First		0	0
+edge	First_start	Second	edge1	1	1	0	0	10	c
+size	362	971
+place	First_start	181	52.5	14	14
+place	Second	181	530	276	791
+place	First	181	485.5	346	955
+route	First_start	Second	edge1			181,59.5 181,97 181,134.5
+layout	4
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	First		346	955
+edge	root_start	First	edge0	1	1	0	0	10	c
+size	362	1035
+place	root_start	181	15	14	14
+place	First	181	549.5	346	955
+route	root_start	First	edge0			181,22 181,47 181,72

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2b1a674ef529935
+box	entity	NavigationNode	62.949	376	139.625	81
+box	entity	Phantom	295.047	194	96.047	81
+box	entity	SiteMount	152	194	103.047	81
+box	entity	SiteNavigation	208.156	12	130.281	81
+box	entity	TocItem	12	194	100	81
+box	relation	SiteMount --> NavigationNode	152.699	275	50.824	101
+box	relation	SiteNavigation --> Phantom	291.677	93	51.393	101
+box	relation	SiteNavigation --> SiteMount	203.523	93	51.393	101
+box	relation	TocItem --> NavigationNode	62	275	50.824	101
+box	relation-label	SiteMount --> NavigationNode	173.523	315	59.141	21
+box	relation-label	SiteNavigation --> Phantom	312.07	133	61.484	21
+box	relation-label	SiteNavigation --> SiteMount	194.023	133	18.688	21
+box	relation-label	TocItem --> NavigationNode	40	315	43.547	21
+canvas	4	4	395.094	461
+font	Liberation Sans	154

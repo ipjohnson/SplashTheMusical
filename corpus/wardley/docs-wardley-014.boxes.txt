@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fa9bb12669913552
+box	node	Bespoke	323.4	182.016	52.924	23.184
+box	node	Novel	162.6	156.816	39.578	23.184
+box	node	Product	564.6	207.216	48.475	23.184
+box	node	Utility	765.6	232.416	38.449	23.184
+box	stage	0	110.059	558.816	36.682	11.48
+box	stage	1	271.971	558.816	34.457	11.48
+box	stage	2	493.062	558.816	34.475	11.48
+box	stage	3	726.218	558.816	50.565	11.48
+box	title	Custom Widths	403.883	15.839	92.233	13.776
+canvas	0	0	900	600
+font	Liberation Sans	174

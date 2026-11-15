@@ -1,0 +1,30 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ec833f11062239ea
+box	legend	Alpha	441	92	65.484	19
+box	legend	Bravo	441	114	66.422	19
+box	legend	Charlie	441	136	75.859	19
+box	legend	Delta	441	158	61.688	19
+box	legend	Echo	441	180	60.75	19
+box	legend	Foxtrot	441	202	74.906	19
+box	legend	Golf	441	224	53.203	19
+box	legend	Hotel	441	246	61.688	19
+box	legend	India	441	268	58.875	19
+box	legend	Juliett	441	290	66.422	19
+box	legend	Kilo	441	312	50.359	19
+box	legend	Lima	441	334	58.859	19
+box	slice	Alpha	225	40	175.945	185
+box	slice	Bravo	225	167.832	185	175.091
+box	slice	Charlie	225	225	142.545	185
+box	slice	Delta	98.359	225	126.641	185
+box	slice	Echo	43.277	225	181.723	134.859
+box	slice	Foxtrot	40	167.832	185	91.834
+box	slice	Golf	49.055	98.359	175.945	126.641
+box	slice	Hotel	90.141	57.607	134.859	167.393
+box	slice	India	146.231	45.812	78.769	179.188
+box	slice	Juliett	178.992	41.459	46.008	183.541
+box	slice	Kilo	201.813	40.365	23.187	184.635
+box	slice	Lima	213.384	40	11.616	185
+box	title	Slice palette	156.898	2	136.203	28.188
+canvas	0	0	565.859	450
+font	Liberation Sans	208

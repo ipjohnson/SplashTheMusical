@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e99d0046f12700e7
+box	node	A root with a long text that wraps to keep the node size in check	15	15	160	140
+canvas	5	5	180	160
+font	Liberation Sans	130

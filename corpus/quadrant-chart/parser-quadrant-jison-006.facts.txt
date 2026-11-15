@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d71fe9c846437b30
+accept	yes
+axis	x-left	Urgent(* +=[❤ ⟶
+drawn	yes
+label	Urgent(* +=[❤ ⟶
+type	quadrantChart

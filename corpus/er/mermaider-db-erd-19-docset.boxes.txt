@@ -1,0 +1,73 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d63a6ade5616d0c8
+box	entity	ApiDeclaration	820.562	294	131.062	81
+box	entity	CodexGroup	1483.484	294	119.391	81
+box	entity	CrossLinkDeclaration	1642.875	294	173.062	81
+box	entity	CrossLinkItem	171.375	12	129.469	81
+box	entity	CrossLinkUri	176.047	294	120.125	81
+box	entity	Cta	1956.56	698	100	81
+box	entity	DocumentationSet	1247.66	12	155.187	81
+box	entity	FeatureToggle	468.313	294	129.516	81
+box	entity	FileItem	2171.405	12	100	81
+box	entity	FolderItem	20.563	12	106.922	81
+box	entity	HintSuppression	637.828	294	142.734	81
+box	entity	IndexFileItem	12	294	124.047	81
+box	entity	NestedTocItem	1998.03	12	133.375	81
+box	entity	Page	2171.405	294	100	81
+box	entity	Product	950.105	496	100	81
+box	entity	Redirect	336.172	294	92.141	81
+box	entity	Registry	1607.676	496	100	81
+box	entity	ReleaseNotesSubscription	991.625	294	204.984	81
+box	entity	Repository	1747.676	496	106.922	81
+box	entity	Substitution	1330.312	294	113.172	81
+box	entity	TableOfContents	1953.225	294	144.297	81
+box	entity	TocItem	1975.374	496	100	81
+box	relation	ApiDeclaration --> Product	886.094	375	94.012	121
+box	relation	CrossLinkDeclaration --> Registry	1657.676	375	46.22	121
+box	relation	CrossLinkDeclaration --> Repository	1754.917	375	46.22	121
+box	relation	CrossLinkItem --> CrossLinkUri	236.109	93	0	201
+box	relation	DocumentationSet --> ApiDeclaration	886.094	93	413.163	201
+box	relation	DocumentationSet --> CodexGroup	1340.852	93	202.327	201
+box	relation	DocumentationSet --> CrossLinkDeclaration	1351.251	93	378.155	201
+box	relation	DocumentationSet --> Cta	1361.65	93	624.909	605
+box	relation	DocumentationSet --> Cta #2	1382.449	93	759.386	605
+box	relation	DocumentationSet --> FeatureToggle	533.07	93	745.388	201
+box	relation	DocumentationSet --> HintSuppression	709.195	93	579.662	201
+box	relation	DocumentationSet --> Product	1020.105	93	299.949	403
+box	relation	DocumentationSet --> Redirect	382.242	93	885.817	201
+box	relation	DocumentationSet --> ReleaseNotesSubscription	1094.117	93	215.538	201
+box	relation	DocumentationSet --> Substitution	1330.453	93	56.445	201
+box	relation	DocumentationSet --> TableOfContents	1372.05	93	632.608	201
+box	relation	FileItem --> Page	2221.405	93	0	201
+box	relation	FolderItem --> IndexFileItem	74.023	93	0	201
+box	relation	NestedTocItem --> TableOfContents	2046.09	93	18.628	201
+box	relation	ReleaseNotesSubscription --> Product	1000.105	375	94.012	121
+box	relation	TableOfContents --> TocItem	2025.374	375	0	121
+box	relation	TocItem --> Cta	2006.56	577	18.814	121
+box	relation	TocItem --> TocItem	1955.374	527	20	19
+box	relation-label	ApiDeclaration --> Product	862.594	415	46.703	21
+box	relation-label	CrossLinkDeclaration --> Registry	1609.676	415	95.703	21
+box	relation-label	CrossLinkDeclaration --> Repository	1750.637	415	100.391	21
+box	relation-label	CrossLinkItem --> CrossLinkUri	208.609	233	54.469	21
+box	relation-label	DocumentationSet --> ApiDeclaration	876.594	233	18.688	21
+box	relation-label	DocumentationSet --> CodexGroup	1504.18	233	77.063	21
+box	relation-label	DocumentationSet --> CrossLinkDeclaration	1694.406	233	69.25	21
+box	relation-label	DocumentationSet --> Cta	1871.842	415	18.687	21
+box	relation-label	DocumentationSet --> Cta #2	2107.335	415	68.5	21
+box	relation-label	DocumentationSet --> FeatureToggle	507.57	233	50.594	21
+box	relation-label	DocumentationSet --> HintSuppression	680.695	233	56.813	21
+box	relation-label	DocumentationSet --> Product	1236.609	324	53.703	21
+box	relation-label	DocumentationSet --> Redirect	342.242	233	79.359	21
+box	relation-label	DocumentationSet --> ReleaseNotesSubscription	1050.117	233	87.953	21
+box	relation-label	DocumentationSet --> Substitution	1371.898	233	29.578	21
+box	relation-label	DocumentationSet --> TableOfContents	1976.53	233	18.687	21
+box	relation-label	FileItem --> Page	2212.405	233	17.906	21
+box	relation-label	FolderItem --> IndexFileItem	57.023	233	33.469	21
+box	relation-label	NestedTocItem --> TableOfContents	2015.217	233	98.047	21
+box	relation-label	ReleaseNotesSubscription --> Product	1070.617	415	46.703	21
+box	relation-label	TableOfContents --> TocItem	1992.874	415	64.594	21
+box	relation-label	TocItem --> Cta	1990.874	617	68.5	21
+box	relation-label	TocItem --> TocItem	1902.342	526	49.031	21
+canvas	4	4	2275.405	783
+font	Liberation Sans	926

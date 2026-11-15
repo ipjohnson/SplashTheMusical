@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8ed44819b1c0951c
+accept	yes
+drawn	yes
+edge	[*]start@divider-id-1	A	none	arrow	solid
+edge	[*]start@divider-id-145	B	none	arrow	solid
+edge	[*]start@divider-id-146	D	none	arrow	solid
+edge	[*]start@divider-id-2	C	none	arrow	solid
+group	First	First	divider-id-1,divider-id-145
+group	Second	Second	divider-id-146,divider-id-2
+group	divider-id-1		A,[*]start@divider-id-1
+group	divider-id-145		B,[*]start@divider-id-145
+group	divider-id-146		D,[*]start@divider-id-146
+group	divider-id-2		C,[*]start@divider-id-2
+node	A	A	rounded
+node	B	B	rounded
+node	C	C	rounded
+node	D	D	rounded
+node	[*]start@divider-id-1		sm-circ
+node	[*]start@divider-id-145		sm-circ
+node	[*]start@divider-id-146		sm-circ
+node	[*]start@divider-id-2		sm-circ
+type	stateDiagram

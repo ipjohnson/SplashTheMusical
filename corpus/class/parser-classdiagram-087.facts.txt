@@ -1,0 +1,12 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 888e780602033e2d
+accept	yes
+attribute	Dummy_Class	String data
+attribute	Flight	departureTime : Date
+attribute	Flight	flightNumber : Integer
+class	Dummy_Class	Dummy_Class<T>
+class	Flight	Flight
+drawn	yes
+method	Dummy_Class	void methods()
+type	classDiagram

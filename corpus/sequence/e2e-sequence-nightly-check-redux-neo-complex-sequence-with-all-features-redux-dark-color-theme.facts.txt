@@ -1,0 +1,33 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 36963507b4debdc2
+accept	yes
+actor	AuditLogs	AuditLogs	collections
+actor	AuthService	AuthService	control
+actor	LoginUI	LoginUI	boundary
+actor	Order	Order	entity
+actor	OrderQueue	OrderQueue	queue
+actor	User	User	actor
+actor	UserDB	UserDB	database
+block	alt	Valid credentials
+block	loop	Until confirmed
+block	par	Place order
+box	Authentication	AuthService,LoginUI,User,UserDB
+box	Order Processing	AuditLogs,Order,OrderQueue
+divider
+divider	Invalid credentials
+drawn	yes
+message	AuthService	LoginUI	dashed	cross	Failure
+message	AuthService	LoginUI	dashed	filled	Success
+message	AuthService	UserDB	solid	filled	Query user
+message	LoginUI	AuthService	solid	filled	Validate
+message	LoginUI	User	dashed	cross	Retry
+message	LoginUI	User	dashed	filled	Welcome
+message	Order	AuditLogs	solid	filled	Record
+message	Order	OrderQueue	solid	filled	Process
+message	Order	User	dashed	filled	Notification
+message	OrderQueue	Order	solid	filled	Update status
+message	User	LoginUI	solid	filled	Enter credentials
+message	User	Order	solid	filled	New order
+message	UserDB	AuthService	dashed	filled	User data
+type	sequence

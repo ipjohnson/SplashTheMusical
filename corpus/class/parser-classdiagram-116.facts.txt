@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c08c584e4e2e56d6
+accept	yes
+attribute	A1	+foo : string
+attribute	A2	+bar : int
+attribute	B1	+foo : bool
+attribute	B2	+bar : float
+class	A1	A1
+class	A2	A2
+class	B1	B1
+class	B2	B2
+drawn	yes
+namespace	A	A1,A2
+namespace	B	B1,B2
+relation	A1	B1	none	arrow	solid
+relation	A2	B2	none	arrow	solid
+type	classDiagram

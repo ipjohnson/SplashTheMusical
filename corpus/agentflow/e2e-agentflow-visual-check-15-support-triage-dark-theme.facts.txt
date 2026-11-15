@@ -1,0 +1,50 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a8a2b643e3c5ea27
+accept	yes
+connector	crm	CRM
+connector	llm	LLM API
+direction	TD
+drawn	yes
+edge	classify	policy	reference
+edge	classify	severity	sequence
+edge	draft	send	sequence
+edge	escalate	audit	failure
+edge	lookup	draft	sequence
+edge	page	handoff	reference
+edge	resolve	audit	sequence
+edge	severity	escalate	sequence	high
+edge	severity	resolve	sequence	low
+edge	ticket	classify	sequence
+flow	audit	Audit	record
+flow	escalate	Escalation Agent	handoff,page
+flow	resolve	Resolution Agent	draft,lookup,send
+flow	triage	Triage Agent	classify,severity,ticket
+label	Audit
+label	CRM
+label	Escalation Agent
+label	Handoff Notes
+label	LLM API
+label	Resolution Agent
+label	Severity?
+label	Support Policy
+label	Triage Agent
+label	classify_intent
+label	draft_reply
+label	fetch_account
+label	high
+label	low
+label	page_oncall
+label	send_reply
+label	ticket
+node	classify	classify_intent	fr-rect	tool
+node	draft	draft_reply	rounded	task
+node	handoff	Handoff Notes	lin-doc	refdoc
+node	lookup	fetch_account	fr-rect	tool
+node	page	page_oncall	fr-rect	tool
+node	policy	Support Policy	lin-doc	refdoc
+node	record	record_outcome	rounded	task
+node	send	send_reply	fr-rect	tool
+node	severity	Severity?	diam	decision
+node	ticket	ticket	lean-r	input
+type	agentflow

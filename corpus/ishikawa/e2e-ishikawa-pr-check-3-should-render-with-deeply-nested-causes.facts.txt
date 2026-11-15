@@ -1,0 +1,26 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9d74c99b21700b53
+accept	yes
+cause	Hardware
+cause	Hardware / Disk
+cause	Hardware / Disk / Bad sectors
+cause	Hardware / Disk / Full capacity
+cause	Hardware / Memory
+cause	Hardware / Memory / Leak detected
+cause	Software
+cause	Software / Bug
+cause	Software / Bug / Race condition
+drawn	yes
+head	Server Outage
+label	Bad sectors
+label	Bug
+label	Disk
+label	Full capacity
+label	Hardware
+label	Leak detected
+label	Memory
+label	Race condition
+label	Server Outage
+label	Software
+type	ishikawa

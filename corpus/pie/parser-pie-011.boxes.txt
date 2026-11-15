@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ac5c2ae172a9c40c
+box	legend	dogs	441	202	58.875	19
+box	legend	rats	441	224	50.344	19
+box	slice	rats	40	40	370	370
+box	title	Default text position: Animal adoption	19.313	2	411.375	28.188
+canvas	0	0	548.875	450
+font	Liberation Sans	100

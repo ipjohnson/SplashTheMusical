@@ -6,6 +6,8 @@ SplashTheMusical includes code and data derived from the following projects.
 
 Parts of the parsers, layout engines, renderers and tests come from [nullean/mermaider](https://github.com/nullean/mermaider).
 `tools/oracle/facts.mjs` and `tools/oracle/extract.mjs` start from its `scripts/mjs-facts.mjs`.
+`tools/corpus/corpus.mjs` is a port of its `scripts/mermaid-docs-corpus.py` and `scripts/mermaid-test-corpus.py`. The
+`corpus/*/mermaider-*.mmd` cases are its hand-written cases, gallery examples and spec test sources.
 
 ```
 MIT License
@@ -47,6 +49,8 @@ Copyright (c) 2012 Red Hat, Inc.
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
+The `docs-*`, `e2e-*` and `parser-*` cases in `corpus/` are taken from its docs and tests. `corpus/SOURCE.txt` names
+the tag and commit.
 
 ```
 The MIT License (MIT)

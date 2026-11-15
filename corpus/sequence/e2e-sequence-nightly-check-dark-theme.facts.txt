@@ -1,0 +1,20 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d0f0e0482f2a7264
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John	participant
+block	loop	Every minute
+block	par	Action 1
+divider	Action 2
+drawn	yes
+message	Alice	Bob	solid	filled	Hello Bob, how are you?
+message	Alice	John	solid	filled	Hello John, how are you?
+message	Alice	John	solid	filled	Hello John, how are you?
+message	Alice	John	solid	filled	John, can you hear me?
+message	John	Alice	dashed	filled	Hi Alice, I can hear you!
+message	John	Alice	dashed	filled	I feel great!
+message	John	Alice	dashed	none	Great!
+note	right	John	John is perceptive
+type	sequence

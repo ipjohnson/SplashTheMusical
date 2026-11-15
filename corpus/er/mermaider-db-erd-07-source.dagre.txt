@@ -1,0 +1,30 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 796f57f1e169bdfa
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Repository-0		106.921875	81
+node	entity-DocumentationSet-1		155.1875	81
+node	entity-ContentSourceBranches-2		192.546875	81
+node	entity-PublishEnvironment-3		164.515625	81
+node	entity-ContentSource-4		133.40625	81
+node	entity-Checkout-5		99.15625	81
+node	entity-LinkRegistryEntry-6		149.703125	81
+edge	entity-Repository-0	entity-DocumentationSet-1	id_entity-Repository-0_entity-DocumentationSet-1_0	1	1	94.828125	21	10	c
+edge	entity-Repository-0	entity-ContentSourceBranches-2	id_entity-Repository-0_entity-ContentSourceBranches-2_1	1	1	116.75	21	10	c
+edge	entity-PublishEnvironment-3	entity-ContentSource-4	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	1	1	95.734375	21	10	c
+edge	entity-Checkout-5	entity-Repository-0	id_entity-Checkout-5_entity-Repository-0_3	1	1	40.46875	21	10	c
+edge	entity-Checkout-5	entity-LinkRegistryEntry-6	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	1	1	91.046875	21	10	c
+size	707.421875	461
+place	entity-Repository-0	356.2578125	230.5	106.921875	81
+place	entity-DocumentationSet-1	199.32421875	412.5	155.1875	81
+place	entity-ContentSourceBranches-2	513.19140625	412.5	192.546875	81
+place	entity-PublishEnvironment-3	90.2578125	48.5	164.515625	81
+place	entity-ContentSource-4	90.2578125	230.5	133.40625	81
+place	entity-Checkout-5	490.4140625	48.5	99.15625	81
+place	entity-LinkRegistryEntry-6	624.5703125	230.5	149.703125	81
+route	entity-Repository-0	entity-DocumentationSet-1	id_entity-Repository-0_entity-DocumentationSet-1_0	199.32421875	321.5	302.796875,261.5000248911014 199.32421875,321.5 199.32421875,372
+route	entity-Repository-0	entity-ContentSourceBranches-2	id_entity-Repository-0_entity-ContentSourceBranches-2_1	513.19140625	321.5	409.71875,261.5000248911014 513.19140625,321.5 513.19140625,372
+route	entity-PublishEnvironment-3	entity-ContentSource-4	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	90.2578125	139.5	90.2578125,89 90.2578125,139.5 90.2578125,190
+route	entity-Checkout-5	entity-Repository-0	id_entity-Checkout-5_entity-Repository-0_3	356.2578125	139.5	440.8359375,82.1295131609597 356.2578125,139.5 356.2578125,190
+route	entity-Checkout-5	entity-LinkRegistryEntry-6	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	624.5703125	139.5	539.9921875,82.1295131609597 624.5703125,139.5 624.5703125,190

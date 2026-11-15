@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 920780ee6e4b7b98
+box	node	MyApp.sln	20	30.894	80.845	17.318
+box	node	MyApp.sln / README.md	35	492.75	95.08	17
+box	node	MyApp.sln / src	35	58.062	24.016	17
+box	node	MyApp.sln / src / MyApp	50	85.23	53.298	17.318
+box	node	MyApp.sln / src / MyApp / MyApp.csproj	65	167.191	96.876	17.318
+box	node	MyApp.sln / src / MyApp / Program.cs	65	112.551	81.751	17.319
+box	node	MyApp.sln / src / MyApp / appsettings.json	65	139.871	115.564	17.318
+box	node	MyApp.sln / src / MyApp.Core	50	194.512	94.173	17.318
+box	node	MyApp.sln / src / MyApp.Core / Models	65	302.726	55.095	17
+box	node	MyApp.sln / src / MyApp.Core / Models / User.cs	80	329.742	53.313	17
+box	node	MyApp.sln / src / MyApp.Core / MyApp.Core.csproj	65	356.91	135.971	17.318
+box	node	MyApp.sln / src / MyApp.Core / Services	65	221.68	65.798	17
+box	node	MyApp.sln / src / MyApp.Core / Services / AuthService.cs	80	275.711	106.658	17
+box	node	MyApp.sln / src / MyApp.Core / Services / UserService.cs	80	248.695	107.517	17
+box	node	MyApp.sln / tests	35	384.078	37.344	17
+box	node	MyApp.sln / tests / MyApp.Tests	50	411.246	98.33	17.318
+box	node	MyApp.sln / tests / MyApp.Tests / MyApp.Tests.csproj	65	465.582	138.627	17.318
+box	node	MyApp.sln / tests / MyApp.Tests / UserServiceTests.cs	65	438.414	144.846	17
+canvas	-0.5	0	214.922	516.039
+font	Liberation Sans	388

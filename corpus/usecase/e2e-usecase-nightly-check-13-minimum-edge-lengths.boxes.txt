@@ -1,0 +1,15 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d7b1ed80d5dd3e19
+box	actor	User	12	12	76	121
+box	relation	A --> B	288	72.5	36	0
+box	relation	B --> C	488	72.5	36	0
+box	relation	C --> D	688	72.5	160.609	0
+box	relation	User --> A	88	72.5	36	0
+box	relation-label	C --> D	728	64.5	84.609	15
+box	usecase	A	128	43.5	160	58
+box	usecase	B	328	43.5	160	58
+box	usecase	C	528	43.5	160	58
+box	usecase	D	852.609	43.5	160	58
+canvas	-8	-8	1040.609	161
+font	Liberation Sans	162

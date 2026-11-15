@@ -1,0 +1,52 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0afc7bc0deccf221
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	A	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	A	edge0	1	1	0	0	10	c
+size	222	267
+place	divider-id-1_start	111	65	14	14
+place	A	111	190.5	136	37
+place	divider-id-1	111	133.5	206	251
+route	divider-id-1_start	A	edge0			111,72 111,122 111,172
+layout	2
+graph	TB	50	20	100	8	8
+node	id-iybp8lvpntm-136_start	id-iybp8lvpntm-136	14	14
+node	C	id-iybp8lvpntm-136	136	37
+node	id-iybp8lvpntm-136		0	0
+edge	id-iybp8lvpntm-136_start	C	edge1	1	1	0	0	10	c
+size	222	267
+place	id-iybp8lvpntm-136_start	111	65	14	14
+place	C	111	190.5	136	37
+place	id-iybp8lvpntm-136	111	133.5	206	251
+route	id-iybp8lvpntm-136_start	C	edge1			111,72 111,122 111,172
+layout	3
+graph	TB	50	20	75	8	8
+node	Second_start	Second	14	14
+node	B	Second	136	37
+node	Second		0	0
+edge	Second_start	B	edge2	1	1	0	0	10	c
+size	222	217
+place	Second_start	111	52.5	14	14
+place	B	111	153	136	37
+place	Second	111	108.5	206	201
+route	Second_start	B	edge2			111,59.5 111,97 111,134.5
+layout	4
+graph	TB	50	20	75	8	8
+node	divider-id-1	First	206	251
+node	id-iybp8lvpntm-136	First	206	251
+node	First		0	0
+size	548	342
+place	divider-id-1	146	171	206	251
+place	id-iybp8lvpntm-136	402	171	206	251
+place	First	274	171	532	326
+layout	5
+graph	TB	50	20	50	8	8
+node	First		532	326
+node	Second		206	201
+size	804	342
+place	First	274	171	532	326
+place	Second	693	171	206	201

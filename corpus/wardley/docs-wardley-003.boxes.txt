@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c8a676b374edb468
+box	node	Infrastructure	202.8	383.616	72.906	23.184
+box	node	Product	524.4	182.016	48.475	23.184
+box	node	User Need	805.8	81.216	61.803	23.184
+box	title	Coordinate Examples	385.614	15.839	128.771	14.093
+canvas	0	0	900	600
+font	Liberation Sans	206

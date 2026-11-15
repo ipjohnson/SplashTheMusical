@@ -1,0 +1,17 @@
+sequenceDiagram
+participant Browser
+participant CDN
+participant LB as Load Balancer
+participant App
+participant Cache
+participant DB
+Browser->>CDN: Static assets
+Browser->>LB: API request
+LB->>App: Forward
+App->>Cache: Check cache
+Cache-->>App: Miss
+App->>DB: Query
+DB-->>App: Result
+App->>Cache: Store
+App-->>LB: Response
+LB-->>Browser: Response

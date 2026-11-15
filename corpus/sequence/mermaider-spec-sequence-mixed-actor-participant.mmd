@@ -1,0 +1,8 @@
+sequenceDiagram
+actor User
+participant API
+participant DB
+User->>API: GET /data
+API->>DB: SELECT *
+DB-->>API: rows
+API-->>User: 200 OK

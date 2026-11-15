@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dcf721a3f4beee64
+accept	yes
+drawn	yes
+node	id1	This is the text in the box	hex
+type	flowchart-v2

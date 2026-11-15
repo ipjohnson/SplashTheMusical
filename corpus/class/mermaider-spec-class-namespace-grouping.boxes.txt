@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 209bb65b7d6f5a14
+box	class	Database	36	486	162.914	141
+box	class	Order	47.879	219	139.156	135
+box	class	User	55.453	60	124.008	135
+box	namespace	Domain	23.879	12	187.156	366
+box	namespace	Infrastructure	12	438	210.914	213
+box	relation	Order --> Database	117.457	354	0	126
+box	relation	User --> Order	117.457	195	0	18
+canvas	4	4	226.914	655
+font	Liberation Sans	244

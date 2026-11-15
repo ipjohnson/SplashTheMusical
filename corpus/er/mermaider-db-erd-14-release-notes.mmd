@@ -1,0 +1,8 @@
+erDiagram
+    Repository ||--o| ChangelogConfiguration : "changelog.yml"
+    ChangelogEntry ||--|{ ProductRelease : "products"
+    ProductRelease }o--|| Product : "product"
+    Bundle ||--o{ BundledEntry : "entries"
+    BundledEntry }o--|| ChangelogEntry : "name + checksum"
+    Bundle ||--o{ BundleAmend : "amend-N"
+    Product ||--o| BundleRegistry : "registry.json"

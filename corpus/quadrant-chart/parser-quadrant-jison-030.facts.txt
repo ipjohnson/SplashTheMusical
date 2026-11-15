@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2d08b0af8f6d2390
+accept	yes
+drawn	yes
+label	🚀Growth
+quadrant	2	🚀Growth
+type	quadrantChart

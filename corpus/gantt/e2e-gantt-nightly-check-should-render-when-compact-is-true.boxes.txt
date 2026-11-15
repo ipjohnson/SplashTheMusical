@@ -1,0 +1,40 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 164b5ecfa58534d3
+box	section	DB Clean	10	56	47.078	12
+box	section	Sessions	10	104	44.641	12
+box	task	DB Clean / Clean	75	50	33	20
+box	task	DB Clean / Clean #2	175	50	39	20
+box	task	DB Clean / Clean #3	274	50	27	20
+box	task	DB Clean / Clean #4	374	50	30	20
+box	task	DB Clean / Clean #5	473	50	43	20
+box	task	DB Clean / Clean #6	573	50	33	20
+box	task	DB Clean / Clean #7	672	50	37	20
+box	task	Sessions / A	75	74	209	20
+box	task	Sessions / B	175	98	39	20
+box	task	Sessions / C	291	74	40	20
+box	task	Sessions / D	294	98	110	20
+box	task	Sessions / E	324	122	183	20
+box	task	Sessions / F	341	74	39	20
+box	task	Sessions / G	380	74	60	20
+box	task	Sessions / H	440	74	67	20
+box	task	Sessions / I	507	74	33	20
+box	task-text	DB Clean / Clean	77.125	53.5	28.75	12
+box	task-text	DB Clean / Clean #2	180.125	53.5	28.75	12
+box	task-text	DB Clean / Clean #3	306	53.5	28.75	12
+box	task-text	DB Clean / Clean #4	374.625	53.5	28.75	12
+box	task-text	DB Clean / Clean #5	480.125	53.5	28.75	12
+box	task-text	DB Clean / Clean #6	575.125	53.5	28.75	12
+box	task-text	DB Clean / Clean #7	676.125	53.5	28.75	12
+box	task-text	Sessions / A	175.828	77.5	7.344	12
+box	task-text	Sessions / B	190.828	101.5	7.344	12
+box	task-text	Sessions / C	307.023	77.5	7.953	12
+box	task-text	Sessions / D	345.023	101.5	7.953	12
+box	task-text	Sessions / E	411.828	125.5	7.344	12
+box	task-text	Sessions / F	357.133	77.5	6.734	12
+box	task-text	Sessions / G	405.719	77.5	8.563	12
+box	task-text	Sessions / H	469.523	77.5	7.953	12
+box	task-text	Sessions / I	521.969	77.5	3.063	12
+box	title	GANTT compact	325.148	9	133.703	20
+canvas	0	0	784	196
+font	Liberation Sans	276

@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2453252a240f03f
+accept	yes
+drawn	yes
+node	CS	A long bold text to be viewed	rounded
+type	flowchart-v2

@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0c516ceabc826fc4
+box	entity	EMPLOYEE	77.071	220.119	178.892	73.004
+box	entity	PRIVATE_FINANCIAL_INSTITUTION	17.702	12.279	298.003	107.971
+box	relation	PRIVATE_FINANCIAL_INSTITUTION --> EMPLOYEE	160.533	119.852	0.723	100.151
+box	relation-label	PRIVATE_FINANCIAL_INSTITUTION --> EMPLOYEE	132.502	159.971	56.141	20
+canvas	9.702	4.279	314.003	296.845
+font	Liberation Sans	322

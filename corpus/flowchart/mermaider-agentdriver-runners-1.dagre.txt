@@ -1,0 +1,36 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19c559f6868d629f
+layout	1
+graph	LR	50	20	50	8	8
+node	Runner		0	0
+node	Mac		0	0
+node	serve	Mac	152	87
+node	ssh	Mac	152	87
+node	home	Mac	152	87
+node	daemon	Runner	152	87
+node	sshd	Runner	152	66
+node	claude	Runner	152	45
+node	rhome	Runner	152	108
+node	github		152	45
+node	anthropic		152	45
+edge	daemon	serve	L_daemon_serve_0	1	1	200	42	10	c
+edge	ssh	sshd	L_ssh_sshd_0	1	1	200	42	10	c
+edge	serve	github	L_serve_github_0	1	1	200	42	10	c
+edge	claude	anthropic	L_claude_anthropic_0	1	1	136.546875	21	10	c
+size	1474	856
+place	Runner	536	585	202	526
+place	Mac	536	155	1056	294
+place	serve	963	86.5	152	87
+place	ssh	109	155	152	87
+place	home	963	223.5	152	87
+place	daemon	536	400.5	152	87
+place	sshd	536	527	152	66
+place	claude	536	632.5	152	45
+place	rhome	536	759	152	108
+place	github	1390	86.5	152	45
+place	anthropic	963	632.5	152	45
+route	daemon	serve	L_daemon_serve_0	762	86.5	612,400.5 637,400.5 762,86.5 887,86.5
+route	ssh	sshd	L_ssh_sshd_0	310	155	185,155 310,155 435,155 527.0403225806451,494
+route	serve	github	L_serve_github_0	1189	86.5	1039,86.5 1064,86.5 1189,86.5 1314,86.5
+route	claude	anthropic	L_claude_anthropic_0	762	632.5	612,632.5 637,632.5 762,632.5 887,632.5

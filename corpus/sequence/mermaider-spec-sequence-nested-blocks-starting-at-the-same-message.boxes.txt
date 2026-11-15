@@ -1,0 +1,25 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d2280fedda14e5f9
+box	actor	A	0	0	150	73
+box	actor	B	200	0	150	73
+box	actor	C	400	0	150	73
+box	actor-bottom	A	0	623	150	73
+box	actor-bottom	B	200	623	150	73
+box	actor-bottom	C	400	623	150	73
+box	block	alt Retry	54	370	432	233
+box	block	loop Every minute	54	83	442	277
+box	block	opt Same messages	64	415	222	89
+box	block	par Ping B	64	128	422	178
+box	message	A --> B	76	207	192	0
+box	message	A --> B #2	76	494	192	0
+box	message	A --> C	76	296	392	0
+box	message	A --> C #2	76	593	392	0
+box	message	C --> A	82	350	392	0
+box	message-text	A --> B	156.875	184.219	30.25	17.32
+box	message-text	A --> B #2	152.422	471.219	39.156	17.32
+box	message-text	A --> C	256.875	273.219	30.25	17.32
+box	message-text	A --> C #2	256.875	570.219	30.25	17.32
+box	message-text	C --> A	260.203	327.219	35.594	17.32
+canvas	-50	-10	650	747
+font	Liberation Sans	202

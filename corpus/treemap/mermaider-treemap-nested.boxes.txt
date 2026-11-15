@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source be48b15c9511ce19
+box	node	Business	657	35	333	355
+box	node	Business / Marketing	667	248	313	132
+box	node	Business / Sales	667	70	313	168
+box	node	Technology	10	35	637	355
+box	node	Technology / Backend	20	70	285	310
+box	node	Technology / DevOps	315	283	322	97
+box	node	Technology / Frontend	315	70	322	203
+canvas	2	27	996	371
+font	Liberation Sans	134

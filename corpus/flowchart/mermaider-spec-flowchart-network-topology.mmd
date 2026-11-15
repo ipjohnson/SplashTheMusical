@@ -1,0 +1,18 @@
+flowchart TB
+internet((Internet))
+subgraph cloud[Cloud VPC]
+  subgraph pub[Public Subnet]
+    lb([Load Balancer])
+    nat([NAT Gateway])
+  end
+  subgraph priv[Private Subnet]
+    app1[App Server 1]
+    app2[App Server 2]
+    db[(Database)]
+  end
+end
+internet --> lb
+lb --> app1 & app2
+app1 & app2 --> db
+app1 & app2 --> nat
+nat --> internet

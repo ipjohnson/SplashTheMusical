@@ -1,0 +1,24 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a3eb97f24466a1c
+layout	1
+graph	TB	50	20	50	8	8
+node	Vehicle		139.5625	198
+node	Car		120.8828125	135
+node	Truck		145.8359375	135
+node	Electric		178.875	162
+node	Engine		147.3515625	135
+edge	Vehicle	Car	id_Vehicle_Car_1	1	1	0	0	10	c
+edge	Vehicle	Truck	id_Vehicle_Truck_2	1	1	0	0	10	c
+edge	Electric	Car	id_Electric_Car_3	1	1	49.046875	21	10	c
+edge	Car	Engine	id_Car_Engine_4	1	1	0	0	10	c
+size	406.90625	605
+place	Vehicle	315.98828125	107	139.5625	198
+place	Car	119.69921875	344.5	120.8828125	135
+place	Truck	325.98828125	344.5	145.8359375	135
+place	Electric	97.4375	107	178.875	162
+place	Engine	119.69921875	529.5	147.3515625	135
+route	Vehicle	Car	id_Vehicle_Car_1			248.5065781830855,206 224.30859375,241.5 180.140625,284.98846153846154
+route	Vehicle	Truck	id_Vehicle_Truck_2			323.34887604553904,206 325.98828125,241.5 325.98828125,277
+route	Electric	Car	id_Electric_Car_3	97.4375	241.5	97.4375,188 97.4375,241.5 105.11022830703884,277
+route	Car	Engine	id_Car_Engine_4			119.69921875,412 119.69921875,437 119.69921875,462

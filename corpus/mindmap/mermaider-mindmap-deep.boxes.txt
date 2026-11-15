@@ -1,0 +1,38 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 29e1bdbef25a1028
+box	edge	Architecture / Backend	460.51	205.527	109.327	82.87
+box	edge	Architecture / Backend / API	566.114	113.976	12.876	67.754
+box	edge	Architecture / Backend / API / GraphQL	575.107	41.269	61.969	48.702
+box	edge	Architecture / Backend / API / REST	470.656	46.07	79.647	45.704
+box	edge	Architecture / Backend / Data	596.786	193.295	107.167	2.782
+box	edge	Architecture / Backend / Data / Cache	728.815	204.203	45.108	51.646
+box	edge	Architecture / Backend / Data / SQL	731.941	139.697	79.248	45.714
+box	edge	Architecture / Backend / Data / SQL / Postgres	838.714	100.298	110.126	28.185
+box	edge	Architecture / Frontend	331.22	307.025	105.783	87.584
+box	edge	Architecture / Frontend / Components	295.917	418.582	19.572	67.516
+box	edge	Architecture / Frontend / Components / Buttons	306.173	504.592	130.204	36.877
+box	edge	Architecture / Frontend / Components / Forms	245.338	512.815	37.831	54.335
+box	edge	Architecture / Frontend / Components / Forms / Masks	113.502	584.391	109.099	37.973
+box	edge	Architecture / Frontend / Components / Forms / Validation	245.813	591.425	40.285	53.284
+box	edge	Architecture / Frontend / State	196.86	369.693	108.364	30.427
+box	edge	Architecture / Frontend / State / Store	68.266	325.261	100.011	35.375
+box	node	Architecture	394.214	243.116	108.684	108.684
+box	node	Architecture / Backend	535.658	169.466	92.266	54
+box	node	Architecture / Backend / API	530.415	82.239	65.797	34
+box	node	Architecture / Backend / API / GraphQL	595.963	15	105.812	34
+box	node	Architecture / Backend / API / REST	416.31	21.604	82.672	34
+box	node	Architecture / Backend / Data	682.05	175.906	73.797	34
+box	node	Architecture / Backend / Data / Cache	740.665	250.147	86.25	34
+box	node	Architecture / Backend / Data / SQL	788.174	115.202	72.016	34
+box	node	Architecture / Backend / Data / SQL / Postgres	911.802	79.579	103.141	34
+box	node	Architecture / Frontend	272.642	377.175	94.047	54
+box	node	Architecture / Frontend / Components	226.381	483.505	130.719	34
+box	node	Architecture / Frontend / Components / Buttons	403.677	528.557	94.266	34
+box	node	Architecture / Frontend / Components / Forms	194.103	562.46	85.328	34
+box	node	Architecture / Frontend / Components / Forms / Masks	56.219	610.295	86.234	34
+box	node	Architecture / Frontend / Components / Forms / Validation	240.598	639.675	109.094	34
+box	node	Architecture / Frontend / State	143.739	348.638	77.359	34
+box	node	Architecture / Frontend / State / Store	15	303.259	78.25	34
+canvas	5	5	1019.942	678.675
+font	Liberation Sans	216

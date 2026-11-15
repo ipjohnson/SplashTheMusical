@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cdde17d1b4ec8625
+box	edge	CapsLockOff --> CapsLockOn	564.699	213	55.91	135.5
+box	edge	CapsLockOn --> CapsLockOff	470.656	218.5	55.91	135.5
+box	edge	NumLockOff --> NumLockOn	215.981	213	54.347	135.5
+box	edge	NumLockOn --> NumLockOff	123.5	218.5	54.347	135.5
+box	edge	ScrollLockOff --> ScrollLockOn	219.043	538	55.91	135.5
+box	edge	ScrollLockOn --> ScrollLockOff	125	543.5	55.91	135.5
+box	edge	[*]start@divider-id-1 --> NumLockOff	196.914	152	0	18.5
+box	edge	[*]start@divider-id-2 --> CapsLockOff	545.633	152	0	18.5
+box	edge	[*]start@divider-id-23 --> ScrollLockOff	199.977	477	0	18.5
+box	edge	[*]start@root --> Active	372.781	26	0	34.5
+box	edge-label	CapsLockOff --> CapsLockOn	555.609	273	129.953	21
+box	edge-label	CapsLockOn --> CapsLockOff	405.656	273	129.953	21
+box	edge-label	NumLockOff --> NumLockOn	206.828	273	126.828	21
+box	edge-label	NumLockOn --> NumLockOff	60	273	126.828	21
+box	edge-label	ScrollLockOff --> ScrollLockOn	209.953	598	129.953	21
+box	edge-label	ScrollLockOn --> ScrollLockOff	60	598	129.953	21
+box	group	Active	75.5	66	593.109	698
+box	group	divider-id-1	99.5	114	194.828	301
+box	group	divider-id-2	446.656	114	197.953	301
+box	node	CapsLockOff	477.633	176	136	37
+box	node	CapsLockOn	477.633	354	136	37
+box	node	NumLockOff	128.914	176	136	37
+box	node	NumLockOn	128.914	354	136	37
+box	node	ScrollLockOff	131.977	501	136	37
+box	node	ScrollLockOn	131.977	679	136	37
+box	node	[*]start@divider-id-1	189.914	138	14	14
+box	node	[*]start@divider-id-2	538.633	138	14	14
+box	node	[*]start@root	365.781	12	14	14
+canvas	52	4	641.563	768
+font	Liberation Sans	342

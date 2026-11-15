@@ -1,0 +1,8 @@
+stateDiagram-v2
+  [*] --> Active
+  Active --> Paused : pause
+  Paused --> Active : resume
+  Active --> Done : finish
+  note right of Active : This is the main working state
+  note left of Paused : Temporarily suspended
+  Done --> [*]

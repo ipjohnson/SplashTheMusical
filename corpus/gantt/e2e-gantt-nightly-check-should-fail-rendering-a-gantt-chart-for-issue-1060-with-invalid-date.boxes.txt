@@ -1,0 +1,43 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d92f0ab04e0d536a
+box	section	CEL	10	152	21.406	12
+box	section	DEX	10	236	22.625	12
+box	section	Events	10	308	33.641	12
+box	section	Plasma Calls & updates	10	380	116.781	12.283
+box	section	asdf	10	80	20.808	12
+box	task	CEL / Plasma Implementation (Rust)	210	146	397	20
+box	task	CEL / Predicates (Atomic Swap)	309	170	199	20
+box	task	CEL / plasma-chamber	108	122	198	20
+box	task	DEX / Exit	511	218	198	20
+box	task	DEX / History zkSNARK	379	194	132	20
+box	task	DEX / PlasmaIntegration	517	266	133	20
+box	task	DEX / PredicateSpec	451	242	66	20
+box	task	Events / DevCon	574	314	10	20
+box	task	Events / ETHBoston	475	290	9	20
+box	task	Plasma Calls & updates / OVM	283	338	396	20
+box	task	Plasma Calls & updates / Plasma call 26	415	362	3	20
+box	task	Plasma Calls & updates / Plasma call 27	458	386	3	20
+box	task	Plasma Calls & updates / Plasma call 28	504	410	4	20
+box	task	asdf / Plasma	210	74	199	20
+box	task	asdf / Rollup	412	98	165	20
+box	task	asdf / specs	75	50	165	20
+box	task-text	CEL / Plasma Implementation (Rust)	334.523	149.5	147.953	12.283
+box	task-text	CEL / Predicates (Atomic Swap)	345.227	173.5	126.547	12.283
+box	task-text	CEL / plasma-chamber	166.039	125.5	81.922	12.283
+box	task-text	DEX / Exit	600.828	221.5	18.344	12
+box	task-text	DEX / History zkSNARK	401.906	197.5	86.188	12.283
+box	task-text	DEX / PlasmaIntegration	539.164	269.5	88.672	12.283
+box	task-text	DEX / PredicateSpec	522	245.5	71.547	12.283
+box	task-text	Events / DevCon	589	317.5	39.75	12
+box	task-text	Events / ETHBoston	489	293.5	56.25	12
+box	task-text	Plasma Calls & updates / OVM	468.469	341.5	25.063	12
+box	task-text	Plasma Calls & updates / Plasma call 26	423	365.5	71.547	12
+box	task-text	Plasma Calls & updates / Plasma call 27	466	389.5	71.547	12
+box	task-text	Plasma Calls & updates / Plasma call 28	513	413.5	71.547	12
+box	task-text	asdf / Plasma	291.156	77.5	36.688	12
+box	task-text	asdf / Rollup	478.906	101.5	31.188	12.283
+box	task-text	asdf / specs	143.125	53.5	28.75	12.283
+box	title	Projects Timeline	323.469	9	137.063	20
+canvas	0	0	784	484
+font	Liberation Sans	614

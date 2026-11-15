@@ -1,0 +1,20 @@
+architecture-beta
+group awsGroup(cloud)[AWS]
+service awsCompute(aws:compute)[EC2] in awsGroup
+service awsStorage(aws:storage)[S3] in awsGroup
+
+group azureGroup(cloud)[Azure]
+service azureCompute(azure:compute)[VM] in azureGroup
+service azureStorage(azure:storage)[Blob] in azureGroup
+
+group gcpGroup(cloud)[GCP]
+service gcpCompute(gcp:compute)[Compute Engine] in gcpGroup
+service gcpStorage(gcp:storage)[Cloud Storage] in gcpGroup
+
+service search(elastic:elasticsearch)[Elasticsearch]
+
+awsCompute:R -- L:awsStorage
+azureCompute:R -- L:azureStorage
+gcpCompute:R -- L:gcpStorage
+awsStorage:B -- T:search
+gcpStorage:B -- T:search

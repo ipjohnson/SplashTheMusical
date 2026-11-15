@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2085576940433186
+box	boundary	api	150	383.435	316	249.189
+box	element	sign	200	483.435	216	99.189
+box	element	spa	150	166	216	111.435
+box	rel-label	spa --> sign	283.327	334.935	27.329	14
+box	title	Component diagram for Internet Banking System - API Application	58	6	467.524	17.319
+canvas	0	-70	616	802.624
+font	Liberation Sans	694

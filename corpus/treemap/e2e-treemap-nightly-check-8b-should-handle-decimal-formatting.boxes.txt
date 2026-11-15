@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 923294d4de5fa94a
+box	node	Metrics	10	35	980	355
+box	node	Metrics / Bounce Rate	20	70	488	310
+box	node	Metrics / Click-through Rate	853	70	127	212
+box	node	Metrics / Conversion Rate	853	292	127	88
+box	node	Metrics / Engagement	518	70	325	310
+canvas	2	27	996	371
+font	Liberation Sans	162

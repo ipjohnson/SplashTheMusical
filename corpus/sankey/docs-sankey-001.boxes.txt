@@ -1,0 +1,121 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c6739c6a83029fbe
+box	flow	Agricultural 'waste' --> Bio-conversion	10	66.635	74.286	22.28
+box	flow	Bio-conversion --> Gas	94.286	106.195	74.286	29.727
+box	flow	Bio-conversion --> Liquid	94.286	108.67	74.286	238.415
+box	flow	Bio-conversion --> Losses	94.286	48.846	495.714	37.107
+box	flow	Bio-conversion --> Solid	94.286	95.252	74.286	7.606
+box	flow	Biofuel imports --> Liquid	10	337.885	158.571	10.277
+box	flow	Biomass imports --> Solid	10	112.404	158.571	19.055
+box	flow	Coal --> Solid	94.286	115.751	74.286	21.952
+box	flow	Coal imports --> Coal	10	118.048	74.286	17.719
+box	flow	Coal reserves --> Coal	10	138.055	74.286	8.401
+box	flow	District heating --> Heating and cooling - commercial	347.143	56.326	242.857	103.329
+box	flow	District heating --> Heating and cooling - homes	347.143	58.406	242.857	122.09
+box	flow	District heating --> Industry	347.143	55.323	242.857	57.526
+box	flow	Electricity grid --> Agriculture	347.143	213.948	242.857	31.327
+box	flow	Electricity grid --> H2 conversion	347.143	242.87	74.286	3.359
+box	flow	Electricity grid --> Heating and cooling - commercial	347.143	161.582	242.857	75.436
+box	flow	Electricity grid --> Heating and cooling - homes	347.143	185.337	242.857	56.361
+box	flow	Electricity grid --> Industry	347.143	129.285	242.857	96.137
+box	flow	Electricity grid --> Lighting & appliances - commercial	347.143	229.027	242.857	20.75
+box	flow	Electricity grid --> Lighting & appliances - homes	347.143	246.582	242.857	8.75
+box	flow	Electricity grid --> Losses	347.143	51.46	242.857	155.563
+box	flow	Electricity grid --> Over generation / exports	347.143	97.364	242.857	114.537
+box	flow	Electricity grid --> Rail transport	347.143	258.4	242.857	46.148
+box	flow	Electricity grid --> Road transport	347.143	259.782	242.857	58.416
+box	flow	Gas --> Agriculture	178.571	145.76	411.429	67.991
+box	flow	Gas --> Heating and cooling - commercial	178.571	145.692	411.429	14.648
+box	flow	Gas --> Industry	178.571	117.456	411.429	26.762
+box	flow	Gas --> Losses	178.571	49.701	411.429	83.807
+box	flow	Gas --> Thermal generation	178.571	85.204	74.286	52.945
+box	flow	Gas imports --> Ngas	10	185.367	74.286	13.374
+box	flow	Gas reserves --> Ngas	10	181.645	74.286	1.374
+box	flow	Geothermal --> Electricity grid	10	224.61	327.143	13.153
+box	flow	H2 --> Road transport	515.714	249.003	74.286	70.972
+box	flow	H2 conversion --> H2	431.429	243.059	74.286	5.944
+box	flow	H2 conversion --> Losses	431.429	53.365	158.571	188.873
+box	flow	Hydro --> Electricity grid	10	212.186	327.143	25.153
+box	flow	Liquid --> Agriculture	178.571	214.191	411.429	140.316
+box	flow	Liquid --> Domestic aviation	178.571	361.062	411.429	10.277
+box	flow	Liquid --> Industry	178.571	143.309	411.429	207.423
+box	flow	Liquid --> International aviation	178.571	378.022	411.429	1.723
+box	flow	Liquid --> International shipping	178.571	344.728	411.429	22.277
+box	flow	Liquid --> National navigation	178.571	385.272	411.429	13.723
+box	flow	Liquid --> Rail transport	178.571	304.92	411.429	49.831
+box	flow	Liquid --> Road transport	178.571	324.72	411.429	34.277
+box	flow	Marine algae --> Bio-conversion	10	82.544	74.286	10.28
+box	flow	Ngas --> Gas	94.286	142.101	74.286	40.777
+box	flow	Nuclear --> Thermal generation	10	25.43	242.857	5.52
+box	flow	Oil --> Liquid	94.286	367.75	74.286	6.929
+box	flow	Oil imports --> Oil	10	377.94	74.286	6.794
+box	flow	Oil reserves --> Oil	10	354.206	74.286	5.206
+box	flow	Other waste --> Bio-conversion	10	106.332	74.286	56.415
+box	flow	Other waste --> Solid	10	119.752	158.571	47.064
+box	flow	Pumped heat --> Heating and cooling - commercial	10	164.958	580	74.003
+box	flow	Pumped heat --> Heating and cooling - homes	10	194.624	580	52.321
+box	flow	Solar --> Solar PV	10	254.922	74.286	11.679
+box	flow	Solar --> Solar Thermal	10	268.998	74.286	0.321
+box	flow	Solar PV --> Electricity grid	94.286	239.788	242.857	15.134
+box	flow	Solar Thermal --> Heating and cooling - homes	94.286	201.051	495.714	68.269
+box	flow	Solid --> Agriculture	178.571	121.439	411.429	92.222
+box	flow	Solid --> Industry	178.571	114.578	411.429	5.427
+box	flow	Solid --> Thermal generation	178.571	68.492	74.286	37.992
+box	flow	Thermal generation --> District heating	262.857	55.581	74.286	1.821
+box	flow	Thermal generation --> Electricity grid	262.857	73.893	74.286	147.324
+box	flow	Thermal generation --> Losses	262.857	24.203	327.143	5.147
+box	flow	Tidal --> Electricity grid	10	241.888	327.143	39.98
+box	flow	UK land based bioenergy --> Bio-conversion	10	98.467	74.286	1.72
+box	flow	Wave --> Electricity grid	10	242.75	327.143	51.98
+box	flow	Wind --> Electricity grid	10	252.085	327.143	63.98
+box	node	Agricultural 'waste'	0	62.859	10	7.552
+box	node	Agriculture	590	213.634	10	0.668
+box	node	Bio-conversion	84.286	85.139	10	23.549
+box	node	Biofuel imports	0	336.826	10	2.119
+box	node	Biomass imports	0	130.399	10	2.119
+box	node	Coal	84.286	135.415	10	4.576
+box	node	Coal imports	0	117.697	10	0.703
+box	node	Coal reserves	0	144.519	10	3.873
+box	node	District heating	337.143	55.001	10	4.803
+box	node	Domestic aviation	590	360.624	10	0.875
+box	node	Electricity grid	337.143	205.307	10	55.62
+box	node	Gas	168.571	133.466	10	12.358
+box	node	Gas imports	0	197.508	10	2.465
+box	node	Gas reserves	0	180.529	10	4.979
+box	node	Geothermal	0	224.397	10	0.425
+box	node	H2	505.714	248.371	10	1.265
+box	node	H2 conversion	421.429	242.049	10	1.643
+box	node	Heating and cooling - commercial	590	158.974	10	8.123
+box	node	Heating and cooling - homes	590	179.098	10	22.536
+box	node	Hydro	0	211.974	10	0.424
+box	node	Industry	590	112.527	10	34.448
+box	node	International aviation	590	373.5	10	12.489
+box	node	International shipping	590	340.832	10	7.792
+box	node	Lighting & appliances - commercial	590	226.302	10	5.45
+box	node	Lighting & appliances - homes	590	243.751	10	5.661
+box	node	Liquid	168.571	347.067	10	39.21
+box	node	Losses	590	0.373	10	53.181
+box	node	Marine algae	0	82.411	10	0.265
+box	node	National navigation	590	397.989	10	2.011
+box	node	Ngas	84.286	179.155	10	7.445
+box	node	Nuclear	0	0	10	50.859
+box	node	Oil	84.286	356.151	10	37.055
+box	node	Oil imports	0	369.466	10	30.534
+box	node	Oil reserves	0	350.945	10	6.521
+box	node	Other waste	0	160.392	10	8.138
+box	node	Over generation / exports	590	94.202	10	6.324
+box	node	Pumped heat	0	236.822	10	15.966
+box	node	Rail transport	590	304.31	10	0.743
+box	node	Road transport	590	317.054	10	11.778
+box	node	Solar	0	264.788	10	4.793
+box	node	Solar PV	84.286	253.109	10	3.627
+box	node	Solar Thermal	84.286	268.736	10	1.166
+box	node	Solid	168.571	94.371	10	27.094
+box	node	Thermal generation	252.857	5.52	10	84.283
+box	node	Tidal	0	281.582	10	0.572
+box	node	UK land based bioenergy	0	94.676	10	11.02
+box	node	Wave	0	294.154	10	1.151
+box	node	Wind	0	307.305	10	17.521
+canvas	0	0	600	406.894
+font	Liberation Sans	1246

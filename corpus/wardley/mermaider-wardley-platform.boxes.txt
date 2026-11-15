@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a4d7b721d6560001
+box	link	API Gateway --> Auth Service	599.684	227.771	86.553	58.778
+box	link	API Gateway --> Database	414.758	227.779	175.003	119.243
+box	link	Customer --> Mobile App	495.687	90.748	125.706	55.624
+box	link	Database --> Compute	415.557	352.089	366.365	107.501
+box	link	Mobile App --> API Gateway	495.062	152.316	94.797	68.567
+box	node	API Gateway	582.72	197.216	88.368	39.184
+box	node	Auth Service	679.2	262.736	86.7	39.184
+box	node	Compute	775.68	434.096	70.574	39.184
+box	node	Customer	603.544	78.773	46.673	11.48
+box	node	Database	397.8	323.216	72.816	39.184
+box	node	Mobile App	478.2	121.616	79.489	39.184
+box	stage	0	130.159	558.816	36.682	11.48
+box	stage	1	332.271	558.816	34.457	11.48
+box	stage	2	533.262	558.816	34.475	11.48
+box	stage	3	726.218	558.816	50.565	11.48
+box	title	Software Platform Strategy	369.166	15.839	161.668	14.149
+canvas	0	0	900	600
+font	Liberation Sans	342

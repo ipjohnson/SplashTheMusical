@@ -1,0 +1,37 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e748adb9976fd17f
+box	entity	Anchor	172.883	942	100	81
+box	entity	Checkout	504.229	12	99.156	81
+box	entity	CrossLinkUri	470.672	760	120.125	81
+box	entity	DocumentationSet	97.159	376	155.188	81
+box	entity	GitOrigin	12	760	95.234	81
+box	entity	LinkManifest	244.445	558	118.594	81
+box	entity	LinkManifestPage	147.234	760	151.297	81
+box	entity	LinkRegistry	308.682	194	117.031	81
+box	entity	LinkRegistryEntry	292.346	376	149.703	81
+box	entity	LinkRegistrySnapshot	465.714	194	176.187	81
+box	entity	Redirect	338.531	760	92.141	81
+box	entity	Registry	317.198	12	100	81
+box	relation	Checkout --> LinkRegistrySnapshot	553.807	93	0	101
+box	relation	DocumentationSet --> LinkManifest	174.753	457	112.557	101
+box	relation	LinkManifest --> CrossLinkUri	333.32	639	197.414	121
+box	relation	LinkManifest --> GitOrigin	59.617	639	214.547	121
+box	relation	LinkManifest --> LinkManifestPage	222.883	639	71	121
+box	relation	LinkManifest --> Redirect	313.602	639	71	121
+box	relation	LinkManifestPage --> Anchor	222.883	841	0	101
+box	relation	LinkRegistry --> LinkRegistryEntry	367.198	275	0	101
+box	relation	LinkRegistryEntry --> LinkManifest	320.174	457	47.023	101
+box	relation	Registry --> LinkRegistry	367.198	93	0	101
+box	relation-label	Checkout --> LinkRegistrySnapshot	478.807	133	149.422	21
+box	relation-label	DocumentationSet --> LinkManifest	141.253	497	66.938	21
+box	relation-label	LinkManifest --> CrossLinkUri	460.234	699	140.859	21
+box	relation-label	LinkManifest --> GitOrigin	42.117	699	34.25	21
+box	relation-label	LinkManifest --> LinkManifestPage	208.383	699	28.016	21
+box	relation-label	LinkManifest --> Redirect	357.602	699	53.688	21
+box	relation-label	LinkManifestPage --> Anchor	197.883	881	49.813	21
+box	relation-label	LinkRegistry --> LinkRegistryEntry	311.198	315	111.016	21
+box	relation-label	LinkRegistryEntry --> LinkManifest	353.198	497	27.25	21
+box	relation-label	Registry --> LinkRegistry	322.698	133	88.719	21
+canvas	4	4	645.901	1027
+font	Liberation Sans	528

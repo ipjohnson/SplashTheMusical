@@ -1,0 +1,10 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5cb0b6e1428f225d
+box	element	a	150	166	216	71.179
+box	element	b	466	166	216	71.179
+box	element	c	150	337.179	216	71.179
+box	element	d	466	337.179	216	71.179
+box	title	UpdateLayoutConfig ($c4ShapeInRow=4)	166	5.143	296.516	18.176
+canvas	0	-70	832	578.358
+font	Liberation Sans	216

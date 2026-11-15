@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b8dfbced6746846d
+accept	yes
+drawn	yes
+node	namedState1	Small State 1	rounded
+type	stateDiagram

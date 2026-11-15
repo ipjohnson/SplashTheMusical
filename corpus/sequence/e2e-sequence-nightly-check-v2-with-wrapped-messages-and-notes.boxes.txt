@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d534cb78203b61cc
+box	actor	A	0	0	150	73
+box	actor	B	226	0	150	73
+box	actor-bottom	A	0	619	150	73
+box	actor-bottom	B	226	619	150	73
+box	block	loop Wrapped loop	64	445	422	154
+box	block	par Wrapped parallel	64	243	248	192
+box	message	A --> B	76	151	218	0
+box	message	A --> B #2	76	339	218	0
+box	message	A --> B #3	76	589	218	0
+box	message	B --> A	82	425	218	0
+box	message-text	A --> B	120.07	129.219	129.859	17.32
+box	message-text	A --> B #2	107.164	316.219	155.672	17.32
+box	message-text	A --> B #3	126.742	566.219	116.516	17.32
+box	message-text	B --> A	113.164	402.219	155.672	17.32
+box	note	This is a long note in a loop	326	490	150	55
+box	note	This is a very long note that should also wrap properly when rendered in the diagram	50	161	276	72
+canvas	-50	-10	586	743
+font	Liberation Sans	656

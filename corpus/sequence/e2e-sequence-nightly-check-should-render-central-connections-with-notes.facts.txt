@@ -1,0 +1,14 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 847f93d8ee33fff2
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Charlie	Charlie	participant
+drawn	yes
+message	Alice	Bob	solid	filled	Central connection
+message	Bob	Charlie	dashed	filled	Reverse central connection
+message	Charlie	Alice	dashed	filled-both	Dual central connection
+note	over	Alice,Bob	Central connection note
+note	right	Charlie	Response note
+type	sequence

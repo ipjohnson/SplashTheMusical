@@ -1,0 +1,41 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b2fdf720676ca846
+box	edge	A --> B	564.535	103	0	18.5
+box	edge	Active --> SomethingElse2	409.469	950	0	34.5
+box	edge	B --> A	526.402	108.5	0	18.5
+box	edge	CapsLockOff --> CapsLockOn	619.731	384	65.191	138.5
+box	edge	CapsLockOn --> CapsLockOff	516.406	389.5	65.191	138.5
+box	edge	NumLockOff --> NumLockOn	234.043	384	63.41	138.5
+box	edge	NumLockOn --> NumLockOff	132.5	389.5	63.41	138.5
+box	edge	ScrollLockOff --> ScrollLockOn	237.824	718	65.191	138.5
+box	edge	ScrollLockOn --> ScrollLockOff	134.5	723.5	65.191	138.5
+box	edge	[*]start@divider-id-1 --> NumLockOff	214.977	320	0	18.5
+box	edge	[*]start@divider-id-2 --> CapsLockOff	600.664	320	0	18.5
+box	edge	[*]start@divider-id-75 --> ScrollLockOff	218.758	654	0	18.5
+box	edge	[*]start@root --> Active	409.469	191	0	34.5
+box	edge-label	CapsLockOff --> CapsLockOn	610.422	444	148.516	24
+box	edge-label	CapsLockOn --> CapsLockOff	441.906	444	148.516	24
+box	edge-label	NumLockOff --> NumLockOn	224.953	444	144.953	24
+box	edge-label	NumLockOn --> NumLockOff	60	444	144.953	24
+box	edge-label	ScrollLockOff --> ScrollLockOn	228.516	778	148.516	24
+box	edge-label	ScrollLockOn --> ScrollLockOff	60	778	148.516	24
+box	group	Active	84.5	231	648.422	719
+box	group	SomethingElse	453.469	12	184	179
+box	group	divider-id-1	108.5	282	212.953	310
+box	group	divider-id-2	492.406	282	216.516	310
+box	node	A	477.469	63	136	40
+box	node	B	477.469	127	136	40
+box	node	CapsLockOff	532.664	344	136	40
+box	node	CapsLockOn	532.664	528	136	40
+box	node	NumLockOff	146.977	344	136	40
+box	node	NumLockOn	146.977	528	136	40
+box	node	ScrollLockOff	150.758	678	136	40
+box	node	ScrollLockOn	150.758	862	136	40
+box	node	SomethingElse2	341.469	990	136	40
+box	node	[*]start@divider-id-1	207.977	306	14	14
+box	node	[*]start@divider-id-2	593.664	306	14	14
+box	node	[*]start@root	402.469	177	14	14
+box	note	SomethingElse2	334.469	1131	150	78
+canvas	52	4	714.938	1237
+font	Liberation Sans	460

@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 38447e4e3f19ec5e
+accept	yes
+attribute	Class10	int id
+class	Class10	Class10
+drawn	yes
+method	Class10	size()
+note		I love this diagram! Do you love it?
+note	Class10	Cool class I said it's very cool class!
+type	classDiagram

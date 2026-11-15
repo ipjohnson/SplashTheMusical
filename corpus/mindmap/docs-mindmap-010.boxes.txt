@@ -1,0 +1,20 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ce758ccce2807f4c
+box	edge	mindmap / Origins	335.983	235.661	49.991	87.883
+box	edge	mindmap / Origins / Long history	281.348	145.25	39.405	64.569
+box	edge	mindmap / Origins / Long history / British popular psychology author Tony Buzan	284.353	54.389	70.469	67.667
+box	edge	mindmap / Origins / Long history / Popularisation	100.468	101.407	158.301	28.391
+box	edge	mindmap / Research	400.727	349.665	49.265	87.857
+box	edge	mindmap / Research / Uses	464.634	463.706	36.112	64.752
+box	edge	mindmap / Research / Uses / Creative techniques	515.348	554.665	33.204	59.645
+box	node	mindmap	348.365	291.556	90.052	90.052
+box	node	mindmap / Origins	282.223	200.623	92.688	44
+box	node	mindmap / Origins / Long history	209.948	110.446	127.172	44
+box	node	mindmap / Origins / Long history / British popular psychology author Tony Buzan	245.642	15	240	58
+box	node	mindmap / Origins / Long history / Popularisation	15	81.76	141.406	34
+box	node	mindmap / Research	402.086	428.606	110.484	44
+box	node	mindmap / Research / Uses	469.826	519.558	76.453	44
+box	node	mindmap / Research / Uses / Creative techniques	465.137	610.416	181.422	34
+canvas	5	5	651.559	649.416
+font	Liberation Sans	230

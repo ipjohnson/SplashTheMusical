@@ -1,0 +1,54 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 17b56a7e4fa7634d
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	Left	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	Left	edge0	1	1	0	0	10	c
+size	222	267
+place	divider-id-1_start	111	65	14	14
+place	Left	111	190.5	136	37
+place	divider-id-1	111	133.5	206	251
+route	divider-id-1_start	Left	edge0			111,72 111,122 111,172
+layout	2
+graph	TB	50	20	100	8	8
+node	id-o64rmm2fg1f-116_start	id-o64rmm2fg1f-116	14	14
+node	Right	id-o64rmm2fg1f-116	136	37
+node	id-o64rmm2fg1f-116		0	0
+edge	id-o64rmm2fg1f-116_start	Right	edge1	1	1	0	0	10	c
+size	222	267
+place	id-o64rmm2fg1f-116_start	111	65	14	14
+place	Right	111	190.5	136	37
+place	id-o64rmm2fg1f-116	111	133.5	206	251
+route	id-o64rmm2fg1f-116_start	Right	edge1			111,72 111,122 111,172
+layout	3
+graph	TB	50	20	75	8	8
+node	Neighbour_start	Neighbour	14	14
+node	After	Neighbour	136	37
+node	Neighbour		0	0
+edge	Neighbour_start	After	edge3	1	1	0	0	10	c
+size	222	217
+place	Neighbour_start	111	52.5	14	14
+place	After	111	153	136	37
+place	Neighbour	111	108.5	206	201
+route	Neighbour_start	After	edge3			111,59.5 111,97 111,134.5
+layout	4
+graph	TB	50	20	75	8	8
+node	divider-id-1	Split	206	251
+node	id-o64rmm2fg1f-116	Split	206	251
+node	Split		0	0
+size	548	342
+place	divider-id-1	146	171	206	251
+place	id-o64rmm2fg1f-116	402	171	206	251
+place	Split	274	171	532	326
+layout	5
+graph	TB	50	20	50	8	8
+node	Split		532	326
+node	Neighbour		206	201
+edge	Split	Neighbour	edge2	1	1	0	0	10	c
+size	548	593
+place	Split	274	171	532	326
+place	Neighbour	274	484.5	206	201
+route	Split	Neighbour	edge2			274,334 274,359 274,384

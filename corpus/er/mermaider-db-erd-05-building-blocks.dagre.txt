@@ -1,0 +1,82 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b69bc2e5e9b184f9
+layout	1
+graph	TB	140	20	80	8	8
+node	entity-Catalog-0		100	81
+node	entity-DocumentationSet-1		155.1875	81
+node	entity-ReleaseNotes-2		127.9375	81
+node	entity-Repository-3		106.921875	81
+node	entity-Content-4		100	81
+node	entity-Navigation-5		106.15625	81
+node	entity-LinkManifest-6		118.59375	81
+node	entity-LinkRegistry-7		117.03125	81
+node	entity-Registry-8		100	81
+node	entity-Assembly-9		100.6875	81
+node	entity-SiteNavigation-10		130.28125	81
+node	entity-CodexSite-11		104.59375	81
+node	entity-OpenApiSpec-12		126.40625	81
+node	entity-OpenApiRepository-13		161.40625	81
+node	entity-ApiReference-14		124.828125	81
+node	entity-SearchIndex-15		118.609375	81
+edge	entity-Catalog-0	entity-DocumentationSet-1	id_entity-Catalog-0_entity-DocumentationSet-1_0	1	1	125.296875	21	10	c
+edge	entity-Catalog-0	entity-ReleaseNotes-2	id_entity-Catalog-0_entity-ReleaseNotes-2_1	1	1	53.703125	21	10	c
+edge	entity-Repository-3	entity-DocumentationSet-1	id_entity-Repository-3_entity-DocumentationSet-1_2	1	1	94.828125	21	10	c
+edge	entity-Repository-3	entity-ReleaseNotes-2	id_entity-Repository-3_entity-ReleaseNotes-2_3	1	1	90.28125	21	10	c
+edge	entity-DocumentationSet-1	entity-Content-4	id_entity-DocumentationSet-1_entity-Content-4_4	1	1	52.15625	21	10	c
+edge	entity-DocumentationSet-1	entity-Navigation-5	id_entity-DocumentationSet-1_entity-Navigation-5_5	1	1	102.75	21	10	c
+edge	entity-DocumentationSet-1	entity-LinkManifest-6	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	1	1	94.1875	21	10	c
+edge	entity-LinkManifest-6	entity-LinkRegistry-7	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	1	1	67.71875	21	10	c
+edge	entity-LinkRegistry-7	entity-Registry-8	id_entity-LinkRegistry-7_entity-Registry-8_8	1	1	97.28125	21	10	c
+edge	entity-Assembly-9	entity-Repository-3	id_entity-Assembly-9_entity-Repository-3_9	1	1	66.15625	21	10	c
+edge	entity-Assembly-9	entity-LinkRegistry-7	id_entity-Assembly-9_entity-LinkRegistry-7_10	1	1	113.578125	21	10	c
+edge	entity-Assembly-9	entity-SiteNavigation-10	id_entity-Assembly-9_entity-SiteNavigation-10_11	1	1	89.5	21	10	c
+edge	entity-SiteNavigation-10	entity-Navigation-5	id_entity-SiteNavigation-10_entity-Navigation-5_12	1	1	45.921875	21	10	c
+edge	entity-CodexSite-11	entity-Registry-8	id_entity-CodexSite-11_entity-Registry-8_13	1	1	77.046875	21	10	c
+edge	entity-CodexSite-11	entity-LinkRegistry-7	id_entity-CodexSite-11_entity-LinkRegistry-7_14	1	1	153.265625	21	10	c
+edge	entity-Content-4	entity-LinkManifest-6	id_entity-Content-4_entity-LinkManifest-6_15	1	1	166.515625	21	10	c
+edge	entity-Content-4	entity-ReleaseNotes-2	id_entity-Content-4_entity-ReleaseNotes-2_16	1	1	130	21	10	c
+edge	entity-Repository-3	entity-OpenApiSpec-12	id_entity-Repository-3_entity-OpenApiSpec-12_17	1	1	59.15625	21	10	c
+edge	entity-OpenApiSpec-12	entity-OpenApiRepository-13	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	1	1	75.515625	21	10	c
+edge	entity-DocumentationSet-1	entity-ApiReference-14	id_entity-DocumentationSet-1_entity-ApiReference-14_19	1	1	18.6875	21	10	c
+edge	entity-ApiReference-14	entity-OpenApiSpec-12	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	1	1	107	21	10	c
+edge	entity-Assembly-9	entity-SearchIndex-15	id_entity-Assembly-9_entity-SearchIndex-15_21	1	1	101.171875	21	10	c
+size	1845.5859375	1189
+place	entity-Catalog-0	446.109375	230.5	100	81
+place	entity-DocumentationSet-1	895.671875	412.5	155.1875	81
+place	entity-ReleaseNotes-2	375.953125	776.5	127.9375	81
+place	entity-Repository-3	948.1796875	230.5	106.921875	81
+place	entity-Content-4	533.77734375	594.5	100	81
+place	entity-Navigation-5	167.9296875	594.5	106.15625	81
+place	entity-LinkManifest-6	1027.2734375	776.5	118.59375	81
+place	entity-LinkRegistry-7	1204.375	958.5	117.03125	81
+place	entity-Registry-8	1517.6796875	1140.5	100	81
+place	entity-Assembly-9	885.7890625	48.5	100.6875	81
+place	entity-SiteNavigation-10	244.83984375	412.5	130.28125	81
+place	entity-CodexSite-11	1443.94921875	776.5	104.59375	81
+place	entity-OpenApiSpec-12	1710.95703125	776.5	126.40625	81
+place	entity-OpenApiRepository-13	1599.8359375	958.5	161.40625	81
+place	entity-ApiReference-14	1770.65625	594.5	124.828125	81
+place	entity-SearchIndex-15	695.4140625	230.5	118.609375	81
+route	entity-Catalog-0	entity-DocumentationSet-1	id_entity-Catalog-0_entity-DocumentationSet-1_0	510.1015625	321.5	474.58941449175825,271 510.1015625,321.5 818.078125,394.18678702409176
+route	entity-Catalog-0	entity-ReleaseNotes-2	id_entity-Catalog-0_entity-ReleaseNotes-2_1	34.8515625	503.5	396.109375,241.56361961208944 34.8515625,321.5 34.8515625,412.5 34.8515625,503.5 34.8515625,594.5 34.8515625,685.5 311.984375,759.4342433750945
+route	entity-Repository-3	entity-DocumentationSet-1	id_entity-Repository-3_entity-DocumentationSet-1_2	1012.171875	321.5	976.6597269917582,271 1012.171875,321.5 947.5207760989011,372
+route	entity-Repository-3	entity-ReleaseNotes-2	id_entity-Repository-3_entity-ReleaseNotes-2_3	389.98046875	503.5	894.71875,239.21542837948482 389.98046875,321.5 389.98046875,412.5 389.98046875,503.5 389.98046875,594.5 389.98046875,685.5 382.1960637019231,736
+route	entity-DocumentationSet-1	entity-Content-4	id_entity-DocumentationSet-1_entity-Content-4_4	533.77734375	503.5	818.078125,432.01129580657346 533.77734375,503.5 533.77734375,554
+route	entity-DocumentationSet-1	entity-Navigation-5	id_entity-DocumentationSet-1_entity-Navigation-5_5	150.50390625	503.5	818.078125,421.97575787757586 150.50390625,503.5 160.17425738324175,554
+route	entity-DocumentationSet-1	entity-LinkManifest-6	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	975.64453125	594.5	931.2641011332418,453 975.64453125,503.5 975.64453125,594.5 975.64453125,685.5 1004.2957374656594,736
+route	entity-LinkManifest-6	entity-LinkRegistry-7	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	1027.2734375	867.5	1027.2734375,817 1027.2734375,867.5 1145.859375,928.4329480788742
+route	entity-LinkRegistry-7	entity-Registry-8	id_entity-LinkRegistry-7_entity-Registry-8_8	1204.375	1049.5	1204.375,999 1204.375,1049.5 1467.6796875,1125.977395706057
+route	entity-Assembly-9	entity-Repository-3	id_entity-Assembly-9_entity-Repository-3_9	948.1796875	139.5	913.5563186813187,89 948.1796875,139.5 948.1796875,190
+route	entity-Assembly-9	entity-LinkRegistry-7	id_entity-Assembly-9_entity-LinkRegistry-7_10	1200.1796875	503.5	936.1328125,63.071939764425224 1200.1796875,139.5 1200.1796875,230.5 1200.1796875,321.5 1200.1796875,412.5 1200.1796875,503.5 1200.1796875,594.5 1200.1796875,685.5 1200.1796875,776.5 1200.1796875,867.5 1202.5078554258241,918
+route	entity-Assembly-9	entity-SiteNavigation-10	id_entity-Assembly-9_entity-SiteNavigation-10_11	244.83984375	230.5	835.4453125,55.64765088400382 244.83984375,139.5 244.83984375,230.5 244.83984375,321.5 244.83984375,372
+route	entity-SiteNavigation-10	entity-Navigation-5	id_entity-SiteNavigation-10_entity-Navigation-5_12	244.83984375	503.5	244.83984375,453 244.83984375,503.5 202.15893286401098,554
+route	entity-CodexSite-11	entity-Registry-8	id_entity-CodexSite-11_entity-Registry-8_13	1799.0625	958.5	1496.24609375,789.9014014014014 1799.0625,867.5 1799.0625,958.5 1799.0625,1049.5 1567.6796875,1124.3298581225533
+route	entity-CodexSite-11	entity-LinkRegistry-7	id_entity-CodexSite-11_entity-LinkRegistry-7_14	1332.4765625	867.5	1394.3377618475274,817 1332.4765625,867.5 1261.38723385989,918
+route	entity-Content-4	entity-LinkManifest-6	id_entity-Content-4_entity-LinkManifest-6_15	1078.90234375	685.5	583.77734375,602.846709470305 1078.90234375,685.5 1050.2511375343406,736
+route	entity-Content-4	entity-ReleaseNotes-2	id_entity-Content-4_entity-ReleaseNotes-2_16	533.77734375	685.5	533.77734375,635 533.77734375,685.5 439.921875,739.6162042422592
+route	entity-Repository-3	entity-OpenApiSpec-12	id_entity-Repository-3_entity-OpenApiSpec-12_17	1447.26171875	503.5	1001.640625,240.2477869526083 1447.26171875,321.5 1447.26171875,412.5 1447.26171875,503.5 1447.26171875,594.5 1447.26171875,685.5 1647.75390625,754.6889017272539
+route	entity-OpenApiSpec-12	entity-OpenApiRepository-13	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	1599.8359375	867.5	1661.5020389766482,817 1599.8359375,867.5 1599.8359375,918
+route	entity-DocumentationSet-1	entity-ApiReference-14	id_entity-DocumentationSet-1_entity-ApiReference-14_19	1770.65625	503.5	973.265625,420.5698941052519 1770.65625,503.5 1770.65625,554
+route	entity-ApiReference-14	entity-OpenApiSpec-12	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	1770.65625	685.5	1770.65625,635 1770.65625,685.5 1737.5264637706043,736
+route	entity-Assembly-9	entity-SearchIndex-15	id_entity-Assembly-9_entity-SearchIndex-15_21	695.4140625	139.5	835.4453125,72.56451083388049 695.4140625,139.5 695.4140625,190

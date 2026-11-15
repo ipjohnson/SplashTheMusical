@@ -1,0 +1,18 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0536dae1125060e6
+layout	1
+graph	TB	50	20	50	8	8
+node	SelfReferential		249.06285095214844	159.66122436523438
+node	SelfReferential---SelfReferential---1		0.10000000149011612	0.10000000149011612
+node	SelfReferential---SelfReferential---2		0.10000000149011612	0.10000000149011612
+edge	SelfReferential	SelfReferential---SelfReferential---1	SelfReferential-cyclic-special-0	1	1	0	0	10	c
+edge	SelfReferential---SelfReferential---1	SelfReferential---SelfReferential---2	SelfReferential-cyclic-special-1	1	1	66.9375	21	10	c
+edge	SelfReferential---SelfReferential---2	SelfReferential	SelfReferential-cyclic-special-2	1	1	0	0	10	c
+size	265.06285095214844	296.8612243682146
+place	SelfReferential	132.53142547607422	87.83061218261719	249.06285095214844	159.66122436523438
+place	SelfReferential---SelfReferential---1	105.79705047607422	217.71122436597943	0.10000000149011612	0.10000000149011612
+place	SelfReferential---SelfReferential---2	132.53142547607422	288.81122436746955	0.10000000149011612	0.10000000149011612
+route	SelfReferential	SelfReferential---SelfReferential---1	SelfReferential-cyclic-special-0			112.17266310567237,167.66122436523438 105.79705047607422,192.66122436523438 105.79705047607422,217.66122436523438
+route	SelfReferential---SelfReferential---1	SelfReferential---SelfReferential---2	SelfReferential-cyclic-special-1	105.79705047607422	253.2612243667245	105.79705047607422,217.7612243667245 105.79705047607422,253.2612243667245 132.49382438550063,288.7612243667245
+route	SelfReferential---SelfReferential---2	SelfReferential	SelfReferential-cyclic-special-2			132.5690265666478,288.7612243667245 159.26580047607422,253.2612243667245 159.26580047607422,217.71122436597943 159.26580047607422,192.66122436523438 152.89018784647607,167.66122436523438

@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8ac37a0c6e4405b7
+box	edge	servC --> servB	71.75	114.177	0	97.171
+box	edge	servC --> servL	-65.421	74.177	97.171	0
+box	edge	servC --> servR	111.75	74.177	97.171	0
+box	edge	servC --> servT	71.75	-62.994	0	97.171
+box	edge	servL --> servB	-105.421	114.177	137.171	137.171
+box	edge	servL --> servT	-105.421	-102.994	137.171	137.171
+box	edge	servR --> servB	111.75	114.177	137.171	137.171
+box	edge	servR --> servT	111.75	-102.994	137.171	137.171
+box	service	servB	31.75	211.348	80	103.219
+box	service	servC	31.75	34.177	80	103.219
+box	service	servL	-145.421	34.177	80	103.219
+box	service	servR	208.921	34.177	80	103.219
+box	service	servT	31.75	-142.994	80	103.219
+canvas	-185.421	-182.994	514.342	537.577
+font	Liberation Sans	160

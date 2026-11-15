@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f2276532490a52d
+box	entity	Anchor	214.156	376	100	81
+box	entity	Applicability	61.008	558	113.938	81
+box	entity	CrossLink	363.094	12	102.25	81
+box	entity	CrossLinkUri	354.156	194	120.125	81
+box	entity	DocumentationFile	12	194	156.734	81
+box	entity	DocumentationSet	12.773	12	155.188	81
+box	entity	FrontMatter	61.797	376	112.359	81
+box	entity	IncludeDirective	505.344	12	139.609	81
+box	entity	InternalLink	207.961	12	112.391	81
+box	entity	Link	354.156	376	100	81
+box	entity	Page	214.156	194	100	81
+box	entity	Snippet	525.148	194	100	81
+box	relation	CrossLink --> CrossLinkUri	414.219	93	0	101
+box	relation	DocumentationSet --> DocumentationFile	90.367	93	0	101
+box	relation	FrontMatter --> Applicability	117.977	457	0	101
+box	relation	IncludeDirective --> Snippet	575.148	93	0	101
+box	relation	InternalLink --> Page	264.156	93	0	101
+box	relation	Page --> Anchor	264.156	275	0	101
+box	relation	Page --> FrontMatter	117.977	275	126.18	101
+box	relation	Page --> Link	284.156	275	120	101
+box	relation-label	CrossLink --> CrossLinkUri	380.719	133	66.938	21
+box	relation-label	DocumentationSet --> DocumentationFile	77.867	133	24.906	21
+box	relation-label	FrontMatter --> Applicability	85.977	497	63.828	21
+box	relation-label	IncludeDirective --> Snippet	552.648	133	44.375	21
+box	relation-label	InternalLink --> Page	246.156	133	35.813	21
+box	relation-label	Page --> Anchor	239.156	315	49.813	21
+box	relation-label	Page --> FrontMatter	81.977	315	71.594	21
+box	relation-label	Page --> Link	389.656	315	28.016	21
+canvas	4	4	648.953	643
+font	Liberation Sans	380

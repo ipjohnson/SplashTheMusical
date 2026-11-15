@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a3f3266414342f7
+box	edge	hello --> default	103.442	66.32	0.286	36.472
+box	node	default	12.316	106.768	182.311	54.328
+box	node	hello	12.011	12.297	182.853	54.549
+canvas	4.011	4.297	198.853	164.8
+font	Liberation Sans	24

@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2cbbf8a695a3bb96
+box	class	Bike	319.914	187	124.383	135
+box	class	IdCard	319.914	12	131.766	135
+box	class	Student	12	110	149.648	114
+box	relation	Student --> Bike	161.648	182.667	141.016	71.833
+box	relation	Student --> IdCard	161.648	79.5	141.016	71.833
+box	relation-label	Student --> Bike	217.602	244	34.359	20
+box	relation-label	Student --> IdCard	211.773	69	46.016	20
+canvas	4	4	455.68	326
+font	Liberation Sans	190

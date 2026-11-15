@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source abc8509329d0bd08
+accept	yes
+actor	Alice	Alice	database
+actor	Bob	Bob	collections
+drawn	yes
+message	Alice	Bob	solid	filled	Extremely utterly long line of longness which had previously overflown the actor box as it is much longer than what it should be
+message	Bob	Alice	solid	filled	I'm short though
+type	sequence

@@ -1,0 +1,44 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9f2d2f5666a5a78
+layout	1
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	Pending		136	37
+node	Confirmed		136	37
+node	Cancelled		136	37
+node	Shipped		136	37
+node	Delivered		136	37
+node	root_end		14.013293266296387	14
+node	Returned		136	37
+node	Refunded		136	37
+edge	root_start	Pending	edge0	1	1	0	0	10	c
+edge	Pending	Confirmed	edge1	1	1	76.28125	21	10	c
+edge	Pending	Cancelled	edge2	1	1	45.921875	21	10	c
+edge	Confirmed	Shipped	edge3	1	1	52.15625	21	10	c
+edge	Shipped	Delivered	edge4	1	1	41.25	21	10	c
+edge	Delivered	root_end	edge5	1	1	0	0	10	c
+edge	Cancelled	root_end	edge6	1	1	0	0	10	c
+edge	Shipped	Returned	edge7	1	1	91.0625	21	10	c
+edge	Returned	Refunded	edge8	1	1	96.515625	21	10	c
+edge	Refunded	root_end	edge9	1	1	0	0	10	c
+size	524	613
+place	root_start	262	15	14	14
+place	Pending	262	90.5	136	37
+place	Confirmed	169	198.5	136	37
+place	Cancelled	448	522.5	136	37
+place	Shipped	169	306.5	136	37
+place	Delivered	76	522.5	136	37
+place	root_end	262	598	14.013293266296387	14
+place	Returned	262	414.5	136	37
+place	Refunded	262	522.5	136	37
+route	root_start	Pending	edge0			262,22 262,47 262,72
+route	Pending	Confirmed	edge1	169	144.5	230.13888888888889,109 169,144.5 169,180
+route	Pending	Cancelled	edge2	448	306.5	325.72222222222223,109 448,144.5 448,198.5 448,252.5 448,306.5 448,360.5 448,414.5 448,468.5 448,504
+route	Confirmed	Shipped	edge3	169	252.5	169,217 169,252.5 169,288
+route	Shipped	Delivered	edge4	76	414.5	137.13888888888889,325 76,360.5 76,414.5 76,468.5 76,504
+route	Delivered	root_end	edge5			76,541 76,566 254.9933533668518,596.794555417953
+route	Cancelled	root_end	edge6			448,541 448,566 269.0066466331482,596.794555417953
+route	Shipped	Returned	edge7	262	360.5	200.86111111111111,325 262,360.5 262,396
+route	Returned	Refunded	edge8	262	468.5	262,433 262,468.5 262,504
+route	Refunded	root_end	edge9			262,541 262,566 262,591

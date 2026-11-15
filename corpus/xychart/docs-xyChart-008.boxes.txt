@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4191b7b5dc6ecbe6
+box	axis	x	84.291	567.928	815.709	27.072
+box	axis	y	5	42.063	78.291	524.865
+box	axis-title	y	5	252.496	18.368	104.897
+box	category	apr	307.095	578.928	20.233	16.072
+box	category	aug	585.429	578.928	23.354	16.072
+box	category	dec	865.717	578.928	22.565	16.072
+box	category	feb	167.534	578.928	19.462	16.072
+box	category	jan	97.605	578.928	19.032	16.072
+box	category	jul	519.786	578.928	14.351	16.072
+box	category	jun	447.472	578.928	19.032	16.072
+box	category	mar	235.185	578.928	24.108	16.072
+box	category	may	373.966	578.928	26.439	16.072
+box	category	nov	795.744	578.928	22.565	16.072
+box	category	oct	727.717	578.928	18.673	16.072
+box	category	sep	655.797	578.928	22.565	16.072
+box	plot	plot	85.441	50.996	813.409	515.933
+box	series	0	85.441	50.996	813.409	515.933
+box	series	1	107.291	50.996	769.709	435.34
+box	title	Sales Revenue	424.325	8.404	135.641	22.96
+canvas	0	0	900	600
+font	Liberation Sans	354

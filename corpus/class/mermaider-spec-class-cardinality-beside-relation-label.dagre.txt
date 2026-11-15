@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9661b41b07fef28c
+layout	1
+graph	TB	50	20	50	8	8
+node	Pond		59	81
+node	Duck		58.234375	81
+node	Wing		58.09375	81
+edge	Pond	Duck	id_Pond_Duck_1	1	1	33.46875	21	10	c
+edge	Duck	Wing	id_Duck_Wing_2	1	1	22.578125	21	10	c
+size	75	401
+place	Pond	37.5	48.5	59	81
+place	Duck	37.5	200.5	58.234375	81
+place	Wing	37.5	352.5	58.09375	81
+route	Pond	Duck	id_Pond_Duck_1	37.5	124.5	37.5,89 37.5,124.5 37.5,160
+route	Duck	Wing	id_Duck_Wing_2	37.5	276.5	37.5,241 37.5,276.5 37.5,312

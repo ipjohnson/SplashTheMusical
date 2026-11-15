@@ -1,0 +1,13 @@
+gantt
+  title Multi-dependency demo
+  dateFormat YYYY-MM-DD
+  section Backend
+  API design    :done, b1, 2026-01-05, 2d
+  Implement     :done, b2, after b1, 3d
+  section Frontend
+  UI design     :done, f1, 2026-01-05, 2d
+  Build         :active, f2, after f1, 3d
+  section Release
+  Integration   :crit, r1, after b2 f2, 2d
+  QA            :crit, r2, after r1, 1d
+  Launch        :milestone, m1, after r2, 0d

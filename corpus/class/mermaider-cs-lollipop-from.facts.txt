@@ -1,0 +1,9 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 82d281174232481a
+accept	yes
+class	Implementation	Implementation
+class	Interface	Interface
+drawn	yes
+relation	()Interface	Implementation	lollipop	none	solid
+type	classDiagram

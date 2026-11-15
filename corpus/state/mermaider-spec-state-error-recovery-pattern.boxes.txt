@@ -1,0 +1,26 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 60d476f8b70fe37f
+box	edge	Error --> Recovering	80	241	50.417	95.5
+box	edge	Fatal --> Stopped	149.75	517	49.667	95.5
+box	edge	Recovering --> Fatal	149.75	379	0	95.5
+box	edge	Recovering --> Running	169.083	108.5	50.417	233.5
+box	edge	Running --> Error	80	103	110.5	95.5
+box	edge	Running --> Stopped	238.083	103	66.133	509.5
+box	edge	Stopped --> [*]end@root	218.75	655	0	34.5
+box	edge	[*]start@root --> Running	219.5	26	0	34.5
+box	edge-label	Error --> Recovering	49	281	61.516	21
+box	edge-label	Fatal --> Stopped	123.25	557	52.156	21
+box	edge-label	Recovering --> Fatal	112.75	419	73.141	21
+box	edge-label	Recovering --> Running	188	212	62.266	21
+box	edge-label	Running --> Error	50	143	59.938	21
+box	edge-label	Running --> Stopped	274.216	350	59.938	21
+box	node	Error	12	204	136	37
+box	node	Fatal	81.75	480	136	37
+box	node	Recovering	81.75	342	136	37
+box	node	Running	151.5	66	136	37
+box	node	Stopped	150.75	618	136	37
+box	node	[*]end@root	211.75	695	14.013	14
+box	node	[*]start@root	212.5	12	14	14
+canvas	4	4	338.154	713
+font	Liberation Sans	176

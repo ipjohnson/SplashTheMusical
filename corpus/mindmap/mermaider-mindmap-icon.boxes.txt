@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 01c78065d0353e5e
+box	edge	Library / Books	92.186	140.733	103.432	6.757
+box	edge	Library / Films	57.139	154.446	17.049	82.68
+box	edge	Library / Music	66.542	46.902	8.962	77.951
+box	node	Library	39.979	102.516	74.478	74.478
+box	node	Library / Books	168.352	131.468	84.469	34
+box	node	Library / Films	15	229.816	78.219	44
+box	node	Library / Music	23.938	15	81.781	34
+canvas	5	5	257.821	278.816
+font	Liberation Sans	44

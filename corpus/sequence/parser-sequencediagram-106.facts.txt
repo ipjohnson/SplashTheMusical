@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2b5a183be970f2ef
+accept	yes
+actor	kebab-case	Kebab-Cased	control
+actor	lead-actor	lead-actor	database
+actor	order-svc	order-svc	queue
+actor	web-ui	Web UI	entity
+drawn	yes
+type	sequence

@@ -1,0 +1,13 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 280cf016c773f874
+accept	yes
+class	TokenManager	TokenManager
+class	UserService	UserService
+drawn	yes
+method	TokenManager	+generate()
+method	UserService	+login()
+method	UserService	+logout()
+namespace	Auth	TokenManager,UserService
+relation	UserService	TokenManager	none	arrow	solid	uses
+type	classDiagram

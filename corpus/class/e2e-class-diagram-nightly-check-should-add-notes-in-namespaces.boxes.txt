@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6b468d3f0c347a95
+box	class	C1	330.566	236	41.906	81
+box	namespace	Namespace1	12	95	400.594	246
+box	note	This is a inner note	36	143	130.297	33
+box	note	This is a inner note for C1	216.297	143	172.297	33
+box	note	This is a outer note	142.992	12	131.063	33
+box	note	This is a outer note for C1	314.055	12	173.078	33
+canvas	4	4	491.133	345
+font	Liberation Sans	212

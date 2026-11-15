@@ -1,0 +1,22 @@
+classDiagram
+  namespace Domain {
+    class Order {
+      +int id
+      +place() void
+    }
+    class Product {
+      +String name
+      +double price
+    }
+  }
+  namespace Infrastructure {
+    class OrderRepo {
+      +save(Order) void
+    }
+    class ProductRepo {
+      +findAll() List
+    }
+  }
+  Order --> Product
+  OrderRepo ..|> Order
+  ProductRepo ..|> Product

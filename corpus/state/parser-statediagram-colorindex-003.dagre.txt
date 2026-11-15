@@ -1,0 +1,52 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d7e873f33db11d15
+layout	1
+graph	TB	50	20	100	8	8
+node	divider-id-1_start	divider-id-1	14	14
+node	NumLockOff	divider-id-1	136	37
+node	divider-id-1		0	0
+edge	divider-id-1_start	NumLockOff	edge0	1	1	0	0	10	c
+size	222	267
+place	divider-id-1_start	111	65	14	14
+place	NumLockOff	111	190.5	136	37
+place	divider-id-1	111	133.5	206	251
+route	divider-id-1_start	NumLockOff	edge0			111,72 111,122 111,172
+layout	2
+graph	TB	50	20	100	8	8
+node	divider-id-2_start	divider-id-2	14	14
+node	CapsLockOff	divider-id-2	136	37
+node	divider-id-2		0	0
+edge	divider-id-2_start	CapsLockOff	edge1	1	1	0	0	10	c
+size	222	267
+place	divider-id-2_start	111	65	14	14
+place	CapsLockOff	111	190.5	136	37
+place	divider-id-2	111	133.5	206	251
+route	divider-id-2_start	CapsLockOff	edge1			111,72 111,122 111,172
+layout	3
+graph	TB	50	20	100	8	8
+node	id-zemn9febens-132_start	id-zemn9febens-132	14	14
+node	ScrollLockOff	id-zemn9febens-132	136	37
+node	id-zemn9febens-132		0	0
+edge	id-zemn9febens-132_start	ScrollLockOff	edge2	1	1	0	0	10	c
+size	222	267
+place	id-zemn9febens-132_start	111	65	14	14
+place	ScrollLockOff	111	190.5	136	37
+place	id-zemn9febens-132	111	133.5	206	251
+route	id-zemn9febens-132_start	ScrollLockOff	edge2			111,72 111,122 111,172
+layout	4
+graph	TB	50	20	75	8	8
+node	divider-id-1	Active	206	251
+node	divider-id-2	Active	206	251
+node	id-zemn9febens-132	Active	206	251
+node	Active		0	0
+size	804	342
+place	divider-id-1	146	171	206	251
+place	divider-id-2	402	171	206	251
+place	id-zemn9febens-132	658	171	206	251
+place	Active	402	171	788	326
+layout	5
+graph	TB	50	20	50	8	8
+node	Active		788	326
+size	804	342
+place	Active	402	171	788	326

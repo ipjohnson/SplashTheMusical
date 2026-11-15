@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8233513090bfc31a
+box	edge	create_issue --> notify	176	210.5	36	0
+box	node	create_issue	12	194	164	33
+box	node	notify	216	165	204	91
+canvas	4	4	424	260
+font	Liberation Sans	90

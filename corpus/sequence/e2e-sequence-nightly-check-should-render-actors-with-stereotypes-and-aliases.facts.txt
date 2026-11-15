@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4c3ce1dc4d018b13
+accept	yes
+actor	A	API Gateway	boundary
+actor	D	Data Store	database
+actor	S	Service Layer	control
+actor	U	End User	actor
+drawn	yes
+message	A	S	solid	filled	Process
+message	A	U	dashed	filled	Result
+message	D	S	dashed	filled	Success
+message	S	A	dashed	filled	Response
+message	S	D	solid	filled	Persist
+message	U	A	solid	filled	Send request
+type	sequence

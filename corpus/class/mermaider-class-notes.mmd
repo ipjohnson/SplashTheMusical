@@ -1,0 +1,12 @@
+classDiagram
+  class UserService {
+    +createUser() User
+    +deleteUser(id) void
+  }
+  class User {
+    +String name
+    +String email
+  }
+  UserService --> User
+  note for UserService "Handles all user CRUD"
+  note for User "Core domain entity"

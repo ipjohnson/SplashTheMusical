@@ -1,0 +1,33 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b859fc82fa596fb8
+box	actor	actor1	252.77	-5	44.46	81.971
+box	actor	boundary2	420	11	92.801	66.971
+box	actor	collections6	1194	0	156	71
+box	actor	control3	646.539	10	56.923	65.971
+box	actor	database5	1037.643	7.143	74.713	69.828
+box	actor	entity4	851.422	9	47.156	68.971
+box	actor	participant0	0	0	150	65
+box	actor	queue7	1400	0	150	65
+box	actor-bottom	actor1	252.77	388	44.46	81.971
+box	actor-bottom	boundary2	420	404	92.801	66.471
+box	actor-bottom	collections6	1200	393	150	65
+box	actor-bottom	control3	646.539	403	56.923	68.471
+box	actor-bottom	entity4	851.422	403	47.156	68.471
+box	actor-bottom	participant0	0	393	150	65
+box	message	actor1 --> boundary2	276	153	195	0
+box	message	boundary2 --> control3	476	197	195	0
+box	message	collections6 --> queue7	1276	373	195	0
+box	message	control3 --> entity4	676	241	195	0
+box	message	database5 --> collections6	1076	329	195	0
+box	message	entity4 --> database5	876	285	195	0
+box	message	participant0 --> actor1	76	109	195	0
+box	message-text	actor1 --> boundary2	334.868	129.477	78.265	18.941
+box	message-text	boundary2 --> control3	534.868	173.477	78.265	18.941
+box	message-text	collections6 --> queue7	1334.868	349.477	78.265	18.941
+box	message-text	control3 --> entity4	734.868	217.477	78.265	18.941
+box	message-text	database5 --> collections6	1134.868	305.477	78.265	18.941
+box	message-text	entity4 --> database5	934.868	261.477	78.265	18.941
+box	message-text	participant0 --> actor1	134.868	85.477	78.265	18.941
+canvas	-50	-10	1650	498
+font	Liberation Sans	402

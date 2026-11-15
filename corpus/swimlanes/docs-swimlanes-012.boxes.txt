@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3328f094a66a6a94
+box	edge	intake --> plan	112	0	357.422	0
+box	edge	plan --> review	549.422	22.5	0	203
+box	group	legal	-86	126	721.422	184.5
+box	group	ops	-86	-58.5	721.422	184.5
+box	node	intake	-40	-22.5	152	45
+box	node	plan	473.422	-22.5	152	45
+box	node	review	473.422	229.5	152	45
+canvas	-94	-66.5	737.422	385
+font	Liberation Sans	108

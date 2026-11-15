@@ -1,0 +1,8 @@
+graph TD
+  classDef default fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+  A[All nodes] --> B[Get the]
+  B --> C[Default style]
+  C --> D{Unless overridden}
+  classDef special fill:#fff3e0,stroke:#e65100,color:#bf360c
+  D -->|Yes| E[Special]:::special
+  D -->|No| F[Still default]

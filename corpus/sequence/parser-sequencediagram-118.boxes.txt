@@ -1,0 +1,11 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6aa14e17be0a33f7
+box	actor	Alice	-6	0	156	73
+box	actor	Bob	297	0	44	67
+box	actor-bottom	Alice	0	137	150	67
+box	actor-bottom	Bob	297	143	44	67
+box	message	Alice --> Bob	76	117	236	0
+box	message-text	Alice --> Bob	106.836	94.219	174.328	17.32
+canvas	-50	-10	494	261
+font	Liberation Sans	78

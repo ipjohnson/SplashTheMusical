@@ -1,0 +1,16 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3d5cc6e9ec4f588a
+layout	1
+graph	TB	50	20	50	8	8
+node	Cloudwatch		79.75	81
+node	Route53		60.828125	81
+node	EKS		72.484375	81
+edge	Cloudwatch	Route53	L_Cloudwatch_Route53_0	1	1	0	0	10	c
+edge	Route53	EKS	L_Route53_EKS_0	1	1	0	0	10	c
+size	95.75	359
+place	Cloudwatch	47.875	48.5	79.75	81
+place	Route53	47.875	179.5	60.828125	81
+place	EKS	47.875	310.5	72.484375	81
+route	Cloudwatch	Route53	L_Cloudwatch_Route53_0			47.875,89 47.875,114 47.875,139
+route	Route53	EKS	L_Route53_EKS_0			47.875,220 47.875,245 47.875,270

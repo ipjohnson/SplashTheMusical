@@ -1,0 +1,44 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9c086c3ec1b2ef7f
+box	entity	ATTACHMENTS	356.78	396	142.922	81
+box	entity	COMMANDS	715.376	194	123.234	81
+box	entity	EFFECTS	699.432	578	103.781	81
+box	entity	ENTRIES	157.423	194	100.687	81
+box	entity	INBOX	539.702	396	100	81
+box	entity	ITEMS	377.376	194	100	81
+box	entity	ITEM_DEPS	30.074	396	119.359	81
+box	entity	PEERS	450.698	12	100	81
+box	entity	QUEUES	139.333	12	99.125	81
+box	entity	REFS	12	194	100	81
+box	entity	SESSIONS	205.186	396	111.594	81
+box	entity	TASKS	278.458	12	100	81
+box	entity	TRANSITIONS	684.26	396	134.125	81
+box	relation	COMMANDS --> TRANSITIONS	770.344	275	6.65	121
+box	relation	ITEMS --> ATTACHMENTS	427.376	275	0.865	121
+box	relation	ITEMS --> INBOX	440.71	275	148.992	121
+box	relation	ITEMS --> ITEMS	357.376	225	20	19
+box	relation	ITEMS --> ITEM_DEPS	106.314	275	294.396	121
+box	relation	ITEMS --> SESSIONS	260.983	275	153.06	121
+box	relation	ITEMS --> TRANSITIONS	454.043	275	278.259	121
+box	relation	PEERS --> ITEMS	440.71	93	59.988	101
+box	relation	QUEUES --> ENTRIES	188.896	93	5.423	101
+box	relation	REFS --> ITEM_DEPS	62	275	11.194	121
+box	relation	TASKS --> ENTRIES	221.215	93	93.91	101
+box	relation	TASKS --> ITEMS	341.792	93	72.251	101
+box	relation	TRANSITIONS --> EFFECTS	751.323	477	0	101
+box	relation-label	COMMANDS --> TRANSITIONS	747.494	335	58.391	21
+box	relation-label	ITEMS --> ATTACHMENTS	406.741	335	42.016	21
+box	relation-label	ITEMS --> INBOX	561.702	335	55.25	21
+box	relation-label	ITEMS --> ITEMS	298.111	224	55.266	21
+box	relation-label	ITEMS --> ITEM_DEPS	100.625	335	51.359	21
+box	relation-label	ITEMS --> SESSIONS	233.983	335	53.703	21
+box	relation-label	ITEMS --> TRANSITIONS	701.806	335	25.687	21
+box	relation-label	PEERS --> ITEMS	439.698	133	121.422	21
+box	relation-label	QUEUES --> ENTRIES	168.896	133	39.688	21
+box	relation-label	REFS --> ITEM_DEPS	42.5	335	38.125	21
+box	relation-label	TASKS --> ENTRIES	285.125	133	59.938	21
+box	relation-label	TASKS --> ITEMS	402.754	133	22.578	21
+box	relation-label	TRANSITIONS --> EFFECTS	736.823	517	28.797	21
+canvas	4	4	842.611	663
+font	Liberation Sans	376

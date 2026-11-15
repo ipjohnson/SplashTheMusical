@@ -1,0 +1,56 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a7b68ddf9d862933
+box	edge	C1 --> S1	36	43.5	0	146.01
+box	edge	D1 --> D2	620.858	1417.854	250.084	0
+box	edge	D2 --> D3	950.941	1440.354	385.491	20
+box	edge	D3 --> D4	1336.432	1109.666	0	285.687
+box	edge	D4 --> D2	1030.941	1020.166	219.991	407.687
+box	edge	D4 --> T6	1336.432	644.416	0	290.25
+box	edge	S1 --> S2	121.5	279.01	343.358	0
+box	edge	S1 --> T1	36	364.51	0	163.906
+box	edge	S2 --> T3	620.858	275.01	250.084	0
+box	edge	T1 --> T2	121.5	617.916	343.358	0
+box	edge	T1 --> Te1	36	703.416	0	290.25
+box	edge	T2 --> T3	620.858	289.01	250.084	328.906
+box	edge	T3 --> Finished1	950.941	26.5	0	219.51
+box	edge	T4 --> C2	1026.941	0	229.491	617.916
+box	edge	T5 --> Finished2	1412.432	0	169.971	279.01
+box	edge	T6 --> T5	1336.432	316.01	0	279.406
+box	edge	Te1 --> Te2	112	1020.166	332.858	0
+box	edge	Te2 --> D1	544.858	1116.166	0	275.188
+box	edge	Te2 --> T4	640.858	654.916	310.083	365.25
+box	edge-label	D4 --> D2	1181.277	1009.666	17.906	21
+box	edge-label	D4 --> T6	1325.01	777.041	22.844	21
+box	edge-label	S1 --> S2	283.757	268.51	22.844	21
+box	edge-label	S1 --> T1	27.047	437.963	17.906	21
+box	edge-label	T1 --> T2	286.226	607.416	17.906	21
+box	edge-label	T1 --> Te1	24.578	840.041	22.844	21
+box	edge-label	T4 --> C2	1076.361	607.416	17.906	21
+box	edge-label	Te2 --> D1	533.436	1245.26	22.844	21
+box	edge-label	Te2 --> T4	941.988	825.041	17.906	21
+box	group	C	-103.51	-79.5	1871.141	198.005
+box	group	D	-103.51	1193.049	1871.141	283.305
+box	group	S	-103.51	118.505	1871.141	295.232
+box	group	T	-103.51	413.737	1871.141	405.305
+box	group	Tester	-103.51	819.041	1871.141	374.008
+box	node	C1	-57.51	-43.5	187.02	87
+box	node	C2	1260.432	-22.5	152	45
+box	node	D1	468.858	1395.354	152	45
+box	node	D2	874.941	1395.354	152	45
+box	node	D3	1260.432	1395.354	152	45
+box	node	D4	1251.432	934.666	171	171
+box	node	Finished1	865.328	-22.5	171.227	45
+box	node	Finished2	1586.404	-22.5	171.227	45
+box	node	S1	-49	193.51	171	171
+box	node	S2	468.858	235.51	152	87
+box	node	T1	-49	532.416	171	171
+box	node	T2	468.858	595.416	152	45
+box	node	T3	874.941	246.01	152	66
+box	node	T4	874.941	584.916	152	66
+box	node	T5	1260.432	246.01	152	66
+box	node	T6	1260.432	595.416	152	45
+box	node	Te1	-40	997.666	152	45
+box	node	Te2	449.358	924.166	192	192
+canvas	-111.51	-87.5	1887.141	1571.854
+font	Liberation Sans	778

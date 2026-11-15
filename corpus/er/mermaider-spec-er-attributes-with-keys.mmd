@@ -1,0 +1,15 @@
+erDiagram
+USER {
+int id PK
+string username UK
+string email UK
+string password_hash
+date created_at
+}
+SESSION {
+int id PK
+int user_id FK
+string token UK
+datetime expires_at
+}
+USER ||--o{ SESSION : has

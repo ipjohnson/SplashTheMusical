@@ -1,0 +1,27 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 839d9a054f23c640
+accept	yes
+drawn	yes
+edge	A	S	none	arrow	solid
+edge	C	L	none	arrow	solid
+edge	C	X	none	arrow	solid
+edge	E	I	none	arrow	solid
+edge	E	L	none	arrow	solid
+edge	I	A	none	arrow	solid
+edge	L	S	none	arrow	solid
+edge	O	E	none	arrow	solid
+edge	P	O	none	arrow	solid
+edge	R	C	none	arrow	solid
+edge	S	R	none	arrow	solid
+node	A	Activation intents	rect
+node	C	Authorized driver commands	rect
+node	E	Durable events	rect
+node	I	Agent inboxes	rect
+node	L	Existing ledger transitions	rect
+node	O	Accepted observations and facts	rect
+node	P	Pollers and external inputs	rect
+node	R	Agent session or bounded script	rect
+node	S	Existing scheduler and dispatcher	rect
+node	X	Existing durable effect outbox	rect
+type	flowchart-v2

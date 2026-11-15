@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 611ea9fd6c42c315
+box	task	/ apple	75	50	555	20
+box	task	/ banana	313	74	79	20
+box	task	/ cherry	630	98	79	20
+box	task-text	/ apple	339.039	53.5	26.922	12.283
+box	task-text	/ banana	334.141	77.5	36.719	12
+box	task-text	/ cherry	654.219	101.5	30.563	12.283
+box	title	Adding GANTT diagram to mermaid	248.609	9	286.781	20
+canvas	0	0	784	172
+font	Liberation Sans	186

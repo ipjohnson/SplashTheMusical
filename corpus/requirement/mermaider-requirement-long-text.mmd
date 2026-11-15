@@ -1,0 +1,16 @@
+requirementDiagram
+direction LR
+
+requirement a_requirement_with_a_really_long_name_that_wraps {
+id: LONG-1
+text: The system shall keep every audit record for at least seven years and make it retrievable within one business day on request.
+risk: high
+verifymethod: inspection
+}
+
+element retention_job {
+type: batch job
+docRef: ops/runbooks/retention-and-archival-policy.md
+}
+
+retention_job - satisfies -> a_requirement_with_a_really_long_name_that_wraps

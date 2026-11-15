@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a84e5e4c92f87471
+box	element	default	150	166	216	172.125
+canvas	0	-10	516	448.125
+font	Liberation Sans	44

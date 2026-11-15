@@ -1,0 +1,7 @@
+railroad-peg-beta
+title "Comma Separated List"
+List <- Item ("," Item)* ","? ;
+Item <- !"," (Word / Number) ;
+Word <- Letter+ ;
+Number <- Digit+ ("." Digit+)? ;
+Comment <- "#" (!EndOfLine .)* ;

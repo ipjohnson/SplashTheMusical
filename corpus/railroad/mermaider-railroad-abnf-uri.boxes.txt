@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 78d5083364c6dcde
+box	nonterminal	ipv4 / DIGIT	103.141	401.5	62.672	37
+box	nonterminal	ipv4 / DIGIT #2	270.266	401.5	62.672	37
+box	nonterminal	port / DIGIT	101.359	315	62.672	37
+box	nonterminal	scheme / ALPHA	109.813	120	72.469	37
+box	nonterminal	scheme / ALPHA #2	232.281	30	72.469	37
+box	nonterminal	scheme / DIGIT	237.18	75	62.672	37
+box	rule	hexdig	0	506.5	239.094	82
+box	rule	ipv4	0	401.5	387.938	77
+box	rule	port	0	295	199.031	77
+box	rule	scheme	0	10	359.75	257
+box	terminal	hexdig / %x30-39	120.938	506.5	83.156	37
+box	terminal	hexdig / %x41-46	120.938	551.5	83.156	37
+canvas	0	0	407.938	626.5
+font	Liberation Sans	152

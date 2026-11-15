@@ -1,0 +1,59 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4039435d3fe22168
+box	edge	[*]start@root --> pending	25.708	383.563	321.386	99
+box	edge	[*]start@root --> proposed	26	480.563	54.5	20.75
+box	edge	attention --> done	1589.672	56.854	160.656	197.417
+box	edge	attention --> pending	494.094	259.371	959.578	124.9
+box	edge	interrupted --> attention	1199.703	255.971	248.469	39.342
+box	edge	interrupted --> pending	494.094	298.146	569.609	84
+box	edge	paused --> pending	494.094	388.521	181.188	38.812
+box	edge	pending --> cancelled	488.594	390.646	181.188	85.5
+box	edge	pending --> paused	488.594	386.396	181.188	5.75
+box	edge	pending --> running	488.594	142.396	181.188	237.625
+box	edge	pending --> skipped	488.594	392.771	181.188	167.875
+box	edge	proposed --> pending	222	389.229	125.094	109.25
+box	edge	proposed --> skipped	222	504.146	447.781	62.167
+box	edge	review --> attention	1202.203	74.479	245.969	174.692
+box	edge	review --> done	1202.203	52.604	548.125	16.208
+box	edge	review --> running	816.781	74.479	249.422	65.792
+box	edge	running --> attention	811.281	146.646	636.891	105.925
+box	edge	running --> done	811.281	23	939.047	113.021
+box	edge	running --> interrupted	811.281	148.771	246.922	143.708
+box	edge	running --> review	811.281	68.812	249.422	69.333
+box	edge	running --> waiting	811.281	142.396	241.922	10.417
+box	edge	waiting --> running	816.781	144.521	241.922	38.812
+box	edge-label	attention --> done	1629.672	243.271	66.156	21
+box	edge-label	attention --> pending	950.992	340	28	21
+box	edge-label	interrupted --> attention	1261.758	284.313	119.859	21
+box	edge-label	interrupted --> pending	715.656	306.167	55.25	21
+box	edge-label	paused --> pending	588.594	416.333	46.687	21
+box	edge-label	pending --> cancelled	591.703	465.146	40.469	21
+box	edge-label	pending --> paused	592.859	381.646	38.156	21
+box	edge-label	pending --> running	598.32	131.396	27.234	21
+box	edge-label	pending --> skipped	599.484	535.917	24.906	21
+box	edge-label	proposed --> pending	262	393.729	50.594	21
+box	edge-label	proposed --> skipped	403.477	555.813	34.234	21
+box	edge-label	review --> attention	1249.703	83.333	143.969	21
+box	edge-label	review --> done	1497.937	58.313	47.469	21
+box	edge-label	review --> running	938.141	88.333	53.703	21
+box	edge-label	running --> attention	1058.703	214.813	151	21
+box	edge-label	running --> done	1266.805	12	109.766	21
+box	edge-label	running --> interrupted	932.312	281.979	65.359	21
+box	edge-label	running --> review	911.281	58.313	107.422	21
+box	edge-label	running --> waiting	946.312	142.312	37.359	21
+box	edge-label	waiting --> running	934.641	172.333	60.703	21
+box	node	[*]start@root	12	473.563	14	14
+box	node	attention	1453.672	235.771	136	37
+box	node	cancelled	675.281	457.646	136	37
+box	node	done	1755.828	34.104	136	37
+box	node	interrupted	1063.703	276.813	136	37
+box	node	paused	675.281	376.479	136	37
+box	node	pending	352.594	367.896	136	37
+box	node	proposed	86	482.812	136	37
+box	node	review	1066.203	53.146	136	37
+box	node	running	675.281	123.896	136	37
+box	node	skipped	675.281	544.979	136	37
+box	node	waiting	1058.703	137.146	136	37
+canvas	4	4	1895.828	585.979
+font	Liberation Sans	564

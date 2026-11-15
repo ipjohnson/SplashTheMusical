@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6428f2c8f53550ad
+box	edge	patterns --> reviewer	119.6	122.863	0	74.629
+box	edge	reviewer --> compile	119.6	266.492	0	94
+box	flow	reporter	13.6	316.492	212	105
+box	flow	researcher	12	12	215.2	139.492
+box	flow	reviewer	68.795	201.492	101.609	65
+box	node	compile	37.6	364.492	164	33
+box	node	patterns	36	59.996	167.2	67.492
+canvas	4	4	231.2	425.492
+font	Liberation Sans	136

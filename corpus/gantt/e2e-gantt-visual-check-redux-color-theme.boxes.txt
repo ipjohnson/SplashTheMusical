@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5ef5d89e6f883127
+box	section	Build	10	164	24.469	12
+box	section	Design	10	116	34.25	12.283
+box	section	Discovery	10	68	48.297	12.283
+box	section	Launch	10	200	36.094	12
+box	task	Build / Backend	326	146	185	20
+box	task	Build / Frontend	511	170	158	20
+box	task	Design / Review	326	122	79	20
+box	task	Design / Wireframes	194	98	132	20
+box	task	Discovery / Interviews	75	50	159	20
+box	task	Discovery / Synthesis	234	74	105	20
+box	task	Launch / Beta	603	194	106	20
+box	task-text	Build / Backend	397.094	149.5	42.813	12
+box	task-text	Build / Frontend	567.984	173.5	44.031	12
+box	task-text	Design / Review	347.461	125.5	36.094	12
+box	task-text	Design / Wireframes	231.883	101.5	56.234	12
+box	task-text	Discovery / Interviews	129.734	53.5	49.531	12
+box	task-text	Discovery / Synthesis	262.648	77.5	47.703	12.283
+box	task-text	Launch / Beta	644.68	197.5	22.641	12
+box	title	Section banding	327.445	9	129.109	20
+canvas	0	0	784	268
+font	Liberation Sans	330

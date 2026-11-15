@@ -1,0 +1,65 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 86ce734ac0ee5f4e
+box	class	ClaudeProcess	2310.742	1053.771	125.172	81
+box	class	ClockWatcher	285.258	824.042	116.844	81
+box	class	EffectRunner	1194.465	1019.771	171.828	141
+box	class	Exporter	737.648	193	81.578	81
+box	class	GitHubWatcher	285.258	703.042	125.375	81
+box	class	IClaudeProcess	2141.68	1150.604	129.063	102
+box	class	IEffectHandler	1610.156	1012.271	205.445	156
+box	class	IGate	478.461	12	340.766	141
+box	class	IPeerLink	1074.961	1262.771	222.422	162
+box	class	IWatcher	40.414	1001.125	164.844	141
+box	class	Importer	124.461	1233.875	80.797	81
+box	class	Ledger	555.57	1017.875	230.609	177
+box	class	Policy	1074.961	817.771	260.312	162
+box	class	ProcessWatcher	285.258	945.042	133.203	81
+box	class	RunnerProcess	2310.742	1174.771	127.484	81
+box	class	Scheduler	12	425	193.258	204
+box	class	SessionRunner	1855.602	1161.104	126.703	81
+box	class	SqliteStore	1074.961	372.746	218.547	162
+box	class	UsageWatcher	285.258	1066.042	120.75	81
+box	class	Views	618.961	314	200.266	162
+box	class	WorkMachine	1074.961	636.771	410.836	141
+box	relation	EffectRunner --> IEffectHandler	1366.293	1090.271	237.863	0
+box	relation	Exporter --> SqliteStore	819.227	233.5	249.734	177.646
+box	relation	IClaudeProcess --> ClaudeProcess	2287.992	1094.271	22.75	93.667
+box	relation	IClaudeProcess --> RunnerProcess	2287.992	1215.271	22.75	0
+box	relation	IEffectHandler --> SessionRunner	1832.852	1090.271	22.75	101.167
+box	relation	IPeerLink --> Ledger	792.18	1145.625	282.781	177.146
+box	relation	IWatcher --> ClockWatcher	222.508	864.542	62.75	186.917
+box	relation	IWatcher --> GitHubWatcher	222.508	743.542	62.75	287.75
+box	relation	IWatcher --> Ledger	205.258	1106.375	344.312	91.667
+box	relation	IWatcher --> ProcessWatcher	222.508	985.542	62.75	86.083
+box	relation	IWatcher --> UsageWatcher	222.508	1091.792	62.75	14.75
+box	relation	Importer --> Ledger	205.258	1145.625	344.312	128.75
+box	relation	Ledger --> EffectRunner	786.18	1090.271	402.285	16.104
+box	relation	Ledger --> IPeerLink	786.18	1165.25	282.781	202.187
+box	relation	Ledger --> Policy	786.18	898.771	282.781	187.979
+box	relation	Ledger --> SqliteStore	786.18	496.346	282.781	551.154
+box	relation	Ledger --> WorkMachine	786.18	707.271	282.781	359.854
+box	relation	Scheduler --> IGate	205.258	82.5	267.203	398.5
+box	relation	Scheduler --> Ledger	205.258	573	344.312	494.125
+box	relation	Scheduler --> SqliteStore	205.258	467.946	863.703	59.054
+box	relation	SessionRunner --> IClaudeProcess	1982.305	1201.604	153.375	0
+box	relation	SessionRunner --> Ledger	792.18	1126	1063.422	85.771
+box	relation	Views --> SqliteStore	819.227	395	249.734	44.546
+box	relation-label	EffectRunner --> IEffectHandler	1525.797	1079.271	44.359	21
+box	relation-label	Exporter --> SqliteStore	949.578	222.5	35.031	21
+box	relation-label	IPeerLink --> Ledger	925.461	1311.771	83.266	21
+box	relation-label	IWatcher --> Ledger	312.164	1187.042	79.391	21
+box	relation-label	Importer --> Ledger	296.227	1263.375	111.266	21
+box	relation-label	Ledger --> EffectRunner	947.25	1079.271	39.687	21
+box	relation-label	Ledger --> IPeerLink	923.508	1356.438	87.172	21
+box	relation-label	Ledger --> Policy	931.695	887.771	70.797	21
+box	relation-label	Ledger --> SqliteStore	919.227	600.821	95.734	21
+box	relation-label	Ledger --> WorkMachine	928.57	696.271	77.047	21
+box	relation-label	Scheduler --> IGate	320.336	71.5	63.047	21
+box	relation-label	Scheduler --> Ledger	290.406	641.042	122.906	21
+box	relation-label	Scheduler --> SqliteStore	593.203	516	111.281	21
+box	relation-label	SessionRunner --> IClaudeProcess	2022.305	1190.604	79.375	21
+box	relation-label	SessionRunner --> Ledger	1192.434	1200.771	175.891	21
+box	relation-label	Views --> SqliteStore	925.055	384	84.078	21
+canvas	4	4	2442.227	1428.771
+font	Liberation Sans	2182

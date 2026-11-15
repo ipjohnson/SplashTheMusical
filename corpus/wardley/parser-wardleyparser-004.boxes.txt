@@ -1,0 +1,9 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0f5fdf6fdb401690
+box	node	Kettle	396.96	294.416	38.379	21.984
+box	node	Kettle_Campfire Kettle	269.4	319.2	68.915	43.296
+box	node	Kettle_Electric Kettle	468.12	308.016	75.13	23.184
+box	title	Test Pipeline	411.623	15.839	76.753	14.093
+canvas	0	0	900	600
+font	Liberation Sans	206

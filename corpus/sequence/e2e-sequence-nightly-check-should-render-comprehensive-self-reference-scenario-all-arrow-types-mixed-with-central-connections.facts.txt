@@ -1,0 +1,24 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d3376722ff68c34f
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	Charlie	Charlie	participant
+drawn	yes
+message	Alice	Alice	dashed	filled-both	Bidirectional dotted
+message	Alice	Alice	solid	filled	Dual central
+message	Alice	Alice	solid	filled	Normal solid
+message	Alice	Alice	solid	filled-both	Bidirectional with dual central
+message	Bob	Bob	dashed	filled	Normal dotted
+message	Bob	Bob	solid	filled	Central at destination
+message	Charlie	Charlie	solid	filled	Central at source
+message	Charlie	Charlie	solid	filled-both	Bidirectional solid
+message	Charlie	Charlie	solid	none	Normal open
+note	over	Alice,Charlie	Bidirectional arrows
+note	over	Alice,Charlie	Bidirectional with central
+note	over	Alice,Charlie	Central connections
+note	over	Alice,Charlie	Normal arrows
+note	over	Alice,Charlie	Reverse arrows
+note	over	Alice,Charlie	Reverse with central
+type	sequence

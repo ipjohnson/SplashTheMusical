@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b6821c78e7518f7a
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+drawn	yes
+message	Alice	Bob	solid	filled	I'm short
+message	Bob	Alice	solid	filled	Short as well
+note	left	Alice	I should have bigger fonts
+type	sequence

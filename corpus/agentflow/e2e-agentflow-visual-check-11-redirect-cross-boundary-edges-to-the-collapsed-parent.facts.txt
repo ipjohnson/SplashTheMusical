@@ -1,0 +1,22 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 27adb24ddb800d63
+accept	yes
+direction	TD
+drawn	yes
+edge	patterns	validate	sequence
+edge	reviewed	compile	sequence
+edge	validate	reviewed	sequence
+flow	reporter	Report Agent	compile
+flow	researcher	Research Agent	patterns
+flow	reviewer	Review Agent	reviewed,validate
+label	Pattern Research
+label	Report Agent
+label	Research Agent
+label	Review Agent
+label	compile_report
+node	compile	compile_report	fr-rect	tool
+node	patterns	Pattern Research	lin-doc	refdoc
+node	reviewed	Reviewed Patterns	square	task
+node	validate	validate_patterns	fr-rect	tool
+type	agentflow

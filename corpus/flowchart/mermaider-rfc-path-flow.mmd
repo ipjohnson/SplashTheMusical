@@ -1,0 +1,9 @@
+flowchart TD
+    navYml["`**navigation.yml**`"] --> getToc["GetTocMappings()\nURI → path_prefix"]
+    perRepo["`**Per-repo\ndocset.yml + toc.yml**`"] --> docSetNav["DocumentationSetNavigation\nURI → node tree"]
+    getToc --> tocMappings[NavigationTocMappings]
+    docSetNav --> tocNodes[TableOfContentNodes]
+    tocMappings --> siteNav["SiteNavigation\nmerges nodes via navigation.yml URI keys"]
+    tocNodes --> siteNav
+    siteNav --> pathProvider["GlobalNavigationPathProvider\ndetermines output file paths"]
+    siteNav --> sidebar["Sidebar HTML rendering\ndetermines sidebar tree"]

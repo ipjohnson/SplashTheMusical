@@ -1,0 +1,8 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cf00e5b0c1ef00da
+accept	yes
+class	Car	Car
+drawn	yes
+method	Car	+setWheels(List<Wheel> wheels)
+type	classDiagram

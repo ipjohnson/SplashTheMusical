@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3579e9f2a114fa57
+box	node	A few smaller words but then averylongsetofcharacterswithoutwhitespacetoseparate that we expect to wrapontonextlinesandnotexceedwidthparameters	15	15	429.563	116
+canvas	5	5	449.563	136
+font	Liberation Sans	286

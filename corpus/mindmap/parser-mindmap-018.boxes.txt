@@ -1,0 +1,6 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 042bfdb5eaa208fe
+box	node	String containing []	15	15	160	68
+canvas	5	5	180	88
+font	Liberation Sans	40

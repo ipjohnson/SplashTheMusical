@@ -1,0 +1,10 @@
+erDiagram
+p["Customer Account"] {
+	int id PK
+	string name
+}
+o[Order] {
+	int id PK
+	int customer_id FK
+}
+p ||--o{ o : places

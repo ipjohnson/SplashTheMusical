@@ -1,0 +1,48 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1963f81099b1d706
+layout	1
+graph	LR	50	20	50	8	8
+node	card		152	66
+node	fg		152	108
+node	bg		152	87
+node	intake		152	66
+node	cont		152	87
+node	d		152	87
+node	you		152	108
+node	pool		152	66
+node	snap		152	87
+node	gates		152	87
+edge	card	fg	L_card_fg_0	1	1	0	0	10	c
+edge	card	bg	L_card_bg_0	1	1	0	0	10	c
+edge	intake	fg	L_intake_fg_0	1	1	0	0	10	c
+edge	intake	bg	L_intake_bg_0	1	1	0	0	10	c
+edge	cont	d	L_cont_d_0	1	1	0	0	10	c
+edge	you	d	L_you_d_0	1	1	0	0	10	c
+edge	fg	d	L_fg_d_0	1	1	0	0	10	c
+edge	bg	d	L_bg_d_0	1	1	0	0	10	c
+edge	d	pool	L_d_pool_0	1	1	0	0	10	c
+edge	snap	gates	L_snap_gates_0	1	1	0	0	10	c
+edge	gates	d	L_gates_d_0	1	1	78.609375	21	10	c
+size	852.609375	693
+place	card	84	367	152	66
+place	fg	286	357	152	108
+place	bg	286	504.5	152	87
+place	intake	84	494.5	152	66
+place	cont	286	51.5	152	87
+place	d	566.609375	357	152	87
+place	you	286	199	152	108
+place	pool	768.609375	357	152	66
+place	snap	84	641.5	152	87
+place	gates	286	641.5	152	87
+route	card	fg	L_card_fg_0			160,351.950495049505 185,347 210,349.4752475247525
+route	card	bg	L_card_bg_0			129.19322033898305,400 185,440.75 217.08235294117645,461
+route	intake	fg	L_intake_fg_0			129.19322033898305,461.5 185,420.75 210,404.970297029703
+route	intake	bg	L_intake_bg_0			132.65693430656933,527.5 185,563 210.8974358974359,548
+route	cont	d	L_cont_d_0			362,51.5 426.3046875,51.5 546.6314571399346,313.5
+route	you	d	L_you_d_0			362,199 426.3046875,199 527.9811857199367,313.5
+route	fg	d	L_fg_d_0			362,357 426.3046875,357 490.609375,357
+route	bg	d	L_bg_d_0			362,504.5 426.3046875,504.5 525.2313824152542,400.5
+route	d	pool	L_d_pool_0			642.609375,357 667.609375,357 692.609375,357
+route	snap	gates	L_snap_gates_0			160,641.5 185,641.5 210,641.5
+route	gates	d	L_gates_d_0	426.3046875	641.5	362,641.5 426.3046875,641.5 545.1568129393673,400.5

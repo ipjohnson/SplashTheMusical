@@ -1,0 +1,18 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9b81f9d4163cfd4
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John Second Line	participant
+drawn	yes
+message	Alice	Bob	solid	filled	Hello Bob, how are you?
+message	Bob	Alice	dashed	none	Checking with John...
+message	Bob	John	dashed	filled	How about you John?
+message	Bob	John	solid	cross	Hey John - we're still waiting to know how you're doing
+message	Bob	John	solid	cross	John! Are you still debating about how you're doing? How long does it take??
+note	over	John	After a few more moments, John finally snaps out of it.
+note	over	John	John looks like he's still thinking, so Bob prods him a bit.
+note	over	John	John's trying hard not to break his train of thought.
+note	right	John	John thinks a long long time, so long that the text does not fit on a row.
+type	sequence

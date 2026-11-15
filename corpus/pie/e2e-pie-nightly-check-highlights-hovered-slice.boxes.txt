@@ -1,0 +1,12 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c1f53d3fa17239e8
+box	legend	Bond	441	212.999	61.689	19.001
+box	legend	Cash	441	234.999	61.673	19.001
+box	legend	Stock	441	190.999	64.518	19.001
+box	slice	Bond	40	75.332	185	299.336
+box	slice	Cash	116.26	40	108.74	185
+box	slice	Stock	116.26	40	293.74	370
+box	title	Portfolio Holdings	127.067	1.999	195.866	28.187
+canvas	0	0	554.542	450
+font	Liberation Sans	80

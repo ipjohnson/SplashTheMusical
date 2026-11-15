@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7bbff52b691148bf
+box	edge	Cutover --> [*]end@root	204.75	802	0	34.5
+box	edge	NotStarted --> ShadowNav	204.75	103	0	116.5
+box	edge	PhysicalRestructure --> Cutover	112	664	73.417	95.5
+box	edge	ShadowNav --> VirtualRemap	204.75	283	0	116.5
+box	edge	VirtualRemap --> Cutover	224.083	463	73.417	296.5
+box	edge	VirtualRemap --> PhysicalRestructure	112	463	73.417	137.5
+box	edge	[*]start@root --> NotStarted	204.75	26	0	34.5
+box	edge-label	NotStarted --> ShadowNav	104.75	143	200	42
+box	edge-label	PhysicalRestructure --> Cutover	45	704	133.859	21
+box	edge-label	ShadowNav --> VirtualRemap	104.75	323	200	42
+box	edge-label	VirtualRemap --> Cutover	220	624.5	154.391	21
+box	edge-label	VirtualRemap --> PhysicalRestructure	12	503	200	63
+box	node	Cutover	136.75	765	136	37
+box	node	NotStarted	136.75	66	136	37
+box	node	PhysicalRestructure	44	606	136	58
+box	node	ShadowNav	136.75	225	136	58
+box	node	VirtualRemap	136.75	405	136	58
+box	node	[*]end@root	197.75	842	14.013	14
+box	node	[*]start@root	197.75	12	14	14
+canvas	4	4	378.391	860
+font	Liberation Sans	514

@@ -1,0 +1,14 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2c31a7865af2d923
+box	section	A section	10	68	44.641	12
+box	section	Critical tasks	10	104	62.344	12
+box	task	A section / A very long label that will not fit inside the short bar	75	50	317	20
+box	task	A section / Active short bar	392	74	317	20
+box	task	Critical tasks / A very long label that will not fit inside the short bar	75	98	317	20
+box	task-text	A section / A very long label that will not fit inside the short bar	109.984	53.5	247.031	12.283
+box	task-text	A section / Active short bar	512.289	77.5	76.422	12
+box	task-text	Critical tasks / A very long label that will not fit inside the short bar	109.984	101.5	247.031	12.283
+box	title	Gantt dark mode done-task outside-text readability	190.391	9	403.219	20
+canvas	0	0	784	172
+font	Liberation Sans	582

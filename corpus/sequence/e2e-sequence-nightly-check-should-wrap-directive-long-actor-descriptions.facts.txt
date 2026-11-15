@@ -1,0 +1,10 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e0289c31d46ab57d
+accept	yes
+actor	A	Extremely utterly long line of longness which had previously overflown the actor box as it is much longer than what it should be	participant
+actor	Bob	Bob	participant
+drawn	yes
+message	A	Bob	solid	filled	Hola
+message	Bob	A	dashed	none	Pasten !
+type	sequence

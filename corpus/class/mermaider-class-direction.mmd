@@ -1,0 +1,14 @@
+classDiagram
+  direction LR
+  class Controller {
+    +handle() void
+  }
+  class Service {
+    +process() void
+  }
+  class Repository {
+    +find() Object
+    +save() void
+  }
+  Controller --> Service
+  Service --> Repository

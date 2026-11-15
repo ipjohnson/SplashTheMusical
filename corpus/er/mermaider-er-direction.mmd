@@ -1,0 +1,16 @@
+erDiagram
+  direction TD
+  CUSTOMER ||--o{ ORDER : places
+  ORDER ||--|{ LINE_ITEM : contains
+  CUSTOMER {
+    string name PK
+    string email
+  }
+  ORDER {
+    int id PK
+    date created
+  }
+  LINE_ITEM {
+    int id PK
+    int quantity
+  }

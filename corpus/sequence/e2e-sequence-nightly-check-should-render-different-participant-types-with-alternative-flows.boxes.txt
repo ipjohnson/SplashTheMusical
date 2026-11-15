@@ -1,0 +1,40 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 20f32830793e5aa3
+box	actor	Client	54.554	0	40.892	67.754
+box	actor	CloudService	420	0	102.557	67.754
+box	actor	DataProcessor	622.107	0	105.786	67.754
+box	actor	EventBus	1201	0	150	73
+box	actor	MobileApp	200	0	150	73
+box	actor	Transaction	834.516	0	82.969	67.754
+box	actor	TransactionsDB	1019.405	0	113.189	67.754
+box	actor-bottom	Client	54.554	683	40.892	67.754
+box	actor-bottom	CloudService	420	683	102.557	67.754
+box	actor-bottom	DataProcessor	622.107	683	105.786	67.754
+box	actor-bottom	MobileApp	200	677	150	73
+box	actor-bottom	Transaction	834.516	683	82.969	67.754
+box	block	alt Authentication successful	64	171	1223	486
+box	message	Client --> MobileApp	76	117	192	0
+box	message	CloudService --> MobileApp	282	250	192	0
+box	message	CloudService --> MobileApp #2	282	603	192	0
+box	message	DataProcessor --> Transaction	676	338	193	0
+box	message	EventBus --> Client	82	514	1193	0
+box	message	MobileApp --> Client	82	647	192	0
+box	message	MobileApp --> CloudService	276	161	192	0
+box	message	MobileApp --> DataProcessor	276	294	392	0
+box	message	Transaction --> EventBus	877	470	392	0
+box	message	Transaction --> TransactionsDB	877	382	192	0
+box	message	TransactionsDB --> Transaction	883	426	192	0
+box	message-text	Client --> MobileApp	107.106	93.416	129.789	18.508
+box	message-text	CloudService --> MobileApp	339.769	226.416	76.462	18.508
+box	message-text	CloudService --> MobileApp #2	360.229	579.416	35.541	18.508
+box	message-text	DataProcessor --> Transaction	707.657	314.416	130.685	18.508
+box	message-text	EventBus --> Client	639.439	490.416	79.123	18.508
+box	message-text	MobileApp --> Client	138.887	623.416	78.226	18.508
+box	message-text	MobileApp --> CloudService	327.537	137.416	88.926	18.508
+box	message-text	MobileApp --> DataProcessor	425.325	270.416	93.351	18.508
+box	message-text	Transaction --> EventBus	1024.994	446.416	96.011	18.508
+box	message-text	Transaction --> TransactionsDB	929.882	358.416	86.237	18.508
+box	message-text	TransactionsDB --> Transaction	933.669	402.416	90.661	18.508
+canvas	-50	-10	1451	801
+font	Liberation Sans	668

@@ -1,0 +1,16 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a08ef984b8e4dba6
+accept	yes
+cause	Process
+cause	Process / Out of focus
+cause	User
+cause	User / Shaky hands
+drawn	yes
+head	Blurry Photo
+label	Blurry Photo
+label	Out of focus
+label	Process
+label	Shaky hands
+label	User
+type	ishikawa

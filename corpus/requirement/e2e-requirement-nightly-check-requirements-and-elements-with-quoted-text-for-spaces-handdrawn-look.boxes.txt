@@ -1,0 +1,7 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ae97722824f44191
+box	element	test entity name that is extra long with spaces	428.396	63.813	328.645	65.442
+box	requirement	test req name with spaces	12.372	11.999	376.263	168.784
+canvas	4.372	3.999	760.669	184.784
+font	Liberation Sans	384

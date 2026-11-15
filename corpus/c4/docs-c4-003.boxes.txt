@@ -1,0 +1,24 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 96b1a834b23451a3
+box	boundary	c1	150	668.571	632	739.006
+box	element	backend_api	200	1219.33	216	138.247
+box	element	banking_system	150	451.136	222.859	111.435
+box	element	customer	466	166	216	185.136
+box	element	email_system	150	166	216	99.189
+box	element	mobile_app	516	768.571	216	111.435
+box	element	spa	200	768.571	216	111.435
+box	element	web_app	200	980.006	216	99.189
+box	rel-label	backend_api --> banking_system	144.144	835.607	27.342	13.077
+box	rel-label	backend_api --> email_system	282.539	676.914	108.012	13.188
+box	rel-label	customer --> mobile_app	600.446	524.37	27.342	13.077
+box	rel-label	customer --> spa	432.228	514.37	27.342	13.077
+box	rel-label	customer --> web_app	523.462	720.087	27.342	13.077
+box	rel-label	database --> backend_api	465.469	1163.896	133.348	13.077
+box	rel-label	email_system --> customer	399.498	235.631	89.345	13.077
+box	rel-label	mobile_app --> backend_api	470.392	1045.11	27.342	13.077
+box	rel-label	spa --> backend_api	307.829	1044.318	27.342	13.077
+box	rel-label	web_app --> spa	437.833	924.656	43.335	13.077
+box	title	Container diagram for Internet Banking System	216	5.735	333.288	17.832
+canvas	0	-70	932	1577.577
+font	Liberation Sans	2172

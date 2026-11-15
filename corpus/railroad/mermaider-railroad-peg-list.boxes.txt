@@ -1,0 +1,18 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4fd489c56037a812
+box	nonterminal	Item / Number	181.844	160	76.906	37
+box	nonterminal	Item / Word	191.328	115	57.937	37
+box	nonterminal	List / Item	78.688	30	51.125	37
+box	nonterminal	List / Item #2	194.266	30	51.125	37
+box	nonterminal	Number / Digit	130.703	331.5	52.016	37.32
+box	nonterminal	Number / Digit #2	287.172	331.5	52.016	37.32
+box	nonterminal	Word / Letter	111.734	226.5	60.922	37
+box	rule	Comment	0	416.82	404.937	77
+box	rule	Item	0	115	293.75	82
+box	rule	List	0	10	354.844	77
+box	rule	Number	0	311.5	394.188	77.32
+box	rule	Word	0	226.5	207.656	57
+box	special	Comment / !EndOfLine	182.047	436.82	126.75	37
+canvas	0	0	424.938	531.82
+font	Liberation Sans	200

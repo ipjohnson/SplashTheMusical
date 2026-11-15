@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 341a023b249eeb3f
+accept	yes
+drawn	yes
+element	customerA	person	internal	[object Object]
+type	c4

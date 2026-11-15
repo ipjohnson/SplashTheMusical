@@ -1,0 +1,31 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9115f951142ec5f0
+box	node	monorepo	20	30.894	78.173	17.318
+box	node	monorepo / apps	35	437.723	37.329	17.318
+box	node	monorepo / apps / api	50	573.715	23.11	17.318
+box	node	monorepo / apps / api / package.json	65	655.066	94.235	17.318
+box	node	monorepo / apps / api / src	65	600.883	24.016	17
+box	node	monorepo / apps / api / src / server.ts	80	627.898	60.438	17
+box	node	monorepo / apps / web	49.953	464.891	31.157	17
+box	node	monorepo / apps / web / package.json	65	546.394	94.235	17.318
+box	node	monorepo / apps / web / src	65	491.906	24.016	17
+box	node	monorepo / apps / web / src / App.tsx	80	519.074	53.329	17.318
+box	node	monorepo / package.json	35	709.707	94.235	17.318
+box	node	monorepo / packages	35	58.25	72.907	17.389
+box	node	monorepo / packages / cli	50	329.203	17.781	17
+box	node	monorepo / packages / cli / package.json	65	410.402	94.235	17.318
+box	node	monorepo / packages / cli / src	65	356.219	24.016	17
+box	node	monorepo / packages / cli / src / main.ts	80	383.234	51.547	17
+box	node	monorepo / packages / core	50	85.453	33.782	17
+box	node	monorepo / packages / core / package.json	65	166.652	94.235	17.318
+box	node	monorepo / packages / core / src	65	112.469	24.016	17
+box	node	monorepo / packages / core / src / index.ts	80	139.484	55.11	17
+box	node	monorepo / packages / ui	50	193.82	14.219	17
+box	node	monorepo / packages / ui / package.json	65	302.035	94.235	17.318
+box	node	monorepo / packages / ui / src	65	220.836	24.016	17
+box	node	monorepo / packages / ui / src / Button.tsx	80	247.851	71.11	17
+box	node	monorepo / packages / ui / src / Modal.tsx	80	274.867	68.438	17
+box	node	monorepo / turbo.json	35	682.387	70.235	17.318
+canvas	-0.5	0	164.297	733.148
+font	Liberation Sans	366

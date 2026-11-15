@@ -1,0 +1,17 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4e7a58206857e113
+box	edge	[*]start@Outer --> Step	104	74	0	18.5
+box	edge	[*]start@Pinned --> Held	288	122	0	18.5
+box	edge	[*]start@Plain --> Free	128	293	0	18.5
+box	group	Outer	12	12	392	390
+box	group	Pinned	196	60	184	147
+box	group	Plain	36	231	184	147
+box	node	Free	60	317	136	37
+box	node	Held	220	146	136	37
+box	node	Step	36	98	136	37
+box	node	[*]start@Outer	97	60	14	14
+box	node	[*]start@Pinned	281	108	14	14
+box	node	[*]start@Plain	121	279	14	14
+canvas	4	4	408	406
+font	Liberation Sans	56

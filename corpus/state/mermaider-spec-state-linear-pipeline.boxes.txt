@@ -1,0 +1,22 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 45c303bd49d1849e
+box	edge	Enriched --> Stored	80	379	0	95.5
+box	edge	Published --> [*]end@root	80	655	0	34.5
+box	edge	Received --> Validated	80	103	0	95.5
+box	edge	Stored --> Published	80	517	0	95.5
+box	edge	Validated --> Enriched	80	241	0	95.5
+box	edge	[*]start@root --> Received	80	26	0	34.5
+box	edge-label	Enriched --> Stored	59	419	41.234	21
+box	edge-label	Received --> Validated	55.5	143	48.266	21
+box	edge-label	Stored --> Published	63	557	33.469	21
+box	edge-label	Validated --> Enriched	60.5	281	38.141	21
+box	node	Enriched	12	342	136	37
+box	node	Published	12	618	136	37
+box	node	Received	12	66	136	37
+box	node	Stored	12	480	136	37
+box	node	Validated	12	204	136	37
+box	node	[*]end@root	73	695	14.013	14
+box	node	[*]start@root	73	12	14	14
+canvas	4	4	152	713
+font	Liberation Sans	134

@@ -1,0 +1,45 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5b9b3b443929b21f
+layout	1
+graph	TB	50	20	75	8	8
+node	fork_state	TV	70	10
+node	TV_start	TV	14	14
+node	State2	TV	136	37
+node	State3	TV	136	37
+node	join_state	TV	70	10
+node	State4	TV	136	37
+node	TV_end	TV	14.013293266296387	14
+node	TV		0	0
+edge	TV_start	fork_state	edge1	1	1	0	0	10	c
+edge	fork_state	State2	edge2	1	1	0	0	10	c
+edge	fork_state	State3	edge3	1	1	0	0	10	c
+edge	State2	join_state	edge4	1	1	0	0	10	c
+edge	State3	join_state	edge5	1	1	0	0	10	c
+edge	join_state	State4	edge6	1	1	0	0	10	c
+edge	State4	TV_end	edge7	1	1	0	0	10	c
+size	408	588
+place	fork_state	204	139.5	70	10
+place	TV_start	204	52.5	14	14
+place	State2	111	238	136	37
+place	State3	297	238	136	37
+place	join_state	204	336.5	70	10
+place	State4	204	435	136	37
+place	TV_end	204	535.5	14.013293266296387	14
+place	TV	204	294	392	572
+route	TV_start	fork_state	edge1			204,59.5 204,97 204,134.5
+route	fork_state	State2	edge2			193.05882352941177,144.5 111,182 111,219.5
+route	fork_state	State3	edge3			214.94117647058823,144.5 297,182 297,219.5
+route	State2	join_state	edge4			111,256.5 111,294 193.05882352941177,331.5
+route	State3	join_state	edge5			297,256.5 297,294 214.94117647058823,331.5
+route	join_state	State4	edge6			204,341.5 204,379 204,416.5
+route	State4	TV_end	edge7			204,453.5 204,491 204,528.5
+layout	2
+graph	TB	50	20	50	8	8
+node	root_start		14	14
+node	TV		392	572
+edge	root_start	TV	edge0	1	1	0	0	10	c
+size	408	652
+place	root_start	204	15	14	14
+place	TV	204	358	392	572
+route	root_start	TV	edge0			204,22 204,47 204,72

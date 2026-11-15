@@ -1,0 +1,8 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 00f2779814a6ea37
+box	set	Fruits	76.328	38.932	396	396.137
+box	set	Vegetables	327.671	38.932	396	396.137
+box	union	Fruits,Vegetables	327.671	83.995	144.657	306.011
+canvas	0	0	800	450
+font	Liberation Sans	111

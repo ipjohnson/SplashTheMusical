@@ -1,0 +1,11 @@
+erDiagram
+    DocumentationSet ||--o{ LinkManifest : "per branch"
+    LinkManifest ||--|| GitOrigin : "origin"
+    LinkManifest ||--|{ LinkManifestPage : "links"
+    LinkManifestPage ||--o{ Anchor : "anchors"
+    LinkManifest ||--o{ Redirect : "redirects"
+    LinkManifest ||--o{ CrossLinkUri : "cross_links (outbound)"
+    Registry ||--|| LinkRegistry : "link-index.json"
+    LinkRegistry ||--o{ LinkRegistryEntry : "repository, branch"
+    LinkRegistryEntry ||--|| LinkManifest : "path"
+    Checkout ||--|| LinkRegistrySnapshot : "link-index.snapshot.json"

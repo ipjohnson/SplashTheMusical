@@ -1,0 +1,7 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 62c7e909d6f6d2c0
+accept	yes
+drawn	yes
+node	A		fork
+type	flowchart-v2

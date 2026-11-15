@@ -1,0 +1,11 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fdb2b773ca7cf4d1
+accept	yes
+attribute	SelfReferential	+SelfReferential referenced
+attribute	SelfReferential	+int id
+attribute	SelfReferential	+int self_referential_id
+class	SelfReferential	SelfReferential
+drawn	yes
+relation	SelfReferential	SelfReferential	none	arrow	solid	referenced	1	0..1
+type	classDiagram

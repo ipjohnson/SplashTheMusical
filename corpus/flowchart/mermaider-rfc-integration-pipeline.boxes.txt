@@ -1,0 +1,39 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source acbc362123b3c020
+box	edge	assemblerYml --> outputLayer	258.554	189	922.954	903
+box	edge	contentProc --> outputLayer	744.187	1056	107.83	36
+box	edge	dualVal --> contentProc	523.188	754	17.34	97
+box	edge	fileLookup --> contentProc	627.688	427.5	116.5	423.5
+box	edge	navAssembly --> dualVal	523.188	462	116.5	66
+box	edge	navAssembly --> fileLookup	627.688	303	0	54.5
+box	edge	navV2Yml --> navAssembly	651.687	189	10.867	110
+box	edge	navYml --> navAssembly	460.554	189	179.133	110
+box	edge	repoCheckouts --> contentProc	886.288	189	61.56	662
+box	edge	repoCheckouts --> navAssembly	663.688	189	179.133	110
+box	edge-label	assemblerYml --> outputLayer	1147.008	632.5	68.484	21
+box	edge-label	dualVal --> contentProc	492.688	794	60.719	21
+box	edge-label	repoCheckouts --> contentProc	898.824	632.5	98.047	21
+box	group	contentProc	326.867	855	834.641	201
+box	group	dualVal	322.188	532	402	222
+box	group	inputs	158.554	12	806	201
+box	group	navAssembly	12	303	770.094	159
+box	group	outputLayer	624.83	1096	671.563	159
+box	node	assemblerYml	182.554	102	152	87
+box	node	fileLookup	497.281	361.5	260.813	66
+box	node	images	754.867	903	152	129
+box	node	includes	350.867	903	152	129
+box	node	navV2Yml	586.554	144	152	45
+box	node	navYml	384.554	144	152	45
+box	node	outputFiles	648.83	1144	152	87
+box	node	pathProvider	850.83	1144	219.562	87
+box	node	relLinks	552.867	903	152	129
+box	node	repoCheckouts	788.554	60	152	129
+box	node	sidebarHtml	1120.393	1144	152	87
+box	node	v1Nav	36	351	180.641	87
+box	node	v2Nav	266.641	351	180.641	87
+box	node	valV1	346.187	601	152	108
+box	node	valV2	548.187	580	152	150
+box	node	xlinks	956.867	913.5	180.641	108
+canvas	4	4	1300.393	1259
+font	Liberation Sans	1804

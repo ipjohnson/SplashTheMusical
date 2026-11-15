@@ -1,0 +1,17 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7f9322af85ce7730
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+block	par	Parallel one
+divider	Parallel three
+divider	Parallel two
+drawn	yes
+message	Alice	Bob	solid	filled	Are you OK?
+message	Alice	Bob	solid	filled	Hello Bob, how are you?
+message	Alice	Bob	solid	filled	What do you think about it?
+message	Bob	Alice	dashed	filled	Fine!
+message	Bob	Alice	dashed	filled	I am good thanks!
+message	Bob	Alice	dashed	filled	It's good!
+type	sequence

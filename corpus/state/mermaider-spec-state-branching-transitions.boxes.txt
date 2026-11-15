@@ -1,0 +1,23 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8a8f68dd9af81e2b
+box	edge	Failed --> Idle	181.482	108.5	42.667	233.5
+box	edge	Failed --> [*]end@root	141.817	379	62.998	131.5
+box	edge	Idle --> Processing	101.148	103	41.667	95.5
+box	edge	Processing --> Failed	120.482	241	65	95.5
+box	edge	Processing --> Success	80	241	1.815	172.5
+box	edge	Success --> [*]end@root	80	456	63.813	54.5
+box	edge	[*]start@root --> Idle	162.148	26	0	34.5
+box	edge-label	Failed --> Idle	210.148	212	28	21
+box	edge-label	Failed --> [*]end@root	188.815	427	31.922	21
+box	edge-label	Idle --> Processing	80.148	143	41.234	21
+box	edge-label	Processing --> Failed	138.482	281	29.562	21
+box	edge-label	Processing --> Success	72.5	281	14.797	21
+box	node	Failed	136.815	342	136	37
+box	node	Idle	94.148	66	136	37
+box	node	Processing	33.148	204	136	37
+box	node	Success	12	419	136	37
+box	node	[*]end@root	136.813	516	14.013	14
+box	node	[*]start@root	155.148	12	14	14
+canvas	4	4	276.815	534
+font	Liberation Sans	100

@@ -1,0 +1,21 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source db4aa3083cae19b2
+box	edge	API --> Auth	726.25	110.374	56	83.3
+box	edge	API --> Orders	726.25	102.574	56	0
+box	edge	Auth --> UI	192	160.324	594.25	48.724
+box	edge	Orders --> DB	938.25	102.574	104	0
+box	edge	UI --> API	188	98.9	382.25	49.724
+box	edge	UI --> Cache	188	154.474	56	0
+box	edge-label	Auth --> UI	466	190.474	34.25	21
+box	group	Client	12	38.9	404	182.149
+box	group	Services	550.25	32.074	412	212
+box	group	Storage	1022.25	12	192	157.149
+box	node	API	574.25	83.974	152	45
+box	node	Auth	786.25	175.074	152	45
+box	node	Cache	248	111.9	144	85.149
+box	node	DB	1046.25	60	144	85.149
+box	node	Orders	786.25	80.074	152	45
+box	node	UI	36	131.974	152	45
+canvas	4	4	1218.25	248.074
+font	Liberation Sans	178

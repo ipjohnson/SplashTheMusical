@@ -1,0 +1,31 @@
+# mermaid.js boxes. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 67755ad4ab7c645d
+box	event	Management Responsibility / Human Resources	400	426.12	190	50
+box	event	Management Responsibility / Planning Activities	400	366.12	190	50
+box	event	Post-Production Activities / Adverse Events	1000	486.12	190	50
+box	event	Post-Production Activities / Complaints	1000	426.12	190	50
+box	event	Post-Production Activities / Feedback	1000	366.12	190	50
+box	event	Post-Production Activities / Installation Activities	1000	739.841	190	50
+box	event	Post-Production Activities / Post-Market Surveillance	1000	859.841	190	63.416
+box	event	Post-Production Activities / Production Activities	1000	679.841	190	50
+box	event	Post-Production Activities / Purchasing Activities	1000	619.841	190	50
+box	event	Post-Production Activities / Research and Development	1000	546.12	190	63.72
+box	event	Post-Production Activities / Servicing Activities	1000	799.841	190	50
+box	event	Product Realization Activities / Customer-related Processes	800	426.12	190	63.416
+box	event	Product Realization Activities / Planning Activities	800	366.12	190	50
+box	event	Quality Management System / Regulatory Compliance	200	366.12	190	63.72
+box	event	Quality Management System / Risk Management	200	439.841	190	50
+box	event	Resource Management / Infrastructure	600	439.536	190	50
+box	event	Resource Management / Management Reviews	600	366.12	190	63.416
+box	period	Management Responsibility	400	166.12	190	66.12
+box	period	Post-Production Activities	1000	166.12	190	66.12
+box	period	Product Realization Activities	800	166.12	190	66.12
+box	period	Quality Management System	200	166.12	190	66.12
+box	period	Resource Management	600	166.12	190	66.12
+box	section	Development	400	50	390	66.12
+box	section	Post-Development	800	50	390	66.12
+box	section	Pre-Development	200	50	190	66.12
+box	title	Medical Device Lifecycle	345	-10.141	396.57	37.233
+canvas	100	-61	1390	1072
+font	Liberation Sans	986

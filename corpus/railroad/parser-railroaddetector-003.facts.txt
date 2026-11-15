@@ -1,0 +1,5 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a0a4984d92e98a78
+accept	no
+# error Parsing failed:  Parse error on line 1, column 1: Expecting token of type 'railroad-beta' but found `RAILROAD-BETA`.

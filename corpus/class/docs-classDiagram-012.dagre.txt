@@ -1,0 +1,54 @@
+# mermaid.js dagre layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dffcdd8fa5f1981a
+layout	1
+graph	TB	50	20	50	8	8
+node	classA		69.15625	81
+node	classB		69.15625	81
+node	classC		69.15625	81
+node	classD		69.15625	81
+node	classE		68.375	81
+node	classF		67.59375	81
+node	classG		69.9375	81
+node	classH		69.15625	81
+node	classI		62.9375	81
+node	classJ		66.828125	81
+node	classK		69.15625	81
+node	classL		67.59375	81
+node	classM		70.703125	81
+node	classN		69.15625	81
+node	classO		69.9375	81
+node	classP		68.375	81
+edge	classA	classB	id_classA_classB_1	1	1	0	0	10	c
+edge	classC	classD	id_classC_classD_2	1	1	0	0	10	c
+edge	classE	classF	id_classE_classF_3	1	1	0	0	10	c
+edge	classG	classH	id_classG_classH_4	1	1	0	0	10	c
+edge	classI	classJ	id_classI_classJ_5	1	1	0	0	10	c
+edge	classK	classL	id_classK_classL_6	1	1	0	0	10	c
+edge	classM	classN	id_classM_classN_7	1	1	0	0	10	c
+edge	classO	classP	id_classO_classP_8	1	1	0	0	10	c
+size	918.078125	228
+place	classA	42.578125	48.5	69.15625	81
+place	classB	42.578125	179.5	69.15625	81
+place	classC	161.734375	48.5	69.15625	81
+place	classD	161.734375	179.5	69.15625	81
+place	classE	280.5	48.5	68.375	81
+place	classF	280.5	179.5	67.59375	81
+place	classG	399.65625	48.5	69.9375	81
+place	classH	399.65625	179.5	69.15625	81
+place	classI	517.6484375	48.5	62.9375	81
+place	classJ	517.6484375	179.5	66.828125	81
+place	classK	634.859375	48.5	69.15625	81
+place	classL	634.859375	179.5	67.59375	81
+place	classM	754.7890625	48.5	70.703125	81
+place	classN	754.7890625	179.5	69.15625	81
+place	classO	875.109375	48.5	69.9375	81
+place	classP	875.109375	179.5	68.375	81
+route	classA	classB	id_classA_classB_1			42.578125,89 42.578125,114 42.578125,139
+route	classC	classD	id_classC_classD_2			161.734375,89 161.734375,114 161.734375,139
+route	classE	classF	id_classE_classF_3			280.5,89 280.5,114 280.5,139
+route	classG	classH	id_classG_classH_4			399.65625,89 399.65625,114 399.65625,139
+route	classI	classJ	id_classI_classJ_5			517.6484375,89 517.6484375,114 517.6484375,139
+route	classK	classL	id_classK_classL_6			634.859375,89 634.859375,114 634.859375,139
+route	classM	classN	id_classM_classN_7			754.7890625,89 754.7890625,114 754.7890625,139
+route	classO	classP	id_classO_classP_8			875.109375,89 875.109375,114 875.109375,139

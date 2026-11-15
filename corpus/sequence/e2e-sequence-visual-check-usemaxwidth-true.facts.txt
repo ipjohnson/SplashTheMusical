@@ -1,0 +1,25 @@
+# mermaid.js facts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 71d316733ce73fe9
+accept	yes
+actor	Alice	Alice	participant
+actor	Bob	Bob	participant
+actor	John	John Second Line	participant
+block	alt	either this
+block	par	this happens in parallel
+divider
+divider	or this
+divider	or this will happen
+drawn	yes
+message	Alice	Bob	dashed	filled	Parallel message 1
+message	Alice	Bob	solid	filled	Hello Bob, how are you?
+message	Alice	John	dashed	filled	Parallel message 2
+message	Alice	John	solid	filled	No
+message	Alice	John	solid	filled	Yes
+message	Alice	John	solid	none	Maybe
+message	Bob	Alice	dashed	cross	I am good thanks!
+message	Bob	Alice	dashed	none	Checking with John...
+message	Bob	John	dashed	filled	How about you John?
+message	Bob	John	solid	cross	I am good thanks!
+note	right	John	Bob thinks a long long time, so long that the text does not fit on a row.
+type	sequence
