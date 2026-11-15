@@ -89,7 +89,7 @@ jobs:
         run: |
           prefix="l4-oracle-${RUNNER_OS}-${RUNNER_ARCH}-${ImageOS}-"
           echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
-          echo "key=$prefix${{ hashFiles('tools/oracle/package-lock.json', 'tools/oracle/*.mjs', 'tools/oracle/fonts/**', 'corpus/**/*.mmd', 'corpus/config.txt') }}" >> "$GITHUB_OUTPUT"
+          echo "key=${prefix}${{ hashFiles('tools/oracle/package-lock.json', 'tools/oracle/*.mjs', 'tools/oracle/fonts/**', 'corpus/**/*.mmd', 'corpus/config.txt') }}" >> "$GITHUB_OUTPUT"
 
       # A partial match restores rasters that raster.mjs checks against each SVG's hash before it reuses them.
       - name: Restore mermaid.js's SVGs and rasters
