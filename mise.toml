@@ -52,6 +52,18 @@ run = [
   "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",
 ]
 
+[tasks.parity]
+description = "Write docs/parity-report.md from the committed oracle output and the ledgers"
+env = { STM_WRITE_REPORT = "1" }
+run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
+
+[tasks.conformance-aot]
+description = "Publish the conformance tests with native AOT and run them"
+run = [
+  "dotnet publish tests/SplashTheMusical.Conformance -o .artifacts/conformance-aot",
+  ".artifacts/conformance-aot/SplashTheMusical.Conformance",
+]
+
 [tasks.oracle-test]
 description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, the dumps, and the failures"
 run = [

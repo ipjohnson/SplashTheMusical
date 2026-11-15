@@ -1,5 +1,3 @@
-using AwesomeAssertions;
-
 namespace SplashTheMusical.Conformance;
 
 public class ComparerTests
@@ -12,42 +10,48 @@ public class ComparerTests
 	);
 
 	[Test]
-	public void TheStubFailsEveryLevelOfEveryCaseTheOracleAcceptsAndMatchesEveryCaseItRefuses()
+	public async Task TheStubFailsEveryLevelOfEveryCaseTheOracleAcceptsAndMatchesEveryCaseItRefuses()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
 
-		results.Should().HaveCount(CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count);
+		await Assert.That(results.Count).IsEqualTo(CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count);
+		var wrong = new List<string>();
 		foreach (var result in results)
 		{
-			if (OracleFiles.Read(CorpusCheck.CorpusRoot, result.Name).Accepted)
+			var outcomes = result.Levels.Select(l => l.Outcome).ToList();
+			var expected = OracleFiles.Read(CorpusCheck.CorpusRoot, result.Name).Accepted
+				? outcomes.All(o => o == Outcome.Fail) && result[Level.L1].Differences.All(d => d.Missing)
+				: outcomes.SequenceEqual([Outcome.Pass, Outcome.NotApplicable, Outcome.NotApplicable]);
+			if (!expected)
 			{
-				result.Levels.Select(l => l.Outcome).Should().AllBeEquivalentTo(Outcome.Fail, result.Name);
-				result[Level.L1].Differences.Should().OnlyContain(d => d.Missing, result.Name);
-			}
-			else
-			{
-				result.Levels.Select(l => l.Outcome).Should().Equal([Outcome.Pass, Outcome.NotApplicable, Outcome.NotApplicable], result.Name);
+				wrong.Add(result.Name);
 			}
 		}
 
-		results.Should().Contain(r => r[Level.L0].Outcome == Outcome.Pass);
-		results.Should().Contain(r => r[Level.L0].Outcome == Outcome.Fail);
+		await Assert.That(wrong).IsEmpty();
+		await Assert.That(results).Contains(r => r[Level.L0].Outcome == Outcome.Pass);
+		await Assert.That(results).Contains(r => r[Level.L0].Outcome == Outcome.Fail);
 	}
 
 	[Test]
-	public void AProviderThatWritesTheOracleFactsPassesEveryLevelOfEveryCase()
+	public async Task AProviderThatWritesTheOracleFactsPassesEveryLevelOfEveryCase()
 	{
 		var corpus = CorpusCheck.CorpusRoot;
+		var wrong = new List<string>();
 		foreach (var name in CorpusCheck.Cases(corpus))
 		{
 			var result = CorpusComparison.Run(corpus, name, new FixedProvider(OracleFiles.Read(corpus, name)));
-			result.Levels.Should().OnlyContain(l => l.Outcome != Outcome.Fail, name);
-			result[Level.L0].Outcome.Should().Be(Outcome.Pass, name);
+			if (result.Levels.Any(l => l.Outcome == Outcome.Fail) || result[Level.L0].Outcome != Outcome.Pass)
+			{
+				wrong.Add(name);
+			}
 		}
+
+		await Assert.That(wrong).IsEmpty();
 	}
 
 	[Test]
-	public void EachLevelReportsTheLinesThatAreMissingAndExtra()
+	public async Task EachLevelReportsTheLinesThatAreMissingAndExtra()
 	{
 		var actual = Oracle with
 		{
@@ -57,27 +61,26 @@ public class ComparerTests
 
 		var result = Comparer.Compare("flowchart/docs-flowchart-001", Oracle, actual);
 
-		result.Type.Should().Be("flowchart");
-		result[Level.L0].Outcome.Should().Be(Outcome.Pass);
-		result[Level.L1].Differences.Select(d => d.ToString()).Should().Equal(
+		await Assert.That(result.Type).IsEqualTo("flowchart");
+		await Assert.That(result[Level.L0].Outcome).IsEqualTo(Outcome.Pass);
+		await LineAssert.Equal(
+			result[Level.L1].Differences.Select(d => d.ToString()),
 			"L1 + edge\tA\tB\tnone\tarrow\tdotted",
 			"L1 - edge\tA\tB\tnone\tarrow\tsolid"
 		);
-		result[Level.L2].Differences.Select(d => d.ToString()).Should().Equal(
-			"L2 + box\tedge\tA --> B",
-			"L2 - box\tnode\tB",
-			"L2 - label\tA"
-		);
+		await LineAssert.Equal(result[Level.L2].Differences.Select(d => d.ToString()), "L2 + box\tedge\tA --> B", "L2 - box\tnode\tB", "L2 - label\tA");
 	}
 
 	[Test]
-	public void ASourceOnlyTheOracleAcceptsFailsEveryLevel()
+	public async Task ASourceOnlyTheOracleAcceptsFailsEveryLevel()
 	{
 		var result = Comparer.Compare("flowchart/x", Oracle, CaseFacts.Refused("no"));
 
-		result[Level.L0].Differences.Select(d => d.ToString()).Should().Equal("L0 + accept\tno", "L0 - accept\tyes");
-		result[Level.L1].Differences.Should().HaveCount(4).And.OnlyContain(d => d.Missing);
-		result[Level.L2].Differences.Should().HaveCount(5).And.OnlyContain(d => d.Missing);
+		await LineAssert.Equal(result[Level.L0].Differences.Select(d => d.ToString()), "L0 + accept\tno", "L0 - accept\tyes");
+		await Assert.That(result[Level.L1].Differences).Count().IsEqualTo(4);
+		await Assert.That(result[Level.L1].Differences).All(d => d.Missing);
+		await Assert.That(result[Level.L2].Differences).Count().IsEqualTo(5);
+		await Assert.That(result[Level.L2].Differences).All(d => d.Missing);
 	}
 
 	private sealed class FixedProvider(CaseFacts facts) : IFactsProvider

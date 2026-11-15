@@ -18,6 +18,8 @@ mise run check    # fail on formatting drift
 mise run ci       # what CI runs: build, test and the formatting check
 mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
 mise run oracle-test
+mise run parity            # rewrite docs/parity-report.md from the corpus and the ledgers
+mise run conformance-aot   # publish the conformance tests with native AOT and run them
 ```
 
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
@@ -67,5 +69,7 @@ Tests may use reflection to check these rules.
   enforces them.
 - `_camelCase` private instance fields, PascalCase static and constant fields.
 - TUnit for tests, AwesomeAssertions for assertions and CsCheck for property tests, as in ipjohnson/mermaider.
+- `tests/SplashTheMusical.Conformance` publishes with native AOT, so it uses TUnit's assertions instead of
+  AwesomeAssertions, and not TUnit's collection `IsEquivalentTo`, which needs reflection.
 - In test files, `Assembly` is ambiguous with TUnit's `HookType.Assembly`. Write `System.Reflection.Assembly`.
 - Code derived from another project is listed in `THIRD-PARTY-NOTICES.md` with its license.
