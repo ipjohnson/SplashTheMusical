@@ -12,6 +12,10 @@ public class AssemblyReferenceTests
 	public void LayoutReferencesOnlyTheRuntime() =>
 		ReferencedAssemblies("SplashTheMusical.Layout").Should().OnlyContain(name => IsRuntimeAssembly(name));
 
+	[Test]
+	public void CoreDoesNotReferenceRegularExpressions() =>
+		ReferencedAssemblies("SplashTheMusical").Should().NotContain("System.Text.RegularExpressions");
+
 	private static string[] ReferencedAssemblies(string assemblyName)
 	{
 		var assembly = System.Reflection.Assembly.Load(assemblyName);
