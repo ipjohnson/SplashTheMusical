@@ -1,19 +1,22 @@
 // L4 of the parity plan: rasterizes the mermaid.js SVG and STM's SVG of every corpus case in one headless Chromium
 // page and scores their structural similarity. tools/oracle/README.md describes the outputs.
 //
-//   node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir>
+//   node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir> [oracle-raster-dir]
 //
 // A case's oracle acceptance comes from its facts file, and STM's from whether stm-svg-dir has its SVG. The threshold
 // of a type comes from <corpus-dir>/tolerances/<type>.json. The run fails when an accepted case has no oracle SVG.
+// With oracle-raster-dir, mermaid.js's raster of each accepted case is kept there and reused while its SVG, Chromium,
+// this script and the bundled fonts are unchanged.
 import fs from 'node:fs'
 import path from 'node:path'
+import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 
-const [, , corpusDir, oracleSvgDir, stmSvgDir, outcomesFile, imagesDir] = process.argv
+const [, , corpusDir, oracleSvgDir, stmSvgDir, outcomesFile, imagesDir, rasterDir] = process.argv
 if (!corpusDir || !oracleSvgDir || !stmSvgDir || !outcomesFile || !imagesDir) {
-	console.error('usage: node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir>')
+	console.error('usage: node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir> [oracle-raster-dir]')
 	process.exit(2)
 }
 
@@ -31,6 +34,12 @@ const startThreshold = 0.9
 const maxSide = 800
 // A run writes side-by-side images of at most this many failing cases per type.
 const imagesPerType = 10
+
+const sha256 = (...parts) => {
+	const hash = crypto.createHash('sha256')
+	for (const part of parts) hash.update(part)
+	return hash.digest('hex')
+}
 
 const filesUnder = dir =>
 	fs.existsSync(dir)
@@ -108,6 +117,45 @@ async function sizeOf(svg) {
 		const drawn = element.getBoundingClientRect()
 		return { width: drawn.width, height: drawn.height }
 	}, svg)
+}
+
+// The stage of a case: the size of an SVG, scaled down so its longer side is at most maxSide.
+async function stageOf(svg) {
+	const size = (await sizeOf(svg)) ?? { width: 1, height: 1 }
+	const scale = Math.min(1, maxSide / Math.max(size.width, size.height, 1))
+	return { width: Math.max(1, Math.round(size.width * scale)), height: Math.max(1, Math.round(size.height * scale)) }
+}
+
+// What a cached raster depends on besides its SVG.
+const rasterKey = sha256(
+	await browser.version(),
+	fs.readFileSync(fileURLToPath(import.meta.url)),
+	...fontFaces.map(face => fs.readFileSync(path.join(root, 'fonts', face.file))),
+)
+const cached = { read: 0, drawn: 0 }
+
+// mermaid.js's raster of a case and its stage, from oracle-raster-dir when <name>.key there holds the raster key and the
+// SVG's hash. Otherwise it is drawn and, with oracle-raster-dir, written there.
+async function oracleRaster(name, svg) {
+	const svgHash = sha256(svg)
+	const keyFile = rasterDir && path.join(rasterDir, name + '.key')
+	const pngFile = rasterDir && path.join(rasterDir, name + '.png')
+	if (rasterDir && fs.existsSync(keyFile) && fs.existsSync(pngFile)) {
+		const [key, hash, width, height] = fs.readFileSync(keyFile, 'utf8').trim().split('\t')
+		if (key === rasterKey && hash === svgHash) {
+			cached.read++
+			return { png: fs.readFileSync(pngFile).toString('base64'), width: Number(width), height: Number(height) }
+		}
+	}
+	const { width, height } = await stageOf(svg)
+	const png = await rasterize(svg, width, height)
+	if (rasterDir) {
+		cached.drawn++
+		fs.mkdirSync(path.dirname(pngFile), { recursive: true })
+		fs.writeFileSync(pngFile, Buffer.from(png, 'base64'))
+		fs.writeFileSync(keyFile, [rasterKey, svgHash, width, height].join('\t') + '\n')
+	}
+	return { png, width, height }
 }
 
 // Draws an SVG to fill a width by height stage, keeping its aspect ratio, and screenshots the stage as a PNG.
@@ -234,6 +282,7 @@ const names = filesUnder(corpusDir).filter(f => f.endsWith('.mmd')).map(f => f.s
 const outcomes = []
 const scores = []
 const images = new Map()
+const kept = new Set()
 const counts = { pass: 0, fail: 0, 'n/a': 0, report: 0 }
 for (const name of names) {
 	const type = name.split('/')[0]
@@ -253,7 +302,8 @@ for (const name of names) {
 		continue
 	}
 
-	// A case is drawn only when it is scored or gets an image.
+	// A case is drawn only when it is scored or gets an image. With oracle-raster-dir, mermaid.js's side of every accepted
+	// case is drawn, so the folder holds it when STM starts drawing the case.
 	const both = oracle !== undefined && stm !== undefined
 	const imageDue = (images.get(type) ?? 0) < imagesPerType
 	let score
@@ -261,13 +311,20 @@ for (const name of names) {
 	let stmPng
 	let width = 1
 	let height = 1
+	if (oracle !== undefined && (both || imageDue || rasterDir)) {
+		kept.add(name)
+		const drawn = await oracleRaster(name, oracle)
+		oraclePng = drawn.png
+		width = drawn.width
+		height = drawn.height
+	}
 	if (both || imageDue) {
 		// Both rasters take the size of mermaid.js's SVG, or of STM's when mermaid.js refuses the case.
-		const size = (await sizeOf(oracle ?? stm)) ?? { width: 1, height: 1 }
-		const scale = Math.min(1, maxSide / Math.max(size.width, size.height, 1))
-		width = Math.max(1, Math.round(size.width * scale))
-		height = Math.max(1, Math.round(size.height * scale))
-		oraclePng = oracle && await rasterize(oracle, width, height)
+		if (oracle === undefined) {
+			const stage = await stageOf(stm)
+			width = stage.width
+			height = stage.height
+		}
 		stmPng = stm && await rasterize(stm, width, height)
 		if (both) score = await similarity(oraclePng, stmPng)
 	}
@@ -286,8 +343,18 @@ for (const name of names) {
 }
 await browser.close()
 
+// Rasters of cases that left the corpus or that mermaid.js now refuses.
+let pruned = 0
+for (const file of rasterDir ? filesUnder(rasterDir) : []) {
+	if (!kept.has(file.replace(/\.(png|key)$/, ''))) {
+		fs.rmSync(path.join(rasterDir, file))
+		pruned++
+	}
+}
+
 fs.mkdirSync(path.dirname(path.resolve(outcomesFile)), { recursive: true })
 fs.writeFileSync(outcomesFile, ['# L4 outcomes. Refresh with: mise run raster', ...outcomes].join('\n') + '\n')
 fs.writeFileSync(path.join(imagesDir, 'scores.txt'), ['# L4 scores. Written by tools/oracle/raster.mjs', ...scores].join('\n') + '\n')
 const imageCount = [...images.values()].reduce((a, b) => a + b, 0)
 console.log(`${names.length} cases: ${counts.pass} pass, ${counts.fail} fail, ${counts.report} report-only, ${counts['n/a']} n/a. ${imageCount} side-by-side images`)
+if (rasterDir) console.log(`mermaid.js rasters: ${cached.read} read from ${rasterDir}, ${cached.drawn} drawn, ${pruned} files deleted`)

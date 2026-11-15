@@ -37,12 +37,18 @@ function fixture({ dropOracleSvg } = {}) {
 	return dir
 }
 
-const run = dir =>
+const run = (dir, { cache } = {}) =>
 	spawnSync(
 		process.execPath,
-		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4.txt', 'images'].map(f => path.join(dir, f))],
+		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4.txt', 'images', ...(cache ? ['cache'] : [])].map(f => path.join(dir, f))],
 		{ encoding: 'utf8' },
 	)
+
+const readScores = dir => fs.readFileSync(path.join(dir, 'images', 'scores.txt'), 'utf8')
+const cacheFiles = dir => fs.readdirSync(path.join(dir, 'cache'), { recursive: true })
+	.filter(f => f.endsWith('.png') || f.endsWith('.key'))
+	.map(f => f.split(path.sep).join('/'))
+	.sort()
 
 const isPng = file => fs.readFileSync(file).subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))
 
@@ -75,6 +81,55 @@ test('scores each case, writes the outcomes and draws the failing cases side by 
 	const images = fs.readdirSync(path.join(dir, 'images'), { recursive: true }).filter(f => f.endsWith('.png')).sort()
 	assert.deepEqual(images, ['mindmap/differ.png', 'pie/differ.png', 'pie/no-stm.png', 'pie/stm-only.png'].map(f => f.split('/').join(path.sep)))
 	for (const image of images) assert.ok(isPng(path.join(dir, 'images', image)), image)
+})
+
+test('a run that reads mermaid.js rasters from the cache scores as a run without one', () => {
+	const dir = fixture()
+	const cold = run(dir)
+	assert.equal(cold.status, 0, cold.stderr)
+	const coldScores = readScores(dir)
+	const coldOutcomes = fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8')
+
+	const filling = run(dir, { cache: true })
+	assert.equal(filling.status, 0, filling.stderr)
+	assert.match(filling.stdout, /0 read from .*, 4 drawn, 0 files deleted/)
+	assert.deepEqual(cacheFiles(dir), ['mindmap/differ', 'pie/differ', 'pie/no-stm', 'pie/same'].flatMap(n => [n + '.key', n + '.png']))
+
+	const hit = run(dir, { cache: true })
+	assert.equal(hit.status, 0, hit.stderr)
+	assert.match(hit.stdout, /4 read from .*, 0 drawn, 0 files deleted/)
+	assert.equal(readScores(dir), coldScores)
+	assert.equal(fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8'), coldOutcomes)
+})
+
+test('the cache drops removed cases and redraws added and changed ones', () => {
+	const dir = fixture()
+	assert.equal(run(dir, { cache: true }).status, 0)
+
+	for (const ext of ['.mmd', '.facts.txt']) fs.rmSync(path.join(dir, 'corpus', 'pie', 'differ' + ext))
+	fs.writeFileSync(path.join(dir, 'corpus', 'pie', 'new.mmd'), 'pie\n')
+	fs.writeFileSync(path.join(dir, 'corpus', 'pie', 'new.facts.txt'), facts(true))
+	fs.writeFileSync(path.join(dir, 'oracle', 'pie', 'new.svg'), boxes)
+	fs.writeFileSync(path.join(dir, 'stm', 'pie', 'new.svg'), boxes)
+	fs.writeFileSync(path.join(dir, 'oracle', 'pie', 'same.svg'), text)
+
+	const result = run(dir, { cache: true })
+	assert.equal(result.status, 0, result.stderr)
+	assert.match(result.stdout, /2 read from .*, 2 drawn, 2 files deleted/)
+	assert.deepEqual(cacheFiles(dir), ['mindmap/differ', 'pie/new', 'pie/no-stm', 'pie/same'].flatMap(n => [n + '.key', n + '.png']))
+
+	const scores = Object.fromEntries(readScores(dir).trim().split('\n').slice(1).map(l => [l.split('\t')[0], l.split('\t')[2]]))
+	assert.equal(scores['pie/new'], '1.0000')
+	assert.ok(Number(scores['pie/same']) < 0.9, scores['pie/same'])
+})
+
+test('fails when mermaid.js accepts a case and its SVG is missing, even with its raster in the cache', () => {
+	const dir = fixture()
+	assert.equal(run(dir, { cache: true }).status, 0)
+	fs.rmSync(path.join(dir, 'oracle', 'pie', 'same.svg'))
+	const result = run(dir, { cache: true })
+	assert.equal(result.status, 1)
+	assert.match(result.stderr, /pie\/same: mermaid.js accepts it/)
 })
 
 test('fails when mermaid.js accepts a case and its SVG is missing', () => {

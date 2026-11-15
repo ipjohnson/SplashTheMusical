@@ -329,7 +329,7 @@ each corpus case in one headless Chromium page, so a difference comes from the S
 
 ```bash
 mise run raster   # runs stm-svg and corpus-oracle first
-node tools/oracle/raster.mjs <corpus> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir>
+node tools/oracle/raster.mjs <corpus> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir> [oracle-raster-dir]
 ```
 
 `mise run stm-svg` writes STM's SVGs to `.artifacts/stm/svg`. `mise run corpus-oracle` writes mermaid.js's to
@@ -364,8 +364,45 @@ The run writes these files:
 `tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build
 artifacts. Scores are not committed, because small differences between machines would change them.
 
-The `l4` job of `.github/workflows/ci.yml` runs on macOS. It rewrites the corpus's oracle output with `facts.mjs`,
-runs `raster.mjs`, and uploads the scores and images as the `l4-raster` artifact. It fails when any file under
-`corpus/` then differs from the commit, so it catches oracle output that the pinned mermaid.js no longer writes and an
-`l4.txt` that STM's SVGs no longer give. It runs on macOS because the committed boxes files name the macOS fonts
-Chromium falls back to for emoji and CJK text.
+### The oracle raster folder
+
+With an oracle raster folder, the run keeps mermaid.js's raster of every case that mermaid.js accepts there, so a later
+run draws only STM's side. A cached raster is read back byte for byte, so the scores equal those of a run without the
+folder. The folder holds two files per case, in the case's subfolder:
+
+| File | Contents |
+|---|---|
+| `<name>.png` | mermaid.js's raster of the case |
+| `<name>.key` | One line: the raster key, the SHA-256 of the case's oracle SVG, and the raster's width and height, separated by tabs |
+
+The raster key is the SHA-256 of the Chromium version, `raster.mjs` and the bundled fonts. A run reuses a raster only
+when both hashes in its key file match. Otherwise it draws the raster again and overwrites the files. After the run it
+deletes the files of every case that is no longer in the corpus or that mermaid.js now refuses. The run still fails
+when mermaid.js accepts a case and the oracle SVG folder has no SVG for it, whatever the raster folder holds. The last
+line of the output counts the rasters read, the rasters drawn and the files deleted.
+
+The fonts Chromium falls back to for glyphs the bundled font lacks are not in the key.
+
+### The CI job
+
+The `l4` job of `.github/workflows/ci.yml` runs on macOS. It runs on macOS because the committed boxes files name the
+macOS fonts Chromium falls back to for emoji and CJK text. It caches `.artifacts/corpus/svg` and the oracle raster
+folder, `.artifacts/corpus/raster`, with `actions/cache`. The key is the runner's OS, architecture and image OS, such as
+`macos15`, and a hash of `package-lock.json`, the oracle scripts, `fonts/`, the corpus's `.mmd` files and
+`corpus/config.txt`.
+
+On an exact hit the job skips `facts.mjs`. On a miss it restores the newest cache with the same OS, architecture and
+image OS, if any, and rewrites the corpus's oracle output and mermaid.js's SVGs with `facts.mjs`. `raster.mjs` then
+redraws only the rasters whose SVG changed. A miss saves the new cache when the job passes.
+
+The job then runs `raster.mjs` and uploads the scores and images as the `l4-raster` artifact. It fails when any file
+under `corpus/` then differs from the commit. On a miss that catches oracle output that the pinned mermaid.js no
+longer writes. On every run it catches an `l4.txt` that STM's SVGs no longer give.
+
+A weekly scheduled run of the workflow skips the cache and runs the whole job, so a runner image update that changes
+the fallback fonts shows up within a week. It saves no cache, so it runs `raster.mjs` without the oracle raster folder.
+
+Filling the folder draws mermaid.js's raster of every accepted case, including the cases STM does not draw yet. That
+makes a full miss slower than a run without the folder. While STM drew no corpus case, on an Apple silicon Mac, a run
+without the folder took 379 seconds, a run that filled an empty folder took 929 seconds, and a run that read every
+raster from it took 67 seconds.

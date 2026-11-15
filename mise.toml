@@ -65,7 +65,7 @@ run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-fil
 [tasks.raster]
 description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write corpus/l4.txt and the side-by-side images of failing cases"
 depends = ["stm-svg", "corpus-oracle"]
-run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster"
+run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
 
 [tasks.conformance-aot]
 description = "Publish the conformance tests with native AOT and run them"
