@@ -63,7 +63,9 @@ Text is measured through `ITextMeasurer`. The default, `FontTableTextMeasurer`, 
 lists the families and their aliases. `TextMeasurementTests` compares the measured widths with the oracle's label
 boxes, and `FontTableTextMeasurerTests` fails when the generator's output differs from the committed tables.
 
-`upstream-generate` takes a checkout of mermaid-js/mermaid at the tag of the mermaid `tools/oracle` pins. The files in
+`upstream-generate` takes a checkout of mermaid-js/mermaid at the tag of the mermaid `tools/oracle` pins. `ConfigSource`
+finds the schema in packages/mermaid/src/schemas for mermaid 12 and in packages/core/schema for a mermaid-js/mermaid-v13
+checkout of mermaid 13. The files in
 `src/SplashTheMusical/Config/Generated` are only written by it. It also writes `ConfigKeys.g.cs` from the `name` lines of
 `corpus/config.txt`, so run `mise run corpus-oracle` first after a mermaid upgrade. `DefaultConfigTests` compares the
 default `MermaidConfig` with the oracle's `corpus/config.txt`. `AppliedConfigTests` compares the config

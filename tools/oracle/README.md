@@ -304,7 +304,8 @@ The output is what dagre writes back to the graph. Label x and y are empty for a
 
 `themes.txt` holds the computed variables of each theme in mermaid's themes table: `default`, `base`, `dark`,
 `forest`, `neutral`, `neo`, `neo-dark`, `redux`, `redux-dark`, `redux-color` and `redux-dark-color` at 12.3.0. The
-runner reads the theme names from `themes_default` in mermaid's dist, initializes mermaid with each theme and reads
+runner reads the theme names from `themes_default` in mermaid's dist, or in mermaid 13 from `THEME_NAMES` in
+`@mermaid-js/core/dist/theme/registry.js`, initializes mermaid with each theme and reads
 `themeVariables` from its site config. That is the theme's `getThemeVariables()` with no overrides.
 
 `themes.txt`, `config.txt`, `shapes.txt` and `styles.txt` each start with two comment lines, such as:
@@ -341,7 +342,10 @@ directive key whose name it does not hold.
 ## Shape table
 
 `shapes.txt` holds mermaid's table of node shapes. The runner reads it from `shapesDefs` and `undocumentedShapes` in
-the unminified ESM build in mermaid's dist. A handler is the name of the shape's drawing function there.
+the unminified ESM build in mermaid's dist. A handler is the name of the shape's drawing function there. mermaid 13 has
+no such build. For it, `readShapes` reads `SHAPE_GROUPS` and `UNDOCUMENTED` from
+`@mermaid-js/diagram-flowchart/dist/parser/shapes.js`, where each shape's handler is its short name and the name,
+semantic name, description and internal aliases are empty.
 
 | Line | Fields |
 |---|---|
