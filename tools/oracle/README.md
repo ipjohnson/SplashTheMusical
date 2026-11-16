@@ -143,6 +143,11 @@ differs from `getSiteConfig()`, and with the value `missing` for a site config p
 returns, so the runner reads `getConfig()` inside it: `hookAddDirective` in `dumps.mjs` adds a call to the page at the
 end of mermaid's `addDirective`, and fails when it does not find the function exactly once.
 
+A case whose `preamble-config` sets `themeVariables` also has `theme-variable` facts, with fields path and value, for
+every path of the drawn config's `themeVariables`. Its paths and values are written as in
+[`themes.txt`](#theme-variables). They are the theme's computed variables when the case sets or resolves a theme other
+than the site config's, and otherwise the site config's variables with the case's merged over them.
+
 Most types also have `label` facts. A `label` fact names a label from the model that the DOM shows. A label counts as
 shown when its letters and digits, case-folded, occur in the drawn text joined the same way. Longer labels are matched
 first, and each match is used once, so two equal labels need two drawn copies.

@@ -154,7 +154,7 @@ export async function extractFacts(source, name, shapes) {
 	flatten('', preamble.config ?? {})
 	// The applied config where it differs from the site config: one line per path whose value differs, and `missing`
 	// for a site config path the applied config lacks. themeVariables are left out, because the theme computes them.
-	const configLines = v => {
+	const allLines = v => {
 		const out = new Map()
 		const walk = (prefix, x) => {
 			if (typeof x === 'function') return
@@ -165,6 +165,10 @@ export async function extractFacts(source, name, shapes) {
 			} else out.set(prefix, x === undefined ? 'undefined' : typeof x === 'number' && !Number.isFinite(x) ? String(x) : JSON.stringify(x))
 		}
 		walk('', v)
+		return out
+	}
+	const configLines = v => {
+		const out = allLines(v)
 		for (const k of [...out.keys()]) if (k === 'themeVariables' || k.startsWith('themeVariables.')) out.delete(k)
 		return out
 	}
@@ -172,6 +176,9 @@ export async function extractFacts(source, name, shapes) {
 	const drawnWith = configLines(applied)
 	for (const [k, v] of drawnWith) if (site.get(k) !== v) facts.push(tab('config', k, v))
 	for (const k of site.keys()) if (!drawnWith.has(k)) facts.push(tab('config', k, 'missing'))
+	// Every theme variable the case is drawn with, when its front matter or directives set themeVariables.
+	if (preamble.config && Object.hasOwn(preamble.config, 'themeVariables'))
+		for (const [k, v] of allLines(applied.themeVariables)) facts.push(tab('theme-variable', k, v))
 	boxes.push(canvas())
 	return { facts, boxes, svg }
 

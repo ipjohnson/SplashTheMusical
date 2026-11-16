@@ -14,8 +14,10 @@ public sealed partial class MermaidConfig
 	/// <param name="diagramType">The id of mermaid.js's detector for the diagram, such as <c>flowchart-v2</c> or <c>pie</c>.</param>
 	/// <remarks>
 	/// A value whose type does not fit its property reads as <c>null</c>. Keys that config.schema.yaml does not have, such
-	/// as <c>treemap</c>, are dropped. The theme variables are not computed from the theme.
+	/// as <c>treemap</c>, are dropped. <see cref="ThemeVariables"/> holds the variables the theme computes, as mermaid.js
+	/// computes them.
 	/// </remarks>
+	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
 	public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType)
 	{
 		ArgumentNullException.ThrowIfNull(document);
