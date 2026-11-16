@@ -67,6 +67,13 @@ flag "--check" help="Write nothing, and fail when the generated file differs fro
 '''
 run = 'dotnet run --project tools/SplashTheMusical.Upstream -- compatibility $([ "${usage_check:-false}" = "true" ] && echo --check)'
 
+[tasks.upstream-bump]
+description = "Move the oracle to another mermaid version, regenerate what depends on it, and write .artifacts/upstream/after/upstream-delta.md"
+usage = '''
+arg "<version>" help="The mermaid version, such as 12.3.0"
+'''
+run = 'bash tools/upstream/bump.sh "${usage_version}"'
+
 [tasks.corpus-oracle]
 description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
 run = [

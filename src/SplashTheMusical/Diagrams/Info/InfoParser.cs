@@ -1,3 +1,5 @@
+// Upstream grammar: packages/parser/src/language/info/info.langium
+// Upstream grammar: packages/parser/src/language/common/common.langium
 using System.Globalization;
 using System.Text;
 using SplashTheMusical.Parsing;
