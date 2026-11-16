@@ -53,6 +53,13 @@ flag "--check" help="Write nothing, and fail when a generated file differs from 
 '''
 run = 'dotnet run --project tools/SplashTheMusical.Upstream -- config "${usage_checkout}" $([ "${usage_check:-false}" = "true" ] && echo --check)'
 
+[tasks.upstream-fonts]
+description = "Write the text measurer's width tables in src/SplashTheMusical/Text/Generated from the bundled font files"
+usage = '''
+flag "--check" help="Write nothing, and fail when the generated tables differ from the committed ones"
+'''
+run = 'dotnet run --project tools/SplashTheMusical.Upstream -- fonts $([ "${usage_check:-false}" = "true" ] && echo --check)'
+
 [tasks.corpus-oracle]
 description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
 run = [

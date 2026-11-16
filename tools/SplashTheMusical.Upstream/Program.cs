@@ -10,13 +10,23 @@ namespace SplashTheMusical.Upstream;
 /// <c>config &lt;checkout&gt; [--check]</c> writes the <c>MermaidConfig</c> classes to src/SplashTheMusical/Config/Generated
 /// from <c>packages/mermaid/src/schemas/config.schema.yaml</c>, and <c>ConfigKeys</c> from corpus/config.txt. With <c>--check</c> it writes nothing and fails when a
 /// generated file differs from the committed one.
+/// <c>fonts [--check]</c> writes the text measurer's width tables to src/SplashTheMusical/Text/Generated from the font
+/// files <see cref="FontTableWriter.Families"/> names.
 /// </remarks>
 public static class Program
 {
-	private const string Usage = "usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]";
+	private const string Usage = "usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]\n       SplashTheMusical.Upstream fonts [--check]";
 
 	public static int Main(string[] args)
 	{
+		if (args.Length is 1 or 2 && args[0] == "fonts" && (args.Length == 1 || args[1] == "--check"))
+		{
+			var root = FindRepository();
+			var tables = new Dictionary<string, string> { ["FontTables.g.cs"] = FontTableWriter.Write(root, FontTableWriter.Families) };
+			var target = Path.Combine(root, "src", "SplashTheMusical", "Text", "Generated");
+			return args.Length == 2 ? GeneratedFiles.Check(target, tables) : GeneratedFiles.Write(target, tables);
+		}
+
 		if (args.Length is < 2 or > 3 || args[0] != "config" || (args.Length == 3 && args[2] != "--check"))
 		{
 			Console.Error.WriteLine(Usage);

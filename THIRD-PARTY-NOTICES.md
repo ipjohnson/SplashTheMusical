@@ -42,7 +42,8 @@ SOFTWARE.
 
 `tools/oracle/fonts` holds the four Liberation Sans 2.1.5 faces from
 [liberationfonts/liberation-fonts](https://github.com/liberationfonts/liberation-fonts). They are under the SIL Open
-Font License 1.1, whose full text is in `tools/oracle/fonts/LICENSE`.
+Font License 1.1, whose full text is in `tools/oracle/fonts/LICENSE`. The advance widths and kerning in
+`src/SplashTheMusical/Text/Generated/FontTables.g.cs` are generated from them.
 
 ```
 Digitized data copyright (c) 2010 Google Corporation
@@ -118,7 +119,9 @@ the tag and commit. The classes in `src/SplashTheMusical/Config/Generated` are g
 `packages/mermaid/src/schemas/config.schema.yaml`, and their documentation comments are the schema's descriptions. The
 theme classes in `src/SplashTheMusical/Themes` are ports of the files of `packages/mermaid/src/themes`.
 `src/SplashTheMusical/Rendering/MermaidStylesheet.cs` is a port of `getStyles` in `packages/mermaid/src/styles.ts` and
-`createCssStyles` in `packages/mermaid/src/mermaidAPI.ts`.
+`createCssStyles` in `packages/mermaid/src/mermaidAPI.ts`. `src/SplashTheMusical/Text/MermaidText.cs` is a port of
+`hasBreaks` and `splitBreaks` in `packages/mermaid/src/diagrams/common/common.ts`, and of `wrapLabel`, `breakString` and
+`calculateTextDimensions` in `packages/mermaid/src/utils.ts`.
 
 ```
 The MIT License (MIT)
