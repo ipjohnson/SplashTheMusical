@@ -6,10 +6,10 @@ watches the next major version. Section 8 of [mermaid-parity-plan.md](mermaid-pa
 ## Detect
 
 `.github/workflows/upstream-watch.yml` runs daily at 06:41 UTC. Its `detect` job compares the mermaid version
-`tools/oracle/package.json` pins with npm's `latest` tag. When they differ, and no branch or pull request named
+`tools/oracle/package.json` pins with npm's `latest` tag. When they differ, and no branch named
 `upstream/mermaid-<version>` exists, its `bump` job runs `mise run upstream-bump <version>` on macOS. It then pushes the
-result to `upstream/mermaid-<version>` and opens a pull request with the delta report as its body. A closed pull request
-also stops the next runs, so delete its branch to have the watch propose that version again.
+result to `upstream/mermaid-<version>` and opens a pull request with the delta report as its body. The branch stops the
+next runs while it exists, so delete the branch of a closed pull request to have the watch propose that version again.
 
 A manual run takes a `version` input, and it opens the pull request into the branch it ran on. A run on a branch that
 pins an older mermaid, such as 12.2.0, opens a pull request that moves that branch to `latest`.

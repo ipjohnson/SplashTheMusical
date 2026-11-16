@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: "22.23"
 
-      # A branch or a pull request of the version, open or closed, means a run already proposed it.
+      # The branch of the version means a run already proposed it. Deleting the branch re-enables the version.
       - name: Compare the pin with npm's latest
         id: versions
         env:
@@ -55,8 +55,6 @@ jobs:
             echo "tools/oracle pins mermaid $pinned, which is the version to move to."
           elif gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$branch" --silent 2>/dev/null; then
             echo "The branch $branch exists, so a run already proposed mermaid $version."
-          elif [ "$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state all --json number --jq length)" != "0" ]; then
-            echo "A pull request from $branch exists, so a run already proposed mermaid $version."
           else
             echo "tools/oracle pins mermaid $pinned and npm has $version."
             echo "version=$version" >> "$GITHUB_OUTPUT"
