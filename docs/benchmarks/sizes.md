@@ -6,5 +6,5 @@ the machine it runs on. CI checks on macos-latest, so the `stm` row CI reads is 
 
 | File | RID | Bytes |
 |---|---|---:|
-| SplashTheMusical.dll | any | 477696 |
+| SplashTheMusical.dll | any | 531968 |
 | stm | osx-arm64 | 1236080 |

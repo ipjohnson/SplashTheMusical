@@ -28,7 +28,13 @@ mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the 
 mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
 mise run upstream-generate <checkout>          # rewrite src/SplashTheMusical/Config/Generated from mermaid's config schema
 mise run upstream-generate <checkout> --check  # fail when the generated files differ from the committed ones
+mise run upstream-fonts            # rewrite src/SplashTheMusical/Text/Generated from the fonts in tools/oracle/fonts
 ```
+
+Text is measured through `ITextMeasurer`. The default, `FontTableTextMeasurer`, reads the advance widths and kerning in
+`src/SplashTheMusical/Text/Generated/FontTables.g.cs`, which only `upstream-fonts` writes. `FontTableWriter.Families`
+lists the families and their aliases. `TextMeasurementTests` compares the measured widths with the oracle's label
+boxes, and `FontTableTextMeasurerTests` fails when the generator's output differs from the committed tables.
 
 `upstream-generate` takes a checkout of mermaid-js/mermaid at the tag of the mermaid `tools/oracle` pins. The files in
 `src/SplashTheMusical/Config/Generated` are only written by it. It also writes `ConfigKeys.g.cs` from the `name` lines of
@@ -68,7 +74,7 @@ Build output goes to `.artifacts/`.
 | `tests/SplashTheMusical.Tests` | Unit tests. |
 | `tests/SplashTheMusical.Conformance` | The harness that compares STM with the mermaid.js oracle. |
 | `tests/SplashTheMusical.Benchmarks` | BenchmarkDotNet. |
-| `tools/SplashTheMusical.Upstream` | Generates code from a mermaid checkout: today the `MermaidConfig` classes from `config.schema.yaml`. |
+| `tools/SplashTheMusical.Upstream` | Generates code: the `MermaidConfig` classes from a mermaid checkout's `config.schema.yaml`, and the font width tables from font files. |
 | `tools/oracle` | Node: runs the pinned mermaid.js in headless Chromium and writes the facts STM is compared against. |
 
 ## Rules
