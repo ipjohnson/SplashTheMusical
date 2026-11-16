@@ -18,11 +18,48 @@ export function findInDist(mermaidDir, marker, what) {
 	throw new Error(`${marker} not found in mermaid's dist; ${what} moved`)
 }
 
-// shapesDefs, the documented shapes in table order, and undocumentedShapes, the shapes mermaid's diagrams use
-// internally. Each handler is the drawing function's name in the unminified dist. `keys` is the lookup table mermaid
-// builds from both, generateShapeMap: the undocumented shapes first, then each shape's short name, aliases and internal
-// aliases, with a later entry replacing an earlier one.
+// Whether mermaidDir holds mermaid 12, whose dist has the unminified chunks. mermaid 13 splits into @mermaid-js packages
+// with unbundled ES modules, and its mermaid.min.js only loads mermaid.esm.min.mjs.
+const isV12 = mermaidDir => fs.existsSync(path.join(mermaidDir, 'dist', 'chunks', 'mermaid.esm'))
+
+// The text of a file of a mermaid 13 package, such as @mermaid-js/core, nested under mermaid or hoisted next to it.
+export function readPackageFile(mermaidDir, name, file) {
+	for (const dir of [path.join(mermaidDir, 'node_modules', name), path.join(mermaidDir, '..', name)]) {
+		const full = path.join(dir, file)
+		if (fs.existsSync(full)) return fs.readFileSync(full, 'utf8')
+	}
+	throw new Error(`${name}/${file} not found next to ${mermaidDir}`)
+}
+
+// The quoted strings of the source text from the marker to the first `end` after it.
+function quotedAfter(code, marker, end, what) {
+	const start = code.indexOf(marker)
+	if (start < 0) throw new Error(`${marker} not found; ${what} moved`)
+	return code.slice(start, code.indexOf(end, start))
+}
+
+// mermaid 12: shapesDefs, the documented shapes in table order, and undocumentedShapes, the shapes mermaid's diagrams
+// use internally. Each handler is the drawing function's name in the unminified dist. `keys` is the lookup table
+// mermaid builds from both, generateShapeMap: the undocumented shapes first, then each shape's short name, aliases and
+// internal aliases, with a later entry replacing an earlier one.
+//
+// mermaid 13: SHAPE_GROUPS and UNDOCUMENTED of @mermaid-js/diagram-flowchart's parser/shapes.js. A group is a short
+// name and its aliases, and the renderer draws the short name, so it is the handler. 13 has no shape names,
+// descriptions or internal aliases.
 export function readShapes(mermaidDir) {
+	if (!isV12(mermaidDir)) {
+		const code = readPackageFile(mermaidDir, '@mermaid-js/diagram-flowchart', 'dist/parser/shapes.js')
+		const groups = quotedAfter(code, 'SHAPE_GROUPS = [', '\n];', 'the shape table').split('\n')
+			.map(line => [...line.matchAll(/'([^']+)'/g)].map(m => m[1])).filter(g => g.length)
+		const defs = groups.map(([shortName, ...aliases]) =>
+			({ shortName, name: '', semanticName: '', description: '', aliases, internalAliases: [], handler: shortName }))
+		const undocumented = [...quotedAfter(code, 'const UNDOCUMENTED = ', ';', 'the undocumented shapes').matchAll(/'([^']*)'/g)]
+			.map(m => m[1]).join('').split(' ').filter(s => s).map(key => ({ key, handler: key }))
+		const keys = new Map(undocumented.map(s => [s.key, s.handler]))
+		for (const d of defs)
+			for (const k of [d.shortName, ...d.aliases]) keys.set(k, d.handler)
+		return { defs, undocumented, keys }
+	}
 	const { code, start } = findInDist(mermaidDir, 'shapesDefs = [', 'the shape table')
 	const table = code.slice(start, code.indexOf('\n];', start))
 	const defs = []
@@ -52,8 +89,13 @@ export function readShapes(mermaidDir) {
 	return { defs, undocumented, keys }
 }
 
-// The names in mermaid's themes table, themes_default, in source order.
+// The names in mermaid's themes table, in source order: themes_default in 12, THEME_NAMES of @mermaid-js/core's
+// theme/registry.js in 13.
 export function readThemeNames(mermaidDir) {
+	if (!isV12(mermaidDir)) {
+		const code = readPackageFile(mermaidDir, '@mermaid-js/core', 'dist/theme/registry.js')
+		return [...quotedAfter(code, 'THEME_NAMES = [', '];', 'the themes table').matchAll(/'([^']+)'/g)].map(m => m[1])
+	}
 	const { code, start } = findInDist(mermaidDir, 'var themes_default = {', 'the themes table')
 	const block = code.slice(start, code.indexOf('\n};', start))
 	return [...block.matchAll(/^ {2}"?([\w-]+)"?: \{/gm)].map(m => m[1])

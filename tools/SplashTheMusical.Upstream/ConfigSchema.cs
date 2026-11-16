@@ -47,9 +47,10 @@ public sealed class ConfigSchema(JsonObject root)
 	/// <summary>
 	/// mermaid's default config before its non-JSON values: what .build/jsonSchema.ts's <c>generateDefaults</c> gives,
 	/// with the changes packages/mermaid/src/defaultConfig.ts makes to it. Functions, <c>undefined</c> values,
-	/// <c>themeVariables</c> and the keys the schema does not have are left out.
+	/// <c>themeVariables</c> and the keys the schema does not have are left out. A mermaid 13 schema gets no changes from
+	/// defaultConfig.ts, because 13 has none.
 	/// </summary>
-	public JsonObject DefaultConfig(IReadOnlyList<string> diagramKeys)
+	public JsonObject DefaultConfig(IReadOnlyList<string> diagramKeys, bool v12)
 	{
 		var properties = Root["properties"]!.AsObject();
 		var baseProperties = Defs["BaseDiagramConfig"]!["properties"]!.AsObject();
@@ -72,6 +73,11 @@ public sealed class ConfigSchema(JsonObject root)
 		}
 
 		ApplyDefaults(Root, config);
+		if (!v12)
+		{
+			RemoveReferences(config);
+			return config;
+		}
 
 		// defaultConfig.ts sets elk, which no schema default does, to the schema's values.
 		var elk = new JsonObject();
