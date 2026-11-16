@@ -15,16 +15,17 @@ internal static class Order
 			return;
 		}
 
+		var nodesByRank = LayerGraph.NodesByRank(g, (int)maxRank);
 		var downLayerGraphs = new List<LayerGraph>();
 		for (var rank = 1; rank < maxRank + 1; rank++)
 		{
-			downLayerGraphs.Add(LayerGraph.Build(g, rank, inEdges: true));
+			downLayerGraphs.Add(LayerGraph.Build(g, nodesByRank[rank], rank, inEdges: true));
 		}
 
 		var upLayerGraphs = new List<LayerGraph>();
 		for (var rank = maxRank - 1; rank > -1; rank--)
 		{
-			upLayerGraphs.Add(LayerGraph.Build(g, rank, inEdges: false));
+			upLayerGraphs.Add(LayerGraph.Build(g, nodesByRank[(int)rank], rank, inEdges: false));
 		}
 
 		var layering = InitOrder(g);

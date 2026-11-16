@@ -11,9 +11,10 @@ internal static class FeasibleTree
 		var t = new SpanningTree(g);
 		var start = g.FirstNode();
 		var size = g.NodeCount;
-		t.Add(start);
+		var open = new int[g.NodeHandleCount];
+		Add(t, g, open, start);
 
-		while (TightTree(t, g) < size)
+		while (TightTree(t, g, open) < size)
 		{
 			var edge = FindMinSlackEdge(t, g);
 			var delta = t.Contains(g.EdgeV(edge)) ? Rank.Slack(g, edge) : -Rank.Slack(g, edge);
@@ -26,11 +27,20 @@ internal static class FeasibleTree
 		return t;
 	}
 
-	/// <summary>Grows the tree by tight edges from each of its nodes in the tree's order and returns its size.</summary>
-	private static int TightTree(SpanningTree t, LayoutGraph g)
+	/// <summary>
+	/// Grows the tree by tight edges from each of its nodes in the tree's order and returns its size. A node with no
+	/// edge out of the tree can add nothing, so its search is skipped. dagre searches from every node of the tree on
+	/// every call.
+	/// </summary>
+	private static int TightTree(SpanningTree t, LayoutGraph g, int[] open)
 	{
 		void Dfs(int v)
 		{
+			if (open[v] == 0)
+			{
+				return;
+			}
+
 			foreach (var e in g.NodeEdges(v))
 			{
 				var edgeV = g.EdgeV(e);
@@ -38,7 +48,7 @@ internal static class FeasibleTree
 				var slack = Rank.Slack(g, e);
 				if (!t.Contains(w) && (slack == 0 || double.IsNaN(slack)))
 				{
-					t.Add(w);
+					Add(t, g, open, w);
 					t.Graph.SetEdge(t.Of(v), t.Of(w), new TreeEdge());
 					Dfs(w);
 				}
@@ -51,6 +61,30 @@ internal static class FeasibleTree
 		}
 
 		return t.Graph.NodeCount;
+	}
+
+	/// <summary>Adds the node to the tree, and keeps <paramref name="open"/>, each tree node's count of edges out of the tree.</summary>
+	private static void Add(SpanningTree t, LayoutGraph g, int[] open, int v)
+	{
+		t.Add(v);
+		foreach (var e in g.NodeEdges(v))
+		{
+			var edgeV = g.EdgeV(e);
+			var w = v == edgeV ? g.EdgeW(e) : edgeV;
+			if (w == v)
+			{
+				continue;
+			}
+
+			if (t.Contains(w))
+			{
+				open[w]--;
+			}
+			else
+			{
+				open[v]++;
+			}
+		}
 	}
 
 	/// <summary>lodash's <c>_.minBy</c> of the slack of the edges with one end in the tree: the first smallest.</summary>
@@ -79,18 +113,37 @@ internal static class FeasibleTree
 /// The undirected tree that <see cref="FeasibleTree"/> builds and <see cref="NetworkSimplex"/> changes. Its nodes have
 /// the names of the graph's nodes, so graphlib's key order and its orientation of undirected edges carry over.
 /// </summary>
-internal sealed class SpanningTree(LayoutGraph g)
+internal sealed class SpanningTree
 {
-	private readonly Dictionary<int, int> _handles = [];
+	private readonly LayoutGraph _g;
+	private readonly int[] _handles;
+
+	public SpanningTree(LayoutGraph g)
+	{
+		_g = g;
+		_handles = new int[g.NodeHandleCount];
+		Array.Fill(_handles, -1);
+	}
 
 	public Graph<TreeNode, TreeEdge> Graph { get; } = new(directed: false);
 
-	public bool Contains(int gv) => _handles.ContainsKey(gv);
+	/// <summary>The tree's nodes by their lim, which <see cref="NetworkSimplex.InitLowLimValues"/> sets.</summary>
+	public int[] ByLim { get; set; } = [];
+
+	public bool Contains(int gv) => _handles[gv] >= 0;
 
 	/// <summary>The tree's handle of the graph's node.</summary>
 	public int Of(int gv) => _handles[gv];
 
-	public void Add(int gv) => _handles.Add(gv, Graph.SetNode(g.Name(gv), new TreeNode(gv)));
+	public void Add(int gv)
+	{
+		if (_handles[gv] >= 0)
+		{
+			throw new ArgumentException($"Node '{_g.Name(gv)}' is in the tree.", nameof(gv));
+		}
+
+		_handles[gv] = Graph.SetNode(_g.Name(gv), new TreeNode(gv));
+	}
 }
 
 /// <summary>A tree node's label: the graph's node, and the low, lim and parent of <c>initLowLimValues</c>.</summary>

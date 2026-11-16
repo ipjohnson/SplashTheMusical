@@ -10,9 +10,9 @@ internal sealed class KeyOrder
 {
 	private const int LookupThreshold = 16;
 
-	private int[] _keys = new int[4];
-	private long[] _indexes = new long[4];
-	private int[] _counts = new int[4];
+	private int[] _keys = [];
+	private long[] _indexes = [];
+	private int[] _counts = [];
 	private int _length;
 	private int _live;
 	private int _indexed;
@@ -165,13 +165,13 @@ internal sealed class KeyOrder
 	{
 		if (_length == _keys.Length)
 		{
-			if (_live * 2 <= _length)
+			if (_length > 0 && _live * 2 <= _length)
 			{
 				Compact();
 			}
 			else
 			{
-				var size = _keys.Length * 2;
+				var size = Math.Max(4, _keys.Length * 2);
 				Array.Resize(ref _keys, size);
 				Array.Resize(ref _indexes, size);
 				Array.Resize(ref _counts, size);

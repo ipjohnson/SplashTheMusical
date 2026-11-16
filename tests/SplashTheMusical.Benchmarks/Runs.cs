@@ -22,6 +22,25 @@ public static class Runs
 	/// <param name="jobs"><c>JIT</c>, <c>AOT</c> or both.</param>
 	public static (Summary Summary, IReadOnlyList<ResultRow> Rows) Run<T>(IReadOnlyList<string> jobs)
 	{
+		var summary = Execute<T>(jobs);
+		var chars = BenchmarkSet.Load().ToDictionary(c => c.Id, c => c.Source.Length, StringComparer.Ordinal);
+		var rows = new List<ResultRow>();
+		foreach (var (benchmark, nanoseconds, bytes) in Results(summary))
+		{
+			var parameter = (string)benchmark.Parameters["Case"];
+			var slash = parameter.IndexOf('/', StringComparison.Ordinal);
+			var (id, stage) = (parameter[..slash], parameter[(slash + 1)..]);
+			rows.Add(new ResultRow(benchmark.Job.Id, id, stage, chars[id], nanoseconds, bytes));
+		}
+
+		rows.Sort((a, b) => string.CompareOrdinal(a.Key, b.Key));
+		return (summary, rows);
+	}
+
+	/// <summary>Runs the benchmarks of <typeparamref name="T"/> under the named jobs, with <see cref="MemoryDiagnoser"/>.</summary>
+	/// <param name="jobs"><c>JIT</c>, <c>AOT</c> or both.</param>
+	public static Summary Execute<T>(IReadOnlyList<string> jobs)
+	{
 		var job = Job.Default
 			.WithWarmupCount(3)
 			.WithIterationCount(10)
@@ -41,9 +60,12 @@ public static class Runs
 			});
 		}
 
-		var summary = BenchmarkRunner.Run<T>(config);
-		var chars = BenchmarkSet.Load().ToDictionary(c => c.Id, c => c.Source.Length, StringComparer.Ordinal);
-		var rows = new List<ResultRow>();
+		return BenchmarkRunner.Run<T>(config);
+	}
+
+	/// <summary>Each benchmark of the summary with its mean time and its bytes allocated per call.</summary>
+	public static IEnumerable<(BenchmarkDotNet.Running.BenchmarkCase Benchmark, double Nanoseconds, long Bytes)> Results(Summary summary)
+	{
 		foreach (var report in summary.Reports)
 		{
 			var benchmark = report.BenchmarkCase;
@@ -52,14 +74,8 @@ public static class Runs
 				throw new InvalidOperationException($"{benchmark.DisplayInfo} has no result. See the log under .artifacts/bench/BenchmarkDotNet.");
 			}
 
-			var parameter = (string)benchmark.Parameters["Case"];
-			var slash = parameter.IndexOf('/', StringComparison.Ordinal);
-			var (id, stage) = (parameter[..slash], parameter[(slash + 1)..]);
-			rows.Add(new ResultRow(benchmark.Job.Id, id, stage, chars[id], statistics.Mean, bytes));
+			yield return (benchmark, statistics.Mean, bytes);
 		}
-
-		rows.Sort((a, b) => string.CompareOrdinal(a.Key, b.Key));
-		return (summary, rows);
 	}
 
 	/// <summary>The machine, the runtime and the tool versions of a run.</summary>

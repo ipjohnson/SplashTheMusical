@@ -4,6 +4,9 @@
     <IsTestProject>false</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="SplashTheMusical.Tests" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" />
     <PackageReference Include="Mermaider" />
   </ItemGroup>

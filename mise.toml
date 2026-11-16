@@ -144,6 +144,10 @@ run = 'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- comp
 description = "Run the Mermaider baseline on the benchmark set and rewrite docs/benchmarks/mermaider-baseline.md"
 run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- mermaider"
 
+[tasks.bench-dagre]
+description = "Run the dagre port on generated graphs of 10, 100 and 1,000 nodes under JIT and native AOT, and rewrite docs/benchmarks/dagre.md"
+run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagre"
+
 [tasks.bench-select]
 description = "Pick the benchmark set from the corpus and rewrite corpus/benchmarks/cases.txt"
 run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- select"
