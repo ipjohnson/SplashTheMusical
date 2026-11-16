@@ -77,14 +77,15 @@ internal static class DagreLayout
 
 	/// <summary>
 	/// The phases of dagre's <c>runLayout</c> after <c>order</c>, which give each node its x and y, each edge its points
-	/// and each edge label its position. They follow <see cref="RunOrderPhases"/>. <c>insertSelfEdges</c>,
-	/// <c>positionSelfEdges</c> and <c>removeBorderNodes</c> are not ported yet, so a graph with a self edge or a
-	/// cluster is not laid out as dagre lays it out.
+	/// and each edge label its position. They follow <see cref="RunOrderPhases"/>.
 	/// </summary>
 	public static void RunPositionPhases(LayoutGraph g)
 	{
+		InsertSelfEdges(g);
 		CoordinateSystem.Adjust(g);
 		Position.Run(g);
+		PositionSelfEdges(g);
+		RemoveBorderNodes(g);
 		Normalize.Undo(g);
 		FixupEdgeLabelCoords(g);
 		CoordinateSystem.Undo(g);
@@ -181,6 +182,109 @@ internal static class DagreLayout
 			if (node.Dummy == "edge-proxy")
 			{
 				g.Edge(node.ProxyEdge).LabelRank = node.Rank;
+				g.RemoveNode(v);
+			}
+		}
+	}
+
+	/// <summary>
+	/// Renumbers each rank's order, and puts a <c>selfedge</c> dummy, sized as the edge's label, right after each node
+	/// for each of its self edges, so that the position phase leaves room for the loop.
+	/// </summary>
+	private static void InsertSelfEdges(LayoutGraph g)
+	{
+		foreach (var layer in Util.BuildLayerMatrix(g))
+		{
+			var orderShift = 0;
+			for (var i = 0; i < layer.Length; i++)
+			{
+				if (layer[i] < 0)
+				{
+					continue;
+				}
+
+				var node = g.Node(layer[i]);
+				node.Order = i + orderShift;
+				if (node.SelfEdges is { } selfEdges)
+				{
+					foreach (var selfEdge in selfEdges)
+					{
+						var attrs = new LayoutNode
+						{
+							Width = selfEdge.Label.Width,
+							Height = selfEdge.Label.Height,
+							Rank = node.Rank,
+							Order = i + ++orderShift,
+							SelfEdge = selfEdge,
+						};
+						Util.AddDummyNode(g, "selfedge", attrs, "_se");
+					}
+
+					node.SelfEdges = null;
+				}
+			}
+		}
+	}
+
+	/// <summary>Puts each self edge back as a loop from its node's right side around its dummy, and removes the dummy.</summary>
+	private static void PositionSelfEdges(LayoutGraph g)
+	{
+		foreach (var v in g.Nodes())
+		{
+			var node = g.Node(v);
+			if (node.Dummy != "selfedge")
+			{
+				continue;
+			}
+
+			var selfEdge = node.SelfEdge!;
+			var selfNode = g.Node(selfEdge.V);
+			var x = selfNode.X + (selfNode.Width / 2);
+			var y = selfNode.Y;
+			var dx = node.X - x;
+			var dy = selfNode.Height / 2;
+			g.SetEdge(selfEdge.V, selfEdge.W, selfEdge.Label, selfEdge.Name);
+			g.RemoveNode(v);
+			selfEdge.Label.Points =
+			[
+				(x + (2 * dx / 3), y - dy),
+				(x + (5 * dx / 6), y - dy),
+				(x + dx, y),
+				(x + (5 * dx / 6), y + dy),
+				(x + (2 * dx / 3), y + dy),
+			];
+			selfEdge.Label.HasPosition = true;
+			selfEdge.Label.X = node.X;
+			selfEdge.Label.Y = node.Y;
+		}
+	}
+
+	/// <summary>Sizes and places each cluster from its border nodes, then removes the border nodes.</summary>
+	private static void RemoveBorderNodes(LayoutGraph g)
+	{
+		foreach (var v in g.Nodes())
+		{
+			if (!g.HasChildren(v))
+			{
+				continue;
+			}
+
+			var node = g.Node(v);
+			var t = g.Node(node.BorderTop);
+			var b = g.Node(node.BorderBottom);
+			var l = g.Node(node.BorderLeft![^1]);
+			var r = g.Node(node.BorderRight![^1]);
+
+			node.Width = Math.Abs(r.X - l.X);
+			node.Height = Math.Abs(b.Y - t.Y);
+			node.X = l.X + (node.Width / 2);
+			node.Y = t.Y + (node.Height / 2);
+		}
+
+		foreach (var v in g.Nodes())
+		{
+			if (g.Node(v).Dummy == "border")
+			{
 				g.RemoveNode(v);
 			}
 		}

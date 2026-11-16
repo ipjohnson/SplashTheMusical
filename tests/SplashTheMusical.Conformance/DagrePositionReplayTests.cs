@@ -5,8 +5,8 @@ using SplashTheMusical.Layout.Dagre;
 namespace SplashTheMusical.Conformance;
 
 /// <summary>
-/// Replays every dagre layout the oracle recorded that has no cluster through all of the port's phases, and compares
-/// the graph's size, each node's box, each edge's points and each edge label's position with the recorded output.
+/// Replays every dagre layout the oracle recorded through all of the port's phases, and compares the graph's size,
+/// each node's box, each edge's points and each edge label's position with the recorded output.
 /// </summary>
 public class DagrePositionReplayTests
 {
@@ -15,7 +15,7 @@ public class DagrePositionReplayTests
 	private const int MaxReported = 20;
 
 	[Test]
-	public async Task PositionsMatchEveryRecordedLayoutWithoutClusters()
+	public async Task PositionsMatchEveryRecordedLayout()
 	{
 		var layouts = 0;
 		var failures = new List<string>();
@@ -23,11 +23,6 @@ public class DagrePositionReplayTests
 		{
 			foreach (var record in DagreRecords.Read(Path.Combine(CorpusCheck.CorpusRoot, file)))
 			{
-				if (record.Input.Nodes.Any(node => node.Parent is not null))
-				{
-					continue;
-				}
-
 				layouts++;
 				var failure = Compare(record);
 				if (failure is not null)

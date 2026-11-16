@@ -86,6 +86,9 @@ internal sealed class LayoutNode
 	/// <summary>The self edges <c>removeSelfEdges</c> took out, in the graph's order.</summary>
 	public List<SelfEdge>? SelfEdges { get; set; }
 
+	/// <summary>The self edge a <c>selfedge</c> dummy of <c>insertSelfEdges</c> stands for.</summary>
+	public SelfEdge? SelfEdge { get; set; }
+
 	/// <summary>The edge a dummy of <c>normalize.run</c> stands for. The handle keeps the edge's ends after it is removed.</summary>
 	public int EdgeObj { get; set; } = -1;
 
