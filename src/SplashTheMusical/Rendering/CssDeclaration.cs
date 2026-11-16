@@ -151,6 +151,8 @@ internal sealed class CssDeclaration
 
 	private static readonly SearchValues<char> SourceForbidden = SearchValues.Create(";{}()[]\\<>&!@/*`=");
 
+	private static readonly SearchValues<char> StringForbidden = SearchValues.Create(";{}()[]\\<>&!@/*`=\r\f");
+
 	private static readonly FrozenSet<string> Functions = FrozenSet.Create(StringComparer.OrdinalIgnoreCase, "rgb", "rgba", "hsl", "hsla", "drop-shadow", "blur");
 
 	private static bool IsNames(ReadOnlySpan<char> text)
@@ -167,8 +169,8 @@ internal sealed class CssDeclaration
 	}
 
 	// The grammar of a template value. Outside strings: names, numbers, # . % - + , _ whitespace, and parentheses after
-	// an allowed function name, with / allowed inside them. A string holds no quote of its kind, backslash, newline, <, >
-	// or &. Trailing semicolons end the value.
+	// an allowed function name, with / allowed inside them. A string holds no quote of its kind, newline or character
+	// of SourceForbidden. Trailing semicolons end the value.
 	private static bool TryThemeValue(string value, out string text)
 	{
 		text = string.Empty;
@@ -191,7 +193,7 @@ internal sealed class CssDeclaration
 			if (c is '"' or '\'')
 			{
 				var end = span[(i + 1)..].IndexOfAny(c, '\\', '\n');
-				if (end < 0 || span[i + 1 + end] != c || span.Slice(i + 1, end).ContainsAny('<', '>', '&') || span.Slice(i + 1, end).ContainsAny('\r', '\f'))
+				if (end < 0 || span[i + 1 + end] != c || span.Slice(i + 1, end).ContainsAny(StringForbidden))
 				{
 					return false;
 				}

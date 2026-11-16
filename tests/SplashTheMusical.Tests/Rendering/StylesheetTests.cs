@@ -90,6 +90,17 @@ public class StylesheetTests
 		CssDeclaration.FromSource(source, important: false).Should().BeNull();
 
 	[Test]
+	[Arguments("'{'")]
+	[Arguments("\"a;b\"")]
+	[Arguments("'}'")]
+	public void AQuotedThemeValueHoldingASemicolonOrBraceIsRefused(string value) =>
+		CssDeclaration.FromTheme("fill", value).Should().BeNull();
+
+	[Test]
+	public void AQuotedThemeFontFamilyIsKept() =>
+		Text(CssDeclaration.FromTheme("font-family", "\"trebuchet ms\", verdana, arial")!).Should().Contain("\"trebuchet ms\"");
+
+	[Test]
 	public void NoSourceOrThemeValueCanEndTheDeclaration() =>
 		Gen.String[Gen.Char[Unsafe], 0, 40].Sample(value =>
 		{
