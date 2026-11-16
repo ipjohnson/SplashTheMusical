@@ -54,8 +54,11 @@ Each run writes these files to the facts folder:
 | `@mermaid-js/layout-tidy-tree` | 1.0.1 | The `tidy-tree` layout, registered with `registerLayoutLoaders` |
 | `puppeteer` | 25.17.0 | Headless Chromium |
 
+khroma, the colour library of mermaid's themes, is not named in `package.json`. `colors.mjs` uses the version
+`package-lock.json` resolves for mermaid, 2.1.0 at 12.3.0.
+
 To move to another mermaid version, change it in `package.json`, run `npm install` in `tools/oracle`, then run the
-oracle.
+oracle and `mise run colors`.
 
 ## Reproducibility
 
@@ -341,6 +344,39 @@ the unminified ESM build in mermaid's dist. A handler is the name of the shape's
 | `internal-alias` | internal alias, short name |
 | `undocumented` | name, handler. The shapes mermaid's diagrams use internally, such as `state`, `classBox` and `erBox` |
 | `key` | name, handler. Every name mermaid's shape lookup accepts, built as `generateShapeMap` builds it |
+
+## Colour functions
+
+`corpus/colors.txt` holds calls of the khroma functions mermaid's themes call, `adjust`, `darken`, `lighten`, `invert`,
+`isDark` and `rgba`, and of mermaid's `mkBorder`, with their results. `mise run colors` writes it with
+`colors.mjs`, which runs in Node and imports the khroma that `package-lock.json` resolves for mermaid. `mkBorder` is
+copied from mermaid's `src/themes/theme-helpers.js`, because mermaid does not export it. `KhromaTests` in
+`tests/SplashTheMusical.Conformance` checks every line against `Khroma` in the core.
+
+The colours are the string literals of mermaid's theme code that khroma parses, edge cases of each format, and seeded
+random hex, `rgba()` and `hsl()` colours. The `adjust` channels and the `darken` and `lighten` amounts are the
+literal ones of the theme code, read from the unminified ESM build in mermaid's dist, with edge cases. Channels the
+theme code computes are left out. The edge colours get every channel and amount, and the other colours a seeded few. A
+sample of the `hsl()` and `rgb()` results is fed back in, because the themes pass one call's result to the next.
+
+The file starts with three comment lines, the third naming the khroma version:
+
+```
+# khroma colour functions on mermaid's theme colours. Refresh with: mise run colors
+# mermaid 12.3.0
+# khroma 2.1.0
+```
+
+Each line that follows is one call, with tab-separated fields: function, colour, arguments, result. The result is the
+string khroma returns, `true` or `false` for `isDark`, or `error: ` and the message of the error khroma throws.
+
+| Function | Arguments |
+|---|---|
+| `adjust` | The channels, such as `h=-10,l=5`. Empty for `{}` |
+| `darken`, `lighten` | The amount, or `undefined` when the call passes none |
+| `invert`, `isDark` | Empty |
+| `mkBorder` | `true` or `false`, the `darkMode` argument |
+| `rgba` | The alpha of `rgba(color, alpha)`. With an empty colour, the numbers of `rgba(r, g, b, a)`, such as `1,2,3` |
 
 ## SVGs
 

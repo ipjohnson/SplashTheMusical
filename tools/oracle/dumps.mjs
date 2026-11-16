@@ -8,7 +8,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 // The unminified chunk of mermaid's ESM build that holds a marker, and the marker's offset in it.
-function findInDist(mermaidDir, marker, what) {
+export function findInDist(mermaidDir, marker, what) {
 	const chunks = path.join(mermaidDir, 'dist', 'chunks', 'mermaid.esm')
 	for (const file of fs.readdirSync(chunks).filter(f => f.endsWith('.mjs')).sort()) {
 		const code = fs.readFileSync(path.join(chunks, file), 'utf8')
