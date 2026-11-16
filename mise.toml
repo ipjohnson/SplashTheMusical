@@ -60,6 +60,13 @@ run = [
   "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",
 ]
 
+[tasks.colors]
+description = "Write corpus/colors.txt, khroma's results on mermaid's theme colours"
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  "node tools/oracle/colors.mjs corpus/colors.txt",
+]
+
 [tasks.parity]
 description = "Write docs/parity-report.md from the committed oracle output and the ledgers"
 env = { STM_WRITE_REPORT = "1" }
