@@ -44,6 +44,7 @@ Each run writes these files to the facts folder:
 | `themes.txt` | run | [Theme variables](#theme-variables) |
 | `config.txt` | run | [Default config](#default-config) |
 | `shapes.txt` | run | [Shape table](#shape-table) |
+| `styles.txt` | run | [Stylesheets](#stylesheets) |
 
 ## What it pins
 
@@ -306,7 +307,7 @@ The output is what dagre writes back to the graph. Label x and y are empty for a
 runner reads the theme names from `themes_default` in mermaid's dist, initializes mermaid with each theme and reads
 `themeVariables` from its site config. That is the theme's `getThemeVariables()` with no overrides.
 
-`themes.txt`, `config.txt` and `shapes.txt` each start with two comment lines, such as:
+`themes.txt`, `config.txt`, `shapes.txt` and `styles.txt` each start with two comment lines, such as:
 
 ```
 # mermaid.js theme variables. Refresh with: mise run oracle
@@ -349,6 +350,20 @@ the unminified ESM build in mermaid's dist. A handler is the name of the shape's
 | `internal-alias` | internal alias, short name |
 | `undocumented` | name, handler. The shapes mermaid's diagrams use internally, such as `state`, `classBox` and `erBox` |
 | `key` | name, handler. Every name mermaid's shape lookup accepts, built as `generateShapeMap` builds it |
+
+## Stylesheets
+
+`styles.txt` holds the text of the `style` element mermaid writes for a few fixed sources, which `styleCases` in
+`dumps.mjs` lists. Each is rendered with the SVG id `styles`. The `theme-<name>` cases are a quadrant chart in each
+theme. A quadrant chart has no styles of its own, so its stylesheet is only the rules every diagram shares. The
+`classdef-html` and `classdef-svg` cases are a flowchart with `classDef` statements, with HTML labels on and off. Their
+values show how Chromium serializes a declaration before stylis compiles it, such as `#f9f` as `rgb(255, 153, 255)`.
+
+| Line | Fields |
+|---|---|
+| `source` | case, source as a JSON string |
+| `class` | case, index, id, styles as JSON, text styles as JSON. One per class the diagram's `getClasses` returns |
+| `style` | case, the text of the `style` element |
 
 ## Colour functions
 

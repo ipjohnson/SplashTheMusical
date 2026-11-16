@@ -98,7 +98,7 @@ after(() => {
 
 // The cases whose types are rendered again with `layout: dagre`.
 const dagreCases = ['classDiagram', 'er', 'flowchart-v2', 'stateDiagram']
-const dumpFiles = ['config.txt', 'shapes.txt', 'themes.txt']
+const dumpFiles = ['config.txt', 'shapes.txt', 'styles.txt', 'themes.txt']
 
 test('two runs write a facts file per case, a boxes file per accepted case, the dagre and global dumps, cover every diagram type and write identical files', () => {
 	const names = fs.readdirSync(cases).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4) + '.facts.txt').sort()
@@ -175,6 +175,17 @@ test('the config dump has mermaid\'s default config and the shape dump has its s
 	for (const row of ['shape\trect\tRectangle\tProcess\tStandard process shape\tsquareRect', 'alias\tdatabase\tcyl', 'internal-alias\tsquareRect\trect', 'undocumented\tstate\tstate', 'key\tdb\tcylinder', 'key\tclassBox\tclassBox'])
 		assert.ok(shapes.includes(row), row)
 	assert.equal(shapes.filter(l => l.startsWith('shape\t')).length, 53)
+})
+
+test('the style dump has a stylesheet for each theme and the classes of each classDef case', () => {
+	const rows = lines(path.join(first, 'facts', 'styles.txt'))
+	assert.equal(rows[0], '# mermaid.js stylesheets. Refresh with: mise run oracle')
+	const styles = rows.filter(l => l.startsWith('style\t')).map(l => l.split('\t'))
+	assert.equal(styles.length, 13)
+	assert.equal(rows.filter(l => l.startsWith('source\t')).length, 13)
+	for (const [, name, css] of styles) assert.ok(css.startsWith('#styles{font-family:'), name)
+	assert.ok(rows.includes('class\tclassdef-html\t00\thex\t["fill:#f9f","stroke:#333","stroke-width:4px"]\t[]'))
+	assert.ok(styles.find(s => s[1] === 'classdef-svg')[2].includes('#styles .hex rect{fill:rgb(255, 153, 255)!important;'))
 })
 
 test('each dagre dump has a layout whose every node is placed and every edge routed, and covers the case\'s nodes', () => {

@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 import { extractFacts } from './extract.mjs'
-import { configDumps, dagreLayouts, hookAddDirective, hookDagre, hookPreprocess, readShapes, readThemeNames } from './dumps.mjs'
+import { configDumps, dagreLayouts, hookAddDirective, hookDagre, hookPreprocess, readShapes, readThemeNames, styleCases, styleDumps } from './dumps.mjs'
 
 const [, , casesDir, factsDir, svgDir] = process.argv
 if (!casesDir || !factsDir) {
@@ -167,6 +167,8 @@ const dumpHeader = what => [`# mermaid.js ${what}. Refresh with: mise run oracle
 const dumps = await page.evaluate(configDumps, themeNames, init)
 fs.writeFileSync(path.join(factsDir, 'themes.txt'), [...dumpHeader('theme variables'), ...dumps.themes.sort()].join('\n') + '\n')
 fs.writeFileSync(path.join(factsDir, 'config.txt'), [...dumpHeader('default config'), ...dumps.config.sort()].join('\n') + '\n')
+const styles = await page.evaluate(styleDumps, styleCases(themeNames), init)
+fs.writeFileSync(path.join(factsDir, 'styles.txt'), [...dumpHeader('stylesheets'), ...styles.sort()].join('\n') + '\n')
 const shapeLines = [
 	...shapeTable.defs.flatMap(d => [
 		['shape', d.shortName, d.name, d.semanticName, d.description, d.handler],
