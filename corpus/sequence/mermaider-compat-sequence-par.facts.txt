@@ -6,6 +6,8 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	John	John	participant
 block	par	this happens in parallel
+config	look	"neo"
+config	theme	"redux-color"
 divider
 drawn	yes
 message	Alice	Bob	dashed	filled	Parallel message 1

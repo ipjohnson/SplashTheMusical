@@ -2,6 +2,17 @@
 # mermaid 12.3.0
 # source 33eda566f100b4b6
 accept	yes
+config	theme	"dark"
+config	xyChart.height	20
+config	xyChart.width	200
+config	xyChart.xAxis.showAxisLine	false
+config	xyChart.xAxis.showLabel	false
+config	xyChart.xAxis.showTick	false
+config	xyChart.xAxis.showTitle	false
+config	xyChart.yAxis.showAxisLine	false
+config	xyChart.yAxis.showLabel	false
+config	xyChart.yAxis.showTick	false
+config	xyChart.yAxis.showTitle	false
 drawn	yes
 preamble-config	theme	"dark"
 preamble-config	xyChart.height	20

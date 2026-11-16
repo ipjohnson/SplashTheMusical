@@ -5,6 +5,8 @@ accept	yes
 actor	API	Public API	boundary
 actor	DB	User Database	database
 actor	Svc	Auth Service	control
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	Svc	solid	filled	Authenticate
 message	DB	Svc	dashed	filled	User data

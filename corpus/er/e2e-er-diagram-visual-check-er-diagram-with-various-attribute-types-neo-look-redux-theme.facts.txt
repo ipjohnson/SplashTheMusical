@@ -8,6 +8,9 @@ attribute	PRODUCT	string	name
 attribute	PRODUCT	string[]	tags
 attribute	PRODUCT	type~T~	genericType
 attribute	PRODUCT	varchar(255)	description
+config	er.theme	"redux"
+config	look	"neo"
+config	theme	"redux"
 drawn	yes
 entity	PRODUCT	PRODUCT
 label	PRODUCT

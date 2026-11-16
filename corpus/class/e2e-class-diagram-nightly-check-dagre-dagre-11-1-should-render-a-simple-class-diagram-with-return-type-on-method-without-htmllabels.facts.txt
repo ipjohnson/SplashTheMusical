@@ -4,6 +4,11 @@
 accept	yes
 attribute	Class10	int[] id
 class	Class10	Class10<T>
+config	htmlLabels	false
+config	layout	"dagre"
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class10	test(int[] ids) : bool
 method	Class10	testArray() : bool[]

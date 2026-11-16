@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 3eaf3d256bfb9ddc
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	C	none	arrow	solid
 node	A	chimpansen hoppar	rounded

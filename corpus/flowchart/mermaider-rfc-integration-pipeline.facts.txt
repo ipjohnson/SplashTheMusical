@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source acbc362123b3c020
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	assemblerYml	outputLayer	none	arrow	solid	nav-v2 flag
 edge	contentProc	outputLayer	none	arrow	solid

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 302d8d0973b8d245
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 icon	A	fa:user
 node	A	User Icon	rect

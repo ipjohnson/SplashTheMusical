@@ -12,6 +12,7 @@ commit	3	feature	normal			4
 commit	4	main	normal			5
 commit	5	develop	normal			6
 commit	6	feature	normal			7
+config	gitGraph.rotateCommitLabel	false
 drawn	yes
 label	1
 label	2

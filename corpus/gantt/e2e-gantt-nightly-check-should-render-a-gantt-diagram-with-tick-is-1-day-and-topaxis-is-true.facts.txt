@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 947a067fec3a6aee
 accept	yes
+config	gantt.topAxis	true
 drawn	yes
 label	A Gantt Diagram
 label	A task

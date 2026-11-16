@@ -4,6 +4,8 @@
 accept	yes
 actor	Alice	Alice	database
 actor	Bob	Bob	collections
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Extremely utterly long line of longness which had previously overflown the actor box as it is much longer than what it should be
 message	Bob	Alice	solid	filled	I'm short though

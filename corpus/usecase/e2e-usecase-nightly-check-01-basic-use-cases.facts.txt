@@ -4,6 +4,8 @@
 accept	yes
 actor	Admin	Administrator	normal
 actor	Customer	Customer	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Administrator

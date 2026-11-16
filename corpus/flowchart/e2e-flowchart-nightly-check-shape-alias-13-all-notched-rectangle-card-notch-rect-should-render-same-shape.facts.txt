@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 02edeeb3d9c17777
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	notched-rectangle	notch-rect
 node	n1	card	notch-rect

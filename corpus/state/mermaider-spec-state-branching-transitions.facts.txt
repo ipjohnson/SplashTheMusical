@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8a8f68dd9af81e2b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Failed	Idle	none	arrow	solid	retry
 edge	Failed	[*]end@root	none	arrow	solid	abort

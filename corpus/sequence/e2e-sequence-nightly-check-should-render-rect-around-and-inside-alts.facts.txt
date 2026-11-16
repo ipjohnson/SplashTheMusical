@@ -8,6 +8,8 @@ actor	C	C	participant
 block	alt	yes
 block	rect
 block	rect
+config	look	"neo"
+config	theme	"redux-color"
 divider	no
 drawn	yes
 message	A	B	solid	filled	1

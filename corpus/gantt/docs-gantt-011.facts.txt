@@ -2,6 +2,12 @@
 # mermaid 12.3.0
 # source 15ddee045061b8df
 accept	yes
+config	gantt.displayMode	"compact"
+config	gantt.numberSectionStyles	2
+config	gantt.rightPadding	0
+config	gantt.topAxis	true
+config	gantt.useWidth	400
+config	themeCSS	" // YAML supports multiline strings using a newline markers: \n #item36 { fill: CadetBlue } \n\n// Custom marker workaround CSS from forum (below) \n rect[id^=workaround] { height: calc(100% - 50px) ; transform: translate(9px, 25px); y: 0; width: 1.5px; stroke: none; fill: red; } \n text[id^=workaround] { fill: red; y: 100%; font-size: 15px;} "
 drawn	yes
 label	0
 label	36

@@ -3,5 +3,7 @@
 # source 624277a2cc109443
 accept	yes
 class	Ca-r	Ca-r
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

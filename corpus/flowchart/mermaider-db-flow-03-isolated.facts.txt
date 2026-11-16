@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b27d981c9dfb12a3
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Bundles	Content	none	arrow	solid	release_notes
 edge	Checkout	DocSet	none	arrow	solid

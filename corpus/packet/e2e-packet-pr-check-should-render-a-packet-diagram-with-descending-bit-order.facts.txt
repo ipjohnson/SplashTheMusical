@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dbf77ed5cf7c6e4a
 accept	yes
+config	packet.bitOrder	"descending"
+config	packet.bitsPerRow	16
 drawn	yes
 field	0	7	DATA
 field	12	12	EN

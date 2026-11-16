@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source a8a2b643e3c5ea27
 accept	yes
+config	agentflow.theme	"dark"
+config	look	"neo"
+config	theme	"dark"
 connector	crm	CRM
 connector	llm	LLM API
 direction	TD

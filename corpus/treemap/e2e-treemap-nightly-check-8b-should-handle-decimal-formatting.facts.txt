@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 923294d4de5fa94a
 accept	yes
+config	treemap.valueFormat	".2f"
 drawn	yes
 label	Bounce Rate
 label	Click-through Rate

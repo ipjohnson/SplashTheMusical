@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 06e5dd63714486cd
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Divided process	div-rect
 type	flowchart-v2

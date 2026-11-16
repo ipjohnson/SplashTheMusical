@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source b2d46510b439f25b
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	Parent	Parent	C
 node	C	C	rounded

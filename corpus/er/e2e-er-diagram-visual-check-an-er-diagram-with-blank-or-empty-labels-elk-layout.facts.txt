@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f23298fd4c3680d5
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR	AUTHOR
 entity	BOOK	BOOK

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b9c32bc8814f7211
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	body	parser	none	arrow	solid
 edge	id	agent	none	arrow	solid

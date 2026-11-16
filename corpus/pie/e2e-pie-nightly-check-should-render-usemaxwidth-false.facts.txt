@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 4ca61f48ce6edf65
 accept	yes
+config	pie.useMaxWidth	false
 drawn	yes
 label	Bandy
 label	Football

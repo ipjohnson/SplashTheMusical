@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source acbe829ef225ac14
 accept	yes
+config	pie.donutHole	-0.3
 drawn	yes
 label	Cat
 label	Dog

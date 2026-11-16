@@ -151,4 +151,31 @@ public sealed partial class XYChartConfig
 		ConfigValues.Add(entries, "plotReservedSpacePercent", PlotReservedSpacePercent);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static XYChartConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		TitleFontSize = ConfigValues.ReadNumber(value?["titleFontSize"]),
+		TitlePadding = ConfigValues.ReadNumber(value?["titlePadding"]),
+		ShowDataLabel = ConfigValues.ReadBoolean(value?["showDataLabel"]),
+		ShowDataLabelOutsideBar = ConfigValues.ReadBoolean(value?["showDataLabelOutsideBar"]),
+		ShowTitle = ConfigValues.ReadBoolean(value?["showTitle"]),
+		ShowLegend = ConfigValues.ReadBoolean(value?["showLegend"]),
+		LegendFontSize = ConfigValues.ReadNumber(value?["legendFontSize"]),
+		LegendPadding = ConfigValues.ReadNumber(value?["legendPadding"]),
+		XAxis = XYChartAxisConfig.FromValue(value?["xAxis"]),
+		YAxis = XYChartAxisConfig.FromValue(value?["yAxis"]),
+		ChartOrientation = ConfigValues.ReadString(value?["chartOrientation"]),
+		PlotReservedSpacePercent = ConfigValues.ReadNumber(value?["plotReservedSpacePercent"]),
+	};
 }

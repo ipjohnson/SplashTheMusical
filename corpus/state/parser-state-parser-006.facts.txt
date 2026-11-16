@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b8dfbced6746846d
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	namedState1	Small State 1	rounded
 type	stateDiagram

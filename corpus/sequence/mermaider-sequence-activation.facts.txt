@@ -6,6 +6,8 @@ actor	Auth	Auth	participant
 actor	Client	Client	participant
 actor	DB	DB	participant
 actor	Server	Server	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Auth	Server	dashed	filled	OK
 message	Client	Server	solid	filled	POST /login

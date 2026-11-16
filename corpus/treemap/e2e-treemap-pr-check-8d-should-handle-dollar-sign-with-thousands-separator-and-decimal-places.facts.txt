@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source e5d4a6dfe612f3ef
 accept	yes
+config	treemap.valueFormat	"$,.2f"
 drawn	yes
 label	Q1
 label	Q2

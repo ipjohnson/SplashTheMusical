@@ -5,6 +5,8 @@ accept	yes
 annotation	Shape	«interface»
 attribute	Shape	noOfVertices
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Shape	draw()
 type	classDiagram

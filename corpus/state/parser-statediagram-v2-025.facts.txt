@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 311ea65c41d7ecbb
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	foo	bar	rounded
 type	stateDiagram

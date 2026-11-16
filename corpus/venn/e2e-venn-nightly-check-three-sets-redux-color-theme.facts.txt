@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dfb83d14867d6b1b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	Innovation
 preamble-config	theme	"redux-color"

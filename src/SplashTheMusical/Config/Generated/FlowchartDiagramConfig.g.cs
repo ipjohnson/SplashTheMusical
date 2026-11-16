@@ -174,4 +174,31 @@ public sealed partial class FlowchartDiagramConfig
 		ConfigValues.Add(entries, "inheritDir", InheritDir);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static FlowchartDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		SubGraphTitleMargin = SubGraphTitleMarginConfig.FromValue(value?["subGraphTitleMargin"]),
+		ArrowMarkerAbsolute = ConfigValues.ReadBoolean(value?["arrowMarkerAbsolute"]),
+		DiagramPadding = ConfigValues.ReadNumber(value?["diagramPadding"]),
+		HtmlLabels = ConfigValues.ReadBoolean(value?["htmlLabels"]),
+		NodeSpacing = ConfigValues.ReadNumber(value?["nodeSpacing"]),
+		RankSpacing = ConfigValues.ReadNumber(value?["rankSpacing"]),
+		Curve = ConfigValues.ReadString(value?["curve"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		WrappingWidth = ConfigValues.ReadNumber(value?["wrappingWidth"]),
+		MinNodeWidth = ConfigValues.ReadNumber(value?["minNodeWidth"]),
+		StepDuration = ConfigValues.ReadNumber(value?["stepDuration"]),
+		StepNumbers = ConfigValues.ReadBoolean(value?["stepNumbers"]),
+		InheritDir = ConfigValues.ReadBoolean(value?["inheritDir"]),
+	};
 }

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d14adcea0b0427ea
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	a	c	sequence

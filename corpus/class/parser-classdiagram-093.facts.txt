@@ -6,6 +6,8 @@ class	Car	Car
 class	Driver	Driver
 class	Person	Person
 class	Wheel	Wheel
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Car	Person	none	none	solid	< owns
 relation	Car	Wheel	diamond-filled	none	solid	have 4 >

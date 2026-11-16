@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 09ab9737b8c85110
 accept	yes
+config	pie.highlightSlice	"Food"
 drawn	yes
 label	Budget Allocation
 label	Entertainment

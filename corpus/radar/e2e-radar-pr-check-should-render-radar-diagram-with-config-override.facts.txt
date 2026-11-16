@@ -5,6 +5,8 @@ accept	yes
 axis	A
 axis	B
 axis	C
+config	radar.axisScaleFactor	0.5
+config	radar.marginTop	100
 curve	mycurve	1,2,3
 drawn	yes
 label	A

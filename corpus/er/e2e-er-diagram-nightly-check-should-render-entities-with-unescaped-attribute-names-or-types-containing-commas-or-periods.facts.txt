@@ -7,6 +7,8 @@ attribute	HOTEL	GEOMETRY(point,4326)	location
 attribute	HOTEL	string	address
 attribute	ROOM	int	room.number
 attribute	ROOM	string	bed.type
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	HOTEL	HOTEL
 entity	ROOM	ROOM

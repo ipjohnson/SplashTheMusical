@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source fadc9d0bdf07012a
 accept	yes
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	ORDER	ORDER

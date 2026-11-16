@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 0517618c76c5ee06
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	V	a	none	arrow	solid	test string()
 node	V	V	rect

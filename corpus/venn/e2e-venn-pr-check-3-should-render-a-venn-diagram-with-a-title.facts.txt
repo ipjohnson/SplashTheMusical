@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dfa0169483b15c33
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 set	Backend		10
 set	DevOps		10

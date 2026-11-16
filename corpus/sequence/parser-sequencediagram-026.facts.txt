@@ -4,6 +4,8 @@
 accept	yes
 actor	A	Alice	participant
 actor	B	Bob	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	none	Hello Bob, how are you?
 message	B	A	dashed	none	I am good thanks!

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 39c13d4702dec9e1
 accept	yes
+config	cynefin.boundaryAmplitude	0
 drawn	yes
 item	chaotic	0	Item D
 item	clear	0	Item C

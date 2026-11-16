@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 59995f5cd6f4cfc7
 accept	yes
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	DELIVERY-ADDRESS	DELIVERY-ADDRESS

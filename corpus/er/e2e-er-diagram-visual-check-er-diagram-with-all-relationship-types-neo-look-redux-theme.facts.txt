@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 8f1f83d881b1b8a6
 accept	yes
+config	er.theme	"redux"
+config	look	"neo"
+config	theme	"redux"
 drawn	yes
 entity	ENTITY_A0	ENTITY_A0
 entity	ENTITY_A1	ENTITY_A1

@@ -5,6 +5,8 @@ accept	yes
 actor	a	a	participant
 actor	b	b	participant
 actor	c	c	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	a	b	solid	filled	Hello Bob?
 message	b	c	solid	filled	Bye c !

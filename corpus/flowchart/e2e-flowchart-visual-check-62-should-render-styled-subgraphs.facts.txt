@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 89ec935295f7a141
 accept	yes
+config	flowchart.htmlLabels	true
+config	htmlLabels	true
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid
 edge	B	C	none	arrow	solid

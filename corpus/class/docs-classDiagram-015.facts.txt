@@ -4,6 +4,8 @@
 accept	yes
 class	Animal	Animal
 class	Zebra	Zebra
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Animal	Zebra	triangle	triangle	solid
 type	classDiagram

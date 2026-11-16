@@ -12,6 +12,8 @@ attribute	Color	WHITE
 attribute	Shape	noOfVertices
 class	Color	Color
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Shape	draw()
 type	classDiagram

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 9acc1e6e648be555
 accept	yes
+config	theme	"forest"
 drawn	yes
 label	Category A
 label	Category B

@@ -5,6 +5,8 @@ accept	yes
 actor	A	A	participant
 actor	B	B	participant
 block	critical	Establish connection
+config	look	"neo"
+config	theme	"redux-color"
 divider	Network timeout
 drawn	yes
 message	A	A	solid	filled	Retry

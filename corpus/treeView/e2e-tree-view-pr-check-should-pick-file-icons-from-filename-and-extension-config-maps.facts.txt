@@ -2,6 +2,14 @@
 # mermaid 12.3.0
 # source c6071943517bbafc
 accept	yes
+config	treeView.defaultIconPack	"material-icon-theme"
+config	treeView.extensionIcons	missing
+config	treeView.extensionIcons..py	"none"
+config	treeView.extensionIcons..ts	"typescript"
+config	treeView.extensionIcons..xyz	"javascript"
+config	treeView.filenameIcons	missing
+config	treeView.filenameIcons.README.md	"fa:bell"
+config	treeView.showIcons	true
 drawn	yes
 label	README.md
 label	data.xyz

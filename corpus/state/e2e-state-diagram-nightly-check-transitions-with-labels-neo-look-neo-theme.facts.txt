@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source db44b1a2814ac447
 accept	yes
+config	fontFamily	"courier"
+config	look	"neo"
+config	state.theme	"neo"
+config	theme	"neo"
 drawn	yes
 edge	State1	State2	none	arrow_barb_neo	solid	Transition 1
 edge	State1	State3	none	arrow_barb_neo	solid	Transition 2

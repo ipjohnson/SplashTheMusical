@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9030927aa46339a4
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	docsetV1	v1SiteNav	none	arrow	solid
 edge	docsetV1	v2SiteNav	none	arrow	dotted	V1 fallback

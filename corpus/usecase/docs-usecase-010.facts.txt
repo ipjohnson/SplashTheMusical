@@ -4,6 +4,8 @@
 accept	yes
 actor	Clerk	Payment clerk	normal			sb1
 boundary	sb1	Payment service	package	Authorize,Clerk,Receipt
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authorize payment

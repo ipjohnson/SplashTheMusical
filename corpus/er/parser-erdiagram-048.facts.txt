@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 083d2074add5fe13
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	0.1	0.1
 entity	CUSTOMER	CUSTOMER

@@ -3,5 +3,7 @@
 # source 8b617777a9ad567d
 accept	yes
 class	Animal	Animal
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

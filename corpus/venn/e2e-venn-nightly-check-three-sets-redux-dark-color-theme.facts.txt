@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 3951e97074399db7
 accept	yes
+config	look	"neo"
+config	theme	"redux-dark-color"
+config	venn.theme	"redux-dark-color"
 drawn	yes
 label	Innovation
 preamble-config	theme	"redux-dark-color"

@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source e3c687214ab35baf
 accept	yes
+config	flowchart.look	"handDrawn"
+config	fontFamily	"courier"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	sid-03A2C3AC-5337-48A5-B154-BB3FD0EC8DAD	sid-8C3F2F1D-F014-4F99-B966-095DC1A2BD93	none	arrow	solid
 edge	sid-1897B30A-9C5C-4D5B-B80B-76A038785070	sid-4FC27B48-A6F9-460A-A675-021F5854FE22	none	arrow	solid

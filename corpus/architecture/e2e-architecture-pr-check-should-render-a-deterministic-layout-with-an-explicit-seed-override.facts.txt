@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 5632241778db8005
 accept	yes
+config	architecture.seed	42
 drawn	yes
 edge	vm1	R	web	L	none	arrow
 edge	web	R	db	L	none	arrow

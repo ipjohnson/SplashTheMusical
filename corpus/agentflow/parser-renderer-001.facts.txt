@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 250f6599e887c884
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	no
 type	agentflow

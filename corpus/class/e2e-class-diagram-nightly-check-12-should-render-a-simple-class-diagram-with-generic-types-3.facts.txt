@@ -5,6 +5,8 @@ accept	yes
 attribute	Class10	List<int> ids
 attribute	Class10	int[] id
 class	Class10	Class10<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class10	test(List<int> ids) : List<bool>
 method	Class10	testArray() : bool[]

@@ -5,6 +5,8 @@ accept	yes
 attribute	a	**string**	ema*i*l
 attribute	person	string	*first*Name
 attribute	person	string	_**last**Name_
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	a	*Customer Account*
 entity	person	😀

@@ -11,6 +11,8 @@ attribute	li	int	qty
 attribute	ord	date	created
 attribute	ord	int	id	PK
 attribute	ord	string	status
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	cust	Customer Account
 entity	li	Line Item

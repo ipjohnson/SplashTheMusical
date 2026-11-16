@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 0ad81ad40642d1a7
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	This is }	rect
 type	flowchart-v2

@@ -3,6 +3,11 @@
 # source c885953063f105bc
 accept	yes
 class	Duck	Duck
+config	htmlLabels	true
+config	layout	"dagre"
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Duck	+quack()
 method	Duck	+swim()

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 0fa06d84d8b1a983
 accept	yes
+config	sankey.height	500
+config	sankey.labelStyle	"outlined"
+config	sankey.width	800
 drawn	yes
 flow	Gross Profit	Op Expenses	51
 flow	Gross Profit	Op Profit	119

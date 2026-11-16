@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dd714fd5f5560ffc
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	inner	inner	a
 group	outer	outer	inner

@@ -4,6 +4,8 @@
 accept	yes
 actor	Broker	Broker	hollow	yes
 actor	SalesAgent	Sales agent	normal	yes	Employee
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Archive quote

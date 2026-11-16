@@ -10,6 +10,9 @@ actor	E	E	entity
 actor	FE	FE	participant
 actor	LongNameUser	LongNameUser	participant
 actor	Q	Q	queue
+config	look	"neo"
+config	sequence.wrap	true
+config	theme	"redux-color"
 drawn	yes
 message	B	FE	dashed	filled	Response message that is also quite long and needs to wrap
 message	C	COL	solid	filled	Log

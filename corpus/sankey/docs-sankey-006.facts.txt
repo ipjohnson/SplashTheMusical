@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 57a2dc77e55611cf
 accept	yes
+config	sankey.labelStyle	"outlined"
+config	sankey.showValues	false
 drawn	yes
 flow	Electricity grid	Heating and cooling - homes	113.726
 flow	Electricity grid	Industry	342.165

@@ -4,6 +4,8 @@
 accept	yes
 actor	API	External Name	boundary
 actor	DB	External DB	database
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	DB	solid	filled	Query
 message	DB	API	dashed	filled	Result

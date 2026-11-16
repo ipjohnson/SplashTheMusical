@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 4f213e279f2e9d57
 accept	yes
+config	layout	"tidy-tree"
 drawn	yes
 label	This is a mindmap
 label	child1

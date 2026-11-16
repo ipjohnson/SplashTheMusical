@@ -3,6 +3,8 @@
 # source 5aff30617b8da215
 accept	yes
 class	A	A
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	One
 namespace	Two	A

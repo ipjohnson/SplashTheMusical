@@ -4,6 +4,8 @@
 accept	yes
 actor	A	Service	participant
 actor	B	Queue	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	A	solid	filled	Initialize
 message	A	B	solid	filled	Send message

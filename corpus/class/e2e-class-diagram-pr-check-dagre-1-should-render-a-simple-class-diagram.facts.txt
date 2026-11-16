@@ -25,6 +25,11 @@ class	Class09	Class09
 class	Class10	Class10
 class	Class11	Class11
 class	Class12	Class12
+config	htmlLabels	true
+config	layout	"dagre"
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class01	size()
 method	Class07	equals()

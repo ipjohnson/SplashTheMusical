@@ -6,6 +6,9 @@ actor	Customer	Customer	normal
 actor	Support	Support	normal
 boundary	Fulfilment	Fulfilment	rect	Track
 boundary	Storefront	Storefront	rect	Browse,Checkout
+config	layout	"dagre"
+config	usecase.look	"classic"
+config	usecase.theme	"default"
 direction	LR
 drawn	yes
 label	Browse catalogue

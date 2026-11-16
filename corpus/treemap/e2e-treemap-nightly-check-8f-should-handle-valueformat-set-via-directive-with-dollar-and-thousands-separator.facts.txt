@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 1427c8c1069fe9de
 accept	yes
+config	treemap.valueFormat	"$0,0"
 drawn	yes
 label	East
 label	North

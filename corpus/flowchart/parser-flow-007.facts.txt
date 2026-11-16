@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 87a0449855a6b1f0
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	subGraph0	number as labels	1
 node	1	1	rect

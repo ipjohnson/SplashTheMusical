@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b2735f4436f20e52
 accept	yes
+config	xyChart.height	60
+config	xyChart.width	1200
 drawn	yes
 label	Percentage (%)
 preamble-config	xyChart.height	60

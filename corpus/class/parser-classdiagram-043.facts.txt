@@ -5,6 +5,8 @@ accept	yes
 attribute	Flight	datetime departureTime
 attribute	Flight	int flightNumber
 class	Flight	Flight
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Flight	getDepartureTime() : datetime
 type	classDiagram

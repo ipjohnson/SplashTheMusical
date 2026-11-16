@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source cd48028fdeef8313
 accept	yes
+config	flowchart.htmlLabels	true
+config	htmlLabels	true
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a1	a2	none	arrow	solid	l1
 edge	a1	a2	none	arrow	solid	l2

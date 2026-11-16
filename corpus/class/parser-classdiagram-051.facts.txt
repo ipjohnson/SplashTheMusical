@@ -5,6 +5,8 @@ accept	yes
 attribute	Class1	int : test
 attribute	Class1	string : foo
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class1	foo()
 method	Class1	test()

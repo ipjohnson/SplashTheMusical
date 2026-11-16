@@ -4,6 +4,8 @@
 accept	yes
 class	Implementation	Implementation
 class	Interface	Interface
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Implementation	()Interface	none	lollipop	solid
 type	classDiagram

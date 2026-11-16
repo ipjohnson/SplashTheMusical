@@ -7,6 +7,8 @@ actor	Fallback	Missing icon fallback	icon
 actor	Hollow	Hollow actor	hollow
 actor	Icon	Icon actor	icon
 actor	Normal	Normal actor	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 icon	Fallback	not-registered:user

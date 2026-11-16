@@ -26,4 +26,14 @@ public sealed partial class SubGraphTitleMarginConfig
 		ConfigValues.Add(entries, "bottom", Bottom);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static SubGraphTitleMarginConfig FromValue(MermaidValue? value) => new()
+	{
+		Top = ConfigValues.ReadNumber(value?["top"]),
+		Bottom = ConfigValues.ReadNumber(value?["bottom"]),
+	};
 }

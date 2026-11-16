@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dbc27530617ea106
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 connector	github	GitHub API
 direction	LR
 drawn	yes

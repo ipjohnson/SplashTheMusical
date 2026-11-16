@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source e2a56640c51990d4
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	bow-rect	bow-rect
 node	n1	stored-data	bow-rect

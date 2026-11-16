@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 8fd48d0464a3b45f
 accept	yes
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	[*]start@root	Yswsii	none	arrow	solid
 node	Yswsii	Your state with spaces in it	rounded

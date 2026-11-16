@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b8d798507c5cf892
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	test_entity	simulation
 element	test_entity2	word doc	reqs/test_entity

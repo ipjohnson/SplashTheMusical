@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source f9aa3d03cf0110c0
 accept	yes
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	Parent	Parent	C
 group	PilotCockpit	PilotCockpit	Parent

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 789e224e0b08cfb7
 accept	yes
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	academic_sources	expert_voices	none	arrow	solid
 edge	brief	web_sources	none	arrow	solid

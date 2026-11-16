@@ -8,6 +8,8 @@ attribute	Circle	+double radius
 class	Circle	Circle
 class	Drawable	Drawable
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Circle	+area() : double
 method	Circle	+draw() : void

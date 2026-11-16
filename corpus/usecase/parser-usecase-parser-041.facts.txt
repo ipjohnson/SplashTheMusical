@@ -3,6 +3,8 @@
 # source 360d43ba5a882882
 accept	yes
 boundary	sb1	Payment service	package	Authorize
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authorize payment

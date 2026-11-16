@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source c6739c6a83029fbe
 accept	yes
+config	sankey.showValues	false
 drawn	yes
 flow	Agricultural 'waste'	Bio-conversion	124.729
 flow	Bio-conversion	Gas	81.144

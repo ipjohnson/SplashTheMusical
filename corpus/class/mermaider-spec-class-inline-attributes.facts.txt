@@ -7,6 +7,8 @@ attribute	Animal	+int age
 attribute	Dog	+String breed
 class	Animal	Animal
 class	Dog	Dog
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Animal	+isMammal() : bool
 method	Dog	+bark() : void

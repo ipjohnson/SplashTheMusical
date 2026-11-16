@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source c1f53d3fa17239e8
 accept	yes
+config	pie.highlightSlice	"hover"
 drawn	yes
 label	Bond
 label	Cash

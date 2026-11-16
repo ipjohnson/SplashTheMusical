@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 16ad03784ea7dd2f
 accept	yes
+config	htmlLabels	false
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	first
 edge	B	C	none	arrow	solid	second

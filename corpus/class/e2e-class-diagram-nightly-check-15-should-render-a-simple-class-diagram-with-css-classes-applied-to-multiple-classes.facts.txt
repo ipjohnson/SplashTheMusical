@@ -4,5 +4,7 @@
 accept	yes
 class	Class10	Class10
 class	Class20	Class20
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

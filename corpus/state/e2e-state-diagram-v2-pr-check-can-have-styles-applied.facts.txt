@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 93deca4199fbb249
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	AState	AState	rounded
 preamble-config	fontFamily	"courier"

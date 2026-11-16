@@ -11,6 +11,9 @@ actor	G	G	participant
 block	opt	this is a nested opt with a long title that will overflow
 block	opt	this is an opt with a long title that will overflow
 block	opt	this is another opt with a long title that will overflow
+config	look	"neo"
+config	sequence.wrap	true
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Task 1
 message	A	D	solid	filled	Task 3

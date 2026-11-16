@@ -8,6 +8,8 @@ actor	C	C	participant
 actor	J	J	participant
 box	Alice & John	A,J
 box	Another Group	B,C
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Hello Bob, how is Charley?
 message	A	J	solid	filled	Hello John, how are you?

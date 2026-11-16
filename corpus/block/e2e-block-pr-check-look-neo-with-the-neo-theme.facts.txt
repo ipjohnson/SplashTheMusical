@@ -12,6 +12,8 @@ block	downAgain	No	block_arrow	1
 block	r2	Done	block_arrow	1
 block	r3	Done	block_arrow	1
 block	right	Yes	block_arrow	1
+config	look	"neo"
+config	theme	"neo"
 drawn	yes
 label	Done
 label	Done

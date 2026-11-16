@@ -9,6 +9,8 @@ class	Order	Order
 class	OrderRepo	OrderRepo
 class	Product	Product
 class	ProductRepo	ProductRepo
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Order	+place() : void
 method	OrderRepo	+save(Order) : void

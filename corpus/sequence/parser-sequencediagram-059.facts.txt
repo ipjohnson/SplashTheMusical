@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 block	par	Parallel one
+config	look	"neo"
+config	theme	"redux-color"
 divider	Parallel three
 divider	Parallel two
 drawn	yes

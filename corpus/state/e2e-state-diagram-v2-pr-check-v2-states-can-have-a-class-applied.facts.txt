@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 9623c1c25ed14551
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	test({ foo: 'far' })
 edge	B	[*]end@root	none	arrow	solid

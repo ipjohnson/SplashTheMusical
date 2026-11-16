@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 4bc47f2ecf4f6860
 accept	yes
+config	flowchart.theme	"base"
+config	look	"neo"
+config	theme	"base"
 drawn	yes
 icon	A	fa:fa-bell
 node	A	Bell	rounded

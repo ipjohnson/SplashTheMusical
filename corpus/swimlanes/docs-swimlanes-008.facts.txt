@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 4eca0116897bbb8d
 accept	yes
+config	layout	"swimlane"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	request	triage	none	arrow	solid
 edge	triage	resolve	none	arrow	solid

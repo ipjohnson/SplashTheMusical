@@ -179,4 +179,35 @@ public sealed partial class QuadrantChartConfig
 		ConfigValues.Add(entries, "quadrantExternalBorderStrokeWidth", QuadrantExternalBorderStrokeWidth);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static QuadrantChartConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		ChartWidth = ConfigValues.ReadNumber(value?["chartWidth"]),
+		ChartHeight = ConfigValues.ReadNumber(value?["chartHeight"]),
+		TitleFontSize = ConfigValues.ReadNumber(value?["titleFontSize"]),
+		TitlePadding = ConfigValues.ReadNumber(value?["titlePadding"]),
+		QuadrantPadding = ConfigValues.ReadNumber(value?["quadrantPadding"]),
+		XAxisLabelPadding = ConfigValues.ReadNumber(value?["xAxisLabelPadding"]),
+		YAxisLabelPadding = ConfigValues.ReadNumber(value?["yAxisLabelPadding"]),
+		XAxisLabelFontSize = ConfigValues.ReadNumber(value?["xAxisLabelFontSize"]),
+		YAxisLabelFontSize = ConfigValues.ReadNumber(value?["yAxisLabelFontSize"]),
+		QuadrantLabelFontSize = ConfigValues.ReadNumber(value?["quadrantLabelFontSize"]),
+		QuadrantTextTopPadding = ConfigValues.ReadNumber(value?["quadrantTextTopPadding"]),
+		PointTextPadding = ConfigValues.ReadNumber(value?["pointTextPadding"]),
+		PointLabelFontSize = ConfigValues.ReadNumber(value?["pointLabelFontSize"]),
+		PointRadius = ConfigValues.ReadNumber(value?["pointRadius"]),
+		XAxisPosition = ConfigValues.ReadString(value?["xAxisPosition"]),
+		YAxisPosition = ConfigValues.ReadString(value?["yAxisPosition"]),
+		QuadrantInternalBorderStrokeWidth = ConfigValues.ReadNumber(value?["quadrantInternalBorderStrokeWidth"]),
+		QuadrantExternalBorderStrokeWidth = ConfigValues.ReadNumber(value?["quadrantExternalBorderStrokeWidth"]),
+	};
 }

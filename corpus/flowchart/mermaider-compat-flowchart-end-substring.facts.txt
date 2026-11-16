@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source fab401313a5648ca
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	endpoint	sender	none	arrow	solid
 node	endpoint	endpoint	rect

@@ -10,6 +10,8 @@ commit	2	develop	normal			3
 commit	3	develop	normal			4
 commit	4	main	normal			5
 commit	5	main	normal			6
+config	gitGraph.rotateCommitLabel	false
+config	gitGraph.showBranches	false
 drawn	yes
 label	1
 label	2

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 02de9d75d0b69e25
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Assembler	Search	none	arrow	solid
 edge	Assembler	Site	none	arrow	solid

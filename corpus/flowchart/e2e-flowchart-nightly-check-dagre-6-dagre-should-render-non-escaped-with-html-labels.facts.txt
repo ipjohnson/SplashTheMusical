@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source acb492239e060424
 accept	yes
+config	flowchart.htmlLabels	true
+config	htmlLabels	true
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a	b	none	arrow	thick
 node	a	Haiya	rect

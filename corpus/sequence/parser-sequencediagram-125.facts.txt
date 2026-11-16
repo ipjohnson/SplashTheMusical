@@ -4,6 +4,8 @@
 accept	yes
 actor	API	Public API	boundary
 actor	Auth	Auth Controller	control
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	Auth	solid	filled	Request
 message	Auth	API	dashed	filled	Response

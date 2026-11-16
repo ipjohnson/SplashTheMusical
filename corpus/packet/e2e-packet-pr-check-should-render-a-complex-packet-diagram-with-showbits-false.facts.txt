@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 4be300e4b8ce652b
 accept	yes
+config	packet.showBits	false
 drawn	yes
 field	0	15	Source Port
 field	100	105	Reserved

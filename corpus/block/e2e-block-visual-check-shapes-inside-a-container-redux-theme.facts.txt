@@ -11,6 +11,8 @@ block	sq	Square	rect	1	shapes
 block	sr	Subroutine	fr-rect	1	shapes
 block	st	Stadium	stadium	1	shapes
 block	tr	Trapezoid	trap-b	1	shapes
+config	look	"neo"
+config	theme	"redux"
 drawn	yes
 label	Circle
 label	Diamond

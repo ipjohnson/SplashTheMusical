@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 222cb14ef2f3389d
 accept	yes
+config	theme	"redux"
 drawn	yes
 label	Backend
 label	Beta

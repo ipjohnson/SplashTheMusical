@@ -4,6 +4,8 @@
 accept	yes
 class	Class11	Class11
 class	Class12	Class12
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 note	Class11	test
 relation	Class11	Class12	triangle	none	dashed

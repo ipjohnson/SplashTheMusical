@@ -7,6 +7,9 @@ attribute	_**testẽζ➕Ø😀㌕ぼ**_	*string(99)~T~~~~~~*	firstName		Only __
 attribute	_**testẽζ➕Ø😀㌕ぼ**_	int	_age_
 attribute	_**testẽζ➕Ø😀㌕ぼ**_	string	__phone__	UK
 attribute	_**testẽζ➕Ø😀㌕ぼ**_	string	last*Name*
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	_**testẽζ➕Ø😀㌕ぼ**_	_**testẽζ➕Ø😀㌕ぼ**_
 label	***The l😀icense #***

@@ -6,6 +6,22 @@ axis	x-left	Low Reach
 axis	x-right	High Reach
 axis	y-bottom	Low Engagement
 axis	y-top	High Engagement
+config	quadrantChart.chartHeight	600
+config	quadrantChart.chartWidth	600
+config	quadrantChart.pointLabelFontSize	20
+config	quadrantChart.pointRadius	10
+config	quadrantChart.pointTextPadding	20
+config	quadrantChart.quadrantExternalBorderStrokeWidth	5
+config	quadrantChart.quadrantInternalBorderStrokeWidth	3
+config	quadrantChart.quadrantLabelFontSize	20
+config	quadrantChart.quadrantPadding	20
+config	quadrantChart.quadrantTextTopPadding	40
+config	quadrantChart.titleFontSize	10
+config	quadrantChart.titlePadding	20
+config	quadrantChart.xAxisLabelFontSize	20
+config	quadrantChart.xAxisLabelPadding	20
+config	quadrantChart.yAxisLabelFontSize	20
+config	quadrantChart.yAxisLabelPadding	20
 drawn	yes
 label	Campaign A
 label	Campaign B

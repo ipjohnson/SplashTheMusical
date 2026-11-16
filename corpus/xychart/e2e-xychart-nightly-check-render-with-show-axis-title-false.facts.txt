@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source dba0f38198d85b55
 accept	yes
+config	xyChart.xAxis.showTitle	false
+config	xyChart.yAxis.showTitle	false
 drawn	yes
 label	Sales Revenue
 label	apr

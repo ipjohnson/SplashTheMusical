@@ -4,6 +4,8 @@
 accept	yes
 attribute	Car	List<Wheel> wheels
 class	Car	Car
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Car	+getWheels() : List<Wheel>
 method	Car	setWheels(List<Wheel> wheels)

@@ -2,6 +2,13 @@
 # mermaid 12.3.0
 # source cd9b03bdb1b8f0dd
 accept	yes
+config	flowchart.htmlLabels	false
+config	flowchart.useMaxWidth	false
+config	layout	"swimlane"
+config	look	"neo"
+config	swimlane.automaticLaneOrdering	true
+config	swimlane.theme	"redux"
+config	theme	"redux"
 drawn	yes
 edge	1	2	none	arrow	solid
 edge	10	11	none	arrow	solid

@@ -4,6 +4,8 @@
 accept	yes
 actor	API	Public API	participant
 actor	Auth	Auth Service	participant
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	API	Auth	solid	filled	Request
 message	Auth	API	dashed	filled	Response

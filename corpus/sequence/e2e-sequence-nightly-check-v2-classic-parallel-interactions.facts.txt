@@ -7,6 +7,8 @@ actor	boundary2	boundary2	boundary
 actor	control3	control3	control
 actor	participant0	participant0	participant
 block	par	Parallel actions
+config	sequence.look	"classic"
+config	theme	"redux-color"
 divider
 divider
 drawn	yes

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7b7ab5b3a5f94bab
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	SomeOtherState	YetAnotherState	none	arrow	solid
 edge	YetAnotherState	[*]end@root	none	arrow	solid

@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source c92b123f74762097
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	XState1	XState2	none	arrow	solid
 node	XState1	Long state description	rounded

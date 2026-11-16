@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source c2c2a7d03087ba61
 accept	yes
+config	theme	"base"
 drawn	yes
 label	API
 label	App

@@ -3,6 +3,8 @@
 # source c06e12c17bcd613a
 accept	yes
 actor	Inspector	Inspector	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 json	Payload

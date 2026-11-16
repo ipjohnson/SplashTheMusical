@@ -3,6 +3,8 @@
 # source 1564f6849b3aef87
 accept	yes
 attribute	1.5	string	value
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	1.5	1.5
 label	1.5

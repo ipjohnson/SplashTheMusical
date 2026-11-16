@@ -5,6 +5,9 @@ accept	yes
 attribute	c	varchar(128)	email
 attribute	p	varchar(64)	firstName
 attribute	p	varchar(64)	lastName
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	c	Customer Account
 entity	p	Person

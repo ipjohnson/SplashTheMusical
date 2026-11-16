@@ -4,5 +4,7 @@
 accept	yes
 annotation	Shape	«interface»
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

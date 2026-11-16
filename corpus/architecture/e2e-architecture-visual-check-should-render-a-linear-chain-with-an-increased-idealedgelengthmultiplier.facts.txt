@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 8305b7356df4ddc2
 accept	yes
+config	architecture.idealEdgeLengthMultiplier	3
 drawn	yes
 edge	a	R	b	L	none	arrow
 edge	b	R	c	L	none	arrow

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source b1095640ec8c29c2
 accept	yes
+config	er.useMaxWidth	false
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	DEAD_PARROT	DEAD_PARROT
 entity	HERMIT	HERMIT

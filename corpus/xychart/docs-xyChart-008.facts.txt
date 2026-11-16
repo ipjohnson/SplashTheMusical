@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 4191b7b5dc6ecbe6
 accept	yes
+config	xyChart.height	600
+config	xyChart.showDataLabel	true
+config	xyChart.width	900
 drawn	yes
 label	Revenue (in $)
 label	Sales Revenue

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8db5de69b4bb714b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	APIs
 label	Backend

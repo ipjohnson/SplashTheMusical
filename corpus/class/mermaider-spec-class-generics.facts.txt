@@ -4,6 +4,8 @@
 accept	yes
 class	Repository	Repository<T>
 class	UserRepo	UserRepo
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Repository	+findAll() : List<T>
 method	Repository	+getById(id) : T

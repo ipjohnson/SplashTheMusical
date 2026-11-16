@@ -10,6 +10,9 @@ attribute	LINE-ITEM	int	quantity
 attribute	LINE-ITEM	string	productCode
 attribute	ORDER	int	orderNumber
 attribute	ORDER	string	deliveryAddress
+config	er.theme	"neo"
+config	look	"neo"
+config	theme	"neo"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	LINE-ITEM	LINE-ITEM

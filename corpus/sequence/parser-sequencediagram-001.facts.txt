@@ -2,5 +2,7 @@
 # mermaid 12.3.0
 # source 5da24f8a276eceb9
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	no
 type	sequence

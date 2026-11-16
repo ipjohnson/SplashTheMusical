@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source a060879343beae48
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Alive	Dead	none	arrow	solid
 edge	Dead	Alive	none	arrow	solid

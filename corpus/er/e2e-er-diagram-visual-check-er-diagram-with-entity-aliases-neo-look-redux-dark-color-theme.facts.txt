@@ -6,6 +6,9 @@ attribute	c	varchar(128)	email
 attribute	o	int	orderNumber
 attribute	p	varchar(64)	firstName
 attribute	p	varchar(64)	lastName
+config	er.theme	"redux-dark-color"
+config	look	"neo"
+config	theme	"redux-dark-color"
 drawn	yes
 entity	c	Customer Account
 entity	o	Order

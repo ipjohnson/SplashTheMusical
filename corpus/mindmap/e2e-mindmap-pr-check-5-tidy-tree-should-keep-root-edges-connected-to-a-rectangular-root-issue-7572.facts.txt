@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 7e4468a2c81232aa
 accept	yes
+config	layout	"tidy-tree"
 drawn	yes
 label	A
 label	B

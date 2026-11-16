@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 9d51e104745d6908
 accept	yes
+config	htmlLabels	false
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	broken	B	none	arrow	solid
 edge	mermaid	v10	none	arrow	solid

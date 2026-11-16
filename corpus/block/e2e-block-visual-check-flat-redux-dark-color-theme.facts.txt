@@ -5,6 +5,8 @@ accept	yes
 block	a	One	rect	1
 block	b	Two	rect	1
 block	c	Three	rect	1
+config	look	"neo"
+config	theme	"redux-dark-color"
 drawn	yes
 label	One
 label	Three

@@ -10,6 +10,8 @@ class	A1	A1
 class	A2	A2
 class	B1	B1
 class	B2	B2
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	A	A1,A2
 namespace	B	B1,B2

@@ -4,6 +4,8 @@
 accept	yes
 boundary	Billing	Billing	rect	Invoice
 boundary	Payment_service	Payment service	package	Authorize
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authorize payment

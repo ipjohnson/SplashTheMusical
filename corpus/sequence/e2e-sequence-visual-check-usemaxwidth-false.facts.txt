@@ -7,6 +7,9 @@ actor	Bob	Bob	participant
 actor	John	John Second Line	participant
 block	alt	either this
 block	par	this happens in parallel
+config	look	"neo"
+config	sequence.useMaxWidth	false
+config	theme	"redux-color"
 divider
 divider	or this
 divider	or this will happen

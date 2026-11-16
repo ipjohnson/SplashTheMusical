@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source fd82f5e428fdfe5e
 accept	yes
+config	fontFamily	"courier"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	(((((−b±b2−4ac2a)))))
 edge	A	C	none	arrow	solid	a+b+c⏞note

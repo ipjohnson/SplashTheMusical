@@ -4,6 +4,8 @@
 accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you?
 type	sequence

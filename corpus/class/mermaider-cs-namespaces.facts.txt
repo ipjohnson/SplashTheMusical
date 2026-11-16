@@ -6,6 +6,8 @@ attribute	Policy	+bool Allowed
 class	DockerEngine	DockerEngine
 class	LaunchPoint	LaunchPoint
 class	Policy	Policy
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	Containers	DockerEngine
 namespace	Execution	LaunchPoint,Policy

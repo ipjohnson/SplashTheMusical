@@ -3,6 +3,8 @@
 # source e45d4b82b3ddccef
 accept	yes
 actor	Service	Service	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Service	Service	dashed	filled	Ready
 message	Service	Service	solid	filled	Initialize

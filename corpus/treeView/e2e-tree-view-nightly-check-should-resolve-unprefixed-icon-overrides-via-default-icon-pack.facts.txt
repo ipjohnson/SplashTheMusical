@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source db10bf1af34c581a
 accept	yes
+config	treeView.defaultIconPack	"fa"
 drawn	yes
 icon	src / alarm.txt	bell
 label	alarm.txt

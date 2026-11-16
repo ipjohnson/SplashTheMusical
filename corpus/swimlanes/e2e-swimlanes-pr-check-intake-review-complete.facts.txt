@@ -2,6 +2,12 @@
 # mermaid 12.3.0
 # source 1af2cf7aee6d68a1
 accept	yes
+config	flowchart.htmlLabels	false
+config	flowchart.useMaxWidth	false
+config	layout	"swimlane"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	decision	done	none	arrow	solid	Yes
 edge	decision	fix	none	arrow	solid	No

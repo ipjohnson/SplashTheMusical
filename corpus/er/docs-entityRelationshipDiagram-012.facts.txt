@@ -13,6 +13,8 @@ attribute	PERSON	string	driversLicense	PK	The license #
 attribute	PERSON	string	lastName
 attribute	PERSON	string	phone	UK
 attribute	PERSON	string(99)	firstName		Only 99 characters are allowed
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CAR	CAR
 entity	MANUFACTURER	MANUFACTURER

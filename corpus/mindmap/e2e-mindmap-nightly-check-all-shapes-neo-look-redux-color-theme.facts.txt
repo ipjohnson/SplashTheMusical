@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 529ab4c4c76ae28e
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	All Shapes
 label	Another Bang

@@ -6,6 +6,8 @@ axis	x-left	Urgent
 axis	x-right	Not Urgent
 axis	y-bottom	Not Important
 axis	y-top	Important ❤
+config	quadrantChart.chartHeight	400
+config	quadrantChart.chartWidth	400
 drawn	yes
 label	Delegate
 label	Delete

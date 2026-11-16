@@ -166,4 +166,32 @@ public sealed partial class GanttDiagramConfig
 		ConfigValues.Add(entries, "weekday", Weekday);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static GanttDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		BarHeight = ConfigValues.ReadNumber(value?["barHeight"]),
+		BarGap = ConfigValues.ReadNumber(value?["barGap"]),
+		TopPadding = ConfigValues.ReadNumber(value?["topPadding"]),
+		RightPadding = ConfigValues.ReadNumber(value?["rightPadding"]),
+		LeftPadding = ConfigValues.ReadNumber(value?["leftPadding"]),
+		GridLineStartPadding = ConfigValues.ReadNumber(value?["gridLineStartPadding"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+		SectionFontSize = ConfigValues.ReadValue(value?["sectionFontSize"]),
+		NumberSectionStyles = ConfigValues.ReadNumber(value?["numberSectionStyles"]),
+		AxisFormat = ConfigValues.ReadString(value?["axisFormat"]),
+		TickInterval = ConfigValues.ReadString(value?["tickInterval"]),
+		TopAxis = ConfigValues.ReadBoolean(value?["topAxis"]),
+		DisplayMode = ConfigValues.ReadString(value?["displayMode"]),
+		Weekday = ConfigValues.ReadString(value?["weekday"]),
+	};
 }

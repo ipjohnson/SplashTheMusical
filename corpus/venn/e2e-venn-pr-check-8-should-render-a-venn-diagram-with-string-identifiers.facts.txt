@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source da532c5dc0b59e08
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 set	JavaScript		10
 set	Python		10

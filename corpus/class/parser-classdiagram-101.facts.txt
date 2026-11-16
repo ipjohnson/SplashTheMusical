@@ -4,6 +4,8 @@
 accept	yes
 class	Class02	Class02
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Class1	Class02	none	triangle	solid
 type	classDiagram

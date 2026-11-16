@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 6afd11481ca16c98
 accept	yes
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a	b	none	arrow	solid
 group	NotShooting	Long state name 2	a,b

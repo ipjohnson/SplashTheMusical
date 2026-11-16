@@ -13,6 +13,7 @@ branch	branch8
 branch	branch9
 branch	main
 commit	0	branch1	normal
+config	logLevel	"debug"
 drawn	yes
 label	branch1
 label	branch2

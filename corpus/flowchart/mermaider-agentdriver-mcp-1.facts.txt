@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 26b6ea69f8de7127
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	claude	connector	none	arrow	solid	your claude.ai login
 edge	claude	proxy	none	arrow	solid	stdio

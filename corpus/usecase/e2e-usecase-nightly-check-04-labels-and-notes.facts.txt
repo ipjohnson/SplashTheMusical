@@ -3,6 +3,8 @@
 # source c1fed9681844a5a3
 accept	yes
 actor	Reviewer	Reviewer	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	**Literal markers**

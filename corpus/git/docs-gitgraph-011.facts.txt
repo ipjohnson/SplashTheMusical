@@ -26,6 +26,9 @@ commit	6	featureB	normal
 commit	7	main	merge		hotfix
 commit	8	featureB	normal
 commit	9	featureA	normal
+config	gitGraph.showBranches	false
+config	logLevel	"debug"
+config	theme	"base"
 drawn	yes
 label	abc
 label	ash

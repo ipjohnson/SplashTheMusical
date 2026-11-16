@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source a744d3e50b94b4a6
 accept	yes
+config	journey.titleColor	"#2900A5"
+config	journey.titleFontFamily	"Times New Roman"
+config	journey.titleFontSize	"5rem"
 drawn	yes
 label	Browse Features
 label	Complete Profile

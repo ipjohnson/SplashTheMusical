@@ -3,6 +3,8 @@
 # source c67983f90c5105b8
 accept	yes
 actor	Analyst	Analyst	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 json	Payload

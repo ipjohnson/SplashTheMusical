@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 1b1c3afca0066226
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux-dark-color"
+config	theme	"redux-dark-color"
 drawn	yes
 label	1
 label	2

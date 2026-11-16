@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 205c711745553981
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	internet	router	none	arrow	solid
 edge	nat	internet	none	arrow	solid

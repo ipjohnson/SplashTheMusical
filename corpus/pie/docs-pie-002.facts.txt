@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 0618966cc9f61ec4
 accept	yes
+config	pie.donutHole	0.2
+config	pie.highlightSlice	"Potassium"
+config	pie.textPosition	0.5
 drawn	yes
 label	Calcium
 label	Iron

@@ -11,6 +11,8 @@ attribute	USER	int	id	PK
 attribute	USER	string	email	UK
 attribute	USER	string	password_hash
 attribute	USER	string	username	UK
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	SESSION	SESSION
 entity	USER	USER

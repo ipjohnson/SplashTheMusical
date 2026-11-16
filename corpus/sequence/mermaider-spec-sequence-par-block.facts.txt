@@ -6,6 +6,8 @@ actor	Auth	Auth	participant
 actor	Client	Client	participant
 actor	Data	Data	participant
 block	par	Fetch in parallel
+config	look	"neo"
+config	theme	"redux-color"
 divider
 drawn	yes
 message	Auth	Client	dashed	filled	Combined result

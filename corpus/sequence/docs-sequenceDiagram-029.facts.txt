@@ -9,6 +9,8 @@ actor	Diana	Diana	participant
 actor	John	John	participant
 block	par	Alice to Bob
 block	par	John to Charlie
+config	look	"neo"
+config	theme	"redux-color"
 divider	Alice to John
 divider	John to Diana
 drawn	yes

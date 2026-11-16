@@ -4,6 +4,8 @@
 accept	yes
 attribute	Dummy_Class	String data
 class	Dummy_Class	Dummy_Class
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Dummy_Class	void methods()
 type	classDiagram

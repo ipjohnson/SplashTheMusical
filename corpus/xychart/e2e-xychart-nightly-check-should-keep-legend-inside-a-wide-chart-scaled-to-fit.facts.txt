@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source c6c68096d1acd12f
 accept	yes
+config	xyChart.width	4000
 drawn	yes
 label	Elapsed Time
 label	Percentage (%)

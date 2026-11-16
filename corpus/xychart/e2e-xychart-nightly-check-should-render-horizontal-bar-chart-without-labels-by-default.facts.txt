@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 75edf37e9953bdfa
 accept	yes
+config	xyChart.chartOrientation	"horizontal"
 drawn	yes
 label	Months
 label	Revenue (in $)

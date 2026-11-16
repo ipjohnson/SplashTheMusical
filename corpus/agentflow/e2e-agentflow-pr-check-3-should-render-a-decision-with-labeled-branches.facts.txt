@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 0b1f5d541b948e14
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	triage	answer	sequence	question

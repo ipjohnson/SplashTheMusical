@@ -7,6 +7,8 @@ actor	G	GitHub	participant
 actor	L	Ledger	participant
 actor	R	SessionRunner	participant
 actor	W	GitHubWatcher	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	E	G	solid	filled	PUT merge
 message	E	R	solid	filled	prepare the worktree on the branch, launch the fix session

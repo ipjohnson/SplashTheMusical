@@ -102,4 +102,24 @@ public sealed partial class XYChartAxisConfig
 		ConfigValues.Add(entries, "labelRotation", LabelRotation);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static XYChartAxisConfig FromValue(MermaidValue? value) => new()
+	{
+		ShowLabel = ConfigValues.ReadBoolean(value?["showLabel"]),
+		LabelFontSize = ConfigValues.ReadNumber(value?["labelFontSize"]),
+		LabelPadding = ConfigValues.ReadNumber(value?["labelPadding"]),
+		ShowTitle = ConfigValues.ReadBoolean(value?["showTitle"]),
+		TitleFontSize = ConfigValues.ReadNumber(value?["titleFontSize"]),
+		TitlePadding = ConfigValues.ReadNumber(value?["titlePadding"]),
+		ShowTick = ConfigValues.ReadBoolean(value?["showTick"]),
+		TickLength = ConfigValues.ReadNumber(value?["tickLength"]),
+		TickWidth = ConfigValues.ReadNumber(value?["tickWidth"]),
+		ShowAxisLine = ConfigValues.ReadBoolean(value?["showAxisLine"]),
+		AxisLineWidth = ConfigValues.ReadNumber(value?["axisLineWidth"]),
+		LabelRotation = ConfigValues.ReadNumber(value?["labelRotation"]),
+	};
 }

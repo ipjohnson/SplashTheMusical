@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 7f879b5156f88b88
 accept	yes
+config	look	"neo"
+config	theme	"dark"
+config	venn.theme	"dark"
 drawn	yes
 preamble-config	theme	"dark"
 set	A		10

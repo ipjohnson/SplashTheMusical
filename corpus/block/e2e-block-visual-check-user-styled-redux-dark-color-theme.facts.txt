@@ -6,6 +6,8 @@ block	a	Palette	rect	1	palette
 block	b	Mine	rect	1	mine
 block	mine		composite	1
 block	palette		composite	1
+config	look	"neo"
+config	theme	"redux-dark-color"
 drawn	yes
 label	Mine
 label	Palette

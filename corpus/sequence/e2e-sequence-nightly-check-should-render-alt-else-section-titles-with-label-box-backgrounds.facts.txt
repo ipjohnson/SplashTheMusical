@@ -6,6 +6,9 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 block	alt	Command A
 block	opt	Outer
+config	look	"neo"
+config	theme	"redux-color"
+config	themeCSS	".loopText { fill: #ffffff !important; } .labelBox { fill: red !important; }"
 divider	Command B
 divider	Command C
 drawn	yes

@@ -10,6 +10,8 @@ class	C2	C2
 class	Class01	Class01<T>
 class	Class08	Class08
 class	Class10	Class10<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class01	size()
 method	Class10	test()

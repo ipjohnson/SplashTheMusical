@@ -199,9 +199,33 @@ public sealed class ConfigWriter
 				: $"\t\tConfigValues.Add(entries, {Quote(property.Key)}, {property.Name});\n");
 		}
 
-		code.Append("\t\treturn MermaidValue.FromEntries(entries);\n\t}\n}\n");
+		code.Append("\t\treturn MermaidValue.FromEntries(entries);\n\t}\n\n");
+		code.Append("\t/// <summary>\n");
+		code.Append("\t/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null\n");
+		code.Append("\t/// property, and a missing nested mapping gives a nested config of nulls.\n");
+		code.Append("\t/// </summary>\n");
+		code.Append($"\tinternal static {configClass.Name} FromValue(MermaidValue? value) => new()\n\t{{\n");
+		foreach (var property in configClass.Properties)
+		{
+			var item = $"value?[{Quote(property.Key)}]";
+			code.Append(property.Kind == ValueKind.Object
+				? $"\t\t{property.Name} = {property.Class!.Name}.FromValue({item}),\n"
+				: $"\t\t{property.Name} = ConfigValues.{Reader(property.Kind)}({item}),\n");
+		}
+
+		code.Append("\t};\n}\n");
 		return code.ToString();
 	}
+
+	private static string Reader(ValueKind kind) => kind switch
+	{
+		ValueKind.Boolean => "ReadBoolean",
+		ValueKind.Number => "ReadNumber",
+		ValueKind.String => "ReadString",
+		ValueKind.Value => "ReadValue",
+		ValueKind.StringList => "ReadStringList",
+		_ => "ReadStringMap",
+	};
 
 	private static string TypeName(ConfigProperty property) => property.Kind switch
 	{

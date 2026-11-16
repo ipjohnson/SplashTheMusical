@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source cc40bf4bf02eaaba
 accept	yes
+config	htmlLabels	false
+config	look	"handDrawn"
+config	requirement.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 element	test_entity	simulation
 label	1

@@ -5,6 +5,8 @@ accept	yes
 class	Duck	Duck
 class	Pond	Pond
 class	Wing	Wing
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Duck	Wing	diamond-filled	none	solid	has		2
 relation	Pond	Duck	diamond	none	solid	holds		many

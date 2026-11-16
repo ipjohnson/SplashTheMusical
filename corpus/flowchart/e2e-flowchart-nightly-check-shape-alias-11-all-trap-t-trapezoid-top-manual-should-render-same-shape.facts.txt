@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source ad6b72b819859b7d
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	trap-t	trap-t
 node	n1	trapezoid-top	trap-t

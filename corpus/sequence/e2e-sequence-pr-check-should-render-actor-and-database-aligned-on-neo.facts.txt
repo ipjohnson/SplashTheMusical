@@ -7,6 +7,8 @@ actor	DB	Database	database
 actor	User	User	actor
 block	rect
 block	rect
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	DB	solid	filled	query
 message	API	User	dashed	filled	response

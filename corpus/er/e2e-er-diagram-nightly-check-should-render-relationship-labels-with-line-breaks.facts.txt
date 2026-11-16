@@ -8,6 +8,9 @@ attribute	c	string	email
 attribute	d	string	email
 attribute	p	string	firstName
 attribute	p	string	lastName
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	a	Customer Account
 entity	b	Customer Account Secondary

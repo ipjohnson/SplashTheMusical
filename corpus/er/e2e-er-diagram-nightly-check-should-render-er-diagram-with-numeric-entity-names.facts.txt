@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 308f4ae7998065f3
 accept	yes
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	1	1
 entity	2	2

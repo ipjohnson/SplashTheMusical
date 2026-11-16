@@ -10,6 +10,11 @@ attribute	Student	-idCard : IdCard
 class	Bike	Bike
 class	IdCard	IdCard
 class	Student	Student
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

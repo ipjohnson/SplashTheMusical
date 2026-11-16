@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7634b95b0a83f5a7
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A		bolt
 type	flowchart-v2

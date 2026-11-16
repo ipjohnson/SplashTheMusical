@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 472a02b3ca9ece10
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ApiDeclaration	ApiDeclaration
 entity	ApiOperation	ApiOperation

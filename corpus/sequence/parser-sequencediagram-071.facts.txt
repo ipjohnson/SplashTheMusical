@@ -5,5 +5,7 @@ accept	yes
 actor	a	Alice	participant
 actor	b	Bob	participant
 actor	c	Charlie	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	sequence

@@ -5,6 +5,9 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	Charlie	Charlie	participant
+config	look	"neo"
+config	sequence.theme	"base"
+config	theme	"base"
 drawn	yes
 message	Alice	Bob	dashed	cross	Circles at both ends with cross arrow
 message	Alice	Bob	dashed	filled	Circles at both ends with dotted arrow

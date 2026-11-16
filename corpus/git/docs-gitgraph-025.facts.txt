@@ -26,6 +26,7 @@ commit	6	featureB	normal
 commit	7	main	merge		hotfix
 commit	8	featureB	normal
 commit	9	featureA	normal
+config	logLevel	"debug"
 drawn	yes
 label	abc
 label	ash

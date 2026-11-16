@@ -57,4 +57,18 @@ public sealed partial class BlockDiagramConfig
 		ConfigValues.Add(entries, "padding", Padding);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static BlockDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+	};
 }

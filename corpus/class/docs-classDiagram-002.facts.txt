@@ -12,6 +12,8 @@ class	Customer	Customer
 class	LineItem	LineItem
 class	Order	Order
 class	Payment	Payment
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Order	+total() : Money
 method	Payment	+authorise() : bool

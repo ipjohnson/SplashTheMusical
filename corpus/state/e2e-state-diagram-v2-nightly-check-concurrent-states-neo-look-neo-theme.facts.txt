@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 35557671593ead76
 accept	yes
+config	look	"neo"
+config	state.theme	"neo"
+config	theme	"neo"
 drawn	yes
 edge	CapsLockOff	CapsLockOn	none	arrow_barb_neo	solid
 edge	CapsLockOn	CapsLockOff	none	arrow_barb_neo	solid

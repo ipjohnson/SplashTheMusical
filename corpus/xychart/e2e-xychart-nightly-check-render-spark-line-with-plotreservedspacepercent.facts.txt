@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source d25d49f21c2ae0b1
 accept	yes
+config	theme	"dark"
+config	xyChart.height	20
+config	xyChart.plotReservedSpacePercent	100
+config	xyChart.width	200
 drawn	yes
 preamble-config	theme	"dark"
 preamble-config	xyChart.height	20

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 4b11725dbbb6f1d0
 accept	yes
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	CAR	CAR
 entity	NAMED-DRIVER	NAMED-DRIVER

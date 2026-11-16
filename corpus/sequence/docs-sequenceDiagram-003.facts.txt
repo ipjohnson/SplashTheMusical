@@ -6,6 +6,8 @@ actor	API	API gateway	participant
 actor	Bank	Bank	participant
 actor	Customer	Customer	actor
 actor	Web	Web app	participant
+config	sequence.look	"classic"
+config	sequence.theme	"default"
 drawn	yes
 message	API	Bank	solid	filled	Authorise payment
 message	API	Web	dashed	filled	201 Created

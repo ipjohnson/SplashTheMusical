@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source fa6b266201b56ece
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	Applicability	Applicability
 entity	ApplicabilityEntry	ApplicabilityEntry

@@ -30,8 +30,10 @@ mise run upstream-generate <checkout> --check  # fail when the generated files d
 ```
 
 `upstream-generate` takes a checkout of mermaid-js/mermaid at the tag of the mermaid `tools/oracle` pins. The files in
-`src/SplashTheMusical/Config/Generated` are only written by it. `DefaultConfigTests` compares the default `MermaidConfig`
-with the oracle's `corpus/config.txt`.
+`src/SplashTheMusical/Config/Generated` are only written by it. It also writes `ConfigKeys.g.cs` from the `name` lines of
+`corpus/config.txt`, so run `mise run corpus-oracle` first after a mermaid upgrade. `DefaultConfigTests` compares the
+default `MermaidConfig` with the oracle's `corpus/config.txt`. `AppliedConfigTests` compares the config
+`MermaidConfig.Resolve` applies to each corpus case with the oracle's `config` facts.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 

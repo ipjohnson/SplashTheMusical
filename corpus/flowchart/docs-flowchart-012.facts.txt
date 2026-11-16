@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c57732f4dea61398
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	id1	Database	cyl
 type	flowchart-v2

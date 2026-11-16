@@ -3,6 +3,8 @@
 # source be7abcd82972db66
 accept	yes
 actor	First	First	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	First

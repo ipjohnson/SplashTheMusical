@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 9a7dc1753492b36e
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 element	test_suite	test suite	github.com/org/tests
 label	1

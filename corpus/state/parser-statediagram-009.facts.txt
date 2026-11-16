@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 64cdae8c12a8436a
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	assemblies	assemblies	rounded
 type	stateDiagram

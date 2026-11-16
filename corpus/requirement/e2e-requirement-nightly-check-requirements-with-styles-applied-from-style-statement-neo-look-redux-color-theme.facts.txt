@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 13b1306f5ceec2e9
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	styled_entity	component
 label	1

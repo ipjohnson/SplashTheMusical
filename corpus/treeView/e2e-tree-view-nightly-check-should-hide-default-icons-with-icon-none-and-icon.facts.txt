@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 24b34698e001b7ea
 accept	yes
+config	treeView.showIcons	true
 drawn	yes
 icon	src / App.tsx	none
 icon	src / index.js	none

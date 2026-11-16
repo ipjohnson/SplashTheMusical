@@ -7,6 +7,8 @@ attribute	MyService	+String publicField
 attribute	MyService	-int privateField
 attribute	MyService	~float packageField
 class	MyService	MyService
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	MyService	#reset() : void
 method	MyService	+getStatus() : String

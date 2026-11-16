@@ -13,6 +13,9 @@ commit	3	hotfix/bug	reverse	bugfix		hf-1
 commit	4	release/v2	normal	v2.0-rc1		rel-1
 commit	5	main	merge	v2.0	release/v2	release-merge
 commit	6	main	cherry-pick	hf-cherry
+config	gitGraph.mainBranchOrder	2
+config	look	"neo"
+config	theme	"neo"
 drawn	yes
 label	1
 label	auth-1

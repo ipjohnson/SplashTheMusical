@@ -4,6 +4,11 @@
 accept	yes
 attribute	Foo	+String bar
 class	Foo	Foo
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

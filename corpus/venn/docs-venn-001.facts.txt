@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9a53dbe64737af6c
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	Buildable
 label	Marketable

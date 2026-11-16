@@ -4,5 +4,7 @@
 accept	yes
 class	Shape	Shape
 class	Shape2	Shape2
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

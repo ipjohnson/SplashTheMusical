@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source cb6a59b35b4a4c07
 accept	yes
+config	mindmap.colorBy	"depth"
+config	theme	"base"
 drawn	yes
 label	British popular psychology author Tony Buzan
 label	Creative techniques

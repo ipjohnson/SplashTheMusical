@@ -6,7 +6,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { checkPinned } from './pinned.mjs'
-import { hookDagre, hookPreprocess } from './dumps.mjs'
+import { hookAddDirective, hookDagre, hookPreprocess } from './dumps.mjs'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 const cases = path.join(root, 'cases')
@@ -239,6 +239,30 @@ test('a case with front matter gets the preamble title and config mermaid.js rea
 		assert.equal(result.status, 0, result.stderr)
 		const facts = fs.readFileSync(path.join(dir, 'out', 'facts', 'titled.facts.txt'), 'utf8').split('\n').filter(l => l.startsWith('preamble-'))
 		assert.deepEqual(facts, ['preamble-config\tpie.textPosition\t0.5', 'preamble-config\ttheme\t"dark"', 'preamble-title\tSales'])
+	} finally {
+		fs.rmSync(dir, { recursive: true, force: true })
+	}
+})
+
+test('the addDirective hook calls the page once at the end of addDirective and refuses a bundle without it', () => {
+	const code = fs.readFileSync(path.join(root, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js'), 'utf8')
+	assert.equal(hookAddDirective(code).split(';globalThis.__oracleAddDirective?.()},"addDirective")').length, 2)
+	assert.throws(() => hookAddDirective(code.replace('"addDirective"', '"add"')), /found 0 times in mermaid\.min\.js/)
+})
+
+test('a case gets the config it is drawn with where it differs from the site config, and a locked key keeps its value', () => {
+	const dir = temp()
+	try {
+		fs.mkdirSync(path.join(dir, 'cases'))
+		fs.writeFileSync(path.join(dir, 'cases', 'configured.mmd'), '---\nconfig:\n  pie:\n    textPosition: 0.5\n---\n%%{init: {"securityLevel": "loose", "theme": "dark"}}%%\npie\n  "a": 1\n')
+		const result = run(root, path.join(dir, 'cases'), path.join(dir, 'out'))
+		assert.equal(result.status, 0, result.stderr)
+		const facts = fs.readFileSync(path.join(dir, 'out', 'facts', 'configured.facts.txt'), 'utf8').split('\n').filter(l => l.startsWith('config\t'))
+		assert.deepEqual(facts, ['config\tpie.textPosition\t0.5', 'config\ttheme\t"dark"'])
+		const names = lines(path.join(dir, 'out', 'facts', 'config.txt')).filter(l => l.startsWith('name\t'))
+		for (const name of ['name\ttheme', 'name\tflowchart', 'name\tprimaryColor', 'name\tmessageFont'])
+			assert.ok(names.includes(name), name)
+		assert.ok(!names.includes('name\tsecure'), 'secure is an array, which keyify leaves out')
 	} finally {
 		fs.rmSync(dir, { recursive: true, force: true })
 	}

@@ -126,4 +126,28 @@ public sealed partial class ErDiagramConfig
 		ConfigValues.Add(entries, "fontSize", FontSize);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static ErDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		DiagramPadding = ConfigValues.ReadNumber(value?["diagramPadding"]),
+		LayoutDirection = ConfigValues.ReadString(value?["layoutDirection"]),
+		MinEntityWidth = ConfigValues.ReadNumber(value?["minEntityWidth"]),
+		MinEntityHeight = ConfigValues.ReadNumber(value?["minEntityHeight"]),
+		EntityPadding = ConfigValues.ReadNumber(value?["entityPadding"]),
+		NodeSpacing = ConfigValues.ReadNumber(value?["nodeSpacing"]),
+		RankSpacing = ConfigValues.ReadNumber(value?["rankSpacing"]),
+		Stroke = ConfigValues.ReadString(value?["stroke"]),
+		Fill = ConfigValues.ReadString(value?["fill"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+	};
 }

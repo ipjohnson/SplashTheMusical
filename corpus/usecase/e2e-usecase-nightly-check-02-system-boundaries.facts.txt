@@ -6,6 +6,8 @@ actor	Customer	Customer	normal
 actor	Support	Support agent	normal
 boundary	Storefront	Storefront	rect	Browse,Order,Track
 boundary	admin	Admin Panel	package	Process,Returns
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Admin Panel

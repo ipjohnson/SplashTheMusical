@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 7677982d4cd415d8
 accept	yes
+config	layout	"swimlane"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Browse	Pay	none	arrow	solid
 edge	Pay	Invoice	none	arrow	solid

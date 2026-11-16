@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 1027eeced177411b
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 element	design_doc	document	docs/design.md
 label	10

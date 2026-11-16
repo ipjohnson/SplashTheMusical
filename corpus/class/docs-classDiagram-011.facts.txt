@@ -6,6 +6,8 @@ attribute	Square	-List<string> messages
 attribute	Square	List<int> position
 attribute	Square	int id
 class	Square	Square<Shape>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Square	+getDistanceMatrix() : List<List<int>>
 method	Square	+getMessages() : List<string>

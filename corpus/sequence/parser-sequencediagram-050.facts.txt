@@ -4,6 +4,8 @@
 accept	yes
 actor	1	1	participant
 actor	2	2	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	1	2	solid	filled	single-line text
 note	right	2	single-line text

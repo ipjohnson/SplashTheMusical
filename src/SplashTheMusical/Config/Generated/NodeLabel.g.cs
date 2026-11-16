@@ -34,4 +34,16 @@ public sealed partial class NodeLabel
 		ConfigValues.Add(entries, "y", Y);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static NodeLabel FromValue(MermaidValue? value) => new()
+	{
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		X = ConfigValues.ReadNumber(value?["x"]),
+		Y = ConfigValues.ReadNumber(value?["y"]),
+	};
 }

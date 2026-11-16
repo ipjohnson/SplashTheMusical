@@ -3,6 +3,8 @@
 # source 09461b572f3e64fd
 accept	yes
 class	UserService	UserService
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	UserService	+login()
 method	UserService	+logout()

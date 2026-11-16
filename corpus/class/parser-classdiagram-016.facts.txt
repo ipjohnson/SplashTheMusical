@@ -22,6 +22,8 @@ attribute	User	__ private data __
 attribute	User	int age
 class	Foo1	Foo1
 class	User	User
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	User	+ getAddress()
 method	User	+ getName()

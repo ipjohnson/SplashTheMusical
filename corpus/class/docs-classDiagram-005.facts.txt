@@ -5,6 +5,8 @@ accept	yes
 class	Animal	Animal
 class	Car	Car
 class	Vehicle	Vehicle
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Vehicle	Car	triangle	none	solid
 type	classDiagram

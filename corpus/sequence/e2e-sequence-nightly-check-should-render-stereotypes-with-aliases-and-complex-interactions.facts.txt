@@ -9,6 +9,8 @@ actor	UserDB	User DB	database
 actor	Web	Web Portal	boundary
 block	alt	Valid credentials
 block	par	Parallel processing
+config	sequence.look	"classic"
+config	theme	"redux-color"
 divider
 divider	Invalid credentials
 drawn	yes

@@ -4,6 +4,8 @@
 accept	yes
 actor	Hollow	Hollow	hollow	yes
 actor	Normal	Normal	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Business

@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 79b04fd6802557f3
 accept	yes
+config	flowchart.titleTopMargin	0
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	D	I	none	arrow	solid
 edge	D	I	none	arrow	solid

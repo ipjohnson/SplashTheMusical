@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 38d4cbad533b67d2
 accept	yes
+config	flowchart.look	"handDrawn"
+config	handDrawnSeed	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 node	A	Christmas	rect
 preamble-config	handDrawnSeed	1

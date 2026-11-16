@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 94509ad60e9bcc95
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 element	hw_element	hardware	specs/hw_spec.pdf
 element	sw_element	software	github.com/org/repo

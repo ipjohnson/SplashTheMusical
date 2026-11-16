@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 204288f095991aa8
 accept	yes
+config	agentflow.look	"handDrawn"
+config	handDrawnSeed	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	tasks	more	sequence

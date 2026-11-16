@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f98396d5603aae57
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	text including URL space and send
 node	A	A	rect

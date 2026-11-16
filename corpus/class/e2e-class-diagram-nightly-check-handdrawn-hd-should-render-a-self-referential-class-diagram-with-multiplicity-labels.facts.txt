@@ -6,6 +6,11 @@ attribute	SelfReferential	+SelfReferential referenced
 attribute	SelfReferential	+int id
 attribute	SelfReferential	+int self_referential_id
 class	SelfReferential	SelfReferential
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

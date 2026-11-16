@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 5b4b994c929f3fbf
 accept	yes
+config	journey.maxLabelWidth	200
 drawn	yes
 label	Gustavo Fring is played by Giancarlo Esposito and is a character in Breaking Bad.
 label	Test

@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 1bafcf479a9a4573
 accept	yes
+config	sankey.nodeColors	missing
+config	sankey.nodeColors.Electricity grid	"#4e79a7"
+config	sankey.nodeColors.Industry	"#e15759"
+config	sankey.nodeColors.Losses	"#bab0ab"
+config	sankey.showValues	false
 drawn	yes
 flow	Electricity grid	Heating and cooling - homes	113.726
 flow	Electricity grid	Industry	342.165

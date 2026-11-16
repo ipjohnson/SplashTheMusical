@@ -208,4 +208,41 @@ public sealed partial class JourneyDiagramConfig
 		ConfigValues.Add(entries, "titleFontSize", TitleFontSize);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static JourneyDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		DiagramMarginX = ConfigValues.ReadNumber(value?["diagramMarginX"]),
+		DiagramMarginY = ConfigValues.ReadNumber(value?["diagramMarginY"]),
+		LeftMargin = ConfigValues.ReadNumber(value?["leftMargin"]),
+		MaxLabelWidth = ConfigValues.ReadNumber(value?["maxLabelWidth"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		BoxMargin = ConfigValues.ReadNumber(value?["boxMargin"]),
+		BoxTextMargin = ConfigValues.ReadNumber(value?["boxTextMargin"]),
+		NoteMargin = ConfigValues.ReadNumber(value?["noteMargin"]),
+		MessageMargin = ConfigValues.ReadNumber(value?["messageMargin"]),
+		MessageAlign = ConfigValues.ReadString(value?["messageAlign"]),
+		BottomMarginAdj = ConfigValues.ReadNumber(value?["bottomMarginAdj"]),
+		RightAngles = ConfigValues.ReadBoolean(value?["rightAngles"]),
+		TaskFontSize = ConfigValues.ReadValue(value?["taskFontSize"]),
+		TaskFontFamily = ConfigValues.ReadString(value?["taskFontFamily"]),
+		TaskMargin = ConfigValues.ReadNumber(value?["taskMargin"]),
+		ActivationWidth = ConfigValues.ReadNumber(value?["activationWidth"]),
+		TextPlacement = ConfigValues.ReadString(value?["textPlacement"]),
+		ActorColours = ConfigValues.ReadStringList(value?["actorColours"]),
+		SectionFills = ConfigValues.ReadStringList(value?["sectionFills"]),
+		SectionColours = ConfigValues.ReadStringList(value?["sectionColours"]),
+		TitleColor = ConfigValues.ReadString(value?["titleColor"]),
+		TitleFontFamily = ConfigValues.ReadString(value?["titleFontFamily"]),
+		TitleFontSize = ConfigValues.ReadString(value?["titleFontSize"]),
+	};
 }

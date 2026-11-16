@@ -8,6 +8,9 @@ attribute	c	string	email
 attribute	d	string	email
 attribute	p	string	firstName
 attribute	p	string	lastName
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	a	Customer Account
 entity	b	Customer Account Secondary

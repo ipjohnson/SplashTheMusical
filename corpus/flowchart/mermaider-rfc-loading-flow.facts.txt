@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 52c1fe35e1cc1c58
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	disk	uriResolve	none	arrow	solid
 edge	disk	v1Load	none	arrow	solid

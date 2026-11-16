@@ -4,5 +4,7 @@
 accept	yes
 class	Animal	Animal
 class	Mineral	Mineral
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

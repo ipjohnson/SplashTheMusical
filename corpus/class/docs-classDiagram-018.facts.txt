@@ -6,6 +6,8 @@ attribute	Rectangle	double height
 attribute	Rectangle	double width
 class	Rectangle	Rectangle
 class	Triangle	Triangle
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	BaseShapes	Rectangle,Triangle
 type	classDiagram

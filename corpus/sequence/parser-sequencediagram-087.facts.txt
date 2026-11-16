@@ -4,6 +4,10 @@
 accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
+config	wrap	true
 drawn	yes
 message	Alice	Bob	solid	none	Hello Bob, how are you?
 preamble-config	logLevel	0

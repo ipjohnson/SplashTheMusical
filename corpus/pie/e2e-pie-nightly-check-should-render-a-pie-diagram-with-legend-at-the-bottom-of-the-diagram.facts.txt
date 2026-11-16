@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source b20c85d25fc97944
 accept	yes
+config	pie.legendPosition	"bottom"
 drawn	yes
 label	Back
 label	Football Team Member Position

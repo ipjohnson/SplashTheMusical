@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	Charlie	Charlie	participant
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	dashed	filled-both	Dual central connection
 message	Alice	Bob	solid	filled	Normal message

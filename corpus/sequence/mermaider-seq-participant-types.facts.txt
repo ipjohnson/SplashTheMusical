@@ -10,6 +10,8 @@ actor	L	L	collections
 actor	P	Plain	participant
 actor	Q	Q	queue
 actor	U	User	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	B	C	solid	filled	route
 message	C	E	solid	filled	load

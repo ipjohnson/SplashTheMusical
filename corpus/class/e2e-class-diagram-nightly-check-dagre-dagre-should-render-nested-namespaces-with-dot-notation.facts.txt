@@ -5,6 +5,11 @@ accept	yes
 class	Designer	Designer
 class	Developer	Developer
 class	TechLead	TechLead
+config	htmlLabels	true
+config	layout	"dagre"
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Designer	+createMockup()
 method	Developer	+writeCode()

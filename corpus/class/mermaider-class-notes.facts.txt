@@ -6,6 +6,8 @@ attribute	User	+String email
 attribute	User	+String name
 class	User	User
 class	UserService	UserService
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	UserService	+createUser() : User
 method	UserService	+deleteUser(id) : void

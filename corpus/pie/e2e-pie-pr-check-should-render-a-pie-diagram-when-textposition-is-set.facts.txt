@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source a90e321c12798c48
 accept	yes
+config	logLevel	1
+config	pie.textPosition	0.9
 drawn	yes
 label	Cats
 label	Dogs

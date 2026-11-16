@@ -114,4 +114,23 @@ public sealed partial class AgentflowDiagramConfig
 		ConfigValues.Add(entries, "minNodeWidth", MinNodeWidth);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static AgentflowDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		DiagramPadding = ConfigValues.ReadNumber(value?["diagramPadding"]),
+		NodeSpacing = ConfigValues.ReadNumber(value?["nodeSpacing"]),
+		RankSpacing = ConfigValues.ReadNumber(value?["rankSpacing"]),
+		WrappingWidth = ConfigValues.ReadNumber(value?["wrappingWidth"]),
+		MinNodeWidth = ConfigValues.ReadNumber(value?["minNodeWidth"]),
+	};
 }

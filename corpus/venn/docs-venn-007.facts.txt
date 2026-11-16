@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source cd2ead2b0d04ca5f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	Backend
 label	Frontend

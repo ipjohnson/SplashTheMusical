@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source d561ac0d1dbfc893
 accept	yes
+config	look	"neo"
+config	state.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 edge	Active	Inactive	none	arrow_barb_neo	solid
 edge	Inactive	[*]end@root	none	arrow_barb_neo	solid

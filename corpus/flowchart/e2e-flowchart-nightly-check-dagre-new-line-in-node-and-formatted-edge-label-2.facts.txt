@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 02dfbcdc806d1b40
 accept	yes
+config	flowchart.htmlLabels	false
+config	flowchart.titleTopMargin	0
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	b	c	none	arrow	solid	1o bold
 node	b	The dog in the hog.(1) NL	rounded

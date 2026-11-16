@@ -10,6 +10,9 @@ attribute	ORDER	date	placedAt
 attribute	ORDER	int	id
 attribute	PRODUCT	string	sku
 attribute	PRODUCT	string	title
+config	er.look	"classic"
+config	er.theme	"default"
+config	layout	"dagre"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	LINE_ITEM	LINE_ITEM

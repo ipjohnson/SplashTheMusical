@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 4d3420e45f7a8f7d
 accept	yes
+config	treeView.showIcons	true
 drawn	yes
 label	index.js
 label	package.json

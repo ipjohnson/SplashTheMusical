@@ -4,6 +4,8 @@
 accept	yes
 attribute	CLUSTER	string(255)	description
 attribute	CLUSTER	varchar(99)	name
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CLUSTER	CLUSTER
 label	CLUSTER

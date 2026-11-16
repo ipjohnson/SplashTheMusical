@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source df37b14d183fcdc5
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Manual file	flip-tri
 type	flowchart-v2

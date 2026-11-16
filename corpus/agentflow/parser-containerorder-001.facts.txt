@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source ba8c02fce649943b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 flow	first	First	a

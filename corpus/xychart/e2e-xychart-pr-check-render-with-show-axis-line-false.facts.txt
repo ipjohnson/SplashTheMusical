@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source bdc70544783c6d89
 accept	yes
+config	xyChart.xAxis.showAxisLine	false
+config	xyChart.yAxis.showAxisLine	false
 drawn	yes
 label	Months
 label	Revenue (in $)

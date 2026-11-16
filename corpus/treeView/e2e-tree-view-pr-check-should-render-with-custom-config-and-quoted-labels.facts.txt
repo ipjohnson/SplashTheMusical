@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d8a09ed88f3127e8
 accept	yes
+config	treeView.lineThickness	3
+config	treeView.rowIndent	80
 drawn	yes
 label	file1.js
 label	file2.ts

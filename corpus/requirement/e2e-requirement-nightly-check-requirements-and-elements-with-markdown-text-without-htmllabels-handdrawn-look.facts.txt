@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 90f9bb59db6965af
 accept	yes
+config	htmlLabels	false
+config	look	"handDrawn"
+config	requirement.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 element	*my italicized name*	**Bolded type** _italicized type_	*Italicized* __Bolded__
 label	**Bolded text** _italicized text_

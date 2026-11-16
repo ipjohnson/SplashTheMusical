@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 0d80f4939e9adb63
 accept	yes
+config	xyChart.showDataLabel	true
 drawn	yes
 label	Months
 label	Revenue (in $)

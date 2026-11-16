@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 0f46b0cad0417c1a
 accept	yes
+config	logLevel	0
+config	look	"neo"
+config	state.theme	"forest"
+config	theme	"forest"
 drawn	yes
 edge	A	B	none	arrow	solid
 edge	Active	SomethingElse	none	arrow	solid

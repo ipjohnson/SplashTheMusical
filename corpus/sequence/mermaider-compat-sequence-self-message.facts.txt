@@ -4,6 +4,8 @@
 accept	yes
 actor	Queue	Queue	participant
 actor	Service	Service	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Queue	Queue	solid	filled	Process internally
 message	Queue	Service	dashed	filled	Ack

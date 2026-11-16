@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 649f8876abb27f62
 accept	yes
+config	flowchart.look	"handDrawn"
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	Get money
 edge	B	C	none	arrow	solid

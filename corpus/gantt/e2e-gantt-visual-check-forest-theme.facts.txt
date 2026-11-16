@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 67e55162e7db3987
 accept	yes
+config	theme	"forest"
 drawn	yes
 label	:Adding GANTT diagram functionality to mermaid
 label	A section

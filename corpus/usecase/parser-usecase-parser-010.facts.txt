@@ -3,6 +3,8 @@
 # source 249e90c1f6680fbc
 accept	yes
 actor	Previous	Previous	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Previous

@@ -18,6 +18,8 @@ class	classM	classM
 class	classN	classN
 class	classO	classO
 class	classP	classP
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	classA	classB	none	triangle	solid	Inheritance
 relation	classC	classD	none	diamond-filled	solid	Composition

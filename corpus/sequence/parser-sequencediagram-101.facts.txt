@@ -4,5 +4,7 @@
 accept	yes
 actor	Alice	Alice	actor
 actor	Bob	Bob	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	sequence

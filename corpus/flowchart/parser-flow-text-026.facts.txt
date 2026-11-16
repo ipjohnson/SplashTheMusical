@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8e5c187be9fbd631
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	cross	solid	text including CAPS space
 node	A	A	rect

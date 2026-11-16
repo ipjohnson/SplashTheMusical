@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d4f0d635a88286d9
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	clock	ledger	none	arrow	solid
 edge	db	effects	none	arrow	dotted	committed effects

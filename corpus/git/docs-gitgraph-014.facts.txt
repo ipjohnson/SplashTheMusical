@@ -26,6 +26,10 @@ commit	6	featureB	normal
 commit	7	main	merge		hotfix
 commit	8	featureB	normal
 commit	9	featureA	normal
+config	gitGraph.showBranches	false
+config	gitGraph.showCommitLabel	false
+config	logLevel	"debug"
+config	theme	"base"
 drawn	yes
 preamble-config	gitGraph.showBranches	false
 preamble-config	gitGraph.showCommitLabel	false

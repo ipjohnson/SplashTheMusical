@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 26d721957df8d7a3
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Terminal point	stadium
 type	flowchart-v2

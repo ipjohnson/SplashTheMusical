@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 411885ac4b9fec77
 accept	yes
+config	logLevel	0
 drawn	yes
 label	Cat
 label	Do work

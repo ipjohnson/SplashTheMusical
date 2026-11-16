@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 1d9202a2ef1f19d2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	theme	"redux-color"
 set	A		10

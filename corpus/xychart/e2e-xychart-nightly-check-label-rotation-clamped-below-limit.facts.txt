@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 0c4deda972fec87e
 accept	yes
+config	xyChart.xAxis.labelRotation	-100
 drawn	yes
 label	Item
 label	Items Sold

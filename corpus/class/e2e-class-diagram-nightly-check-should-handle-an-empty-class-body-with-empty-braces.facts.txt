@@ -6,6 +6,8 @@ attribute	Bar	+Zip
 class	Ba	Ba
 class	Bar	Bar
 class	FooBase	FooBase<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Bar	+Zap()
 relation	FooBase	Ba	triangle	none	solid

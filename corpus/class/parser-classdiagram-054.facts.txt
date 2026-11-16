@@ -3,5 +3,7 @@
 # source fa9d6293fe750c43
 accept	yes
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

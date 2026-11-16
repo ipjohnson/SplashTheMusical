@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source b2407cbd8da61671
 accept	yes
+config	sankey.nodePadding	20
+config	sankey.nodeWidth	15
+config	sankey.showValues	false
 drawn	yes
 flow	Electricity grid	Heating and cooling - homes	113.726
 flow	Electricity grid	Industry	342.165

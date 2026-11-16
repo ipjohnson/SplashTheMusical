@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 55d282bc9b85f6b3
 accept	yes
+config	xyChart.showDataLabel	true
+config	xyChart.showDataLabelOutsideBar	true
 drawn	yes
 label	Genres in top 100 book survey of 2025
 label	Number of Books

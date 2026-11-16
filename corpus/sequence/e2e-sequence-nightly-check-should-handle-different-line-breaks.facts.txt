@@ -6,6 +6,8 @@ actor	1	multiline using <br>	participant
 actor	2	multiline using <br/>	participant
 actor	3	multiline using <br />	participant
 actor	4	multiline using <br />	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	1	2	solid	filled	multiline using <br>
 message	2	3	solid	filled	multiline using <br/>

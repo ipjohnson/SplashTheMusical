@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 block	opt	-:<>,
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	none	Hello Bob, how are you?
 message	Bob	Alice	dashed	none	I am good thanks!

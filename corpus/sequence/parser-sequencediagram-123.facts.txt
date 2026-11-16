@@ -4,6 +4,8 @@
 accept	yes
 actor	A	Database Server	database
 actor	B	Message Queue	queue
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Send message
 type	sequence

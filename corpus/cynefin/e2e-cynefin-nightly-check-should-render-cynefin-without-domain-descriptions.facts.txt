@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 60375309198ce122
 accept	yes
+config	cynefin.showDomainDescriptions	false
 drawn	yes
 item	clear	0	Item B
 item	complex	0	Item A

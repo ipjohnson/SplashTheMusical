@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source a07220edecb3e556
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	one	one	a
 group	two	two

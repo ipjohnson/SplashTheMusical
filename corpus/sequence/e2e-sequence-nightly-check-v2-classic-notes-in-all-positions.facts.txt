@@ -4,6 +4,8 @@
 accept	yes
 actor	A	A	actor
 actor	B	B	boundary
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Message with notes
 note	left	A	Note left of 0

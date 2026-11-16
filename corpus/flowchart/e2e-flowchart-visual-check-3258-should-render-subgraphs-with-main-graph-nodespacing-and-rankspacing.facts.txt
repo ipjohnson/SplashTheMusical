@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 72394a12df1d9e79
 accept	yes
+config	flowchart.nodeSpacing	1
+config	flowchart.rankSpacing	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	X	Y	none	arrow	solid
 group	X	X	A,C

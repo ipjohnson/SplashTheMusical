@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source a6e3612acba8b3b1
 accept	yes
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	T1	T1
 entity	T2	T2

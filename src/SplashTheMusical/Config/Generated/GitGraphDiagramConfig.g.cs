@@ -100,4 +100,27 @@ public sealed partial class GitGraphDiagramConfig
 		ConfigValues.Add(entries, "arrowMarkerAbsolute", ArrowMarkerAbsolute);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static GitGraphDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		DiagramPadding = ConfigValues.ReadNumber(value?["diagramPadding"]),
+		NodeLabel = NodeLabel.FromValue(value?["nodeLabel"]),
+		MainBranchName = ConfigValues.ReadString(value?["mainBranchName"]),
+		MainBranchOrder = ConfigValues.ReadNumber(value?["mainBranchOrder"]),
+		ShowCommitLabel = ConfigValues.ReadBoolean(value?["showCommitLabel"]),
+		ShowBranches = ConfigValues.ReadBoolean(value?["showBranches"]),
+		RotateCommitLabel = ConfigValues.ReadBoolean(value?["rotateCommitLabel"]),
+		ParallelCommits = ConfigValues.ReadBoolean(value?["parallelCommits"]),
+		ArrowMarkerAbsolute = ConfigValues.ReadBoolean(value?["arrowMarkerAbsolute"]),
+	};
 }

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 27e74143fa21c420
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	flip-tri	flip-tri
 node	n1	manual-file	flip-tri

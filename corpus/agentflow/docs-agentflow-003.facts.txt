@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source fd6a77e1c98668d6
 accept	yes
+config	agentflow.look	"classic"
+config	agentflow.theme	"default"
+config	layout	"dagre"
 direction	TD
 drawn	yes
 edge	brief	writer	sequence

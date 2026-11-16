@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	John	John	participant
 block	alt	either this
+config	look	"neo"
+config	theme	"redux-color"
 divider	or this
 drawn	yes
 message	Alice	John	solid	filled	Hello John

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b153dad4f8ca0655
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Priority action	trap-b
 type	flowchart-v2

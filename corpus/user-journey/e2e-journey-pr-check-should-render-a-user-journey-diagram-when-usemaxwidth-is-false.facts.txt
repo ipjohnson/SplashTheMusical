@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 9c587a03aa6be23f
 accept	yes
+config	journey.useMaxWidth	false
 drawn	yes
 label	Add payment details
 label	Add to cart

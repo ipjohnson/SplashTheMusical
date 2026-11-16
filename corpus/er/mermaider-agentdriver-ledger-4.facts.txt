@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9c086c3ec1b2ef7f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ATTACHMENTS	ATTACHMENTS
 entity	COMMANDS	COMMANDS

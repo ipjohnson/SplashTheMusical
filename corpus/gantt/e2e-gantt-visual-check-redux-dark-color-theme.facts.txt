@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source d25a5787d131daba
 accept	yes
+config	theme	"redux-dark-color"
 drawn	yes
 label	Backend
 label	Beta

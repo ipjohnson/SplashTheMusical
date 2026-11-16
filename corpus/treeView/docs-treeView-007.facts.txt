@@ -2,6 +2,14 @@
 # mermaid 12.3.0
 # source 713fb18511ddb1cc
 accept	yes
+config	treeView.defaultIconPack	"material-icon-theme"
+config	treeView.extensionIcons	missing
+config	treeView.extensionIcons..ts	"typescript"
+config	treeView.extensionIcons..tsx	"react-ts"
+config	treeView.extensionIcons..txt	"none"
+config	treeView.filenameIcons	missing
+config	treeView.filenameIcons.Dockerfile	"docker"
+config	treeView.showIcons	true
 drawn	yes
 label	App.tsx
 label	Dockerfile

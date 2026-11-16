@@ -7,6 +7,8 @@ actor	B	B	participant
 actor	C	C	participant
 box	External	C
 box	Internal	A,B
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Internal msg
 message	B	C	solid	filled	External msg

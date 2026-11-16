@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 71898f5dabbee603
 accept	yes
+config	fontFamily	"courier"
+config	handDrawnSeed	1
+config	look	"handDrawn"
+config	theme	"redux-color"
+config	venn.look	"handDrawn"
 drawn	yes
 preamble-config	fontFamily	"courier"
 preamble-config	handDrawnSeed	1

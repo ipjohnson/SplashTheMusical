@@ -5,6 +5,8 @@ accept	yes
 actor	API	API	participant
 actor	Client	Client	participant
 actor	DB	DB	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	Client	dashed	filled	200 OK
 message	API	Client	dashed	filled	Auth token

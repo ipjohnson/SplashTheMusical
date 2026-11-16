@@ -6,6 +6,8 @@ actor	Alice	Alice	boundary
 actor	Bob	Bob	participant
 actor	Carl	Carl	control
 actor	D	Donald	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you ?
 message	Alice	Carl	solid	cross	We are too many

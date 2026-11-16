@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 29e2563d7fcc9613
 accept	yes
+config	flowchart.theme	"redux-dark"
+config	look	"neo"
+config	theme	"redux-dark"
 drawn	yes
 edge	n00	n11	none	arrow	solid
 edge	n00	n22	none	arrow	solid

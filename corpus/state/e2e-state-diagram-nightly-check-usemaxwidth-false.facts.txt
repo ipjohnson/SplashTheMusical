@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source d8fe45b00c791252
 accept	yes
+config	look	"neo"
+config	state.useMaxWidth	false
+config	theme	"redux-color"
 drawn	yes
 edge	State1	[*]end@root	none	arrow	solid
 edge	[*]start@root	State1	none	arrow	solid

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source bfb627615d02eaff
 accept	yes
+config	flowchart.stepDuration	0.5
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	API	Client	none	arrow	solid
 edge	Client	API	none	arrow	solid

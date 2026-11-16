@@ -5,6 +5,10 @@ accept	yes
 attribute	BOOK	string	title
 attribute	BOOK	string[]	authors
 attribute	BOOK	type~T~	type
+config	er.look	"handDrawn"
+config	htmlLabels	false
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	BOOK	BOOK
 label	BOOK

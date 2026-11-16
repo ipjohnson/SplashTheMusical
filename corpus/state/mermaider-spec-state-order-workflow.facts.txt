@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d9f2d2f5666a5a78
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Cancelled	[*]end@root	none	arrow	solid
 edge	Confirmed	Shipped	none	arrow	solid	dispatch

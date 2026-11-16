@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9cc58e614d6e51a2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CATEGORY	CATEGORY
 entity	CHILD	CHILD

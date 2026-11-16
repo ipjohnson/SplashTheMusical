@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d73873cc38a21175
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	diam	diam
 node	n1	decision	diam

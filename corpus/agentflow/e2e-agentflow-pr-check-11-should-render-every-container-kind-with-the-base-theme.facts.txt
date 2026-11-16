@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 0676906a3c4d2d44
 accept	yes
+config	agentflow.theme	"base"
+config	look	"neo"
+config	theme	"base"
 direction	TD
 drawn	yes
 edge	decide	archive	failure

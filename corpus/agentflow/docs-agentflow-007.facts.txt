@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f5eb8cfb8dfe7949
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	index	corpus	reference

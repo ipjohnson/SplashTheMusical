@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 28e6276ae14a6948
 accept	yes
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	LINE-ITEM	LINE-ITEM

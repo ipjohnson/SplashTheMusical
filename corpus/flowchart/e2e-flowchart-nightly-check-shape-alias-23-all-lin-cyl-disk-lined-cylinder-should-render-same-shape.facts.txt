@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8ca4728e044738c8
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	lin-cyl	lin-cyl
 node	n1	disk	lin-cyl

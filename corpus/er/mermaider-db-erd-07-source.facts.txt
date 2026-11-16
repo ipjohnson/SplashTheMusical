@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 796f57f1e169bdfa
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	Checkout	Checkout
 entity	ContentSource	ContentSource

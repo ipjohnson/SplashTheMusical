@@ -4,6 +4,10 @@
 accept	yes
 actor	Alice	Alice	participant
 actor	John	John	participant
+config	look	"neo"
+config	sequence.fontSize	24
+config	sequence.theme	"dark"
+config	theme	"dark"
 drawn	yes
 message	Alice	John	solid	filled	Hello John, how are you?
 message	Alice	John	solid	filled	John, can you hear me?

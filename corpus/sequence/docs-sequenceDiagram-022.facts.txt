@@ -3,6 +3,8 @@
 # source 592325d675379703
 accept	yes
 actor	John	John	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 note	right	John	Text in note
 type	sequence

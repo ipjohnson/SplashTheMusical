@@ -4,6 +4,8 @@
 accept	yes
 class	Animal	Living creature
 class	Dog	Dog
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Animal	Dog	triangle	none	solid
 type	classDiagram

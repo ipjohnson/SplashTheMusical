@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 0512cdb398ef48a2
 accept	yes
+config	fontFamily	"courier"
+config	look	"neo"
+config	state.theme	"neo"
+config	theme	"neo"
 drawn	yes
 node	State1	The state with a note	rounded
 note	State1	Important information! You can write notes.

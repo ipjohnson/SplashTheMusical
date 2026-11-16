@@ -6,6 +6,8 @@ attribute	C1	+member1
 attribute	C1	<<interface>>
 class	C1	Class 1 with text label
 class	C2	C2
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	C1	C2	none	arrow	solid
 type	classDiagram

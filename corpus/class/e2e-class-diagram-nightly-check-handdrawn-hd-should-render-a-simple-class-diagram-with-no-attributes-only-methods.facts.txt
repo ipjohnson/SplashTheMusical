@@ -3,6 +3,11 @@
 # source 5d20f8b251ec264d
 accept	yes
 class	Duck	Duck
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 method	Duck	+quack()
 method	Duck	+swim()

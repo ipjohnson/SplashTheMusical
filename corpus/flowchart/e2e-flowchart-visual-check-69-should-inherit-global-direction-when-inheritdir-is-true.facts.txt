@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source cd5c811ba5b03e0d
 accept	yes
+config	flowchart.inheritDir	true
+config	fontFamily	"courier"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a	b	none	arrow	solid
 edge	c	d	none	arrow	solid

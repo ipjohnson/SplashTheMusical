@@ -3,6 +3,8 @@
 # source bc06236e060fb614
 accept	yes
 class	foo	foo
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	()bar	foo	lollipop	none	solid
 type	classDiagram

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 4ac8b1e3dba7ce46
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	Innovation
 set	Desirable		10

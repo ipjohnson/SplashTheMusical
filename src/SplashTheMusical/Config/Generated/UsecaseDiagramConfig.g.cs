@@ -179,4 +179,29 @@ public sealed partial class UsecaseDiagramConfig
 		ConfigValues.Add(entries, "colorScheme", ColorScheme);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static UsecaseDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		WrappingWidth = ConfigValues.ReadNumber(value?["wrappingWidth"]),
+		MinNodeWidth = ConfigValues.ReadNumber(value?["minNodeWidth"]),
+		ActorFontSize = ConfigValues.ReadNumber(value?["actorFontSize"]),
+		ActorFontFamily = ConfigValues.ReadString(value?["actorFontFamily"]),
+		ActorFontWeight = ConfigValues.ReadString(value?["actorFontWeight"]),
+		UsecaseFontSize = ConfigValues.ReadNumber(value?["usecaseFontSize"]),
+		UsecaseFontFamily = ConfigValues.ReadString(value?["usecaseFontFamily"]),
+		UsecaseFontWeight = ConfigValues.ReadString(value?["usecaseFontWeight"]),
+		NodeSpacing = ConfigValues.ReadNumber(value?["nodeSpacing"]),
+		RankSpacing = ConfigValues.ReadNumber(value?["rankSpacing"]),
+		DiagramPadding = ConfigValues.ReadNumber(value?["diagramPadding"]),
+		ColorScheme = ConfigValues.ReadString(value?["colorScheme"]),
+	};
 }

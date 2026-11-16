@@ -6,6 +6,8 @@ attribute	c	varchar(128)	email
 attribute	o	int	orderNumber
 attribute	p	varchar(64)	firstName
 attribute	p	varchar(64)	lastName
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	c	Customer Account
 entity	o	Order

@@ -4,6 +4,8 @@
 accept	yes
 actor	A	A	participant
 actor	Link	Channel	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Link	A	solid	filled	message
 type	sequence

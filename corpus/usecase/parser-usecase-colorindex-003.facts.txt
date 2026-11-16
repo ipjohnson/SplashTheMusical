@@ -4,6 +4,8 @@
 accept	yes
 actor	A	A	normal
 actor	B	B	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	A

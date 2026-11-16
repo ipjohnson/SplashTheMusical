@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 2a86a66620eaf3a7
 accept	yes
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	DEAD_PARROT	DEAD_PARROT
 entity	HERMIT	HERMIT

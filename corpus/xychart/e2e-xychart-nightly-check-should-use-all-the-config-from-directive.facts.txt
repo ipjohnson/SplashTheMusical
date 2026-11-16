@@ -2,6 +2,24 @@
 # mermaid 12.3.0
 # source c69eeca6c0b4fde0
 accept	yes
+config	xyChart.chartOrientation	"horizontal"
+config	xyChart.height	600
+config	xyChart.plotReservedSpacePercent	60
+config	xyChart.titleFontSize	10
+config	xyChart.titlePadding	5
+config	xyChart.width	1000
+config	xyChart.xAxis.labelFontSize	"20"
+config	xyChart.xAxis.labelPadding	10
+config	xyChart.xAxis.tickLength	10
+config	xyChart.xAxis.tickWidth	5
+config	xyChart.xAxis.titleFontSize	30
+config	xyChart.xAxis.titlePadding	20
+config	xyChart.yAxis.labelFontSize	"20"
+config	xyChart.yAxis.labelPadding	10
+config	xyChart.yAxis.tickLength	10
+config	xyChart.yAxis.tickWidth	5
+config	xyChart.yAxis.titleFontSize	30
+config	xyChart.yAxis.titlePadding	20
 drawn	yes
 label	Months
 label	Revenue (in $)

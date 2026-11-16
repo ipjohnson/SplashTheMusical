@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source cc8d911047846365
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	none	solid	This is the 123 s text
 edge	A	B	none	none	solid	This is the second edge

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source aa0216ee592b4046
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux"
+config	theme	"redux"
 drawn	yes
 label	1
 label	2

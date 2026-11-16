@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source fabdb8ae303c62e1
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	elem_b	service
 label	2

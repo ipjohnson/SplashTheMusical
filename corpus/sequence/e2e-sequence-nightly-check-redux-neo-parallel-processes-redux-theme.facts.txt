@@ -10,6 +10,9 @@ actor	Order	Order	entity
 actor	OrdersDB	OrdersDB	database
 actor	PaymentService	PaymentService	boundary
 block	par	Parallel Processing
+config	look	"neo"
+config	sequence.theme	"redux"
+config	theme	"redux"
 divider
 drawn	yes
 message	Customer	Frontend	solid	filled	Place order

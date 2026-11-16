@@ -6,6 +6,11 @@ actor	Business	Business	normal	yes
 actor	Hollow	Hollow	hollow
 actor	Normal	Normal User	normal
 boundary	Authentication_System	Authentication System	rect	Login,Reset
+config	look	"neo"
+config	theme	"redux-dark-color"
+config	usecase.colorScheme	"rotate"
+config	usecase.diagramPadding	24
+config	usecase.theme	"redux-dark-color"
 direction	LR
 drawn	yes
 json	Payload

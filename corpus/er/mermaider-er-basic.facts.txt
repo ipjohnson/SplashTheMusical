@@ -11,6 +11,8 @@ attribute	LINE_ITEM	int	quantity
 attribute	ORDER	date	created
 attribute	ORDER	int	id	PK
 attribute	ORDER	string	status
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	LINE_ITEM	LINE_ITEM

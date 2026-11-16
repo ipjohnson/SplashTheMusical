@@ -2,5 +2,7 @@
 # mermaid 12.3.0
 # source 895a3df7907ef609
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	er

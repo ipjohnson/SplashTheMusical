@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8ff25615648a82d2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	PERSON	PERSON
 entity	POSSESSION	POSSESSION

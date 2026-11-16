@@ -5,6 +5,8 @@ accept	yes
 attribute	PERSON	string	firstName
 attribute	PERSON	string	lastName
 attribute	PERSON	string?	middleName
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	PERSON	PERSON
 label	PERSON

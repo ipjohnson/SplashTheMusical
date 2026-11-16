@@ -4,6 +4,9 @@
 accept	yes
 attribute	BOOK	float	price
 attribute	BOOK	string	title
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR	AUTHOR
 entity	BOOK	BOOK

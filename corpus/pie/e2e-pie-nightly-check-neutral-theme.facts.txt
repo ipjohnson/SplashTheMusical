@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source a92fa52da7d79cee
 accept	yes
+config	theme	"neutral"
 drawn	yes
 label	Bandy
 label	Football

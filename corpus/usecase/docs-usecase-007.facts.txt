@@ -3,6 +3,8 @@
 # source e30205185984ab8a
 accept	yes
 actor	Analyst	*Analyst*	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	**Literal markers**

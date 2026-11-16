@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b7c76bd603270c83
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	test harness component	test suite	docs/test_harness.md
 label	1

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 145f017481e74f0f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	DocumentationSet	DocumentationSet
 entity	DocumentationSetNavigation	DocumentationSetNavigation

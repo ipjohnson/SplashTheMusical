@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source e1d0405f57741186
 accept	yes
+config	journey.maxLabelWidth	100
 drawn	yes
 label	Long Word Test
 label	Supercalifragilisticexpialidocious

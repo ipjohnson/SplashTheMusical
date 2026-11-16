@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 3a814849f81b02e1
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Delay	delay
 type	flowchart-v2

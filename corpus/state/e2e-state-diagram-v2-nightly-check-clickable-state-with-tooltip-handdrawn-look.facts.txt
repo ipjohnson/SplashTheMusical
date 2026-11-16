@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 4ed2696ff296c23c
 accept	yes
+config	look	"handDrawn"
+config	state.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 node	A	Google	rounded
 preamble-config	look	"handDrawn"

@@ -5,6 +5,8 @@ accept	yes
 attribute	Square	List<int> position
 attribute	Square	int id
 class	Square	Square<Shape>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Square	getPoints() : List<int>
 method	Square	setPoints(List<int> points)

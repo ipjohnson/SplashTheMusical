@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 2406ad02ae7265c8
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A		hourglass
 type	flowchart-v2

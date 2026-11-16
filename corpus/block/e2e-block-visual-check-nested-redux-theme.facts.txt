@@ -10,6 +10,8 @@ block	inner1		composite	1	outer
 block	inner2		composite	1	outer
 block	outer		composite	1
 block	sibling		composite	1
+config	look	"neo"
+config	theme	"redux"
 drawn	yes
 label	four
 label	one

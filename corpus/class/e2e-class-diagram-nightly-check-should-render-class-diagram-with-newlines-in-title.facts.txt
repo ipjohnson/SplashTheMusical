@@ -8,6 +8,8 @@ attribute	Du ck	+String beakColor
 attribute	Du ck	+String featherColor
 class	Animal	Animal
 class	Du ck	Du ck
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Animal	+isMammal()
 method	Animal	+mate()

@@ -7,6 +7,8 @@ actor	C	Two lines	control
 actor	DB	Database	database
 actor	P	Plain	participant
 actor	U	Multi line actor	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	P	DB	solid	filled	and one end
 message	U	P	solid	filled	the lifelines should share one start

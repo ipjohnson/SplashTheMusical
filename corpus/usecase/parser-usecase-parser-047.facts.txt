@@ -4,6 +4,8 @@
 accept	yes
 actor	1	Customer	normal
 actor	1mg	Milligram	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 json	4

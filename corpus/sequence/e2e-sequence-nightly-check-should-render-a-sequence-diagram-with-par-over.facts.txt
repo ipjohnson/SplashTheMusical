@@ -8,6 +8,8 @@ actor	John	John	participant
 block	par	Mixed section
 block	par	Section title
 block	par	Two line section title
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Message 1
 message	Alice	Bob	solid	filled	Message 1 Second line

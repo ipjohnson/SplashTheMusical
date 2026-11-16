@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 3c5d6ec315bc9a65
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 set	A		20
 set	B		15

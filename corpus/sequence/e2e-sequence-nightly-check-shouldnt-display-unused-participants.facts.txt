@@ -3,6 +3,9 @@
 # source 838ea39b7937cc28
 accept	yes
 actor	a	a	participant
+config	look	"neo"
+config	sequence.sequence.hideUnusedParticipants	true
+config	theme	"redux-color"
 drawn	yes
 preamble-config	sequence.sequence.hideUnusedParticipants	true
 type	sequence

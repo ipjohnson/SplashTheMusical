@@ -7,5 +7,7 @@ attribute	actual	+int publicMember
 attribute	actual	-int privateMember
 attribute	actual	~int privatePackage
 class	actual	actual
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

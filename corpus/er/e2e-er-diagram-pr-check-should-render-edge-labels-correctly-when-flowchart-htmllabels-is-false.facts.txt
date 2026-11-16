@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 546ee739aaacd089
 accept	yes
+config	flowchart.htmlLabels	false
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ADDRESS	ADDRESS
 entity	CUSTOMER	CUSTOMER

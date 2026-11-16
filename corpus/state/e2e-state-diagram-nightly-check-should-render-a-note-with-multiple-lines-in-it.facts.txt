@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 9acea87225c0f959
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	State1	The state with a note	rounded
 note	State1	Important information! You can write notes with multiple lines... Here is another line... And another line...

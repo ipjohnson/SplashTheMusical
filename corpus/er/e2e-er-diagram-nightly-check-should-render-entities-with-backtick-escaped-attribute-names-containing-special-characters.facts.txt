@@ -7,6 +7,8 @@ attribute	HOTEL	string	check-in date	PK	ISO 8601
 attribute	HOTEL	string	geo.accuracy
 attribute	ROOM	int	room.number
 attribute	ROOM	string	bed.type
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	HOTEL	HOTEL
 entity	ROOM	ROOM

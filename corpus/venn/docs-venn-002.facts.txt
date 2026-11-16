@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7401455503e883e6
 accept	yes
+config	venn.look	"classic"
+config	venn.theme	"default"
 drawn	yes
 label	Buildable
 label	Marketable

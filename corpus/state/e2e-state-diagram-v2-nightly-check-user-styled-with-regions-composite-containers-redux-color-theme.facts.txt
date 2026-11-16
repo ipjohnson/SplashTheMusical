@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 254237d5abc35e02
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Split	Neighbour	none	arrow	solid
 edge	[*]start@Neighbour	After	none	arrow	solid

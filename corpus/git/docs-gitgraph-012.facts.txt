@@ -16,6 +16,8 @@ commit	6	main	normal			fix(api): ...
 commit	7	main	normal			ci: ...
 commit	8	b1	normal
 commit	9	b2	normal
+config	logLevel	"debug"
+config	theme	"base"
 drawn	yes
 label	a
 label	b

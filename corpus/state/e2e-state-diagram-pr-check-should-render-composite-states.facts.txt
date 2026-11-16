@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source c512386e92a656dc
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Configuring	Idle	none	arrow	solid	EvConfig EvConfig EvConfig EvConfig EvConfig
 edge	Idle	Configuring	none	arrow	solid	EvConfig

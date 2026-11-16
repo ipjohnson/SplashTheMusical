@@ -7,6 +7,10 @@ actor	Bob	Bob	participant
 actor	John	John	participant
 block	loop	Every minute
 block	par	Action 1
+config	logLevel	0
+config	look	"neo"
+config	sequence.theme	"forest"
+config	theme	"forest"
 divider	Action 2
 drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you?

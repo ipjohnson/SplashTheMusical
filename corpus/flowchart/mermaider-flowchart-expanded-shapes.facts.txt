@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 23301f55f2538bde
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a1	a2	none	none	invisible
 edge	a2	a3	none	none	invisible

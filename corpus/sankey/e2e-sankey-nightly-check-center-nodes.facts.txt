@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 24147eab2170a7b4
 accept	yes
+config	sankey.nodeAlignment	"center"
+config	sankey.useMaxWidth	false
+config	sankey.width	410
 drawn	yes
 flow	a	b	8
 flow	b	c	8

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source c707ff100b107318
 accept	yes
+config	layout	"elk.box"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	labelled
 edge	A	C	none	arrow	solid

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 1fbeae16c5c88aac
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	test entity name that is extra long with spaces
 label	1

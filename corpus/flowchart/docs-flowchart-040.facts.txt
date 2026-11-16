@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 50674ff2e8365bec
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Lined process	lin-rect
 type	flowchart-v2

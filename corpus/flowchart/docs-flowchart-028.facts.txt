@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7b261343fbfaf308
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Start	circle
 type	flowchart-v2

@@ -7,5 +7,7 @@ attribute	Person	+String name
 attribute	Person	+Text demographicProfile
 attribute	Person	-Int id
 class	Person	Person
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

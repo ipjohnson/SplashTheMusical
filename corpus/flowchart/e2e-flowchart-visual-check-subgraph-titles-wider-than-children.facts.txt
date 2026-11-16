@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 5e74f7bcd6a33e6b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	app	infra	none	arrow	solid
 edge	design	app	none	arrow	solid

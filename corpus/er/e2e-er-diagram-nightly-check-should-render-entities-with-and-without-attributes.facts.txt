@@ -4,6 +4,9 @@
 accept	yes
 attribute	BOOK	float	price
 attribute	BOOK	string	title
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR	AUTHOR
 entity	BOOK	BOOK

@@ -3,6 +3,8 @@
 # source 1be70d79e300f05c
 accept	yes
 boundary	Payment_service	Payment service	rect	Authorize
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authorize payment

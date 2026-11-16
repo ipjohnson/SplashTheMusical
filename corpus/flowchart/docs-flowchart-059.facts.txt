@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8106d06596bb16c0
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Loop limit	notch-pent
 type	flowchart-v2

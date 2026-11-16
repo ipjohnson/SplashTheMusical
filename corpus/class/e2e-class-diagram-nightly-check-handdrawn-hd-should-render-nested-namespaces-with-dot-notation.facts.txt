@@ -5,6 +5,11 @@ accept	yes
 class	Designer	Designer
 class	Developer	Developer
 class	TechLead	TechLead
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 method	Designer	+createMockup()
 method	Developer	+writeCode()

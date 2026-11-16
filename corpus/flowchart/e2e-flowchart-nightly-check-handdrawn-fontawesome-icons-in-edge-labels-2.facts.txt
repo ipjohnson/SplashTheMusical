@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source da81900f9dc1a3b5
 accept	yes
+config	flowchart.htmlLabels	true
+config	flowchart.look	"handDrawn"
+config	htmlLabels	true
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 group	bar	Bar	F
 node	F	F	rect
