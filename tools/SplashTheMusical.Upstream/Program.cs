@@ -14,11 +14,14 @@ namespace SplashTheMusical.Upstream;
 /// files <see cref="FontTableWriter.Families"/> names.
 /// <c>compatibility [--check]</c> writes <c>MermaidCompatibility</c> to src/SplashTheMusical/Generated from the mermaid
 /// version in tools/oracle/package-lock.json.
+/// <c>delta &lt;old checkout&gt; &lt;new checkout&gt; &lt;before&gt; &lt;after&gt;</c> writes &lt;after&gt;/upstream-delta.md, the
+/// <see cref="DeltaReport"/> of a bump. &lt;before&gt; holds a copy of corpus/ and the conformance results.txt and
+/// results.trx from before the bump, and &lt;after&gt; holds the results from after it. The new corpus is corpus/.
 /// </remarks>
 public static class Program
 {
 	private const string Usage =
-		"usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]\n       SplashTheMusical.Upstream fonts [--check]\n       SplashTheMusical.Upstream compatibility [--check]";
+		"usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]\n       SplashTheMusical.Upstream fonts [--check]\n       SplashTheMusical.Upstream compatibility [--check]\n       SplashTheMusical.Upstream delta <old checkout> <new checkout> <before folder> <after folder>";
 
 	public static int Main(string[] args)
 	{
@@ -36,6 +39,31 @@ public static class Program
 			var compatibility = new Dictionary<string, string> { [CompatibilityWriter.FileName] = CompatibilityWriter.Write(root) };
 			var target = CompatibilityWriter.Folder(root);
 			return args.Length == 2 ? GeneratedFiles.Check(target, compatibility) : GeneratedFiles.Write(target, compatibility);
+		}
+
+		if (args.Length == 5 && args[0] == "delta")
+		{
+			var root = FindRepository();
+			var before = Path.GetFullPath(args[3]);
+			var after = Path.GetFullPath(args[4]);
+			var oldSide = new DeltaSide(
+				OracleVersion(Path.Combine(before, "corpus")),
+				Path.GetFullPath(args[1]),
+				Path.Combine(before, "corpus"),
+				Path.Combine(before, "results.txt"),
+				Path.Combine(before, "results.trx")
+			);
+			var newSide = new DeltaSide(
+				OracleVersion(Path.Combine(root, "corpus")),
+				Path.GetFullPath(args[2]),
+				Path.Combine(root, "corpus"),
+				Path.Combine(after, "results.txt"),
+				Path.Combine(after, "results.trx")
+			);
+			var report = Path.Combine(after, "upstream-delta.md");
+			File.WriteAllText(report, DeltaReport.Write(oldSide, newSide, GrammarHeaders.Map(root)));
+			Console.WriteLine($"wrote {report}");
+			return 0;
 		}
 
 		if (args.Length is < 2 or > 3 || args[0] != "config" || (args.Length == 3 && args[2] != "--check"))
@@ -80,6 +108,14 @@ public static class Program
 	{
 		var package = JsonNode.Parse(File.ReadAllText(Path.Combine(repository, "tools", "oracle", "package.json")))!;
 		return package["devDependencies"]!["mermaid"]!.GetValue<string>();
+	}
+
+	/// <summary>The mermaid version the second comment line of a corpus's config.txt names.</summary>
+	private static string OracleVersion(string corpus)
+	{
+		const string Prefix = "# mermaid ";
+		var line = File.ReadLines(Path.Combine(corpus, "config.txt")).FirstOrDefault(l => l.StartsWith(Prefix, StringComparison.Ordinal));
+		return line?[Prefix.Length..] ?? "unknown";
 	}
 
 	private static bool CheckTag(string checkout, string version)
