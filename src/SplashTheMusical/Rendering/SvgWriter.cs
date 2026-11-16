@@ -14,7 +14,7 @@ namespace SplashTheMusical.Rendering;
 /// The writer writes one <c>svg</c> document at a time. Once the root element ends it can start the next. Writing to a
 /// buffer with room for the output allocates nothing, except for <see cref="WriteStyle"/>.
 /// </remarks>
-internal sealed class SvgWriter
+public sealed class SvgWriter
 {
 	private static readonly SearchValues<char> TextEscapes = SearchValues.Create(Escapes("&<>\r"));
 
@@ -42,7 +42,7 @@ internal sealed class SvgWriter
 	/// Renders the document <paramref name="write"/> writes through a pooled buffer and returns it as a string.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"><paramref name="write"/> left an element open.</exception>
-	public static string Write<TState>(TState state, Action<SvgWriter, TState> write)
+	internal static string Write<TState>(TState state, Action<SvgWriter, TState> write)
 	{
 		ArgumentNullException.ThrowIfNull(write);
 		using var buffer = new PooledBufferWriter();
@@ -175,7 +175,7 @@ internal sealed class SvgWriter
 	/// The current element is not the root, the root has no id, or the document already has a stylesheet.
 	/// </exception>
 	/// <exception cref="ArgumentException">The root's id is not a CSS identifier.</exception>
-	public void WriteStyle(IEnumerable<CssRule> rules)
+	internal void WriteStyle(IEnumerable<CssRule> rules)
 	{
 		ArgumentNullException.ThrowIfNull(rules);
 		if (_depth != 1)
@@ -207,7 +207,7 @@ internal sealed class SvgWriter
 	/// whitespace a browser does not need. A style rule left with no declarations is not written.
 	/// </summary>
 	/// <exception cref="ArgumentException"><paramref name="svgId"/> is not a CSS identifier.</exception>
-	public static string StyleText(string svgId, IEnumerable<CssRule> rules)
+	internal static string StyleText(string svgId, IEnumerable<CssRule> rules)
 	{
 		ArgumentNullException.ThrowIfNull(svgId);
 		ArgumentNullException.ThrowIfNull(rules);

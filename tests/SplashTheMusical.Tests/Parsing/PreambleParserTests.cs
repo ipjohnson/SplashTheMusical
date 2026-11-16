@@ -221,5 +221,8 @@ public class PreambleParserTests
 		return (document, bodyStart, diagnostics);
 	}
 
-	private sealed class TestDocument : MermaidDocument;
+	private sealed class TestDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

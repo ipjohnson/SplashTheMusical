@@ -80,6 +80,46 @@ internal static class DirectiveReader
 		return true;
 	}
 
+	/// <summary>
+	/// The length of the directive pattern's match at the start of <paramref name="source"/>, which is what mermaid.js's
+	/// <c>removeDirectives</c> takes out, or 0 when the source does not start with <c>%%{</c> and a type name.
+	/// </summary>
+	public static int MatchLength(ReadOnlySpan<char> source)
+	{
+		if (!source.StartsWith("%%{", StringComparison.Ordinal))
+		{
+			return 0;
+		}
+
+		var typeStart = SkipSpace(source, 3);
+		var typeEnd = SkipWord(source, typeStart);
+		if (typeEnd == typeStart)
+		{
+			return 0;
+		}
+
+		var afterType = SkipSpace(source, typeEnd);
+		if (afterType < source.Length && source[afterType] == ':')
+		{
+			afterType++;
+		}
+
+		var argumentsStart = SkipSpace(source, afterType);
+		var wordEnd = SkipWord(source, argumentsStart);
+		int end;
+		if (wordEnd > argumentsStart)
+		{
+			end = SkipSpace(source, wordEnd);
+		}
+		else
+		{
+			var close = source[argumentsStart..].IndexOf(Close, StringComparison.Ordinal);
+			end = close < 0 ? source.Length : argumentsStart + close;
+		}
+
+		return EndAfterClose(source, end);
+	}
+
 	private static int EndAfterClose(ReadOnlySpan<char> source, int end) =>
 		source[end..].StartsWith(Close, StringComparison.Ordinal) ? end + Close.Length : end;
 

@@ -40,15 +40,15 @@ public class StmSvgsTests
 
 	/// <summary><c>mise run stm-svg</c> runs this with <see cref="StmSvgs.FolderVariable"/> set. Otherwise it writes nothing.</summary>
 	[Test]
-	public async Task WritesTheStubsSvgsWhenAsked()
+	public async Task WritesStmsSvgsWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(StmSvgs.FolderVariable) is not { Length: > 0 } folder)
 		{
 			return;
 		}
 
-		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StubFactsProvider(), folder);
+		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StmFactsProvider(), folder);
 
-		await Assert.That(written).IsEqualTo(0);
+		await Assert.That(written).IsEqualTo(7);
 	}
 }

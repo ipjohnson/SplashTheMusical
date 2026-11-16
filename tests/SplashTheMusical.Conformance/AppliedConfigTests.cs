@@ -175,50 +175,7 @@ public class AppliedConfigTests
 		}
 	}
 
-	/// <summary>
-	/// The config facts as tools/oracle/extract.mjs writes them: a line for each path whose value differs from the site
-	/// config's, and <c>missing</c> for a site path the config lacks, leaving out the theme variables.
-	/// </summary>
-	private static List<string> Facts(MermaidValue site, MermaidValue applied)
-	{
-		var sitePaths = Paths(site);
-		var appliedPaths = Paths(applied);
-		var facts = new List<string>();
-		foreach (var (path, value) in appliedPaths)
-		{
-			if (!sitePaths.TryGetValue(path, out var siteValue) || siteValue != value)
-			{
-				facts.Add(ConfigLines.Line(Kind, path, value));
-			}
-		}
-
-		foreach (var path in sitePaths.Keys)
-		{
-			if (!appliedPaths.ContainsKey(path))
-			{
-				facts.Add(ConfigLines.Line(Kind, path, "missing"));
-			}
-		}
-
-		return facts;
-	}
-
-	private static Dictionary<string, string> Paths(MermaidValue config)
-	{
-		var lines = new List<string>();
-		ConfigLines.Flatten(lines, Kind, "", config);
-		var paths = new Dictionary<string, string>(StringComparer.Ordinal);
-		foreach (var line in lines)
-		{
-			var fields = line.Split('\t', 3);
-			if (fields[1] != "themeVariables" && !fields[1].StartsWith("themeVariables.", StringComparison.Ordinal))
-			{
-				paths[fields[1]] = fields.Length > 2 ? fields[2] : "";
-			}
-		}
-
-		return paths;
-	}
+	private static List<string> Facts(MermaidValue site, MermaidValue applied) => ConfigLines.ConfigFacts(site, applied);
 
 	private static void Compare(List<string> problems, string name, List<string> oracle, List<string> stm)
 	{
@@ -230,5 +187,8 @@ public class AppliedConfigTests
 		}
 	}
 
-	private sealed class PreambleDocument : MermaidDocument;
+	private sealed class PreambleDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

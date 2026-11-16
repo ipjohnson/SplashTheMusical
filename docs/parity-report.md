@@ -1,6 +1,6 @@
 # Parity report
 
-STM, as `stm-stub`, against mermaid.js 12.3.0 on the 4,744 cases of `corpus/`. `mise run parity` writes
+STM, as `stm`, against mermaid.js 12.3.0 on the 4,744 cases of `corpus/`. `mise run parity` writes
 this file, and `ParityReportTests` in `tests/SplashTheMusical.Conformance` fails when it is out of date.
 
 A level's rate is the cases that pass it out of the cases it applies to. L1 to L4 do not apply to a case that both
@@ -22,7 +22,7 @@ which `mise run raster` writes with Node, and a report-only type's L4 scores are
 | flowchart | 891 | 19 | 2.1% (19 of 891) | 0.0% (0 of 872) | 0.0% (0 of 872) | 0.0% (0 of 872) | 0.0% (0 of 872) | 3,488 | 0 | 0 |
 | gantt | 85 | 1 | 1.2% (1 of 85) | 0.0% (0 of 84) | 0.0% (0 of 84) | 0.0% (0 of 84) | 0.0% (0 of 84) | 336 | 0 | 0 |
 | git | 258 | 32 | 12.4% (32 of 258) | 0.0% (0 of 226) | 0.0% (0 of 226) | 0.0% (0 of 226) | 0.0% (0 of 226) | 904 | 0 | 0 |
-| info | 9 | 2 | 22.2% (2 of 9) | 0.0% (0 of 7) | 0.0% (0 of 7) | 0.0% (0 of 7) | 0.0% (0 of 7) | 28 | 0 | 0 |
+| info | 9 | 2 | 100.0% (9 of 9) | 100.0% (7 of 7) | 100.0% (7 of 7) | 100.0% (7 of 7) | 100.0% (7 of 7) | 0 | 0 | 0 |
 | ishikawa | 17 | 0 | 0.0% (0 of 17) | 0.0% (0 of 17) | 0.0% (0 of 17) | 0.0% (0 of 17) | 0.0% (0 of 17) | 68 | 0 | 0 |
 | kanban | 47 | 1 | 2.1% (1 of 47) | 0.0% (0 of 46) | 0.0% (0 of 46) | 0.0% (0 of 46) | 0.0% (0 of 46) | 184 | 0 | 0 |
 | mindmap | 83 | 2 | 2.4% (2 of 83) | 0.0% (0 of 81) | 0.0% (0 of 81) | 0.0% (0 of 81) | report-only | 324 | 0 | 0 |
@@ -45,4 +45,4 @@ which `mise run raster` writes with Node, and a report-only type's L4 scores are
 | wardley | 54 | 2 | 3.7% (2 of 54) | 0.0% (0 of 52) | 0.0% (0 of 52) | 0.0% (0 of 52) | 0.0% (0 of 52) | 208 | 0 | 0 |
 | xychart | 120 | 44 | 36.7% (44 of 120) | 0.0% (0 of 76) | 0.0% (0 of 76) | 0.0% (0 of 76) | 0.0% (0 of 76) | 304 | 0 | 0 |
 | zenuml | 30 | 0 | 0.0% (0 of 30) | 0.0% (0 of 30) | 0.0% (0 of 30) | 0.0% (0 of 30) | 0.0% (0 of 30) | 120 | 0 | 0 |
-| **Total** | 4,744 | 335 | 7.1% (335 of 4,744) | 0.0% (0 of 4,409) | 0.0% (0 of 4,409) | 0.0% (0 of 4,409) | 0.0% (0 of 4,266) | 17,636 | 0 | 0 |
+| **Total** | 4,744 | 335 | 7.2% (342 of 4,744) | 0.2% (7 of 4,409) | 0.2% (7 of 4,409) | 0.2% (7 of 4,409) | 0.2% (7 of 4,266) | 17,608 | 0 | 0 |

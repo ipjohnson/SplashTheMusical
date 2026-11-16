@@ -19,6 +19,7 @@ mise run ci       # what CI runs: build, test and the formatting check
 mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
 mise run oracle-test
 mise run colors            # rewrite corpus/colors.txt, khroma's results on mermaid's theme colours
+mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # publish the conformance tests with native AOT and run them
@@ -56,6 +57,12 @@ which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unch
 `SvgValues.Elements` and `SvgValues.Attributes`, so a renderer that needs a new element or attribute adds it there.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
+
+`Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
+supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it
+against the oracle's `type` fact of every accepted corpus case. `StmFactsProvider` runs STM for the conformance report,
+so a new module changes the ledgers, `docs/parity-report.md` and `corpus/l4.txt`. `PublicApiTests` fails when the
+public API differs from `docs/api/SplashTheMusical.txt`, which `mise run api` rewrites.
 
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
 

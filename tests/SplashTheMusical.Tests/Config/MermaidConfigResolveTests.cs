@@ -88,5 +88,8 @@ public class MermaidConfigResolveTests
 		return document.Directives[0].Arguments!;
 	}
 
-	private sealed class TestDocument : MermaidDocument;
+	private sealed class TestDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

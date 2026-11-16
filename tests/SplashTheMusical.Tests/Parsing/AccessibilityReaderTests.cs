@@ -65,5 +65,8 @@ public class AccessibilityReaderTests
 		again.AccessibilityDescription.Should().Be(description);
 	}
 
-	private sealed class TestDocument : MermaidDocument;
+	private sealed class TestDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }
