@@ -10,3 +10,4 @@ the machine it runs on. CI checks on each runner of its build job, which reads t
 | SplashTheMusical.dll | any | 594432 |
 | stm | linux-x64 | 3265696 |
 | stm | osx-arm64 | 3076400 |
+| stm | win-x64 | 3138048 |
