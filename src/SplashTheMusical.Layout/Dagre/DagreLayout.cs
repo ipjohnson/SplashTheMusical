@@ -64,6 +64,18 @@ internal static class DagreLayout
 	}
 
 	/// <summary>
+	/// The phases of dagre's <c>runLayout</c> from <c>normalize.run</c> through <c>order</c>, which leave each node its
+	/// order in its rank. They follow <see cref="RunRankPhases"/>.
+	/// </summary>
+	public static void RunOrderPhases(LayoutGraph g)
+	{
+		Normalize.Run(g);
+		ParentDummyChains.Run(g);
+		BorderSegments.Add(g);
+		Order.Run(g);
+	}
+
+	/// <summary>
 	/// Splits each rank in half by doubling minlen and halving ranksep, so labels can sit between nodes (Gansner et al.).
 	/// A label not centred on its edge gets its offset as padding. dagre compares rankdir with <c>TB</c> and <c>BT</c>
 	/// without lower-casing it, so <c>tb</c> and <c>TD</c> pad the height.

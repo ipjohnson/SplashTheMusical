@@ -89,8 +89,10 @@ which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unch
 `src/SplashTheMusical.Layout/Dagre` ports dagre-d3-es 7.0.14, the dagre mermaid 12.3.0 uses. Its `Graph` iterates
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as
 `"2"`, come first in numeric order. `DagreRecords` in `tests/SplashTheMusical.Conformance` reads the oracle's
-`.dagre.txt` files, and `DagreRankReplayTests` replays every recorded layout and compares the ranks with the recorded
-positions. The expected lines of `tests/SplashTheMusical.Tests/Layout/DagreRankTests.cs` are dagre-d3-es's own output.
+`.dagre.txt` files. `DagreRankReplayTests` replays every recorded layout and compares the ranks with the recorded
+positions, and `DagreOrderReplayTests` compares the order of the nodes in each rank with them. The expected lines of
+`DagreRankTests.cs` and `DagreOrderTests.cs` in `tests/SplashTheMusical.Tests/Layout` are dagre-d3-es's own output.
+`JsSort` reproduces V8's `Array.prototype.sort`, which dagre's `sort` relies on when a barycenter is NaN.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it

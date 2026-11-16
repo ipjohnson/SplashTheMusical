@@ -135,6 +135,58 @@ internal static class Util
 		}
 	}
 
+	/// <summary>The largest rank of the nodes that have one, or NaN when none has.</summary>
+	public static double MaxRank(LayoutGraph g)
+	{
+		var max = double.NaN;
+		foreach (var v in g.Nodes())
+		{
+			var rank = g.Node(v).Rank;
+			if (!double.IsNaN(rank) && (double.IsNaN(max) || rank > max))
+			{
+				max = rank;
+			}
+		}
+
+		return max;
+	}
+
+	/// <summary>dagre's <c>buildLayerMatrix</c>: the nodes of each rank, each at its order. A gap holds -1.</summary>
+	public static int[][] BuildLayerMatrix(LayoutGraph g)
+	{
+		var maxRank = MaxRank(g);
+		var layers = new List<int>[double.IsNaN(maxRank) ? 0 : (int)maxRank + 1];
+		for (var i = 0; i < layers.Length; i++)
+		{
+			layers[i] = [];
+		}
+
+		foreach (var v in g.Nodes())
+		{
+			var node = g.Node(v);
+			if (!node.HasRank)
+			{
+				continue;
+			}
+
+			var layer = layers[(int)node.Rank];
+			while (layer.Count <= node.Order)
+			{
+				layer.Add(-1);
+			}
+
+			layer[node.Order] = v;
+		}
+
+		var result = new int[layers.Length][];
+		for (var i = 0; i < layers.Length; i++)
+		{
+			result[i] = [.. layers[i]];
+		}
+
+		return result;
+	}
+
 	/// <summary>lodash's <c>_.min</c> of the nodes' ranks, which skips a missing rank. NaN when no node has one.</summary>
 	private static double MinRank(LayoutGraph g, int[] nodes)
 	{
