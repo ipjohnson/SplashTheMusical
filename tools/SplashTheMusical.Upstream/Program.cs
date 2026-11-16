@@ -12,10 +12,13 @@ namespace SplashTheMusical.Upstream;
 /// generated file differs from the committed one.
 /// <c>fonts [--check]</c> writes the text measurer's width tables to src/SplashTheMusical/Text/Generated from the font
 /// files <see cref="FontTableWriter.Families"/> names.
+/// <c>compatibility [--check]</c> writes <c>MermaidCompatibility</c> to src/SplashTheMusical/Generated from the mermaid
+/// version in tools/oracle/package-lock.json.
 /// </remarks>
 public static class Program
 {
-	private const string Usage = "usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]\n       SplashTheMusical.Upstream fonts [--check]";
+	private const string Usage =
+		"usage: SplashTheMusical.Upstream config <mermaid checkout> [--check]\n       SplashTheMusical.Upstream fonts [--check]\n       SplashTheMusical.Upstream compatibility [--check]";
 
 	public static int Main(string[] args)
 	{
@@ -25,6 +28,14 @@ public static class Program
 			var tables = new Dictionary<string, string> { ["FontTables.g.cs"] = FontTableWriter.Write(root, FontTableWriter.Families) };
 			var target = Path.Combine(root, "src", "SplashTheMusical", "Text", "Generated");
 			return args.Length == 2 ? GeneratedFiles.Check(target, tables) : GeneratedFiles.Write(target, tables);
+		}
+
+		if (args.Length is 1 or 2 && args[0] == "compatibility" && (args.Length == 1 || args[1] == "--check"))
+		{
+			var root = FindRepository();
+			var compatibility = new Dictionary<string, string> { [CompatibilityWriter.FileName] = CompatibilityWriter.Write(root) };
+			var target = CompatibilityWriter.Folder(root);
+			return args.Length == 2 ? GeneratedFiles.Check(target, compatibility) : GeneratedFiles.Write(target, compatibility);
 		}
 
 		if (args.Length is < 2 or > 3 || args[0] != "config" || (args.Length == 3 && args[2] != "--check"))

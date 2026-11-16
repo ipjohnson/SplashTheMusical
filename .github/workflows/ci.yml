@@ -38,18 +38,33 @@ jobs:
       - name: Build
         run: dotnet build SplashTheMusical.slnx
 
+      # LedgerTests writes the corpus results of the JIT run, which the native run's must equal.
       - name: Test
+        env:
+          STM_RESULTS_FILE: ${{ github.workspace }}/.artifacts/results/jit.txt
         run: dotnet test --solution SplashTheMusical.slnx --no-build
 
       - name: Check formatting
         run: dotnet format SplashTheMusical.slnx --verify-no-changes --no-restore
 
-      # Trim, AOT and ILC warnings are errors, so this fails on any of them.
+      # -warnaserror fails each publish on any warning, MSBuild's included. Trim, AOT and ILC warnings are errors anyway.
       - name: Publish stm with native AOT
-        run: dotnet publish src/SplashTheMusical.Cli
+        run: dotnet publish src/SplashTheMusical.Cli -warnaserror
+
+      - name: Render a diagram with the native stm
+        shell: bash
+        run: |
+          stm=./.artifacts/publish/SplashTheMusical.Cli/release/stm
+          svg=$(printf 'info' | "$stm" render)
+          case "$svg" in
+            "<svg "*"12.3.0"*"</svg>") echo "${svg:0:120}" ;;
+            *) echo "::error::stm render printed no SVG of the info diagram: ${svg:0:200}"; exit 1 ;;
+          esac
+          "$stm" version | tee .artifacts/stm-version.txt
+          grep -qx 'mermaid.js 12.3.0' .artifacts/stm-version.txt
 
       - name: Publish the DependencyModule sample with native AOT
-        run: dotnet publish samples/SplashTheMusical.Sample -o .artifacts/sample-aot
+        run: dotnet publish samples/SplashTheMusical.Sample -warnaserror -o .artifacts/sample-aot
 
       # It exits with 1 unless IMermaid resolves from the container and renders a diagram.
       - name: Run the native DependencyModule sample
@@ -57,32 +72,36 @@ jobs:
         run: ./.artifacts/sample-aot/SplashTheMusical.Sample > /dev/null
 
       - name: Publish the conformance runner with native AOT
-        run: dotnet publish tests/SplashTheMusical.Conformance -o .artifacts/conformance-aot
+        run: dotnet publish tests/SplashTheMusical.Conformance -warnaserror -o .artifacts/conformance-aot
 
       - name: Run the native conformance runner
         shell: bash
+        env:
+          STM_RESULTS_FILE: ${{ github.workspace }}/.artifacts/results/aot.txt
         run: ./.artifacts/conformance-aot/SplashTheMusical.Conformance
 
-  # The committed sizes in docs/benchmarks/sizes.md are of osx-arm64, which macos-latest runs.
-  size:
-    name: binary size
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+      - name: Fail when the native corpus results differ from the JIT results
+        shell: bash
+        run: |
+          if ! git diff --no-index --exit-code --stat .artifacts/results/jit.txt .artifacts/results/aot.txt; then
+            git diff --no-index .artifacts/results/jit.txt .artifacts/results/aot.txt | head -100
+            echo "::error::The native conformance runner's corpus results differ from the JIT run's."
+            exit 1
+          fi
 
-      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
-        with:
-          global-json-file: global.json
+      # ReflectionProbe.cs makes a reflection call, and the analyzers are off, so only ILC can refuse it. The publish
+      # has its own artifacts path, so it shares no native object file with the publish above.
+      - name: Fail unless ILC refuses a reflection call
+        shell: bash
+        run: |
+          if dotnet publish src/SplashTheMusical.Cli -p:StmReflectionProbe=true --artifacts-path .artifacts/probe > .artifacts/probe.log 2>&1; then
+            echo "::error::The native publish with ReflectionProbe.cs succeeded, so ILC's warnings do not fail the build."
+            exit 1
+          fi
+          grep -q 'error IL2057' .artifacts/probe.log || { tail -30 .artifacts/probe.log; echo "::error::The probe publish failed without ILC's IL2057."; exit 1; }
 
-      - name: Build the core assembly in release
-        run: dotnet build src/SplashTheMusical -c Release
-
-      - name: Publish stm with native AOT
-        run: dotnet publish src/SplashTheMusical.Cli
-
-      - name: Fail when either is more than 5% larger than docs/benchmarks/sizes.md
+      # It reads the stm the first publish step wrote, and the core assembly that publish built in release.
+      - name: Fail when the core assembly or stm is more than 5% larger than docs/benchmarks/sizes.md
         run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
 
   # L4 of the parity plan, and the check that the committed oracle output is what the pinned mermaid.js writes. It runs
