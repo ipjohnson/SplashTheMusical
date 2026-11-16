@@ -4,11 +4,13 @@
 #   tools/upstream/bump.sh <version>        mise run upstream-bump <version>
 #
 # It records the corpus and the conformance results, installs mermaid <version> in tools/oracle, re-extracts the
-# corpus from the tag mermaid@<version>, rewrites the oracle files, colors.txt, MermaidConfig, MermaidCompatibility and
-# docs/parity-report.md, runs the conformance tests again, and writes .artifacts/upstream/after/upstream-delta.md.
-# Failing conformance tests do not stop it, because the report lists them. The checkouts of both tags are kept in
-# .artifacts/upstream/mermaid@<version>.
-set -euo pipefail
+# corpus from the tag mermaid@<version>, rewrites the oracle files, colors.txt, MermaidConfig, MermaidCompatibility,
+# docs/api/SplashTheMusical.txt and docs/parity-report.md, runs the conformance tests again, rewrites corpus/l4.txt, and
+# writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop it, because the report lists
+# them. The checkouts of both tags are kept in .artifacts/upstream/mermaid@<version>. Each is cloned from the repository
+# npm names for that version, because the 13 pre-releases are tagged in mermaid-js/mermaid-v13.
+set -Eeuo pipefail
+trap 'echo "upstream-bump failed at tools/upstream/bump.sh:$LINENO: $BASH_COMMAND" >&2' ERR
 
 if [ $# -ne 1 ]; then
 	echo "usage: tools/upstream/bump.sh <mermaid version>" >&2
@@ -24,7 +26,10 @@ old="$(node -p "require('./tools/oracle/package.json').devDependencies.mermaid")
 checkout() {
 	local dir="$work/mermaid@$1"
 	if [ ! -d "$dir" ]; then
-		git -c advice.detachedHead=false clone --quiet --depth 1 --branch "mermaid@$1" https://github.com/mermaid-js/mermaid "$dir"
+		local url
+		url="$(npm view "mermaid@$1" repository.url)"
+		url="${url#git+}"
+		git -c advice.detachedHead=false clone --quiet --depth 1 --branch "mermaid@$1" "${url%.git}" "$dir"
 	fi
 }
 
@@ -52,6 +57,10 @@ node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg
 node tools/oracle/colors.mjs corpus/colors.txt
 dotnet run --project tools/SplashTheMusical.Upstream -- config "$work/mermaid@$version"
 dotnet run --project tools/SplashTheMusical.Upstream -- compatibility
+STM_WRITE_API=1 dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/PublicApiTests/*" >/dev/null
 
 STM_WRITE_REPORT=1 conformance "$work/after"
+STM_SVG_DIR="$repo/.artifacts/stm/svg" dotnet run --project tests/SplashTheMusical.Conformance -- \
+	--treenode-filter "/*/*/StmSvgsTests/*" >/dev/null
+node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster
 dotnet run --project tools/SplashTheMusical.Upstream -- delta "$work/mermaid@$old" "$work/mermaid@$version" "$work/before" "$work/after"

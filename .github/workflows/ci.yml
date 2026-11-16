@@ -55,13 +55,14 @@ jobs:
         shell: bash
         run: |
           stm=./.artifacts/publish/SplashTheMusical.Cli/release/stm
+          mermaid=$(node tools/upstream/versions.mjs pinned)
           svg=$(printf 'info' | "$stm" render)
           case "$svg" in
-            "<svg "*"12.3.0"*"</svg>") echo "${svg:0:120}" ;;
+            "<svg "*"$mermaid"*"</svg>") echo "${svg:0:120}" ;;
             *) echo "::error::stm render printed no SVG of the info diagram: ${svg:0:200}"; exit 1 ;;
           esac
           "$stm" version | tee .artifacts/stm-version.txt
-          grep -qx 'mermaid.js 12.3.0' .artifacts/stm-version.txt
+          grep -qx "mermaid.js $mermaid" .artifacts/stm-version.txt
 
       - name: Publish the DependencyModule sample with native AOT
         run: dotnet publish samples/SplashTheMusical.Sample -warnaserror -o .artifacts/sample-aot
@@ -125,6 +126,9 @@ jobs:
 
       - name: Install the oracle
         run: npm ci --prefix tools/oracle --no-audit --no-fund
+
+      - name: Test the version choice of the upstream workflows
+        run: node --test tools/upstream/versions.test.mjs
 
       - name: Write STM's SVGs
         env:
