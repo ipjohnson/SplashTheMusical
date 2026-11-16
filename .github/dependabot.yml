@@ -10,6 +10,19 @@ updates:
     groups:
       nuget:
         patterns: ["*"]
+  # mermaid moves only through the upstream watch workflow, because a bump regenerates the corpus and the code.
+  - package-ecosystem: npm
+    directory: /tools/oracle
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    labels: [dependencies]
+    ignore:
+      - dependency-name: mermaid
+    groups:
+      oracle:
+        patterns: ["*"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

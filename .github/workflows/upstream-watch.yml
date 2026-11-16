@@ -1,0 +1,139 @@
+# Opens a bump pull request when npm's latest mermaid is not the version tools/oracle pins. docs/upstream-updates.md
+# describes the process.
+name: Upstream watch
+
+on:
+  schedule:
+    - cron: "41 6 * * *"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The mermaid version to move to. Empty means npm's latest tag.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: upstream-watch-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  DOTNET_NOLOGO: "1"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      pinned: ${{ steps.versions.outputs.pinned }}
+      version: ${{ steps.versions.outputs.version }}
+      branch: ${{ steps.versions.outputs.branch }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22.23"
+
+      # A branch or a pull request of the version, open or closed, means a run already proposed it.
+      - name: Compare the pin with npm's latest
+        id: versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED: ${{ inputs.version }}
+        run: |
+          pinned=$(node tools/upstream/versions.mjs pinned)
+          version=${REQUESTED:-$(node tools/upstream/versions.mjs latest)}
+          branch="upstream/mermaid-$version"
+          echo "pinned=$pinned" >> "$GITHUB_OUTPUT"
+          if [ "$version" = "$pinned" ]; then
+            echo "tools/oracle pins mermaid $pinned, which is the version to move to."
+          elif gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$branch" --silent 2>/dev/null; then
+            echo "The branch $branch exists, so a run already proposed mermaid $version."
+          elif [ "$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state all --json number --jq length)" != "0" ]; then
+            echo "A pull request from $branch exists, so a run already proposed mermaid $version."
+          else
+            echo "tools/oracle pins mermaid $pinned and npm has $version."
+            echo "version=$version" >> "$GITHUB_OUTPUT"
+            echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          fi
+
+  # macOS, because the committed boxes files name the macOS fonts Chromium falls back to, as in CI's l4 job.
+  bump:
+    needs: detect
+    if: needs.detect.outputs.version != ''
+    runs-on: macos-latest
+    timeout-minutes: 150
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      PINNED: ${{ needs.detect.outputs.pinned }}
+      VERSION: ${{ needs.detect.outputs.version }}
+      BRANCH: ${{ needs.detect.outputs.branch }}
+      # A pull request that GITHUB_TOKEN opens starts no workflow, so CI runs on it only with this secret.
+      GH_TOKEN: ${{ secrets.UPSTREAM_BUMP_TOKEN || github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22.23"
+
+      - name: Install the oracle
+        run: npm ci --prefix tools/oracle --no-audit --no-fund
+
+      - name: Move the oracle to the new mermaid
+        shell: bash
+        run: bash tools/upstream/bump.sh "$VERSION"
+
+      # The artifact only helps a reader, so a full storage quota does not fail the job.
+      - name: Upload the delta report and the conformance logs
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: upstream-delta
+          path: |
+            .artifacts/upstream/before/conformance.log
+            .artifacts/upstream/after/conformance.log
+            .artifacts/upstream/after/upstream-delta.md
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # GitHub refuses a pull request body over 65,536 characters, and the grammar diffs can be longer.
+      - name: Open the bump pull request
+        shell: bash
+        run: |
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          gh auth setup-git
+          git switch -c "$BRANCH"
+          git add -A
+          git commit -m "Move the oracle to mermaid $VERSION"
+          git push origin "HEAD:refs/heads/$BRANCH"
+          {
+            echo "Moves the oracle from mermaid $PINNED to $VERSION with \`mise run upstream-bump $VERSION\`."
+            echo "Triage it as [docs/upstream-updates.md](docs/upstream-updates.md) says, and merge it within a week of the release."
+            echo
+            cat .artifacts/upstream/after/upstream-delta.md
+          } > .artifacts/upstream/body.md
+          if [ "$(wc -c < .artifacts/upstream/body.md)" -gt 60000 ]; then
+            head -c 60000 .artifacts/upstream/body.md > .artifacts/upstream/body-cut.md
+            printf '\n\n---\nThe report is cut here. The upstream-delta artifact of %s has all of it.\n' "$run_url" >> .artifacts/upstream/body-cut.md
+            mv .artifacts/upstream/body-cut.md .artifacts/upstream/body.md
+          fi
+          gh pr create --base "$GITHUB_REF_NAME" --head "$BRANCH" \
+            --title "Move the oracle to mermaid $VERSION" --body-file .artifacts/upstream/body.md
