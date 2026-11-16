@@ -113,7 +113,7 @@ public class TextMeasurementTests
 	/// <summary>The accepted cases of a type that set no font key and break no line with a <c>br</c> tag.</summary>
 	private static IEnumerable<(string Name, CaseFacts Facts)> Cases(string folder)
 	{
-		foreach (var name in CorpusCheck.Cases(CorpusCheck.CorpusRoot).Where(name => name.StartsWith(folder, StringComparison.Ordinal)))
+		foreach (var name in CorpusCheck.Cases(CorpusCheck.CorpusRoot).Where(name => name.Replace('\\', '/').StartsWith(folder, StringComparison.Ordinal)))
 		{
 			var facts = OracleFiles.Read(CorpusCheck.CorpusRoot, name);
 			var source = File.ReadAllText(Path.Combine(CorpusCheck.CorpusRoot, name + ".mmd"));
