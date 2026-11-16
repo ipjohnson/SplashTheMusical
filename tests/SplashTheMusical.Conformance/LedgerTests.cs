@@ -10,6 +10,7 @@ public class LedgerTests
 	public async Task StmDiffersOnlyWhereTheCommittedLedgersListABug()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
+		ResultsFile.WriteIfRequested(results);
 		if (Environment.GetEnvironmentVariable(LedgerFolder.WriteVariable) is { Length: > 0 } issue)
 		{
 			LedgerFolder.Write(LedgerFolder.Root, results, issue, CorpusCheck.PinnedMermaid());

@@ -12,6 +12,7 @@
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />
     <ProjectReference Include="../../src/SplashTheMusical.DependencyModule/SplashTheMusical.DependencyModule.csproj" />
     <ProjectReference Include="../../src/SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
+    <ProjectReference Include="../../src/SplashTheMusical.Cli/SplashTheMusical.Cli.csproj" />
     <ProjectReference Include="../SplashTheMusical.Benchmarks/SplashTheMusical.Benchmarks.csproj" />
     <ProjectReference Include="../../tools/SplashTheMusical.Upstream/SplashTheMusical.Upstream.csproj" />
   </ItemGroup>

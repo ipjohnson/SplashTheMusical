@@ -60,6 +60,13 @@ flag "--check" help="Write nothing, and fail when the generated tables differ fr
 '''
 run = 'dotnet run --project tools/SplashTheMusical.Upstream -- fonts $([ "${usage_check:-false}" = "true" ] && echo --check)'
 
+[tasks.upstream-compatibility]
+description = "Write MermaidCompatibility in src/SplashTheMusical/Generated from the mermaid version in tools/oracle/package-lock.json"
+usage = '''
+flag "--check" help="Write nothing, and fail when the generated file differs from the committed one"
+'''
+run = 'dotnet run --project tools/SplashTheMusical.Upstream -- compatibility $([ "${usage_check:-false}" = "true" ] && echo --check)'
+
 [tasks.corpus-oracle]
 description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
 run = [
@@ -95,10 +102,13 @@ depends = ["stm-svg", "corpus-oracle"]
 run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
 
 [tasks.conformance-aot]
-description = "Publish the conformance tests with native AOT and run them"
+description = "Run the conformance tests under JIT and native AOT, and fail when their corpus results differ"
 run = [
+  "rm -rf .artifacts/results",
   "dotnet publish tests/SplashTheMusical.Conformance -o .artifacts/conformance-aot",
-  ".artifacts/conformance-aot/SplashTheMusical.Conformance",
+  'STM_RESULTS_FILE="{{config_root}}/.artifacts/results/jit.txt" dotnet run --project tests/SplashTheMusical.Conformance',
+  'STM_RESULTS_FILE="{{config_root}}/.artifacts/results/aot.txt" .artifacts/conformance-aot/SplashTheMusical.Conformance',
+  "git diff --no-index --exit-code --stat .artifacts/results/jit.txt .artifacts/results/aot.txt",
 ]
 
 [tasks.oracle-test]

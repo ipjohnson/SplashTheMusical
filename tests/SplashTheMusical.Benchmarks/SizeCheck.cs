@@ -107,7 +107,8 @@ public static class SizeCheck
 		text.Append("# Binary sizes\n\n")
 			.Append("The size of the core assembly, release build, and of the native AOT `stm` CLI. CI fails a change that grows either\n")
 			.Append("by more than 5% over the size here. `mise run size` checks, and `mise run size -- --accept` rewrites the rows of\n")
-			.Append("the machine it runs on. CI checks on macos-latest, so the `stm` row CI reads is `osx-arm64`.\n\n")
+			.Append("the machine it runs on. CI checks on each runner of its build job, which reads the `stm` rows of `linux-x64`,\n")
+			.Append("`osx-arm64` and `win-x64`.\n\n")
 			.Append(Header).Append("\n|---|---|---:|\n");
 		foreach (var ((name, rid), bytes) in sizes.OrderBy(s => s.Key.Name, StringComparer.Ordinal).ThenBy(s => s.Key.Rid, StringComparer.Ordinal))
 		{

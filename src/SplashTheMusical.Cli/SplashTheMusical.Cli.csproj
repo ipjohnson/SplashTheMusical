@@ -10,4 +10,33 @@
     <ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
     <ProjectReference Include="../SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
   </ItemGroup>
+
+  <!-- CI's reflection probe: with StmReflectionProbe=true the analyzers are off and ReflectionProbe.cs is compiled, so only
+       ILC can see its reflection, and the publish must fail on ILC's warning. -->
+  <PropertyGroup Condition="'$(StmReflectionProbe)' == 'true'">
+    <EnableTrimAnalyzer>false</EnableTrimAnalyzer>
+    <EnableAotAnalyzer>false</EnableAotAnalyzer>
+    <EnableSingleFileAnalyzer>false</EnableSingleFileAnalyzer>
+    <IsAotCompatible>false</IsAotCompatible>
+    <DefineConstants>$(DefineConstants);STM_REFLECTION_PROBE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(StmReflectionProbe)' != 'true'">
+    <Compile Remove="Probe/**" />
+  </ItemGroup>
+
+  <!-- StmVersion.Value, which stm version prints, is the Version this build stamps on its assemblies. -->
+  <Target Name="WriteStmVersion" BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <_StmVersionFile>$(IntermediateOutputPath)StmVersion.g.cs</_StmVersionFile>
+    </PropertyGroup>
+    <WriteLinesToFile
+      File="$(_StmVersionFile)"
+      Lines="namespace SplashTheMusical.Cli%3B;internal static class StmVersion;{;	public const string Value = &quot;$(Version)&quot;%3B;}"
+      Overwrite="true"
+      WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <Compile Include="$(_StmVersionFile)" />
+      <FileWrites Include="$(_StmVersionFile)" />
+    </ItemGroup>
+  </Target>
 </Project>
