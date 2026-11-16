@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Registers SplashTheMusical's services in Microsoft.Extensions.DependencyInjection, as a DependencyModules module.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DependencyModules.Runtime" />
+    <PackageReference Include="DependencyModules.SourceGenerator" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

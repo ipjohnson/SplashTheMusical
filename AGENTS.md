@@ -84,6 +84,8 @@ Build output goes to `.artifacts/`.
 | `src/SplashTheMusical` | Core: model, parsers, writers, config, themes, renderers. No package dependencies. |
 | `src/SplashTheMusical.Layout` | Graph layout engines. No reference to the core and no knowledge of Mermaid. |
 | `src/SplashTheMusical.Cli` | The `stm` command, published with native AOT. |
+| `src/SplashTheMusical.DependencyModule` | Registers STM in DI: `SplashTheMusicalModule` and `AddSplashTheMusical`. Registration only. |
+| `samples/SplashTheMusical.Sample` | A host that uses the module. CI publishes it with native AOT and runs it. |
 | `tests/SplashTheMusical.Tests` | Unit tests. |
 | `tests/SplashTheMusical.Conformance` | The harness that compares STM with the mermaid.js oracle. |
 | `tests/SplashTheMusical.Benchmarks` | BenchmarkDotNet. |

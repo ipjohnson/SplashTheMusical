@@ -11,6 +11,10 @@
     <Project Path="src/SplashTheMusical/SplashTheMusical.csproj" />
     <Project Path="src/SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
     <Project Path="src/SplashTheMusical.Cli/SplashTheMusical.Cli.csproj" />
+    <Project Path="src/SplashTheMusical.DependencyModule/SplashTheMusical.DependencyModule.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/SplashTheMusical.Sample/SplashTheMusical.Sample.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/SplashTheMusical.Tests/SplashTheMusical.Tests.csproj" />

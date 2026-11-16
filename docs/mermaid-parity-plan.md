@@ -322,8 +322,7 @@ ipjohnson/DependencyModules at `v1.7.0` and checked with a native AOT sample.
 | Item | Value |
 |---|---|
 | Runtime package | `DependencyModules.Runtime` 1.7.0. It has the attributes, the interfaces and `AddModule`. It targets `net8.0` and `net10.0` and sets `IsAotCompatible` |
-| Generator package | `DependencyModules.SourceGenerator` 1.7.0. It runs only at compile time |
-| Options package | `Microsoft.Extensions.Options`, for `MermaidOptions` |
+| Generator package | `DependencyModules.SourceGenerator` 1.7.0. It runs only at compile time, and the project references it with `PrivateAssets="all"` |
 | Module attribute | `[DependencyModule]` in `DependencyModules.Runtime.Attributes`, on a `partial` class at namespace level |
 | Registration hook | `IServiceCollectionConfiguration.ConfigureServices(IServiceCollection)` in `DependencyModules.Runtime.Interfaces`. It runs after the module's generated registrations |
 | Load method | `services.AddModule<T>()` in `DependencyModules.Runtime`. `T` needs a parameterless constructor |
@@ -350,74 +349,33 @@ STM uses option 1. AGENTS.md requires diagram modules to be listed explicitly, w
 `IDiagramModule`. A convention would also register any public implementation added to the core later, including
 ones not meant for DI. Option 3 spreads the registration type across attributes and adds a method per service.
 
-Options come from `IOptions<MermaidOptions>`, and the module registers `MermaidOptions` as a singleton read from it. A
-host can then call `services.Configure<MermaidOptions>(...)` before or after the module. I rejected a module
-constructor parameter. `GenerateUseMethod` does turn it into a working `AddX(Action<MermaidOptions>)` method, but the
-module then has no parameterless constructor, so `AddModule<T>()` fails, and the generated attribute cannot carry a
-delegate.
+`MermaidOptions` is an immutable record with `init` properties, so an `Action<MermaidOptions>` cannot change it, and
+`IOptions<MermaidOptions>` does not fit. A configure step is a `Func<MermaidOptions, MermaidOptions>` that a host writes
+with `with`. `services.ConfigureMermaid(...)` registers one step, and `AddSplashTheMusical(...)` registers its argument
+as one. The module registers `MermaidOptions` as a singleton that runs every step in registration order from
+`MermaidOptions.Default`, so a step may come before or after the module. A host that registers its own
+`MermaidOptions` replaces the steps. I rejected a module constructor parameter. `GenerateUseMethod` does turn it into a
+working `AddX(Action<MermaidOptions>)` method, but the module then has no parameterless constructor, so `AddModule<T>()`
+fails, and the generated attribute cannot carry a delegate.
 
 ### The module
 
-```csharp
-using DependencyModules.Runtime;
-using DependencyModules.Runtime.Attributes;
-using DependencyModules.Runtime.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
+`src/SplashTheMusical.DependencyModule/SplashTheMusicalModule.cs` is the module. Its `ConfigureServices` calls
+`TryAddSingleton` for `MermaidOptions`, `ITextMeasurer`, `IIconProvider`, `IThemeProvider`, `IMermaid`,
+`IMermaidParser`, `IMermaidRenderer` and `IMermaidWriter`, and `TryAddEnumerable` for each instance of
+`Mermaid.CoreModules`. The three services resolve to the `IMermaid` instance. A factory builds `Mermaid`, so no
+constructor is chosen by reflection. It passes every `ILayoutEngine` in the container, and every `IDiagramModule`
+that is not one of `Mermaid.CoreModules`, because `Mermaid` adds the core modules itself.
 
-namespace SplashTheMusical.DependencyModule;
+A host's `ITextMeasurer` registered after the module wins too, because `GetService` gives the last registration.
+`DependencyModuleTests` checks both orders.
 
-[DependencyModule]
-public partial class SplashTheMusicalModule : IServiceCollectionConfiguration
-{
-	public void ConfigureServices(IServiceCollection services)
-	{
-		services.AddOptions<MermaidOptions>();
-		services.TryAddSingleton(provider => provider.GetRequiredService<IOptions<MermaidOptions>>().Value);
-		services.TryAddSingleton<ITextMeasurer, DefaultTextMeasurer>();
-		services.TryAddEnumerable(ServiceDescriptor.Singleton<IDiagramModule, FlowchartModule>());
-		services.TryAddEnumerable(ServiceDescriptor.Singleton<IDiagramModule, SequenceModule>());
-		services.TryAddSingleton<IMermaid, Mermaid>();
-	}
-}
+`samples/SplashTheMusical.Sample` is a host that loads the module and renders `info`. CI publishes it with native AOT
+and runs it.
 
-public static class SplashTheMusicalServiceCollectionExtensions
-{
-	public static IServiceCollection AddSplashTheMusical(
-		this IServiceCollection services,
-		Action<MermaidOptions>? configure = null)
-	{
-		services.AddModule<SplashTheMusicalModule>();
-		if (configure is not null)
-		{
-			services.Configure(configure);
-		}
+### Behaviour the spike's sample checked
 
-		return services;
-	}
-}
-```
-
-The sample compiled this file against a stand-in core assembly with `ITextMeasurer`, `DefaultTextMeasurer`,
-`IDiagramModule`, `FlowchartModule`, `SequenceModule`, `IMermaid`, `Mermaid` and `MermaidOptions`. That assembly had
-no reference to DependencyModules. `Mermaid` took `MermaidOptions`, `ITextMeasurer` and `IEnumerable<IDiagramModule>`
-in its constructor. The real module lists every diagram module of the core.
-
-The project file references the three packages without versions, as `Directory.Packages.props` requires:
-
-```xml
-<ItemGroup>
-	<ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
-	<PackageReference Include="DependencyModules.Runtime" />
-	<PackageReference Include="DependencyModules.SourceGenerator" />
-	<PackageReference Include="Microsoft.Extensions.Options" />
-</ItemGroup>
-```
-
-### Behaviour the sample checked
-
-The sample was a console app with `PublishAot`. It ran ten checks under JIT and again as the native binary, and all
+The spike of #3 compiled a stand-in core assembly with no reference to DependencyModules. Its sample was a console app with `PublishAot`. It ran ten checks under JIT and again as the native binary, and all
 passed. The `dotnet publish` output had zero warnings.
 
 | Check | Result |
@@ -433,13 +391,11 @@ passed. The `dotnet publish` output had zero warnings.
 | Convention with `InAssemblyOf<FlowchartModule>()` | Registers both core diagram modules |
 | Host module with `[SplashTheMusicalModule]` | Loading the host module loads this one |
 
-The sample did not check a plain `AddSingleton<ITextMeasurer, ...>` after the module. The DependencyModules docs say
-`GetService` gives the last registration, so the host's measurer would win, but `GetServices` would return both.
-`Replace` is the way to document.
+The spike used `IOptions<MermaidOptions>` and an `Action<MermaidOptions>` against a stand-in whose options were
+mutable. The real `MermaidOptions` is immutable, so the project uses the configure steps described above.
 
-The generator package reached the console app through the project reference, which is why the host module compiled
-there. Whether `SplashTheMusical.DependencyModule` should set `PrivateAssets="all"` on it is left to the step that
-creates the project.
+The generator package reached the spike's console app through the project reference. The project sets
+`PrivateAssets="all"` on it, so a host that writes its own `[DependencyModule]` references the generator itself.
 
 ## 6. AOT, performance and size
 

@@ -3,6 +3,13 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
+    <!-- src/SplashTheMusical.DependencyModule -->
+    <PackageVersion Include="DependencyModules.Runtime" Version="1.7.0" />
+    <PackageVersion Include="DependencyModules.SourceGenerator" Version="1.7.0" />
+    <!-- The container of the tests and the sample -->
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.15" />
+  </ItemGroup>
+  <ItemGroup>
     <!-- Test dependencies -->
     <PackageVersion Include="TUnit" Version="1.83.8" />
     <PackageVersion Include="AwesomeAssertions" Version="9.6.0" />
