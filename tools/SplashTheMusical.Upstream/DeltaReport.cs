@@ -39,7 +39,7 @@ public static class DeltaReport
 		text.Append(changed.Count == 0 ? "Nothing changed." : "Changed: " + string.Join(", ", changed) + ".").Append('\n');
 		foreach (var (title, body) in sections)
 		{
-			text.Append("\n## ").Append(title).Append("\n\n").Append(body.Length == 0 ? "No change.\n" : body);
+			text.Append("\n## ").Append(title).Append("\n\n").Append(body.Length == 0 ? "No change." : body.TrimEnd('\n')).Append('\n');
 		}
 
 		return text.ToString();
@@ -88,7 +88,7 @@ public static class DeltaReport
 		var shapes = Keyed(OracleFile(before, "shapes.txt"), OracleFile(after, "shapes.txt"), 2);
 		if (shapes.Length > 0)
 		{
-			text.Append("Shape table:\n\n").Append(shapes).Append('\n');
+			text.Append("Shape table:\n\n").Append(shapes);
 		}
 
 		Sets(text, "Edge markers", oldTree.Markers(), newTree.Markers());
@@ -130,7 +130,7 @@ public static class DeltaReport
 
 		if (count > 0)
 		{
-			text.Append("Cases whose oracle facts changed, ").Append(count).Append(":\n\n").Append(changed).Append('\n');
+			text.Append("Cases whose oracle facts changed, ").Append(count).Append(":\n\n").Append(changed);
 		}
 
 		return text.ToString();
