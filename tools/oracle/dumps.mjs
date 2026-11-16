@@ -92,6 +92,54 @@ export function hookAddDirective(code) {
 	return code.slice(0, found[0].index) + ';globalThis.__oracleAddDirective?.()' + code.slice(found[0].index)
 }
 
+// The sources whose stylesheets styles.txt records, as [name, source]. A quadrant chart's own styles are empty, so its
+// stylesheet is only the rules every diagram shares. The flowchart cases add the rules classDef statements write, with
+// HTML labels on and off.
+export function styleCases(themeNames) {
+	const themed = themeNames.map(theme => [`theme-${theme}`, `---\nconfig:\n  theme: ${theme}\n---\nquadrantChart\n`])
+	const classDefs = [
+		'classDef hex fill:#f9f,stroke:#333,stroke-width:4px',
+		'classDef named fill:red,color:white,font-weight:bold',
+		'classDef alpha fill:#ff000080,stroke:#0f08,stroke-dasharray: 5 5',
+		'classDef numbers opacity:50%,stroke-width:2.5px,fill-opacity:0.5',
+		'classDef text color:#00f,font-size:12px,font-style:italic',
+		'classDef unitless stroke-width:4,font-size:12,opacity:.5,stroke-dasharray:5',
+		'classDef keywords fill:none,stroke:Red,stroke-linecap:round,font-weight:700,text-decoration:underline',
+		'classDef numbers2 stroke-width:2.50px,font-size:1.5em,stroke-opacity:0.25,fill:#ABCDEF',
+		'classDef families font-family:Times New Roman,color:currentColor,fill:transparent',
+		'classDef invalid fill:#12345,stroke-width:-1px,radius:10,opacity:150%,stroke-dasharray:5 5 2',
+		'classDef others display:none,visibility:hidden,font-weight:Bold,fill-opacity:30%,stroke-linejoin:bevel',
+	].join('\n')
+	return [
+		...themed,
+		['classdef-html', `flowchart LR\n${classDefs}\nA:::hex --> B:::named\n`],
+		['classdef-svg', `---\nconfig:\n  htmlLabels: false\n---\nflowchart LR\n${classDefs}\nA:::hex --> B:::named\n`],
+	]
+}
+
+// In the page: for each case, `source\t<name>\t<source as JSON>`, then `class\t<name>\t<index>\t<id>\t<styles as
+// JSON>\t<textStyles as JSON>` for each class the diagram's getClasses returns, in its order, and `style\t<name>\t<the
+// text of the style element>` from a render with the SVG id `styles`.
+export async function styleDumps(cases, init) {
+	const lines = []
+	try {
+		mermaid.initialize(init)
+		for (const [name, source] of cases) {
+			lines.push(`source\t${name}\t${JSON.stringify(source)}`)
+			const diagram = await mermaid.mermaidAPI.getDiagramFromText(source)
+			let index = 0
+			for (const c of diagram.db.getClasses?.()?.values() ?? [])
+				lines.push(`class\t${name}\t${String(index++).padStart(2, '0')}\t${c.id}\t${JSON.stringify(c.styles)}\t${JSON.stringify(c.textStyles ?? [])}`)
+			const { svg } = await mermaid.render('styles', source)
+			const doc = new DOMParser().parseFromString(svg, 'image/svg+xml')
+			lines.push(`style\t${name}\t${doc.querySelector('style').textContent}`)
+		}
+	} finally {
+		mermaid.initialize(init)
+	}
+	return lines
+}
+
 // In the page: the computed variables of each theme and the default config, as lines of `<kind>\t<fields>`. A value is
 // JSON, `undefined` for a key that is present without a value, or NaN or Infinity as JavaScript writes them. Nested
 // objects and arrays are flattened into dotted paths; an empty one is written as {} or [].

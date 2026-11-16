@@ -36,7 +36,12 @@ mise run upstream-generate <checkout> --check  # fail when the generated files d
 default `MermaidConfig` with the oracle's `corpus/config.txt`. `AppliedConfigTests` compares the config
 `MermaidConfig.Resolve` applies to each corpus case with the oracle's `config` facts. `ThemeTests` compares each
 theme of `src/SplashTheMusical/Themes` with `corpus/themes.txt`, and the theme variables of each case that sets
-`themeVariables` with the oracle's `theme-variable` facts.
+`themeVariables` with the oracle's `theme-variable` facts. `StylesheetTests` compares the stylesheet
+`MermaidStylesheet` builds and `SvgWriter` writes with `corpus/styles.txt`.
+
+Stylesheets are built only from the typed rules of `src/SplashTheMusical/Rendering`. `CssDeclaration` refuses a
+property outside its allowlist and a value outside its grammar, so a value from the source or the config cannot hold
+`;`, a brace or `url(`.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 
