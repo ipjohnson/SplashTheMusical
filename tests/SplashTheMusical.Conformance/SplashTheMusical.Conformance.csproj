@@ -10,6 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />
+    <ProjectReference Include="../../src/SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
     <!-- ILC compiles all of the core, not only what the tests reach, and Assembly.Load finds it by name. -->
     <TrimmerRootAssembly Include="SplashTheMusical" />
   </ItemGroup>

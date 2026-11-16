@@ -1,0 +1,156 @@
+namespace SplashTheMusical.Layout.Dagre;
+
+/// <summary>A port of dagre's <c>util.js</c>.</summary>
+internal static class Util
+{
+	public static int AddDummyNode(LayoutGraph g, string type, LayoutNode attrs, string name)
+	{
+		string v;
+		do
+		{
+			v = g.Ids.Next(name);
+		}
+		while (g.HasNode(v));
+
+		attrs.Dummy = type;
+		return g.SetNode(v, attrs);
+	}
+
+	public static int AddBorderNode(LayoutGraph g, string prefix) =>
+		AddDummyNode(g, "border", new LayoutNode(), prefix);
+
+	/// <summary>A graph with only simple edges. A multi-edge's weights are summed and its largest minlen kept.</summary>
+	public static LayoutGraph Simplify(LayoutGraph g)
+	{
+		var simplified = new LayoutGraph(g.Label, g.Ids, multigraph: false, compound: false);
+		foreach (var v in g.Nodes())
+		{
+			simplified.SetNode(g.Name(v), g.Node(v));
+		}
+
+		foreach (var e in g.Edges())
+		{
+			var v = simplified.NodeHandle(g.Name(g.EdgeV(e)));
+			var w = simplified.NodeHandle(g.Name(g.EdgeW(e)));
+			var existing = simplified.FindEdge(v, w);
+			var simpleWeight = existing >= 0 ? simplified.Edge(existing).Weight : 0;
+			var simpleMinLen = existing >= 0 ? simplified.Edge(existing).MinLen : 1;
+			var label = g.Edge(e);
+			simplified.SetEdge(v, w, new LayoutEdge
+			{
+				Weight = simpleWeight + label.Weight,
+				MinLen = Math.Max(simpleMinLen, label.MinLen),
+			});
+		}
+
+		return simplified;
+	}
+
+	/// <summary>The graph without its cluster nodes, sharing the labels of the nodes and edges.</summary>
+	public static LayoutGraph AsNonCompoundGraph(LayoutGraph g)
+	{
+		var simplified = new LayoutGraph(g.Label, g.Ids, multigraph: g.IsMultigraph, compound: false);
+		foreach (var v in g.Nodes())
+		{
+			if (!g.HasChildren(v))
+			{
+				simplified.SetNode(g.Name(v), g.Node(v));
+			}
+		}
+
+		foreach (var e in g.Edges())
+		{
+			var v = simplified.NodeHandle(g.Name(g.EdgeV(e)));
+			var w = simplified.NodeHandle(g.Name(g.EdgeW(e)));
+			if (v < 0 || w < 0)
+			{
+				throw new InvalidOperationException("dagre cannot rank an edge to a cluster node.");
+			}
+
+			simplified.SetEdge(v, w, g.Edge(e), g.EdgeName(e));
+		}
+
+		return simplified;
+	}
+
+	/// <summary>Shifts the ranks so that the smallest is 0.</summary>
+	public static void NormalizeRanks(LayoutGraph g)
+	{
+		var nodes = g.Nodes();
+		var min = MinRank(g, nodes);
+		foreach (var v in nodes)
+		{
+			var node = g.Node(v);
+			if (node.HasRank)
+			{
+				node.Rank -= min;
+			}
+		}
+	}
+
+	/// <summary>
+	/// Removes the empty ranks that are not a multiple of the nesting graph's rank factor. A node whose rank, less the
+	/// smallest, is not an array index is left out, as dagre's sparse <c>layers</c> array leaves it out.
+	/// </summary>
+	public static void RemoveEmptyRanks(LayoutGraph g)
+	{
+		var nodes = g.Nodes();
+		var offset = MinRank(g, nodes);
+		var length = 0;
+		foreach (var v in nodes)
+		{
+			var rank = g.Node(v).Rank - offset;
+			if (IsArrayIndex(rank))
+			{
+				length = Math.Max(length, (int)rank + 1);
+			}
+		}
+
+		var layers = new List<int>?[length];
+		foreach (var v in nodes)
+		{
+			var rank = g.Node(v).Rank - offset;
+			if (IsArrayIndex(rank))
+			{
+				(layers[(int)rank] ??= []).Add(v);
+			}
+		}
+
+		var delta = 0;
+		var nodeRankFactor = g.Label.NodeRankFactor;
+		for (var i = 0; i < layers.Length; i++)
+		{
+			var vs = layers[i];
+			if (vs is null && i % nodeRankFactor != 0)
+			{
+				--delta;
+			}
+			else if (delta != 0 && vs is not null)
+			{
+				foreach (var v in vs)
+				{
+					g.Node(v).Rank += delta;
+				}
+			}
+		}
+	}
+
+	/// <summary>lodash's <c>_.min</c> of the nodes' ranks, which skips a missing rank. NaN when no node has one.</summary>
+	private static double MinRank(LayoutGraph g, int[] nodes)
+	{
+		var min = double.NaN;
+		foreach (var v in nodes)
+		{
+			var rank = g.Node(v).Rank;
+			if (!double.IsNaN(rank) && (double.IsNaN(min) || rank < min))
+			{
+				min = rank;
+			}
+		}
+
+		return min;
+	}
+
+	private static bool IsArrayIndex(double value) =>
+		value >= 0 && value <= 4294967294 && Math.Floor(value) == value;
+}
