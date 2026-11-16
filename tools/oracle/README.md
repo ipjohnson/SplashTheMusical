@@ -58,8 +58,8 @@ Each run writes these files to the facts folder:
 khroma, the colour library of mermaid's themes, is not named in `package.json`. `colors.mjs` uses the version
 `package-lock.json` resolves for mermaid, 2.1.0 at 12.3.0.
 
-To move to another mermaid version, change it in `package.json`, run `npm install` in `tools/oracle`, then run the
-oracle and `mise run colors`.
+To move to another mermaid version, run `mise run upstream-bump <version>`. It installs the version, rewrites every
+file that depends on it, and writes the delta report to `.artifacts/upstream/after/upstream-delta.md`.
 
 ## Reproducibility
 

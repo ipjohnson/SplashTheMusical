@@ -44,7 +44,8 @@ mise run corpus <mermaid checkout>   # rewrite the docs, e2e and parser cases, S
 mise run corpus-oracle               # rewrite every facts, boxes and dagre file with the pinned mermaid.js
 ```
 
-The checkout must be at the tag of the mermaid that `tools/oracle/package.json` pins. `mise run corpus` deletes every
+`mise run upstream-bump <version>` runs both after it moves the oracle to another mermaid. The checkout must be at the
+tag of the mermaid that `tools/oracle/package.json` pins. `mise run corpus` deletes every
 `docs-*`, `e2e-*` and `parser-*` case before it writes them, and leaves the other cases alone. An e2e or parser source
 that is already in the corpus is left out, and so is a source whose first line is not a diagram header.
 
