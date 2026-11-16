@@ -8,7 +8,8 @@ namespace SplashTheMusical.Upstream;
 /// </summary>
 /// <remarks>
 /// <c>config &lt;checkout&gt; [--check]</c> writes the <c>MermaidConfig</c> classes to src/SplashTheMusical/Config/Generated
-/// from <c>packages/mermaid/src/schemas/config.schema.yaml</c>, and <c>ConfigKeys</c> from corpus/config.txt. With <c>--check</c> it writes nothing and fails when a
+/// from the config schema <see cref="ConfigSource"/> finds, packages/mermaid/src/schemas/config.schema.yaml in mermaid 12 and
+/// packages/core/schema/config.schema.yaml in 13, and <c>ConfigKeys</c> from corpus/config.txt. With <c>--check</c> it writes nothing and fails when a
 /// generated file differs from the committed one.
 /// <c>fonts [--check]</c> writes the text measurer's width tables to src/SplashTheMusical/Text/Generated from the font
 /// files <see cref="FontTableWriter.Families"/> names.
@@ -80,10 +81,7 @@ public static class Program
 			return 1;
 		}
 
-		var schemaText = File.ReadAllText(Path.Combine(checkout, "packages", "mermaid", "src", "schemas", "config.schema.yaml"));
-		var buildText = File.ReadAllText(Path.Combine(checkout, ".build", "jsonSchema.ts"));
-		var schema = new ConfigSchema(SchemaYaml.Read(schemaText));
-		var files = ConfigWriter.Write(schema, DiagramKeys.Read(buildText), version);
+		var files = ConfigWriter.Write(ConfigSource.Read(checkout), version);
 		files.Add("ConfigKeys.g.cs", ConfigKeysWriter.Write(File.ReadAllText(Path.Combine(repository, "corpus", "config.txt")), version));
 		var folder = Path.Combine(repository, "src", "SplashTheMusical", "Config", "Generated");
 		return args.Length == 3 ? GeneratedFiles.Check(folder, files) : GeneratedFiles.Write(folder, files);

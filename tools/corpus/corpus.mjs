@@ -1,6 +1,6 @@
-// Writes the upstream cases of corpus/ from a checkout of mermaid-js/mermaid, then corpus/SOURCE.txt and the counts in
-// corpus/README.md. It is a port of ipjohnson/mermaider's scripts/mermaid-docs-corpus.py and
-// scripts/mermaid-test-corpus.py.
+// Writes the upstream cases of corpus/ from a checkout of mermaid-js/mermaid, or of mermaid-js/mermaid-v13 for mermaid 13,
+// then corpus/SOURCE.txt and the counts in corpus/README.md. It is a port of ipjohnson/mermaider's
+// scripts/mermaid-docs-corpus.py and scripts/mermaid-test-corpus.py.
 //
 //   node tools/corpus/corpus.mjs <mermaid checkout> [corpus-dir]
 //   node tools/corpus/corpus.mjs --add <folder> <source> [corpus-dir]
@@ -8,15 +8,17 @@
 //
 // The checkout must be at the tag mermaid@<version>, where <version> is the mermaid that tools/oracle pins.
 //
-// A case is written to <corpus>/<type>/<source>-<name>.mmd. <type> is the folder of the diagram type under
-// packages/mermaid/src/diagrams. The sources are:
+// A case is written to <corpus>/<type>/<source>-<name>.mmd. <type> is the folder of the diagram type under mermaid 12's
+// packages/mermaid/src/diagrams. layout.mjs finds the docs and spec folders of each layout. The sources are:
 //
-// - docs: every ```mermaid, ```mermaid-example and ```mermaid-nocode fence of packages/mermaid/src/docs/syntax/*.md,
-//   except all-examples.md, as docs-<doc>-<n>. <n> counts the fences of that doc from 1.
+// - docs: every ```mermaid, ```mermaid-example and ```mermaid-nocode fence of the syntax docs, 12's
+//   packages/mermaid/src/docs/syntax/*.md or 13's v13/docs/syntax/*.md, except all-examples.md, as docs-<doc>-<n>. <n>
+//   counts the fences of that doc from 1.
 // - e2e: every e2e/diagrams/**/*.mmd fixture, as e2e-<path> with each run of other characters than letters and digits
 //   in the path written as one dash.
-// - parser: every string literal, or chain of literals joined with +, of packages/mermaid/src/diagrams/**/*.spec.{js,ts},
-//   as parser-<spec>-<n>, and of packages/parser/tests/*.test.{js,ts}, as parser-langium-<file>-<n>. <n> counts the kept
+// - parser: every string literal, or chain of literals joined with +, of the **/*.spec.{js,ts} files of 12's
+//   packages/mermaid/src/diagrams or 13's packages/diagram-*/src,
+//   as parser-<spec>-<n>, and of 12's packages/parser/tests/*.test.{js,ts}, as parser-langium-<file>-<n>. <n> counts the kept
 //   sources of the spec files with that name from 1. A parser source is dedented and trimmed. A template literal with
 //   ${...} is left out, because its text is only known when the test runs.
 //
@@ -30,6 +32,7 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import * as layout from './layout.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const repo = path.join(here, '..', '..')
@@ -329,7 +332,7 @@ function extract(checkout, corpus) {
 	}
 
 	const seen = new Set()
-	const docs = path.join(checkout, 'packages', 'mermaid', 'src', 'docs', 'syntax')
+	const docs = layout.docs(checkout)
 	for (const name of fs.readdirSync(docs).sort()) {
 		if (!name.endsWith('.md') || name === 'all-examples.md') continue
 		const text = readText(path.join(docs, name))
@@ -389,20 +392,22 @@ function extract(checkout, corpus) {
 		}
 	}
 	const specName = (file, suffix) => file.replace(suffix, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase()
-	walk(path.join(checkout, 'packages', 'mermaid', 'src', 'diagrams'), (dir, file) => {
-		if (!/\.spec\.[jt]s$/.test(file)) return
-		keepLiterals(specName(file, /\.spec\.[jt]s$/), readText(path.join(dir, file)))
-	})
-	// The langium grammars, such as architecture, gitGraph, pie, radar and treeView, keep their parser tests in packages/parser.
+	for (const specs of layout.specs(checkout))
+		walk(specs, (dir, file) => {
+			if (!/\.spec\.[jt]s$/.test(file)) return
+			keepLiterals(specName(file, /\.spec\.[jt]s$/), readText(path.join(dir, file)))
+		})
+	// The langium grammars of 12, such as architecture, gitGraph, pie, radar and treeView, keep their parser tests in
+	// packages/parser. 13 has no packages/parser.
 	const langium = path.join(checkout, 'packages', 'parser', 'tests')
-	for (const file of fs.readdirSync(langium).sort()) {
+	for (const file of fs.existsSync(langium) ? fs.readdirSync(langium).sort() : []) {
 		if (!/\.test\.[jt]s$/.test(file)) continue
 		keepLiterals('langium-' + specName(file, /\.test\.[jt]s$/), readText(path.join(langium, file)))
 	}
 
 	const license = fs.readFileSync(path.join(checkout, 'LICENSE'), 'utf8').replace(/\r\n/g, '\n').trimEnd()
 	fs.writeFileSync(path.join(corpus, 'SOURCE.txt'), [
-		`The docs-*, e2e-* and parser-* cases come from mermaid-js/mermaid at the tag ${tag}, commit ${commit}.`,
+		`The docs-*, e2e-* and parser-* cases come from ${layout.repositoryName(git('remote', 'get-url', 'origin'))} at the tag ${tag}, commit ${commit}.`,
 		'mise run corpus writes them with tools/corpus/corpus.mjs. They are under mermaid\'s MIT license:',
 		'',
 		license,

@@ -91,8 +91,8 @@ public static class DeltaReport
 			text.Append("Shape table:\n\n").Append(shapes);
 		}
 
-		Sets(text, "Edge markers", oldTree.Markers(), newTree.Markers());
-		Sets(text, "Registered layout algorithms", oldTree.Layouts(), newTree.Layouts());
+		Sets(text, "Edge markers", oldTree.Markers(), newTree.Markers(), UpstreamTree.MarkersFile);
+		Sets(text, "Registered layout algorithms", oldTree.Layouts(), newTree.Layouts(), UpstreamTree.RenderFile);
 		Sets(text, "Layout folders", oldTree.LayoutFolders(), newTree.LayoutFolders());
 		return text.ToString();
 	}
@@ -259,6 +259,20 @@ public static class DeltaReport
 	{
 		List(text, what + " added", after.Except(before));
 		List(text, what + " removed", before.Except(after));
+	}
+
+	/// <summary>Compares two sets read from <paramref name="source"/>, or says they were not compared when a checkout has no such file.</summary>
+	private static void Sets(StringBuilder text, string what, SortedSet<string>? before, SortedSet<string>? after, string source)
+	{
+		if (before is not null && after is not null)
+		{
+			Sets(text, what, before, after);
+		}
+		else if (before is not null || after is not null)
+		{
+			text.Append(what).Append(" were not compared, because the ").Append(before is null ? "old" : "new").Append(" checkout has no ")
+				.Append(Code(source)).Append(".\n\n");
+		}
 	}
 
 	private static void List(StringBuilder text, string title, IEnumerable<string> items, bool quote = true)

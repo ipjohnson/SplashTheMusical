@@ -62,6 +62,44 @@ public class DeltaReportTests
 			.And.Contain("Tests that newly fail, 1:\n\n- `ThemeTests.EveryVariable`");
 	}
 
+	[Test]
+	public void AMermaid13CheckoutIsReadFromItsDiagramPackages()
+	{
+		using var fixture = new UpstreamFixture();
+		WriteSide(fixture, "old", newer: false);
+		WriteSide(fixture, "new", newer: false);
+		Directory.Delete(Path.Combine(fixture.Root, "new", "checkout"), recursive: true);
+		void Write(string path, string text) => fixture.Write(Path.Combine("new", "checkout", path), text);
+		Write(
+			"packages/mermaid/src/generated/detectors.gen.ts",
+			"export const DETECTORS = [\n  { type: 'pie', pattern: /^\\s*pie/, id: 'pie' },\n  { type: 'venn', pattern: /^\\s*venn-beta/, id: 'venn' },\n];\n"
+		);
+		Write("packages/diagram-pie/grammar/pie.ebnf", "pie = 'pie' ;\n");
+		Write("packages/diagram-pie/grammar/generated/pie.grammar", "");
+		Write("packages/diagram-venn/grammar/venn.ebnf", "venn = 'venn-beta' ;\n");
+		Write("packages/core/src/layout/layered/index.ts", "");
+		Write("packages/core/src/layout/hops/index.ts", "");
+		Write("packages/layout-elk/package.json", "{}");
+
+		var report = DeltaReport.Write(fixture.Side("old", "12.3.0"), fixture.Side("new", "13.0.0"), Parsers);
+
+		Section(report, "Diagram types")
+			.Should()
+			.Be("\n## Diagram types\n\nDiagram folders added, 1:\n\n- `venn`\n\nDetector ids added, 1:\n\n- `venn`\n");
+		var grammars = Section(report, "Grammar files");
+		grammars
+			.Should()
+			.Contain($"### `{PieGrammar}`, removed\n\nSTM parser:")
+			.And.Contain("### `packages/diagram-pie/grammar/pie.ebnf`, added")
+			.And.Contain("### `packages/diagram-venn/grammar/venn.ebnf`, added")
+			.And.NotContain("generated");
+		Section(report, "Shapes, edge types and layout algorithms")
+			.Should()
+			.Contain($"Edge markers were not compared, because the new checkout has no `{UpstreamTree.MarkersFile}`.")
+			.And.Contain($"Registered layout algorithms were not compared, because the new checkout has no `{UpstreamTree.RenderFile}`.")
+			.And.Contain("Layout folders added, 1:\n\n- `layered`\n\nLayout folders removed, 1:\n\n- `dagre`", "12's elk folder and 13's layout-elk package are the same layout, and hops is shared");
+	}
+
 	private static string Section(string report, string title)
 	{
 		var start = report.IndexOf("\n## " + title + "\n", StringComparison.Ordinal);
