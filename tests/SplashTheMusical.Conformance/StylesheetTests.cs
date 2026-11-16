@@ -70,14 +70,25 @@ public class StylesheetTests
 		await Assert.That(cases.Count).IsEqualTo(13);
 	}
 
-	// The style element's text, unescaped.
+	// The style element's text, unescaped. The sanitizer must keep the document unchanged.
 	private static string Write(IEnumerable<CssRule> rules)
 	{
 		var buffer = new ArrayBufferWriter<byte>();
-		new SvgWriter(buffer).WriteStyle(SvgId, rules);
+		var writer = new SvgWriter(buffer);
+		writer.StartElement("svg");
+		writer.WriteAttribute("id", SvgId);
+		writer.WriteStyle(rules);
+		writer.EndElement();
 		var xml = Encoding.UTF8.GetString(buffer.WrittenSpan);
-		return xml["<style>".Length..^"</style>".Length].Replace("&gt;", ">", StringComparison.Ordinal).Replace("&lt;", "<", StringComparison.Ordinal)
-			.Replace("&amp;", "&", StringComparison.Ordinal);
+		var sanitized = SvgSanitizer.SanitizeRendererOutput(xml);
+		if (sanitized.HasViolations)
+		{
+			throw new InvalidOperationException($"The sanitizer changed the stylesheet: {string.Join(", ", sanitized.Violations)}");
+		}
+
+		var start = xml.IndexOf("<style>", StringComparison.Ordinal) + "<style>".Length;
+		return xml[start..xml.IndexOf("</style>", StringComparison.Ordinal)].Replace("&gt;", ">", StringComparison.Ordinal)
+			.Replace("&lt;", "<", StringComparison.Ordinal).Replace("&amp;", "&", StringComparison.Ordinal);
 	}
 
 	private static string[] Field(string[] lines, string kind, string name) =>

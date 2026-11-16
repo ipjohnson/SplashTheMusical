@@ -13,6 +13,9 @@ in the [ipjohnson/mermaider](https://github.com/ipjohnson/mermaider) fork.
 `src/SplashTheMusical/ResourceLimits.cs`, `src/SplashTheMusical/MermaidResourceLimitException.cs` and
 `src/SplashTheMusical/Parsing/ResourceGuard.cs` take their limits, defaults and checks from its `Models/ResourceLimits.cs`,
 `MermaidResourceLimitException.cs` and `Rendering/ResourceGuard.cs`.
+`src/SplashTheMusical/SvgSanitizer.cs` and `src/SplashTheMusical/Rendering/SvgValues.cs` are a port of `SvgSanitizer.cs`,
+`SvgValueAllowlist.cs` and `MermaidSvgException.cs` in the ipjohnson/mermaider fork, and
+`tests/SplashTheMusical.Tests/Rendering/SvgSanitizerTests.cs` and `SvgSanitizerFuzzTests.cs` port its tests of them.
 
 ```
 MIT License
