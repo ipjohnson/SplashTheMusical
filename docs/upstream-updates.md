@@ -69,7 +69,10 @@ shows what STM still owes.
 
 The canary runs `upstream-bump`, changes no branch, and posts the delta report as a comment on the open issue titled
 "mermaid.js pre-release canary". It opens that issue when none is open. When the bump fails, the comment holds the end
-of its log. The canary does not block anything, and its findings are notice of the next major version, not work to do
+of its log, whose last line names the command that failed. At 13.0.0-alpha.3 the bump fails at `tools/corpus/corpus.mjs`.
+mermaid 13 moved the docs to `v13/docs`, the diagrams to `packages/diagram-*` and the config schema to
+`packages/core/schema`, and its npm package has no `dist/chunks/mermaid.esm` for the oracle's dumps. The tools follow
+that layout in a later change. The canary does not block anything, and its findings are notice of the next major version, not work to do
 now.
 
 ## Release

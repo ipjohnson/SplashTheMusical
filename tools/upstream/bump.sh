@@ -9,7 +9,8 @@
 # writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop it, because the report lists
 # them. The checkouts of both tags are kept in .artifacts/upstream/mermaid@<version>. Each is cloned from the repository
 # npm names for that version, because the 13 pre-releases are tagged in mermaid-js/mermaid-v13.
-set -euo pipefail
+set -Eeuo pipefail
+trap 'echo "upstream-bump failed at tools/upstream/bump.sh:$LINENO: $BASH_COMMAND" >&2' ERR
 
 if [ $# -ne 1 ]; then
 	echo "usage: tools/upstream/bump.sh <mermaid version>" >&2
