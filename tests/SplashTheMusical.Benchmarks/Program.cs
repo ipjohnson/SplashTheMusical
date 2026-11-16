@@ -25,7 +25,7 @@ static int Usage()
 		  size [--sizes file] [--dll file] [--cli file] [--accept]
 		                                            exit 1 when a binary is more than 5% larger than its committed size
 		  dagre [--jobs JIT,AOT] [--out file]       run the dagre port on graphs of 10, 100 and 1,000 nodes and write its result file
-		  dagre-layout <nodes>                    lay out one generated graph of that many nodes and print the time
+		  dagre-layout <nodes>                      lay out one generated graph of that many nodes and print the time
 		STM_BENCH_CASES limits a run to the cases whose id contains it.
 		""");
 	return 2;
