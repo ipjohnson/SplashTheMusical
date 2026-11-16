@@ -1,6 +1,7 @@
 using System.Buffers;
 using System.Globalization;
 using SplashTheMusical.Parsing;
+using SplashTheMusical.Themes;
 
 namespace SplashTheMusical.Config;
 
@@ -10,7 +11,6 @@ namespace SplashTheMusical.Config;
 /// <c>addDirective</c> takes as one directive. Values are JavaScript objects there and <see cref="MermaidValue"/> trees
 /// here. A missing key is <c>undefined</c> and <see cref="MermaidValue.Null"/> is <c>null</c>.
 /// </summary>
-/// <remarks>The theme variables are not computed. mermaid.js replaces them with the theme's when the theme changes.</remarks>
 internal static class ConfigMerge
 {
 	/// <summary>The value of <c>sanitizeCss</c> for CSS whose braces do not balance.</summary>
@@ -31,36 +31,75 @@ internal static class ConfigMerge
 	/// directives give <paramref name="preamble"/>. <paramref name="siteOptions"/> is what the host hands to
 	/// <c>initialize</c>.
 	/// </summary>
+	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
 	public static MermaidValue Apply(MermaidValue? siteOptions, MermaidValue preamble, string diagramType)
 	{
-		var (site, siteDelta) = Initialize(siteOptions);
+		var (site, siteDelta, fromInitialize) = Initialize(siteOptions);
 		var directive = AddDirective(preamble);
 		var config = Assign(Empty(), site);
 		directive = Sanitize(directive, Secure(site));
 		var sumOfDirectives = Assign(Empty(), directive);
 		config = Assign(config, sumOfDirectives);
-		return ResolveAppearance(config, DiagramConfigKey(diagramType), [sumOfDirectives, siteDelta, Defaults]);
+		config = ResolveAppearance(config, DiagramConfigKey(diagramType), [sumOfDirectives, siteDelta, Defaults]);
+		return ApplyTheme(config, site, sumOfDirectives, fromInitialize);
 	}
 
 	/// <summary>The site config <c>initialize</c> sets: the default config with the host's options over it.</summary>
+	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
 	public static MermaidValue Site(MermaidValue? siteOptions) => Initialize(siteOptions).Site;
 
 	/// <summary>
 	/// <c>initialize</c> and <c>setSiteConfig</c>. A theme name no theme answers to becomes <c>default</c>, except
-	/// <c>"null"</c>. The delta is the options without the defaults, which <c>resolveAppearance</c> reads.
+	/// <c>"null"</c>, and the theme variables are those the theme computes from the options' theme variables, with the
+	/// <c>default</c> theme for a name no theme answers to. The delta is the options without the defaults, which
+	/// <c>resolveAppearance</c> reads. <c>FromInitialize</c> is the options before the theme computes the variables.
 	/// </summary>
-	private static (MermaidValue Site, MermaidValue Delta) Initialize(MermaidValue? siteOptions)
+	private static (MermaidValue Site, MermaidValue Delta, MermaidValue FromInitialize) Initialize(MermaidValue? siteOptions)
 	{
 		var options = siteOptions is { Kind: MermaidValueKind.Mapping } ? Assign(Empty(), siteOptions) : Empty();
 		options = CopyFontFamily(options);
+		var fromInitialize = Assign(Empty(), options);
 		var theme = options["theme"];
-		if (theme is not null && theme.Kind != MermaidValueKind.Null && !(Truthy(theme) && IsTheme(theme)) && !IsString(theme, "null"))
+		if (theme is not null && Truthy(theme) && IsTheme(theme))
 		{
-			options = With(options, "theme", MermaidValue.FromString("default"));
+			options = With(options, "themeVariables", Theme.Variables(theme.String, options["themeVariables"])!);
+		}
+		else
+		{
+			if (theme is not null && theme.Kind != MermaidValueKind.Null && !IsString(theme, "null"))
+			{
+				options = With(options, "theme", MermaidValue.FromString("default"));
+			}
+
+			options = With(options, "themeVariables", Theme.Variables("default", options["themeVariables"])!);
 		}
 
 		var site = Assign(Assign(Empty(), Defaults), options);
-		return (site, Assign(Empty(), options));
+		return (site, Assign(Empty(), options), fromInitialize);
+	}
+
+	/// <summary>
+	/// The end of <c>updateCurrentConfig</c>: when the directives set a theme or the resolved theme is not the site's,
+	/// the resolved theme computes the variables from those of <c>initialize</c> with the directives' over them.
+	/// Otherwise the variables stay the site's with the directives' merged in, and nothing is derived from them.
+	/// </summary>
+	private static MermaidValue ApplyTheme(MermaidValue config, MermaidValue site, MermaidValue sumOfDirectives, MermaidValue fromInitialize)
+	{
+		var theme = config["theme"];
+		var overridden = (sumOfDirectives["theme"] is { } set && Truthy(set)) || !Equals(theme, site["theme"]);
+		if (!overridden || theme is null || !IsTheme(theme))
+		{
+			return config;
+		}
+
+		var initialized = Assign(Empty(), fromInitialize)["themeVariables"];
+		var overrides = initialized is not null && Truthy(initialized) ? initialized : Empty();
+		if (sumOfDirectives["themeVariables"] is { } directed)
+		{
+			overrides = Assign(overrides, directed);
+		}
+
+		return With(config, "themeVariables", Theme.Variables(theme.String, overrides)!);
 	}
 
 	/// <summary><c>addDirective</c>: <c>sanitizeDirective</c>, then the font family copied into the theme variables.</summary>

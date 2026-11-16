@@ -86,7 +86,8 @@ DEALINGS IN THE SOFTWARE.
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
 The `docs-*`, `e2e-*` and `parser-*` cases in `corpus/` are taken from its docs and tests. `corpus/SOURCE.txt` names
 the tag and commit. The classes in `src/SplashTheMusical/Config/Generated` are generated from its
-`packages/mermaid/src/schemas/config.schema.yaml`, and their documentation comments are the schema's descriptions.
+`packages/mermaid/src/schemas/config.schema.yaml`, and their documentation comments are the schema's descriptions. The
+theme classes in `src/SplashTheMusical/Themes` are ports of the files of `packages/mermaid/src/themes`.
 
 ```
 The MIT License (MIT)
