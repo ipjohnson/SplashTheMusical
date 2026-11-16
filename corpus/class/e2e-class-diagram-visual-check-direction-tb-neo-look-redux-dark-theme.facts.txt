@@ -10,6 +10,10 @@ attribute	Student	-idCard : IdCard
 class	Bike	Bike
 class	IdCard	IdCard
 class	Student	Student
+config	class.theme	"redux-dark"
+config	htmlLabels	true
+config	look	"neo"
+config	theme	"redux-dark"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	look	"neo"

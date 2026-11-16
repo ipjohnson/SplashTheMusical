@@ -3,6 +3,8 @@
 # source da5672a068187071
 accept	yes
 class	actual	actual
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	actual	#protectedMethod()
 method	actual	+publicMethod()

@@ -3,6 +3,8 @@
 # source cf00e5b0c1ef00da
 accept	yes
 class	Car	Car
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Car	+setWheels(List<Wheel> wheels)
 type	classDiagram

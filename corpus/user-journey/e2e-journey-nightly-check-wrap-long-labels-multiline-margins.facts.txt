@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 6ccdc164d8677929
 accept	yes
+config	journey.maxLabelWidth	320
 drawn	yes
 label	Browse Features
 label	Browse Features

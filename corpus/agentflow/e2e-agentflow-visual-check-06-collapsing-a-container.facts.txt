@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c02c64e654fcdb45
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	enrich	publish	sequence

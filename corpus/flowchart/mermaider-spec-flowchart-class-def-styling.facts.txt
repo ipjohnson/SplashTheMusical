@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source eb4fd9167a53251d
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid
 edge	A	D	none	arrow	solid

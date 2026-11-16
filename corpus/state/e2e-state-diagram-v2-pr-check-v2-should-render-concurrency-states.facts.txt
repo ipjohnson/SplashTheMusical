@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source d7d7b46a1767502b
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	CapsLockOff	CapsLockOn	none	arrow	solid	EvCapsLockPressed
 edge	CapsLockOn	CapsLockOff	none	arrow	solid	EvCapsLockPressed

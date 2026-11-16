@@ -3,6 +3,8 @@
 # source ad6a3a578b0f599b
 accept	yes
 actor	Customer	Customer	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Customer

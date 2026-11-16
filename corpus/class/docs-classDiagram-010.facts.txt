@@ -5,6 +5,8 @@ accept	yes
 attribute	BankAccount	+BigDecimal balance
 attribute	BankAccount	+String owner
 class	BankAccount	BankAccount
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	BankAccount	+deposit(amount) : bool
 method	BankAccount	+withdrawal(amount) : int

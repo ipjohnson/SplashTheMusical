@@ -4,6 +4,9 @@
 accept	yes
 actor	A	Alice, the talkative one	participant
 actor	John	John	participant
+config	look	"neo"
+config	sequence.wrap	true
+config	theme	"redux-color"
 drawn	yes
 message	A	John	solid	filled	Hello John, how are you today? I'm feeling quite verbose today.
 message	A	John	solid	filled	John, can you hear me? If you are not available, we can talk later.

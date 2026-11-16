@@ -5,6 +5,9 @@ accept	yes
 actor	Alice	Alice	participant
 actor	John	John	participant
 block	rect
+config	look	"neo"
+config	sequence.theme	"base"
+config	theme	"base"
 drawn	yes
 message	Alice	John	solid	filled	Hello John, how are you?
 message	Alice	John	solid	filled	John, can you hear me?

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 7968b00e9a4c7f7b
 accept	yes
+config	pie.donutHole	1.2
 drawn	yes
 label	Items Sold
 label	Keyboard

@@ -4,6 +4,8 @@
 accept	yes
 attribute	Animal	+int count
 class	Animal	Animal
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Animal	+run()
 method	Animal	+sleep()

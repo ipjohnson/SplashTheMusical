@@ -10,6 +10,8 @@ attribute	Dog	+String breed
 class	Animal	Animal
 class	Cat	Cat
 class	Dog	Dog
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Animal	+eat() : void
 method	Animal	+sleep() : void

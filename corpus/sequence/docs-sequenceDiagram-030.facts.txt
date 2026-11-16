@@ -5,6 +5,8 @@ accept	yes
 actor	DB	DB	participant
 actor	Service	Service	participant
 block	critical	Establish a connection to the DB
+config	look	"neo"
+config	theme	"redux-color"
 divider	Credentials rejected
 divider	Network timeout
 drawn	yes

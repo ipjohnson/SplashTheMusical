@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 88f8ca17710da23a
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	This is a label	diam
 type	flowchart-v2

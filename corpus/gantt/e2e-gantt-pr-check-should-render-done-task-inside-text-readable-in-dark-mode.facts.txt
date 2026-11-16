@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source f1738e9fa80997af
 accept	yes
+config	theme	"dark"
 drawn	yes
 label	A section
 label	Active

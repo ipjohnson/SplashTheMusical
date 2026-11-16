@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 67d1768974c1482a
 accept	yes
+config	layout	"swimlane"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	lane1	Performer A	a
 group	phase1

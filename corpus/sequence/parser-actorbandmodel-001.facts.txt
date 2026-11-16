@@ -10,6 +10,8 @@ actor	E	Ent	entity
 actor	Plain	Plain	participant
 actor	Q	Que	queue
 actor	User	User	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	User	DB	solid	filled	query
 type	sequence

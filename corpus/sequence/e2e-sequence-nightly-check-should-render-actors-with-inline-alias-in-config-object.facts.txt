@@ -5,6 +5,8 @@ accept	yes
 actor	G	Gateway	boundary
 actor	S	Service	control
 actor	U	End User	actor
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	G	S	solid	filled	Process
 message	G	U	dashed	filled	Result

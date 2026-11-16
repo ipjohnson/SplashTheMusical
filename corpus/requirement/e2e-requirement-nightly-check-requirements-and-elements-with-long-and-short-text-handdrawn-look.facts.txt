@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 7226eb88bb7b5db1
 accept	yes
+config	look	"handDrawn"
+config	requirement.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 element	test_entity_name_that_is_extra_long
 label	1

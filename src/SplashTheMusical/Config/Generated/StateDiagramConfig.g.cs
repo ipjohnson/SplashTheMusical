@@ -159,4 +159,38 @@ public sealed partial class StateDiagramConfig
 		ConfigValues.Add(entries, "radius", Radius);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static StateDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		WrappingWidth = ConfigValues.ReadNumber(value?["wrappingWidth"]),
+		MinNodeWidth = ConfigValues.ReadNumber(value?["minNodeWidth"]),
+		TitleTopMargin = ConfigValues.ReadNumber(value?["titleTopMargin"]),
+		ArrowMarkerAbsolute = ConfigValues.ReadBoolean(value?["arrowMarkerAbsolute"]),
+		DividerMargin = ConfigValues.ReadNumber(value?["dividerMargin"]),
+		SizeUnit = ConfigValues.ReadNumber(value?["sizeUnit"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		TextHeight = ConfigValues.ReadNumber(value?["textHeight"]),
+		TitleShift = ConfigValues.ReadNumber(value?["titleShift"]),
+		NoteMargin = ConfigValues.ReadNumber(value?["noteMargin"]),
+		NodeSpacing = ConfigValues.ReadNumber(value?["nodeSpacing"]),
+		RankSpacing = ConfigValues.ReadNumber(value?["rankSpacing"]),
+		ForkWidth = ConfigValues.ReadNumber(value?["forkWidth"]),
+		ForkHeight = ConfigValues.ReadNumber(value?["forkHeight"]),
+		MiniPadding = ConfigValues.ReadNumber(value?["miniPadding"]),
+		FontSizeFactor = ConfigValues.ReadNumber(value?["fontSizeFactor"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+		LabelHeight = ConfigValues.ReadNumber(value?["labelHeight"]),
+		EdgeLengthFactor = ConfigValues.ReadString(value?["edgeLengthFactor"]),
+		CompositTitleSize = ConfigValues.ReadNumber(value?["compositTitleSize"]),
+		Radius = ConfigValues.ReadNumber(value?["radius"]),
+	};
 }

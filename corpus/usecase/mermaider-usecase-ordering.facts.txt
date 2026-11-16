@@ -5,6 +5,8 @@ accept	yes
 actor	Customer	Customer	normal
 actor	Staff	Order staff	hollow
 boundary	ordering	Ordering system	package	Browse,Checkout,Payment,Review
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Browse products

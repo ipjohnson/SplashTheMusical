@@ -3,6 +3,10 @@
 # source 5b52ab02817baa01
 accept	yes
 class	Class10	Class10
+config	htmlLabels	true
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

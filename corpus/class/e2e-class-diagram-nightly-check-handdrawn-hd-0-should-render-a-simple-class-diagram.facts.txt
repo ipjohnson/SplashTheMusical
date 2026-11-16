@@ -6,6 +6,11 @@ class	classA	classA
 class	classB	classB
 class	classC	classC
 class	classD	classD
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

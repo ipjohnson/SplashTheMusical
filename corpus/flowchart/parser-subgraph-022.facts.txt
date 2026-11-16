@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b42e08b0c123ee7b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a1	a2	none	arrow	solid
 group	some-id	Some Title	a1,a2

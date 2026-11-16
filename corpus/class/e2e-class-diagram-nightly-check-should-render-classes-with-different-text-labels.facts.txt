@@ -14,5 +14,7 @@ class	C5	With {Brackets}
 class	C7	With 1 number
 class	C8	With . period...
 class	C9	With - dash
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

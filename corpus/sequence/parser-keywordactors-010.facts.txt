@@ -3,5 +3,7 @@
 # source df217ba61ec04558
 accept	yes
 actor	A	A	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	sequence

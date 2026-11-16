@@ -3,6 +3,8 @@
 # source e56058e7522a3612
 accept	yes
 actor	C	C	control
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	C	C	solid	none	test
 type	sequence

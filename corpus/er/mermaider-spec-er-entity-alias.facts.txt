@@ -6,6 +6,8 @@ attribute	o	int	customer_id	FK
 attribute	o	int	id	PK
 attribute	p	int	id	PK
 attribute	p	string	name
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	o	Order
 entity	p	Customer Account

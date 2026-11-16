@@ -4,6 +4,8 @@
 accept	yes
 class	CEO	CEO
 class	Developer	Developer
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	CEO	+makeDecisions()
 method	Developer	+writeCode()

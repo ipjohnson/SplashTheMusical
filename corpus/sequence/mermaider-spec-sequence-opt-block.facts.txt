@@ -5,6 +5,8 @@ accept	yes
 actor	A	A	participant
 actor	B	B	participant
 block	opt	Extra logging
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	Request
 message	B	A	dashed	filled	Response

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 3d5cc6e9ec4f588a
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Cloudwatch	Route53	none	arrow	solid
 edge	Route53	EKS	none	arrow	solid

@@ -5,6 +5,8 @@ accept	yes
 actor	Admin	Administrator	normal			Authentication_System
 actor	User	User	normal			Authentication_System
 boundary	Authentication_System	Authentication System	rect	Admin,Login,Report,User
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Administrator

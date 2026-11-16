@@ -3,6 +3,8 @@
 # source 67ab65d2c69e7f46
 accept	yes
 class	Duck	Duck
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Duck	+quack()
 method	Duck	+swim()

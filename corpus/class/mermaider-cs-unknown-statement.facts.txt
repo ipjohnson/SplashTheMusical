@@ -4,6 +4,8 @@
 accept	yes
 class	A	A
 class	B	B
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	A	B	none	arrow	solid
 type	classDiagram

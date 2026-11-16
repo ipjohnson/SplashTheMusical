@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source c73fdea4fca45502
 accept	yes
+config	htmlLabels	false
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	markdown	newLines	none	arrow	solid
 node	markdown	This is Markdown	rect

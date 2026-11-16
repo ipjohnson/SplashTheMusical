@@ -5,6 +5,10 @@ accept	yes
 class	CEO	CEO
 class	Designer	Designer
 class	Developer	Developer
+config	class.hierarchicalNamespaces	false
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	CEO	+makeDecisions()
 method	Designer	+createMockup()

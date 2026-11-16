@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 1f8f0a5158f1bd14
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Comment	brace-r
 type	flowchart-v2

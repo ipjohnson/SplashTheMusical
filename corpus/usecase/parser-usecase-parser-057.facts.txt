@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 04d58b6313dfd173
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	no
 type	usecase

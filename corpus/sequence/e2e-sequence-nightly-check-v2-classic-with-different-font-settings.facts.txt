@@ -5,6 +5,14 @@ accept	yes
 actor	actor1	actor1	actor
 actor	boundary2	boundary2	boundary
 actor	participant0	participant0	participant
+config	sequence.actorFontFamily	"courier"
+config	sequence.look	"classic"
+config	sequence.messageFontFamily	"Arial"
+config	sequence.messageFontSize	12
+config	sequence.noteAlign	"left"
+config	sequence.noteFontFamily	"times"
+config	sequence.noteFontSize	16
+config	theme	"redux-color"
 drawn	yes
 message	participant0	actor1	solid	filled	Regular message
 note	right	actor1	Regular note

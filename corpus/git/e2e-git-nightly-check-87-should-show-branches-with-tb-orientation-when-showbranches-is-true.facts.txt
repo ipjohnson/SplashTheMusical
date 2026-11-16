@@ -9,6 +9,7 @@ commit	1	main	normal			2
 commit	2	develop	normal			3
 commit	3	develop	normal			4
 commit	4	main	normal			5
+config	gitGraph.rotateCommitLabel	false
 drawn	yes
 label	1
 label	2

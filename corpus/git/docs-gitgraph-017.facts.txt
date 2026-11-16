@@ -8,6 +8,9 @@ branch	test2
 branch	test3
 branch	test4
 commit	0	main	normal
+config	gitGraph.mainBranchOrder	2
+config	logLevel	"debug"
+config	theme	"base"
 drawn	yes
 label	main
 label	test1

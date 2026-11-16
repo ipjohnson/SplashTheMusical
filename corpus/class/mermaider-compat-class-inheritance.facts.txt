@@ -8,6 +8,8 @@ attribute	Duck	+String beakColor
 class	Animal	Animal
 class	Duck	Duck
 class	Fish	Fish
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Animal	+isMammal() : bool
 method	Duck	+quack()

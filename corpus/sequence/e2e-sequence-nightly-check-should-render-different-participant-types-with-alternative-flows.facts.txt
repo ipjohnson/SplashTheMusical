@@ -10,6 +10,8 @@ actor	MobileApp	MobileApp	participant
 actor	Transaction	Transaction	entity
 actor	TransactionsDB	TransactionsDB	database
 block	alt	Authentication successful
+config	look	"neo"
+config	theme	"redux-color"
 divider	Authentication failed
 drawn	yes
 message	Client	MobileApp	solid	filled	Initiate transaction

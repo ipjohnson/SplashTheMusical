@@ -3,6 +3,10 @@
 # source 7f5b2a36dd27eaa5
 accept	yes
 class	Class10	Class10
+config	flowchart.htmlLabels	false
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	flowchart.htmlLabels	false
 preamble-config	logLevel	1

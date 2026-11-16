@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 49d5c4dfe55711ec
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AppliesToEntry	AppliesToEntry
 entity	DocumentInference	DocumentInference

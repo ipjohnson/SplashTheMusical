@@ -5,6 +5,10 @@ accept	yes
 attribute	Class10	+attribute italic
 attribute	Class10	~attribute bold
 class	Class10	Class10
+config	htmlLabels	true
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class10	+quack() : test
 method	Class10	+swim() : a

@@ -6,6 +6,8 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	John	John	participant
 block	par	Alice to Bob
+config	look	"neo"
+config	theme	"redux-color"
 divider	Alice to John
 drawn	yes
 message	Alice	Bob	solid	filled	Hello guys!

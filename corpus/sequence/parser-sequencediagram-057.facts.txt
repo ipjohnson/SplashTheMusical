@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 block	alt	isWell
+config	look	"neo"
+config	theme	"redux-color"
 divider	isSick
 drawn	yes
 message	Alice	Bob	solid	none	Hello Bob, how are you?

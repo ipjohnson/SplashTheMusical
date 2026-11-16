@@ -9,6 +9,7 @@ commit	1	main	normal			Beta
 commit	2	develop	normal			Gamma
 commit	3	develop	normal			Delta
 commit	4	main	normal			Epsilon
+config	gitGraph.rotateCommitLabel	false
 drawn	yes
 label	Alpha
 label	Beta

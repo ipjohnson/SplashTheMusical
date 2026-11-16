@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 9c4e6d63b7c161fc
 accept	yes
+config	treemap.valueFormat	"$.1%"
 drawn	yes
 label	Company A
 label	Company B

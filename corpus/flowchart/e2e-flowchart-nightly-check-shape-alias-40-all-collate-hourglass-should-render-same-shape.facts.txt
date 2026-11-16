@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d098c969b87196b6
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0		hourglass
 node	n1		hourglass

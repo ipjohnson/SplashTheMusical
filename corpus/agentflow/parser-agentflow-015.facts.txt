@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9b02d91befa4377a
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 connector	github	GitHub
 connector	slack	Slack
 direction	TD

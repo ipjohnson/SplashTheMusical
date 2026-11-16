@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 344e64eb9718eff0
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	checkout_service	service
 label	1

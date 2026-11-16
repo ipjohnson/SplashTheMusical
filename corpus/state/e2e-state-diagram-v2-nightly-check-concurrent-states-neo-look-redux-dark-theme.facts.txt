@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 228b590985dec9fa
 accept	yes
+config	look	"neo"
+config	state.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 edge	CapsLockOff	CapsLockOn	none	arrow_barb_neo	solid
 edge	CapsLockOn	CapsLockOff	none	arrow_barb_neo	solid

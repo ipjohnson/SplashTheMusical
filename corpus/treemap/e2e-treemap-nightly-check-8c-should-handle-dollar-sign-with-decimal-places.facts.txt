@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source e0a7836e6a1b1234
 accept	yes
+config	treemap.valueFormat	"$.2f"
 drawn	yes
 label	Basic
 label	Enterprise

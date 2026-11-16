@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source bfb2f64658d4e3ea
 accept	yes
+config	flowchart.htmlLabels	false
+config	flowchart.look	"handDrawn"
+config	fontFamily	"courier"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B1	none	arrow	solid	Get money
 edge	A	B2	none	arrow	solid	Get money

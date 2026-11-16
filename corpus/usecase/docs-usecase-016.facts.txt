@@ -3,6 +3,8 @@
 # source ddec036429b83779
 accept	yes
 actor	User	User	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Requires an active session

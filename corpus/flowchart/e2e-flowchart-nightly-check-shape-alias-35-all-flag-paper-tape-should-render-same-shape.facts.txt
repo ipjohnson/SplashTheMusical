@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 294c9a21beddede8
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	flag	flag
 node	n1	paper-tape	flag

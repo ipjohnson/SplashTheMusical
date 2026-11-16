@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7589d5166509dba6
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	every_morning	summarise	sequence

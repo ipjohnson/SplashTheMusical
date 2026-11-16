@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source d5d40c407422e645
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 element	empty_entity
 label	empty_entity

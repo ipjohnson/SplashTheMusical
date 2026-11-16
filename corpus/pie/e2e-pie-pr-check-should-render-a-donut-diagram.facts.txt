@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 183e2511c066934a
 accept	yes
+config	pie.donutHole	0.4
 drawn	yes
 label	Eat
 label	Roam

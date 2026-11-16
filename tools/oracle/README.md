@@ -132,6 +132,14 @@ them before it applies the config. Its paths and values are written as in [`conf
 reads both from mermaid's `preprocessDiagram`, which no public function returns. `hookPreprocess` in `dumps.mjs` sets it
 on `globalThis` when it loads `mermaid.min.js`, and fails when it does not find the function exactly once.
 
+Every accepted case also has `config` facts, with fields path and value, for the config mermaid.js drew it with. That is
+the default config, then the runner's `initialize` options, then the front matter and directives, with mermaid's
+sanitizing, locked keys and per-diagram `theme`, `look` and `layout`. A fact is written for each path whose value
+differs from `getSiteConfig()`, and with the value `missing` for a site config path the drawn config lacks.
+`themeVariables` are left out, because the theme computes them. render() clears the diagram's config scope before it
+returns, so the runner reads `getConfig()` inside it: `hookAddDirective` in `dumps.mjs` adds a call to the page at the
+end of mermaid's `addDirective`, and fails when it does not find the function exactly once.
+
 Most types also have `label` facts. A `label` fact names a label from the model that the DOM shows. A label counts as
 shown when its letters and digits, case-folded, occur in the drawn text joined the same way. Longer labels are matched
 first, and each match is used once, so two equal labels need two drawn copies.
@@ -315,6 +323,11 @@ includes `themeVariables`, which are the `default` theme's.
 | Line | Fields |
 |---|---|
 | `key` | path, value |
+| `name` | a key name of `configKeys` in mermaid's `defaultConfig.ts` |
+
+`configKeys` holds every key name at any depth of the default config, apart from keys whose value is an array. It
+includes the theme variables and the function defaults, which `key` lines leave out. `sanitizeDirective` drops a
+directive key whose name it does not hold.
 
 ## Shape table
 

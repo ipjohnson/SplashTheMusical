@@ -10,6 +10,8 @@ block	loop	check C
 block	loop	check D
 block	rect
 block	rect
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	1
 message	A	B	solid	filled	2

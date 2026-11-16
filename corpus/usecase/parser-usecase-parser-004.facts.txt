@@ -3,6 +3,8 @@
 # source bff9a9770c0f64f4
 accept	yes
 actor	User	User	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	User

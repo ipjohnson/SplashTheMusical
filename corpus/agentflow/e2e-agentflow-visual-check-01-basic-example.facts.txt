@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 59006578d3540698
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	analyse	lint	sequence

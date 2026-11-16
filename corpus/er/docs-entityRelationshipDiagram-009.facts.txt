@@ -8,6 +8,8 @@ attribute	CAR	string	registrationNumber
 attribute	PERSON	int	age
 attribute	PERSON	string	firstName
 attribute	PERSON	string	lastName
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CAR	CAR
 entity	NAMED-DRIVER	NAMED-DRIVER

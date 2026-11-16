@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8b4cf7c3adaa9c5f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	IsPositive	if_state	none	arrow	solid
 edge	[*]start@root	IsPositive	none	arrow	solid

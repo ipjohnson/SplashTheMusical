@@ -4,6 +4,8 @@
 accept	yes
 attribute	ISOLATED_ENTITY	string	data
 attribute	ISOLATED_ENTITY	string	id	PK
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ACTIVE_ENTITY	ACTIVE_ENTITY
 entity	CONNECTED_A	CONNECTED_A

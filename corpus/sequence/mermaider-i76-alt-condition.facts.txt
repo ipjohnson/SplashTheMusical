@@ -6,6 +6,8 @@ actor	A	A	participant
 actor	B	B	participant
 actor	C	C	participant
 block	alt	condition one
+config	look	"neo"
+config	theme	"redux-color"
 divider	condition two
 drawn	yes
 message	A	B	solid	filled	request

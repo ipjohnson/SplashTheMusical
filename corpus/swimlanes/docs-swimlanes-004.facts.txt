@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 8dfe9a424d0b625f
 accept	yes
+config	layout	"swimlane"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	Sales	Sales	lead,quote
 node	lead	Qualify lead	rect

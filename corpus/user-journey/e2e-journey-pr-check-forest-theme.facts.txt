@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 1f98db93ccb06c76
 accept	yes
+config	logLevel	0
+config	theme	"forest"
 drawn	yes
 label	Cat
 label	Do work

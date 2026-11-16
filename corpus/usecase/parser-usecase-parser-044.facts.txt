@@ -4,6 +4,8 @@
 accept	yes
 actor	User	User	hollow		Human	Auth
 boundary	Auth	Auth	package	Login,User
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 json	Payload

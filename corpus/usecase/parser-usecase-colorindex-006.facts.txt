@@ -3,6 +3,8 @@
 # source e6436c139b880d36
 accept	yes
 actor	User	User	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Sign in

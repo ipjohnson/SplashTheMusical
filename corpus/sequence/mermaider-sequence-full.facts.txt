@@ -8,6 +8,8 @@ actor	F	Frontend	participant
 actor	U	User	actor
 block	alt	Valid
 block	loop	Every 30s
+config	look	"neo"
+config	theme	"redux-color"
 divider	Invalid
 drawn	yes
 message	B	DB	solid	filled	SELECT user

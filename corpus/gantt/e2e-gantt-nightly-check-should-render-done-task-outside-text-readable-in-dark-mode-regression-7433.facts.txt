@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 2c31a7865af2d923
 accept	yes
+config	theme	"dark"
 drawn	yes
 label	A section
 label	A very long label that will not fit inside the short bar

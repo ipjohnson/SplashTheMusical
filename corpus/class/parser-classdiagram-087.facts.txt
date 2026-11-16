@@ -7,6 +7,8 @@ attribute	Flight	departureTime : Date
 attribute	Flight	flightNumber : Integer
 class	Dummy_Class	Dummy_Class<T>
 class	Flight	Flight
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Dummy_Class	void methods()
 type	classDiagram

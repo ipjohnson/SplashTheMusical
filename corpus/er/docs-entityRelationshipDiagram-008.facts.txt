@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source fff06d91b2ed0ed8
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CAR	CAR
 entity	NAMED-DRIVER	NAMED-DRIVER

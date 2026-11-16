@@ -4,6 +4,8 @@
 accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you? If you are not available right now, I can leave you a message. Please get back to me as soon as you can!
 message	Bob	Alice	solid	filled	Fine!

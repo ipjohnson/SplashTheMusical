@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 47bc36231891c556
 accept	yes
+config	flowchart.htmlLabels	true
+config	htmlLabels	true
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	C	F	none	arrow	solid	Car
 icon	F	fa:fa-car

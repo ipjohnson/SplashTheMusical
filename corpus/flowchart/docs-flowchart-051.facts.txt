@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source ca8d8066bf48b5a3
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Direct access storage	h-cyl
 type	flowchart-v2

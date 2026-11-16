@@ -2,6 +2,25 @@
 # mermaid 12.3.0
 # source 54c0b6f0d0b704ef
 accept	yes
+config	sankey.height	500
+config	sankey.labelStyle	"outlined"
+config	sankey.nodeColors	missing
+config	sankey.nodeColors.Cost of Revenue	"#ff3b30"
+config	sankey.nodeColors.Gross Profit	"#34c759"
+config	sankey.nodeColors.Mac	"#6e6e73"
+config	sankey.nodeColors.Net Profit	"#34c759"
+config	sankey.nodeColors.Op Expenses	"#ff3b30"
+config	sankey.nodeColors.Op Profit	"#34c759"
+config	sankey.nodeColors.Products	"#6e6e73"
+config	sankey.nodeColors.Revenue	"#424245"
+config	sankey.nodeColors.Services	"#6e6e73"
+config	sankey.nodeColors.Tax	"#ff3b30"
+config	sankey.nodeColors.Wearables	"#6e6e73"
+config	sankey.nodeColors.iPad	"#6e6e73"
+config	sankey.nodeColors.iPhone	"#6e6e73"
+config	sankey.prefix	"$"
+config	sankey.suffix	"B"
+config	sankey.width	800
 drawn	yes
 flow	Gross Profit	Op Expenses	51
 flow	Gross Profit	Op Profit	119

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 91bbe0e1db02ad08
 accept	yes
+config	theme	"redux-color"
 drawn	yes
 event	1957	First artificial satellite
 event	1957	Sputnik 1 launched

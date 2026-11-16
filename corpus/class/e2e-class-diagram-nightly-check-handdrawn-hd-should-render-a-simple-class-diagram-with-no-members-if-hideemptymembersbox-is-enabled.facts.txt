@@ -3,6 +3,12 @@
 # source f65e533866dec2cd
 accept	yes
 class	Class10	Class10
+config	class.hideEmptyMembersBox	true
+config	class.htmlLabels	true
+config	class.look	"handDrawn"
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	class.hideEmptyMembersBox	true
 preamble-config	class.htmlLabels	true

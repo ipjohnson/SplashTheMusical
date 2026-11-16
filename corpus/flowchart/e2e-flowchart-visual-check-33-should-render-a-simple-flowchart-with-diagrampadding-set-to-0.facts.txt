@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 80d6f033f228d0d0
 accept	yes
+config	flowchart.diagramPadding	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	Get money
 edge	B	C	none	arrow	solid

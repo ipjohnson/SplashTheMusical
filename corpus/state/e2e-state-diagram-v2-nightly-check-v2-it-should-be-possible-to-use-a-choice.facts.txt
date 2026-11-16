@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source f26e04c9435aecbd
 accept	yes
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Finished	[*]end@root	none	arrow	solid
 edge	MyChoice	Drying	none	arrow	solid

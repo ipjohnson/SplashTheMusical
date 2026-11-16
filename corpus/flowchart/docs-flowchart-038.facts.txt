@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 82e0f657dc5d85d7
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	This is a text block	text
 type	flowchart-v2

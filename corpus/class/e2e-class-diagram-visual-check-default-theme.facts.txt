@@ -27,6 +27,9 @@ class	classM	classM
 class	classN	classN
 class	classO	classO
 class	classP	classP
+config	class.theme	"default"
+config	logLevel	0
+config	look	"neo"
 drawn	yes
 method	Animal	+isMammal()
 method	Animal	+mate()

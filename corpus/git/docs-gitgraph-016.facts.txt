@@ -7,6 +7,8 @@ branch	test1
 branch	test2
 branch	test3
 commit	0	main	normal
+config	logLevel	"debug"
+config	theme	"base"
 drawn	yes
 label	main
 label	test1

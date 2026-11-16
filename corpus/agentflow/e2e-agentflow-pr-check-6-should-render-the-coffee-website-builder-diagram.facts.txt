@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b56d0d19ee4f14bb
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	bilingual	gen_html	sequence

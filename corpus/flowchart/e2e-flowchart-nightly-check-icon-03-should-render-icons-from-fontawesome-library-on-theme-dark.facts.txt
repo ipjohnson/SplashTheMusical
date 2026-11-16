@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 281e2704915f205c
 accept	yes
+config	flowchart.theme	"dark"
+config	look	"neo"
+config	theme	"dark"
 drawn	yes
 edge	A	B	none	arrow	solid
 edge	B	C	none	arrow	solid

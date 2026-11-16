@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 34569bb15cc373d5
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	1
 drawn	yes
 label	12.3.0
 preamble-config	fontFamily	"courier"

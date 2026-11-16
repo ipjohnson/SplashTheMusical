@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 85b0a8dd09d11b3b
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Card	notch-rect
 type	flowchart-v2

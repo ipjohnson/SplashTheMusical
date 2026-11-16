@@ -276,4 +276,49 @@ public sealed partial class SequenceDiagramConfig
 		ConfigValues.Add(entries, "labelBoxHeight", LabelBoxHeight);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static SequenceDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		ArrowMarkerAbsolute = ConfigValues.ReadBoolean(value?["arrowMarkerAbsolute"]),
+		HideUnusedParticipants = ConfigValues.ReadBoolean(value?["hideUnusedParticipants"]),
+		ActivationWidth = ConfigValues.ReadNumber(value?["activationWidth"]),
+		DiagramMarginX = ConfigValues.ReadNumber(value?["diagramMarginX"]),
+		DiagramMarginY = ConfigValues.ReadNumber(value?["diagramMarginY"]),
+		ActorMargin = ConfigValues.ReadNumber(value?["actorMargin"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		BoxMargin = ConfigValues.ReadNumber(value?["boxMargin"]),
+		BoxTextMargin = ConfigValues.ReadNumber(value?["boxTextMargin"]),
+		NoteMargin = ConfigValues.ReadNumber(value?["noteMargin"]),
+		MessageMargin = ConfigValues.ReadNumber(value?["messageMargin"]),
+		MessageAlign = ConfigValues.ReadString(value?["messageAlign"]),
+		MirrorActors = ConfigValues.ReadBoolean(value?["mirrorActors"]),
+		ForceMenus = ConfigValues.ReadBoolean(value?["forceMenus"]),
+		BottomMarginAdj = ConfigValues.ReadNumber(value?["bottomMarginAdj"]),
+		RightAngles = ConfigValues.ReadBoolean(value?["rightAngles"]),
+		ShowSequenceNumbers = ConfigValues.ReadBoolean(value?["showSequenceNumbers"]),
+		ActorFontSize = ConfigValues.ReadValue(value?["actorFontSize"]),
+		ActorFontFamily = ConfigValues.ReadString(value?["actorFontFamily"]),
+		ActorFontWeight = ConfigValues.ReadValue(value?["actorFontWeight"]),
+		NoteFontSize = ConfigValues.ReadValue(value?["noteFontSize"]),
+		NoteFontFamily = ConfigValues.ReadString(value?["noteFontFamily"]),
+		NoteFontWeight = ConfigValues.ReadValue(value?["noteFontWeight"]),
+		NoteAlign = ConfigValues.ReadString(value?["noteAlign"]),
+		MessageFontSize = ConfigValues.ReadValue(value?["messageFontSize"]),
+		MessageFontFamily = ConfigValues.ReadString(value?["messageFontFamily"]),
+		MessageFontWeight = ConfigValues.ReadValue(value?["messageFontWeight"]),
+		Wrap = ConfigValues.ReadBoolean(value?["wrap"]),
+		WrapPadding = ConfigValues.ReadNumber(value?["wrapPadding"]),
+		LabelBoxWidth = ConfigValues.ReadNumber(value?["labelBoxWidth"]),
+		LabelBoxHeight = ConfigValues.ReadNumber(value?["labelBoxHeight"]),
+	};
 }

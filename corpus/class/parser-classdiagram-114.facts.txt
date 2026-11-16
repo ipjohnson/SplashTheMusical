@@ -3,6 +3,8 @@
 # source c6a311cc09f145cc
 accept	yes
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class1	someMethod()
 type	classDiagram

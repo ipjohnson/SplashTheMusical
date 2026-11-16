@@ -5,6 +5,7 @@ accept	yes
 axis	A
 axis	B
 axis	C
+config	theme	"base"
 curve	mycurve	1,2,3
 drawn	yes
 label	A

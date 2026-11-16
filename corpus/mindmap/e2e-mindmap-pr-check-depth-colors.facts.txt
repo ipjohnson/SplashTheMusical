@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source f6e12972357cf8c7
 accept	yes
+config	look	"neo"
+config	mindmap.colorBy	"depth"
+config	theme	"base"
 drawn	yes
 label	Argument mapping
 label	British popular psychology author Tony Buzan

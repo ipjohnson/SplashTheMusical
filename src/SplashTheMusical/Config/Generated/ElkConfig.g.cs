@@ -170,4 +170,25 @@ public sealed partial class ElkConfig
 		ConfigValues.Add(entries, "orientFeedbackEdges", OrientFeedbackEdges);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static ElkConfig FromValue(MermaidValue? value) => new()
+	{
+		MergeEdges = ConfigValues.ReadBoolean(value?["mergeEdges"]),
+		NodePlacementStrategy = ConfigValues.ReadString(value?["nodePlacementStrategy"]),
+		NodePlacementAlignment = ConfigValues.ReadString(value?["nodePlacementAlignment"]),
+		Preset = ConfigValues.ReadString(value?["preset"]),
+		StraightenEdges = ConfigValues.ReadBoolean(value?["straightenEdges"]),
+		LineHops = ConfigValues.ReadValue(value?["lineHops"]),
+		LayeringStrategy = ConfigValues.ReadString(value?["layeringStrategy"]),
+		LayeringLayerBound = ConfigValues.ReadNumber(value?["layeringLayerBound"]),
+		CycleBreakingStrategy = ConfigValues.ReadString(value?["cycleBreakingStrategy"]),
+		ForceNodeModelOrder = ConfigValues.ReadBoolean(value?["forceNodeModelOrder"]),
+		ConsiderModelOrder = ConfigValues.ReadString(value?["considerModelOrder"]),
+		KeepEntryNodeOnTop = ConfigValues.ReadBoolean(value?["keepEntryNodeOnTop"]),
+		OrientFeedbackEdges = ConfigValues.ReadBoolean(value?["orientFeedbackEdges"]),
+	};
 }

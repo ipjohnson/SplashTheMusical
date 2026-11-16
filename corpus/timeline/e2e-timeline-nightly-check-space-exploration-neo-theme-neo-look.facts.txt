@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source ae3015c3aa9f2ac0
 accept	yes
+config	look	"neo"
+config	theme	"neo"
 drawn	yes
 event	1957	First artificial satellite
 event	1957	Sputnik 1 launched

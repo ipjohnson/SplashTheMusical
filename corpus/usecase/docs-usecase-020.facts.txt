@@ -4,6 +4,9 @@
 accept	yes
 actor	Auditor	Auditor	normal
 actor	Customer	Customer	normal
+config	look	"neo"
+config	theme	"redux-color"
+config	usecase.colorScheme	"rotate"
 direction	LR
 drawn	yes
 label	Auditor

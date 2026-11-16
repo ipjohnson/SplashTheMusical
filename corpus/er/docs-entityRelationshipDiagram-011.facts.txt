@@ -5,6 +5,8 @@ accept	yes
 attribute	a	string	email
 attribute	p	string	firstName
 attribute	p	string	lastName
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	a	Customer Account
 entity	p	Person

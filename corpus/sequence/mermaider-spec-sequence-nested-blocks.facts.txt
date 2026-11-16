@@ -7,6 +7,8 @@ actor	Client	Client	participant
 actor	DB	DB	participant
 block	alt	Cache Hit
 block	loop	Retry on failure
+config	look	"neo"
+config	theme	"redux-color"
 divider	Cache Miss
 drawn	yes
 message	API	Client	dashed	filled	Cached

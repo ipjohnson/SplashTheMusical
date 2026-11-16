@@ -5,6 +5,9 @@ accept	yes
 attribute	BOOK	string	title
 attribute	BOOK	string[]	authors
 attribute	BOOK	type~T~	type
+config	htmlLabels	false
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	BOOK	BOOK
 label	BOOK

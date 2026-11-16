@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source c37c409893063ae8
 accept	yes
+config	look	"handDrawn"
+config	state.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	Boot	Running	none	arrow	solid
 edge	Running	[*]end@root	none	arrow	solid

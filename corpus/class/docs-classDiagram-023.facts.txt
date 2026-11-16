@@ -8,6 +8,8 @@ class	Galaxy	Galaxy
 class	Star	Star
 class	Student	Student
 class	Ticket	Ticket
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Customer	Ticket	none	arrow	solid		1	*
 relation	Galaxy	Star	none	arrow	solid	Contains		many

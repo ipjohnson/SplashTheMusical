@@ -28,10 +28,15 @@ export async function extractFacts(source, name, shapes) {
 	}
 	const svgId = 'mjs' + name.replace(/[^A-Za-z0-9]/g, '')
 	let svg
+	// The config the case is drawn with, read in render() by the addDirective hook (hookAddDirective in dumps.mjs).
+	let applied
+	globalThis.__oracleAddDirective = () => { applied = mermaid.mermaidAPI.getConfig() }
 	try {
 		svg = (await mermaid.render(svgId, source)).svg
 	} catch (e) {
 		return { error: String(e?.message ?? e) }
+	} finally {
+		globalThis.__oracleAddDirective = undefined
 	}
 	// render() parses the source again into a fresh db; re-read it so the db matches the DOM.
 	diagram = await mermaid.mermaidAPI.getDiagramFromText(source)
@@ -147,6 +152,26 @@ export async function extractFacts(source, name, shapes) {
 		} else facts.push(tab('preamble-config', prefix, v === undefined ? 'undefined' : JSON.stringify(v)))
 	}
 	flatten('', preamble.config ?? {})
+	// The applied config where it differs from the site config: one line per path whose value differs, and `missing`
+	// for a site config path the applied config lacks. themeVariables are left out, because the theme computes them.
+	const configLines = v => {
+		const out = new Map()
+		const walk = (prefix, x) => {
+			if (typeof x === 'function') return
+			if (x !== null && typeof x === 'object') {
+				const keys = Object.keys(x)
+				if (!keys.length) out.set(prefix, Array.isArray(x) ? '[]' : '{}')
+				for (const k of keys) walk(prefix ? `${prefix}.${k}` : k, x[k])
+			} else out.set(prefix, x === undefined ? 'undefined' : typeof x === 'number' && !Number.isFinite(x) ? String(x) : JSON.stringify(x))
+		}
+		walk('', v)
+		for (const k of [...out.keys()]) if (k === 'themeVariables' || k.startsWith('themeVariables.')) out.delete(k)
+		return out
+	}
+	const site = configLines(mermaid.mermaidAPI.getSiteConfig())
+	const drawnWith = configLines(applied)
+	for (const [k, v] of drawnWith) if (site.get(k) !== v) facts.push(tab('config', k, v))
+	for (const k of site.keys()) if (!drawnWith.has(k)) facts.push(tab('config', k, 'missing'))
 	boxes.push(canvas())
 	return { facts, boxes, svg }
 

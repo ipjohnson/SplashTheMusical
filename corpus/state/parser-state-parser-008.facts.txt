@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9f721cb5d99f9e6d
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	namedState1	bigState1	none	arrow	solid	should point to \nBig State 1 container
 edge	namedState2	bigState2	none	arrow	solid	should point to \nbigState2 container

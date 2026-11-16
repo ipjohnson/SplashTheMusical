@@ -8,6 +8,8 @@ actor	Carl	Carl	database
 actor	David	David	database
 actor	Eve	Eve	database
 actor	Favela	Favela	database
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	solid	filled	Hi Bob
 message	Bob	Alice	solid	filled	Hi Alice

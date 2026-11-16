@@ -4,6 +4,8 @@
 accept	yes
 class	AveryLongClass	AveryLongClass
 class	Class01	Class01
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class01	someMethod()
 relation	Class01	AveryLongClass	triangle	none	solid	Cool

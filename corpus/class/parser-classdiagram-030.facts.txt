@@ -5,5 +5,7 @@ accept	yes
 class	C1	Class with text label
 class	C2	Class with text label
 class	C3	Class with text label
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

@@ -121,4 +121,28 @@ public sealed partial class SankeyDiagramConfig
 		ConfigValues.Add(entries, "nodeColors", NodeColors);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static SankeyDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		LinkColor = ConfigValues.ReadString(value?["linkColor"]),
+		NodeAlignment = ConfigValues.ReadString(value?["nodeAlignment"]),
+		ShowValues = ConfigValues.ReadBoolean(value?["showValues"]),
+		Prefix = ConfigValues.ReadString(value?["prefix"]),
+		Suffix = ConfigValues.ReadString(value?["suffix"]),
+		NodeWidth = ConfigValues.ReadNumber(value?["nodeWidth"]),
+		NodePadding = ConfigValues.ReadNumber(value?["nodePadding"]),
+		LabelStyle = ConfigValues.ReadString(value?["labelStyle"]),
+		NodeColors = ConfigValues.ReadStringMap(value?["nodeColors"]),
+	};
 }

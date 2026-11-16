@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source cf679b887fcff9ac
 accept	yes
+config	look	"neo"
+config	requirement.theme	"neo-dark"
+config	theme	"neo-dark"
 drawn	yes
 element	elem_b	service
 label	2

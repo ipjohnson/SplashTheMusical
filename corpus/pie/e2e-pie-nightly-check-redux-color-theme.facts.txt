@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source eb131a04663ee612
 accept	yes
+config	theme	"redux-color"
 drawn	yes
 label	Alpha
 label	Bravo

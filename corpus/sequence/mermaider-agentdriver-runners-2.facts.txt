@@ -7,6 +7,8 @@ actor	D	agent-driver runner	participant
 actor	G	GitHub	participant
 actor	R	relay on the runner	participant
 actor	S	serve, on the Mac	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	R	solid	filled	git push -u origin, after PushGate allowed it
 message	D	R	dashed	filled	hook exits 0 or 1

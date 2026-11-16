@@ -221,4 +221,41 @@ public sealed partial class RailroadDiagramConfig
 		ConfigValues.Add(entries, "markerRadius", MarkerRadius);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static RailroadDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		CompactMode = ConfigValues.ReadBoolean(value?["compactMode"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		VerticalSeparation = ConfigValues.ReadNumber(value?["verticalSeparation"]),
+		HorizontalSeparation = ConfigValues.ReadNumber(value?["horizontalSeparation"]),
+		ArcRadius = ConfigValues.ReadNumber(value?["arcRadius"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+		FontFamily = ConfigValues.ReadString(value?["fontFamily"]),
+		TerminalFill = ConfigValues.ReadString(value?["terminalFill"]),
+		TerminalStroke = ConfigValues.ReadString(value?["terminalStroke"]),
+		TerminalTextColor = ConfigValues.ReadString(value?["terminalTextColor"]),
+		NonTerminalFill = ConfigValues.ReadString(value?["nonTerminalFill"]),
+		NonTerminalStroke = ConfigValues.ReadString(value?["nonTerminalStroke"]),
+		NonTerminalTextColor = ConfigValues.ReadString(value?["nonTerminalTextColor"]),
+		LineColor = ConfigValues.ReadString(value?["lineColor"]),
+		StrokeWidth = ConfigValues.ReadNumber(value?["strokeWidth"]),
+		MarkerFill = ConfigValues.ReadString(value?["markerFill"]),
+		CommentFill = ConfigValues.ReadString(value?["commentFill"]),
+		CommentStroke = ConfigValues.ReadString(value?["commentStroke"]),
+		CommentTextColor = ConfigValues.ReadString(value?["commentTextColor"]),
+		SpecialFill = ConfigValues.ReadString(value?["specialFill"]),
+		SpecialStroke = ConfigValues.ReadString(value?["specialStroke"]),
+		RuleNameColor = ConfigValues.ReadString(value?["ruleNameColor"]),
+		ShowMarkers = ConfigValues.ReadBoolean(value?["showMarkers"]),
+		MarkerRadius = ConfigValues.ReadNumber(value?["markerRadius"]),
+	};
 }

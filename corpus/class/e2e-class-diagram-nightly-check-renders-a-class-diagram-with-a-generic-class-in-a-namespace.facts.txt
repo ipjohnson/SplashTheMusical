@@ -3,6 +3,8 @@
 # source 2bdf732b122fe46b
 accept	yes
 class	GenericClass	GenericClass<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	GenericClass	+addItem(item: T)
 method	GenericClass	+getItem() : T

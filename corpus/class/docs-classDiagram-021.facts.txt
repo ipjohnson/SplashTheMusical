@@ -5,6 +5,8 @@ accept	yes
 class	Gateway	Gateway
 class	Repository	Repository
 class	UserService	UserService
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Gateway	+route()
 method	Repository	+find()

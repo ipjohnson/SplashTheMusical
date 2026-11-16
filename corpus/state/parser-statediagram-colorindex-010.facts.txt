@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 330b2d93e12c5899
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Loop	Exit	none	arrow	solid
 edge	Loop	Loop	none	arrow	solid

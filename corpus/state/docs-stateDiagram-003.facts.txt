@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 1e1b107393bac8ac
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Draft	Submitted	none	arrow	solid	submit
 edge	Published	[*]end@root	none	arrow	solid

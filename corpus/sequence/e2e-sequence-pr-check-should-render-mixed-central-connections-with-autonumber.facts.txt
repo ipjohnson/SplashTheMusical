@@ -6,6 +6,9 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	Charlie	Charlie	participant
 actor	David	David	participant
+config	look	"neo"
+config	sequence.theme	"base"
+config	theme	"base"
 drawn	yes
 message	Alice	Bob	solid	filled	CENTRAL_CONNECTION LTR
 message	Alice	Bob	solid	filled	CENTRAL_CONNECTION_DUAL LTR

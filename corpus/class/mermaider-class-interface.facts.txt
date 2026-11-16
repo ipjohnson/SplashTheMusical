@@ -8,6 +8,8 @@ attribute	FileLogger	-string _path
 class	ConsoleLogger	ConsoleLogger
 class	FileLogger	FileLogger
 class	ILogger	ILogger
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	ConsoleLogger	+Log(string message) : void
 method	ConsoleLogger	+LogError(Exception ex) : void

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 38cbd99bd9797b93
 accept	yes
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	logLevel	1
 type	er

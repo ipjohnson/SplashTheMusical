@@ -3,6 +3,8 @@
 # source b95e4b648fa83990
 accept	yes
 class	UserService	UserService
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	UserService	+login()
 namespace	Auth	UserService

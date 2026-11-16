@@ -10,6 +10,8 @@ attribute	Student	-idCard : IdCard
 class	Bike	Bike
 class	IdCard	IdCard
 class	Student	Student
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Student	Bike	none	diamond	solid	rides	1	1
 relation	Student	IdCard	none	diamond	solid	carries	1	1

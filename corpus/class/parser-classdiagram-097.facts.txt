@@ -12,6 +12,8 @@ class	Class17	Class17
 class	Class18	Class18
 class	Class19	Class19
 class	Class20	Class20
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Class11	Class12	triangle	none	dashed
 relation	Class13	Class14	arrow	none	dashed

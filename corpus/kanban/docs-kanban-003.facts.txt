@@ -18,6 +18,7 @@ column	id10	Ready for test
 column	id11	Done
 column	id12	Can't reproduce
 column	id9	Ready for deploy
+config	kanban.ticketBaseUrl	"https://mermaidchart.atlassian.net/browse/#TICKET#"
 drawn	yes
 label	Can't reproduce
 label	Create Blog about the new diagram

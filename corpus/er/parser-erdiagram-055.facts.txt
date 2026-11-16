@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c072c758fb4006ca
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ORDER	ORDER
 entity	u	u

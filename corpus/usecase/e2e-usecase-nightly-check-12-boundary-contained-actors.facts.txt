@@ -5,6 +5,8 @@ accept	yes
 actor	Chef	Chef	normal			Professional_Services
 actor	Guest	Restaurant guest	normal
 boundary	Professional_Services	Professional Services	package	Chef,PrepareMeal,ReviewMeal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Chef

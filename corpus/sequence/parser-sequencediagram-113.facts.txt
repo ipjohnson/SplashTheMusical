@@ -3,6 +3,8 @@
 # source 9b1b403ca0407c7a
 accept	yes
 actor	D	D	database
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	D	D	solid	none	test
 type	sequence

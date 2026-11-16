@@ -5,6 +5,8 @@ accept	yes
 actor	API	Public API	boundary
 actor	Auth	Auth Service	control
 actor	DB	User DB	database
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	API	Auth	solid	filled	Login request
 message	Auth	API	dashed	filled	Token

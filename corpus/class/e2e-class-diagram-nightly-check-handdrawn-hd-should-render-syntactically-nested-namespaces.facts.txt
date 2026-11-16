@@ -5,6 +5,11 @@ accept	yes
 class	Gateway	Gateway
 class	Repository	Repository
 class	UserService	UserService
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 method	Gateway	+route()
 method	Repository	+find()

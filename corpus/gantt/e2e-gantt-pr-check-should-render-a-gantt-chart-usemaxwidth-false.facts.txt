@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 1dfd01acc15b8854
 accept	yes
+config	gantt.useMaxWidth	false
 drawn	yes
 label	A section
 label	Active task

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 12232e66b8e521b2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Paper tape	flag
 type	flowchart-v2

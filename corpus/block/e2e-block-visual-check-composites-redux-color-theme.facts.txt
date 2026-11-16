@@ -10,6 +10,8 @@ block	e	Warehouse	rect	1	store
 block	ingest		composite	1
 block	store		composite	1
 block	transform		composite	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	Enrich
 label	Fetch

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source fab5f526005fc844
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 json	Payload

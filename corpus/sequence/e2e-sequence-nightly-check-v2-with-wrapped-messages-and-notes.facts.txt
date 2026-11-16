@@ -6,6 +6,9 @@ actor	A	A	participant
 actor	B	B	participant
 block	loop	Wrapped loop
 block	par	Wrapped parallel
+config	look	"neo"
+config	sequence.wrap	true
+config	theme	"redux-color"
 divider
 drawn	yes
 message	A	B	solid	filled	Message in loop

@@ -2,6 +2,11 @@
 # mermaid 12.3.0
 # source 0a3f3266414342f7
 accept	yes
+config	flowchart.htmlLabels	true
+config	flowchart.look	"handDrawn"
+config	htmlLabels	true
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	hello	default	none	arrow	solid
 node	default	default	rect

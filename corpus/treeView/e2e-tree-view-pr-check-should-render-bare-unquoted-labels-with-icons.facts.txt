@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source f2dd75d784d6ae13
 accept	yes
+config	treeView.showIcons	true
 drawn	yes
 label	.gitignore
 label	App.tsx

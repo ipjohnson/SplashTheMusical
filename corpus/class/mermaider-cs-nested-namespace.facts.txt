@@ -3,6 +3,8 @@
 # source be088c4ca21a1086
 accept	yes
 class	A	A
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	One	One.Two
 namespace	One.Two	A

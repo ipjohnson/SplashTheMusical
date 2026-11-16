@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source be061b6927cdc206
 accept	yes
+config	gantt.topAxis	true
 drawn	yes
 label	A section
 label	Active task

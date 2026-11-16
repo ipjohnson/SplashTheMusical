@@ -14,6 +14,8 @@ class	Color	Color
 class	Drawable	Drawable
 class	EventBus	EventBus
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Drawable	+draw() : void
 method	EventBus	+publish(event) : void

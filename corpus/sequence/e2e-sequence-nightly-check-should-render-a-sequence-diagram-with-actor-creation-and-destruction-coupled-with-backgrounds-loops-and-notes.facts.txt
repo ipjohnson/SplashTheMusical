@@ -10,6 +10,8 @@ block	alt	either this
 block	par	this happens in parallel
 block	rect
 block	rect
+config	look	"neo"
+config	theme	"redux-color"
 divider
 divider	or this
 divider	or this will happen

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source bb15e35a39985eb4
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	id1	This is the text in the box	odd
 type	flowchart-v2

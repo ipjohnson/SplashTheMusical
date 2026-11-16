@@ -3,5 +3,7 @@
 # source 6ca699c39feda4ca
 accept	yes
 class	Car	Car<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

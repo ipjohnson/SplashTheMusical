@@ -7,6 +7,8 @@ attribute	BOOK	float	price		price comment
 attribute	BOOK	string	author	FK
 attribute	BOOK	string	description
 attribute	BOOK	string	title	PK	title comment
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR_WITH_LONG_ENTITY_NAME	AUTHOR_WITH_LONG_ENTITY_NAME
 entity	BOOK	BOOK

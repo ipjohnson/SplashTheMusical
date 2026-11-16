@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source db4aa3083cae19b2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	API	Auth	none	arrow	solid
 edge	API	Orders	none	arrow	solid

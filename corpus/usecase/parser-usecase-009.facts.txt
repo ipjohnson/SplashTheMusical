@@ -3,6 +3,8 @@
 # source a839335dce6855a6
 accept	yes
 actor	Developer	Developer	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Developer

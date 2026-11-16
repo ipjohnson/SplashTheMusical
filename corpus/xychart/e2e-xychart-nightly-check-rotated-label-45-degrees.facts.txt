@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source e29c49cbb6867f19
 accept	yes
+config	xyChart.xAxis.labelRotation	45
 drawn	yes
 label	2023-04
 label	2023-05

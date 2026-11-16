@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source c1f5f2812d4bd69c
 accept	yes
+config	htmlLabels	false
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ADDRESS	ADDRESS
 entity	CUSTOMER	CUSTOMER

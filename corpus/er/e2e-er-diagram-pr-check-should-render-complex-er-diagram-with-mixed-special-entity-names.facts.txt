@@ -6,6 +6,9 @@ attribute	2.5	float	value
 attribute	2.5	string	id
 attribute	u	int	count
 attribute	u	varchar(50)	name
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	1	1
 entity	1.5	1.5

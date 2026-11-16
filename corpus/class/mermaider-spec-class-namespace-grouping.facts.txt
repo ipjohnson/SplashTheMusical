@@ -7,6 +7,8 @@ attribute	User	+String name
 class	Database	Database
 class	Order	Order
 class	User	User
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Database	+connect() : void
 method	Database	+query(sql) : void

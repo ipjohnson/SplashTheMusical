@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 50a9a3a9305e4642
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	myState	status: active	rounded
 type	stateDiagram

@@ -123,4 +123,26 @@ public sealed partial class ArchitectureDiagramConfig
 		ConfigValues.Add(entries, "seed", Seed);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static ArchitectureDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		IconSize = ConfigValues.ReadNumber(value?["iconSize"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+		Randomize = ConfigValues.ReadBoolean(value?["randomize"]),
+		NodeSeparation = ConfigValues.ReadNumber(value?["nodeSeparation"]),
+		IdealEdgeLengthMultiplier = ConfigValues.ReadNumber(value?["idealEdgeLengthMultiplier"]),
+		EdgeElasticity = ConfigValues.ReadNumber(value?["edgeElasticity"]),
+		NumIter = ConfigValues.ReadNumber(value?["numIter"]),
+		Seed = ConfigValues.ReadNumber(value?["seed"]),
+	};
 }

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d060671d19995755
 accept	yes
+config	logLevel	"debug"
+config	theme	"forest"
 drawn	yes
 event	2002	LinkedIn
 event	2004	Facebook

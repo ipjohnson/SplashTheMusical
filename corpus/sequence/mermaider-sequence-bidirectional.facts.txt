@@ -5,6 +5,8 @@ accept	yes
 actor	A	Service A	participant
 actor	B	Service B	participant
 actor	C	Service C	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled-both	Bidirectional sync
 message	A	C	dashed	filled-both	Dashed bidirectional

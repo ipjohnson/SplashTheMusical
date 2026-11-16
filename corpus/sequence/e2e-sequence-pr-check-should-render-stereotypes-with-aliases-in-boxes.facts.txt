@@ -11,6 +11,8 @@ actor	User	End User	actor
 box	Backend Layer	API,Svc
 box	Data Layer	Cache,DB
 box	Frontend Layer	UI,User
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	API	Svc	solid	filled	Process
 message	API	UI	dashed	filled	Data

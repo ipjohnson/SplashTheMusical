@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 2c2dde0dc342bbce
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 connector	github	GitHub
 direction	TD
 drawn	yes

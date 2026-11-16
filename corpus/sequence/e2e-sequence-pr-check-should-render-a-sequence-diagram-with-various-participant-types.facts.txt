@@ -10,6 +10,8 @@ actor	Product	Product	entity
 actor	Products	Products	collections
 actor	UI	UI	boundary
 actor	User	User	actor
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	AuthService	UI	dashed	filled	Authentication token
 message	MongoDB	OrderController	dashed	filled	Order saved

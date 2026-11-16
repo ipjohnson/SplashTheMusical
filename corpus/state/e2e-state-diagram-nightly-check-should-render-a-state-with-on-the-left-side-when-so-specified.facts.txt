@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 203bc05d8fa5afc4
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	State1	The state with a note with minus - and plus + in it	rounded
 note	State1	Important information! You can write notes with . and in them.

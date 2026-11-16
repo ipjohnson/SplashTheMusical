@@ -6,6 +6,8 @@ actor	Customer	Customer	normal
 actor	Support	Support	normal
 boundary	Fulfilment	Fulfilment	rect	Track
 boundary	Storefront	Storefront	rect	Browse,Checkout
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Browse catalogue

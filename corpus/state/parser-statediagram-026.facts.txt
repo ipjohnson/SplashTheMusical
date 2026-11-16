@@ -2,5 +2,7 @@
 # mermaid 12.3.0
 # source 0d6bd34620c4c01e
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	no
 type	stateDiagram

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 75f29a101b163df9
 accept	yes
+config	architecture.randomize	true
 drawn	yes
 edge	asp	R	web	L	none	arrow
 edge	nsg	R	asp	L	none	arrow

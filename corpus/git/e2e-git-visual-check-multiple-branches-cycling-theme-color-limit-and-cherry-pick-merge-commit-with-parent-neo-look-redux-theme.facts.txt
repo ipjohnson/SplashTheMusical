@@ -21,6 +21,8 @@ commit	6	b4	normal	b4-release		b4c
 commit	7	b5	normal			b5c
 commit	8	main	merge	v1.0	b1	m1
 commit	9	main	cherry-pick	cherry-pick:b2m|parent:b2c1
+config	look	"neo"
+config	theme	"redux"
 drawn	yes
 label	1
 label	b1

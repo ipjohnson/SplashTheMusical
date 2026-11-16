@@ -5,6 +5,8 @@ accept	yes
 boundary	sb1	Payment service	package	Authorize
 boundary	sb2	Billing	rect	Invoice
 boundary	sb3	Support	rect	Refund
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authorize payment

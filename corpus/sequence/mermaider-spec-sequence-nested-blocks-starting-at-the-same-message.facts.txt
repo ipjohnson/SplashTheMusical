@@ -9,6 +9,8 @@ block	alt	Retry
 block	loop	Every minute
 block	opt	Same messages
 block	par	Ping B
+config	look	"neo"
+config	theme	"redux-color"
 divider	Give up
 divider	Ping C
 drawn	yes

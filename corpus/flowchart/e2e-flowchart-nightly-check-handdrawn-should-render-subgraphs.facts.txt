@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source a282760e1a869f65
 accept	yes
+config	flowchart.look	"handDrawn"
+config	fontFamily	"courier"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	a1	a2	none	arrow	solid
 group	One	One	a1,a2

@@ -6,6 +6,7 @@ cause	Process
 cause	Process / Out of focus
 cause	User
 cause	User / Shaky hands
+config	ishikawa.diagramPadding	50
 drawn	yes
 head	Blurry Photo
 label	Blurry Photo

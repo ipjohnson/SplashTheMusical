@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source de36a034f374a8e6
 accept	yes
+config	flowchart.htmlLabels	false
+config	fontFamily	"courier"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A1	B1	none	arrow	solid	MultiLine
 edge	A2	B2	none	arrow	solid	MultiLine

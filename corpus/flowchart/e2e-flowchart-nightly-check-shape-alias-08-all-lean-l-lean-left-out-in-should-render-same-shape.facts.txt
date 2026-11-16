@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d2fc29f2a0dd0d31
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	lean-l	lean-l
 node	n1	lean-left	lean-l

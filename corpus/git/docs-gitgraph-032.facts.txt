@@ -13,6 +13,7 @@ commit	4	main	normal
 commit	5	main	merge		develop
 commit	6	main	normal
 commit	7	featureA	normal
+config	logLevel	"debug"
 drawn	yes
 label	develop
 label	featureA

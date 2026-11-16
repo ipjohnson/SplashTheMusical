@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 725504fa514cd8dc
 accept	yes
+config	elk.keepEntryNodeOnTop	true
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	decide	end_decision	none	arrow	solid
 edge	end_decision	format_json	none	arrow	solid	Yes

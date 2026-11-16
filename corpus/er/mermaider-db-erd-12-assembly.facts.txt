@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f5bb03c5502df455
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AssembledDocumentationSet	AssembledDocumentationSet
 entity	Assembly	Assembly

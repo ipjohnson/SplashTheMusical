@@ -8,6 +8,9 @@ attribute	BOOK	float	price		Book price
 attribute	BOOK	string	author	FK	Author reference
 attribute	BOOK	string	isbn	PK	Book identifier
 attribute	BOOK	string	title		Book title
+config	er.theme	"redux-dark-color"
+config	look	"neo"
+config	theme	"redux-dark-color"
 drawn	yes
 entity	AUTHOR	AUTHOR
 entity	BOOK	BOOK

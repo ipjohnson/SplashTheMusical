@@ -5,6 +5,8 @@ accept	yes
 actor	Admin	Admin	normal
 actor	User	User	normal
 boundary	Account	Account	rect	Audit,Login,Reset
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 label	Account

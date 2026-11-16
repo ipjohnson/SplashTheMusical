@@ -6,6 +6,8 @@ actor	API	API	participant
 actor	Database	Database	participant
 actor	dsa	dsa	queue
 actor	lead	lead	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	API	Database	solid	filled	getUserb
 message	Database	API	dashed	filled	userb

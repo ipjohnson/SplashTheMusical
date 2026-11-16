@@ -5,6 +5,8 @@ accept	yes
 class	Designer	Designer
 class	Developer	Developer
 class	TechLead	TechLead
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Designer	+createMockup()
 method	Developer	+writeCode()

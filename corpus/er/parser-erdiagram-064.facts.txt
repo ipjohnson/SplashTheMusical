@@ -5,6 +5,8 @@ accept	yes
 attribute	ENTITY	float	point3_5
 attribute	ENTITY	int	value2
 attribute	ENTITY	string	name1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	ENTITY	ENTITY
 label	ENTITY

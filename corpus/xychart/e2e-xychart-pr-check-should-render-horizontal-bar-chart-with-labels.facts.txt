@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 2ce674060d0e3d4d
 accept	yes
+config	xyChart.chartOrientation	"horizontal"
+config	xyChart.showDataLabel	true
 drawn	yes
 label	Months
 label	Revenue (in $)

@@ -3,6 +3,8 @@
 # source 51aec3569caad757
 accept	yes
 actor	TestActor	TestActor	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	TestActor

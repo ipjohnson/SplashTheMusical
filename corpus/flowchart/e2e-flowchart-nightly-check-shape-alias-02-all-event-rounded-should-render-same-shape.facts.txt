@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source a140c4fc10a50038
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	event	rounded
 node	n1	rounded	rounded

@@ -6,6 +6,8 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	John	John	participant
 block	loop	HealthCheck
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	John	solid	filled	Hello John, how are you?
 message	Bob	John	dashed	filled	Jolly good!

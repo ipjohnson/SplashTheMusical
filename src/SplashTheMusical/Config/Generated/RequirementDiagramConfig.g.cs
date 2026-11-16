@@ -89,4 +89,26 @@ public sealed partial class RequirementDiagramConfig
 		ConfigValues.Add(entries, "line_height", LineHeight);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static RequirementDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		RectFill = ConfigValues.ReadString(value?["rect_fill"]),
+		TextColor = ConfigValues.ReadString(value?["text_color"]),
+		RectBorderSize = ConfigValues.ReadString(value?["rect_border_size"]),
+		RectBorderColor = ConfigValues.ReadString(value?["rect_border_color"]),
+		RectMinWidth = ConfigValues.ReadNumber(value?["rect_min_width"]),
+		RectMinHeight = ConfigValues.ReadNumber(value?["rect_min_height"]),
+		FontSize = ConfigValues.ReadNumber(value?["fontSize"]),
+		RectPadding = ConfigValues.ReadNumber(value?["rect_padding"]),
+		LineHeight = ConfigValues.ReadNumber(value?["line_height"]),
+	};
 }

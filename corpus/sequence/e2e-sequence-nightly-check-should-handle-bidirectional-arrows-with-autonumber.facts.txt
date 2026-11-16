@@ -4,6 +4,8 @@
 accept	yes
 actor	A	A	participant
 actor	B	B	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled-both	This is a bidirectional message
 message	A	B	solid	none	This is a normal message

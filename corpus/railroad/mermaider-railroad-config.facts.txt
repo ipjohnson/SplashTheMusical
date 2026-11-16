@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source d2c9794221c9eda7
 accept	yes
+config	railroad.fontSize	20
 drawn	yes
 label	r
 label	x

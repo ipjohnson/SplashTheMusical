@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 6d6a0b5ac3a2580c
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	decide	archive	failure

@@ -8,6 +8,8 @@ actor	CDN	CDN	participant
 actor	Cache	Cache	participant
 actor	DB	DB	participant
 actor	LB	Load Balancer	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	App	Cache	solid	filled	Check cache
 message	App	Cache	solid	filled	Store

@@ -4,6 +4,8 @@
 accept	yes
 class	Drawable	Drawable
 class	Shape	Shape
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Shape	()Drawable	none	lollipop	solid
 type	classDiagram

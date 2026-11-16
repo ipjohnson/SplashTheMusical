@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source ae97722824f44191
 accept	yes
+config	look	"handDrawn"
+config	requirement.look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 element	test entity name that is extra long with spaces
 label	1

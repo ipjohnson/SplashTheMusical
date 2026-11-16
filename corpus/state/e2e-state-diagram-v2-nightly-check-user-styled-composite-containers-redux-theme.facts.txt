@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 58c12aa3f1a7b683
 accept	yes
+config	look	"neo"
+config	state.theme	"redux"
+config	theme	"redux"
 drawn	yes
 edge	[*]start@Outer	Step	none	arrow	solid
 edge	[*]start@Pinned	Held	none	arrow	solid

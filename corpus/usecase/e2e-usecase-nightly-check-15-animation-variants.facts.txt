@@ -3,6 +3,8 @@
 # source 0738f637a9677281
 accept	yes
 actor	Operator	Operator	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Animate true

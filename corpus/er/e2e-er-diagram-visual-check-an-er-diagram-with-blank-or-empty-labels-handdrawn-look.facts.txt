@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source b49ea493738d6c8b
 accept	yes
+config	er.look	"handDrawn"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR	AUTHOR
 entity	BOOK	BOOK

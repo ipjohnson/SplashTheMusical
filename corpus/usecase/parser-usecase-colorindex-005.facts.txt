@@ -6,6 +6,8 @@ actor	Clerk	Clerk	normal			sb1
 actor	Extra	Extra	normal
 boundary	sb1	Payment service	rect	Clerk
 boundary	sb2	Shipping	rect	Dispatch
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Clerk

@@ -4,6 +4,8 @@
 accept	yes
 class	Animal	Animal
 class	Duck	Duck
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Animal	Animal	none	arrow	solid	parent	1	0..*
 relation	Animal	Duck	triangle	none	solid

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f246e9f8a40942a2
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	lane1	lane1	a
 group	phase1	phase1

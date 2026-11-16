@@ -4,6 +4,8 @@
 accept	yes
 class	CEO	CEO
 class	Developer	Developer
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 namespace	Company	CEO,Company.Engineering
 namespace	Company.Engineering	Company.Engineering.Backend

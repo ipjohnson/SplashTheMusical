@@ -8,6 +8,8 @@ attribute	LINE_ITEM	int	id	PK
 attribute	LINE_ITEM	int	quantity
 attribute	ORDER	date	created
 attribute	ORDER	int	id	PK
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	LINE_ITEM	LINE_ITEM

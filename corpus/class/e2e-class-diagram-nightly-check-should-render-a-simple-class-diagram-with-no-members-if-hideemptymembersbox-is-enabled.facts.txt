@@ -3,6 +3,11 @@
 # source 9aa7133f39574574
 accept	yes
 class	Class10	Class10
+config	class.hideEmptyMembersBox	true
+config	class.htmlLabels	true
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	class.hideEmptyMembersBox	true
 preamble-config	class.htmlLabels	true

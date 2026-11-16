@@ -5,6 +5,11 @@ accept	yes
 class	C1	Class with text label
 class	C2	Class with text label
 class	C3	Class with text label
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

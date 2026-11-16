@@ -3,5 +3,7 @@
 # source 906e522ebaf841c1
 accept	yes
 actor	Alice	Alice	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	sequence

@@ -4,6 +4,8 @@
 accept	yes
 actor	User	User	normal
 boundary	Authentication_System	Authentication System	rect	Login,Logout
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Authentication System

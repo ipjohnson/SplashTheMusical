@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 8c7eb8e1f00c0363
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	process	rect
 node	n1	rect	rect

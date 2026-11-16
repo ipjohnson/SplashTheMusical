@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 168c3ccf3a723485
 accept	yes
+config	layout	"swimlane"
+config	swimlane.look	"classic"
+config	swimlane.theme	"default"
 drawn	yes
 edge	Browse	Pay	none	arrow	solid
 edge	Pay	Invoice	none	arrow	solid

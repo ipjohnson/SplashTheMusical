@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f00e45290e6cf71d
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CodexDocumentationSet	CodexDocumentationSet
 entity	CodexGroup	CodexGroup

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 80b86f15a9c2e222
 accept	yes
+config	flowchart.look	"classic"
+config	flowchart.theme	"default"
+config	layout	"dagre"
 drawn	yes
 edge	API	Auth	none	arrow	solid
 edge	API	Orders	none	arrow	solid

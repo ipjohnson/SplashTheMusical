@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 2dd9cd56a8fa4ea8
 accept	yes
+config	look	"neo"
+config	state.theme	"redux-dark-color"
+config	theme	"redux-dark-color"
 drawn	yes
 edge	Boot	Running	none	arrow	solid
 edge	Running	[*]end@root	none	arrow	solid

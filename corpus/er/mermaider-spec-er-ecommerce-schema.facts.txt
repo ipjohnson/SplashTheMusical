@@ -18,6 +18,8 @@ attribute	PRODUCT	decimal	price
 attribute	PRODUCT	int	id	PK
 attribute	PRODUCT	int	stock
 attribute	PRODUCT	string	name
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CATEGORY	CATEGORY
 entity	CUSTOMER	CUSTOMER

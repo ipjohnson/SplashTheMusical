@@ -14,6 +14,11 @@ class	C5	With {Brackets}
 class	C7	With 1 number
 class	C8	With . period...
 class	C9	With - dash
+config	htmlLabels	true
+config	layout	"dagre"
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	layout	"dagre"

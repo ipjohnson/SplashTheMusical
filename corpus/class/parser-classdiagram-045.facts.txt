@@ -4,5 +4,7 @@
 accept	yes
 attribute	C1	+member1
 class	C1	Class 1 with text label
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

@@ -7,6 +7,8 @@ attribute	A	+String boop
 attribute	A	-Int beep
 class	A	This has a newline!
 class	B	This title also has a newline
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	B	+with(more)
 method	B	-methods()

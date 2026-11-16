@@ -3,6 +3,8 @@
 # source d7b1ed80d5dd3e19
 accept	yes
 actor	User	User	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Base length

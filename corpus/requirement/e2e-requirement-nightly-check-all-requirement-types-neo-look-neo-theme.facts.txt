@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source a95976df3c7bafa8
 accept	yes
+config	look	"neo"
+config	requirement.theme	"neo"
+config	theme	"neo"
 drawn	yes
 label	1
 label	2

@@ -3,6 +3,8 @@
 # source 856b524afa181218
 accept	yes
 actor	Q	Q	queue
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Q	Q	solid	none	test
 type	sequence

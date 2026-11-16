@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 19c559f6868d629f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	claude	anthropic	none	arrow	solid	the runner's own login
 edge	daemon	serve	none	arrow	dotted	mDNS: _agent-driver._tcp, one subnet

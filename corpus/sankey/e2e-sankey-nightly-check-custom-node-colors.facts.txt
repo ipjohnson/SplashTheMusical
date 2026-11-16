@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 156be1da6354a216
 accept	yes
+config	sankey.nodeColors	missing
+config	sankey.nodeColors.a	"#ff0000"
+config	sankey.nodeColors.b	"#00ff00"
 drawn	yes
 flow	a	b	10
 flow	b	c	20

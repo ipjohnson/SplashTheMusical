@@ -4,6 +4,8 @@
 accept	yes
 class	C1	Class 1 with text label
 class	C2	Class 2 with chars @?
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	C1	C2	none	arrow	solid
 type	classDiagram

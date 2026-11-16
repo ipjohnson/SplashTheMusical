@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 9921022022234a8b
 accept	yes
+config	layout	"dagre"
+config	state.layout	"dagre"
+config	state.look	"classic"
+config	state.theme	"default"
 drawn	yes
 edge	Draft	Submitted	none	arrow	solid	submit
 edge	Published	[*]end@root	none	arrow	solid

@@ -3,6 +3,11 @@
 # source 1bafc4bf9f0b119c
 accept	yes
 class	Class10	Class10
+config	class.look	"handDrawn"
+config	htmlLabels	true
+config	logLevel	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	htmlLabels	true
 preamble-config	logLevel	1

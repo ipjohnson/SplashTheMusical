@@ -12,6 +12,7 @@ commit	2	main	normal			3-abcdefg
 commit	3	dev	normal			4-abcdefg
 commit	4	v2	normal			5-abcdefg
 commit	5	main	normal			6-abcdefg
+config	gitGraph.parallelCommits	true
 drawn	yes
 label	1-abcdefg
 label	2-abcdefg

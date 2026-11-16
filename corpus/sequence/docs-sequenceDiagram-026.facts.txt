@@ -5,6 +5,8 @@ accept	yes
 actor	Alice	Alice	participant
 actor	John	John	participant
 block	loop	Every minute
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	John	solid	none	Hello John, how are you?
 message	John	Alice	dashed	none	Great!

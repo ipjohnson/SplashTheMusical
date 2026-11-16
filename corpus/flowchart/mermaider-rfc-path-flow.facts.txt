@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 660f226017302de5
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	docSetNav	tocNodes	none	arrow	solid
 edge	getToc	tocMappings	none	arrow	solid

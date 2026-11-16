@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 6920cc358188ce78
 accept	yes
+config	look	"neo"
+config	requirement.theme	"redux"
+config	theme	"redux"
 drawn	yes
 element	test harness component	test suite	docs/test_harness.md
 label	1

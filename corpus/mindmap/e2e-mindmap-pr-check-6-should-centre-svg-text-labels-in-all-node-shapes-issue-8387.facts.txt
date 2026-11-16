@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 3ab22619feaed7ac
 accept	yes
+config	htmlLabels	false
 drawn	yes
 label	Bang
 label	Cell

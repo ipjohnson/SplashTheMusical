@@ -11,6 +11,8 @@ class	Class07	Class07
 class	Class08	Class08
 class	Class09	Class09
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Class03	Class04	diamond-filled	none	solid
 relation	Class05	Class06	diamond	none	solid

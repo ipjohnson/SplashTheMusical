@@ -3,6 +3,17 @@
 # source 38e641131baa1707
 accept	yes
 actor	Customer	Customer	normal
+config	look	"neo"
+config	theme	"redux-color"
+config	usecase.actorFontFamily	"Arial"
+config	usecase.actorFontSize	16
+config	usecase.actorFontWeight	"bold"
+config	usecase.diagramPadding	24
+config	usecase.nodeSpacing	60
+config	usecase.rankSpacing	70
+config	usecase.useMaxWidth	false
+config	usecase.usecaseFontFamily	"Georgia"
+config	usecase.usecaseFontSize	14
 direction	LR
 drawn	yes
 label	Browse catalog

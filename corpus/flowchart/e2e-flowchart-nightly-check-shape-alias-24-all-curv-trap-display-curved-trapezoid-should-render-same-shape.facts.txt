@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 526deb18dbce4020
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	curv-trap	curv-trap
 node	n1	display	curv-trap

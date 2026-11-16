@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 8b628158795a4271
 accept	yes
+config	treemap.diagramPadding	200
 drawn	yes
 label	Category A
 label	Category B

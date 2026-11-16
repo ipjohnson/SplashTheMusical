@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 91b80add913a6a79
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	file_path	read_file	sequence

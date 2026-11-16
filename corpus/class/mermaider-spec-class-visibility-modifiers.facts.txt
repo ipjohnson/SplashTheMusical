@@ -7,6 +7,8 @@ attribute	Account	+String publicField
 attribute	Account	-int privateField
 attribute	Account	~bool packageField
 class	Account	Account
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Account	#reset() : void
 method	Account	+getBalance() : double

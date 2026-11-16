@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 3b24cb07e9b03acd
 accept	yes
+config	flowchart.look	"handDrawn"
+config	fontFamily	"courier"
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 group	subGraph0	number as labels	1
 node	1	1	rect

@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 7c6023dc0ae1e8bf
 accept	yes
+config	layout	"tidy-tree"
 drawn	yes
 icon	mindmap / Origins / Long history	fa:fa-book
 label	Argument mapping

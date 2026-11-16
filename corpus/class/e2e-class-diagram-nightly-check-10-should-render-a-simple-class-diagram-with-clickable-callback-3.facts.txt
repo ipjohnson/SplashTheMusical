@@ -13,6 +13,8 @@ class	Class03	Class03<T>
 class	Class04	Class04<T>
 class	Class08	Class08
 class	Class10	Class10<T>
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class01	size()
 method	Class10	test()

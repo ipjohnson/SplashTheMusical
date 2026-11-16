@@ -4,6 +4,8 @@
 accept	yes
 actor	Customer_Service	Customer Service	normal
 actor	System_Administrator	System Administrator	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Customer Service

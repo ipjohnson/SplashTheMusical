@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source cea81089d2fb8e2d
 accept	yes
+config	look	"neo"
+config	requirement.theme	"neo-dark"
+config	theme	"neo-dark"
 drawn	yes
 element	empty_entity
 label	empty_entity

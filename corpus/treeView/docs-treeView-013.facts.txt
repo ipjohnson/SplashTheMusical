@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 3cb8979e83d9be9f
 accept	yes
+config	treeView.lineThickness	3
+config	treeView.rowIndent	80
 drawn	yes
 label	mermaid
 label	packages

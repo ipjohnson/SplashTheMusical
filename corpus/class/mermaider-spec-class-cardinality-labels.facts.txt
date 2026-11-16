@@ -7,6 +7,8 @@ class	Customer	Customer
 class	LineItem	LineItem
 class	Order	Order
 class	Student	Student
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Customer	Order	none	arrow	solid	places	1	*
 relation	Order	LineItem	diamond-filled	none	solid	contains	1	1..*

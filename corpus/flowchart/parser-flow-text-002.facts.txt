@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 12b772dfbbc34fcb
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	cross	solid	text including space
 node	A	A	rect

@@ -12,6 +12,9 @@ class	Customer	Customer
 class	LineItem	LineItem
 class	Order	Order
 class	Payment	Payment
+config	class.look	"classic"
+config	class.theme	"default"
+config	layout	"dagre"
 drawn	yes
 method	Order	+total() : Money
 method	Payment	+authorise() : bool

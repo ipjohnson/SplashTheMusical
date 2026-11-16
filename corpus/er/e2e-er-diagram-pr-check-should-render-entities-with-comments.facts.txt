@@ -6,6 +6,9 @@ attribute	AUTHOR_WITH_LONG_ENTITY_NAME	string	name		comment
 attribute	BOOK	float	price		price comment
 attribute	BOOK	string	author
 attribute	BOOK	string	title		author comment
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	AUTHOR_WITH_LONG_ENTITY_NAME	AUTHOR_WITH_LONG_ENTITY_NAME
 entity	BOOK	BOOK

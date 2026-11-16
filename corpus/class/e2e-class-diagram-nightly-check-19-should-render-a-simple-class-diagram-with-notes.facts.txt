@@ -4,6 +4,9 @@
 accept	yes
 attribute	Class10	int id
 class	Class10	Class10
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class10	size()
 note		I love this diagram! Do you love it?

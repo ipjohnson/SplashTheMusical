@@ -4,6 +4,8 @@
 accept	yes
 class	Baz	Baz
 class	Foo	Foo
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Baz	+qux()
 method	Foo	+bar()

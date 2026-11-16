@@ -6,5 +6,7 @@ class	Class01	Class01
 class	Class02	Class02
 class	Class03	Class03
 class	Class04	Class04
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

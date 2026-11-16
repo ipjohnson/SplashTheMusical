@@ -10,6 +10,9 @@ actor	UserDB	UserDB	database
 actor	UserManager	UserManager	control
 actor	UserProfile	UserProfile	entity
 block	loop	Authentication check
+config	look	"neo"
+config	sequence.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 message	Admin	Dashboard	solid	filled	Open user management
 message	AuthService	Dashboard	solid	filled	Access granted

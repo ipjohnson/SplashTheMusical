@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source da5c52f61aa323b4
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	State1	State2	none	arrow	solid	With +,-
 node	State1	The state with a note +,-	rounded

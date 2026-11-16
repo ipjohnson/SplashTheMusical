@@ -10,6 +10,8 @@ attribute	Class2	int : test
 attribute	Class2	string : foo
 class	Class1	Class1
 class	Class2	Class2
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class1	foo()
 method	Class1	foo()

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 186122eccfe5e212
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Crash	[*]end@root	none	arrow	solid
 edge	Moving	Crash	none	arrow	solid

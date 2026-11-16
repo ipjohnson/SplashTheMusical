@@ -5,6 +5,8 @@ accept	yes
 actor	Customer	Customer	normal
 boundary	Catalogue	Catalogue	rect	Browse
 boundary	Payment	Payment	rect	Checkout
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Browse catalogue

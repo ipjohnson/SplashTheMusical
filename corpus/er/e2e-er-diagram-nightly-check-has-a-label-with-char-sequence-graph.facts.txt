@@ -4,6 +4,8 @@
 accept	yes
 attribute	p	date	dateCreated
 attribute	p	varchar(12)	jobId
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	p	Photograph
 label	Photograph

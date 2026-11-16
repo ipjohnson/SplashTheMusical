@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 9e82919d3a85538c
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	c	d	none	arrow	solid
 group	uid1	text of doom	c,d

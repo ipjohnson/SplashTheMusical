@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 7688b4d63d7959b1
 accept	yes
+config	sankey.linkColor	"#636465"
 drawn	yes
 flow	a	b	10
 label	a

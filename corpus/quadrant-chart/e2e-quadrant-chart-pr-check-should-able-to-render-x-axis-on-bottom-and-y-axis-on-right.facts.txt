@@ -6,6 +6,8 @@ axis	x-left	Low Reach
 axis	x-right	High Reach
 axis	y-bottom	Low Engagement
 axis	y-top	High Engagement
+config	quadrantChart.xAxisPosition	"bottom"
+config	quadrantChart.yAxisPosition	"right"
 drawn	yes
 label	High Engagement
 label	High Reach

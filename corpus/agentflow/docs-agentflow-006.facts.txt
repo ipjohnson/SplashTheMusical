@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 5c89eae1c581b64f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	researcher	writer	sequence

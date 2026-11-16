@@ -3,6 +3,8 @@
 # source c520d4dd23c3e8c1
 accept	yes
 class	Car	Car
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Car	+size()
 type	classDiagram

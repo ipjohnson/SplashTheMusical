@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 567bb1aafb430276
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 group	roundWithTitle	roundWithTitle	C
 node	C	Black with white text	rounded

@@ -5,6 +5,8 @@ accept	yes
 class	Controller	Controller
 class	Repository	Repository
 class	Service	Service
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Controller	+handle() : void
 method	Repository	+find() : Object

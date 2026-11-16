@@ -3,6 +3,8 @@
 # source 4b00380908e4a8fc
 accept	yes
 actor	Second	Second	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	LR
 drawn	yes
 label	Done

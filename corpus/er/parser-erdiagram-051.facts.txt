@@ -4,6 +4,8 @@
 accept	yes
 attribute	1	int	id
 attribute	1	string	name
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	1	1
 label	1

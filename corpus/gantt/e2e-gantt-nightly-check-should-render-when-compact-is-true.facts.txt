@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 164b5ecfa58534d3
 accept	yes
+config	gantt.displayMode	"compact"
 drawn	yes
 label	A
 label	B

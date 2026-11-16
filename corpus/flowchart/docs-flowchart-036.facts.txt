@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source de84549bf410270e
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Manual operation	trap-t
 type	flowchart-v2

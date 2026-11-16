@@ -4,6 +4,8 @@
 accept	yes
 class	Admin	Admin
 class	User	User
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Admin	+addUser(user: User)
 method	Admin	+removeUser(user: User)

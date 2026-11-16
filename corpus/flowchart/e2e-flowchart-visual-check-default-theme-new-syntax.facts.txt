@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 3d0125cba308a4d3
 accept	yes
+config	flowchart.theme	"default"
+config	logLevel	0
+config	look	"neo"
 drawn	yes
 edge	A	B	none	arrow	solid	Get money
 edge	B	C	none	arrow	solid

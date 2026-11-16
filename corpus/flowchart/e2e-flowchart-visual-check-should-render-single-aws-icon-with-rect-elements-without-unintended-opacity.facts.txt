@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c704955bc9b9fdc1
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 icon	Cloudwatch	aws:arch-amazon-cloudwatch
 node	Cloudwatch		rect

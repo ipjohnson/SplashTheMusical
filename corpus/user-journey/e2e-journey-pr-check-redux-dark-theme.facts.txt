@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 103d749e98e4a327
 accept	yes
+config	theme	"redux-dark"
 drawn	yes
 label	Add item
 label	Archive

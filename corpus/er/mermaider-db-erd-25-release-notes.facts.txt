@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 2c3744f032ee5f40
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	Bundle	Bundle
 entity	BundleAmend	BundleAmend

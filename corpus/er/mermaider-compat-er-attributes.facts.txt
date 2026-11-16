@@ -8,6 +8,8 @@ attribute	CUSTOMER	string	name	PK
 attribute	ORDER	date	created
 attribute	ORDER	int	id	PK
 attribute	ORDER	string	status
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	CUSTOMER	CUSTOMER
 entity	ORDER	ORDER

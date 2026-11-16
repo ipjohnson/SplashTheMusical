@@ -5,6 +5,8 @@ accept	yes
 attribute	MyClass	+String publicAttr
 attribute	MyClass	-int privateAttr
 class	MyClass	MyClass
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	MyClass	#protectedMethod() : void
 method	MyClass	+publicMethod() : void

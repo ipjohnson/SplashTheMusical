@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 61cb7984d7dfe6d5
 accept	yes
+config	cynefin.seed	42
 drawn	yes
 item	chaotic	0	Act
 item	clear	0	Categorise

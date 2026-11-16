@@ -6,6 +6,9 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	Charlie	Charlie	participant
 actor	Dave	Dave	participant
+config	look	"neo"
+config	sequence.theme	"base"
+config	theme	"base"
 drawn	yes
 message	Alice	Bob	solid	cross	Solid cross (-x)
 message	Alice	Bob	solid	filled	Solid arrow (->>)

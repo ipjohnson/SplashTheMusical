@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source d8467f15728ffa3f
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	S1	S2	none	arrow	solid	long line using should work
 edge	S1	S3	none	arrow	solid	long line using should work

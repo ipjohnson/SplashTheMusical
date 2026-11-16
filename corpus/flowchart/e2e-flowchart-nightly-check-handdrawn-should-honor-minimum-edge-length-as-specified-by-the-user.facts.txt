@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 26e1e180936d2cda
 accept	yes
+config	flowchart.look	"handDrawn"
+config	handDrawnSeed	1
+config	look	"handDrawn"
+config	theme	"redux-color"
 drawn	yes
 edge	C	E1	none	arrow	solid	Label 1
 edge	C	E2	none	arrow	solid	Label 2

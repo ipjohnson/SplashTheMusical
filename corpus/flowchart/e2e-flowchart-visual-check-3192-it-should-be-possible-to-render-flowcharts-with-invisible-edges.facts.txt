@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 71cd6747621e442b
 accept	yes
+config	flowchart.titleTopMargin	10
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	none	invisible
 node	A	A	rect

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source b4a0d4b260f71376
 accept	yes
+config	sankey.nodeWidth	20
+config	sankey.useMaxWidth	false
 drawn	yes
 flow	a	b	10
 label	a

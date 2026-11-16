@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source de312f4e5e8d9770
 accept	yes
+config	er.theme	"redux-dark"
+config	look	"neo"
+config	theme	"redux-dark"
 drawn	yes
 entity	ADDRESS	ADDRESS
 entity	CUSTOMER	CUSTOMER

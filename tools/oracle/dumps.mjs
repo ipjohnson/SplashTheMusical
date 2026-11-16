@@ -82,6 +82,16 @@ export function hookPreprocess(code) {
 	return code.slice(0, end) + `globalThis.__oraclePreprocess=${found[0][1]};` + code.slice(end)
 }
 
+// mermaid.min.js with a call to globalThis.__oracleAddDirective at the end of config.ts's addDirective. render() applies
+// the preamble config there, with the diagram's config scope set, and clears the scope before it returns, so getConfig()
+// gives the config a case is drawn with only inside this call. The function is found by its name label and the end of
+// its block body; the run fails when that is not found exactly once.
+export function hookAddDirective(code) {
+	const found = [...code.matchAll(/\},"addDirective"\)/g)]
+	if (found.length !== 1) throw new Error(`addDirective found ${found.length} times in mermaid.min.js, expected once; the addDirective hook in tools/oracle/dumps.mjs needs updating`)
+	return code.slice(0, found[0].index) + ';globalThis.__oracleAddDirective?.()' + code.slice(found[0].index)
+}
+
 // In the page: the computed variables of each theme and the default config, as lines of `<kind>\t<fields>`. A value is
 // JSON, `undefined` for a key that is present without a value, or NaN or Infinity as JavaScript writes them. Nested
 // objects and arrays are flattened into dotted paths; an empty one is written as {} or [].
@@ -108,6 +118,18 @@ export function configDumps(themeNames, init) {
 		mermaid.initialize(init)
 	}
 	const config = flatten('', mermaid.mermaidAPI.defaultConfig, []).map(([k, v]) => `key\t${k}\t${v}`)
+	// The key names sanitizeDirective keeps: defaultConfig.ts's configKeys, built by keyify, which takes every key name
+	// at any depth, leaves out array keys and does not look inside arrays.
+	const names = new Set()
+	const keyify = v => {
+		for (const k of Object.keys(v)) {
+			if (Array.isArray(v[k])) continue
+			names.add(k)
+			if (typeof v[k] === 'object' && v[k] !== null) keyify(v[k])
+		}
+	}
+	keyify(mermaid.mermaidAPI.defaultConfig)
+	for (const n of names) config.push(`name\t${n}`)
 	return { themes, config }
 }
 

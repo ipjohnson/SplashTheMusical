@@ -3,6 +3,8 @@
 # source c907d38263198295
 accept	yes
 actor	L	L	collections
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	L	L	solid	none	test
 type	sequence

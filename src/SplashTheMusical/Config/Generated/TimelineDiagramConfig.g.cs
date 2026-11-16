@@ -188,4 +188,39 @@ public sealed partial class TimelineDiagramConfig
 		ConfigValues.Add(entries, "disableMulticolor", DisableMulticolor);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static TimelineDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		DiagramMarginX = ConfigValues.ReadNumber(value?["diagramMarginX"]),
+		DiagramMarginY = ConfigValues.ReadNumber(value?["diagramMarginY"]),
+		LeftMargin = ConfigValues.ReadNumber(value?["leftMargin"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		BoxMargin = ConfigValues.ReadNumber(value?["boxMargin"]),
+		BoxTextMargin = ConfigValues.ReadNumber(value?["boxTextMargin"]),
+		NoteMargin = ConfigValues.ReadNumber(value?["noteMargin"]),
+		MessageMargin = ConfigValues.ReadNumber(value?["messageMargin"]),
+		MessageAlign = ConfigValues.ReadString(value?["messageAlign"]),
+		BottomMarginAdj = ConfigValues.ReadNumber(value?["bottomMarginAdj"]),
+		RightAngles = ConfigValues.ReadBoolean(value?["rightAngles"]),
+		TaskFontSize = ConfigValues.ReadValue(value?["taskFontSize"]),
+		TaskFontFamily = ConfigValues.ReadString(value?["taskFontFamily"]),
+		TaskMargin = ConfigValues.ReadNumber(value?["taskMargin"]),
+		ActivationWidth = ConfigValues.ReadNumber(value?["activationWidth"]),
+		TextPlacement = ConfigValues.ReadString(value?["textPlacement"]),
+		ActorColours = ConfigValues.ReadStringList(value?["actorColours"]),
+		SectionFills = ConfigValues.ReadStringList(value?["sectionFills"]),
+		SectionColours = ConfigValues.ReadStringList(value?["sectionColours"]),
+		DisableMulticolor = ConfigValues.ReadBoolean(value?["disableMulticolor"]),
+	};
 }

@@ -4,5 +4,7 @@
 accept	yes
 attribute	Car	wheels
 class	Car	Car
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 type	classDiagram

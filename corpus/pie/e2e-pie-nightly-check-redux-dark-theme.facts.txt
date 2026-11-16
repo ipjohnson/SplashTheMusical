@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source ec833f11062239ea
 accept	yes
+config	theme	"redux-dark"
 drawn	yes
 label	Alpha
 label	Bravo

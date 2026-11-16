@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source e748adb9976fd17f
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	Anchor	Anchor
 entity	Checkout	Checkout

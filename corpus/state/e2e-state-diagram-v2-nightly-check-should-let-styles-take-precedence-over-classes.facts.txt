@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 4428e21d049c5d5b
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	AState	Should NOT be white	rounded
 node	BState	BState	rounded

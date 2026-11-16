@@ -30,6 +30,8 @@ class	SqliteStore	SqliteStore
 class	UsageWatcher	UsageWatcher
 class	Views	Views
 class	WorkMachine	WorkMachine
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	EffectRunner	+ReplayAtStart()
 method	EffectRunner	+Run()

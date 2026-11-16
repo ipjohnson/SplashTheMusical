@@ -7,6 +7,8 @@ actor	Bob	Bob	boundary
 actor	John	John	control
 block	alt	either this
 block	par	this happens in parallel
+config	look	"neo"
+config	theme	"redux-color"
 divider
 divider	or this
 divider	or this will happen

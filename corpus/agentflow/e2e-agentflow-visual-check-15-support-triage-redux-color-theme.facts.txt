@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 68ac3978398457a0
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 connector	crm	CRM
 connector	llm	LLM API
 direction	TD

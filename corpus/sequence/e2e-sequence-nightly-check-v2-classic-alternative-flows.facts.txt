@@ -5,6 +5,8 @@ accept	yes
 actor	A	A	actor
 actor	B	B	boundary
 block	alt	Successful case
+config	sequence.look	"classic"
+config	theme	"redux-color"
 divider	Failure case
 drawn	yes
 message	A	B	solid	filled	Request

@@ -4,6 +4,8 @@
 accept	yes
 class	Repository	Repository<T>
 class	UserRepository	UserRepository
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	Repository	UserRepository	triangle	none	solid
 type	classDiagram

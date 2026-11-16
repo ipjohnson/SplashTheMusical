@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 9ad3a525971be491
 accept	yes
+config	fontFamily	"courier"
+config	logLevel	0
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	long1	A long long name	rounded
 node	longlonglongid	A	rounded

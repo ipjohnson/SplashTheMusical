@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source d7ed941e00f1b6bf
 accept	yes
+config	look	"neo"
+config	requirement.theme	"neo-dark"
+config	theme	"neo-dark"
 drawn	yes
 element	hw_element	hardware	specs/hw_spec.pdf
 element	sw_element	software	github.com/org/repo

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source a886af6b8d349080
 accept	yes
+config	look	"neo"
+config	requirement.theme	"neo-dark"
+config	theme	"neo-dark"
 drawn	yes
 element	test harness component	test suite	docs/test_harness.md
 label	1

@@ -3,6 +3,8 @@
 # source 6c83ff06a61d38a6
 accept	yes
 actor	Customer	Customer	normal
+config	look	"neo"
+config	theme	"redux-color"
 direction	BT
 drawn	yes
 label	Browse catalog

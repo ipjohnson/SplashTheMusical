@@ -7,6 +7,9 @@ axis	B
 axis	C
 axis	D
 axis	E
+config	radar.axisScaleFactor	0.25
+config	radar.curveTension	0.1
+config	theme	"base"
 curve	c1	1,2,3,4,5
 curve	c2	5,4,3,2,1
 curve	c3	3,3,3,3,3

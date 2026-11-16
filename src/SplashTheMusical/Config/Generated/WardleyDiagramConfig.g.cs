@@ -109,4 +109,25 @@ public sealed partial class WardleyDiagramConfig
 		ConfigValues.Add(entries, "showGrid", ShowGrid);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static WardleyDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Width = ConfigValues.ReadNumber(value?["width"]),
+		Height = ConfigValues.ReadNumber(value?["height"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		NodeRadius = ConfigValues.ReadNumber(value?["nodeRadius"]),
+		NodeLabelOffset = ConfigValues.ReadNumber(value?["nodeLabelOffset"]),
+		AxisFontSize = ConfigValues.ReadNumber(value?["axisFontSize"]),
+		LabelFontSize = ConfigValues.ReadNumber(value?["labelFontSize"]),
+		ShowGrid = ConfigValues.ReadBoolean(value?["showGrid"]),
+	};
 }

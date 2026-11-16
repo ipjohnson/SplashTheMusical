@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source cbfbae19bf3556ea
 accept	yes
+config	treemap.valueFormat	"$0,0"
 drawn	yes
 label	Advertising
 label	Budget

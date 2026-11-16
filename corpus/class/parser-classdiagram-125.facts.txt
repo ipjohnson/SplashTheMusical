@@ -5,6 +5,8 @@ accept	yes
 class	C1	Class with text label
 class	C2	Class with text label
 class	C3	Class with text label
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	C1	C2	none	arrow	solid
 relation	C3	C2	none	arrow	dashed

@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 7d0dd6187502e6a8
 accept	yes
+config	layout	"dagre"
+config	requirement.look	"classic"
+config	requirement.theme	"default"
 drawn	yes
 element	checkout_service	service
 label	1

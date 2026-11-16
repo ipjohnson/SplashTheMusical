@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 940eeefc82c12889
 accept	yes
+config	sankey.useMaxWidth	false
+config	sankey.width	410
 drawn	yes
 flow	a	b	8
 flow	b	c	8

@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 508e154431320424
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	u	u
 entity	v	v

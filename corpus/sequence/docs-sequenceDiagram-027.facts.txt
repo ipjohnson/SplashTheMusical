@@ -6,6 +6,8 @@ actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 block	alt	is sick
 block	opt	Extra response
+config	look	"neo"
+config	theme	"redux-color"
 divider	is well
 drawn	yes
 message	Alice	Bob	solid	filled	Hello Bob, how are you?

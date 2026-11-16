@@ -3,6 +3,9 @@
 # source d8142d901771e849
 accept	yes
 class	Duck	Duck
+config	class.hideEmptyMembersBox	true
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 preamble-config	class.hideEmptyMembersBox	true
 type	classDiagram

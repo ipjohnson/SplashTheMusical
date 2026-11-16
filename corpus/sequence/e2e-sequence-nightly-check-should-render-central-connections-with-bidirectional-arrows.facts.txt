@@ -4,6 +4,8 @@
 accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	Alice	Bob	dashed	filled-both	Bidirectional dotted
 message	Alice	Bob	solid	filled-both	Bidirectional solid

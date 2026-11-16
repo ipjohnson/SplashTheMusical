@@ -5,6 +5,9 @@ accept	yes
 actor	Alice	Alice	participant
 actor	Bob	Bob	participant
 actor	Charlie	Charlie	participant
+config	look	"neo"
+config	sequence.theme	"base"
+config	theme	"base"
 drawn	yes
 message	Alice	Alice	solid	filled-both	Dual central with bidirectional solid
 message	Bob	Bob	dashed	filled-both	Dual central with bidirectional dotted

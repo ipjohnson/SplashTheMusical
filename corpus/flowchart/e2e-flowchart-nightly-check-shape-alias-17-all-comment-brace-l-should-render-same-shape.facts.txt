@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c75b40176b6c3ca4
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	n0	comment	brace
 node	n1	brace-l	brace

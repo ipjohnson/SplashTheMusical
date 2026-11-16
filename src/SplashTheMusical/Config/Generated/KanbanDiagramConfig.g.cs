@@ -65,4 +65,20 @@ public sealed partial class KanbanDiagramConfig
 		ConfigValues.Add(entries, "ticketBaseUrl", TicketBaseUrl);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static KanbanDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		SectionWidth = ConfigValues.ReadNumber(value?["sectionWidth"]),
+		TicketBaseUrl = ConfigValues.ReadString(value?["ticketBaseUrl"]),
+	};
 }

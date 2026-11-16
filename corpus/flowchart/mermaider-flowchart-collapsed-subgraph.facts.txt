@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source c98c84882c2b5392
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	Client	backend	none	arrow	solid
 edge	backend	Mail	none	arrow	solid

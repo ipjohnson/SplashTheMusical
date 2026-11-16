@@ -3,6 +3,8 @@
 # source 3fe1a061b4929772
 accept	yes
 class	Object	Object
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Object	getObject() : Object
 type	classDiagram

@@ -6,6 +6,9 @@ attribute	1	int	value
 attribute	1	string	name
 attribute	ORDER	float	price
 attribute	ORDER	string	description
+config	logLevel	1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	1	1
 entity	ORDER	ORDER

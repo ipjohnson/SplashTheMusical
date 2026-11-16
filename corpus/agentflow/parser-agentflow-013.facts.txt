@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source cfc74cecf60100b7
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 label	Guide

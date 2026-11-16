@@ -10,6 +10,9 @@ actor	D	D	database
 actor	E	E	entity
 actor	P	P	participant
 actor	Q	Q	queue
+config	look	"neo"
+config	sequence.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 message	A	B	solid	filled	Message 2
 message	B	C	solid	filled	Message 3

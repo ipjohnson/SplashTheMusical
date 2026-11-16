@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 320d5234dfd5cdef
 accept	yes
+config	theme	"dark"
 drawn	yes
 label	0
 label	1

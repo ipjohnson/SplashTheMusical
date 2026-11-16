@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source f6191d86b05c8b65
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 element	*my italicized name*	**Bolded type** _italicized type_	*Italicized* __Bolded__
 label	**Bolded text** _italicized text_

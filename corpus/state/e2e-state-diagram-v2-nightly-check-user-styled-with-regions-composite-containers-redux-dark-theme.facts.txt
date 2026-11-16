@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 09c3bacfd2c6c35c
 accept	yes
+config	look	"neo"
+config	state.theme	"redux-dark"
+config	theme	"redux-dark"
 drawn	yes
 edge	Split	Neighbour	none	arrow	solid
 edge	[*]start@Neighbour	After	none	arrow	solid

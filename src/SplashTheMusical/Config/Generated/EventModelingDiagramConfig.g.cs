@@ -67,4 +67,19 @@ public sealed partial class EventModelingDiagramConfig
 		ConfigValues.Add(entries, "rowHeight", RowHeight);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static EventModelingDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		Padding = ConfigValues.ReadNumber(value?["padding"]),
+		RowHeight = ConfigValues.ReadNumber(value?["rowHeight"]),
+	};
 }

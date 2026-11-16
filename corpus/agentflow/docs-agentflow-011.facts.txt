@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 475c7f21f53077e4
 accept	yes
+config	agentflow.nodeSpacing	70
+config	agentflow.rankSpacing	70
+config	look	"neo"
+config	theme	"redux-color"
 direction	TD
 drawn	yes
 edge	a	b	sequence

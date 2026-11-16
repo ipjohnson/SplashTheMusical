@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 99e1dfb4c158699e
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 entity	This ❤ Unicode	This ❤ Unicode
 label	This ❤ Unicode

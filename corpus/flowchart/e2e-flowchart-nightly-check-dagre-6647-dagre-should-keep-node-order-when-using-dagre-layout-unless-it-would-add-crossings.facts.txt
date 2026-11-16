@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 822afd6ab5ab264a
 accept	yes
+config	layout	"dagre"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a	a1	none	arrow	solid
 edge	a	a2	none	arrow	solid

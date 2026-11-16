@@ -2,6 +2,9 @@
 # mermaid 12.3.0
 # source 24ba3583289e1efa
 accept	yes
+config	fontFamily	"courier"
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	B	none	arrow	solid	Get money
 edge	B	C	none	arrow	solid

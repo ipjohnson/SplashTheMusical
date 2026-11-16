@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 292ef3af3db239d2
 accept	yes
+config	xyChart.showDataLabel	true
 drawn	yes
 label	A
 label	B

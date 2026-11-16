@@ -6,6 +6,8 @@ actor	1	1	participant
 actor	2	2	participant
 actor	3	3	participant
 actor	4	4	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	1	2	solid	filled	single-line text
 message	2	3	solid	filled	single-line text

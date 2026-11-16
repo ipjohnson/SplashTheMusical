@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 6b45f4280039e184
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	a	g	none	arrow	solid	push, pull requests
 edge	a	r	none	arrow	solid	commands, heartbeat

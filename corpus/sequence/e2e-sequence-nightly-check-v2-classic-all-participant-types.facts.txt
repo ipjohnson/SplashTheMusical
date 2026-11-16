@@ -10,6 +10,8 @@ actor	database5	database5	database
 actor	entity4	entity4	entity
 actor	participant0	participant0	participant
 actor	queue7	queue7	queue
+config	sequence.look	"classic"
+config	theme	"redux-color"
 drawn	yes
 message	actor1	boundary2	solid	filled	Message 1
 message	boundary2	control3	solid	filled	Message 2

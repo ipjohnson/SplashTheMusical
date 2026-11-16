@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 7e0092f28b8ea347
 accept	yes
+config	xyChart.chartOrientation	"horizontal"
+config	xyChart.showDataLabel	true
 drawn	yes
 label	A
 label	B

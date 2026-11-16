@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source d47a9e81b902e765
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Datastore	datastore
 type	flowchart-v2

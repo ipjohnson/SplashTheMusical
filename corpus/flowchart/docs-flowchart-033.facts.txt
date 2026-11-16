@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 89a471241f408285
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 node	A	Output/Input	lean-l
 type	flowchart-v2

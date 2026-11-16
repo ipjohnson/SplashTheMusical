@@ -4,6 +4,8 @@
 accept	yes
 actor	A	Frontend	participant
 actor	B	Backend	participant
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 message	A	B	solid	filled	GET /data
 message	A	B	solid	filled	Login request

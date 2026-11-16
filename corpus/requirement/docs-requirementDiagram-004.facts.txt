@@ -2,6 +2,8 @@
 # mermaid 12.3.0
 # source 6aee0ba9c47a09ff
 accept	yes
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 label	*italicized text* **bold text**
 label	1

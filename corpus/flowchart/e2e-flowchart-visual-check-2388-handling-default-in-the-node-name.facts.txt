@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 76a30ad669b4b3bb
 accept	yes
+config	flowchart.htmlLabels	true
+config	htmlLabels	true
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	default-index.js	dot.template.js	none	arrow	solid
 edge	index.js	module-utl.js	none	arrow	solid

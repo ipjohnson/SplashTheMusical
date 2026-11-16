@@ -8,7 +8,7 @@ namespace SplashTheMusical.Upstream;
 /// </summary>
 /// <remarks>
 /// <c>config &lt;checkout&gt; [--check]</c> writes the <c>MermaidConfig</c> classes to src/SplashTheMusical/Config/Generated
-/// from <c>packages/mermaid/src/schemas/config.schema.yaml</c>. With <c>--check</c> it writes nothing and fails when a
+/// from <c>packages/mermaid/src/schemas/config.schema.yaml</c>, and <c>ConfigKeys</c> from corpus/config.txt. With <c>--check</c> it writes nothing and fails when a
 /// generated file differs from the committed one.
 /// </remarks>
 public static class Program
@@ -35,6 +35,7 @@ public static class Program
 		var buildText = File.ReadAllText(Path.Combine(checkout, ".build", "jsonSchema.ts"));
 		var schema = new ConfigSchema(SchemaYaml.Read(schemaText));
 		var files = ConfigWriter.Write(schema, DiagramKeys.Read(buildText), version);
+		files.Add("ConfigKeys.g.cs", ConfigKeysWriter.Write(File.ReadAllText(Path.Combine(repository, "corpus", "config.txt")), version));
 		var folder = Path.Combine(repository, "src", "SplashTheMusical", "Config", "Generated");
 		return args.Length == 3 ? GeneratedFiles.Check(folder, files) : GeneratedFiles.Write(folder, files);
 	}

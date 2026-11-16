@@ -3,6 +3,8 @@
 # source 594dbbe914ff48d5
 accept	yes
 class	MyClass	MyClass
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 note		This is a general note
 note	MyClass	This is a note for a class

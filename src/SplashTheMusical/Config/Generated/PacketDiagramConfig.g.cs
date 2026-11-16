@@ -105,4 +105,24 @@ public sealed partial class PacketDiagramConfig
 		ConfigValues.Add(entries, "paddingY", PaddingY);
 		return MermaidValue.FromEntries(entries);
 	}
+
+	/// <summary>
+	/// The config a mapping holds. A key that is missing, or whose value does not have the property's type, gives a null
+	/// property, and a missing nested mapping gives a nested config of nulls.
+	/// </summary>
+	internal static PacketDiagramConfig FromValue(MermaidValue? value) => new()
+	{
+		UseWidth = ConfigValues.ReadNumber(value?["useWidth"]),
+		UseMaxWidth = ConfigValues.ReadBoolean(value?["useMaxWidth"]),
+		Theme = ConfigValues.ReadString(value?["theme"]),
+		Look = ConfigValues.ReadString(value?["look"]),
+		Layout = ConfigValues.ReadString(value?["layout"]),
+		RowHeight = ConfigValues.ReadNumber(value?["rowHeight"]),
+		BitWidth = ConfigValues.ReadNumber(value?["bitWidth"]),
+		BitsPerRow = ConfigValues.ReadNumber(value?["bitsPerRow"]),
+		ShowBits = ConfigValues.ReadBoolean(value?["showBits"]),
+		BitOrder = ConfigValues.ReadString(value?["bitOrder"]),
+		PaddingX = ConfigValues.ReadNumber(value?["paddingX"]),
+		PaddingY = ConfigValues.ReadNumber(value?["paddingY"]),
+	};
 }

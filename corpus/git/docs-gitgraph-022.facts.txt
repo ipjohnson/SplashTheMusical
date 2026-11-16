@@ -9,6 +9,7 @@ commit	1	develop	normal
 commit	2	develop	normal
 commit	3	main	normal
 commit	4	main	normal
+config	gitGraph.parallelCommits	true
 drawn	yes
 label	develop
 label	main

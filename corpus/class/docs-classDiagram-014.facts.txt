@@ -8,6 +8,8 @@ class	classC	classC
 class	classD	classD
 class	classE	classE
 class	classF	classF
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 relation	classA	classB	triangle	none	solid	implements
 relation	classC	classD	diamond-filled	none	solid	composition

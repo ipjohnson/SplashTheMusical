@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source 14eebdd68a1881c0
 accept	yes
+config	look	"handDrawn"
+config	state.look	"handDrawn"
+config	state.theme	"redux-dark-color"
+config	theme	"redux-dark-color"
 drawn	yes
 edge	Active	[*]end@root	none	arrow	solid
 edge	CapsOff	CapsOn	none	arrow	solid

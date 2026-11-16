@@ -5,6 +5,8 @@ accept	yes
 annotation	Class1	«interface»
 attribute	Class1	int test
 class	Class1	Class1
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	Class1	test()
 type	classDiagram

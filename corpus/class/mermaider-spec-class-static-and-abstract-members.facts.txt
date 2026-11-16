@@ -4,6 +4,8 @@
 accept	yes
 attribute	MathUtils	+PI$ double
 class	MathUtils	MathUtils
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 method	MathUtils	+add(a, b) : int
 method	MathUtils	+compute() : void

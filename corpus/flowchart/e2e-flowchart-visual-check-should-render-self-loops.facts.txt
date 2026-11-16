@@ -2,6 +2,10 @@
 # mermaid 12.3.0
 # source c851c77aadeedf01
 accept	yes
+config	flowchart.subGraphTitleMargin.bottom	5
+config	flowchart.subGraphTitleMargin.top	10
+config	look	"neo"
+config	theme	"redux-color"
 drawn	yes
 edge	A	A	none	arrow	solid
 edge	B1	B1	none	arrow	solid
