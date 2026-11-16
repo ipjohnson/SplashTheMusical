@@ -197,7 +197,7 @@ public class MermaidTests
 	private static MermaidValue Site(string key, string value) =>
 		MermaidValue.FromEntries(new OrderedDictionary<string, MermaidValue> { [key] = MermaidValue.FromString(value) });
 
-	private sealed class FixedMeasurer(double width) : ITextMeasurer
+	internal sealed class FixedMeasurer(double width) : ITextMeasurer
 	{
 		private int _calls;
 
@@ -238,7 +238,7 @@ public class MermaidTests
 		}
 	}
 
-	private sealed class BoxDocument(string label, string type = "box") : MermaidDocument
+	internal sealed class BoxDocument(string label, string type = "box") : MermaidDocument
 	{
 		public override string DiagramType => type;
 
@@ -246,7 +246,7 @@ public class MermaidTests
 	}
 
 	/// <summary>A host's diagram: <c>box</c> and a label, drawn as a rectangle as wide as the label.</summary>
-	private sealed class BoxModule(string type = "box") : DiagramModule<BoxDocument, DiagramLayout>
+	internal sealed class BoxModule(string type = "box") : DiagramModule<BoxDocument, DiagramLayout>
 	{
 		public override string DiagramType => type;
 

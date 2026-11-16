@@ -6,9 +6,11 @@
     <PackageReference Include="TUnit" />
     <PackageReference Include="AwesomeAssertions" />
     <PackageReference Include="CsCheck" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />
+    <ProjectReference Include="../../src/SplashTheMusical.DependencyModule/SplashTheMusical.DependencyModule.csproj" />
     <ProjectReference Include="../../src/SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
     <ProjectReference Include="../SplashTheMusical.Benchmarks/SplashTheMusical.Benchmarks.csproj" />
     <ProjectReference Include="../../tools/SplashTheMusical.Upstream/SplashTheMusical.Upstream.csproj" />
