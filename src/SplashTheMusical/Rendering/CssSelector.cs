@@ -56,7 +56,8 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 		return builder.ToString();
 	}
 
-	private static bool IsAllowed(ReadOnlySpan<char> selector)
+	/// <summary>Whether <paramref name="selector"/> fits the grammar of <see cref="Parse"/>.</summary>
+	public static bool IsAllowed(ReadOnlySpan<char> selector)
 	{
 		var anything = false;
 		for (var i = 0; i < selector.Length; i++)

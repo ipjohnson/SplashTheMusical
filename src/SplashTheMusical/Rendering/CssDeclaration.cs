@@ -116,6 +116,46 @@ internal sealed class CssDeclaration
 		return text is null ? null : new(name, text, null, string.Empty, important);
 	}
 
+	/// <summary>
+	/// Whether <paramref name="declaration"/>, as <see cref="SvgWriter.StyleText"/> writes one without its <c>;</c>, has
+	/// an allowlisted property and a value of the grammar of <see cref="FromTheme(string, string, bool)"/>, with
+	/// <c>url()</c> only as a reference to an element whose id starts with <paramref name="svgId"/>.
+	/// </summary>
+	public static bool IsAllowedText(ReadOnlySpan<char> declaration, string svgId)
+	{
+		var colon = declaration.IndexOf(':');
+		if (colon <= 0 || Kind(declaration[..colon].ToString()) is null)
+		{
+			return false;
+		}
+
+		var value = declaration[(colon + 1)..];
+		if (value.EndsWith("!important", StringComparison.Ordinal))
+		{
+			value = value[..^"!important".Length];
+		}
+
+		var prefix = "url(#" + svgId;
+		var text = new StringBuilder(value.Length);
+		var references = 0;
+		while (value.IndexOf("url(", StringComparison.Ordinal) is var at and >= 0)
+		{
+			var end = value[at..].IndexOf(')');
+			if (end < 0 || !value[at..].StartsWith(prefix, StringComparison.Ordinal) || !IsNames(value[(at + prefix.Length)..(at + end)]))
+			{
+				return false;
+			}
+
+			text.Append(value[..at]).Append(' ');
+			value = value[(at + end + 1)..];
+			references++;
+		}
+
+		text.Append(value);
+		var rest = text.ToString();
+		return TryThemeValue(rest, out _) || (references > 0 && rest.AsSpan().Trim().IsEmpty);
+	}
+
 	private enum PropertyKind
 	{
 		Paint,

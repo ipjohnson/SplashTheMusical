@@ -10,6 +10,9 @@ namespace SplashTheMusical.Tests.Rendering;
 
 public class StylesheetTests
 {
+	private static readonly string[] ThemeNames =
+		["base", "dark", "default", "forest", "neutral", "neo", "neo-dark", "redux", "redux-dark", "redux-color", "redux-dark-color"];
+
 	private const string Unsafe = "abcdefilnorstuw#:;{}()[]<>&!@/\\*\"' -.,%=`\n0123456789";
 
 	private static MermaidConfig Config(params (string Key, string Value)[] overrides)
@@ -118,11 +121,32 @@ public class StylesheetTests
 	[Test]
 	public void TheWriterEscapesTheStyleElementsText()
 	{
-		var buffer = new ArrayBufferWriter<byte>();
-		new SvgWriter(buffer).WriteStyle("s", [new CssStyleRule(CssSelector.Parse(".a > *"), CssDeclaration.FromTheme("fill", "red"))]);
+		var svg = SvgDocuments.Write(writer =>
+		{
+			writer.StartElement("svg");
+			writer.WriteAttribute("id", "s");
+			writer.WriteStyle([new CssStyleRule(CssSelector.Parse(".a > *"), CssDeclaration.FromTheme("fill", "red"))]);
+			writer.EndElement();
+		});
 
-		Encoding.UTF8.GetString(buffer.WrittenSpan).Should().Be("<style>#s .a&gt;*{fill:red;}</style>");
+		svg.Should().Be("<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"s\"><style>#s .a&gt;*{fill:red;}</style></svg>");
 	}
+
+	[Test]
+	public void EveryThemesStylesheetWithAnyClassDefPassesTheSanitizer() =>
+		Gen.Select(Gen.OneOf(ThemeNames), Gen.String[Gen.Char[Unsafe], 0, 30], Gen.OneOf("fill", "stroke", "font-family", "stroke-dasharray", "opacity"))
+			.Sample((theme, value, property) =>
+			{
+				var config = new MermaidConfig { ThemeVariables = Theme.Variables(theme, null) };
+				var rules = MermaidStylesheet.Build(config, [], [new StyleClass("c", [property + ":" + value, "fill:#f9f"], [property + ":" + value])]);
+				SvgDocuments.Write(writer =>
+				{
+					writer.StartElement("svg");
+					writer.WriteAttribute("id", "mermaid-1");
+					writer.WriteStyle(rules);
+					writer.EndElement();
+				});
+			}, iter: 500);
 
 	[Test]
 	[Arguments("a{}")]

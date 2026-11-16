@@ -49,6 +49,12 @@ Stylesheets are built only from the typed rules of `src/SplashTheMusical/Renderi
 property outside its allowlist and a value outside its grammar, so a value from the source or the config cannot hold
 `;`, a brace or `url(`.
 
+Renderers write SVG only through `SvgWriter`. It throws on an element or attribute outside `SvgValues.WriterElements`
+and `SvgValues.WriterAttributes`, which are subsets of `SvgSanitizer`'s lists, and on a paint or marker value outside
+the sanitizer's grammar. A test that writes a document goes through `tests/SplashTheMusical.Tests/Rendering/SvgDocuments.cs`,
+which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unchanged. The writer's lists are built from
+`SvgValues.Elements` and `SvgValues.Attributes`, so a renderer that needs a new element or attribute adds it there.
+
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
