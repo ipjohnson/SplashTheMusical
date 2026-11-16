@@ -51,6 +51,11 @@ internal sealed class GraphLabel
 
 	/// <summary><c>normalize.run</c>'s first dummy node of each edge it split, in the order it split them.</summary>
 	public List<int> DummyChains { get; } = [];
+
+	/// <summary>The laid-out graph's width, which <c>translateGraph</c> sets.</summary>
+	public double Width { get; set; } = double.NaN;
+
+	public double Height { get; set; } = double.NaN;
 }
 
 /// <summary>The label of a node of dagre's layout graph. NaN stands for an attribute dagre has not set.</summary>
@@ -100,6 +105,11 @@ internal sealed class LayoutNode
 
 	/// <summary>The node's place in its rank, which the order phase sets. -1 until then.</summary>
 	public int Order { get; set; } = -1;
+
+	/// <summary>The centre's x, which the position phase sets.</summary>
+	public double X { get; set; } = double.NaN;
+
+	public double Y { get; set; } = double.NaN;
 }
 
 /// <summary>The label of an edge of dagre's layout graph.</summary>
@@ -125,6 +135,20 @@ internal sealed class LayoutEdge
 	public bool NestingEdge { get; set; }
 
 	public double LabelRank { get; set; } = double.NaN;
+
+	/// <summary>The edge's points, or null until <c>normalize.run</c> or <c>assignNodeIntersects</c> gives it some.</summary>
+	public List<(double X, double Y)>? Points { get; set; }
+
+	/// <summary>
+	/// Whether <c>normalize.undo</c> gave the label a position. dagre tests for an own <c>x</c> property, so this stays
+	/// true for a NaN position.
+	/// </summary>
+	public bool HasPosition { get; set; }
+
+	/// <summary>The label's centre, when <see cref="HasPosition"/>.</summary>
+	public double X { get; set; } = double.NaN;
+
+	public double Y { get; set; } = double.NaN;
 }
 
 /// <summary>A self edge with the name it had, which <c>removeSelfEdges</c> keeps on its node.</summary>

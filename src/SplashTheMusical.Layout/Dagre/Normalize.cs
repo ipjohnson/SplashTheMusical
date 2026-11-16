@@ -35,6 +35,7 @@ internal static class Normalize
 		var i = 0;
 		for (++vRank; vRank < wRank; ++i, ++vRank)
 		{
+			edgeLabel.Points = [];
 			var attrs = new LayoutNode { EdgeLabel = edgeLabel, EdgeObj = e, Rank = vRank };
 			var dummy = Util.AddDummyNode(g, "edge", attrs, "_d");
 			if (vRank == labelRank)
@@ -55,5 +56,38 @@ internal static class Normalize
 		}
 
 		g.SetEdge(v, w, new LayoutEdge { Weight = edgeLabel.Weight }, name);
+	}
+
+	/// <summary>
+	/// Puts each split edge back with its dummies' positions as its points, and the <c>edge-label</c> dummy's position
+	/// and size as its label's.
+	/// </summary>
+	public static void Undo(LayoutGraph g)
+	{
+		foreach (var first in g.Label.DummyChains)
+		{
+			var v = first;
+			var node = g.Node(v);
+			var origLabel = node.EdgeLabel!;
+			var e = node.EdgeObj;
+			g.SetEdge(g.EdgeV(e), g.EdgeW(e), origLabel, g.EdgeName(e));
+			while (node.Dummy is not null)
+			{
+				var w = g.Successors(v)[0];
+				g.RemoveNode(v);
+				origLabel.Points!.Add((node.X, node.Y));
+				if (node.Dummy == "edge-label")
+				{
+					origLabel.HasPosition = true;
+					origLabel.X = node.X;
+					origLabel.Y = node.Y;
+					origLabel.Width = node.Width;
+					origLabel.Height = node.Height;
+				}
+
+				v = w;
+				node = g.Node(v);
+			}
+		}
 	}
 }

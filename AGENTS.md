@@ -90,8 +90,11 @@ which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unch
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as
 `"2"`, come first in numeric order. `DagreRecords` in `tests/SplashTheMusical.Conformance` reads the oracle's
 `.dagre.txt` files. `DagreRankReplayTests` replays every recorded layout and compares the ranks with the recorded
-positions, and `DagreOrderReplayTests` compares the order of the nodes in each rank with them. The expected lines of
-`DagreRankTests.cs` and `DagreOrderTests.cs` in `tests/SplashTheMusical.Tests/Layout` are dagre-d3-es's own output.
+positions, and `DagreOrderReplayTests` compares the order of the nodes in each rank with them.
+`DagrePositionReplayTests` runs every recorded layout without clusters through all the phases and compares the size,
+the node boxes, the edge points and the edge label positions with the recorded output, within 0.01. The expected lines
+of `DagreRankTests.cs`, `DagreOrderTests.cs` and `DagrePositionTests.cs` in `tests/SplashTheMusical.Tests/Layout` are
+dagre-d3-es's own output.
 `JsSort` reproduces V8's `Array.prototype.sort`, which dagre's `sort` relies on when a barycenter is NaN.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per

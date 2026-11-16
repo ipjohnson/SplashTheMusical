@@ -76,6 +76,25 @@ internal static class DagreLayout
 	}
 
 	/// <summary>
+	/// The phases of dagre's <c>runLayout</c> after <c>order</c>, which give each node its x and y, each edge its points
+	/// and each edge label its position. They follow <see cref="RunOrderPhases"/>. <c>insertSelfEdges</c>,
+	/// <c>positionSelfEdges</c> and <c>removeBorderNodes</c> are not ported yet, so a graph with a self edge or a
+	/// cluster is not laid out as dagre lays it out.
+	/// </summary>
+	public static void RunPositionPhases(LayoutGraph g)
+	{
+		CoordinateSystem.Adjust(g);
+		Position.Run(g);
+		Normalize.Undo(g);
+		FixupEdgeLabelCoords(g);
+		CoordinateSystem.Undo(g);
+		TranslateGraph(g);
+		AssignNodeIntersects(g);
+		ReversePointsForReversedEdges(g);
+		Acyclic.Undo(g);
+	}
+
+	/// <summary>
 	/// Splits each rank in half by doubling minlen and halving ranksep, so labels can sit between nodes (Gansner et al.).
 	/// A label not centred on its edge gets its offset as padding. dagre compares rankdir with <c>TB</c> and <c>BT</c>
 	/// without lower-casing it, so <c>tb</c> and <c>TD</c> pad the height.
@@ -166,6 +185,143 @@ internal static class DagreLayout
 			}
 		}
 	}
+
+	/// <summary>Moves a label that sits to the left or right of its edge off the edge, by the padding it was given.</summary>
+	private static void FixupEdgeLabelCoords(LayoutGraph g)
+	{
+		foreach (var e in g.Edges())
+		{
+			var edge = g.Edge(e);
+			if (!edge.HasPosition)
+			{
+				continue;
+			}
+
+			if (edge.LabelPos is "l" or "r")
+			{
+				edge.Width -= edge.LabelOffset;
+			}
+
+			switch (edge.LabelPos)
+			{
+				case "l":
+					edge.X -= (edge.Width / 2) + edge.LabelOffset;
+					break;
+				case "r":
+					edge.X += (edge.Width / 2) + edge.LabelOffset;
+					break;
+			}
+		}
+	}
+
+	/// <summary>Moves the layout so that its nodes and labels start at the margins, and sets the graph's size.</summary>
+	private static void TranslateGraph(LayoutGraph g)
+	{
+		var minX = double.PositiveInfinity;
+		var maxX = 0.0;
+		var minY = double.PositiveInfinity;
+		var maxY = 0.0;
+		var graphLabel = g.Label;
+		var marginX = OrZero(graphLabel.MarginX);
+		var marginY = OrZero(graphLabel.MarginY);
+
+		void GetExtremes(double x, double y, double w, double h)
+		{
+			minX = Math.Min(minX, x - (w / 2));
+			maxX = Math.Max(maxX, x + (w / 2));
+			minY = Math.Min(minY, y - (h / 2));
+			maxY = Math.Max(maxY, y + (h / 2));
+		}
+
+		foreach (var v in g.Nodes())
+		{
+			var node = g.Node(v);
+			GetExtremes(node.X, node.Y, node.Width, node.Height);
+		}
+
+		foreach (var e in g.Edges())
+		{
+			var edge = g.Edge(e);
+			if (edge.HasPosition)
+			{
+				GetExtremes(edge.X, edge.Y, edge.Width, edge.Height);
+			}
+		}
+
+		minX -= marginX;
+		minY -= marginY;
+
+		foreach (var v in g.Nodes())
+		{
+			var node = g.Node(v);
+			node.X -= minX;
+			node.Y -= minY;
+		}
+
+		foreach (var e in g.Edges())
+		{
+			var edge = g.Edge(e);
+			if (edge.Points is { } points)
+			{
+				for (var i = 0; i < points.Count; i++)
+				{
+					points[i] = (points[i].X - minX, points[i].Y - minY);
+				}
+			}
+
+			if (edge.HasPosition)
+			{
+				edge.X -= minX;
+				edge.Y -= minY;
+			}
+		}
+
+		graphLabel.Width = maxX - minX + marginX;
+		graphLabel.Height = maxY - minY + marginY;
+	}
+
+	/// <summary>Adds the points where each edge leaves its tail's box and enters its head's.</summary>
+	private static void AssignNodeIntersects(LayoutGraph g)
+	{
+		foreach (var e in g.Edges())
+		{
+			var edge = g.Edge(e);
+			var nodeV = g.Node(g.EdgeV(e));
+			var nodeW = g.Node(g.EdgeW(e));
+			(double X, double Y) p1;
+			(double X, double Y) p2;
+			if (edge.Points is not { } points)
+			{
+				points = [];
+				edge.Points = points;
+				p1 = (nodeW.X, nodeW.Y);
+				p2 = (nodeV.X, nodeV.Y);
+			}
+			else
+			{
+				p1 = points[0];
+				p2 = points[^1];
+			}
+
+			points.Insert(0, Util.IntersectRect(nodeV, p1));
+			points.Add(Util.IntersectRect(nodeW, p2));
+		}
+	}
+
+	private static void ReversePointsForReversedEdges(LayoutGraph g)
+	{
+		foreach (var e in g.Edges())
+		{
+			var edge = g.Edge(e);
+			if (edge.Reversed)
+			{
+				edge.Points!.Reverse();
+			}
+		}
+	}
+
+	/// <summary>JavaScript's <c>value || 0</c> for an attribute that may be missing.</summary>
+	private static double OrZero(double? value) => value is { } number && !double.IsNaN(number) ? number : 0;
 
 	private static bool IsTruthy(double value) => value != 0 && !double.IsNaN(value);
 }
