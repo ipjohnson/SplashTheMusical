@@ -48,6 +48,9 @@ internal sealed class GraphLabel
 	/// number, so a graph with a cluster gets NaN here, as dagre gets undefined.
 	/// </summary>
 	public double MaxRank { get; set; } = double.NaN;
+
+	/// <summary><c>normalize.run</c>'s first dummy node of each edge it split, in the order it split them.</summary>
+	public List<int> DummyChains { get; } = [];
 }
 
 /// <summary>The label of a node of dagre's layout graph. NaN stands for an attribute dagre has not set.</summary>
@@ -77,6 +80,26 @@ internal sealed class LayoutNode
 
 	/// <summary>The self edges <c>removeSelfEdges</c> took out, in the graph's order.</summary>
 	public List<SelfEdge>? SelfEdges { get; set; }
+
+	/// <summary>The edge a dummy of <c>normalize.run</c> stands for. The handle keeps the edge's ends after it is removed.</summary>
+	public int EdgeObj { get; set; } = -1;
+
+	/// <summary>The label of the edge a dummy of <c>normalize.run</c> stands for.</summary>
+	public LayoutEdge? EdgeLabel { get; set; }
+
+	/// <summary>The label position an <c>edge-label</c> dummy takes from its edge.</summary>
+	public string? LabelPos { get; set; }
+
+	/// <summary>A cluster's left border node on each rank from <see cref="MinRank"/>, set by <c>addBorderSegments</c>.</summary>
+	public int[]? BorderLeft { get; set; }
+
+	public int[]? BorderRight { get; set; }
+
+	/// <summary><c>borderLeft</c> or <c>borderRight</c> for a node of a cluster's side border.</summary>
+	public string? BorderType { get; set; }
+
+	/// <summary>The node's place in its rank, which the order phase sets. -1 until then.</summary>
+	public int Order { get; set; } = -1;
 }
 
 /// <summary>The label of an edge of dagre's layout graph.</summary>
