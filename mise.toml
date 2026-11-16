@@ -79,6 +79,11 @@ description = "Write docs/parity-report.md from the committed oracle output and 
 env = { STM_WRITE_REPORT = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
 
+[tasks.api]
+description = "Rewrite docs/api/SplashTheMusical.txt, the core's public API, which PublicApiTests checks"
+env = { STM_WRITE_API = "1" }
+run = 'dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/PublicApiTests/*"'
+
 [tasks.stm-svg]
 description = "Write the SVG STM draws for each corpus case to .artifacts/stm/svg"
 env = { STM_SVG_DIR = "{{config_root}}/.artifacts/stm/svg" }

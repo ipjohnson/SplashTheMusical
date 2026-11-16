@@ -1,4 +1,5 @@
 using SplashTheMusical.Parsing;
+using SplashTheMusical.Themes;
 
 namespace SplashTheMusical.Config;
 
@@ -18,10 +19,16 @@ public sealed partial class MermaidConfig
 	/// computes them.
 	/// </remarks>
 	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
-	public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType)
+	public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType) =>
+		Resolve(siteConfig, document, diagramType, MermaidThemes.Default);
+
+	/// <inheritdoc cref="Resolve(MermaidValue?, MermaidDocument, string)"/>
+	/// <param name="themes">The themes a <c>theme</c> can name.</param>
+	public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType, IThemeProvider themes)
 	{
 		ArgumentNullException.ThrowIfNull(document);
 		ArgumentNullException.ThrowIfNull(diagramType);
-		return FromValue(ConfigMerge.Apply(siteConfig, PreambleConfig.Resolve(document, diagramType), diagramType));
+		ArgumentNullException.ThrowIfNull(themes);
+		return FromValue(ConfigMerge.Apply(siteConfig, PreambleConfig.Resolve(document, diagramType), diagramType, themes));
 	}
 }

@@ -7,9 +7,9 @@ public class LedgerTests
 	private static readonly CaseFacts Oracle = new(true, null, ["label\tA", "node\tA\tA\trect", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 
 	[Test]
-	public async Task TheStubDiffersOnlyWhereTheCommittedLedgersListABug()
+	public async Task StmDiffersOnlyWhereTheCommittedLedgersListABug()
 	{
-		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
+		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
 		if (Environment.GetEnvironmentVariable(LedgerFolder.WriteVariable) is { Length: > 0 } issue)
 		{
 			LedgerFolder.Write(LedgerFolder.Root, results, issue, CorpusCheck.PinnedMermaid());

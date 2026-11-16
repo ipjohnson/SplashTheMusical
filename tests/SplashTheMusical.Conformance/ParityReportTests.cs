@@ -7,15 +7,15 @@ public class ParityReportTests
 	private static readonly CaseFacts Refused = CaseFacts.Refused("no");
 
 	[Test]
-	public async Task TheCommittedReportIsTheStubsReport()
+	public async Task TheCommittedReportIsStmsReport()
 	{
-		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
+		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
 		var problems = new List<string>();
 		var report = ParityReport.Render(
 			results,
 			LedgerFolder.Read(LedgerFolder.Root, problems),
 			RasterOutcomes.Read(RasterOutcomes.FilePath, problems),
-			new StubFactsProvider().Name,
+			new StmFactsProvider().Name,
 			CorpusCheck.PinnedMermaid()
 		);
 		if (Environment.GetEnvironmentVariable(ParityReport.WriteVariable) is { Length: > 0 })

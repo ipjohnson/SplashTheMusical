@@ -1,0 +1,1067 @@
+# The public API of SplashTheMusical. PublicApiTests fails when it is out of date.
+
+namespace SplashTheMusical
+public enum DiagnosticSeverity : int
+  Error = 0
+  Info = 2
+  Warning = 1
+public interface IMermaid : IMermaidParser, IMermaidRenderer, IMermaidWriter
+  public string RenderSvg(ReadOnlySpan<char> source, RenderOptions? options = null)
+public interface IMermaidParser
+  public MermaidDocument Parse(ReadOnlySpan<char> source, ParseOptions? options = null)
+  public bool TryParse(ReadOnlySpan<char> source, out MermaidDocument? document, out IReadOnlyList<MermaidDiagnostic> diagnostics, ParseOptions? options = null)
+public interface IMermaidRenderer
+  public string RenderSvg(MermaidDocument document, RenderOptions? options = null)
+  public void RenderSvg(MermaidDocument document, IBufferWriter<byte> utf8Destination, RenderOptions? options = null)
+public interface IMermaidWriter
+  public string Write(MermaidDocument document, WriteOptions? options = null)
+public sealed class Mermaid : IMermaid
+  public Mermaid(MermaidOptions? options = null, IEnumerable<IDiagramModule>? modules = null, ITextMeasurer? textMeasurer = null, IIconProvider? icons = null, IEnumerable<ILayoutEngine>? layoutEngines = null, IThemeProvider? themes = null)
+  public MermaidDocument Parse(ReadOnlySpan<char> source, ParseOptions? options = null)
+  public bool TryParse(ReadOnlySpan<char> source, out MermaidDocument? document, out IReadOnlyList<MermaidDiagnostic> diagnostics, ParseOptions? options = null)
+  public static IReadOnlyList<IDiagramModule> CoreModules { get; }
+  public static Mermaid Default { get; }
+  public string RenderSvg(MermaidDocument document, RenderOptions? options = null)
+  public string RenderSvg(ReadOnlySpan<char> source, RenderOptions? options = null)
+  public string Write(MermaidDocument document, WriteOptions? options = null)
+  public void RenderSvg(MermaidDocument document, IBufferWriter<byte> utf8Destination, RenderOptions? options = null)
+public static class MermaidCompatibility
+  public const string MermaidJsVersion = "12.3.0"
+public readonly record struct MermaidDiagnostic : IEquatable<MermaidDiagnostic>
+  public DiagnosticSeverity Severity { get; init; }
+  public MermaidDiagnostic(DiagnosticSeverity Severity, string Message, int Line, int Column)
+  public int Column { get; init; }
+  public int Line { get; init; }
+  public override string ToString()
+  public string Message { get; init; }
+public sealed record MermaidDirective : IEquatable<MermaidDirective>
+  public MermaidDirective(string Type, MermaidValue? Arguments)
+  public MermaidValue? Arguments { get; init; }
+  public string Type { get; init; }
+  public string? InvalidArguments { get; init; }
+public abstract class MermaidDocument
+  protected MermaidDocument()
+  public List<MermaidDirective> Directives { get; init; }
+  public MermaidValue? FrontMatterConfig { get; set; }
+  public abstract string DiagramType { get; }
+  public string? AccessibilityDescription { get; set; }
+  public string? AccessibilityTitle { get; set; }
+  public string? DisplayMode { get; set; }
+  public string? Title { get; set; }
+public sealed record MermaidOptions : IEquatable<MermaidOptions>
+  public IReadOnlyList<string>? LockedKeys { get; init; }
+  public MermaidOptions()
+  public MermaidValue? SiteConfig { get; init; }
+  public ResourceLimits Limits { get; init; }
+  public static MermaidOptions Default { get; }
+public class MermaidParseException : Exception
+  public IReadOnlyList<MermaidDiagnostic> Diagnostics { get; }
+  public MermaidParseException(IReadOnlyList<MermaidDiagnostic> diagnostics)
+  public MermaidParseException(MermaidDiagnostic diagnostic)
+public sealed class MermaidResourceLimitException : MermaidParseException
+  public MermaidResourceLimitException(string limitName, long observedValue, long limitValue, int line = 0, int column = 0)
+  public long LimitValue { get; }
+  public long ObservedValue { get; }
+  public string LimitName { get; }
+public sealed class MermaidSvgException : Exception
+  public IReadOnlyList<SvgViolation> Violations { get; }
+  public MermaidSvgException(IReadOnlyList<SvgViolation> violations)
+public sealed class MermaidValue : IEquatable<MermaidValue>
+  public IReadOnlyDictionary<string, MermaidValue> Entries { get; }
+  public IReadOnlyList<MermaidValue> Items { get; }
+  public MermaidValue? this[string key] { get; }
+  public MermaidValueKind Kind { get; }
+  public bool Boolean { get; }
+  public bool Equals(MermaidValue? other)
+  public double Number { get; }
+  public override bool Equals(object? obj)
+  public override int GetHashCode()
+  public static MermaidValue False { get; }
+  public static MermaidValue FromBoolean(bool value)
+  public static MermaidValue FromEntries(OrderedDictionary<string, MermaidValue> entries)
+  public static MermaidValue FromItems(List<MermaidValue> items)
+  public static MermaidValue FromNumber(double value)
+  public static MermaidValue FromString(string value)
+  public static MermaidValue Null { get; }
+  public static MermaidValue True { get; }
+  public string String { get; }
+public enum MermaidValueKind : byte
+  Boolean = 1
+  Mapping = 5
+  Null = 0
+  Number = 2
+  Sequence = 4
+  String = 3
+public sealed record ParseOptions : IEquatable<ParseOptions>
+  public ParseOptions()
+  public ResourceLimits? Limits { get; init; }
+public sealed record RenderOptions : IEquatable<RenderOptions>
+  public MermaidValue? SiteConfig { get; init; }
+  public RenderOptions()
+  public ResourceLimits? Limits { get; init; }
+  public string? SvgId { get; init; }
+public sealed record ResourceLimits : IEquatable<ResourceLimits>
+  public ResourceLimits()
+  public TimeProvider TimeProvider { get; init; }
+  public TimeSpan? RenderDeadline { get; init; }
+  public int MaxElements { get; init; }
+  public int MaxInputLength { get; init; }
+  public int MaxLineLength { get; init; }
+  public int MaxLines { get; init; }
+  public int MaxNodesAfterLayout { get; init; }
+  public int MaxOutputLength { get; init; }
+  public int MaxRecursionDepth { get; init; }
+  public static ResourceLimits Default { get; }
+  public static ResourceLimits Unlimited { get; }
+public enum SanitizeMode : int
+  Block = 1
+  Strip = 0
+public sealed record SvgSanitizeResult : IEquatable<SvgSanitizeResult>
+  public SvgSanitizeResult()
+  public required IReadOnlyList<SvgViolation> Violations { get; init; }
+  public required bool HasViolations { get; init; }
+  public required string Svg { get; init; }
+public static class SvgSanitizer
+  public static FrozenSet<string> DefaultAllowedAttributes { get; }
+  public static FrozenSet<string> DefaultAllowedElements { get; }
+  public static SvgSanitizeResult Sanitize(string svg)
+  public static SvgSanitizeResult Sanitize(string svg, FrozenSet<string> allowedElements, FrozenSet<string> allowedAttributes)
+  public static SvgSanitizeResult Sanitize(string svg, FrozenSet<string> allowedElements, FrozenSet<string> allowedAttributes, SanitizeMode mode)
+  public static SvgSanitizeResult Sanitize(string svg, SanitizeMode mode)
+public readonly record struct SvgViolation : IEquatable<SvgViolation>
+  public SvgViolation(string Kind, string Name, string? ParentElement = null)
+  public override string ToString()
+  public string Kind { get; init; }
+  public string Name { get; init; }
+  public string? ParentElement { get; init; }
+public sealed record WriteOptions : IEquatable<WriteOptions>
+  public WriteOptions()
+  public static WriteOptions Default { get; }
+  public string NewLine { get; init; }
+
+namespace SplashTheMusical.Config
+public sealed class AgentflowDiagramConfig
+  public AgentflowDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? MinNodeWidth { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? WrappingWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class ArchitectureDiagramConfig
+  public ArchitectureDiagramConfig()
+  public bool? Randomize { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? EdgeElasticity { get; init; }
+  public double? FontSize { get; init; }
+  public double? IconSize { get; init; }
+  public double? IdealEdgeLengthMultiplier { get; init; }
+  public double? NodeSeparation { get; init; }
+  public double? NumIter { get; init; }
+  public double? Padding { get; init; }
+  public double? Seed { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class BlockDiagramConfig
+  public BlockDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? Padding { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class C4DiagramConfig
+  public C4DiagramConfig()
+  public MermaidValue? BoundaryFontSize { get; init; }
+  public MermaidValue? BoundaryFontWeight { get; init; }
+  public MermaidValue? ComponentDbFontSize { get; init; }
+  public MermaidValue? ComponentDbFontWeight { get; init; }
+  public MermaidValue? ComponentFontSize { get; init; }
+  public MermaidValue? ComponentFontWeight { get; init; }
+  public MermaidValue? ComponentQueueFontSize { get; init; }
+  public MermaidValue? ComponentQueueFontWeight { get; init; }
+  public MermaidValue? ContainerDbFontSize { get; init; }
+  public MermaidValue? ContainerDbFontWeight { get; init; }
+  public MermaidValue? ContainerFontSize { get; init; }
+  public MermaidValue? ContainerFontWeight { get; init; }
+  public MermaidValue? ContainerQueueFontSize { get; init; }
+  public MermaidValue? ContainerQueueFontWeight { get; init; }
+  public MermaidValue? ExternalComponentDbFontSize { get; init; }
+  public MermaidValue? ExternalComponentDbFontWeight { get; init; }
+  public MermaidValue? ExternalComponentFontSize { get; init; }
+  public MermaidValue? ExternalComponentFontWeight { get; init; }
+  public MermaidValue? ExternalComponentQueueFontSize { get; init; }
+  public MermaidValue? ExternalComponentQueueFontWeight { get; init; }
+  public MermaidValue? ExternalContainerDbFontSize { get; init; }
+  public MermaidValue? ExternalContainerDbFontWeight { get; init; }
+  public MermaidValue? ExternalContainerFontSize { get; init; }
+  public MermaidValue? ExternalContainerFontWeight { get; init; }
+  public MermaidValue? ExternalContainerQueueFontSize { get; init; }
+  public MermaidValue? ExternalContainerQueueFontWeight { get; init; }
+  public MermaidValue? ExternalPersonFontSize { get; init; }
+  public MermaidValue? ExternalPersonFontWeight { get; init; }
+  public MermaidValue? ExternalSystemDbFontSize { get; init; }
+  public MermaidValue? ExternalSystemDbFontWeight { get; init; }
+  public MermaidValue? ExternalSystemFontSize { get; init; }
+  public MermaidValue? ExternalSystemFontWeight { get; init; }
+  public MermaidValue? ExternalSystemQueueFontSize { get; init; }
+  public MermaidValue? ExternalSystemQueueFontWeight { get; init; }
+  public MermaidValue? MessageFontSize { get; init; }
+  public MermaidValue? MessageFontWeight { get; init; }
+  public MermaidValue? PersonFontSize { get; init; }
+  public MermaidValue? PersonFontWeight { get; init; }
+  public MermaidValue? SystemDbFontSize { get; init; }
+  public MermaidValue? SystemDbFontWeight { get; init; }
+  public MermaidValue? SystemFontSize { get; init; }
+  public MermaidValue? SystemFontWeight { get; init; }
+  public MermaidValue? SystemQueueFontSize { get; init; }
+  public MermaidValue? SystemQueueFontWeight { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public bool? Wrap { get; init; }
+  public double? BoxMargin { get; init; }
+  public double? C4BoundaryInRow { get; init; }
+  public double? C4ShapeInRow { get; init; }
+  public double? C4ShapeMargin { get; init; }
+  public double? C4ShapePadding { get; init; }
+  public double? DiagramMarginX { get; init; }
+  public double? DiagramMarginY { get; init; }
+  public double? Height { get; init; }
+  public double? NextLinePaddingX { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public double? WrapPadding { get; init; }
+  public string? BoundaryFontFamily { get; init; }
+  public string? ComponentBgColor { get; init; }
+  public string? ComponentBorderColor { get; init; }
+  public string? ComponentDbBgColor { get; init; }
+  public string? ComponentDbBorderColor { get; init; }
+  public string? ComponentDbFontFamily { get; init; }
+  public string? ComponentFontFamily { get; init; }
+  public string? ComponentQueueBgColor { get; init; }
+  public string? ComponentQueueBorderColor { get; init; }
+  public string? ComponentQueueFontFamily { get; init; }
+  public string? ContainerBgColor { get; init; }
+  public string? ContainerBorderColor { get; init; }
+  public string? ContainerDbBgColor { get; init; }
+  public string? ContainerDbBorderColor { get; init; }
+  public string? ContainerDbFontFamily { get; init; }
+  public string? ContainerFontFamily { get; init; }
+  public string? ContainerQueueBgColor { get; init; }
+  public string? ContainerQueueBorderColor { get; init; }
+  public string? ContainerQueueFontFamily { get; init; }
+  public string? ExternalComponentBgColor { get; init; }
+  public string? ExternalComponentBorderColor { get; init; }
+  public string? ExternalComponentDbBgColor { get; init; }
+  public string? ExternalComponentDbBorderColor { get; init; }
+  public string? ExternalComponentDbFontFamily { get; init; }
+  public string? ExternalComponentFontFamily { get; init; }
+  public string? ExternalComponentQueueBgColor { get; init; }
+  public string? ExternalComponentQueueBorderColor { get; init; }
+  public string? ExternalComponentQueueFontFamily { get; init; }
+  public string? ExternalContainerBgColor { get; init; }
+  public string? ExternalContainerBorderColor { get; init; }
+  public string? ExternalContainerDbBgColor { get; init; }
+  public string? ExternalContainerDbBorderColor { get; init; }
+  public string? ExternalContainerDbFontFamily { get; init; }
+  public string? ExternalContainerFontFamily { get; init; }
+  public string? ExternalContainerQueueBgColor { get; init; }
+  public string? ExternalContainerQueueBorderColor { get; init; }
+  public string? ExternalContainerQueueFontFamily { get; init; }
+  public string? ExternalPersonBgColor { get; init; }
+  public string? ExternalPersonBorderColor { get; init; }
+  public string? ExternalPersonFontFamily { get; init; }
+  public string? ExternalSystemBgColor { get; init; }
+  public string? ExternalSystemBorderColor { get; init; }
+  public string? ExternalSystemDbBgColor { get; init; }
+  public string? ExternalSystemDbBorderColor { get; init; }
+  public string? ExternalSystemDbFontFamily { get; init; }
+  public string? ExternalSystemFontFamily { get; init; }
+  public string? ExternalSystemQueueBgColor { get; init; }
+  public string? ExternalSystemQueueBorderColor { get; init; }
+  public string? ExternalSystemQueueFontFamily { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? MessageFontFamily { get; init; }
+  public string? PersonBgColor { get; init; }
+  public string? PersonBorderColor { get; init; }
+  public string? PersonFontFamily { get; init; }
+  public string? SystemBgColor { get; init; }
+  public string? SystemBorderColor { get; init; }
+  public string? SystemDbBgColor { get; init; }
+  public string? SystemDbBorderColor { get; init; }
+  public string? SystemDbFontFamily { get; init; }
+  public string? SystemFontFamily { get; init; }
+  public string? SystemQueueBgColor { get; init; }
+  public string? SystemQueueBorderColor { get; init; }
+  public string? SystemQueueFontFamily { get; init; }
+  public string? Theme { get; init; }
+public sealed class ClassDiagramConfig
+  public ClassDiagramConfig()
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? HideEmptyMembersBox { get; init; }
+  public bool? HierarchicalNamespaces { get; init; }
+  public bool? HtmlLabels { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? DividerMargin { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? Padding { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? TextHeight { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class CynefinDiagramConfig
+  public CynefinDiagramConfig()
+  public bool? ShowDomainDescriptions { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? BoundaryAmplitude { get; init; }
+  public double? Height { get; init; }
+  public double? Padding { get; init; }
+  public double? Seed { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class ElkConfig
+  public ElkConfig()
+  public MermaidValue? LineHops { get; init; }
+  public bool? ForceNodeModelOrder { get; init; }
+  public bool? KeepEntryNodeOnTop { get; init; }
+  public bool? MergeEdges { get; init; }
+  public bool? OrientFeedbackEdges { get; init; }
+  public bool? StraightenEdges { get; init; }
+  public double? LayeringLayerBound { get; init; }
+  public string? ConsiderModelOrder { get; init; }
+  public string? CycleBreakingStrategy { get; init; }
+  public string? LayeringStrategy { get; init; }
+  public string? NodePlacementAlignment { get; init; }
+  public string? NodePlacementStrategy { get; init; }
+  public string? Preset { get; init; }
+public sealed class ErDiagramConfig
+  public ErDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? EntityPadding { get; init; }
+  public double? FontSize { get; init; }
+  public double? MinEntityHeight { get; init; }
+  public double? MinEntityWidth { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Fill { get; init; }
+  public string? Layout { get; init; }
+  public string? LayoutDirection { get; init; }
+  public string? Look { get; init; }
+  public string? Stroke { get; init; }
+  public string? Theme { get; init; }
+public sealed class EventModelingDiagramConfig
+  public EventModelingDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? Padding { get; init; }
+  public double? RowHeight { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class FlowchartDiagramConfig
+  public FlowchartDiagramConfig()
+  public SubGraphTitleMarginConfig SubGraphTitleMargin { get; init; }
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? HtmlLabels { get; init; }
+  public bool? InheritDir { get; init; }
+  public bool? StepNumbers { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? MinNodeWidth { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? Padding { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? StepDuration { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? WrappingWidth { get; init; }
+  public string? Curve { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class GanttDiagramConfig
+  public GanttDiagramConfig()
+  public MermaidValue? SectionFontSize { get; init; }
+  public bool? TopAxis { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? BarGap { get; init; }
+  public double? BarHeight { get; init; }
+  public double? FontSize { get; init; }
+  public double? GridLineStartPadding { get; init; }
+  public double? LeftPadding { get; init; }
+  public double? NumberSectionStyles { get; init; }
+  public double? RightPadding { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? TopPadding { get; init; }
+  public double? UseWidth { get; init; }
+  public string? AxisFormat { get; init; }
+  public string? DisplayMode { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+  public string? TickInterval { get; init; }
+  public string? Weekday { get; init; }
+public sealed class GitGraphDiagramConfig
+  public GitGraphDiagramConfig()
+  public NodeLabel NodeLabel { get; init; }
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? ParallelCommits { get; init; }
+  public bool? RotateCommitLabel { get; init; }
+  public bool? ShowBranches { get; init; }
+  public bool? ShowCommitLabel { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? MainBranchOrder { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? MainBranchName { get; init; }
+  public string? Theme { get; init; }
+public sealed class IshikawaDiagramConfig
+  public IshikawaDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class JourneyDiagramConfig
+  public IReadOnlyList<string>? ActorColours { get; init; }
+  public IReadOnlyList<string>? SectionColours { get; init; }
+  public IReadOnlyList<string>? SectionFills { get; init; }
+  public JourneyDiagramConfig()
+  public MermaidValue? TaskFontSize { get; init; }
+  public bool? RightAngles { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? ActivationWidth { get; init; }
+  public double? BottomMarginAdj { get; init; }
+  public double? BoxMargin { get; init; }
+  public double? BoxTextMargin { get; init; }
+  public double? DiagramMarginX { get; init; }
+  public double? DiagramMarginY { get; init; }
+  public double? Height { get; init; }
+  public double? LeftMargin { get; init; }
+  public double? MaxLabelWidth { get; init; }
+  public double? MessageMargin { get; init; }
+  public double? NoteMargin { get; init; }
+  public double? TaskMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? MessageAlign { get; init; }
+  public string? TaskFontFamily { get; init; }
+  public string? TextPlacement { get; init; }
+  public string? Theme { get; init; }
+  public string? TitleColor { get; init; }
+  public string? TitleFontFamily { get; init; }
+  public string? TitleFontSize { get; init; }
+public sealed class KanbanDiagramConfig
+  public KanbanDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? Padding { get; init; }
+  public double? SectionWidth { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+  public string? TicketBaseUrl { get; init; }
+public sealed class MermaidConfig
+  public AgentflowDiagramConfig Agentflow { get; init; }
+  public ArchitectureDiagramConfig Architecture { get; init; }
+  public BlockDiagramConfig Block { get; init; }
+  public C4DiagramConfig C4 { get; init; }
+  public ClassDiagramConfig Class { get; init; }
+  public CynefinDiagramConfig Cynefin { get; init; }
+  public ElkConfig Elk { get; init; }
+  public ErDiagramConfig Er { get; init; }
+  public EventModelingDiagramConfig Eventmodeling { get; init; }
+  public FlowchartDiagramConfig Flowchart { get; init; }
+  public GanttDiagramConfig Gantt { get; init; }
+  public GitGraphDiagramConfig GitGraph { get; init; }
+  public IReadOnlyList<string>? Secure { get; init; }
+  public IshikawaDiagramConfig Ishikawa { get; init; }
+  public JourneyDiagramConfig Journey { get; init; }
+  public KanbanDiagramConfig Kanban { get; init; }
+  public MermaidConfig()
+  public MermaidValue? DompurifyConfig { get; init; }
+  public MermaidValue? LogLevel { get; init; }
+  public MermaidValue? ThemeVariables { get; init; }
+  public MindmapDiagramConfig Mindmap { get; init; }
+  public PacketDiagramConfig Packet { get; init; }
+  public PieDiagramConfig Pie { get; init; }
+  public QuadrantChartConfig QuadrantChart { get; init; }
+  public RadarDiagramConfig Radar { get; init; }
+  public RailroadDiagramConfig Railroad { get; init; }
+  public RequirementDiagramConfig Requirement { get; init; }
+  public SankeyDiagramConfig Sankey { get; init; }
+  public SequenceDiagramConfig Sequence { get; init; }
+  public StateDiagramConfig State { get; init; }
+  public SwimlaneDiagramConfig Swimlane { get; init; }
+  public TimelineDiagramConfig Timeline { get; init; }
+  public TreeViewDiagramConfig TreeView { get; init; }
+  public UsecaseDiagramConfig Usecase { get; init; }
+  public VennDiagramConfig Venn { get; init; }
+  public WardleyDiagramConfig WardleyBeta { get; init; }
+  public XYChartConfig XyChart { get; init; }
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? DarkMode { get; init; }
+  public bool? DeterministicIds { get; init; }
+  public bool? ForceLegacyMathML { get; init; }
+  public bool? HtmlLabels { get; init; }
+  public bool? LegacyMathML { get; init; }
+  public bool? MarkdownAutoWrap { get; init; }
+  public bool? StartOnLoad { get; init; }
+  public bool? SuppressErrorRendering { get; init; }
+  public bool? Wrap { get; init; }
+  public double? FontSize { get; init; }
+  public double? HandDrawnSeed { get; init; }
+  public double? MaxEdges { get; init; }
+  public double? MaxTextSize { get; init; }
+  public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType)
+  public static MermaidConfig Resolve(MermaidValue? siteConfig, MermaidDocument document, string diagramType, IThemeProvider themes)
+  public string? AltFontFamily { get; init; }
+  public string? DeterministicIDSeed { get; init; }
+  public string? FontFamily { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? SecurityLevel { get; init; }
+  public string? Theme { get; init; }
+  public string? ThemeCSS { get; init; }
+public sealed class MindmapDiagramConfig
+  public MindmapDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? MaxNodeWidth { get; init; }
+  public double? Padding { get; init; }
+  public double? UseWidth { get; init; }
+  public string? ColorBy { get; init; }
+  public string? Layout { get; init; }
+  public string? LayoutAlgorithm { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class NodeLabel
+  public NodeLabel()
+  public double? Height { get; init; }
+  public double? Width { get; init; }
+  public double? X { get; init; }
+  public double? Y { get; init; }
+public sealed class PacketDiagramConfig
+  public PacketDiagramConfig()
+  public bool? ShowBits { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? BitWidth { get; init; }
+  public double? BitsPerRow { get; init; }
+  public double? PaddingX { get; init; }
+  public double? PaddingY { get; init; }
+  public double? RowHeight { get; init; }
+  public double? UseWidth { get; init; }
+  public string? BitOrder { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class PieDiagramConfig
+  public PieDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? DonutHole { get; init; }
+  public double? TextPosition { get; init; }
+  public double? UseWidth { get; init; }
+  public string? HighlightSlice { get; init; }
+  public string? Layout { get; init; }
+  public string? LegendPosition { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class QuadrantChartConfig
+  public QuadrantChartConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? ChartHeight { get; init; }
+  public double? ChartWidth { get; init; }
+  public double? PointLabelFontSize { get; init; }
+  public double? PointRadius { get; init; }
+  public double? PointTextPadding { get; init; }
+  public double? QuadrantExternalBorderStrokeWidth { get; init; }
+  public double? QuadrantInternalBorderStrokeWidth { get; init; }
+  public double? QuadrantLabelFontSize { get; init; }
+  public double? QuadrantPadding { get; init; }
+  public double? QuadrantTextTopPadding { get; init; }
+  public double? TitleFontSize { get; init; }
+  public double? TitlePadding { get; init; }
+  public double? UseWidth { get; init; }
+  public double? XAxisLabelFontSize { get; init; }
+  public double? XAxisLabelPadding { get; init; }
+  public double? YAxisLabelFontSize { get; init; }
+  public double? YAxisLabelPadding { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+  public string? XAxisPosition { get; init; }
+  public string? YAxisPosition { get; init; }
+public sealed class RadarDiagramConfig
+  public RadarDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? AxisLabelFactor { get; init; }
+  public double? AxisScaleFactor { get; init; }
+  public double? CurveTension { get; init; }
+  public double? Height { get; init; }
+  public double? MarginBottom { get; init; }
+  public double? MarginLeft { get; init; }
+  public double? MarginRight { get; init; }
+  public double? MarginTop { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class RailroadDiagramConfig
+  public RailroadDiagramConfig()
+  public bool? CompactMode { get; init; }
+  public bool? ShowMarkers { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? ArcRadius { get; init; }
+  public double? FontSize { get; init; }
+  public double? HorizontalSeparation { get; init; }
+  public double? MarkerRadius { get; init; }
+  public double? Padding { get; init; }
+  public double? StrokeWidth { get; init; }
+  public double? UseWidth { get; init; }
+  public double? VerticalSeparation { get; init; }
+  public string? CommentFill { get; init; }
+  public string? CommentStroke { get; init; }
+  public string? CommentTextColor { get; init; }
+  public string? FontFamily { get; init; }
+  public string? Layout { get; init; }
+  public string? LineColor { get; init; }
+  public string? Look { get; init; }
+  public string? MarkerFill { get; init; }
+  public string? NonTerminalFill { get; init; }
+  public string? NonTerminalStroke { get; init; }
+  public string? NonTerminalTextColor { get; init; }
+  public string? RuleNameColor { get; init; }
+  public string? SpecialFill { get; init; }
+  public string? SpecialStroke { get; init; }
+  public string? TerminalFill { get; init; }
+  public string? TerminalStroke { get; init; }
+  public string? TerminalTextColor { get; init; }
+  public string? Theme { get; init; }
+public sealed class RequirementDiagramConfig
+  public RequirementDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? FontSize { get; init; }
+  public double? LineHeight { get; init; }
+  public double? RectMinHeight { get; init; }
+  public double? RectMinWidth { get; init; }
+  public double? RectPadding { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? RectBorderColor { get; init; }
+  public string? RectBorderSize { get; init; }
+  public string? RectFill { get; init; }
+  public string? TextColor { get; init; }
+  public string? Theme { get; init; }
+public sealed class SankeyDiagramConfig
+  public IReadOnlyDictionary<string, string>? NodeColors { get; init; }
+  public SankeyDiagramConfig()
+  public bool? ShowValues { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? Height { get; init; }
+  public double? NodePadding { get; init; }
+  public double? NodeWidth { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? LabelStyle { get; init; }
+  public string? Layout { get; init; }
+  public string? LinkColor { get; init; }
+  public string? Look { get; init; }
+  public string? NodeAlignment { get; init; }
+  public string? Prefix { get; init; }
+  public string? Suffix { get; init; }
+  public string? Theme { get; init; }
+public sealed class SequenceDiagramConfig
+  public MermaidValue? ActorFontSize { get; init; }
+  public MermaidValue? ActorFontWeight { get; init; }
+  public MermaidValue? MessageFontSize { get; init; }
+  public MermaidValue? MessageFontWeight { get; init; }
+  public MermaidValue? NoteFontSize { get; init; }
+  public MermaidValue? NoteFontWeight { get; init; }
+  public SequenceDiagramConfig()
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? ForceMenus { get; init; }
+  public bool? HideUnusedParticipants { get; init; }
+  public bool? MirrorActors { get; init; }
+  public bool? RightAngles { get; init; }
+  public bool? ShowSequenceNumbers { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public bool? Wrap { get; init; }
+  public double? ActivationWidth { get; init; }
+  public double? ActorMargin { get; init; }
+  public double? BottomMarginAdj { get; init; }
+  public double? BoxMargin { get; init; }
+  public double? BoxTextMargin { get; init; }
+  public double? DiagramMarginX { get; init; }
+  public double? DiagramMarginY { get; init; }
+  public double? Height { get; init; }
+  public double? LabelBoxHeight { get; init; }
+  public double? LabelBoxWidth { get; init; }
+  public double? MessageMargin { get; init; }
+  public double? NoteMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public double? WrapPadding { get; init; }
+  public string? ActorFontFamily { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? MessageAlign { get; init; }
+  public string? MessageFontFamily { get; init; }
+  public string? NoteAlign { get; init; }
+  public string? NoteFontFamily { get; init; }
+  public string? Theme { get; init; }
+public sealed class StateDiagramConfig
+  public StateDiagramConfig()
+  public bool? ArrowMarkerAbsolute { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? CompositTitleSize { get; init; }
+  public double? DividerMargin { get; init; }
+  public double? FontSize { get; init; }
+  public double? FontSizeFactor { get; init; }
+  public double? ForkHeight { get; init; }
+  public double? ForkWidth { get; init; }
+  public double? LabelHeight { get; init; }
+  public double? MinNodeWidth { get; init; }
+  public double? MiniPadding { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? NoteMargin { get; init; }
+  public double? Padding { get; init; }
+  public double? Radius { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? SizeUnit { get; init; }
+  public double? TextHeight { get; init; }
+  public double? TitleShift { get; init; }
+  public double? TitleTopMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? WrappingWidth { get; init; }
+  public string? EdgeLengthFactor { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class SubGraphTitleMarginConfig
+  public SubGraphTitleMarginConfig()
+  public double? Bottom { get; init; }
+  public double? Top { get; init; }
+public sealed class SwimlaneDiagramConfig
+  public MermaidValue? LineHops { get; init; }
+  public SwimlaneDiagramConfig()
+  public bool? AutomaticLaneOrdering { get; init; }
+  public bool? IgnoreCrossLaneEdges { get; init; }
+  public bool? OptimizeRanksByCrossings { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? UseWidth { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class TimelineDiagramConfig
+  public IReadOnlyList<string>? ActorColours { get; init; }
+  public IReadOnlyList<string>? SectionColours { get; init; }
+  public IReadOnlyList<string>? SectionFills { get; init; }
+  public MermaidValue? TaskFontSize { get; init; }
+  public TimelineDiagramConfig()
+  public bool? DisableMulticolor { get; init; }
+  public bool? RightAngles { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? ActivationWidth { get; init; }
+  public double? BottomMarginAdj { get; init; }
+  public double? BoxMargin { get; init; }
+  public double? BoxTextMargin { get; init; }
+  public double? DiagramMarginX { get; init; }
+  public double? DiagramMarginY { get; init; }
+  public double? Height { get; init; }
+  public double? LeftMargin { get; init; }
+  public double? MessageMargin { get; init; }
+  public double? NoteMargin { get; init; }
+  public double? Padding { get; init; }
+  public double? TaskMargin { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? MessageAlign { get; init; }
+  public string? TaskFontFamily { get; init; }
+  public string? TextPlacement { get; init; }
+  public string? Theme { get; init; }
+public sealed class TreeViewDiagramConfig
+  public IReadOnlyDictionary<string, string>? ExtensionIcons { get; init; }
+  public IReadOnlyDictionary<string, string>? FilenameIcons { get; init; }
+  public TreeViewDiagramConfig()
+  public bool? ShowIcons { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? LineThickness { get; init; }
+  public double? PaddingX { get; init; }
+  public double? PaddingY { get; init; }
+  public double? RowIndent { get; init; }
+  public double? UseWidth { get; init; }
+  public string? DefaultIconPack { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class UsecaseDiagramConfig
+  public UsecaseDiagramConfig()
+  public bool? UseMaxWidth { get; init; }
+  public double? ActorFontSize { get; init; }
+  public double? DiagramPadding { get; init; }
+  public double? MinNodeWidth { get; init; }
+  public double? NodeSpacing { get; init; }
+  public double? RankSpacing { get; init; }
+  public double? UseWidth { get; init; }
+  public double? UsecaseFontSize { get; init; }
+  public double? WrappingWidth { get; init; }
+  public string? ActorFontFamily { get; init; }
+  public string? ActorFontWeight { get; init; }
+  public string? ColorScheme { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+  public string? UsecaseFontFamily { get; init; }
+  public string? UsecaseFontWeight { get; init; }
+public sealed class VennDiagramConfig
+  public VennDiagramConfig()
+  public bool? UseDebugLayout { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? Height { get; init; }
+  public double? Padding { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class WardleyDiagramConfig
+  public WardleyDiagramConfig()
+  public bool? ShowGrid { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? AxisFontSize { get; init; }
+  public double? Height { get; init; }
+  public double? LabelFontSize { get; init; }
+  public double? NodeLabelOffset { get; init; }
+  public double? NodeRadius { get; init; }
+  public double? Padding { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+public sealed class XYChartAxisConfig
+  public XYChartAxisConfig()
+  public bool? ShowAxisLine { get; init; }
+  public bool? ShowLabel { get; init; }
+  public bool? ShowTick { get; init; }
+  public bool? ShowTitle { get; init; }
+  public double? AxisLineWidth { get; init; }
+  public double? LabelFontSize { get; init; }
+  public double? LabelPadding { get; init; }
+  public double? LabelRotation { get; init; }
+  public double? TickLength { get; init; }
+  public double? TickWidth { get; init; }
+  public double? TitleFontSize { get; init; }
+  public double? TitlePadding { get; init; }
+public sealed class XYChartConfig
+  public XYChartAxisConfig XAxis { get; init; }
+  public XYChartAxisConfig YAxis { get; init; }
+  public XYChartConfig()
+  public bool? ShowDataLabel { get; init; }
+  public bool? ShowDataLabelOutsideBar { get; init; }
+  public bool? ShowLegend { get; init; }
+  public bool? ShowTitle { get; init; }
+  public bool? UseMaxWidth { get; init; }
+  public double? Height { get; init; }
+  public double? LegendFontSize { get; init; }
+  public double? LegendPadding { get; init; }
+  public double? PlotReservedSpacePercent { get; init; }
+  public double? TitleFontSize { get; init; }
+  public double? TitlePadding { get; init; }
+  public double? UseWidth { get; init; }
+  public double? Width { get; init; }
+  public string? ChartOrientation { get; init; }
+  public string? Layout { get; init; }
+  public string? Look { get; init; }
+  public string? Theme { get; init; }
+
+namespace SplashTheMusical.Diagrams
+public class DiagramLayout
+  public DiagramLayout(double width, double? height = null)
+  public SvgViewBox? ViewBox { get; init; }
+  public double Width { get; }
+  public double? Height { get; }
+public abstract class DiagramModule<TDocument, TLayout> : IDiagramModule
+  protected DiagramModule()
+  public abstract TDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public abstract TLayout Layout(TDocument document, DiagramRenderContext context)
+  public abstract bool Detect(ReadOnlySpan<char> text)
+  public abstract string DiagramType { get; }
+  public abstract void Render(TDocument document, TLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public abstract void Write(TDocument document, StringBuilder output)
+public sealed class DiagramParseContext
+  public DiagramParseContext(string diagramType, int bodyStart, ResourceLimits limits, List<MermaidDiagnostic> diagnostics)
+  public IReadOnlyList<MermaidDiagnostic> Diagnostics { get; }
+  public ResourceLimits Limits { get; }
+  public int BodyStart { get; }
+  public string DiagramType { get; }
+  public void Add(MermaidDiagnostic diagnostic)
+  public void AddError(string message, int line, int column)
+public sealed class DiagramRenderContext
+  public DiagramRenderContext(MermaidConfig config, string svgId, ITextMeasurer textMeasurer, IIconProvider icons, IReadOnlyList<ILayoutEngine> layoutEngines, ResourceLimits limits)
+  public IIconProvider Icons { get; }
+  public ILayoutEngine? LayoutEngine(string name)
+  public ITextMeasurer TextMeasurer { get; }
+  public MermaidConfig Config { get; }
+  public ResourceLimits Limits { get; }
+  public string SvgId { get; }
+public interface IDiagramModule
+  public DiagramLayout Layout(MermaidDocument document, DiagramRenderContext context)
+  public MermaidDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public bool Detect(ReadOnlySpan<char> text)
+  public string DiagramType { get; }
+  public void Render(MermaidDocument document, DiagramLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public void Write(MermaidDocument document, StringBuilder output)
+public interface ILayoutEngine
+  public string Name { get; }
+  public void Layout(LayoutGraph graph)
+public sealed class LayoutEdge
+  public LayoutEdge()
+  public List<LayoutPoint> Points { get; init; }
+  public required int Source { get; init; }
+  public required int Target { get; init; }
+public sealed class LayoutGraph
+  public LayoutGraph()
+  public List<LayoutEdge> Edges { get; init; }
+  public List<LayoutNode> Nodes { get; init; }
+  public double Height { get; set; }
+  public double Width { get; set; }
+  public string Direction { get; init; }
+public sealed class LayoutNode
+  public LayoutNode()
+  public double X { get; set; }
+  public double Y { get; set; }
+  public int Parent { get; init; }
+  public required double Height { get; init; }
+  public required double Width { get; init; }
+public readonly record struct LayoutPoint : IEquatable<LayoutPoint>
+  public LayoutPoint(double X, double Y)
+  public double X { get; init; }
+  public double Y { get; init; }
+public readonly record struct SvgViewBox : IEquatable<SvgViewBox>
+  public SvgViewBox(double X, double Y, double Width, double Height)
+  public double Height { get; init; }
+  public double Width { get; init; }
+  public double X { get; init; }
+  public double Y { get; init; }
+
+namespace SplashTheMusical.Diagrams.Info
+public sealed class InfoDocument : MermaidDocument
+  public InfoDocument()
+  public bool ShowInfo { get; set; }
+  public override string DiagramType { get; }
+  public string? DiagramTitle { get; set; }
+public sealed class InfoLayout : DiagramLayout
+  public InfoLayout(string text)
+  public double FontSize { get; }
+  public double X { get; }
+  public double Y { get; }
+  public string Text { get; }
+public sealed class InfoModule : DiagramModule<InfoDocument, InfoLayout>
+  public InfoModule()
+  public override InfoDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override InfoLayout Layout(InfoDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(InfoDocument document, InfoLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(InfoDocument document, StringBuilder output)
+
+namespace SplashTheMusical.Icons
+public interface IIconProvider
+  public MermaidIcon? GetIcon(string name)
+public sealed record MermaidIcon : IEquatable<MermaidIcon>
+  public MermaidIcon(string Body, double Width, double Height)
+  public double Height { get; init; }
+  public double Width { get; init; }
+  public string Body { get; init; }
+public sealed class NoIcons : IIconProvider
+  public MermaidIcon? GetIcon(string name)
+  public static NoIcons Instance { get; }
+
+namespace SplashTheMusical.Rendering
+public sealed class SvgWriter
+  public SvgWriter(IBufferWriter<byte> output)
+  public bool IsComplete { get; }
+  public void EndElement()
+  public void StartElement(string name)
+  public void WriteAttribute(string name, ReadOnlySpan<char> value)
+  public void WriteAttribute(string name, double value)
+  public void WriteAttribute(string name, string value)
+  public void WriteText(ReadOnlySpan<char> text)
+
+namespace SplashTheMusical.Text
+public readonly record struct FontSpec : IEquatable<FontSpec>
+  public FontSpec(string Family, double Size, int Weight = 400, FontStyle Style = 0)
+  public FontStyle Style { get; init; }
+  public double Size { get; init; }
+  public int Weight { get; init; }
+  public string Family { get; init; }
+public enum FontStyle : byte
+  Italic = 1
+  Normal = 0
+  Oblique = 2
+public sealed class FontTableTextMeasurer : ITextMeasurer
+  public FontTableTextMeasurer()
+  public TextMetrics Measure(ReadOnlySpan<char> text, in FontSpec font)
+public interface ITextMeasurer
+  public TextMetrics Measure(ReadOnlySpan<char> text, in FontSpec font)
+public static class MermaidText
+  public const string LineBreak = "<br/>"
+  public static MermaidText.LineEnumerator SplitBreaks(ReadOnlySpan<char> text)
+  public static TextDimensions CalculateTextDimensions(ReadOnlySpan<char> text, in FontSpec font, ITextMeasurer? measurer = null)
+  public static ValueTuple<List<string>, string> BreakString(string word, double maxWidth, in FontSpec font, ITextMeasurer? measurer = null, string hyphen = "-")
+  public static bool HasBreaks(ReadOnlySpan<char> text)
+  public static double CalculateTextWidth(ReadOnlySpan<char> text, in FontSpec font, ITextMeasurer? measurer = null)
+  public static string WrapLabel(string label, double maxWidth, in FontSpec font, ITextMeasurer? measurer = null, string joinWith = "<br/>")
+public ref struct MermaidText.LineEnumerator
+  public MermaidText.LineEnumerator GetEnumerator()
+  public ReadOnlySpan<char> Current { get; }
+  public bool MoveNext()
+public readonly record struct TextDimensions : IEquatable<TextDimensions>
+  public TextDimensions(double Width, double Height, double LineHeight)
+  public double Height { get; init; }
+  public double LineHeight { get; init; }
+  public double Width { get; init; }
+public static class TextMeasurer
+  public static ITextMeasurer Default { get; }
+public readonly record struct TextMetrics : IEquatable<TextMetrics>
+  public TextMetrics(double Width, double Ascent, double Descent)
+  public double Ascent { get; init; }
+  public double Descent { get; init; }
+  public double Height { get; }
+  public double Width { get; init; }
+
+namespace SplashTheMusical.Themes
+public interface IThemeProvider
+  public MermaidValue GetThemeVariables(string name, MermaidValue? overrides)
+  public bool HasTheme(string name)
+public sealed class MermaidThemes : IThemeProvider
+  public MermaidValue GetThemeVariables(string name, MermaidValue? overrides)
+  public bool HasTheme(string name)
+  public static MermaidThemes Default { get; }

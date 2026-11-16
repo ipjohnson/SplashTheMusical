@@ -113,5 +113,8 @@ public class StylesheetTests
 		return [.. document.RootElement.EnumerateArray().Select(item => item.GetString()!)];
 	}
 
-	private sealed class PreambleDocument : MermaidDocument;
+	private sealed class PreambleDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

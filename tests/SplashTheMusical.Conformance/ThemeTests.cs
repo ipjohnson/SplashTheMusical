@@ -100,5 +100,8 @@ public class ThemeTests
 		}
 	}
 
-	private sealed class PreambleDocument : MermaidDocument;
+	private sealed class PreambleDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

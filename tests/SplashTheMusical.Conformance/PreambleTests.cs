@@ -112,5 +112,8 @@ public class PreambleTests
 		return facts;
 	}
 
-	private sealed class PreambleDocument : MermaidDocument;
+	private sealed class PreambleDocument : MermaidDocument
+	{
+		public override string DiagramType => "";
+	}
 }

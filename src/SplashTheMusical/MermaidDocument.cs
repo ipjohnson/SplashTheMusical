@@ -7,6 +7,13 @@ namespace SplashTheMusical;
 public abstract class MermaidDocument
 {
 	/// <summary>
+	/// The id of mermaid.js's detector for the diagram, such as <c>info</c> or <c>flowchart-v2</c>. The config is resolved
+	/// for it, and the <see cref="Diagrams.IDiagramModule"/> of the same <see cref="Diagrams.IDiagramModule.DiagramType"/>
+	/// writes and renders the document.
+	/// </summary>
+	public abstract string DiagramType { get; }
+
+	/// <summary>
 	/// The <c>title</c> of the front matter, as mermaid.js reads it: the value's string form, or <c>null</c> when the value
 	/// is missing, <c>false</c>, <c>0</c> or empty.
 	/// </summary>

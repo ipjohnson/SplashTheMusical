@@ -10,6 +10,52 @@ namespace SplashTheMusical.Conformance;
 /// </summary>
 public static class ConfigLines
 {
+	/// <summary>
+	/// The <c>config</c> facts as tools/oracle/extract.mjs writes them: a line for each path whose value differs from the
+	/// site config's, and <c>missing</c> for a site path the config lacks, leaving out the theme variables.
+	/// </summary>
+	public static List<string> ConfigFacts(MermaidValue site, MermaidValue applied)
+	{
+		const string Kind = "config";
+		var sitePaths = Paths(site);
+		var appliedPaths = Paths(applied);
+		var facts = new List<string>();
+		foreach (var (path, value) in appliedPaths)
+		{
+			if (!sitePaths.TryGetValue(path, out var siteValue) || siteValue != value)
+			{
+				facts.Add(Line(Kind, path, value));
+			}
+		}
+
+		foreach (var path in sitePaths.Keys)
+		{
+			if (!appliedPaths.ContainsKey(path))
+			{
+				facts.Add(Line(Kind, path, "missing"));
+			}
+		}
+
+		return facts;
+
+		static Dictionary<string, string> Paths(MermaidValue config)
+		{
+			var lines = new List<string>();
+			Flatten(lines, Kind, "", config);
+			var paths = new Dictionary<string, string>(StringComparer.Ordinal);
+			foreach (var line in lines)
+			{
+				var fields = line.Split('\t', 3);
+				if (fields[1] != "themeVariables" && !fields[1].StartsWith("themeVariables.", StringComparison.Ordinal))
+				{
+					paths[fields[1]] = fields.Length > 2 ? fields[2] : "";
+				}
+			}
+
+			return paths;
+		}
+	}
+
 	/// <summary>Adds a line of <paramref name="kind"/>, path and value for each value in <paramref name="value"/>.</summary>
 	public static void Flatten(List<string> lines, string kind, string prefix, MermaidValue value)
 	{

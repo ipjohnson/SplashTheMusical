@@ -11,7 +11,7 @@ eventmodeling	132
 flowchart	3488
 gantt	336
 git	904
-info	28
+info	0
 ishikawa	68
 kanban	184
 mindmap	324

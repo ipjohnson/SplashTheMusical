@@ -1,6 +1,6 @@
 namespace SplashTheMusical.Conformance;
 
-/// <summary>The STM of phase 0 of the plan's roadmap, which refuses every source.</summary>
+/// <summary>The STM of phase 0 of the plan's roadmap, which refuses every source. ComparerTests checks the comparer with it.</summary>
 public sealed class StubFactsProvider : IFactsProvider
 {
 	public string Name => "stm-stub";

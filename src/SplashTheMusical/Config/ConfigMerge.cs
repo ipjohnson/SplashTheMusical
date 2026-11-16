@@ -18,10 +18,6 @@ internal static class ConfigMerge
 
 	private static readonly string[] AppearanceKeys = ["theme", "look", "layout"];
 
-	/// <summary>The keys of <c>packages/mermaid/src/themes/index.js</c>, sorted.</summary>
-	private static readonly string[] ThemeNames =
-		["base", "dark", "default", "forest", "neo", "neo-dark", "neutral", "redux", "redux-color", "redux-dark", "redux-dark-color"];
-
 	private static readonly SearchValues<char> HexDigits = SearchValues.Create("0123456789abcdefABCDEF");
 
 	private static readonly MermaidValue Defaults = new MermaidConfig().ToValue();
@@ -29,24 +25,25 @@ internal static class ConfigMerge
 	/// <summary>
 	/// The config of a diagram of <paramref name="diagramType"/>, the id of mermaid.js's detector, whose front matter and
 	/// directives give <paramref name="preamble"/>. <paramref name="siteOptions"/> is what the host hands to
-	/// <c>initialize</c>.
+	/// <c>initialize</c>. <paramref name="themes"/> holds the themes a <c>theme</c> can name, mermaid's when it is null.
 	/// </summary>
 	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
-	public static MermaidValue Apply(MermaidValue? siteOptions, MermaidValue preamble, string diagramType)
+	public static MermaidValue Apply(MermaidValue? siteOptions, MermaidValue preamble, string diagramType, IThemeProvider? themes = null)
 	{
-		var (site, siteDelta, fromInitialize) = Initialize(siteOptions);
+		themes ??= MermaidThemes.Default;
+		var (site, siteDelta, fromInitialize) = Initialize(siteOptions, themes);
 		var directive = AddDirective(preamble);
 		var config = Assign(Empty(), site);
 		directive = Sanitize(directive, Secure(site));
 		var sumOfDirectives = Assign(Empty(), directive);
 		config = Assign(config, sumOfDirectives);
-		config = ResolveAppearance(config, DiagramConfigKey(diagramType), [sumOfDirectives, siteDelta, Defaults]);
-		return ApplyTheme(config, site, sumOfDirectives, fromInitialize);
+		config = ResolveAppearance(config, DiagramConfigKey(diagramType), [sumOfDirectives, siteDelta, Defaults], themes);
+		return ApplyTheme(config, site, sumOfDirectives, fromInitialize, themes);
 	}
 
 	/// <summary>The site config <c>initialize</c> sets: the default config with the host's options over it.</summary>
 	/// <exception cref="FormatException">A theme variable that the theme passes to a colour function is not a colour.</exception>
-	public static MermaidValue Site(MermaidValue? siteOptions) => Initialize(siteOptions).Site;
+	public static MermaidValue Site(MermaidValue? siteOptions, IThemeProvider? themes = null) => Initialize(siteOptions, themes ?? MermaidThemes.Default).Site;
 
 	/// <summary>
 	/// <c>initialize</c> and <c>setSiteConfig</c>. A theme name no theme answers to becomes <c>default</c>, except
@@ -54,15 +51,15 @@ internal static class ConfigMerge
 	/// <c>default</c> theme for a name no theme answers to. The delta is the options without the defaults, which
 	/// <c>resolveAppearance</c> reads. <c>FromInitialize</c> is the options before the theme computes the variables.
 	/// </summary>
-	private static (MermaidValue Site, MermaidValue Delta, MermaidValue FromInitialize) Initialize(MermaidValue? siteOptions)
+	private static (MermaidValue Site, MermaidValue Delta, MermaidValue FromInitialize) Initialize(MermaidValue? siteOptions, IThemeProvider themes)
 	{
 		var options = siteOptions is { Kind: MermaidValueKind.Mapping } ? Assign(Empty(), siteOptions) : Empty();
 		options = CopyFontFamily(options);
 		var fromInitialize = Assign(Empty(), options);
 		var theme = options["theme"];
-		if (theme is not null && Truthy(theme) && IsTheme(theme))
+		if (theme is not null && Truthy(theme) && IsTheme(theme, themes))
 		{
-			options = With(options, "themeVariables", Theme.Variables(theme.String, options["themeVariables"])!);
+			options = With(options, "themeVariables", themes.GetThemeVariables(theme.String, options["themeVariables"]));
 		}
 		else
 		{
@@ -71,7 +68,7 @@ internal static class ConfigMerge
 				options = With(options, "theme", MermaidValue.FromString("default"));
 			}
 
-			options = With(options, "themeVariables", Theme.Variables("default", options["themeVariables"])!);
+			options = With(options, "themeVariables", themes.GetThemeVariables("default", options["themeVariables"]));
 		}
 
 		var site = Assign(Assign(Empty(), Defaults), options);
@@ -83,11 +80,16 @@ internal static class ConfigMerge
 	/// the resolved theme computes the variables from those of <c>initialize</c> with the directives' over them.
 	/// Otherwise the variables stay the site's with the directives' merged in, and nothing is derived from them.
 	/// </summary>
-	private static MermaidValue ApplyTheme(MermaidValue config, MermaidValue site, MermaidValue sumOfDirectives, MermaidValue fromInitialize)
+	private static MermaidValue ApplyTheme(
+		MermaidValue config,
+		MermaidValue site,
+		MermaidValue sumOfDirectives,
+		MermaidValue fromInitialize,
+		IThemeProvider themes)
 	{
 		var theme = config["theme"];
 		var overridden = (sumOfDirectives["theme"] is { } set && Truthy(set)) || !Equals(theme, site["theme"]);
-		if (!overridden || theme is null || !IsTheme(theme))
+		if (!overridden || theme is null || !IsTheme(theme, themes))
 		{
 			return config;
 		}
@@ -99,7 +101,7 @@ internal static class ConfigMerge
 			overrides = Assign(overrides, directed);
 		}
 
-		return With(config, "themeVariables", Theme.Variables(theme.String, overrides)!);
+		return With(config, "themeVariables", themes.GetThemeVariables(theme.String, overrides));
 	}
 
 	/// <summary><c>addDirective</c>: <c>sanitizeDirective</c>, then the font family copied into the theme variables.</summary>
@@ -318,7 +320,7 @@ internal static class ConfigMerge
 	/// <c>resolveAppearance</c>: for <c>theme</c>, <c>look</c> and <c>layout</c>, the first usable value of the layers,
 	/// each read at the diagram's section and then at the top, goes to the top and to a section key that is set.
 	/// </summary>
-	private static MermaidValue ResolveAppearance(MermaidValue config, string diagramConfigKey, MermaidValue[] layers)
+	private static MermaidValue ResolveAppearance(MermaidValue config, string diagramConfigKey, MermaidValue[] layers, IThemeProvider themes)
 	{
 		var entries = new OrderedDictionary<string, MermaidValue>(config.Entries, StringComparer.Ordinal);
 		var section = entries.TryGetValue(diagramConfigKey, out var found) && found.Kind == MermaidValueKind.Mapping
@@ -328,7 +330,7 @@ internal static class ConfigMerge
 		{
 			foreach (var layer in layers)
 			{
-				if (ReadAppearance(layer, diagramConfigKey, key) is not { } value)
+				if (ReadAppearance(layer, diagramConfigKey, key, themes) is not { } value)
 				{
 					continue;
 				}
@@ -351,26 +353,26 @@ internal static class ConfigMerge
 		return MermaidValue.FromEntries(entries);
 	}
 
-	private static MermaidValue? ReadAppearance(MermaidValue layer, string diagramConfigKey, string key)
+	private static MermaidValue? ReadAppearance(MermaidValue layer, string diagramConfigKey, string key, IThemeProvider themes)
 	{
-		if (layer[diagramConfigKey]?[key] is { } scoped && IsUsableAppearance(key, scoped))
+		if (layer[diagramConfigKey]?[key] is { } scoped && IsUsableAppearance(key, scoped, themes))
 		{
 			return scoped;
 		}
 
-		return layer[key] is { } top && IsUsableAppearance(key, top) ? top : null;
+		return layer[key] is { } top && IsUsableAppearance(key, top, themes) ? top : null;
 	}
 
 	/// <summary>A theme a theme answers to, or <c>"null"</c>, a look of the schema's enum, or any layout.</summary>
-	private static bool IsUsableAppearance(string key, MermaidValue value) => key switch
+	private static bool IsUsableAppearance(string key, MermaidValue value, IThemeProvider themes) => key switch
 	{
-		"theme" => IsString(value, "null") || IsTheme(value),
+		"theme" => IsString(value, "null") || IsTheme(value, themes),
 		"look" => value.Kind == MermaidValueKind.String && value.String is "classic" or "handDrawn" or "neo",
 		_ => true,
 	};
 
-	private static bool IsTheme(MermaidValue value) =>
-		value.Kind == MermaidValueKind.String && Array.BinarySearch(ThemeNames, value.String, StringComparer.Ordinal) >= 0;
+	private static bool IsTheme(MermaidValue value, IThemeProvider themes) =>
+		value.Kind == MermaidValueKind.String && themes.HasTheme(value.String);
 
 	private static List<string> Secure(MermaidValue site) =>
 		site["secure"] is { Kind: MermaidValueKind.Sequence } secure
