@@ -151,6 +151,47 @@ internal static class Util
 		return max;
 	}
 
+	/// <summary>Where the line from the centre of the node's box to the point leaves the box.</summary>
+	public static (double X, double Y) IntersectRect(LayoutNode rect, (double X, double Y) point)
+	{
+		var x = rect.X;
+		var y = rect.Y;
+		var dx = point.X - x;
+		var dy = point.Y - y;
+		var w = rect.Width / 2;
+		var h = rect.Height / 2;
+
+		if (!IsTruthy(dx) && !IsTruthy(dy))
+		{
+			throw new InvalidOperationException("Not possible to find intersection inside of the rectangle");
+		}
+
+		double sx;
+		double sy;
+		if (Math.Abs(dy) * w > Math.Abs(dx) * h)
+		{
+			if (dy < 0)
+			{
+				h = -h;
+			}
+
+			sx = h * dx / dy;
+			sy = h;
+		}
+		else
+		{
+			if (dx < 0)
+			{
+				w = -w;
+			}
+
+			sx = w;
+			sy = w * dy / dx;
+		}
+
+		return (x + sx, y + sy);
+	}
+
 	/// <summary>dagre's <c>buildLayerMatrix</c>: the nodes of each rank, each at its order. A gap holds -1.</summary>
 	public static int[][] BuildLayerMatrix(LayoutGraph g)
 	{
@@ -202,6 +243,8 @@ internal static class Util
 
 		return min;
 	}
+
+	private static bool IsTruthy(double value) => value != 0 && !double.IsNaN(value);
 
 	private static bool IsArrayIndex(double value) =>
 		value >= 0 && value <= 4294967294 && Math.Floor(value) == value;
