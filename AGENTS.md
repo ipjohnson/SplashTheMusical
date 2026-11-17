@@ -112,6 +112,14 @@ holds mermaid's edge markers and marker ids. The rounded curve prints numbers in
 `Math` on macOS arm64, fdlibm with fused multiply-adds. `CurveTests` and `EdgeMarkerTests` compare them with
 `corpus/curves.txt` and `corpus/markers.txt`.
 
+`src/SplashTheMusical/Rendering/Shapes` ports mermaid's node shapes. `NodeShapes` lists one `NodeShape` per drawing
+function of the shape table, and `NodeShapes.Handler` maps every name mermaid's `shapes` map accepts. A shape takes a
+`ShapeNode`, whose `IShapeLabelMeasurer` measures the label at the width the shape sets, and returns a `ShapeGeometry`:
+the elements of its outline, the label's box and translate, the intersect, and the size `insertMeasuredNode` gives
+dagre, which is the box of the elements and the label together. `ShapeTests` in `tests/SplashTheMusical.Conformance`
+fails when a `shape` line of `corpus/shapes.txt` has no entry or a `key` line maps elsewhere, and compares the sizes
+with the node sizes of the flowchart `.dagre.txt` files within 0.01.
+
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it
 against the oracle's `type` fact of every accepted corpus case. `StmFactsProvider` runs STM for the conformance report,
