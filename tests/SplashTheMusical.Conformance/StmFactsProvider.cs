@@ -1,5 +1,6 @@
 using System.Xml;
 using SplashTheMusical.Config;
+using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Diagrams.Info;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Text;
@@ -42,15 +43,247 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 
 		ConfigLines.Flatten(facts, "preamble-config", "", preamble);
+		var config = MermaidConfig.Resolve(OracleSite, document, type);
+		if (preamble is { Kind: MermaidValueKind.Mapping } && preamble.Entries.ContainsKey("themeVariables"))
+		{
+			ConfigLines.Flatten(facts, "theme-variable", "", config.ThemeVariables!);
+		}
+
 		var boxes = new List<string>();
 		string? canvas = null;
 		if (document is InfoDocument)
 		{
-			canvas = Info(facts, boxes, MermaidConfig.Resolve(OracleSite, document, type));
+			canvas = Info(facts, boxes, config);
+		}
+		else if (document is FlowchartDocument flowchart)
+		{
+			Flowchart(facts, flowchart, config);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
 	}
+
+	/// <summary>
+	/// <c>extract.mjs</c>'s flowchart extractor over <c>FlowDB.getData</c>: the subgraphs as groups, from the last to the
+	/// first, then the nodes, leaving out what a collapsed subgraph hides and a node with a group's id, then the edges.
+	/// A node's label is drawn as HTML unless <c>htmlLabels</c> is false, and an edge's and a subgraph's unless
+	/// <c>htmlLabels</c>, or <c>flowchart.htmlLabels</c> when it is not set, is false.
+	/// </summary>
+	private static void Flowchart(List<string> facts, FlowchartDocument document, MermaidConfig config)
+	{
+		var htmlNodeLabels = config.HtmlLabels ?? true;
+		var htmlEdgeLabels = config.HtmlLabels ?? config.Flowchart.HtmlLabels ?? true;
+		var lookup = new Dictionary<string, FlowchartSubgraph>(StringComparer.Ordinal);
+		foreach (var subgraph in document.Subgraphs)
+		{
+			lookup[subgraph.Id] = subgraph;
+		}
+
+		var subgraphParent = new Dictionary<string, string>(StringComparer.Ordinal);
+		foreach (var subgraph in document.Subgraphs)
+		{
+			foreach (var child in subgraph.Nodes)
+			{
+				if (lookup.ContainsKey(child))
+				{
+					subgraphParent[child] = subgraph.Id;
+				}
+			}
+		}
+
+		bool IsCollapsed(string id) =>
+			lookup.TryGetValue(id, out var s) && s.Metadata is { Kind: MermaidValueKind.Mapping } metadata
+			&& metadata.Entries.TryGetValue("view", out var view) && view is { Kind: MermaidValueKind.String, String: "collapsed" };
+
+		string? OutermostCollapsed(string id)
+		{
+			string? result = null;
+			var seen = new HashSet<string>(StringComparer.Ordinal);
+			for (string? current = id; current is not null && seen.Add(current); current = subgraphParent.GetValueOrDefault(current))
+			{
+				if (IsCollapsed(current))
+				{
+					result = current;
+				}
+			}
+
+			return result;
+		}
+
+		var hidden = new HashSet<string>(StringComparer.Ordinal);
+		var collapsedAncestor = new Dictionary<string, string>(StringComparer.Ordinal);
+		foreach (var subgraph in document.Subgraphs)
+		{
+			if (OutermostCollapsed(subgraph.Id) is not { } ancestor)
+			{
+				continue;
+			}
+
+			if (subgraph.Id != ancestor)
+			{
+				_ = hidden.Add(subgraph.Id);
+				collapsedAncestor[subgraph.Id] = ancestor;
+			}
+
+			foreach (var child in subgraph.Nodes)
+			{
+				if (child != ancestor)
+				{
+					_ = hidden.Add(child);
+					collapsedAncestor[child] = ancestor;
+				}
+			}
+		}
+
+		var parent = new Dictionary<string, string>(StringComparer.Ordinal);
+		for (var i = document.Subgraphs.Count - 1; i >= 0; i--)
+		{
+			var subgraph = document.Subgraphs[i];
+			if (hidden.Contains(subgraph.Id))
+			{
+				continue;
+			}
+
+			foreach (var id in subgraph.Nodes)
+			{
+				parent[id] = subgraph.Id;
+			}
+		}
+
+		// The nodes of getData: id, whether it is a group, its label, its label type and its shape.
+		var nodes = new List<(string Id, bool IsGroup, string Label, FlowchartLabelType LabelType, string Shape, FlowchartNode? Node)>();
+		var nodeIds = new HashSet<string>(StringComparer.Ordinal);
+		for (var i = document.Subgraphs.Count - 1; i >= 0; i--)
+		{
+			var subgraph = document.Subgraphs[i];
+			if (!hidden.Contains(subgraph.Id))
+			{
+				var collapsed = IsCollapsed(subgraph.Id);
+				nodes.Add((subgraph.Id, !collapsed, subgraph.Title, subgraph.LabelType, collapsed ? "collapsedGroup" : "rect", null));
+				_ = nodeIds.Add(subgraph.Id);
+			}
+		}
+
+		foreach (var node in document.Nodes)
+		{
+			if (hidden.Contains(node.Id) || !nodeIds.Add(node.Id))
+			{
+				continue;
+			}
+
+			// An icon or image node's shape is its frame.
+			var shape = node.Icon is not null || node.Image is not null ? "rect" : ShortShapeName(FlowchartShapes.Drawn(node));
+			nodes.Add((node.Id, false, node.Label, node.LabelType, shape, node));
+		}
+
+		var members = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+		foreach (var node in nodes)
+		{
+			if (parent.TryGetValue(node.Id, out var group))
+			{
+				if (!members.TryGetValue(group, out var list))
+				{
+					members[group] = list = [];
+				}
+
+				list.Add(node.Id);
+			}
+		}
+
+		var icons = new List<string>();
+		foreach (var node in nodes)
+		{
+			icons.Clear();
+			if (node.IsGroup)
+			{
+				var list = members.TryGetValue(node.Id, out var m) ? m : [];
+				list.Sort(StringComparer.Ordinal);
+				// The dagre renderer draws a subgraph without members as a node, so it has no cluster label.
+				var groupLabel = list.Count == 0 && config.Layout == "dagre" ? "" : FlowchartLabels.Text(node.Label, node.LabelType, htmlEdgeLabels);
+				facts.Add(ConfigLines.Line("group", node.Id, groupLabel, string.Join(',', list)));
+				continue;
+			}
+
+			var label = UnlabelledShapes.Contains(node.Shape) ? "" : FlowchartLabels.Text(node.Label, node.LabelType, htmlNodeLabels, icons);
+			facts.Add(ConfigLines.Line("node", node.Id, label, node.Shape));
+			if (node.Node?.Icon is { } icon)
+			{
+				facts.Add(ConfigLines.Line("icon", node.Id, icon));
+			}
+
+			if (node.Node?.Image is { } image)
+			{
+				facts.Add(ConfigLines.Line("image", node.Id, image));
+			}
+
+			foreach (var name in icons)
+			{
+				facts.Add(ConfigLines.Line("icon", node.Id, name));
+			}
+		}
+
+		foreach (var edge in document.Edges)
+		{
+			var start = collapsedAncestor.GetValueOrDefault(edge.Start) ?? edge.Start;
+			var end = collapsedAncestor.GetValueOrDefault(edge.End) ?? edge.End;
+			if (start == end && (collapsedAncestor.ContainsKey(edge.Start) || collapsedAncestor.ContainsKey(edge.End)))
+			{
+				continue;
+			}
+
+			var (startEnd, endEnd) = edge.Type switch
+			{
+				_ when edge.Stroke == FlowchartStroke.Invisible => ("none", "none"),
+				FlowchartEdgeType.Open => ("none", "none"),
+				FlowchartEdgeType.Point => ("none", "arrow"),
+				FlowchartEdgeType.Circle => ("none", "circle"),
+				FlowchartEdgeType.Cross => ("none", "cross"),
+				FlowchartEdgeType.DoublePoint => ("arrow", "arrow"),
+				FlowchartEdgeType.DoubleCircle => ("circle", "circle"),
+				FlowchartEdgeType.DoubleCross => ("cross", "cross"),
+				_ => ("none", "arrow"),
+			};
+			var line = edge.Stroke switch
+			{
+				FlowchartStroke.Invisible => "invisible",
+				FlowchartStroke.Thick => "thick",
+				FlowchartStroke.Dotted => "dotted",
+				_ => "solid",
+			};
+			facts.Add(ConfigLines.Line("edge", start, end, startEnd, endEnd, line, FlowchartLabels.Text(edge.Label, edge.LabelType, htmlEdgeLabels)));
+		}
+	}
+
+	/// <summary>The short names of the shapes whose handlers in mermaid.js's <c>shapes</c> draw no label.</summary>
+	private static readonly HashSet<string> UnlabelledShapes =
+		new(["anchor", "bolt", "choice", "cross-circ", "f-circ", "fork", "fr-circ", "hourglass", "sm-circ"], StringComparer.Ordinal);
+
+	private static readonly Lazy<Dictionary<string, string>> ShortShapeNames = new(() =>
+	{
+		var names = new Dictionary<string, string>(StringComparer.Ordinal);
+		foreach (var line in File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "shapes.txt")))
+		{
+			var fields = line.Split('\t');
+			if (fields is ["shape", var shortName, ..])
+			{
+				names[shortName] = shortName;
+			}
+		}
+
+		foreach (var line in File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "shapes.txt")))
+		{
+			var fields = line.Split('\t');
+			if (fields is ["alias" or "internal-alias", var alias, var shortName])
+			{
+				_ = names.TryAdd(alias, shortName);
+			}
+		}
+
+		return names;
+	});
+
+	/// <summary>The documented short name of a shape, as <c>facts.mjs</c> maps it with mermaid.js's shape table.</summary>
+	private static string ShortShapeName(string shape) => ShortShapeNames.Value.GetValueOrDefault(shape) ?? shape;
 
 	/// <summary>
 	/// <c>extract.mjs</c>'s info extractor: the version as a label, and the box of the version text. The root has no
