@@ -12,6 +12,9 @@ internal sealed class ShapeGeometry
 	/// <summary><c>node.height</c> after the shape.</summary>
 	public required double Height { get; init; }
 
+	/// <summary>The box of the elements and the label in the node's space, whose size is <see cref="Width"/> by <see cref="Height"/>.</summary>
+	public ShapeBounds Bounds { get; init; } = ShapeBounds.None;
+
 	/// <summary>The elements the shape inserts before its label, first child first.</summary>
 	public required IReadOnlyList<ShapeElement> Elements { get; init; }
 

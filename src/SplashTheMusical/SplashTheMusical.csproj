@@ -6,4 +6,8 @@
     <InternalsVisibleTo Include="SplashTheMusical.Tests" />
     <InternalsVisibleTo Include="SplashTheMusical.Conformance" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- The flowchart renderer lays out with the dagre port and draws edges with its curves and markers. -->
+    <ProjectReference Include="../SplashTheMusical.Layout/SplashTheMusical.Layout.csproj" />
+  </ItemGroup>
 </Project>

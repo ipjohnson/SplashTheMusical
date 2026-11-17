@@ -3,7 +3,8 @@ using System.Globalization;
 namespace SplashTheMusical.Rendering.Shapes;
 
 /// <summary>
-/// The tight box of the path data the shapes write: the commands M, L, H, V, A and Z in both cases. An arc counts
+/// The tight box of the path data the shapes and the edges write: the commands M, L, H, V, C, Q, A and Z in both cases.
+/// A cubic or a quadratic counts its end points and the points where its x or its y turns. An arc counts
 /// its end points and the extreme points of its ellipse that it passes, as the SVG spec's centre parameterization
 /// gives them.
 /// </summary>
@@ -50,6 +51,25 @@ internal static class PathBounds
 					var endY = reader.Number() + (relative ? y : 0);
 					bounds = Arc(bounds, x, y, rx, ry, rotation, large, sweep, endX, endY);
 					(x, y) = (endX, endY);
+					break;
+				case 'C':
+					var c1x = reader.Number() + (relative ? x : 0);
+					var c1y = reader.Number() + (relative ? y : 0);
+					var c2x = reader.Number() + (relative ? x : 0);
+					var c2y = reader.Number() + (relative ? y : 0);
+					var toX = reader.Number() + (relative ? x : 0);
+					var toY = reader.Number() + (relative ? y : 0);
+					bounds = Cubic(bounds, x, y, c1x, c1y, c2x, c2y, toX, toY);
+					(x, y) = (toX, toY);
+					break;
+				case 'Q':
+					var qx = reader.Number() + (relative ? x : 0);
+					var qy = reader.Number() + (relative ? y : 0);
+					var qToX = reader.Number() + (relative ? x : 0);
+					var qToY = reader.Number() + (relative ? y : 0);
+					// A quadratic is the cubic whose control points are two thirds of the way to its own.
+					bounds = Cubic(bounds, x, y, x + (2.0 / 3 * (qx - x)), y + (2.0 / 3 * (qy - y)), qToX + (2.0 / 3 * (qx - qToX)), qToY + (2.0 / 3 * (qy - qToY)), qToX, qToY);
+					(x, y) = (qToX, qToY);
 					break;
 				case 'Z':
 					(x, y) = (startX, startY);
@@ -127,6 +147,63 @@ internal static class PathBounds
 		}
 
 		return bounds;
+	}
+
+	/// <summary>A cubic Bézier's end points and the points where its x or its y turns.</summary>
+	private static ShapeBounds Cubic(ShapeBounds bounds, double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3)
+	{
+		bounds = bounds.Add(x0, y0).Add(x3, y3);
+		Span<double> turns = stackalloc double[4];
+		var count = Turns(x0, x1, x2, x3, turns);
+		count += Turns(y0, y1, y2, y3, turns[count..]);
+		foreach (var t in turns[..count])
+		{
+			var u = 1 - t;
+			var px = (u * u * u * x0) + (3 * u * u * t * x1) + (3 * u * t * t * x2) + (t * t * t * x3);
+			var py = (u * u * u * y0) + (3 * u * u * t * y1) + (3 * u * t * t * y2) + (t * t * t * y3);
+			bounds = bounds.Add(px, py);
+		}
+
+		return bounds;
+	}
+
+	/// <summary>The parameters in (0, 1) where the derivative of one coordinate of a cubic Bézier is 0.</summary>
+	private static int Turns(double p0, double p1, double p2, double p3, Span<double> turns)
+	{
+		// B'(t) / 3 = a t² + b t + c
+		var a = -p0 + (3 * p1) - (3 * p2) + p3;
+		var b = 2 * (p0 - (2 * p1) + p2);
+		var c = p1 - p0;
+		var count = 0;
+		if (Math.Abs(a) < 1e-12)
+		{
+			if (Math.Abs(b) > 1e-12)
+			{
+				count = Keep(-c / b, turns, count);
+			}
+
+			return count;
+		}
+
+		var discriminant = (b * b) - (4 * a * c);
+		if (discriminant < 0)
+		{
+			return 0;
+		}
+
+		var root = Math.Sqrt(discriminant);
+		count = Keep((-b + root) / (2 * a), turns, count);
+		return Keep((-b - root) / (2 * a), turns, count);
+	}
+
+	private static int Keep(double t, Span<double> turns, int count)
+	{
+		if (t > 0 && t < 1)
+		{
+			turns[count++] = t;
+		}
+
+		return count;
 	}
 
 	private static double Wrap(double angle)

@@ -3,6 +3,7 @@
     <Description>Graph layout engines, with no knowledge of Mermaid.</Description>
   </PropertyGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="SplashTheMusical" />
     <InternalsVisibleTo Include="SplashTheMusical.Tests" />
     <InternalsVisibleTo Include="SplashTheMusical.Conformance" />
     <InternalsVisibleTo Include="SplashTheMusical.Benchmarks" />

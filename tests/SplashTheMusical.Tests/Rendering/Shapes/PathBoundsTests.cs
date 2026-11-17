@@ -27,6 +27,20 @@ public class PathBoundsTests
 		Rounded(PathBounds.Measure("M0,0 A20,10 90 0 1 0,40")).Should().Be(new ShapeBounds(0, 0, 10, 40));
 	}
 
+	[Test]
+	public void ACubicCountsWhereItTurns()
+	{
+		// Symmetric about x = 5, peaking at 0.75 of its control points' height.
+		Rounded(PathBounds.Measure("M0,0 C0,10 10,10 10,0")).Should().Be(new ShapeBounds(0, 0, 10, 7.5));
+		// A straight cubic, as d3's curves write between collinear points.
+		Rounded(PathBounds.Measure("M0,5 C2,5 4,5 6,5")).Should().Be(new ShapeBounds(0, 5, 6, 5));
+		Rounded(PathBounds.Measure("M0,0 c0,10 10,10 10,0")).Should().Be(new ShapeBounds(0, 0, 10, 7.5));
+	}
+
+	[Test]
+	public void AQuadraticCountsWhereItTurns() =>
+		Rounded(PathBounds.Measure("M0,0 Q5,10 10,0")).Should().Be(new ShapeBounds(0, 0, 10, 5));
+
 	private static ShapeBounds Rounded(ShapeBounds bounds) =>
 		new(Math.Round(bounds.MinX, 9), Math.Round(bounds.MinY, 9), Math.Round(bounds.MaxX, 9), Math.Round(bounds.MaxY, 9));
 

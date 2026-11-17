@@ -4,9 +4,10 @@ namespace SplashTheMusical.Tests;
 
 public class AssemblyReferenceTests
 {
+	/// <summary>The core draws flowcharts with the dagre port, curves and markers of the layout project, and nothing else.</summary>
 	[Test]
-	public void CoreReferencesOnlyTheRuntime() =>
-		ReferencedAssemblies("SplashTheMusical").Should().OnlyContain(name => IsRuntimeAssembly(name));
+	public void CoreReferencesOnlyTheRuntimeAndTheLayoutProject() =>
+		ReferencedAssemblies("SplashTheMusical").Should().OnlyContain(name => IsRuntimeAssembly(name) || name == "SplashTheMusical.Layout");
 
 	[Test]
 	public void LayoutReferencesOnlyTheRuntime() =>

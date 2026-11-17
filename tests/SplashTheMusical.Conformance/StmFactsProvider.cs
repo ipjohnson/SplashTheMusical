@@ -1,6 +1,8 @@
 using System.Xml;
 using SplashTheMusical.Config;
+using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Flowchart;
+using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Text;
@@ -58,9 +60,28 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is FlowchartDocument flowchart)
 		{
 			Flowchart(facts, flowchart, config);
+			canvas = FlowchartBoxes(boxes, flowchart, config);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
+	}
+
+	/// <summary>
+	/// <c>extract.mjs</c>'s flowchart boxes: every node, subgraph, edge and edge label of the module's layout, in the
+	/// viewBox's space, and the viewBox as the canvas.
+	/// </summary>
+	private static string FlowchartBoxes(List<string> boxes, FlowchartDocument document, MermaidConfig config)
+	{
+		var module = new FlowchartModule(document.DiagramType);
+		var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+		var layout = module.Layout(document, context);
+		foreach (var box in layout.Boxes())
+		{
+			boxes.Add(Box(box.Kind, box.Name, box.X, box.Y, box.Width, box.Height));
+		}
+
+		var viewBox = layout.ViewBox!.Value;
+		return string.Join('\t', "canvas", Number(viewBox.X), Number(viewBox.Y), Number(viewBox.Width), Number(viewBox.Height));
 	}
 
 	/// <summary>
