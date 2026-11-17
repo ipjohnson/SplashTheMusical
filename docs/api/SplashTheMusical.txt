@@ -1029,7 +1029,6 @@ public enum FlowchartLabelType : int
   String = 1
   Text = 0
 public sealed class FlowchartLayout : DiagramLayout
-  public FlowchartLayout()
 public sealed class FlowchartModule : DiagramModule<FlowchartDocument, FlowchartLayout>
   public FlowchartModule(string diagramType = "flowchart-v2")
   public const string FlowchartElk = "flowchart-elk"

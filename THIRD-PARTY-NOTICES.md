@@ -227,7 +227,10 @@ and `getLineFunctionsWithOffset` in `packages/mermaid/src/utils/lineWithOffset.t
 `rendering-elements/markers.js` and the marker ids of `rendering-elements/edgeMarker.ts`.
 `src/SplashTheMusical/Diagrams/Flowchart` ports the lexer and grammar of
 `packages/mermaid/src/diagrams/flowchart/parser/flow.jison`, the actions of `flowDb.ts`, the text rewrites of
-`flowParser.ts`, `packages/mermaid/src/preprocess.ts` and `encodeEntities` in `packages/mermaid/src/utils.ts`.
+`flowParser.ts`, `packages/mermaid/src/preprocess.ts` and `encodeEntities` in `packages/mermaid/src/utils.ts`. Its
+layout and drawing port `getData` in `flowDb.ts`, `flowRenderer-v3-unified.ts`, the dagre renderer and
+`mermaid-graphlib.js` of `packages/mermaid/src/rendering-util/layout-algorithms/dagre`, and the clusters, edges,
+edge labels and `createText` of `packages/mermaid/src/rendering-util`.
 `src/SplashTheMusical/Rendering/Shapes` ports the node shapes of `packages/mermaid/src/rendering-util/rendering-elements/shapes`
 and the intersections of `rendering-elements/intersect`.
 
