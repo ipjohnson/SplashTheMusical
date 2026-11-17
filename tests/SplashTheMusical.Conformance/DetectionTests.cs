@@ -41,7 +41,7 @@ public class DetectionTests
 		}
 
 		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsEqualTo(4409);
+		await Assert.That(checkedCases).IsEqualTo(4411);
 	}
 
 	[Test]
