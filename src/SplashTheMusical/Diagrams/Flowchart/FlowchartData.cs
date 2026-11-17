@@ -33,6 +33,9 @@ internal sealed class FlowNode
 
 	public bool IsDummy { get; init; }
 
+	/// <summary>The source's node, with the icon and image of a <c>@{ }</c> block. Null for a subgraph.</summary>
+	public FlowchartNode? Vertex { get; init; }
+
 	// Measured and laid out.
 
 	public double Width { get; set; }
@@ -276,6 +279,7 @@ internal static class FlowchartData
 				Padding = padding,
 				Classes = "default " + string.Join(' ', vertex.Classes),
 				Shape = FlowchartShapes.Drawn(vertex),
+				Vertex = vertex,
 				IsGroup = groups.Contains(vertex.Id),
 				DomId = "flowchart-" + vertex.Id + "-" + i.ToString(System.Globalization.CultureInfo.InvariantCulture),
 			});

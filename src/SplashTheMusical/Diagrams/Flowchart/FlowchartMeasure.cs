@@ -18,21 +18,49 @@ internal sealed class FlowchartMeasure
 	/// <summary>The size of the box of the two nodes a self loop is laid out through: a <c>rect</c> 0.1 wide, as a float.</summary>
 	private static readonly double DummySize = (double)0.1f;
 
+	/// <summary>The padding the icon and image shapes' styles give each side of the label's <c>p</c>.</summary>
+	private const double PicturedLabelPadding = 2;
+
+	/// <summary><c>configureLabelImages</c>' <c>enlargingFactor</c>: a label of images alone shows each this many font sizes wide.</summary>
+	private const double ImageSizeFactor = 5;
+
+	/// <summary>
+	/// The side of the square STM takes an image node's image to be when the node gives no <c>h</c> or <c>w</c>. mermaid.js
+	/// reads the image's natural size once it loads, which STM does not do.
+	/// </summary>
+	private const double DefaultImageSide = 48;
+
+	private readonly double? _configWrappingWidth;
 	private readonly double _wrappingWidth;
+	private readonly double _imageSize;
 	private readonly double _minNodeWidth;
 	private readonly double? _themeRadius;
 	private readonly bool _flowchartHtmlLabels;
+	private readonly bool _markdownAutoWrap;
 
-	public FlowchartMeasure(MermaidConfig config, string svgId, string diagramType, ITextMeasurer measurer)
+	private readonly HashSet<string> _boxedClasses = new(StringComparer.Ordinal);
+
+	public FlowchartMeasure(MermaidConfig config, string svgId, string diagramType, ITextMeasurer measurer, IReadOnlyList<FlowchartClass>? classes = null)
 	{
+		foreach (var definition in classes ?? [])
+		{
+			if (definition.Styles.Exists(BoxesInline))
+			{
+				_boxedClasses.Add(definition.Id);
+			}
+		}
+
 		SvgId = svgId;
 		DiagramType = diagramType;
 		Look = config.Look ?? "classic";
 		NodeHtmlLabels = config.HtmlLabels ?? true;
 		EdgeHtmlLabels = config.HtmlLabels ?? config.Flowchart.HtmlLabels ?? true;
 		_flowchartHtmlLabels = config.Flowchart.HtmlLabels ?? false;
+		_configWrappingWidth = config.Flowchart.WrappingWidth;
 		_wrappingWidth = Truthy(config.Flowchart.WrappingWidth) ? config.Flowchart.WrappingWidth!.Value : DefaultWrapWidth;
+		_imageSize = ImageSizeFactor * (config.FontSize ?? 16);
 		_minNodeWidth = config.Flowchart.MinNodeWidth ?? 0;
+		_markdownAutoWrap = config.MarkdownAutoWrap != false;
 		Padding = Truthy(config.Flowchart.Padding) ? config.Flowchart.Padding!.Value : 8;
 		var family = ThemeString(config, "fontFamily") ?? config.FontFamily ?? "\"trebuchet ms\", verdana, arial, sans-serif";
 		var size = ParseFontSize(ThemeString(config, "fontSize")) ?? config.FontSize ?? 16;
@@ -74,11 +102,27 @@ internal sealed class FlowchartMeasure
 			return;
 		}
 
-		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
-		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0);
+		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true, _markdownAutoWrap) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
+		var pictured = node.Shape is "icon" or "iconCircle" or "iconRounded" or "iconSquare" or "imageSquare";
+		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0)
+		{
+			ExtraLines = NodeHtmlLabels && EdgeHtmlLabels && lines.Count > 0 && BoxedSpan(node.Classes) ? 2 : 0,
+			Inset = NodeHtmlLabels && pictured && lines.Count > 0 ? PicturedLabelPadding : 0,
+			Images = NodeHtmlLabels ? FlowchartLabels.Images(node.Label) : default,
+		};
+		var vertex = node.Vertex;
+		var imageSide = vertex?.AssetHeight ?? vertex?.AssetWidth ?? DefaultImageSide;
 		var shape = NodeShapes.Find(node.Shape) ?? NodeShapes.Find("squareRect")!;
 		var geometry = shape.Draw(new ShapeNode
 		{
+			HasLabel = node.Label.Length > 0,
+			AssetWidth = vertex?.AssetWidth,
+			AssetHeight = vertex?.AssetHeight,
+			LabelPosition = vertex?.LabelPosition,
+			Constraint = vertex?.Constraint,
+			ImageNaturalWidth = imageSide,
+			ImageNaturalHeight = imageSide,
+			WrappingWidth = _configWrappingWidth,
 			Label = measurer,
 			Look = Look switch
 			{
@@ -102,7 +146,7 @@ internal sealed class FlowchartMeasure
 	public void Edge(FlowEdge edge)
 	{
 		var box = EdgeHtmlLabels
-			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true), Font, DefaultWrapWidth, 0, true)
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true, _markdownAutoWrap), Font, DefaultWrapWidth, 0, true)
 			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), Font, DefaultWrapWidth, 0, edge.Label.Length > 0);
 		edge.LabelBox = box;
 		edge.Width = box.Width;
@@ -122,8 +166,41 @@ internal sealed class FlowchartMeasure
 			return FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(node.Label, node.LabelType), Font, width, 0, false);
 		}
 
-		var lines = FlowchartLabelText.Lines(node.Label, node.LabelType, EdgeHtmlLabels);
+		var lines = FlowchartLabelText.Lines(node.Label, node.LabelType, EdgeHtmlLabels, _markdownAutoWrap);
 		return FlowchartLabelText.Measure(lines, Font, width, 0, EdgeHtmlLabels);
+	}
+
+	/// <summary>
+	/// Whether a class of the node gives its label's <c>span</c> a border, padding or margin. mermaid.js writes a
+	/// class's styles to <c>.class span</c> when <c>getEffectiveHtmlLabels</c> is true, and an inline box with one is
+	/// not empty, so the empty pieces of the span before and after the label's <c>p</c> each take a line.
+	/// </summary>
+	private bool BoxedSpan(string classes)
+	{
+		foreach (var range in classes.AsSpan().Split(' '))
+		{
+			if (_boxedClasses.Contains(classes[range]))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/// <summary>Whether the declaration sets a border, padding or margin that is not zero.</summary>
+	private static bool BoxesInline(string declaration)
+	{
+		var colon = declaration.IndexOf(':', StringComparison.Ordinal);
+		if (colon < 0)
+		{
+			return false;
+		}
+
+		var property = declaration.AsSpan(0, colon).Trim();
+		var value = declaration.AsSpan(colon + 1).Trim();
+		var boxing = property is "border" or "border-left" or "border-right" or "border-width" or "padding" or "padding-left" or "padding-right" or "margin" or "margin-left" or "margin-right";
+		return boxing && value.Length > 0 && value[0] != '0' && !value.StartsWith("none", StringComparison.OrdinalIgnoreCase);
 	}
 
 	private static bool Truthy(double? value) => value is { } number && number != 0 && !double.IsNaN(number);
@@ -161,14 +238,50 @@ internal sealed class FlowchartMeasure
 	{
 		public FlowchartLabelBox Box { get; private set; } = FlowchartLabelBox.Empty(measure.NodeHtmlLabels);
 
+		/// <summary>The empty lines the label's <c>div</c> holds besides its text.</summary>
+		public int ExtraLines { get; init; }
+
+		/// <summary>The padding of each side of the label's <c>p</c>.</summary>
+		public double Inset { get; init; }
+
+		/// <summary>The label's <c>img</c> tags.</summary>
+		public (int WithSource, int WithoutSource) Images { get; init; }
+
 		public ShapeLabel Measure(double? nodeWidth, bool ignoreMinWidth)
 		{
 			var width = Truthy(nodeWidth) ? nodeWidth!.Value : measure._wrappingWidth;
 			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth ? measure._minNodeWidth : 0;
 			Box = measure.NodeHtmlLabels
-				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true)
+				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true, Inset)
 				: FlowchartLabelText.MeasureSvg(lines, measure.Font, width, minWidth, false);
+			if (ExtraLines > 0)
+			{
+				Box = new FlowchartLabelBox(Box.Lines, Box.Width, Box.Height + (ExtraLines * Box.LineHeight), Box.LineHeight, Box.Html);
+			}
+
+			if (Images.WithSource + Images.WithoutSource > 0)
+			{
+				Box = WithImages(width, minWidth);
+			}
+
 			return Box.ToShapeLabel();
+		}
+
+		/// <summary>
+		/// The box with the label's images, which <c>configureLabelImages</c> makes blocks of their own. Without text, each
+		/// is <see cref="ImageSizeFactor"/> font sizes wide. With text, each is as wide as the label, which the image's own
+		/// width makes wrap. An image without a <c>src</c> shows nothing. STM takes each image to be square.
+		/// </summary>
+		private FlowchartLabelBox WithImages(double wrapWidth, double minWidth)
+		{
+			var shown = Images.WithSource;
+			if (Box.Lines.Count == 0)
+			{
+				return new FlowchartLabelBox([], Math.Max(measure._imageSize, minWidth), shown * measure._imageSize, Box.LineHeight, true);
+			}
+
+			var width = Math.Max(Box.Width, wrapWidth);
+			return new FlowchartLabelBox(Box.Lines, width, Box.Height + (shown * width), Box.LineHeight, true);
 		}
 	}
 }

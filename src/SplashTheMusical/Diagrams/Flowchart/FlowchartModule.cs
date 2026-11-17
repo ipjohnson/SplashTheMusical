@@ -54,7 +54,7 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 		ArgumentNullException.ThrowIfNull(context);
 		var config = context.Config;
 		var flowchart = config.Flowchart;
-		var measure = new FlowchartMeasure(config, context.SvgId, DiagramType, context.TextMeasurer);
+		var measure = new FlowchartMeasure(config, context.SvgId, DiagramType, context.TextMeasurer, document.Classes);
 		var (nodes, edges) = FlowchartData.Get(document, measure.Padding, flowchart.Curve);
 		var direction = Direction(document.Direction);
 		if (flowchart.InheritDir == true)

@@ -38,6 +38,33 @@ internal sealed class ShapeNode
 	/// <summary><c>flowchart.htmlLabels</c> as the triangle reads it, which is false when unset.</summary>
 	public bool FlowchartHtmlLabels { get; init; }
 
+	/// <summary>Whether <c>node.label</c> is a non-empty string, which gives an icon or image node room below its picture.</summary>
+	public bool HasLabel { get; init; }
+
+	/// <summary><c>node.assetWidth</c>, the <c>w</c> of an icon or image node.</summary>
+	public double? AssetWidth { get; init; }
+
+	/// <summary><c>node.assetHeight</c>, the <c>h</c> of an icon or image node.</summary>
+	public double? AssetHeight { get; init; }
+
+	/// <summary><c>node.pos</c>: <c>t</c> puts an icon or image node's label above the picture.</summary>
+	public string? LabelPosition { get; init; }
+
+	/// <summary><c>node.constraint</c>: <c>on</c> keeps an image's aspect ratio.</summary>
+	public string? Constraint { get; init; }
+
+	/// <summary>
+	/// The natural size of an image node's image, which mermaid.js reads once the image loads. STM does not load
+	/// images, so the flowchart gives the size of a square of the node's height.
+	/// </summary>
+	public double ImageNaturalWidth { get; init; }
+
+	/// <summary>The natural height of an image node's image.</summary>
+	public double ImageNaturalHeight { get; init; }
+
+	/// <summary><c>flowchart.wrappingWidth</c>, which the icon and image shapes set as the node's width.</summary>
+	public double? WrappingWidth { get; init; }
+
 	internal bool IsNeo => Look == ShapeLook.Neo;
 
 	internal bool IsHandDrawn => Look == ShapeLook.HandDrawn;

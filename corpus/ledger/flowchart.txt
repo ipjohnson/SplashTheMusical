@@ -1,8 +1,4 @@
 # The parity ledger of flowchart. corpus/ledger/README.md describes it.
-bug #149
-e2e-flowchart-nightly-check-dagre-54-dagre-handle-nested-subgraphs-with-outgoing-links	L3
-e2e-flowchart-nightly-check-dagre-wrapping-long-text-with-a-new-line	L3
-e2e-flowchart-nightly-check-dagre-wrapping-long-text-with-a-new-line-2	L3
 bug #150
 e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4	L3
 bug #152
@@ -13,8 +9,6 @@ docs-flowchart-005	L3
 docs-flowchart-006	L3
 docs-flowchart-007	L3
 docs-flowchart-022	L3
-docs-flowchart-069	L3
-docs-flowchart-070	L3
 docs-flowchart-071	L3
 docs-flowchart-073	L3
 docs-flowchart-074	L3
@@ -150,7 +144,6 @@ e2e-flowchart-nightly-check-shape-alias-15-all-lin-rect-lined-rectangle-lin-proc
 e2e-flowchart-nightly-check-shape-alias-16-all-fr-circ-framed-circle-stop-should-render-same-shape	L3
 e2e-flowchart-nightly-check-shape-alias-18-all-fork-join-should-render-same-shape	L3
 e2e-flowchart-nightly-check-shape-alias-19-all-bolt-com-link-lightning-bolt-should-render-same-shape	L3
-e2e-flowchart-nightly-check-shape-alias-21-all-delay-half-rounded-rectangle-should-render-same-shape	L3
 e2e-flowchart-nightly-check-shape-alias-22-all-h-cyl-das-horizontal-cylinder-should-render-same-shape	L3
 e2e-flowchart-nightly-check-shape-alias-23-all-lin-cyl-disk-lined-cylinder-should-render-same-shape	L3
 e2e-flowchart-nightly-check-shape-alias-25-all-div-rect-div-proc-divided-rectangle-divided-process-should-render-same-shape	L3
@@ -337,7 +330,6 @@ e2e-flowchart-visual-check-should-be-possible-to-use-syntax-to-add-labels-with-t
 e2e-flowchart-visual-check-should-be-possible-to-use-syntax-to-add-labels-with-trail-spaces-and-edge-link	L3
 e2e-flowchart-visual-check-should-collapse-nested-subgraphs-to-the-outermost-collapsed-ancestor	L3
 e2e-flowchart-visual-check-should-keep-the-true-entry-on-top-when-a-back-edge-feeds-it-79	L3
-e2e-flowchart-visual-check-should-not-auto-wrap-when-markdownautowrap-is-false	L3
 e2e-flowchart-visual-check-should-redirect-an-edge-targeting-a-deeply-nested-node-to-the-outermost-collapsed-subgraph	L3
 e2e-flowchart-visual-check-should-render-a-collapsed-subgraph-alongside-an-expanded-one	L3
 e2e-flowchart-visual-check-should-render-a-collapsed-subgraph-as-a-single-node-with-edges-redirected-to-it	L3
@@ -349,7 +341,6 @@ e2e-flowchart-visual-check-should-render-labeled-self-loops	L3
 e2e-flowchart-visual-check-should-render-multiple-aws-icons-with-rect-elements-in-a-flowchart	L3
 e2e-flowchart-visual-check-should-render-self-loops	L3
 e2e-flowchart-visual-check-should-render-self-loops-in-non-tb-directions	L3
-e2e-flowchart-visual-check-should-render-single-aws-icon-with-rect-elements-without-unintended-opacity	L3
 e2e-flowchart-visual-check-should-render-subgraphs-with-title-margins-and-edge-labels	L3
 e2e-flowchart-visual-check-should-render-subgraphs-with-title-margins-set-lr	L3
 e2e-flowchart-visual-check-should-render-subgraphs-with-title-margins-set-lr-and-htmllabels-set-to-false	L3
