@@ -59,8 +59,10 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 		else if (document is FlowchartDocument flowchart)
 		{
-			Flowchart(facts, flowchart, config);
-			canvas = FlowchartBoxes(boxes, flowchart, config);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			var layout = new FlowchartModule(flowchart.DiagramType).Layout(flowchart, context);
+			Flowchart(facts, flowchart, config, layout);
+			canvas = FlowchartBoxes(boxes, layout);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
@@ -70,11 +72,8 @@ public sealed class StmFactsProvider : IFactsProvider
 	/// <c>extract.mjs</c>'s flowchart boxes: every node, subgraph, edge and edge label of the module's layout, in the
 	/// viewBox's space, and the viewBox as the canvas.
 	/// </summary>
-	private static string FlowchartBoxes(List<string> boxes, FlowchartDocument document, MermaidConfig config)
+	private static string FlowchartBoxes(List<string> boxes, FlowchartLayout layout)
 	{
-		var module = new FlowchartModule(document.DiagramType);
-		var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
-		var layout = module.Layout(document, context);
 		foreach (var box in layout.Boxes())
 		{
 			boxes.Add(Box(box.Kind, box.Name, box.X, box.Y, box.Width, box.Height));
@@ -88,12 +87,16 @@ public sealed class StmFactsProvider : IFactsProvider
 	/// <c>extract.mjs</c>'s flowchart extractor over <c>FlowDB.getData</c>: the subgraphs as groups, from the last to the
 	/// first, then the nodes, leaving out what a collapsed subgraph hides and a node with a group's id, then the edges.
 	/// A node's label is drawn as HTML unless <c>htmlLabels</c> is false, and an edge's and a subgraph's unless
-	/// <c>htmlLabels</c>, or <c>flowchart.htmlLabels</c> when it is not set, is false.
+	/// <c>htmlLabels</c>, or <c>flowchart.htmlLabels</c> when it is not set, is false. The text of a node's and an
+	/// edge's SVG label is the layout's, which wraps it at the width it was measured at.
 	/// </summary>
-	private static void Flowchart(List<string> facts, FlowchartDocument document, MermaidConfig config)
+	private static void Flowchart(List<string> facts, FlowchartDocument document, MermaidConfig config, FlowchartLayout layout)
 	{
 		var htmlNodeLabels = config.HtmlLabels ?? true;
 		var htmlEdgeLabels = config.HtmlLabels ?? config.Flowchart.HtmlLabels ?? true;
+		var nodeLabels = new Dictionary<string, FlowchartLabelBox>(StringComparer.Ordinal);
+		var edgeLabels = new Dictionary<int, FlowchartLabelBox>();
+		SvgLabels(layout.Root, nodeLabels, edgeLabels);
 		var lookup = new Dictionary<string, FlowchartSubgraph>(StringComparer.Ordinal);
 		foreach (var subgraph in document.Subgraphs)
 		{
@@ -225,7 +228,9 @@ public sealed class StmFactsProvider : IFactsProvider
 				continue;
 			}
 
-			var label = UnlabelledShapes.Contains(node.Shape) ? "" : FlowchartLabels.Text(node.Label, node.LabelType, htmlNodeLabels, icons);
+			var label = UnlabelledShapes.Contains(node.Shape) ? ""
+				: !htmlNodeLabels && node.Node is { Icon: null, Image: null } && nodeLabels.TryGetValue(node.Id, out var box) ? SvgText(box)
+				: FlowchartLabels.Text(node.Label, node.LabelType, htmlNodeLabels, icons);
 			facts.Add(ConfigLines.Line("node", node.Id, label, node.Shape));
 			if (node.Node?.Icon is { } icon)
 			{
@@ -243,8 +248,9 @@ public sealed class StmFactsProvider : IFactsProvider
 			}
 		}
 
-		foreach (var edge in document.Edges)
+		for (var index = 0; index < document.Edges.Count; index++)
 		{
+			var edge = document.Edges[index];
 			var start = collapsedAncestor.GetValueOrDefault(edge.Start) ?? edge.Start;
 			var end = collapsedAncestor.GetValueOrDefault(edge.End) ?? edge.End;
 			if (start == end && (collapsedAncestor.ContainsKey(edge.Start) || collapsedAncestor.ContainsKey(edge.End)))
@@ -271,9 +277,37 @@ public sealed class StmFactsProvider : IFactsProvider
 				FlowchartStroke.Dotted => "dotted",
 				_ => "solid",
 			};
-			facts.Add(ConfigLines.Line("edge", start, end, startEnd, endEnd, line, FlowchartLabels.Text(edge.Label, edge.LabelType, htmlEdgeLabels)));
+			var edgeLabel = !htmlEdgeLabels && edgeLabels.TryGetValue(index, out var edgeBox) ? SvgText(edgeBox) : FlowchartLabels.Text(edge.Label, edge.LabelType, htmlEdgeLabels);
+			facts.Add(ConfigLines.Line("edge", start, end, startEnd, endEnd, line, edgeLabel));
 		}
 	}
+
+	/// <summary>The measured SVG labels of the drawing's nodes, by id, and of its edges, by their place in the document.</summary>
+	private static void SvgLabels(FlowchartDrawing drawing, Dictionary<string, FlowchartLabelBox> nodes, Dictionary<int, FlowchartLabelBox> edges)
+	{
+		foreach (var edge in drawing.Edges)
+		{
+			if (edge.Label is { Html: false } label && (label.HasText || !edges.ContainsKey(edge.Index)))
+			{
+				edges[edge.Index] = label;
+			}
+		}
+
+		foreach (var node in drawing.Nodes)
+		{
+			if (node.Subgraph is { } subgraph)
+			{
+				SvgLabels(subgraph, nodes, edges);
+			}
+			else if (node.Label is { Html: false } label && !node.IsGroup && !node.IsDummy)
+			{
+				nodes[node.Id] = label;
+			}
+		}
+	}
+
+	/// <summary>The text of a measured SVG label: its lines' words, which hold their spaces, run together.</summary>
+	private static string SvgText(FlowchartLabelBox box) => string.Concat(box.Lines.SelectMany(line => line.Select(run => run.Text)));
 
 	/// <summary>The short names of the shapes whose handlers in mermaid.js's <c>shapes</c> draw no label.</summary>
 	private static readonly HashSet<string> UnlabelledShapes =

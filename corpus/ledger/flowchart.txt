@@ -1,24 +1,12 @@
 # The parity ledger of flowchart. corpus/ledger/README.md describes it.
-bug #148
-e2e-flowchart-nightly-check-dagre-5-dagre-should-render-escaped-without-html-labels	L1
-e2e-flowchart-nightly-check-dagre-5-dagre-should-render-escaped-without-html-labels	L3
-e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2	L3
-e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2	L3
-e2e-flowchart-nightly-check-dagre-v2-dagre-16-render-stadium-shape	L3
-e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2	L3
-e2e-flowchart-nightly-check-handdrawn-should-render-escaped-without-html-labels	L1
-e2e-flowchart-nightly-check-v2-04-should-render-raw-strings-with-htmllabels-false	L1
-e2e-flowchart-nightly-check-v2-06-should-wrap-edge-labels-markdownautowrap-true-htmllabels-false	L1
-e2e-flowchart-pr-check-7-markdown-label-html-false	L1
-e2e-flowchart-visual-check-36-should-render-escaped-without-html-labels	L1
-e2e-flowchart-visual-check-5-should-render-escaped-without-html-labels	L1
-e2e-flowchart-visual-check-stadium-tall-labels	L1
 bug #149
 e2e-flowchart-nightly-check-dagre-54-dagre-handle-nested-subgraphs-with-outgoing-links	L3
 e2e-flowchart-nightly-check-dagre-wrapping-long-text-with-a-new-line	L3
 e2e-flowchart-nightly-check-dagre-wrapping-long-text-with-a-new-line-2	L3
 bug #150
 e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4	L3
+bug #152
+e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2	L3
 bug #25
 docs-flowchart-004	L3
 docs-flowchart-005	L3

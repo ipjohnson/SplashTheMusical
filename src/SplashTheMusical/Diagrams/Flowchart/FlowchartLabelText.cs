@@ -36,6 +36,12 @@ internal sealed class FlowchartLabelBox
 
 	public bool Html { get; }
 
+	/// <summary>The left of an SVG label's <c>getBBox</c>: its text is centred on x 0. It is 0 for an HTML label.</summary>
+	public double X { get; init; }
+
+	/// <summary>The top of an SVG label's <c>getBBox</c>, below the text's origin. It is 0 for an HTML label.</summary>
+	public double Y { get; init; }
+
 	/// <summary>Whether the label shows any text, which is when the oracle finds a box for it.</summary>
 	public bool HasText
 	{
@@ -56,7 +62,7 @@ internal sealed class FlowchartLabelBox
 		}
 	}
 
-	public ShapeLabel ToShapeLabel() => new(Width, Height, Html);
+	public ShapeLabel ToShapeLabel() => new(Width, Height, Html, X, Y);
 }
 
 /// <summary>The font labels are measured in: the theme's <c>fontFamily</c> and <c>fontSize</c>.</summary>
@@ -150,6 +156,170 @@ internal static class FlowchartLabelText
 
 		var svgLineHeight = font.Size * 1.1;
 		return new FlowchartLabelBox(wrapped, widest, svgLineHeight * wrapped.Count, svgLineHeight, false);
+	}
+
+	/// <summary>
+	/// <c>createText</c>'s SVG label, from the lines of words of <see cref="FlowchartLabels.SvgLines"/>, and the
+	/// <c>getBBox</c> mermaid.js measures for it. <c>createFormattedText</c> keeps a line no wider than
+	/// <paramref name="wrapWidth"/> and splits a wider one with <c>splitLineToFitWidth</c>. Each word is a <c>tspan</c>
+	/// after the first with a space before it, and Chromium rounds the width of each up to 1/64 px. The lines are 1.1em
+	/// apart, and a line's box is the font's ascent and descent, each rounded to a pixel. An edge label's background
+	/// (<paramref name="background"/>) adds 2 on each side, and <c>withMinWidth</c> widens a node's to
+	/// <paramref name="minWidth"/>. The box's lines hold the words with their spaces.
+	/// </summary>
+	public static FlowchartLabelBox MeasureSvg(List<List<LabelRun>> lines, FlowchartFont font, double wrapWidth, double minWidth, bool background)
+	{
+		var wrapped = new List<IReadOnlyList<LabelRun>>();
+		foreach (var line in lines)
+		{
+			if (SvgLineWidth(line, font) <= wrapWidth)
+			{
+				wrapped.Add(Spaced(line));
+			}
+			else
+			{
+				foreach (var part in SplitLineToFitWidth(line, font, wrapWidth))
+				{
+					wrapped.Add(Spaced(part));
+				}
+			}
+		}
+
+		var lineHeight = font.Size * 1.1;
+		var first = -1;
+		var last = -1;
+		var width = 0.0;
+		for (var i = 0; i < wrapped.Count; i++)
+		{
+			var lineWidth = 0.0;
+			foreach (var word in wrapped[i])
+			{
+				lineWidth += Math.Ceiling(font.Width(word) * LayoutUnit) / LayoutUnit;
+			}
+
+			if (wrapped[i].Count > 0)
+			{
+				first = first < 0 ? i : first;
+				last = i;
+			}
+
+			width = Math.Max(width, lineWidth);
+		}
+
+		// Line i's baseline is at (1.1i + 1)em: createTspan's y of (1.1i - 0.1)em and dy of 1.1em.
+		var height = 0.0;
+		var top = 0.0;
+		if (first >= 0)
+		{
+			var metrics = font.Metrics("");
+			var ascent = Math.Floor(metrics.Ascent + 0.5);
+			top = (first * lineHeight) + font.Size - ascent;
+			height = ((last - first) * lineHeight) + ascent + Math.Floor(metrics.Descent + 0.5);
+		}
+
+		if (background)
+		{
+			width += 4;
+			height += 4;
+			top -= 2;
+		}
+
+		width = Math.Max(width, minWidth);
+		return new FlowchartLabelBox(wrapped, width, height, lineHeight, false) { X = -width / 2, Y = top };
+	}
+
+	/// <summary>The words with a space before each but the first, as <c>updateTextContentAndStyles</c> writes them.</summary>
+	private static List<LabelRun> Spaced(List<LabelRun> words)
+	{
+		var spaced = new List<LabelRun>(words.Count);
+		for (var i = 0; i < words.Count; i++)
+		{
+			spaced.Add(i == 0 ? words[i] : words[i] with { Text = " " + words[i].Text });
+		}
+
+		return spaced;
+	}
+
+	/// <summary><c>computeWidthOfText</c>: the length of the line's words with a space before each but the first.</summary>
+	private static double SvgLineWidth(List<LabelRun> words, FlowchartFont font)
+	{
+		var width = 0.0;
+		for (var i = 0; i < words.Count; i++)
+		{
+			width += font.Width(i == 0 ? words[i] : words[i] with { Text = " " + words[i].Text });
+		}
+
+		return width;
+	}
+
+	/// <summary>
+	/// <c>splitLineToFitWidth</c>: the words go on a line while it fits, and a word too wide for a line of its own is
+	/// split between graphemes, with at least one on each line.
+	/// </summary>
+	private static List<List<LabelRun>> SplitLineToFitWidth(List<LabelRun> line, FlowchartFont font, double width)
+	{
+		var words = new LinkedList<LabelRun>(line);
+		var lines = new List<List<LabelRun>>();
+		var current = new List<LabelRun>();
+		while (words.First is { } node)
+		{
+			var next = node.Value;
+			words.RemoveFirst();
+			var candidate = new List<LabelRun>(current) { next };
+			if (SvgLineWidth(candidate, font) <= width)
+			{
+				current = candidate;
+				continue;
+			}
+
+			if (current.Count > 0)
+			{
+				lines.Add(current);
+				_ = words.AddFirst(next);
+			}
+			else if (next.Text.Length > 0)
+			{
+				var (fits, rest) = SplitWordToFitWidth(next, font, width);
+				lines.Add([fits]);
+				if (rest.Text.Length > 0)
+				{
+					_ = words.AddFirst(rest);
+				}
+			}
+
+			current = [];
+		}
+
+		if (current.Count > 0)
+		{
+			lines.Add(current);
+		}
+
+		return lines;
+	}
+
+	/// <summary><c>splitWordToFitWidth</c>: the longest start of the word that fits, at least one grapheme, and the rest.</summary>
+	private static (LabelRun Fits, LabelRun Remainder) SplitWordToFitWidth(LabelRun word, FlowchartFont font, double width)
+	{
+		var used = 0;
+		var enumerator = System.Globalization.StringInfo.GetTextElementEnumerator(word.Text);
+		while (enumerator.MoveNext())
+		{
+			var end = enumerator.ElementIndex + enumerator.GetTextElement().Length;
+			if (font.Width(word with { Text = word.Text[..end] }) > width)
+			{
+				break;
+			}
+
+			used = end;
+		}
+
+		if (used == 0)
+		{
+			used = System.Globalization.StringInfo.GetNextTextElementLength(word.Text);
+		}
+
+		return (word with { Text = word.Text[..used] }, word with { Text = word.Text[used..] });
 	}
 
 	public static double LineWidth(IReadOnlyList<LabelRun> line, FlowchartFont font)
@@ -353,7 +523,7 @@ internal static class FlowchartLabelText
 	/// The runs of a line of inline Markdown: a run of <c>*</c> or <c>_</c> with a matching run later in the line wraps
 	/// strong text when it is two or more long, and emphasized text when it is one or three.
 	/// </summary>
-	private static List<(string Text, bool Bold, bool Italic)> MarkdownRuns(string line)
+	public static List<(string Text, bool Bold, bool Italic)> MarkdownRuns(string line)
 	{
 		var runs = new List<(string, bool, bool)>();
 		var text = line.AsSpan();
