@@ -1573,13 +1573,13 @@ flowchart/e2e-flowchart-nightly-check-dagre-dagre-recursive-flow-with-dagre-keep
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-keep-the-entry-node-on-top-of-a-recursive-flow-nested-in-a-subgraph-with-dagre-keepentrynodeontop-true-7827	pass
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-keep-the-entry-node-on-top-when-a-flow-recurses-with-dagre-keepentrynodeontop-true-7827	pass
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-merge-edges-within-subgraphs-when-dagre-mergeedges-is-true-7659	pass
-flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2	fail
+flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2	pass
 flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label	pass
-flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2	fail
+flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2	pass
 flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings	pass
 flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs	pass
-flowchart/e2e-flowchart-nightly-check-dagre-v2-dagre-16-render-stadium-shape	fail
-flowchart/e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2	fail
+flowchart/e2e-flowchart-nightly-check-dagre-v2-dagre-16-render-stadium-shape	pass
+flowchart/e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2	pass
 flowchart/e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node	pass
 flowchart/e2e-flowchart-nightly-check-dagre-with-styling-and-classes-2	fail
 flowchart/e2e-flowchart-nightly-check-dagre-with-styling-and-classes	fail
