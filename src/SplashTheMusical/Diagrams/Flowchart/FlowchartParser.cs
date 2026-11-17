@@ -92,8 +92,10 @@ internal ref struct FlowchartParser
 			var lexError = FlowchartLexer.Lex(text.AsSpan(), ref tokens);
 			if (lexError >= 0)
 			{
-				// jison lexes as the parser asks, so a parse error before the bad text is reported first.
+				// jison lexes as the parser asks, so a parse error before the bad text is reported first. No rule accepts
+				// Error, and the End after it keeps a lookahead inside the tokens.
 				tokens.Add(new FlowchartToken(Kind.Error, lexError, 0));
+				tokens.Add(new FlowchartToken(Kind.End, text.Count, 0));
 			}
 
 			var document = new FlowchartDocument(context.DiagramType == "flowchart-elk" ? "flowchart-elk" : "flowchart-v2");
@@ -1055,7 +1057,6 @@ internal ref struct FlowchartParser
 		string? id;
 		string title;
 		FlowchartLabelType titleType;
-		var sameText = false;
 		if (Peek == Kind.Space)
 		{
 			_at++;
@@ -1084,10 +1085,9 @@ internal ref struct FlowchartParser
 			}
 			else
 			{
-				// The id and the title are one object, and a title with space in it gives no id.
-				sameText = true;
+				// The id and the title are one object, and /\s/ on the untrimmed title clears the id.
 				titleType = idType;
-				id = idText.ContainsAny(JsSpace) || ContainsJsSpace(idText) ? null : MakeString(TrimJs(idText));
+				id = ContainsJsSpace(idText) ? null : MakeString(TrimJs(idText));
 				title = MakeString(TrimJs(idText));
 			}
 		}
@@ -1124,7 +1124,7 @@ internal ref struct FlowchartParser
 		_at++;
 		var frame = _frames[_frames.Count - 1];
 		var direction = _frameDirections[_frameDirections.Count - 1];
-		var subgraphId = AddSubgraph(id, title, titleType, sameText, frame, direction);
+		var subgraphId = AddSubgraph(id, title, titleType, frame, direction);
 		_members.Truncate(frame);
 		_frames.Truncate(_frames.Count - 1);
 		_frameDirections.Truncate(_frameDirections.Count - 1);
@@ -1306,7 +1306,10 @@ internal ref struct FlowchartParser
 		var index = AddVertex(id);
 		if (index >= 0)
 		{
-			_nodes[index].Styles.AddRange(styles);
+			foreach (var style in styles)
+			{
+				_nodes[index].Styles.Add(Restored(style));
+			}
 		}
 	}
 
@@ -1344,42 +1347,32 @@ internal ref struct FlowchartParser
 			}
 		}
 
+		// The YAML reads the text with mermaid.js's entity placeholders in it, so the # of an entity is not a comment.
 		var data = _scratch.AsSpan();
+		var yaml = new PooledList<char>(data.Length + 4);
 		MermaidValue? value;
-		if (!multiline)
+		try
 		{
-			var yaml = new PooledList<char>(data.Length + 4);
-			try
+			if (multiline)
+			{
+				yaml.AddRange(data);
+				yaml.Add('\n');
+			}
+			else
 			{
 				yaml.AddRange("{\n");
-				FlowchartText.Restore(data, ref yaml);
+				yaml.AddRange(data);
 				yaml.AddRange("\n}");
-				if (!ReadYaml(yaml.AsSpan(), out value))
-				{
-					return false;
-				}
 			}
-			finally
+
+			if (!ReadYaml(yaml.AsSpan(), out value))
 			{
-				yaml.Dispose();
+				return false;
 			}
 		}
-		else
+		finally
 		{
-			var yaml = new PooledList<char>(data.Length + 2);
-			try
-			{
-				FlowchartText.Restore(data, ref yaml);
-				yaml.Add('\n');
-				if (!ReadYaml(yaml.AsSpan(), out value))
-				{
-					return false;
-				}
-			}
-			finally
-			{
-				yaml.Dispose();
-			}
+			yaml.Dispose();
 		}
 
 		value = WithoutInternalKeys(value);
@@ -1514,7 +1507,12 @@ internal ref struct FlowchartParser
 		return MermaidValue.FromEntries(merged);
 	}
 
-	private static void ApplyEdgeData(FlowchartEdge edge, MermaidValue? data)
+	/// <summary>A <c>@{ }</c> value as JavaScript's <c>String</c> gives it, with the entity placeholders turned back into the source's text.</summary>
+	private string DataString(MermaidValue value) => Restored(PreambleParser.ToJsString(value));
+
+	private string Restored(string text) => FlowchartText.HasPlaceholder(text) ? MakeString(text) : text;
+
+	private void ApplyEdgeData(FlowchartEdge edge, MermaidValue? data)
 	{
 		if (data is not { Kind: MermaidValueKind.Mapping })
 		{
@@ -1528,12 +1526,12 @@ internal ref struct FlowchartParser
 
 		if (data["animation"] is { } animation)
 		{
-			edge.Animation = PreambleParser.ToJsString(animation);
+			edge.Animation = DataString(animation);
 		}
 
 		if (data["curve"] is { } curve)
 		{
-			edge.Interpolate = PreambleParser.ToJsString(curve);
+			edge.Interpolate = DataString(curve);
 		}
 
 		if (data["step"] is { Kind: MermaidValueKind.Number } step && step.Number > 0 && step.Number == Math.Floor(step.Number) && step.Number <= int.MaxValue)
@@ -1568,7 +1566,7 @@ internal ref struct FlowchartParser
 		var label = data["label"];
 		if (label is not null && PreambleParser.IsTruthy(label))
 		{
-			node.Label = PreambleParser.ToJsString(label);
+			node.Label = DataString(label);
 			node.LabelType = data["labelType"] is { Kind: MermaidValueKind.String } labelType
 				? labelType.String switch
 				{
@@ -1582,7 +1580,7 @@ internal ref struct FlowchartParser
 		var hasLabel = label is { Kind: MermaidValueKind.String } && !TrimJs(label.String).IsEmpty;
 		if (data["icon"] is { } icon && PreambleParser.IsTruthy(icon))
 		{
-			node.Icon = PreambleParser.ToJsString(icon);
+			node.Icon = DataString(icon);
 			if (!hasLabel && ReferenceEquals(node.Label, id))
 			{
 				node.Label = "";
@@ -1591,17 +1589,17 @@ internal ref struct FlowchartParser
 
 		if (data["form"] is { } form && PreambleParser.IsTruthy(form))
 		{
-			node.Form = PreambleParser.ToJsString(form);
+			node.Form = DataString(form);
 		}
 
 		if (data["pos"] is { } position && PreambleParser.IsTruthy(position))
 		{
-			node.LabelPosition = PreambleParser.ToJsString(position);
+			node.LabelPosition = DataString(position);
 		}
 
 		if (data["img"] is { } image && PreambleParser.IsTruthy(image))
 		{
-			node.Image = PreambleParser.ToJsString(image);
+			node.Image = DataString(image);
 			if (!hasLabel && ReferenceEquals(node.Label, id))
 			{
 				node.Label = "";
@@ -1610,7 +1608,7 @@ internal ref struct FlowchartParser
 
 		if (data["constraint"] is { } constraint && PreambleParser.IsTruthy(constraint))
 		{
-			node.Constraint = PreambleParser.ToJsString(constraint);
+			node.Constraint = DataString(constraint);
 		}
 
 		if (data["w"] is { } width && PreambleParser.IsTruthy(width))
@@ -1747,7 +1745,12 @@ internal ref struct FlowchartParser
 		{
 			if (position == -1)
 			{
-				_document.DefaultEdgeStyles = [.. styles];
+				_document.DefaultEdgeStyles = new List<string>(styles.Length);
+				foreach (var style in styles)
+				{
+					_document.DefaultEdgeStyles.Add(Restored(style));
+				}
+
 				continue;
 			}
 
@@ -1757,10 +1760,10 @@ internal ref struct FlowchartParser
 			}
 
 			var edgeStyles = new List<string>(styles.Length + 1);
-			edgeStyles.AddRange(styles);
 			var hasFill = false;
 			foreach (var style in styles)
 			{
+				edgeStyles.Add(Restored(style));
 				hasFill |= style.StartsWith("fill", StringComparison.Ordinal);
 			}
 
@@ -1776,61 +1779,102 @@ internal ref struct FlowchartParser
 	}
 
 	/// <summary>
-	/// <c>addClass</c>: the styles joined with commas, <c>\,</c> kept as a comma, and the rest split at commas. A style
-	/// that mentions <c>color</c> is also a text style, with its first <c>fill</c> renamed <c>bgFill</c>.
+	/// <c>addClass</c>: <c>_style.join().replace(/\\,/g, '§§§').replace(/,/g, ';').replace(/§§§/g, ',').split(';')</c>.
+	/// The styles are joined with commas, and the text is split at each <c>,</c> and <c>;</c> that is not <c>\,</c>. A
+	/// style that mentions <c>color</c> is also a text style, with its first <c>fill</c> renamed <c>bgFill</c>.
 	/// </summary>
 	private void AddClass(string ids, ReadOnlySpan<string> styles)
 	{
-		foreach (var range in ids.AsSpan().Split(','))
+		var pieces = new PooledList<string>(styles.Length + 2);
+		try
 		{
-			var classId = ids.AsSpan()[range];
-			FlowchartClass target;
-			if (_classIds.TryGetIndex(classId, out var index))
+			SplitClassStyles(styles, ref pieces);
+			foreach (var range in ids.AsSpan().Split(','))
 			{
-				target = _classes[index];
-			}
-			else
-			{
-				target = new FlowchartClass(_classIds[_classIds.GetOrAdd(classId)]);
-				_classes.Add(target);
-			}
-
-			for (var i = 0; i < styles.Length; i++)
-			{
-				var style = styles[i];
-				var start = 0;
-				for (var at = 0; at <= style.Length; at++)
+				var classId = ids.AsSpan()[range];
+				FlowchartClass target;
+				if (_classIds.TryGetIndex(classId, out var index))
 				{
-					if (at < style.Length && style[at] != ',')
+					target = _classes[index];
+				}
+				else
+				{
+					target = new FlowchartClass(_classIds[_classIds.GetOrAdd(classId)]);
+					_classes.Add(target);
+				}
+
+				foreach (var style in pieces.AsSpan())
+				{
+					if (style.Contains("color", StringComparison.Ordinal))
 					{
-						continue;
+						var fill = style.IndexOf("fill", StringComparison.Ordinal);
+						target.TextStyles.Add(fill < 0 ? style : string.Concat(style.AsSpan(0, fill), "bgFill", style.AsSpan(fill + 4)));
 					}
 
-					if (at < style.Length && at > 0 && style[at - 1] == '\\')
-					{
-						continue;
-					}
-
-					AddClassStyle(target, style, start, at, i < styles.Length - 1 && at == style.Length && style.EndsWith('\\'));
-					start = at + 1;
+					target.Styles.Add(style);
 				}
 			}
 		}
+		finally
+		{
+			pieces.Dispose();
+		}
 	}
 
-	private static void AddClassStyle(FlowchartClass target, string style, int start, int end, bool joinsNext)
+	private void SplitClassStyles(ReadOnlySpan<string> styles, ref PooledList<string> pieces)
 	{
-		_ = joinsNext;
-		var text = start == 0 && end == style.Length && !style.Contains("\\,", StringComparison.Ordinal)
-			? style
-			: style[start..end].Replace("\\,", ",", StringComparison.Ordinal);
-		if (text.Contains("color", StringComparison.Ordinal))
+		const string Mark = "§§§";
+		var joined = new PooledList<char>(64);
+		var escaped = new PooledList<char>(64);
+		try
 		{
-			var fill = text.IndexOf("fill", StringComparison.Ordinal);
-			target.TextStyles.Add(fill < 0 ? text : string.Concat(text.AsSpan(0, fill), "bgFill", text.AsSpan(fill + 4)));
-		}
+			for (var i = 0; i < styles.Length; i++)
+			{
+				if (i > 0)
+				{
+					joined.Add(',');
+				}
 
-		target.Styles.Add(text);
+				joined.AddRange(styles[i]);
+			}
+
+			var rest = joined.AsSpan();
+			int found;
+			while ((found = rest.IndexOf("\\,", StringComparison.Ordinal)) >= 0)
+			{
+				escaped.AddRange(rest[..found]);
+				escaped.AddRange(Mark);
+				rest = rest[(found + 2)..];
+			}
+
+			escaped.AddRange(rest);
+			_scratch.Truncate(0);
+			var text = escaped.AsSpan();
+			for (var at = 0; at < text.Length; at++)
+			{
+				if (text[at..].StartsWith(Mark, StringComparison.Ordinal))
+				{
+					_scratch.Add(',');
+					at += Mark.Length - 1;
+				}
+				else if (text[at] is ',' or ';')
+				{
+					pieces.Add(MakeString(_scratch.AsSpan()));
+					_scratch.Truncate(0);
+				}
+				else
+				{
+					_scratch.Add(text[at]);
+				}
+			}
+
+			pieces.Add(MakeString(_scratch.AsSpan()));
+		}
+		finally
+		{
+			joined.Dispose();
+			escaped.Dispose();
+		}
 	}
 
 	/// <summary><c>setClass</c>: the class on each node, edge and subgraph the comma-separated ids name.</summary>
@@ -1897,9 +1941,8 @@ internal ref struct FlowchartParser
 	/// subgraph holds and without the subgraph itself. A subgraph whose id was used before adds its members to the
 	/// first.
 	/// </summary>
-	private string AddSubgraph(string? id, string title, FlowchartLabelType titleType, bool sameText, int frame, string? direction)
+	private string AddSubgraph(string? id, string title, FlowchartLabelType titleType, int frame, string? direction)
 	{
-		_ = sameText;
 		id ??= Intern(string.Create(CultureInfo.InvariantCulture, $"subGraph{_subgraphCount}"));
 		_subgraphCount++;
 		var idIndex = IdIndex(id);
@@ -2045,8 +2088,6 @@ internal ref struct FlowchartParser
 		return false;
 	}
 
-	private static ReadOnlySpan<char> JsSpace => " \t\n";
-
 	private static string NormalizeDirection(ReadOnlySpan<char> direction)
 	{
 		var text = TrimJs(direction);
@@ -2088,7 +2129,7 @@ internal ref struct FlowchartParser
 		var (bodyLine, _) = TextPosition.Of(source, bodyStart);
 		var sourceLine = line + bodyLine - 1;
 		string message;
-		if (token.Kind == Kind.End && token.Length < 0)
+		if (token.Kind == Kind.Error)
 		{
 			message = string.Create(CultureInfo.InvariantCulture, $"Lexical error on line {line}. Unrecognized text.\n{Excerpt(offset)}");
 		}

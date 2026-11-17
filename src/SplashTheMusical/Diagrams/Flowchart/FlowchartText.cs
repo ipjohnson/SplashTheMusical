@@ -23,6 +23,8 @@ internal static class FlowchartText
 	private const string NamedEntity = "ﬂ°";
 	private const string NumericEntity = "ﬂ°°";
 	private const string EntityEnd = "¶ß";
+	private const char LineSeparator = (char)0x2028;
+	private const char ParagraphSeparator = (char)0x2029;
 
 	/// <summary>Writes the text the lexer reads for <paramref name="body"/> to <paramref name="output"/>.</summary>
 	public static void Prepare(ReadOnlySpan<char> body, ref PooledList<char> output)
@@ -226,6 +228,10 @@ internal static class FlowchartText
 		}
 	}
 
+	/// <summary>
+	/// The rewrites run line by line, because JavaScript's <c>.</c> stops at a line feed and at U+2028 and U+2029.
+	/// <c>\r</c> is already folded into <c>\n</c>.
+	/// </summary>
 	private static void EncodeEntities(ReadOnlySpan<char> text, ref PooledList<char> output)
 	{
 		var line = new PooledList<char>(256);
@@ -233,7 +239,7 @@ internal static class FlowchartText
 		{
 			while (true)
 			{
-				var end = text.IndexOfAny('\n', ' ', ' ');
+				var end = text.IndexOfAny('\n', LineSeparator, ParagraphSeparator);
 				var segment = end < 0 ? text : text[..end];
 				line.Truncate(0);
 				line.AddRange(segment);

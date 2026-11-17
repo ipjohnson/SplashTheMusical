@@ -971,6 +971,103 @@ public readonly record struct SvgViewBox : IEquatable<SvgViewBox>
   public double X { get; init; }
   public double Y { get; init; }
 
+namespace SplashTheMusical.Diagrams.Flowchart
+public sealed class FlowchartClass
+  public FlowchartClass(string id)
+  public List<string> Styles { get; init; }
+  public List<string> TextStyles { get; init; }
+  public string Id { get; }
+public sealed class FlowchartDocument : MermaidDocument
+  public FlowchartDocument()
+  public FlowchartDocument(string diagramType)
+  public List<FlowchartClass> Classes { get; init; }
+  public List<FlowchartEdge> Edges { get; init; }
+  public List<FlowchartNode> Nodes { get; init; }
+  public List<FlowchartSubgraph> Subgraphs { get; init; }
+  public List<string>? DefaultEdgeStyles { get; set; }
+  public override string DiagramType { get; }
+  public string Direction { get; set; }
+  public string Keyword { get; set; }
+  public string? DefaultInterpolate { get; set; }
+public sealed class FlowchartEdge
+  public FlowchartEdge(string start, string end, string id)
+  public FlowchartEdgeType Type { get; set; }
+  public FlowchartLabelType LabelType { get; set; }
+  public FlowchartStroke Stroke { get; set; }
+  public List<string> Classes { get; init; }
+  public List<string>? Styles { get; set; }
+  public bool IsUserDefinedId { get; set; }
+  public bool? Animate { get; set; }
+  public int? Length { get; set; }
+  public int? Step { get; set; }
+  public string End { get; }
+  public string Id { get; }
+  public string Label { get; set; }
+  public string Start { get; }
+  public string? Animation { get; set; }
+  public string? Interpolate { get; set; }
+public enum FlowchartEdgeType : int
+  Circle = 2
+  Cross = 3
+  DoubleCircle = 5
+  DoubleCross = 6
+  DoublePoint = 4
+  Invalid = 7
+  Open = 0
+  Point = 1
+public enum FlowchartLabelType : int
+  Markdown = 2
+  String = 1
+  Text = 0
+public sealed class FlowchartLayout : DiagramLayout
+  public FlowchartLayout()
+public sealed class FlowchartModule : DiagramModule<FlowchartDocument, FlowchartLayout>
+  public FlowchartModule(string diagramType = "flowchart-v2")
+  public const string FlowchartElk = "flowchart-elk"
+  public const string FlowchartV2 = "flowchart-v2"
+  public override FlowchartDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override FlowchartLayout Layout(FlowchartDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(FlowchartDocument document, FlowchartLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(FlowchartDocument document, StringBuilder output)
+public sealed class FlowchartNode
+  public FlowchartLabelType LabelType { get; set; }
+  public FlowchartNode(string id)
+  public KeyValuePair<string, string>? Property { get; set; }
+  public List<string> Classes { get; init; }
+  public List<string> Styles { get; init; }
+  public double? AssetHeight { get; set; }
+  public double? AssetWidth { get; set; }
+  public string Id { get; }
+  public string Label { get; set; }
+  public string? Callback { get; set; }
+  public string? CallbackArguments { get; set; }
+  public string? Constraint { get; set; }
+  public string? Form { get; set; }
+  public string? Icon { get; set; }
+  public string? Image { get; set; }
+  public string? LabelPosition { get; set; }
+  public string? Link { get; set; }
+  public string? LinkTarget { get; set; }
+  public string? Shape { get; set; }
+  public string? Tooltip { get; set; }
+public enum FlowchartStroke : int
+  Dotted = 2
+  Invalid = 4
+  Invisible = 3
+  Normal = 0
+  Thick = 1
+public sealed class FlowchartSubgraph
+  public FlowchartLabelType LabelType { get; set; }
+  public FlowchartSubgraph(string id, string title)
+  public List<string> Classes { get; init; }
+  public List<string> Nodes { get; init; }
+  public MermaidValue? Metadata { get; set; }
+  public string Id { get; }
+  public string Title { get; set; }
+  public string? Direction { get; set; }
+
 namespace SplashTheMusical.Diagrams.Info
 public sealed class InfoDocument : MermaidDocument
   public InfoDocument()
