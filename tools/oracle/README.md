@@ -369,6 +369,39 @@ values show how Chromium serializes a declaration before stylis compiles it, suc
 | `class` | case, index, id, styles as JSON, text styles as JSON. One per class the diagram's `getClasses` returns |
 | `style` | case, the text of the `style` element |
 
+## Curves and markers
+
+`corpus/curves.txt` and `corpus/markers.txt` hold the edge paths and edge markers STM's ports in
+`src/SplashTheMusical.Layout` must reproduce. `mise run curves` writes both with `curves.mjs`, which runs in Node. It
+imports the d3-shape that `package-lock.json` resolves, and the chunk of mermaid's `mermaid.core` dist that defines
+`insertEdge` and `insertMarkers`. It calls those two with a selection that records the elements, attributes and styles
+they write, so the rounded curve, the marker offsets, the marker ids and the marker definitions come from mermaid's own
+code. `CurveTests` and `EdgeMarkerTests` in `tests/SplashTheMusical.Conformance` check every line.
+
+`curves.txt` starts with four comment lines, naming mermaid, d3-shape and d3-path. Each line that follows has
+tab-separated fields. Points are written as `x,y x,y`, with each number as JavaScript's `String()` writes it.
+
+| Line | Fields |
+|---|---|
+| `curve-name` | a `curve` value of the config schema, read from the `curve?:` type of mermaid's `config.type.d.ts`, in its order |
+| `curve` | curve, points, the path. d3-shape's `line()` with that curve, or `insertEdge` with no markers for `rounded`. Empty for no path |
+| `edge` | curve, start arrow type, end arrow type, points, the path `insertEdge` draws through the points with no node or cluster to cut them |
+| `math` | function, arguments, result. V8's `Math` on seeded inputs, with `-0` for negative zero |
+| `marker-offset` | arrow type, `markerOffsets` value |
+| `dash-offset` | arrow type, `markerOffsets2` value |
+
+The `math` lines cover the functions the rounded curve and the marker offsets print in full: `acos`, `atan`, `atan2`,
+`sin`, `cos` and `hypot`. V8 computes the trigonometric ones with fdlibm, which clang compiles with fused multiply-adds
+on arm64, so these lines are those of macOS arm64, where the oracle runs.
+
+`markers.txt` starts with two comment lines. The markers are drawn for the diagram id `ID` and the diagram type `TYPE`,
+with the theme variables the neo markers read set to their names in braces, such as `{strokeWidth}`.
+
+| Line | Fields |
+|---|---|
+| `element` | marker set, depth, tag, then one `name=value` field per attribute and one `style:name=value` field per style, attributes first. Each set's elements are written in the order `insertMarkers` appends them. Tabs, newlines and backslashes in a value are escaped as `\t`, `\n` and `\\` |
+| `arrow` | arrow type, look (`classic` or `neo`), the `marker-start` and the `marker-end` `insertEdge` sets for that type at both ends, empty when it sets none |
+
 ## Colour functions
 
 `corpus/colors.txt` holds calls of the khroma functions mermaid's themes call, `adjust`, `darken`, `lighten`, `invert`,

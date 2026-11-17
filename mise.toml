@@ -88,6 +88,13 @@ run = [
   "node tools/oracle/colors.mjs corpus/colors.txt",
 ]
 
+[tasks.curves]
+description = "Write corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers"
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  "node tools/oracle/curves.mjs corpus/curves.txt corpus/markers.txt",
+]
+
 [tasks.parity]
 description = "Write docs/parity-report.md from the committed oracle output and the ledgers"
 env = { STM_WRITE_REPORT = "1" }

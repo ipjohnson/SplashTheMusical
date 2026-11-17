@@ -145,6 +145,42 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
+## d3-shape and d3-path
+
+`src/SplashTheMusical.Layout/Paths/CurveWriter.cs` ports the line curves of [d3/d3-shape](https://github.com/d3/d3-shape)
+3.2.1, and `PathWriter.cs` the path writer of [d3/d3-path](https://github.com/d3/d3-path) 3.1.1.
+
+```
+Copyright 2010-2026 Mike Bostock (d3-shape)
+Copyright 2015-2026 Mike Bostock (d3-path)
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+```
+
+## fdlibm
+
+`src/SplashTheMusical.Layout/Paths/JsMath.cs` ports fdlibm's `acos`, `atan`, `atan2`, `sin`, `cos`, their kernels and
+the medium-size `rem_pio2`, as V8's `src/base/ieee754.cc` has them.
+
+```
+Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+Developed at SunSoft, a Sun Microsystems, Inc. business.
+Permission to use, copy, modify, and distribute this
+software is freely granted, provided that this notice
+is preserved.
+```
+
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
@@ -155,7 +191,10 @@ theme classes in `src/SplashTheMusical/Themes` are ports of the files of `packag
 `src/SplashTheMusical/Rendering/MermaidStylesheet.cs` is a port of `getStyles` in `packages/mermaid/src/styles.ts` and
 `createCssStyles` in `packages/mermaid/src/mermaidAPI.ts`. `src/SplashTheMusical/Text/MermaidText.cs` is a port of
 `hasBreaks` and `splitBreaks` in `packages/mermaid/src/diagrams/common/common.ts`, and of `wrapLabel`, `breakString` and
-`calculateTextDimensions` in `packages/mermaid/src/utils.ts`.
+`calculateTextDimensions` in `packages/mermaid/src/utils.ts`. In `src/SplashTheMusical.Layout`, `Paths/EdgePath.cs` and
+`Paths/RoundedPath.cs` port `insertEdge`'s path code in `packages/mermaid/src/rendering-util/rendering-elements/edges.js`
+and `getLineFunctionsWithOffset` in `packages/mermaid/src/utils/lineWithOffset.ts`, and `Markers` holds the markers of
+`rendering-elements/markers.js` and the marker ids of `rendering-elements/edgeMarker.ts`.
 
 ```
 The MIT License (MIT)

@@ -4,11 +4,12 @@
 #   tools/upstream/bump.sh <version>        mise run upstream-bump <version>
 #
 # It records the corpus and the conformance results, installs mermaid <version> in tools/oracle, re-extracts the
-# corpus from the tag mermaid@<version>, rewrites the oracle files, colors.txt, MermaidConfig, MermaidCompatibility,
-# docs/api/SplashTheMusical.txt and docs/parity-report.md, runs the conformance tests again, rewrites corpus/l4.txt, and
-# writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop it, because the report lists
-# them. The checkouts of both tags are kept in .artifacts/upstream/mermaid@<version>. Each is cloned from the repository
-# npm names for that version, because the 13 pre-releases are tagged in mermaid-js/mermaid-v13.
+# corpus from the tag mermaid@<version>, rewrites the oracle files, colors.txt, curves.txt, markers.txt, MermaidConfig,
+# MermaidCompatibility, docs/api/SplashTheMusical.txt and docs/parity-report.md, runs the conformance tests again,
+# rewrites corpus/l4.txt, and writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop
+# it, because the report lists them. The checkouts of both tags are kept in .artifacts/upstream/mermaid@<version>. Each
+# is cloned from the repository npm names for that version, because the 13 pre-releases are tagged in
+# mermaid-js/mermaid-v13.
 set -Eeuo pipefail
 trap 'echo "upstream-bump failed at tools/upstream/bump.sh:$LINENO: $BASH_COMMAND" >&2' ERR
 
@@ -55,6 +56,7 @@ npm install --prefix tools/oracle --save-exact --no-audit --no-fund "mermaid@$ve
 node tools/corpus/corpus.mjs "$work/mermaid@$version"
 node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg
 node tools/oracle/colors.mjs corpus/colors.txt
+node tools/oracle/curves.mjs corpus/curves.txt corpus/markers.txt
 dotnet run --project tools/SplashTheMusical.Upstream -- config "$work/mermaid@$version"
 dotnet run --project tools/SplashTheMusical.Upstream -- compatibility
 STM_WRITE_API=1 dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/PublicApiTests/*" >/dev/null

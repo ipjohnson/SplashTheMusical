@@ -218,8 +218,9 @@ The types in the `elk` row, swimlane and mindmap accept every registered layout 
 renderer and ignore `layout`.
 
 Of the 12.3.0 layout folders, `grid` is not registered and nothing imports it, so it needs no port. `ddlt` holds
-data-driven layout test tooling and is not a layout. Edge curves use ports of the d3 curve generators. Mermaid accepts
-all 19 of d3-shape's curves by name.
+data-driven layout test tooling and is not a layout. Edge curves use ports of the d3 curve generators. Mermaid's config
+schema accepts 13 `curve` values, 12 d3-shape curves and its own `rounded`, and `insertEdge` draws only those. ELK maps
+an edge's curve to any of d3-shape's 19 by name, but `insertEdge` ignores a curve that is not a name.
 
 The dagre port is tested alone. The oracle records the graph mermaid.js hands to dagre and the positions dagre
 returns, and a test replays each graph through the port.
@@ -539,7 +540,7 @@ package.
 | Port | Used by | Packages | Code lines |
 |---|---|---|---|
 | dagre and graphlib | `layout: dagre`, and flowchart's node intersection | dagre-d3-es 7.0.14 `src/dagre`, `src/graphlib` and `src/dagre-js/intersect` | 3,182 |
-| d3 curves | Edges of every graph type | d3-shape 3.2.0 curves, line, area and point, d3-path 3.1.0 | 1,157 |
+| d3 curves | Edges of every graph type | d3-shape 3.2.1 curves, line, area and point, d3-path 3.1.1 | 1,157 |
 | Colour functions | Themes | khroma 2.1.0, of which the themes use 10 functions | 931 at most |
 | cose-bilkent | mindmap | cytoscape-cose-bilkent 4.1.0, cose-base 1.0.3, layout-base 1.0.2 | 4,722 |
 | fcose | architecture | cytoscape-fcose 2.2.0, cose-base 2.2.0, layout-base 2.0.1 | 7,619 |

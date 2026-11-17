@@ -19,6 +19,7 @@ mise run ci       # what CI runs: build, test and the formatting check
 mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
 mise run oracle-test
 mise run colors            # rewrite corpus/colors.txt, khroma's results on mermaid's theme colours
+mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
@@ -103,6 +104,13 @@ Where dagre redoes work the port only updates, as in `NetworkSimplex.ExchangeEdg
 5,000 nodes inside `ResourceLimits.Default.RenderDeadline`, `DagreBenchmarks` measures 10, 100 and 1,000 nodes, and
 `dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagre-layout <nodes>` prints the time of each
 phase group and a checksum of the positions, so two builds can be compared on graphs the corpus lacks.
+
+`src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
+the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds
+as d3-path does. `EdgePath` adds `insertEdge`'s corner fix and marker offsets. `src/SplashTheMusical.Layout/Markers`
+holds mermaid's edge markers and marker ids. The rounded curve prints numbers in full, so `JsMath` reproduces V8's
+`Math` on macOS arm64, fdlibm with fused multiply-adds. `CurveTests` and `EdgeMarkerTests` compare them with
+`corpus/curves.txt` and `corpus/markers.txt`.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it
