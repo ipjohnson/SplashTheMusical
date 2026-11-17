@@ -79,6 +79,7 @@ internal static partial class ShapeDrawings
 		{
 			Width = bounds.Width,
 			Height = bounds.Height,
+			Bounds = bounds,
 			Elements = elements,
 			Label = label,
 			LabelTranslate = labelTranslate,

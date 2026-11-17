@@ -161,6 +161,9 @@ internal class Graph<TNode, TEdge>
 	/// <summary>The node's label. dagre never reads a node it has not labelled.</summary>
 	public TNode Node(int v) => _nodeLabels[v] ?? throw new InvalidOperationException($"Node '{_names[v]}' has no label.");
 
+	/// <summary>graphlib's <c>node(v)</c>: the node's label, or null for a node added without one or not in the graph.</summary>
+	public TNode? NodeOrDefault(int v) => HasNode(v) ? _nodeLabels[v] : null;
+
 	public void RemoveNode(int v)
 	{
 		if (!HasNode(v))

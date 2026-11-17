@@ -47,6 +47,16 @@ internal static class DagreLayout
 		return g;
 	}
 
+	/// <summary>dagre's <c>layout</c> without <c>updateInputGraph</c>: the laid out graph, whose nodes and edges have the input's names.</summary>
+	public static LayoutGraph Run(DagreInput input)
+	{
+		var g = BuildLayoutGraph(input);
+		RunRankPhases(g);
+		RunOrderPhases(g);
+		RunPositionPhases(g);
+		return g;
+	}
+
 	/// <summary>The phases of dagre's <c>runLayout</c> up to <c>normalize.run</c>, which leave each node its rank.</summary>
 	public static void RunRankPhases(LayoutGraph g)
 	{
