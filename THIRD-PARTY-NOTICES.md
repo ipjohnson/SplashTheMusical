@@ -195,6 +195,9 @@ theme classes in `src/SplashTheMusical/Themes` are ports of the files of `packag
 `Paths/RoundedPath.cs` port `insertEdge`'s path code in `packages/mermaid/src/rendering-util/rendering-elements/edges.js`
 and `getLineFunctionsWithOffset` in `packages/mermaid/src/utils/lineWithOffset.ts`, and `Markers` holds the markers of
 `rendering-elements/markers.js` and the marker ids of `rendering-elements/edgeMarker.ts`.
+`src/SplashTheMusical/Diagrams/Flowchart` ports the lexer and grammar of
+`packages/mermaid/src/diagrams/flowchart/parser/flow.jison`, the actions of `flowDb.ts`, the text rewrites of
+`flowParser.ts`, `packages/mermaid/src/preprocess.ts` and `encodeEntities` in `packages/mermaid/src/utils.ts`.
 
 ```
 The MIT License (MIT)

@@ -1460,7 +1460,7 @@ flowchart/docs-flowchart-066	fail
 flowchart/docs-flowchart-067	fail
 flowchart/docs-flowchart-068	fail
 flowchart/docs-flowchart-069	fail
-flowchart/docs-flowchart-070	n/a
+flowchart/docs-flowchart-070	fail
 flowchart/docs-flowchart-071	fail
 flowchart/docs-flowchart-072	fail
 flowchart/docs-flowchart-073	fail
@@ -1984,7 +1984,7 @@ flowchart/mermaider-flowchart-default-class	fail
 flowchart/mermaider-flowchart-edges	fail
 flowchart/mermaider-flowchart-expanded-shapes	fail
 flowchart/mermaider-flowchart-fa-label	fail
-flowchart/mermaider-flowchart-icon-image	n/a
+flowchart/mermaider-flowchart-icon-image	fail
 flowchart/mermaider-flowchart-invisible	fail
 flowchart/mermaider-flowchart-long-edges	fail
 flowchart/mermaider-flowchart-markdown	fail
@@ -2029,7 +2029,7 @@ flowchart/mermaider-spec-flowchart-style-directive	fail
 flowchart/mermaider-spec-flowchart-subgraph-direction-override	fail
 flowchart/parser-abnfdetector-005	fail
 flowchart/parser-agentflow-max-text-size-001	n/a
-flowchart/parser-colorthemegate-001	fail
+flowchart/parser-colorthemegate-001	pass
 flowchart/parser-erdiagram-005	n/a
 flowchart/parser-flow-001	fail
 flowchart/parser-flow-003	fail
@@ -2064,8 +2064,8 @@ flowchart/parser-flow-direction-001	fail
 flowchart/parser-flow-direction-002	fail
 flowchart/parser-flow-direction-003	fail
 flowchart/parser-flow-direction-004	fail
-flowchart/parser-flow-edges-001	fail
-flowchart/parser-flow-edges-002	fail
+flowchart/parser-flow-edges-001	pass
+flowchart/parser-flow-edges-002	pass
 flowchart/parser-flow-edges-003	fail
 flowchart/parser-flow-edges-004	fail
 flowchart/parser-flow-edges-005	fail
@@ -2164,11 +2164,11 @@ flowchart/parser-flow-style-003	fail
 flowchart/parser-flow-style-004	fail
 flowchart/parser-flow-style-005	fail
 flowchart/parser-flow-style-006	n/a
-flowchart/parser-flow-style-007	fail
-flowchart/parser-flow-style-008	fail
-flowchart/parser-flow-style-009	fail
-flowchart/parser-flow-style-010	fail
-flowchart/parser-flow-style-011	fail
+flowchart/parser-flow-style-007	pass
+flowchart/parser-flow-style-008	pass
+flowchart/parser-flow-style-009	pass
+flowchart/parser-flow-style-010	pass
+flowchart/parser-flow-style-011	pass
 flowchart/parser-flow-style-012	fail
 flowchart/parser-flow-style-013	n/a
 flowchart/parser-flow-style-014	fail

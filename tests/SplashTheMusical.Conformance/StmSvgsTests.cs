@@ -49,6 +49,6 @@ public class StmSvgsTests
 
 		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StmFactsProvider(), folder);
 
-		await Assert.That(written).IsEqualTo(7);
+		await Assert.That(written).IsEqualTo(881);
 	}
 }

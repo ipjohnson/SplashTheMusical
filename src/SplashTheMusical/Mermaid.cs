@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
+using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Diagrams.Info;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Parsing;
@@ -65,7 +66,8 @@ public sealed class Mermaid : IMermaid
 	}
 
 	/// <summary>The diagram modules of the core, one per diagram type STM supports.</summary>
-	public static IReadOnlyList<IDiagramModule> CoreModules { get; } = new ReadOnlyCollection<IDiagramModule>([new InfoModule()]);
+	public static IReadOnlyList<IDiagramModule> CoreModules { get; } = new ReadOnlyCollection<IDiagramModule>(
+		[new InfoModule(), new FlowchartModule(FlowchartModule.FlowchartV2), new FlowchartModule(FlowchartModule.FlowchartElk)]);
 
 	/// <summary>An instance with the default options, <see cref="CoreModules"/> and the default extension points.</summary>
 	public static Mermaid Default { get; } = new();
