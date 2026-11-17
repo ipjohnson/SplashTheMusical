@@ -6,8 +6,8 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// <summary>
 /// The flowchart of <c>packages/mermaid/src/diagrams/flowchart</c>, under the detector id <c>flowchart-v2</c> for
 /// <c>graph</c> and <c>flowchart</c>, or <c>flowchart-elk</c> for <c>flowchart-elk</c>. The parser is
-/// <see cref="FlowchartParser"/>. The writer, the layout and the renderer are not ported yet: the layout is empty and
-/// the renderer draws nothing.
+/// <see cref="FlowchartParser"/> and the writer <see cref="FlowchartWriter"/>. The layout and the renderer are not
+/// ported yet: the layout is empty and the renderer draws nothing.
 /// </summary>
 public sealed class FlowchartModule : DiagramModule<FlowchartDocument, FlowchartLayout>
 {
@@ -39,8 +39,7 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 		return FlowchartParser.Parse(source, context);
 	}
 
-	public override void Write(FlowchartDocument document, StringBuilder output) =>
-		throw new NotSupportedException("STM cannot write a flowchart yet.");
+	public override void Write(FlowchartDocument document, StringBuilder output) => FlowchartWriter.Write(document, output);
 
 	public override FlowchartLayout Layout(FlowchartDocument document, DiagramRenderContext context) => new();
 
