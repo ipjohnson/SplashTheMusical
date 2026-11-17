@@ -1553,7 +1553,7 @@ flowchart/e2e-flowchart-nightly-check-dagre-6088-3-should-handle-diamond-shape-i
 flowchart/e2e-flowchart-nightly-check-dagre-6088-4-should-handle-diamond-shape-intersections	pass
 flowchart/e2e-flowchart-nightly-check-dagre-6088-5-should-handle-diamond-shape-intersections	pass
 flowchart/e2e-flowchart-nightly-check-dagre-6088-6-should-handle-diamond-shape-intersections	pass
-flowchart/e2e-flowchart-nightly-check-dagre-61-dagre-fontawesome-icons-in-edge-labels	pass
+flowchart/e2e-flowchart-nightly-check-dagre-61-dagre-fontawesome-icons-in-edge-labels	fail
 flowchart/e2e-flowchart-nightly-check-dagre-62-dagre-should-render-styled-subgraphs	pass
 flowchart/e2e-flowchart-nightly-check-dagre-63-dagre-title-on-subgraphs-should-be-themeable	pass
 flowchart/e2e-flowchart-nightly-check-dagre-65-dagre-text-color-from-classes	fail
@@ -1573,8 +1573,8 @@ flowchart/e2e-flowchart-nightly-check-dagre-dagre-recursive-flow-with-dagre-keep
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-keep-the-entry-node-on-top-of-a-recursive-flow-nested-in-a-subgraph-with-dagre-keepentrynodeontop-true-7827	pass
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-keep-the-entry-node-on-top-when-a-flow-recurses-with-dagre-keepentrynodeontop-true-7827	pass
 flowchart/e2e-flowchart-nightly-check-dagre-dagre-should-merge-edges-within-subgraphs-when-dagre-mergeedges-is-true-7659	pass
-flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2	pass
-flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label	pass
+flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2	fail
+flowchart/e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label	fail
 flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2	pass
 flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings	pass
 flowchart/e2e-flowchart-nightly-check-dagre-sub-graphs	pass
@@ -1644,10 +1644,10 @@ flowchart/e2e-flowchart-nightly-check-icon-03-should-render-icons-from-fontaweso
 flowchart/e2e-flowchart-nightly-check-icon-04-should-render-registered-icons-on-theme-forest	fail
 flowchart/e2e-flowchart-nightly-check-icon-05-should-render-registered-icons-on-theme-dark	fail
 flowchart/e2e-flowchart-nightly-check-icon-06-should-render-icons-from-fontawesome-library-on-theme-base	fail
-flowchart/e2e-flowchart-nightly-check-icon-07-should-render-registered-icons-on-theme-base	pass
+flowchart/e2e-flowchart-nightly-check-icon-07-should-render-registered-icons-on-theme-base	fail
 flowchart/e2e-flowchart-nightly-check-icon-08-should-render-icons-from-fontawesome-library-on-theme-forest	fail
 flowchart/e2e-flowchart-nightly-check-icon-09-should-render-icons-from-fontawesome-library-on-theme-neutral	fail
-flowchart/e2e-flowchart-nightly-check-icon-10-should-render-registered-icons-on-theme-neutral	pass
+flowchart/e2e-flowchart-nightly-check-icon-10-should-render-registered-icons-on-theme-neutral	fail
 flowchart/e2e-flowchart-nightly-check-redux-color-subgraphs-01-should-render-subgraphs-subgraph-containers	fail
 flowchart/e2e-flowchart-nightly-check-redux-color-subgraphs-02-should-render-nested-subgraph-containers	fail
 flowchart/e2e-flowchart-nightly-check-redux-color-subgraphs-03-should-render-collapsed-subgraph-containers	fail
