@@ -18,12 +18,14 @@ public class DagrePositionReplayTests
 	public async Task PositionsMatchEveryRecordedLayout()
 	{
 		var layouts = 0;
+		var types = new SortedSet<string>(StringComparer.Ordinal);
 		var failures = new List<string>();
 		foreach (var file in DagreRecords.Files(CorpusCheck.CorpusRoot))
 		{
 			foreach (var record in DagreRecords.Read(Path.Combine(CorpusCheck.CorpusRoot, file)))
 			{
 				layouts++;
+				types.Add(file[..file.IndexOfAny(['/', '\\'])]);
 				var failure = Compare(record);
 				if (failure is not null)
 				{
@@ -43,7 +45,7 @@ public class DagrePositionReplayTests
 			report.Append(CultureInfo.InvariantCulture, $"and {failures.Count - MaxReported} more of {layouts} layouts\n");
 		}
 
-		await Assert.That(layouts).IsGreaterThan(0);
+		await Assert.That(string.Join(' ', types)).IsEqualTo("class er flowchart state");
 		await Assert.That(report.ToString()).IsEqualTo("");
 	}
 

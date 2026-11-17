@@ -26,6 +26,7 @@ mise run conformance-aot   # run the conformance tests under JIT and native AOT,
 mise run bench             # STM's stages on corpus/benchmarks/cases.txt, JIT and AOT, written to .artifacts/bench
 mise run bench-compare     # fail when a run is more than 10% worse than docs/benchmarks/stm.md
 mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the budget STM is held to
+mise run bench-dagre       # rewrite docs/benchmarks/dagre.md, the dagre port on graphs of 10, 100 and 1,000 nodes
 mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
 mise run upstream-generate <checkout>          # rewrite src/SplashTheMusical/Config/Generated from mermaid's config schema
 mise run upstream-generate <checkout> --check  # fail when the generated files differ from the committed ones
@@ -96,6 +97,12 @@ compares the size, the node boxes, including the clusters', the edge points and 
 of `DagreRankTests.cs`, `DagreOrderTests.cs` and `DagrePositionTests.cs` in `tests/SplashTheMusical.Tests/Layout` are
 dagre-d3-es's own output.
 `JsSort` reproduces V8's `Array.prototype.sort`, which dagre's `sort` relies on when a barycenter is NaN.
+Where dagre redoes work the port only updates, as in `NetworkSimplex.ExchangeEdges`, `FeasibleTree.TightTree` and
+`LayerGraph.NodesByRank`, the port gives the same values, and the replay tests hold it to that. `DagreGraphs` in
+`tests/SplashTheMusical.Benchmarks` makes seeded flowchart-shaped graphs of any size. `DagreLimitTests` lays out one of
+5,000 nodes inside `ResourceLimits.Default.RenderDeadline`, `DagreBenchmarks` measures 10, 100 and 1,000 nodes, and
+`dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagre-layout <nodes>` prints the time of each
+phase group and a checksum of the positions, so two builds can be compared on graphs the corpus lacks.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it

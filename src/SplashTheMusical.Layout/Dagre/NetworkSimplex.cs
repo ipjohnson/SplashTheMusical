@@ -3,8 +3,8 @@ namespace SplashTheMusical.Layout.Dagre;
 /// <summary>
 /// A port of dagre's <c>rank/network-simplex.js</c>, after Gansner et al., "A Technique for Drawing Directed Graphs".
 /// It starts from the longest path ranking, makes a feasible tight tree, and exchanges a tree edge with a negative cut
-/// value for a non-tree edge until no cut value is negative. Each exchange recomputes the low, lim and cut values of
-/// the whole tree, as dagre does.
+/// value for a non-tree edge until no cut value is negative. <see cref="ExchangeEdges"/> updates only the part of the
+/// tree an exchange changes, where dagre recomputes the whole tree, and gives the same values.
 /// </summary>
 internal static class NetworkSimplex
 {
@@ -13,7 +13,7 @@ internal static class NetworkSimplex
 		var g = Util.Simplify(input);
 		Rank.LongestPath(g);
 		var t = FeasibleTree.Find(g);
-		InitLowLimValues(t.Graph);
+		InitLowLimValues(t);
 		InitCutValues(t, g);
 
 		int e;
@@ -77,30 +77,35 @@ internal static class NetworkSimplex
 	}
 
 	/// <summary>Numbers the tree in postorder from its first node, which is the root.</summary>
-	public static void InitLowLimValues(Graph<TreeNode, TreeEdge> tree)
+	public static void InitLowLimValues(SpanningTree t)
 	{
-		var visited = new HashSet<int>();
+		t.ByLim = new int[t.Graph.NodeCount + 1];
+		Number(t, t.Graph.FirstNode(), -1, 1);
+	}
 
-		int Dfs(int nextLim, int v, int parent)
+	/// <summary>
+	/// dagre's <c>dfs</c> in <c>initLowLimValues</c>, from the node down, with lims from <paramref name="nextLim"/>. In a
+	/// tree the only neighbor dagre's search has visited is the parent.
+	/// </summary>
+	/// <returns>The next lim.</returns>
+	private static int Number(SpanningTree t, int v, int parent, int nextLim)
+	{
+		var tree = t.Graph;
+		var low = nextLim;
+		foreach (var w in tree.Neighbors(v))
 		{
-			var low = nextLim;
-			var label = tree.Node(v);
-			visited.Add(v);
-			foreach (var w in tree.Neighbors(v))
+			if (w != parent)
 			{
-				if (!visited.Contains(w))
-				{
-					nextLim = Dfs(nextLim, w, v);
-				}
+				nextLim = Number(t, w, v, nextLim);
 			}
-
-			label.Low = low;
-			label.Lim = nextLim++;
-			label.Parent = parent;
-			return nextLim;
 		}
 
-		Dfs(1, tree.FirstNode(), -1);
+		var label = tree.Node(v);
+		label.Low = low;
+		label.Lim = nextLim;
+		label.Parent = parent;
+		t.ByLim[nextLim] = v;
+		return nextLim + 1;
 	}
 
 	/// <summary>The first tree edge, in the tree's edge order, with a negative cut value, or -1.</summary>
@@ -161,39 +166,58 @@ internal static class NetworkSimplex
 		return best >= 0 ? best : throw new InvalidOperationException("dagre found no edge to enter the tree.");
 	}
 
+	/// <summary>
+	/// Swaps the tree edge <paramref name="e"/> for the graph edge <paramref name="f"/>. dagre then recomputes the low,
+	/// lim and cut values of the whole tree and every rank, which makes an exchange cost a pass over the tree. This gives
+	/// the same values with Gansner et al.'s update, which only visits what the exchange changes:
+	/// <list type="bullet">
+	/// <item>The ranks of the subtree <paramref name="e"/> cuts off shift by the slack of <paramref name="f"/>, which makes
+	/// it tight. dagre's preorder walk from the root gives the same ranks, as every tree edge is tight.</item>
+	/// <item>Only the subtree under the lowest common ancestor of <paramref name="f"/>'s ends changes shape, so only its
+	/// nodes get new low, lim and parent values. They keep the same range of lims.</item>
+	/// <item>A cut value depends only on which nodes the tree edge splits apart, so only the edges of the cycle
+	/// <paramref name="f"/> closes change. They are the paths from each end of <paramref name="e"/> up to the ancestor,
+	/// and each is recomputed after its children.</item>
+	/// </list>
+	/// </summary>
 	public static void ExchangeEdges(SpanningTree t, LayoutGraph g, int e, int f)
 	{
 		var tree = t.Graph;
-		tree.RemoveEdge(e);
-		tree.SetEdge(t.Of(g.EdgeV(f)), t.Of(g.EdgeW(f)), new TreeEdge());
-		InitLowLimValues(tree);
-		InitCutValues(t, g);
-		UpdateRanks(t, g);
-	}
-
-	/// <summary>
-	/// Sets each node's rank from its parent's in a preorder walk of the tree. dagre picks the root as the first tree node
-	/// whose graph label has no <c>parent</c>, and no label of the layout graph has one, so the root is the first node.
-	/// </summary>
-	private static void UpdateRanks(SpanningTree t, LayoutGraph g)
-	{
-		var tree = t.Graph;
-		var vs = Traverse(tree, [tree.FirstNode()], postorder: false);
-		for (var i = 1; i < vs.Count; i++)
+		var child = tree.EdgeV(e);
+		var parent = tree.EdgeW(e);
+		if (tree.Node(child).Parent != parent)
 		{
-			var v = vs[i];
-			var gv = tree.Node(v).G;
-			var gParent = tree.Node(tree.Node(v).Parent).G;
-			var flipped = false;
-			var edge = g.FindEdge(gv, gParent);
-			if (edge < 0)
-			{
-				edge = g.FindEdge(gParent, gv);
-				flipped = true;
-			}
+			(child, parent) = (parent, child);
+		}
 
-			var minlen = g.Edge(edge).MinLen;
-			g.Node(gv).Rank = g.Node(gParent).Rank + (flipped ? minlen : -minlen);
+		var childLabel = tree.Node(child);
+		var tail = t.Of(g.EdgeV(f));
+		var head = t.Of(g.EdgeW(f));
+		var slack = Rank.Slack(g, f);
+		var delta = IsDescendant(tree.Node(tail), childLabel) ? slack : -slack;
+		for (var lim = childLabel.Low; lim <= childLabel.Lim; lim++)
+		{
+			g.Node(tree.Node(t.ByLim[lim]).G).Rank += delta;
+		}
+
+		var ancestor = tail;
+		while (!IsDescendant(tree.Node(head), tree.Node(ancestor)))
+		{
+			ancestor = tree.Node(ancestor).Parent;
+		}
+
+		tree.RemoveEdge(e);
+		tree.SetEdge(tail, head, new TreeEdge());
+
+		var ancestorLabel = tree.Node(ancestor);
+		Number(t, ancestor, ancestorLabel.Parent, ancestorLabel.Low);
+
+		foreach (var start in (ReadOnlySpan<int>)[child, parent])
+		{
+			for (var v = start; v != ancestor; v = tree.Node(v).Parent)
+			{
+				tree.Edge(tree.FindEdge(v, tree.Node(v).Parent)).CutValue = CalcCutValue(t, g, v);
+			}
 		}
 	}
 

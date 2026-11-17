@@ -12,31 +12,48 @@ internal class Graph<TNode, TEdge>
 	/// <summary>The parent handle of a node at the top of a compound graph.</summary>
 	public const int Root = -1;
 
-	private readonly Dictionary<string, int> _nodeHandles = new(StringComparer.Ordinal);
-	private readonly Dictionary<(int V, int W, string? Name), int> _edgeHandles = [];
+	private readonly Dictionary<string, int> _nodeHandles;
+	private readonly Dictionary<(int V, int W, string? Name), int> _edgeHandles;
 	private readonly KeyOrder _nodes = new();
 	private readonly KeyOrder _edges = new();
 	private readonly KeyOrder? _rootChildren;
 
-	private string[] _names = new string[16];
-	private long[] _arrayIndexes = new long[16];
-	private TNode?[] _nodeLabels = new TNode?[16];
-	private int[] _parents = new int[16];
-	private KeyOrder?[] _children = new KeyOrder?[16];
-	private KeyOrder?[] _in = new KeyOrder?[16];
-	private KeyOrder?[] _out = new KeyOrder?[16];
-	private KeyOrder?[] _preds = new KeyOrder?[16];
-	private KeyOrder?[] _sucs = new KeyOrder?[16];
+	private string[] _names;
+	private long[] _arrayIndexes;
+	private TNode?[] _nodeLabels;
+	private int[] _parents;
+	private KeyOrder?[] _children;
+	private KeyOrder?[] _in;
+	private KeyOrder?[] _out;
+	private KeyOrder?[] _preds;
+	private KeyOrder?[] _sucs;
 	private int _nodeHandleCount;
 
-	private int[] _edgeV = new int[16];
-	private int[] _edgeW = new int[16];
-	private string?[] _edgeNames = new string?[16];
-	private TEdge?[] _edgeLabels = new TEdge?[16];
+	private int[] _edgeV;
+	private int[] _edgeW;
+	private string?[] _edgeNames;
+	private TEdge?[] _edgeLabels;
 	private int _edgeHandleCount;
 
-	public Graph(bool directed = true, bool multigraph = false, bool compound = false)
+	/// <param name="capacity">The number of nodes and of edges to make room for. The graph grows past it.</param>
+	public Graph(bool directed = true, bool multigraph = false, bool compound = false, int capacity = 16)
 	{
+		capacity = Math.Max(1, capacity);
+		_nodeHandles = new(capacity, StringComparer.Ordinal);
+		_edgeHandles = new(capacity);
+		_names = new string[capacity];
+		_arrayIndexes = new long[capacity];
+		_nodeLabels = new TNode?[capacity];
+		_parents = new int[capacity];
+		_children = new KeyOrder?[capacity];
+		_in = new KeyOrder?[capacity];
+		_out = new KeyOrder?[capacity];
+		_preds = new KeyOrder?[capacity];
+		_sucs = new KeyOrder?[capacity];
+		_edgeV = new int[capacity];
+		_edgeW = new int[capacity];
+		_edgeNames = new string?[capacity];
+		_edgeLabels = new TEdge?[capacity];
 		IsDirected = directed;
 		IsMultigraph = multigraph;
 		IsCompound = compound;
@@ -55,6 +72,9 @@ internal class Graph<TNode, TEdge>
 	public int NodeCount => _nodes.Count;
 
 	public int EdgeCount => _edges.Count;
+
+	/// <summary>One more than the largest node handle the graph has given out.</summary>
+	public int NodeHandleCount => _nodeHandleCount;
 
 	// Nodes
 
