@@ -8,7 +8,10 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// <c>\n</c> as a line break, each <c>fa:fa-name</c> becomes an icon, and the result is set as HTML. An SVG label is
 /// split into lines of words, and its tags are drawn as text.
 /// </summary>
-/// <remarks>An SVG label is not wrapped at <c>wrappingWidth</c>, which takes the renderer's text measurement.</remarks>
+/// <remarks>
+/// <see cref="Text"/> does not wrap an SVG label at <c>wrappingWidth</c>, which takes text measurement.
+/// <see cref="FlowchartLabelText.MeasureSvg"/> wraps the lines of <see cref="SvgLines"/>.
+/// </remarks>
 internal static class FlowchartLabels
 {
 	/// <summary>
@@ -17,14 +20,15 @@ internal static class FlowchartLabels
 	/// </summary>
 	public static string Text(string label, FlowchartLabelType type, bool htmlLabels = true, List<string>? icons = null)
 	{
+		if (!htmlLabels)
+		{
+			return SvgText(SvgLines(label, type));
+		}
+
 		var html = new StringBuilder(label.Length + 8);
 		WithHtmlEntities(label, html);
 		var text = html.ToString();
 		html.Clear();
-		if (!htmlLabels)
-		{
-			return SvgText(text, type);
-		}
 
 		if (type == FlowchartLabelType.Markdown)
 		{
@@ -42,24 +46,22 @@ internal static class FlowchartLabels
 	}
 
 	/// <summary>
-	/// <c>createText</c> without HTML labels: <c>nonMarkdownToLines</c> or <c>markdownToLines</c> splits the sanitized
-	/// label into lines of words, a word is a tag or a run without space or angle brackets, and each line's words are
-	/// joined with a space. <c>decodeHTMLEntities</c> then decodes only <c>&amp;amp;</c>, <c>&amp;lt;</c> and <c>&amp;gt;</c>.
+	/// <c>createText</c>'s structured text without HTML labels: <c>nonMarkdownToLines</c> or <c>markdownToLines</c>
+	/// splits the sanitized label into lines of words. Outside Markdown a word is a tag or a run without space or angle
+	/// brackets. In Markdown a word is a run between spaces, and the content of strong and emphasis has words of its own.
+	/// <c>decodeHTMLEntities</c> then decodes only <c>&amp;amp;</c>, <c>&amp;lt;</c> and <c>&amp;gt;</c> in each word.
+	/// <c>createText</c> draws each word as a <c>tspan</c> and puts a space before each but a line's first.
 	/// </summary>
-	private static string SvgText(string html, FlowchartLabelType type)
+	public static List<List<LabelRun>> SvgLines(string label, FlowchartLabelType type)
 	{
+		var html = new StringBuilder(label.Length + 8);
+		WithHtmlEntities(label, html);
+		var entities = html.ToString();
+		html.Clear();
+		Sanitize(entities, html);
+		var text = html.ToString();
 		var markdown = type == FlowchartLabelType.Markdown;
-		var sanitized = new StringBuilder(html.Length);
-		Sanitize(html, sanitized);
-		var text = sanitized.ToString();
-		if (markdown)
-		{
-			sanitized.Clear();
-			MarkdownText(text, sanitized, separateWords: true);
-			text = sanitized.ToString();
-		}
-
-		var output = new StringBuilder(text.Length);
+		var lines = new List<List<LabelRun>>();
 		var span = text.AsSpan();
 		var lineStart = 0;
 		for (var i = 0; i <= span.Length; i++)
@@ -74,21 +76,55 @@ internal static class FlowchartLabels
 				continue;
 			}
 
+			var words = new List<LabelRun>();
 			if (markdown)
 			{
-				SpaceSeparatedWords(span[lineStart..i], output);
+				foreach (var (run, bold, italic) in FlowchartLabelText.MarkdownRuns(span[lineStart..i].ToString()))
+				{
+					SpaceSeparatedWords(run, bold, italic, words);
+				}
+
+				// preprocessMarkdown joins runs of newlines, so Markdown has no empty lines.
+				if (words.Count > 0)
+				{
+					lines.Add(words);
+				}
 			}
 			else
 			{
-				Words(span[lineStart..i].Trim(), output);
+				Words(span[lineStart..i].Trim(), words);
+				lines.Add(words);
 			}
 
 			i += Math.Max(breakLength, 1) - 1;
 			lineStart = i + 1;
 		}
 
-		return output.Replace("&lt;", "<").Replace("&gt;", ">").Replace("&amp;", "&").ToString();
+		return lines;
 	}
+
+	/// <summary>The text of an SVG label's lines: each line's words joined with a space, and the lines run together.</summary>
+	public static string SvgText(IReadOnlyList<IReadOnlyList<LabelRun>> lines)
+	{
+		var output = new StringBuilder();
+		foreach (var line in lines)
+		{
+			for (var i = 0; i < line.Count; i++)
+			{
+				if (i > 0)
+				{
+					output.Append(' ');
+				}
+
+				output.Append(line[i].Text);
+			}
+		}
+
+		return output.ToString();
+	}
+
+	private static string DecodeSvgWord(ReadOnlySpan<char> word) =>
+		word.Contains('&') ? word.ToString().Replace("&lt;", "<").Replace("&gt;", ">").Replace("&amp;", "&") : word.ToString();
 
 	/// <summary>The length of the <c>&lt;br&gt;</c>, <c>&lt;br/&gt;</c> or <c>&lt;br /&gt;</c> at the start of <paramref name="text"/>, or 0.</summary>
 	private static int BreakTagLength(ReadOnlySpan<char> text)
@@ -112,10 +148,9 @@ internal static class FlowchartLabels
 		return at < text.Length && text[at] == '>' ? at + 1 : 0;
 	}
 
-	/// <summary>Writes the words of <c>/&lt;[^&gt;]+&gt;|[^\s&lt;&gt;]+/g</c> joined with a space.</summary>
-	private static void Words(ReadOnlySpan<char> line, StringBuilder output)
+	/// <summary>Adds the words of <c>/&lt;[^&gt;]+&gt;|[^\s&lt;&gt;]+/g</c>.</summary>
+	private static void Words(ReadOnlySpan<char> line, List<LabelRun> output)
 	{
-		var first = true;
 		var i = 0;
 		while (i < line.Length)
 		{
@@ -138,32 +173,19 @@ internal static class FlowchartLabels
 				}
 			}
 
-			if (!first)
-			{
-				output.Append(' ');
-			}
-
-			output.Append(line[i..end]);
-			first = false;
+			output.Add(new LabelRun(DecodeSvgWord(line[i..end]), false, false));
 			i = end;
 		}
 	}
 
-	/// <summary><c>markdownToLines</c>'s words: the text split at spaces, joined with a space.</summary>
-	private static void SpaceSeparatedWords(ReadOnlySpan<char> line, StringBuilder output)
+	/// <summary><c>markdownToLines</c>'s words: the text split at spaces.</summary>
+	private static void SpaceSeparatedWords(ReadOnlySpan<char> text, bool bold, bool italic, List<LabelRun> output)
 	{
-		var first = true;
-		foreach (var range in line.Split(' '))
+		foreach (var range in text.Split(' '))
 		{
-			if (range.End.GetOffset(line.Length) > range.Start.GetOffset(line.Length))
+			if (range.End.GetOffset(text.Length) > range.Start.GetOffset(text.Length))
 			{
-				if (!first)
-				{
-					output.Append(' ');
-				}
-
-				output.Append(line[range]);
-				first = false;
+				output.Add(new LabelRun(DecodeSvgWord(text[range]), bold, italic));
 			}
 		}
 	}
@@ -289,10 +311,9 @@ internal static class FlowchartLabels
 
 	/// <summary>
 	/// The text of <c>markdownToHTML</c>'s output for the inline Markdown of a label: the <c>*</c> and <c>_</c> markers of
-	/// strong and emphasis are taken off, and a newline is a line break. With <paramref name="separateWords"/>, the
-	/// content of strong and emphasis is its own word, as in <c>markdownToLines</c>.
+	/// strong and emphasis are taken off, and a newline is a line break.
 	/// </summary>
-	private static void MarkdownText(ReadOnlySpan<char> text, StringBuilder output, bool separateWords = false)
+	private static void MarkdownText(ReadOnlySpan<char> text, StringBuilder output)
 	{
 		for (var i = 0; i < text.Length; i++)
 		{
@@ -316,8 +337,7 @@ internal static class FlowchartLabels
 				var close = text[(i + run)..].IndexOf(text.Slice(i, run));
 				if (close > 0)
 				{
-					var separator = separateWords ? " " : "";
-					output.Append(separator).Append(text.Slice(i + run, close)).Append(separator);
+					output.Append(text.Slice(i + run, close));
 					i += run + close + run - 1;
 				}
 				else

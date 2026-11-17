@@ -74,7 +74,7 @@ internal sealed class FlowchartMeasure
 			return;
 		}
 
-		var lines = FlowchartLabelText.Lines(node.Label, node.LabelType, NodeHtmlLabels);
+		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
 		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0);
 		var shape = NodeShapes.Find(node.Shape) ?? NodeShapes.Find("squareRect")!;
 		var geometry = shape.Draw(new ShapeNode
@@ -98,21 +98,31 @@ internal sealed class FlowchartMeasure
 		node.Height = geometry.Height;
 	}
 
-	/// <summary>Sizes the edge's label, which dagre makes room for.</summary>
+	/// <summary>Sizes the edge's label, which dagre makes room for. An SVG label has a background 2 wider on each side.</summary>
 	public void Edge(FlowEdge edge)
 	{
-		var lines = FlowchartLabelText.Lines(edge.Label, edge.LabelType, EdgeHtmlLabels);
-		var box = FlowchartLabelText.Measure(lines, Font, DefaultWrapWidth, 0, EdgeHtmlLabels);
+		var box = EdgeHtmlLabels
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true), Font, DefaultWrapWidth, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), Font, DefaultWrapWidth, 0, edge.Label.Length > 0);
 		edge.LabelBox = box;
 		edge.Width = box.Width;
 		edge.Height = box.Height;
 	}
 
-	/// <summary>A subgraph's title: Markdown wraps at the frame's width, and other text does not wrap.</summary>
+	/// <summary>
+	/// A subgraph's title: Markdown goes through <c>createText</c> and wraps at the frame's width, and other text goes
+	/// through <c>createLabel</c> and does not wrap.
+	/// </summary>
 	public FlowchartLabelBox ClusterLabel(FlowNode node)
 	{
+		var markdown = node.LabelType == FlowchartLabelType.Markdown;
+		var width = markdown ? (Truthy(node.Width) ? node.Width : DefaultWrapWidth) : double.PositiveInfinity;
+		if (markdown && !EdgeHtmlLabels)
+		{
+			return FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(node.Label, node.LabelType), Font, width, 0, false);
+		}
+
 		var lines = FlowchartLabelText.Lines(node.Label, node.LabelType, EdgeHtmlLabels);
-		var width = node.LabelType == FlowchartLabelType.Markdown ? (Truthy(node.Width) ? node.Width : DefaultWrapWidth) : double.PositiveInfinity;
 		return FlowchartLabelText.Measure(lines, Font, width, 0, EdgeHtmlLabels);
 	}
 
@@ -155,7 +165,9 @@ internal sealed class FlowchartMeasure
 		{
 			var width = Truthy(nodeWidth) ? nodeWidth!.Value : measure._wrappingWidth;
 			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth ? measure._minNodeWidth : 0;
-			Box = FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, measure.NodeHtmlLabels);
+			Box = measure.NodeHtmlLabels
+				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true)
+				: FlowchartLabelText.MeasureSvg(lines, measure.Font, width, minWidth, false);
 			return Box.ToShapeLabel();
 		}
 	}

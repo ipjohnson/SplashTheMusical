@@ -16,38 +16,6 @@ e2e-katex-pr-check-3-should-render-a-katex-flowchart-containing-set-theory-symbo
 e2e-katex-pr-check-4-should-render-consecutive-latex-equations-separated-by-text
 bug #140
 e2e-flowchart-visual-check-65-3-bigger-font-from-classes
-bug #148
-docs-flowchart-004
-docs-flowchart-105
-e2e-flowchart-nightly-check-dagre-5-dagre-should-render-escaped-without-html-labels
-e2e-flowchart-nightly-check-dagre-new-line-in-node-and-formatted-edge-label-2
-e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2
-e2e-flowchart-nightly-check-dagre-v2-dagre-16-render-stadium-shape
-e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2
-e2e-flowchart-nightly-check-v2-04-should-render-raw-strings-with-htmllabels-false
-e2e-flowchart-nightly-check-v2-06-should-wrap-edge-labels-markdownautowrap-true-htmllabels-false
-e2e-flowchart-pr-check-7-markdown-label-html-false
-e2e-flowchart-visual-check-1-should-render-a-simple-flowchart-no-htmllabels
-e2e-flowchart-visual-check-15-should-render-a-simple-flowchart-with-comments
-e2e-flowchart-visual-check-16-render-stadium-shape
-e2e-flowchart-visual-check-17-render-multiline-texts
-e2e-flowchart-visual-check-20-multiple-nodes-and-chaining-in-one-statement
-e2e-flowchart-visual-check-21-render-cylindrical-shape
-e2e-flowchart-visual-check-24-keep-node-label-text-if-already-defined-when-a-style-is-applied
-e2e-flowchart-visual-check-27-set-text-color-of-nodes-and-links-according-to-styles-when-html-labels-are-disabled
-e2e-flowchart-visual-check-32-render-subroutine-shape
-e2e-flowchart-visual-check-36-should-render-escaped-without-html-labels
-e2e-flowchart-visual-check-5-should-render-escaped-without-html-labels
-e2e-flowchart-visual-check-5a-should-render-flowchart-with-edge-labels-centered-when-htmllabels-is-false
-e2e-flowchart-visual-check-5b-angle-brackets-should-be-work-without-html-labels
-e2e-flowchart-visual-check-new-line-in-node-and-formatted-edge-label-2
-e2e-flowchart-visual-check-should-render-labeled-self-loops
-e2e-flowchart-visual-check-should-render-self-loops-in-non-tb-directions
-e2e-flowchart-visual-check-should-render-subgraphs-with-title-margins-set-lr-and-htmllabels-set-to-false
-e2e-flowchart-visual-check-stadium-tall-labels
-e2e-flowchart-visual-check-sub-graphs-and-markdown-strings-2
-e2e-flowchart-visual-check-v2-16-render-stadium-shape
-e2e-flowchart-visual-check-with-formatting-in-a-node-2
 bug #149
 docs-flowchart-069
 docs-flowchart-070
@@ -112,3 +80,6 @@ parser-flowdb-004
 parser-flowdb-dropped-subgraph-members-001
 parser-flowdb-dropped-subgraph-members-007
 parser-subgraph-042
+bug #152
+e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2
+e2e-flowchart-visual-check-sub-graphs-and-markdown-strings-2
