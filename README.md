@@ -1,8 +1,8 @@
+<img src="artwork/01-poster-classic.png" alt="Splash The Musical: a mermaid holding C# above the New York skyline. An AgentDriver original." width="480" />
+
 # SplashTheMusical
 
 A mermaid rendering in C#.
-
-<img src="artwork/01-poster-classic.png" alt="Splash The Musical: a mermaid holding C# above the New York skyline. An AgentDriver original." width="480" />
 
 Parse, generate and render Mermaid diagrams in .NET.
 
