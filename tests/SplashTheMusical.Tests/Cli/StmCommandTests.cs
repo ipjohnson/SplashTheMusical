@@ -103,6 +103,10 @@ public class StmCommandTests
 	}
 
 	[Test]
+	public void FormatWritesAFlowchartInTheCanonicalForm() =>
+		Run("graph LR;A-->B[Next];", "format").Should().Be((0, "graph LR\n    A\n    B[Next]\n    A --> B\n", ""));
+
+	[Test]
 	public void VersionPrintsTheStmAndMermaidJsVersions()
 	{
 		var (code, stdout, _) = Run("", "version");

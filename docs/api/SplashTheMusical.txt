@@ -972,6 +972,15 @@ public readonly record struct SvgViewBox : IEquatable<SvgViewBox>
   public double Y { get; init; }
 
 namespace SplashTheMusical.Diagrams.Flowchart
+public sealed class FlowchartBuilder
+  public FlowchartBuilder Class(string id, string className)
+  public FlowchartBuilder ClassDef(string id, params IEnumerable<string> styles)
+  public FlowchartBuilder Edge(string start, string end, string? label = null, FlowchartEdgeType type = 1, FlowchartStroke stroke = 0, int length = 1, string? id = null)
+  public FlowchartBuilder Node(string id, string? label = null, string? shape = null)
+  public FlowchartBuilder Style(string id, params IEnumerable<string> styles)
+  public FlowchartBuilder Subgraph(string id, string title, params IEnumerable<string> members)
+  public FlowchartBuilder(string direction = "TB")
+  public FlowchartDocument Build()
 public sealed class FlowchartClass
   public FlowchartClass(string id)
   public List<string> Styles { get; init; }
