@@ -28,6 +28,9 @@ internal ref struct FlowchartParser
 {
 	private const string Clickable = "clickable";
 
+	// The stack buffer an edge or subgraph id is written into before it is interned. A longer edge id is made as a string.
+	private const int IdBufferLength = 128;
+
 	private readonly ReadOnlySpan<char> _text;
 	private readonly ReadOnlySpan<FlowchartToken> _tokens;
 	private readonly DiagramParseContext _context;
@@ -1254,12 +1257,20 @@ internal ref struct FlowchartParser
 		return index;
 	}
 
-	private string Intern(ReadOnlySpan<char> id)
+	private string Intern(scoped ReadOnlySpan<char> id)
 	{
 		var index = _ids.GetOrAdd(id);
 		IdIndex(_ids[index]);
 		return _ids[index];
 	}
+
+	private string Intern(string id)
+	{
+		var index = _ids.GetOrAdd(id);
+		IdIndex(_ids[index]);
+		return _ids[index];
+	}
+
 
 	private readonly int Lookup(ReadOnlySpan<char> id, ref readonly PooledList<int> table) =>
 		_ids.TryGetIndex(id, out var index) ? table[index] : -1;
@@ -1679,7 +1690,12 @@ internal ref struct FlowchartParser
 				}
 			}
 
-			edgeId = Intern(string.Create(CultureInfo.InvariantCulture, $"L_{start}_{end}_{(existing == 0 ? 0 : existing + 1)}"));
+			// The id is written into the buffer, so the table allocates it only when it is new.
+			var counter = existing == 0 ? 0 : existing + 1;
+			Span<char> buffer = stackalloc char[IdBufferLength];
+			edgeId = buffer.TryWrite(CultureInfo.InvariantCulture, $"L_{start}_{end}_{counter}", out var written)
+				? Intern(buffer[..written])
+				: Intern(string.Create(CultureInfo.InvariantCulture, $"L_{start}_{end}_{counter}"));
 		}
 
 		var flowEdge = new FlowchartEdge(start, end, edgeId)
@@ -1943,7 +1959,13 @@ internal ref struct FlowchartParser
 	/// </summary>
 	private string AddSubgraph(string? id, string title, FlowchartLabelType titleType, int frame, string? direction)
 	{
-		id ??= Intern(string.Create(CultureInfo.InvariantCulture, $"subGraph{_subgraphCount}"));
+		if (id is null)
+		{
+			Span<char> buffer = stackalloc char[IdBufferLength];
+			_ = buffer.TryWrite(CultureInfo.InvariantCulture, $"subGraph{_subgraphCount}", out var written);
+			id = Intern(buffer[..written]);
+		}
+
 		_subgraphCount++;
 		var idIndex = IdIndex(id);
 		var existing = _subgraphOf[idIndex];

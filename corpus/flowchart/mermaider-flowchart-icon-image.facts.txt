@@ -1,5 +1,15 @@
 # mermaid.js facts. Refresh with: mise run oracle
 # mermaid 12.3.0
 # source 46cc64b3320d4e6d
-accept	no
-# error The source image cannot be decoded.
+accept	yes
+config	look	"neo"
+config	theme	"redux-color"
+drawn	yes
+edge	A	B	none	arrow	solid
+edge	B	C	none	arrow	solid
+icon	A	fa:user
+image	C	https://mermaid.js.org/favicon.svg
+node	A	User	rect
+node	B	Plain	rect
+node	C	Logo	rect
+type	flowchart-v2

@@ -8,7 +8,7 @@ class	1760
 cynefin	124
 er	1404
 eventmodeling	132
-flowchart	2606
+flowchart	1752
 gantt	336
 git	904
 info	0

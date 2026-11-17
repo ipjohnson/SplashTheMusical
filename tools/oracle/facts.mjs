@@ -65,15 +65,19 @@ const fontFaces = [
 ]
 
 // The page is served from a made-up origin so that ES modules, such as the tidy-tree layout and its chunks, load from
-// node_modules, and the bundled font from fonts. Every other request is refused, so a run never reaches the network.
+// node_modules, and the bundled font from fonts. An image from another origin, such as an image node's `img`, is
+// answered with stubImage, so mermaid can decode it without the network. Every other request is refused, so a run never
+// reaches the network.
 const origin = 'http://oracle.invalid'
 const mime = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html', '.ttf': 'font/ttf' }
 const served = ['node_modules', 'fonts'].map(d => path.join(root, d) + path.sep)
+const stubImage = '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="#ccc"/></svg>'
 const browser = await puppeteer.launch({ headless: 'shell' })
 const page = await browser.newPage()
 await page.setRequestInterception(true)
 page.on('request', request => {
 	const url = new URL(request.url())
+	if (url.origin !== origin && request.resourceType() === 'image') return request.respond({ contentType: 'image/svg+xml', body: stubImage })
 	if (url.origin !== origin) return request.abort()
 	if (url.pathname === '/') return request.respond({ contentType: 'text/html', body: '<!doctype html><html><body></body></html>' })
 	const file = path.join(root, decodeURIComponent(url.pathname))
