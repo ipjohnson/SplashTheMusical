@@ -181,6 +181,36 @@ software is freely granted, provided that this notice
 is preserved.
 ```
 
+## roughjs
+
+`src/SplashTheMusical/Rendering/Shapes/RoughEllipse.cs` ports the roughness-0 ellipse of
+[rough-stuff/rough](https://github.com/rough-stuff/rough) 4.6.6, the version mermaid 12.3.0 uses: `generateEllipseParams`,
+`_computeEllipsePoints` and `_curve` in `bin/renderer.js`.
+
+```
+MIT License
+
+Copyright (c) 2019 Preet Shihn
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
@@ -198,6 +228,8 @@ and `getLineFunctionsWithOffset` in `packages/mermaid/src/utils/lineWithOffset.t
 `src/SplashTheMusical/Diagrams/Flowchart` ports the lexer and grammar of
 `packages/mermaid/src/diagrams/flowchart/parser/flow.jison`, the actions of `flowDb.ts`, the text rewrites of
 `flowParser.ts`, `packages/mermaid/src/preprocess.ts` and `encodeEntities` in `packages/mermaid/src/utils.ts`.
+`src/SplashTheMusical/Rendering/Shapes` ports the node shapes of `packages/mermaid/src/rendering-util/rendering-elements/shapes`
+and the intersections of `rendering-elements/intersect`.
 
 ```
 The MIT License (MIT)
