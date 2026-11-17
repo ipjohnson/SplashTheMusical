@@ -294,6 +294,9 @@ internal static class FlowchartWriter
 		// The click statements each node still needs, in the order they are written: true for a link, false for a callback.
 		private readonly Dictionary<FlowchartNode, Queue<bool>> _clicks = [];
 
+		// The subgraph statements written so far. The parser numbers a subgraph without an id by the statements that end before it.
+		private int _subgraphStatements;
+
 		public void Write()
 		{
 			foreach (var node in document.Nodes)
@@ -677,10 +680,30 @@ internal static class FlowchartWriter
 		private void WriteSubgraph(Block block, int depth, Dictionary<string, FlowchartSubgraph> continued)
 		{
 			var subgraph = block.Subgraph;
-			var line = Line(depth).Append("subgraph ").Append(subgraph.Id);
-			if (subgraph.LabelType != FlowchartLabelType.Text || subgraph.Title != subgraph.Id || !IsIdText(subgraph.Id))
+			var line = Line(depth).Append("subgraph ");
+			if (subgraph.LabelType == FlowchartLabelType.Text && subgraph.Title == subgraph.Id && IsIdText(subgraph.Id))
 			{
-				line.Append('[').Append(Encode(subgraph.Title, subgraph.LabelType, false) ?? subgraph.Title).Append(']');
+				line.Append(subgraph.Id);
+			}
+			else if (Encode(subgraph.Title, subgraph.LabelType, false) is { } encoded)
+			{
+				line.Append(subgraph.Id).Append('[').Append(encoded).Append(']');
+			}
+			else if (subgraph.Title.Length == 0 && subgraph.LabelType != FlowchartLabelType.Text)
+			{
+				// A blank string is trimmed to the empty title.
+				line.Append(subgraph.Id).Append(subgraph.LabelType == FlowchartLabelType.String ? "[\" \"]" : "[\"` `\"]");
+			}
+			else if (BareTitle(subgraph, _subgraphStatements + Count(block.Children)) is { } bare)
+			{
+				line.Append(bare);
+			}
+			else
+			{
+				throw new ArgumentException(
+					$"The title of the subgraph '{subgraph.Id}' cannot be written: a title brackets cannot hold is written as "
+					+ "`subgraph \"title\"`, whose id is the title or, when it holds a space, a generated subGraphN.",
+					nameof(document));
 			}
 
 			line.Append('\n');
@@ -720,6 +743,41 @@ internal static class FlowchartWriter
 			}
 
 			Line(depth).Append("end\n");
+			_subgraphStatements++;
+		}
+
+		/// <summary>The subgraph blocks in <paramref name="blocks"/> and in the blocks they hold.</summary>
+		private static int Count(List<Block> blocks)
+		{
+			var count = blocks.Count;
+			foreach (var block in blocks)
+			{
+				count += Count(block.Children);
+			}
+
+			return count;
+		}
+
+		/// <summary>
+		/// <c>subgraph "title"</c>, which reads as a text or markdown title, if it reads back as <paramref name="subgraph"/>:
+		/// its id is the title, or <c>subGraph</c> and the number of subgraph statements that end before it when the title
+		/// holds a space.
+		/// </summary>
+		private static string? BareTitle(FlowchartSubgraph subgraph, int statement)
+		{
+			var title = subgraph.Title;
+			var id = title.Any(PreambleParser.IsSpace) ? string.Create(CultureInfo.InvariantCulture, $"subGraph{statement}") : title;
+			if (subgraph.Id != id)
+			{
+				return null;
+			}
+
+			return subgraph.LabelType switch
+			{
+				FlowchartLabelType.Text when IsStringText(title) => "\"" + title + "\"",
+				FlowchartLabelType.Markdown when IsMarkdownText(title) => "\"`" + title + "`\"",
+				_ => null,
+			};
 		}
 
 		// ---- Classes and clicks ----

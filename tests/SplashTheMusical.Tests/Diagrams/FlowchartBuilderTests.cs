@@ -62,6 +62,28 @@ public class FlowchartBuilderTests
 	}
 
 	[Test]
+	[Arguments("")]
+	[Arguments("a ] b")]
+	public void ASubgraphTitleReadsBackFromTheWrittenText(string title)
+	{
+		var document = new FlowchartBuilder().Subgraph("S", title, "C").Build();
+
+		var written = Mermaid.Default.Write(document);
+
+		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering(), written);
+	}
+
+	[Test]
+	[Arguments(" padded")]
+	[Arguments("say \"hi\" [twice]")]
+	public void ASubgraphTitleNoHeaderHoldsIsRefused(string title)
+	{
+		var adding = () => new FlowchartBuilder().Subgraph("S", title, "C");
+
+		adding.Should().Throw<ArgumentException>().WithParameterName("title");
+	}
+
+	[Test]
 	public void ClassDefDerivesTheTextStyles() =>
 		new FlowchartBuilder().ClassDef("c", "fill:#f00,color:red", "stroke:#333").Build().Classes.Single().TextStyles
 			.Should().Equal("bgFill:#f00,color:red");

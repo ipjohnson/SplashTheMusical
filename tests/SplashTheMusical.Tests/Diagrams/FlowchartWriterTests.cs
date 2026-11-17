@@ -65,6 +65,10 @@ public class FlowchartWriterTests
 	[Arguments("flowchart TD\naccTitle: Title\naccDescr {\nOne\nTwo\n}\nsubgraph S\naccTitle: Title\nA\nend")]
 	[Arguments("flowchart TD\nclassDef c font-family:a\\,b,color:red,fill:#fff\nstyle A stroke:#333,stroke-width:2px")]
 	[Arguments("flowchart TD\nsubgraph S\nend\nsubgraph S\nsubgraph T\ny\nend\nend")]
+	[Arguments("flowchart TD\nsubgraph S[\" \"]\nC\nend")]
+	[Arguments("flowchart TD\nsubgraph S[\"`  `\"]\nC\nend")]
+	[Arguments("flowchart TD\nsubgraph \"a ] b\"\nC\nend")]
+	[Arguments("flowchart TD\nsubgraph S[ ]\nC\nend\nsubgraph \"a]b\"\nD\nend\nsubgraph \"`x ] y`\"\nsubgraph \"in ] ner\"\nE\nend\nend")]
 	[Arguments("---\ntitle: A title\n---\n%%{init: {\"theme\": \"dark\"}}%%\ngraph RL\nA")]
 	public void AWrittenFlowchartParsesBackTheSame(string source)
 	{
@@ -91,6 +95,24 @@ public class FlowchartWriterTests
 		var document = new FlowchartDocument { Nodes = { new FlowchartNode("A") { Label = "a ] b", Shape = "round" } } };
 
 		Mermaid.Default.Write(document).Should().Be("flowchart TB\n    A(\"_\")@{ label: \"a ] b\", labelType: text }\n");
+	}
+
+	[Test]
+	public void ATitleBracketsCannotHoldIsWrittenAsTheSubgraphsOnlyText()
+	{
+		var document = (FlowchartDocument)Mermaid.Default.Parse("flowchart TD\nsubgraph A\nend\nsubgraph \"a ] b\"\nC\nend");
+
+		Mermaid.Default.Write(document).Should().EndWith("    subgraph A\n    end\n    subgraph \"a ] b\"\n        C\n    end\n");
+	}
+
+	[Test]
+	public void ATitleNeitherBracketsNorTheBareFormReadBackIsRefused()
+	{
+		var document = new FlowchartDocument { Subgraphs = { new FlowchartSubgraph("S", "a ] b") } };
+
+		var writing = () => Mermaid.Default.Write(document);
+
+		writing.Should().Throw<ArgumentException>().WithMessage("*'S'*");
 	}
 
 	[Test]

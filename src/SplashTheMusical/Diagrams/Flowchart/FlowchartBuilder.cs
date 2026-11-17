@@ -131,13 +131,19 @@ public sealed class FlowchartBuilder
 	/// Adds a subgraph that holds <paramref name="members"/>: nodes, which are added when they do not exist, and
 	/// subgraphs added before it. As in mermaid.js, a node an earlier subgraph holds is left out. The subgraphs it holds
 	/// must be the last ones added that no subgraph holds yet, in the order they were added, because mermaid.js orders
-	/// subgraphs by where they end.
+	/// subgraphs by where they end. The title is empty, plain text or the text of a string.
 	/// </summary>
 	public FlowchartBuilder Subgraph(string id, string title, params IEnumerable<string> members)
 	{
 		ArgumentException.ThrowIfNullOrWhiteSpace(id);
 		ArgumentNullException.ThrowIfNull(title);
 		ArgumentNullException.ThrowIfNull(members);
+		if (title.Length > 0 && !FlowchartWriter.IsPlainText(title) && !FlowchartWriter.IsStringText(title))
+		{
+			// A subgraph has no @{ } label, so its title is one that brackets or a string hold.
+			throw new ArgumentException("A subgraph title is empty, plain text or the text of a string, which holds no '\"' or '\\r' and no space at either end.", nameof(title));
+		}
+
 		if (_subgraphs.ContainsKey(id))
 		{
 			throw new ArgumentException($"The subgraph '{id}' exists.", nameof(id));
