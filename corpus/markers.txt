@@ -1,0 +1,226 @@
+# mermaid's edge markers for the diagram id ID and type TYPE. Refresh with: mise run curves
+# mermaid 12.3.0
+element	extension	0	defs
+element	extension	1	marker	id=ID_TYPE-extensionStart	class=marker extension TYPE	refX=18	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	extension	2	path	d=M 1,7 L18,13 V 1 Z
+element	extension	0	defs
+element	extension	1	marker	id=ID_TYPE-extensionEnd	class=marker extension TYPE	refX=1	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	extension	2	path	d=M 1,1 V 13 L18,7 Z
+element	extension	0	marker	id=ID_TYPE-extensionStart-margin	class=marker extension TYPE	refX=18	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse	viewBox=0 0 20 14
+element	extension	1	polygon	points=10,7 18,13 18,1	style:stroke-width=2	style:stroke-dasharray=0
+element	extension	0	defs
+element	extension	1	marker	id=ID_TYPE-extensionEnd-margin	class=marker extension TYPE	refX=9	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse	viewBox=0 0 20 14
+element	extension	2	polygon	points=10,1 10,13 18,7	style:stroke-width=2	style:stroke-dasharray=0
+element	composition	0	defs
+element	composition	1	marker	id=ID_TYPE-compositionStart	class=marker composition TYPE	refX=18	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	composition	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z
+element	composition	0	defs
+element	composition	1	marker	id=ID_TYPE-compositionEnd	class=marker composition TYPE	refX=1	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	composition	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z
+element	composition	0	defs
+element	composition	1	marker	id=ID_TYPE-compositionStart-margin	class=marker composition TYPE	refX=15	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	composition	2	path	viewBox=0 0 15 15	d=M 18,7 L9,13 L1,7 L9,1 Z	style:stroke-width=0
+element	composition	0	defs
+element	composition	1	marker	id=ID_TYPE-compositionEnd-margin	class=marker composition TYPE	refX=3.5	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	composition	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z	style:stroke-width=0
+element	aggregation	0	defs
+element	aggregation	1	marker	id=ID_TYPE-aggregationStart	class=marker aggregation TYPE	refX=18	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	aggregation	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z
+element	aggregation	0	defs
+element	aggregation	1	marker	id=ID_TYPE-aggregationEnd	class=marker aggregation TYPE	refX=1	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	aggregation	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z
+element	aggregation	0	defs
+element	aggregation	1	marker	id=ID_TYPE-aggregationStart-margin	class=marker aggregation TYPE	refX=15	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	aggregation	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z	style:stroke-width=2
+element	aggregation	0	defs
+element	aggregation	1	marker	id=ID_TYPE-aggregationEnd-margin	class=marker aggregation TYPE	refX=1	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	aggregation	2	path	d=M 18,7 L9,13 L1,7 L9,1 Z	style:stroke-width=2
+element	dependency	0	defs
+element	dependency	1	marker	id=ID_TYPE-dependencyStart	class=marker dependency TYPE	refX=6	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	dependency	2	path	d=M 5,7 L9,13 L1,7 L9,1 Z
+element	dependency	0	defs
+element	dependency	1	marker	id=ID_TYPE-dependencyEnd	class=marker dependency TYPE	refX=13	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	dependency	2	path	d=M 18,7 L9,13 L14,7 L9,1 Z
+element	dependency	0	defs
+element	dependency	1	marker	id=ID_TYPE-dependencyStart-margin	class=marker dependency TYPE	refX=4	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	dependency	2	path	d=M 5,7 L9,13 L1,7 L9,1 Z	style:stroke-width=0
+element	dependency	0	defs
+element	dependency	1	marker	id=ID_TYPE-dependencyEnd-margin	class=marker dependency TYPE	refX=16	refY=7	markerWidth=20	markerHeight=28	orient=auto	markerUnits=userSpaceOnUse
+element	dependency	2	path	d=M 18,7 L9,13 L14,7 L9,1 Z	style:stroke-width=0
+element	lollipop	0	defs
+element	lollipop	1	marker	id=ID_TYPE-lollipopStart	class=marker lollipop TYPE	refX=13	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	lollipop	2	circle	fill=transparent	cx=7	cy=7	r=6
+element	lollipop	0	defs
+element	lollipop	1	marker	id=ID_TYPE-lollipopEnd	class=marker lollipop TYPE	refX=1	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	lollipop	2	circle	fill=transparent	cx=7	cy=7	r=6
+element	lollipop	0	defs
+element	lollipop	1	marker	id=ID_TYPE-lollipopStart-margin	class=marker lollipop TYPE	refX=13	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	lollipop	2	circle	fill=transparent	cx=7	cy=7	r=6	stroke-width=2
+element	lollipop	0	defs
+element	lollipop	1	marker	id=ID_TYPE-lollipopEnd-margin	class=marker lollipop TYPE	refX=1	refY=7	markerWidth=190	markerHeight=240	orient=auto	markerUnits=userSpaceOnUse
+element	lollipop	2	circle	fill=transparent	cx=7	cy=7	r=6	stroke-width=2
+element	point	0	marker	id=ID_TYPE-pointEnd	class=marker TYPE	viewBox=0 0 10 10	refX=5	refY=5	markerUnits=userSpaceOnUse	markerWidth=8	markerHeight=8	orient=auto
+element	point	1	path	d=M 0 0 L 10 5 L 0 10 z	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0
+element	point	0	marker	id=ID_TYPE-pointStart	class=marker TYPE	viewBox=0 0 10 10	refX=4.5	refY=5	markerUnits=userSpaceOnUse	markerWidth=8	markerHeight=8	orient=auto
+element	point	1	path	d=M 0 5 L 10 10 L 10 0 z	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0
+element	point	0	marker	id=ID_TYPE-pointEnd-margin	class=marker TYPE	viewBox=0 0 11.5 14	refX=11.5	refY=7	markerUnits=userSpaceOnUse	markerWidth=10.5	markerHeight=14	orient=auto
+element	point	1	path	d=M 0 0 L 11.5 7 L 0 14 z	class=arrowMarkerPath	style:stroke-width=0	style:stroke-dasharray=1,0
+element	point	0	marker	id=ID_TYPE-pointStart-margin	class=marker TYPE	viewBox=0 0 11.5 14	refX=1	refY=7	markerUnits=userSpaceOnUse	markerWidth=11.5	markerHeight=14	orient=auto
+element	point	1	polygon	points=0,7 11.5,14 11.5,0	class=arrowMarkerPath	style:stroke-width=0	style:stroke-dasharray=1,0
+element	circle	0	marker	id=ID_TYPE-circleEnd	class=marker TYPE	viewBox=0 0 10 10	refX=11	refY=5	markerUnits=userSpaceOnUse	markerWidth=11	markerHeight=11	orient=auto
+element	circle	1	circle	cx=5	cy=5	r=5	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0
+element	circle	0	marker	id=ID_TYPE-circleStart	class=marker TYPE	viewBox=0 0 10 10	refX=-1	refY=5	markerUnits=userSpaceOnUse	markerWidth=11	markerHeight=11	orient=auto
+element	circle	1	circle	cx=5	cy=5	r=5	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0
+element	circle	0	marker	id=ID_TYPE-circleEnd-margin	class=marker TYPE	viewBox=0 0 10 10	refY=5	refX=12.25	markerUnits=userSpaceOnUse	markerWidth=14	markerHeight=14	orient=auto
+element	circle	1	circle	cx=5	cy=5	r=5	class=arrowMarkerPath	style:stroke-width=0	style:stroke-dasharray=1,0
+element	circle	0	marker	id=ID_TYPE-circleStart-margin	class=marker TYPE	viewBox=0 0 10 10	refX=-2	refY=5	markerUnits=userSpaceOnUse	markerWidth=14	markerHeight=14	orient=auto
+element	circle	1	circle	cx=5	cy=5	r=5	class=arrowMarkerPath	style:stroke-width=0	style:stroke-dasharray=1,0
+element	cross	0	marker	id=ID_TYPE-crossEnd	class=marker cross TYPE	viewBox=0 0 11 11	refX=12	refY=5.2	markerUnits=userSpaceOnUse	markerWidth=11	markerHeight=11	orient=auto
+element	cross	1	path	d=M 1,1 l 9,9 M 10,1 l -9,9	class=arrowMarkerPath	style:stroke-width=2	style:stroke-dasharray=1,0
+element	cross	0	marker	id=ID_TYPE-crossStart	class=marker cross TYPE	viewBox=0 0 11 11	refX=-1	refY=5.2	markerUnits=userSpaceOnUse	markerWidth=11	markerHeight=11	orient=auto
+element	cross	1	path	d=M 1,1 l 9,9 M 10,1 l -9,9	class=arrowMarkerPath	style:stroke-width=2	style:stroke-dasharray=1,0
+element	cross	0	marker	id=ID_TYPE-crossEnd-margin	class=marker cross TYPE	viewBox=0 0 15 15	refX=17.7	refY=7.5	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=12	orient=auto
+element	cross	1	path	d=M 1,1 L 14,14 M 1,14 L 14,1	class=arrowMarkerPath	style:stroke-width=2.5
+element	cross	0	marker	id=ID_TYPE-crossStart-margin	class=marker cross TYPE	viewBox=0 0 15 15	refX=-3.5	refY=7.5	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=12	orient=auto
+element	cross	1	path	d=M 1,1 L 14,14 M 1,14 L 14,1	class=arrowMarkerPath	style:stroke-width=2.5	style:stroke-dasharray=1,0
+element	barb	0	defs
+element	barb	1	marker	id=ID_TYPE-barbEnd	refX=19	refY=7	markerWidth=20	markerHeight=14	markerUnits=userSpaceOnUse	orient=auto
+element	barb	2	path	d=M 19,7 L9,13 L14,7 L9,1 Z
+element	barbNeo	0	defs
+element	barbNeo	1	marker	id=ID_TYPE-barbEnd	refX=19	refY=7	markerWidth=20	markerHeight=14	markerUnits=strokeWidth	orient=auto
+element	barbNeo	2	path	d=M 19,7 L11,14 L13,7 L11,0 Z
+element	barbNeo	0	defs
+element	barbNeo	1	marker	id=ID_TYPE-barbEnd-margin	refX=17	refY=7	markerWidth=20	markerHeight=14	markerUnits=userSpaceOnUse	orient=auto
+element	barbNeo	2	path	d=M 19,7 L11,14 L13,7 L11,0 Z	fill={transitionColor}
+element	hierarchy	0	marker	id=ID_TYPE-hierarchyEnd	class=marker hierarchy TYPE	viewBox=0 0 12 10	refX=10	refY=5	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=10	orient=auto
+element	hierarchy	1	path	d=M 0 0 L 6 5 L 0 10 M 4 0 L 10 5 L 4 10	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0	style:fill=none
+element	hierarchy	0	marker	id=ID_TYPE-hierarchyStart	class=marker hierarchy TYPE	viewBox=0 0 12 10	refX=2	refY=5	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=10	orient=auto
+element	hierarchy	1	path	d=M 12 0 L 6 5 L 12 10 M 8 0 L 2 5 L 8 10	class=arrowMarkerPath	style:stroke-width=1	style:stroke-dasharray=1,0	style:fill=none
+element	only_one	0	defs
+element	only_one	1	marker	id=ID_TYPE-onlyOneStart	class=marker onlyOne TYPE	refX=0	refY=9	markerWidth=18	markerHeight=18	orient=auto
+element	only_one	2	path	d=M9,0 L9,18 M15,0 L15,18
+element	only_one	0	defs
+element	only_one	1	marker	id=ID_TYPE-onlyOneEnd	class=marker onlyOne TYPE	refX=18	refY=9	markerWidth=18	markerHeight=18	orient=auto
+element	only_one	2	path	d=M3,0 L3,18 M9,0 L9,18
+element	zero_or_one	0	defs
+element	zero_or_one	1	marker	id=ID_TYPE-zeroOrOneStart	class=marker zeroOrOne TYPE	refX=0	refY=9	markerWidth=30	markerHeight=18	orient=auto
+element	zero_or_one	2	circle	fill=white	cx=21	cy=9	r=6
+element	zero_or_one	2	path	d=M9,0 L9,18
+element	zero_or_one	0	defs
+element	zero_or_one	1	marker	id=ID_TYPE-zeroOrOneEnd	class=marker zeroOrOne TYPE	refX=30	refY=9	markerWidth=30	markerHeight=18	orient=auto
+element	zero_or_one	2	circle	fill=white	cx=9	cy=9	r=6
+element	zero_or_one	2	path	d=M21,0 L21,18
+element	one_or_more	0	defs
+element	one_or_more	1	marker	id=ID_TYPE-oneOrMoreStart	class=marker oneOrMore TYPE	refX=18	refY=18	markerWidth=45	markerHeight=36	orient=auto
+element	one_or_more	2	path	d=M0,18 Q 18,0 36,18 Q 18,36 0,18 M42,9 L42,27
+element	one_or_more	0	defs
+element	one_or_more	1	marker	id=ID_TYPE-oneOrMoreEnd	class=marker oneOrMore TYPE	refX=27	refY=18	markerWidth=45	markerHeight=36	orient=auto
+element	one_or_more	2	path	d=M3,9 L3,27 M9,18 Q27,0 45,18 Q27,36 9,18
+element	zero_or_more	0	defs
+element	zero_or_more	1	marker	id=ID_TYPE-zeroOrMoreStart	class=marker zeroOrMore TYPE	refX=18	refY=18	markerWidth=57	markerHeight=36	orient=auto
+element	zero_or_more	2	circle	fill=white	cx=48	cy=18	r=6
+element	zero_or_more	2	path	d=M0,18 Q18,0 36,18 Q18,36 0,18
+element	zero_or_more	0	defs
+element	zero_or_more	1	marker	id=ID_TYPE-zeroOrMoreEnd	class=marker zeroOrMore TYPE	refX=39	refY=18	markerWidth=57	markerHeight=36	orient=auto
+element	zero_or_more	2	circle	fill=white	cx=9	cy=18	r=6
+element	zero_or_more	2	path	d=M21,18 Q39,0 57,18 Q39,36 21,18
+element	only_one_neo	0	defs
+element	only_one_neo	1	marker	id=ID_TYPE-onlyOneStart	class=marker onlyOne TYPE	refX=0	refY=9	markerWidth=18	markerHeight=18	orient=auto	markerUnits=userSpaceOnUse
+element	only_one_neo	2	path	d=M9,0 L9,18 M15,0 L15,18	stroke-width={strokeWidth}
+element	only_one_neo	0	defs
+element	only_one_neo	1	marker	id=ID_TYPE-onlyOneEnd	class=marker onlyOne TYPE	refX=18	refY=9	markerWidth=18	markerHeight=18	orient=auto	markerUnits=userSpaceOnUse
+element	only_one_neo	2	path	d=M3,0 L3,18 M9,0 L9,18	stroke-width={strokeWidth}
+element	zero_or_one_neo	0	defs
+element	zero_or_one_neo	1	marker	id=ID_TYPE-zeroOrOneStart	class=marker zeroOrOne TYPE	refX=0	refY=9	markerWidth=30	markerHeight=18	orient=auto	markerUnits=userSpaceOnUse
+element	zero_or_one_neo	2	circle	fill={mainBkg}	cx=21	cy=9	stroke-width={strokeWidth}	r=6
+element	zero_or_one_neo	2	path	d=M9,0 L9,18	stroke-width={strokeWidth}
+element	zero_or_one_neo	0	defs
+element	zero_or_one_neo	1	marker	id=ID_TYPE-zeroOrOneEnd	class=marker zeroOrOne TYPE	refX=30	refY=9	markerWidth=30	markerHeight=18	markerUnits=userSpaceOnUse	orient=auto
+element	zero_or_one_neo	2	circle	fill={mainBkg}	cx=9	cy=9	stroke-width={strokeWidth}	r=6
+element	zero_or_one_neo	2	path	d=M21,0 L21,18	stroke-width={strokeWidth}
+element	one_or_more_neo	0	defs
+element	one_or_more_neo	1	marker	id=ID_TYPE-oneOrMoreStart	class=marker oneOrMore TYPE	refX=18	refY=18	markerWidth=45	markerHeight=36	orient=auto	markerUnits=userSpaceOnUse
+element	one_or_more_neo	2	path	d=M0,18 Q 18,0 36,18 Q 18,36 0,18 M42,9 L42,27	stroke-width={strokeWidth}
+element	one_or_more_neo	0	defs
+element	one_or_more_neo	1	marker	id=ID_TYPE-oneOrMoreEnd	class=marker oneOrMore TYPE	refX=27	refY=18	markerWidth=45	markerHeight=36	markerUnits=userSpaceOnUse	orient=auto
+element	one_or_more_neo	2	path	d=M3,9 L3,27 M9,18 Q27,0 45,18 Q27,36 9,18	stroke-width={strokeWidth}
+element	zero_or_more_neo	0	defs
+element	zero_or_more_neo	1	marker	id=ID_TYPE-zeroOrMoreStart	class=marker zeroOrMore TYPE	refX=18	refY=18	markerWidth=57	markerHeight=36	markerUnits=userSpaceOnUse	orient=auto
+element	zero_or_more_neo	2	circle	fill={mainBkg}	cx=45.5	cy=18	r=6	stroke-width={strokeWidth}
+element	zero_or_more_neo	2	path	d=M0,18 Q18,0 36,18 Q18,36 0,18	stroke-width={strokeWidth}
+element	zero_or_more_neo	0	defs
+element	zero_or_more_neo	1	marker	id=ID_TYPE-zeroOrMoreEnd	class=marker zeroOrMore TYPE	refX=39	refY=18	markerWidth=57	markerHeight=36	orient=auto	markerUnits=userSpaceOnUse
+element	zero_or_more_neo	2	circle	fill={mainBkg}	cx=11	cy=18	r=6	stroke-width={strokeWidth}
+element	zero_or_more_neo	2	path	d=M21,18 Q39,0 57,18 Q39,36 21,18	stroke-width={strokeWidth}
+element	requirement_arrow	0	defs
+element	requirement_arrow	1	marker	id=ID_TYPE-requirement_arrowEnd	refX=20	refY=10	markerWidth=20	markerHeight=20	orient=auto
+element	requirement_arrow	2	path	d=M0,0\n      L20,10\n      M20,10\n      L0,20
+element	requirement_contains	0	defs
+element	requirement_contains	1	marker	id=ID_TYPE-requirement_containsStart	refX=0	refY=10	markerWidth=20	markerHeight=20	orient=auto
+element	requirement_contains	2	g
+element	requirement_contains	3	circle	cx=10	cy=10	r=9	fill=none
+element	requirement_contains	3	line	x1=1	x2=19	y1=10	y2=10
+element	requirement_contains	3	line	y1=1	y2=19	x1=10	x2=10
+element	requirement_arrow_neo	0	defs
+element	requirement_arrow_neo	1	marker	id=ID_TYPE-requirement_arrowEnd	refX=20	refY=10	markerWidth=20	markerHeight=20	orient=auto	markerUnits=userSpaceOnUse	stroke-width={strokeWidth}	viewBox=0 0 25 20
+element	requirement_arrow_neo	2	path	d=M0,0\n      L20,10\n      M20,10\n      L0,20	stroke-linejoin=miter
+element	requirement_contains_neo	0	defs
+element	requirement_contains_neo	1	marker	id=ID_TYPE-requirement_containsStart	refX=0	refY=10	markerWidth=20	markerHeight=20	orient=auto	markerUnits=userSpaceOnUse
+element	requirement_contains_neo	2	g
+element	requirement_contains_neo	3	circle	cx=10	cy=10	r=9	fill=none	stroke-width={strokeWidth}
+element	requirement_contains_neo	3	line	x1=1	x2=19	y1=10	y2=10	stroke-width={strokeWidth}
+element	requirement_contains_neo	3	line	y1=1	y2=19	x1=10	x2=10	stroke-width={strokeWidth}
+element	openArrow	0	marker	id=ID_TYPE-openArrowEnd	class=marker openArrow TYPE	viewBox=0 0 12 12	refX=11	refY=6	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=12	orient=auto
+element	openArrow	1	path	d=M 1 1 L 11 6 L 1 11	class=arrowMarkerPath	style:stroke-width=1.4	style:stroke-linecap=round	style:stroke-linejoin=round	style:stroke-dasharray=1,0	style:fill=none
+element	openArrow	0	marker	id=ID_TYPE-openArrowStart	class=marker openArrow TYPE	viewBox=0 0 12 12	refX=1	refY=6	markerUnits=userSpaceOnUse	markerWidth=12	markerHeight=12	orient=auto
+element	openArrow	1	path	d=M 11 1 L 1 6 L 11 11	class=arrowMarkerPath	style:stroke-width=1.4	style:stroke-linecap=round	style:stroke-linejoin=round	style:stroke-dasharray=1,0	style:fill=none
+element	hollowCircle	0	marker	id=ID_TYPE-hollowCircleStart	class=marker hollowCircle TYPE	viewBox=0 0 10 10	refX=0	refY=5	markerUnits=userSpaceOnUse	markerWidth=10	markerHeight=10	orient=auto
+element	hollowCircle	1	circle	cx=5	cy=5	r=3.6	class=arrowMarkerPath	style:stroke-width=1.4	style:stroke-dasharray=1,0	style:fill=none
+element	hollowCircle	0	marker	id=ID_TYPE-hollowCircleEnd	class=marker hollowCircle TYPE	viewBox=0 0 10 10	refX=10	refY=5	markerUnits=userSpaceOnUse	markerWidth=10	markerHeight=10	orient=auto
+element	hollowCircle	1	circle	cx=5	cy=5	r=3.6	class=arrowMarkerPath	style:stroke-width=1.4	style:stroke-dasharray=1,0	style:fill=none
+arrow	arrow_cross	classic	url(#ID_TYPE-crossStart)	url(#ID_TYPE-crossEnd)
+arrow	arrow_cross	neo	url(#ID_TYPE-crossStart-margin)	url(#ID_TYPE-crossEnd-margin)
+arrow	arrow_point	classic	url(#ID_TYPE-pointStart)	url(#ID_TYPE-pointEnd)
+arrow	arrow_point	neo	url(#ID_TYPE-pointStart-margin)	url(#ID_TYPE-pointEnd-margin)
+arrow	arrow_barb	classic	url(#ID_TYPE-barbStart)	url(#ID_TYPE-barbEnd)
+arrow	arrow_barb	neo	url(#ID_TYPE-barbStart-margin)	url(#ID_TYPE-barbEnd-margin)
+arrow	arrow_barb_neo	classic	url(#ID_TYPE-barbStart)	url(#ID_TYPE-barbEnd)
+arrow	arrow_barb_neo	neo	url(#ID_TYPE-barbStart-margin)	url(#ID_TYPE-barbEnd-margin)
+arrow	arrow_circle	classic	url(#ID_TYPE-circleStart)	url(#ID_TYPE-circleEnd)
+arrow	arrow_circle	neo	url(#ID_TYPE-circleStart-margin)	url(#ID_TYPE-circleEnd-margin)
+arrow	arrow_open_head	classic	url(#ID_TYPE-openArrowStart)	url(#ID_TYPE-openArrowEnd)
+arrow	arrow_open_head	neo	url(#ID_TYPE-openArrowStart)	url(#ID_TYPE-openArrowEnd)
+arrow	arrow_hollow_circle	classic	url(#ID_TYPE-hollowCircleStart)	url(#ID_TYPE-hollowCircleEnd)
+arrow	arrow_hollow_circle	neo	url(#ID_TYPE-hollowCircleStart)	url(#ID_TYPE-hollowCircleEnd)
+arrow	arrow_hierarchy	classic	url(#ID_TYPE-hierarchyStart)	url(#ID_TYPE-hierarchyEnd)
+arrow	arrow_hierarchy	neo	url(#ID_TYPE-hierarchyStart)	url(#ID_TYPE-hierarchyEnd)
+arrow	aggregation	classic	url(#ID_TYPE-aggregationStart)	url(#ID_TYPE-aggregationEnd)
+arrow	aggregation	neo	url(#ID_TYPE-aggregationStart-margin)	url(#ID_TYPE-aggregationEnd-margin)
+arrow	extension	classic	url(#ID_TYPE-extensionStart)	url(#ID_TYPE-extensionEnd)
+arrow	extension	neo	url(#ID_TYPE-extensionStart-margin)	url(#ID_TYPE-extensionEnd-margin)
+arrow	composition	classic	url(#ID_TYPE-compositionStart)	url(#ID_TYPE-compositionEnd)
+arrow	composition	neo	url(#ID_TYPE-compositionStart-margin)	url(#ID_TYPE-compositionEnd-margin)
+arrow	dependency	classic	url(#ID_TYPE-dependencyStart)	url(#ID_TYPE-dependencyEnd)
+arrow	dependency	neo	url(#ID_TYPE-dependencyStart-margin)	url(#ID_TYPE-dependencyEnd-margin)
+arrow	lollipop	classic	url(#ID_TYPE-lollipopStart)	url(#ID_TYPE-lollipopEnd)
+arrow	lollipop	neo	url(#ID_TYPE-lollipopStart-margin)	url(#ID_TYPE-lollipopEnd-margin)
+arrow	only_one	classic	url(#ID_TYPE-onlyOneStart)	url(#ID_TYPE-onlyOneEnd)
+arrow	only_one	neo	url(#ID_TYPE-onlyOneStart)	url(#ID_TYPE-onlyOneEnd)
+arrow	zero_or_one	classic	url(#ID_TYPE-zeroOrOneStart)	url(#ID_TYPE-zeroOrOneEnd)
+arrow	zero_or_one	neo	url(#ID_TYPE-zeroOrOneStart)	url(#ID_TYPE-zeroOrOneEnd)
+arrow	one_or_more	classic	url(#ID_TYPE-oneOrMoreStart)	url(#ID_TYPE-oneOrMoreEnd)
+arrow	one_or_more	neo	url(#ID_TYPE-oneOrMoreStart)	url(#ID_TYPE-oneOrMoreEnd)
+arrow	zero_or_more	classic	url(#ID_TYPE-zeroOrMoreStart)	url(#ID_TYPE-zeroOrMoreEnd)
+arrow	zero_or_more	neo	url(#ID_TYPE-zeroOrMoreStart)	url(#ID_TYPE-zeroOrMoreEnd)
+arrow	requirement_arrow	classic	url(#ID_TYPE-requirement_arrowStart)	url(#ID_TYPE-requirement_arrowEnd)
+arrow	requirement_arrow	neo	url(#ID_TYPE-requirement_arrowStart)	url(#ID_TYPE-requirement_arrowEnd)
+arrow	requirement_contains	classic	url(#ID_TYPE-requirement_containsStart)	url(#ID_TYPE-requirement_containsEnd)
+arrow	requirement_contains	neo	url(#ID_TYPE-requirement_containsStart)	url(#ID_TYPE-requirement_containsEnd)
+arrow	none	classic		
+arrow	none	neo		
+arrow	arrow_open	classic		
+arrow	arrow_open	neo		
+arrow	md_parent	classic		
+arrow	md_parent	neo		
+arrow	unknown	classic		
+arrow	unknown	neo		
