@@ -38,6 +38,15 @@ public class PathBoundsTests
 	}
 
 	[Test]
+	public void APathEndsAtANumberThatIsNotFinite()
+	{
+		// JavaScript writes a NaN coordinate, as an edge to a node of NaN width gets, as "NaN".
+		PathBounds.Measure("M1,2 L5,6 LNaN,NaN L20,20").Should().Be(new ShapeBounds(1, 2, 5, 6));
+		PathBounds.Measure("M1,2 L5,6 C7,7 -Infinity,1 9,9").Should().Be(new ShapeBounds(1, 2, 5, 6));
+		PathBounds.Measure("MNaN,NaN L5,6").Should().Be(ShapeBounds.None);
+	}
+
+	[Test]
 	public void AQuadraticCountsWhereItTurns() =>
 		Rounded(PathBounds.Measure("M0,0 Q5,10 10,0")).Should().Be(new ShapeBounds(0, 0, 10, 5));
 

@@ -9,6 +9,7 @@ public interface IMermaidRenderer
 	/// <summary>The SVG of <paramref name="document"/>.</summary>
 	/// <exception cref="NotSupportedException">No diagram module draws the document's <see cref="MermaidDocument.DiagramType"/>.</exception>
 	/// <exception cref="MermaidResourceLimitException">The SVG exceeds <see cref="ResourceLimits.MaxOutputLength"/>.</exception>
+	/// <exception cref="MermaidParseException">A theme variable is a colour mermaid.js cannot read, so it draws nothing.</exception>
 	string RenderSvg(MermaidDocument document, RenderOptions? options = null);
 
 	/// <summary>Writes the SVG of <paramref name="document"/> to <paramref name="utf8Destination"/> as UTF-8.</summary>

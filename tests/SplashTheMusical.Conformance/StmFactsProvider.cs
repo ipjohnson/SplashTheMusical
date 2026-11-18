@@ -38,13 +38,19 @@ public sealed class StmFactsProvider : IFactsProvider
 	{
 		if (!_stm.TryParse(source, out var document, out var diagnostics))
 		{
-			var error = diagnostics.First(d => d.Severity == DiagnosticSeverity.Error).Message;
-			var lineEnd = error.IndexOf('\n', StringComparison.Ordinal);
-			return CaseFacts.Refused(lineEnd < 0 ? error : error[..lineEnd]);
+			return Refused(diagnostics);
 		}
 
 		var type = document!.DiagramType;
-		var svg = _stm.RenderSvg(document);
+		string svg;
+		try
+		{
+			svg = _stm.RenderSvg(document);
+		}
+		catch (MermaidParseException e) when (e is not MermaidResourceLimitException)
+		{
+			return Refused(e.Diagnostics);
+		}
 		var preamble = PreambleConfig.Resolve(document, type);
 		var facts = new List<string> { ConfigLines.Line("type", type), ConfigLines.Line("drawn", Drawn(svg) ? "yes" : "no") };
 		facts.AddRange(ConfigLines.ConfigFacts(ConfigMerge.Site(OracleSite), ConfigMerge.Apply(OracleSite, preamble, type)));
@@ -79,6 +85,14 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
+	}
+
+	/// <summary>The first line of the first error, as the oracle writes mermaid.js's.</summary>
+	private static CaseFacts Refused(IReadOnlyList<MermaidDiagnostic> diagnostics)
+	{
+		var error = diagnostics.First(d => d.Severity == DiagnosticSeverity.Error).Message;
+		var lineEnd = error.IndexOf('\n', StringComparison.Ordinal);
+		return CaseFacts.Refused(lineEnd < 0 ? error : error[..lineEnd]);
 	}
 
 	/// <summary>

@@ -1,5 +1,6 @@
 using System.Text;
 using SplashTheMusical.Config;
+using SplashTheMusical.Layout.Dagre;
 using SplashTheMusical.Rendering;
 using SplashTheMusical.Rendering.Shapes;
 
@@ -63,7 +64,15 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 		}
 
 		var dagre = new FlowchartDagre(measure, DiagramType, flowchart.SubGraphTitleMargin.Top ?? 0, flowchart.SubGraphTitleMargin.Bottom ?? 0);
-		var root = dagre.Render(nodes, edges, direction, Spacing(flowchart.NodeSpacing), Spacing(flowchart.RankSpacing));
+		FlowchartDrawing root;
+		try
+		{
+			root = dagre.Render(nodes, edges, direction, Spacing(flowchart.NodeSpacing), Spacing(flowchart.RankSpacing));
+		}
+		catch (DagreException e)
+		{
+			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, e.Message, 0, 0));
+		}
 
 		var bounds = root.Bounds();
 		if (bounds.IsEmpty)

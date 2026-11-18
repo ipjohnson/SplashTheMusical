@@ -64,7 +64,7 @@ internal static class Util
 			var w = simplified.NodeHandle(g.Name(g.EdgeW(e)));
 			if (v < 0 || w < 0)
 			{
-				throw new InvalidOperationException("dagre cannot rank an edge to a cluster node.");
+				throw new DagreException(DagreException.RankOfCluster);
 			}
 
 			simplified.SetEdge(v, w, g.Edge(e), g.EdgeName(e));
@@ -163,7 +163,7 @@ internal static class Util
 
 		if (!IsTruthy(dx) && !IsTruthy(dy))
 		{
-			throw new InvalidOperationException("Not possible to find intersection inside of the rectangle");
+			throw new DagreException("Not possible to find intersection inside of the rectangle");
 		}
 
 		double sx;
