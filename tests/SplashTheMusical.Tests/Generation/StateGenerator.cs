@@ -85,12 +85,19 @@ public static class StateGenerator
 
 	/// <summary>
 	/// The document with what StateDB or the lexer refuses taken out: each composite state gets an id of its own, as
-	/// mermaid.js refuses a group with a second label, and a plain <c>state id</c> before a composite state becomes a
-	/// declaration of the state, as the writer cannot write the two in a row.
+	/// mermaid.js refuses a group with a second label, a plain <c>state id</c> before a composite state becomes a
+	/// declaration of the state, as the writer cannot write the two in a row, and a note on a state no earlier statement
+	/// creates gets a declaration of the state before it. mermaid.js gives the state of such a note no type and refuses
+	/// the diagram with "No such shape: undefined". A declaration, a transition, a fork, join or choice, <c>state "label"
+	/// as id</c> and a composite state create a state, and a plain <c>state id</c>, <c>style</c>, <c>class</c>,
+	/// <c>click</c> and a floating note do not. Composite states are named
+	/// <c>G0</c>, <c>G1</c> and on, which no note names: mermaid.js does not finish laying out a note inside a
+	/// composite state on the composite state.
 	/// </summary>
 	private static StateDocument Valid(StateDocument document)
 	{
 		var composites = 0;
+		var created = new HashSet<string>(StringComparer.Ordinal);
 		var statements = Rename(document.Statements);
 		document.Statements.Clear();
 		document.Statements.AddRange(statements);
@@ -110,6 +117,26 @@ public static class StateGenerator
 					&& i + 1 < statements.Count && statements[i + 1] is StateBlock { Statements: not null })
 				{
 					statement = new StateDeclaration(new StateRef(plain.Id));
+				}
+				else if (statement is StateNote note && created.Add(note.Id))
+				{
+					renamed.Add(new StateDeclaration(new StateRef(note.Id)));
+				}
+
+				switch (statement)
+				{
+					case StateDeclaration declaration:
+						created.Add(declaration.State.Id);
+						break;
+					case StateTransition transition:
+						created.Add(transition.From.Id);
+						created.Add(transition.To.Id);
+						break;
+					case StateBlock { Kind: StateKind.Default, Description: null, Statements: null }:
+						break;
+					case StateBlock block:
+						created.Add(block.Id);
+						break;
 				}
 
 				renamed.Add(statement);
