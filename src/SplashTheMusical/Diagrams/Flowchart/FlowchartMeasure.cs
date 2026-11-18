@@ -66,9 +66,13 @@ internal sealed class FlowchartMeasure
 		var size = ParseFontSize(ThemeString(config, "fontSize")) ?? config.FontSize ?? 16;
 		Font = new FlowchartFont(measurer, family.TrimEnd(';'), size);
 		_themeRadius = ParseFontSize(ThemeString(config, "radius"));
+		ColorSlots = FlowchartStyles.IsColorTheme(config) ? FlowchartStyles.PaletteLength(config) : 0;
 	}
 
 	public string SvgId { get; }
+
+	/// <summary>How many colour slots <c>stampColorSlot</c> cycles through, or 0 when the theme is not a colour theme.</summary>
+	public int ColorSlots { get; }
 
 	public string DiagramType { get; }
 

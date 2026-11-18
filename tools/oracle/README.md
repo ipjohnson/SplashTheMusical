@@ -362,12 +362,18 @@ semantic name, description and internal aliases are empty.
 theme. A quadrant chart has no styles of its own, so its stylesheet is only the rules every diagram shares. The
 `classdef-html` and `classdef-svg` cases are a flowchart with `classDef` statements, with HTML labels on and off. Their
 values show how Chromium serializes a declaration before stylis compiles it, such as `#f9f` as `rgb(255, 153, 255)`.
+The `flowchart-theme-<name>` cases are a flowchart with a subgraph in each theme. The `flowchart-styled` cases set
+`style`, `classDef`, `class` and `linkStyle` on nodes, subgraphs and edges, once in the default theme and classic look
+and once in the flowchart's own default, the `redux-color` theme and the `neo` look.
 
 | Line | Fields |
 |---|---|
 | `source` | case, source as a JSON string |
 | `class` | case, index, id, styles as JSON, text styles as JSON. One per class the diagram's `getClasses` returns |
 | `style` | case, the text of the `style` element |
+| `element` | flowchart case, `node`, DOM id without the SVG id, the `style` of its `.label-container`, the `style` of its label group |
+| `element` | flowchart case, `cluster`, DOM id without the SVG id, the `style` of its rect, its `data-color-id` |
+| `element` | flowchart case, `edge`, id, the `style` of its path, its `marker-start`, its `marker-end` |
 
 ## Curves and markers
 

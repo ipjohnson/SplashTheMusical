@@ -709,6 +709,7 @@ internal sealed class FlowchartDagre
 			else
 			{
 				node.Y += _titleTotalMargin / 2;
+				var (nodeStyles, labelStyles) = FlowchartStyles.NodeStyles(node.CssCompiledStyles, node.CssStyles);
 				drawing.Nodes.Add(new FlowchartNodeDrawing
 				{
 					Id = node.Id,
@@ -718,6 +719,9 @@ internal sealed class FlowchartDagre
 					Y = node.Y,
 					Geometry = node.Geometry,
 					Label = node.LabelBox,
+					NodeStyles = nodeStyles,
+					LabelStyles = labelStyles,
+					ColorId = node.Shape == "collapsedGroup" ? ColorId(node) : null,
 					IsGroup = node.IsGroup,
 					IsDummy = node.IsDummy,
 				});
@@ -764,6 +768,7 @@ internal sealed class FlowchartDagre
 		var height = node.Height;
 		var x = node.X - (width / 2);
 		var y = node.Y - (height / 2);
+		var (nodeStyles, labelStyles) = FlowchartStyles.NodeStyles(node.CssCompiledStyles, node.CssStyles);
 		var cluster = new FlowchartClusterDrawing
 		{
 			Id = node.Id,
@@ -773,6 +778,9 @@ internal sealed class FlowchartDagre
 			Width = width,
 			Height = height,
 			Label = label,
+			NodeStyles = nodeStyles,
+			LabelStyles = labelStyles,
+			ColorId = ColorId(node),
 			LabelX = node.X - (label.Width / 2),
 			LabelY = node.Y - (node.Height / 2) + _titleTopMargin,
 		};
@@ -990,6 +998,18 @@ internal sealed class FlowchartDagre
 		var useMargin = !edge.Animated && _measure.Look == "neo";
 		var markerStart = EdgeMarkers.MarkerId(_measure.SvgId, _measure.DiagramType, edge.ArrowTypeStart, MarkerEnd.Start, useMargin);
 		var markerEnd = EdgeMarkers.MarkerId(_measure.SvgId, _measure.DiagramType, edge.ArrowTypeEnd, MarkerEnd.End, useMargin);
+		var pathStyle = FlowchartStyles.EdgeStyle(edge.CssCompiledStyles, edge.Styles);
+
+		// The handDrawn branch of insertEdge takes the whole first "stroke:" style as the colour.
+		var strokeColor = _measure.Look == "handDrawn"
+			? edge.Styles.FirstOrDefault(s => s.StartsWith("stroke:", StringComparison.Ordinal))
+			: FlowchartStyles.StrokeColor(pathStyle);
+		var colored = new List<ColoredMarker>();
+		if (!string.IsNullOrWhiteSpace(strokeColor))
+		{
+			markerStart = Colored(markerStart, edge.ArrowTypeStart, strokeColor, colored);
+			markerEnd = Colored(markerEnd, edge.ArrowTypeEnd, strokeColor, colored);
+		}
 		if (points.Count > 0 && !IsLabelCoordinateInPath(points[points.Count / 2], data))
 		{
 			changed = true;
@@ -1015,6 +1035,9 @@ internal sealed class FlowchartDagre
 			Classes = classes,
 			MarkerStart = markerStart,
 			MarkerEnd = markerEnd,
+			ColoredMarkers = colored,
+			PathStyle = pathStyle,
+			LabelStyles = string.Concat(edge.Styles.Select(s => ";" + s)),
 			Invisible = edge.Stroke == FlowchartStroke.Invisible,
 			Thick = edge.Stroke == FlowchartStroke.Thick,
 			Label = edge.LabelBox,
@@ -1022,6 +1045,35 @@ internal sealed class FlowchartDagre
 			LabelY = labelY + (_titleTotalMargin / 2),
 		};
 	}
+
+	/// <summary>
+	/// <c>addEdgeMarker</c> with a stroke colour: the marker's id with the colour, its characters other than letters and
+	/// digits made <c>_</c>, after a <c>_</c>. A colour the SVG grammar refuses leaves the marker as it is.
+	/// </summary>
+	private static string? Colored(string? markerId, string arrowType, string color, List<ColoredMarker> colored)
+	{
+		var paint = color.Trim();
+		if (markerId is null || !Rendering.SvgValues.IsAllowedPaint(paint))
+		{
+			return markerId;
+		}
+
+		var id = string.Create(color.Length, color, (span, text) =>
+		{
+			for (var i = 0; i < text.Length; i++)
+			{
+				span[i] = char.IsAsciiLetterOrDigit(text[i]) ? text[i] : '_';
+			}
+		});
+		var marker = new ColoredMarker(markerId, markerId + "_" + id, paint, EdgeMarkers.FindArrowType(arrowType)?.Fill == true);
+		colored.Add(marker);
+		return marker.Id;
+	}
+
+	private string? ColorId(FlowNode node) =>
+		_measure.ColorSlots > 0 && node.ColorIndex is { } index
+			? "color-" + (index % _measure.ColorSlots).ToString(System.Globalization.CultureInfo.InvariantCulture)
+			: null;
 
 	private static string StrokeClasses(FlowEdge edge) =>
 		edge.Stroke switch

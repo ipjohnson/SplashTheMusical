@@ -135,10 +135,37 @@ export function hookAddDirective(code) {
 }
 
 // The sources whose stylesheets styles.txt records, as [name, source]. A quadrant chart's own styles are empty, so its
-// stylesheet is only the rules every diagram shares. The flowchart cases add the rules classDef statements write, with
-// HTML labels on and off.
+// stylesheet is only the rules every diagram shares. The classdef cases add the rules classDef statements write, with
+// HTML labels on and off. The flowchart-theme cases are a flowchart with a subgraph in each theme, and the
+// flowchart-styled cases set style, classDef, class and linkStyle in the classic look and in the flowchart's default
+// redux-color theme and neo look.
 export function styleCases(themeNames) {
 	const themed = themeNames.map(theme => [`theme-${theme}`, `---\nconfig:\n  theme: ${theme}\n---\nquadrantChart\n`])
+	const flowcharts = themeNames.map(theme => [`flowchart-theme-${theme}`, `---\nconfig:\n  theme: ${theme}\n---\nflowchart LR\nsubgraph S\nA --> B\nend\nB --> C\n`])
+	const styled = [
+		'flowchart LR',
+		'classDef default fill:#ffe,stroke:#963',
+		'classDef hex fill:#f9f,stroke:#333,stroke-width:4px,color:#00f',
+		'classDef warn stroke:#f00,stroke-dasharray:5 5',
+		'classDef sg fill:#eef,color:#060',
+		'subgraph S [Group]',
+		'A:::hex --> B',
+		'end',
+		'subgraph T',
+		'E[(Data)]',
+		'end',
+		'B --> C((Circle))',
+		'C -.->|label| D{Rhombus}',
+		'D e1@==> E',
+		'E --o F',
+		'style B fill:#0f0,color:red,font-size:20px',
+		'style S fill:#eee,stroke:#f00',
+		'class T sg',
+		'class D hex',
+		'class e1 warn',
+		'linkStyle 0 stroke:#ff3,stroke-width:4px,color:red',
+		'linkStyle default stroke:#0a0',
+	].join('\n') + '\n'
 	const classDefs = [
 		'classDef hex fill:#f9f,stroke:#333,stroke-width:4px',
 		'classDef named fill:red,color:white,font-weight:bold',
@@ -156,12 +183,18 @@ export function styleCases(themeNames) {
 		...themed,
 		['classdef-html', `flowchart LR\n${classDefs}\nA:::hex --> B:::named\n`],
 		['classdef-svg', `---\nconfig:\n  htmlLabels: false\n---\nflowchart LR\n${classDefs}\nA:::hex --> B:::named\n`],
+		...flowcharts,
+		['flowchart-styled', `---\nconfig:\n  theme: default\n  look: classic\n---\n${styled}`],
+		['flowchart-styled-neo', styled],
 	]
 }
 
 // In the page: for each case, `source\t<name>\t<source as JSON>`, then `class\t<name>\t<index>\t<id>\t<styles as
 // JSON>\t<textStyles as JSON>` for each class the diagram's getClasses returns, in its order, and `style\t<name>\t<the
-// text of the style element>` from a render with the SVG id `styles`.
+// text of the style element>` from a render with the SVG id `styles`. A flowchart case also gets `element` lines with
+// the style attributes the renderer wrote: `element\t<name>\tnode\t<id>\t<shape style>\t<label style>` with the style
+// of the node's label-container element and of its label group, `element\t<name>\tcluster\t<id>\t<rect
+// style>\t<data-color-id>`, and `element\t<name>\tedge\t<id>\t<path style>\t<marker-start>\t<marker-end>`.
 export async function styleDumps(cases, init) {
 	const lines = []
 	try {
@@ -175,6 +208,15 @@ export async function styleDumps(cases, init) {
 			const { svg } = await mermaid.render('styles', source)
 			const doc = new DOMParser().parseFromString(svg, 'image/svg+xml')
 			lines.push(`style\t${name}\t${doc.querySelector('style').textContent}`)
+			if (!name.startsWith('flowchart-')) continue
+			const attr = (element, attribute) => element?.getAttribute(attribute) ?? ''
+			const id = element => attr(element, 'id').replace(/^styles-/, '')
+			for (const node of doc.querySelectorAll('g.node[id]'))
+				lines.push(`element\t${name}\tnode\t${id(node)}\t${attr(node.querySelector('.label-container'), 'style')}\t${attr(node.querySelector(':scope > g.label'), 'style')}`)
+			for (const cluster of doc.querySelectorAll('g.cluster[id]'))
+				lines.push(`element\t${name}\tcluster\t${id(cluster)}\t${attr(cluster.querySelector(':scope > rect'), 'style')}\t${attr(cluster, 'data-color-id')}`)
+			for (const edge of doc.querySelectorAll('path[data-edge][data-id]'))
+				lines.push(`element\t${name}\tedge\t${attr(edge, 'data-id')}\t${attr(edge, 'style')}\t${attr(edge, 'marker-start')}\t${attr(edge, 'marker-end')}`)
 		}
 	} finally {
 		mermaid.initialize(init)

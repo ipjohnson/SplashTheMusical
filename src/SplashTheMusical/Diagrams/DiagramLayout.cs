@@ -1,3 +1,5 @@
+using SplashTheMusical.Rendering;
+
 namespace SplashTheMusical.Diagrams;
 
 /// <summary>
@@ -20,6 +22,18 @@ public class DiagramLayout
 
 	/// <summary>The <c>viewBox</c> of the root element, or <c>null</c> for none.</summary>
 	public SvgViewBox? ViewBox { get; init; }
+
+	/// <summary>The rules of the diagram type's own <c>styles</c> function, which the stylesheet puts after the shared rules.</summary>
+	internal virtual IReadOnlyList<CssRule> DiagramRules => [];
+
+	/// <summary>The classes the diagram defines with <c>classDef</c>, as its database's <c>getClasses</c> returns them.</summary>
+	internal virtual IReadOnlyList<StyleClass> Classes => [];
+
+	/// <summary>
+	/// Rules for single elements, which stand in for the <c>style</c> attributes mermaid.js writes. They go last in the
+	/// stylesheet.
+	/// </summary>
+	internal virtual IReadOnlyList<CssRule> ElementRules => [];
 }
 
 public readonly record struct SvgViewBox(double X, double Y, double Width, double Height);

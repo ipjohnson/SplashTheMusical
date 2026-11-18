@@ -74,6 +74,16 @@ internal static class Khroma
 		return channels.Stringify();
 	}
 
+	/// <summary>
+	/// <c>fade</c> in mermaid's <c>diagrams/flowchart/styles.ts</c>: <c>rgba()</c> of the colour's red, green and blue
+	/// channels with <paramref name="alpha"/>.
+	/// </summary>
+	public static string Fade(string color, double alpha)
+	{
+		var channels = Parse(color);
+		return Rgba(channels.Get(Channel.R), channels.Get(Channel.G), channels.Get(Channel.B), alpha);
+	}
+
 	/// <summary>mermaid's <c>mkBorder</c> from <c>src/themes/theme-helpers.js</c>.</summary>
 	public static string MkBorder(string color, bool darkMode) =>
 		Adjust(color, darkMode ? new KhromaChannels(S: -40, L: 10) : new KhromaChannels(S: -40, L: -10));

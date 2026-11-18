@@ -74,7 +74,12 @@ default `MermaidConfig` with the oracle's `corpus/config.txt`. `AppliedConfigTes
 `MermaidConfig.Resolve` applies to each corpus case with the oracle's `config` facts. `ThemeTests` compares each
 theme of `src/SplashTheMusical/Themes` with `corpus/themes.txt`, and the theme variables of each case that sets
 `themeVariables` with the oracle's `theme-variable` facts. `StylesheetTests` compares the stylesheet
-`MermaidStylesheet` builds and `SvgWriter` writes with `corpus/styles.txt`.
+`MermaidStylesheet` builds and `SvgWriter` writes with `corpus/styles.txt`, for a quadrant chart and a flowchart in each
+theme and for flowcharts with `classDef`, `style`, `class` and `linkStyle`. A layout gives the stylesheet its diagram's
+rules and classes through `DiagramLayout`. mermaid.js writes `style`, `classDef` and `linkStyle` declarations as `style`
+attributes, which the writer refuses, so `FlowchartStyles.ElementRules` writes them as rules keyed by an `stm-style-N`
+class on the element. `FlowchartStyleTests` compares the style text of each flowchart node, cluster and edge with the
+`element` lines of `corpus/styles.txt`.
 
 Stylesheets are built only from the typed rules of `src/SplashTheMusical/Rendering`. `CssDeclaration` refuses a
 property outside its allowlist and a value outside its grammar, so a value from the source or the config cannot hold
