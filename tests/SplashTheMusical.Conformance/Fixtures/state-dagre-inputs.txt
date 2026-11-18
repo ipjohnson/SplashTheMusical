@@ -8,8 +8,8 @@ e2e-state-diagram-v2-nightly-check-elk-elk-notes-keep-their-layout
 e2e-state-diagram-v2-nightly-check-elk-elk-start-end-edge-centering
 e2e-state-diagram-v2-pr-check-composite-with-a-loop-starts-on-its-start-state
 # STM drops the two characters \n from a Markdown edge label, where mermaid.js keeps them as text, so the label is
-# narrower or wraps to fewer lines. These move under that bug's issue once it is filed.
-bug #13
+# narrower or wraps to fewer lines.
+bug #166
 e2e-state-diagram-nightly-check-should-render-a-transition-descriptions-with-new-lines
 e2e-state-diagram-v2-nightly-check-v2-should-render-a-transition-descriptions-with-new-lines
 mermaider-rfc-migration-lifecycle
