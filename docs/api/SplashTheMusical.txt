@@ -1158,7 +1158,6 @@ public enum StateKind : int
   Fork = 1
   Join = 2
 public sealed class StateLayout : DiagramLayout
-  public StateLayout()
 public sealed class StateModule : DiagramModule<StateDocument, StateLayout>
   public StateModule()
   public override StateDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
