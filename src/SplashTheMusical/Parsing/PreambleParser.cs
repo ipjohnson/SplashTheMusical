@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace SplashTheMusical.Parsing;
@@ -86,7 +87,7 @@ internal static class PreambleParser
 
 		var indent = text[..indentLength];
 		var lastClosing = -1;
-		for (var i = firstOpening + 1; i < text.Length; i++)
+		for (var i = NextLineBreak(text, firstOpening + 1); i >= 0; i = NextLineBreak(text, i + 1))
 		{
 			if (ClosingEnd(text, i, indent) >= 0)
 			{
@@ -109,7 +110,7 @@ internal static class PreambleParser
 		}
 
 		bodyStart = opening + 1;
-		for (var i = bodyStart; i <= lastClosing; i++)
+		for (var i = NextLineBreak(text, bodyStart); i >= 0 && i <= lastClosing; i = NextLineBreak(text, i + 1))
 		{
 			var end = ClosingEnd(text, i, indent);
 			if (end >= 0)
@@ -121,6 +122,13 @@ internal static class PreambleParser
 		}
 
 		return false;
+	}
+
+	/// <summary>The offset of the first line break at or after <paramref name="from"/>, or -1.</summary>
+	private static int NextLineBreak(ReadOnlySpan<char> text, int from)
+	{
+		var found = from < text.Length ? text[from..].IndexOfAny('\r', '\n') : -1;
+		return found < 0 ? -1 : from + found;
 	}
 
 	/// <summary>The offset of the last line break in the space after a closing fence that starts after the line break at <paramref name="at"/>, or -1.</summary>
@@ -321,7 +329,11 @@ internal static class PreambleParser
 	}
 
 	/// <summary>JavaScript's <c>\s</c>.</summary>
-	internal static bool IsSpace(char c) => c == (char)0xFEFF || (char.IsWhiteSpace(c) && c != (char)0x85);
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static bool IsSpace(char c) =>
+		c < '\u0080'
+			? c == ' ' || (uint)(c - '\t') <= '\r' - '\t'
+			: c == (char)0xFEFF || (char.IsWhiteSpace(c) && c != (char)0x85);
 
 	private static bool IsLineBreak(char c) => c is '\n' or '\r';
 }
