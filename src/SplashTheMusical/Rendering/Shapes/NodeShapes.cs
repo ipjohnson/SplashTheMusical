@@ -11,8 +11,9 @@ internal sealed class NodeShape(string handler, Func<ShapeNode, ShapeGeometry> d
 
 /// <summary>
 /// The node shapes of mermaid.js 12.3.0's <c>shapes</c> map in <c>rendering-elements/shapes.ts</c>: every shape of
-/// its shape table, and the undocumented <c>anchor</c>, <c>choice</c> and <c>note</c> that flowcharts can name. The
-/// other undocumented shapes belong to other diagram types.
+/// its shape table, the undocumented <c>anchor</c>, <c>choice</c> and <c>note</c> that flowcharts can name, and the icon
+/// and image shapes of a flowchart's <c>icon</c> and <c>img</c> nodes. The other undocumented shapes belong to other
+/// diagram types.
 /// </summary>
 internal static class NodeShapes
 {
@@ -44,6 +45,11 @@ internal static class NodeShapes
 		new("halfRoundedRectangle", ShapeDrawings.HalfRoundedRectangle),
 		new("hexagon", ShapeDrawings.Hexagon),
 		new("hourglass", ShapeDrawings.Hourglass),
+		new("icon", ShapeDrawings.Icon),
+		new("iconCircle", ShapeDrawings.IconCircle),
+		new("iconRounded", ShapeDrawings.IconRounded),
+		new("iconSquare", ShapeDrawings.IconSquare),
+		new("imageSquare", ShapeDrawings.ImageSquare),
 		new("inv_trapezoid", ShapeDrawings.InvTrapezoid),
 		new("lean_left", ShapeDrawings.LeanLeft),
 		new("lean_right", ShapeDrawings.LeanRight),

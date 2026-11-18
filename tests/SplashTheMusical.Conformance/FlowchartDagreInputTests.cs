@@ -13,6 +13,7 @@ namespace SplashTheMusical.Conformance;
 /// mermaid.js handed dagre, recorded in <c>corpus/flowchart/*.dagre.txt</c>. With the replay tests, which hold the port to
 /// dagre's output on the recorded graphs, a case that passes here is laid out as mermaid.js lays it out with dagre.
 /// The cases that still differ are listed in <c>Fixtures/flowchart-dagre-inputs.txt</c> under the issue that tracks them.
+/// When <c>STM_DIFF_FILE</c> is set, every difference of every case is written to that file.
 /// </summary>
 public class FlowchartDagreInputTests
 {
@@ -38,6 +39,7 @@ public class FlowchartDagreInputTests
 		var unlisted = new List<string>();
 		var same = new List<string>();
 		var compared = 0;
+		var all = new List<string>();
 		foreach (var file in DagreRecords.Files(CorpusCheck.CorpusRoot).Where(file => file.StartsWith("flowchart/", StringComparison.Ordinal)))
 		{
 			var name = file[..^".dagre.txt".Length];
@@ -52,6 +54,7 @@ public class FlowchartDagreInputTests
 			var expected = DagreRecords.Read(Path.Combine(CorpusCheck.CorpusRoot, file)).Select(record => record.Input).ToList();
 			var differences = Differences(source, expected);
 			var caseName = name["flowchart/".Length..];
+			all.AddRange(differences.Select(difference => caseName + ": " + difference));
 			if (differences.Count == 0)
 			{
 				if (listed.ContainsKey(caseName))
@@ -63,6 +66,12 @@ public class FlowchartDagreInputTests
 			{
 				unlisted.Add(caseName + ": " + string.Join(" | ", differences.Take(4)));
 			}
+		}
+
+		var diffFile = Environment.GetEnvironmentVariable("STM_DIFF_FILE");
+		if (!string.IsNullOrEmpty(diffFile))
+		{
+			File.WriteAllLines(diffFile, all);
 		}
 
 		var stale = same.Concat(listed.Keys.Where(name => !File.Exists(Path.Combine(CorpusCheck.CorpusRoot, "flowchart", name + ".dagre.txt"))).Select(name => name + " is not a flowchart case with a dagre record"));

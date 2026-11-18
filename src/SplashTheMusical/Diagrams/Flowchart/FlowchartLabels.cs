@@ -371,7 +371,37 @@ internal static class FlowchartLabels
 		}
 	}
 
-	private static int IconLength(ReadOnlySpan<char> text, out int prefixLength)
+	/// <summary>The label's <c>img</c> tags: how many have a <c>src</c>, and how many do not.</summary>
+	public static (int WithSource, int WithoutSource) Images(string label)
+	{
+		var html = label.AsSpan();
+		var withSource = 0;
+		var withoutSource = 0;
+		for (var at = html.IndexOf('<'); at >= 0 && at < html.Length; at = html[(at + 1)..].IndexOf('<') is var next and >= 0 ? at + 1 + next : -1)
+		{
+			var tag = Tag(html, at);
+			if (tag.Kind != TagKind.Element || tag.End <= 0 || !tag.Name(html).Equals("img", StringComparison.OrdinalIgnoreCase) || html[at + 1] == '/')
+			{
+				continue;
+			}
+
+			var attributes = html[tag.NameEnd..tag.End];
+			var src = attributes.IndexOf("src", StringComparison.OrdinalIgnoreCase);
+			if (src > 0 && char.IsWhiteSpace(attributes[src - 1]))
+			{
+				withSource++;
+			}
+			else
+			{
+				withoutSource++;
+			}
+		}
+
+		return (withSource, withoutSource);
+	}
+
+	/// <summary>The length of the <c>fa:fa-name</c> at the start of <paramref name="text"/>, or 0.</summary>
+	internal static int IconLength(ReadOnlySpan<char> text, out int prefixLength)
 	{
 		prefixLength = 0;
 		if (text.Length < 2 || text[1] != 'a')
