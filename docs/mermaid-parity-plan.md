@@ -140,8 +140,8 @@ The core has no package dependencies. Only `SplashTheMusical.DependencyModule` r
   initializers. Layout and rendering only read them.
 - The model keeps what the source said, not what the renderer derived. An edge keeps its arrow type and length. A node
   keeps its shape name as written. This is what makes the writer possible.
-- The model keeps comments attached to the statement they precede, so a parse and write round trip does not lose them.
-  It does not keep whitespace. The writer produces one canonical format.
+- The model keeps neither comments nor whitespace, as mermaid's own databases do not. The writer produces one
+  canonical format.
 
 ### Parsing
 
@@ -204,7 +204,7 @@ The defaults below were read at `mermaid@12.3.0`. [upstream-map.md](upstream-map
 
 | Engine | Default for | Approach |
 |---|---|---|
-| `elk` | flowchart, class, state, ER, requirement, agentflow, usecase. The top-level `layout` default is `elk` | Use the `Sugiyama` engine from Mermaider, which is layered with orthogonal routing. Parity is L2 only. Open decision 8 asks whether that is enough now that ELK is the default |
+| `elk` | flowchart, class, state, ER, requirement, agentflow, usecase. The top-level `layout` default is `elk` | Use the `Sugiyama` engine from Mermaider, which is layered with orthogonal routing, in #25. Parity is L2 only. Until then flowchart lays out every case with the dagre port, and its cases that mermaid.js draws with ELK are `bug #25` ledger entries at L3. Open decision 8 asks whether that is enough now that ELK is the default |
 | `dagre` | No type at default config. A diagram that sets `layout: dagre` gets it, and the `tiny` build falls back to it for `elk` | Port dagre to C#. Geometry parity depends on the same ranking, ordering and coordinate assignment |
 | `swimlane` | swimlane | Port mermaid's own lane layout and orthogonal router |
 | `cose-bilkent` | mindmap | Port with a fixed seed. Parity is topology, not position |
@@ -215,15 +215,17 @@ The defaults below were read at `mermaid@12.3.0`. [upstream-map.md](upstream-map
 
 The types in the `elk` row, swimlane and mindmap accept every registered layout name, which is how a diagram picks
 `dagre`, `swimlane`, `cose-bilkent`, the ELK variants or `tidy-tree`. The other types compute positions in their
-renderer and ignore `layout`.
+renderer and ignore `layout`. STM's flowchart ignores `layout` too for now: its module's layout step calls the dagre
+port directly. `ILayoutEngine` is the extension point for a host's engine, and no core type uses it yet.
 
 Of the 12.3.0 layout folders, `grid` is not registered and nothing imports it, so it needs no port. `ddlt` holds
 data-driven layout test tooling and is not a layout. Edge curves use ports of the d3 curve generators. Mermaid's config
 schema accepts 13 `curve` values, 12 d3-shape curves and its own `rounded`, and `insertEdge` draws only those. ELK maps
 an edge's curve to any of d3-shape's 19 by name, but `insertEdge` ignores a curve that is not a name.
 
-The dagre port is tested alone. The oracle records the graph mermaid.js hands to dagre and the positions dagre
-returns, and a test replays each graph through the port.
+The dagre port is tested alone. The oracle renders each flowchart, state, class and ER case a second time with
+`layout: dagre`, records the graph mermaid.js hands to dagre and the positions dagre returns, and a test replays each
+graph through the port.
 
 ### Rendering
 
@@ -293,11 +295,11 @@ var svg = Mermaid.Default.RenderSvg("flowchart LR\n  A --> B");
 Generate a diagram:
 
 ```csharp
-var chart = new FlowchartDocument(Direction.LeftToRight)
-{
-    Nodes = { new FlowNode("a", "Start"), new FlowNode("b", "Done", FlowShape.Rounded) },
-    Edges = { new FlowEdge("a", "b") { Label = "ok" } },
-};
+var chart = new FlowchartBuilder("LR")
+    .Node("a", "Start")
+    .Node("b", "Done", "stadium")
+    .Edge("a", "b", "ok")
+    .Build();
 string mmd = mermaid.Write(chart);
 string svg = mermaid.RenderSvg(chart);
 ```
@@ -417,7 +419,7 @@ The generator package reached the spike's console app through the project refere
 - Parsers lex spans in one pass. They do not split the source into line strings and they do not use regex. The next
   subsection lists the parser techniques.
 - The renderer writes UTF-8 directly and can stream to a pipe without building a string.
-- Theme stylesheets are computed once per theme and config and cached.
+- The stylesheet is built from typed rules on each render. It is not cached per theme and config.
 - The layout engine uses index-based graph buffers, as Mermaider's CSR `GraphBuffer` does.
 - `ResourceLimits` and the cooperative deadline come across from Mermaider with the same defaults.
 
@@ -444,15 +446,18 @@ Lexing:
 
 Parsing:
 
-- **No backtracking.** Each parser is recursive descent with one token of lookahead. Flowchart edges such as
-  `-- text -->` and `-.->` get a dedicated scanner, so the parser never tries a rule and rewinds.
+- **No backtracking.** Each parser is recursive descent over tokens it never re-lexes. It decides on the next token,
+  and on the one after it only where the grammar needs two, as flowchart's `((` and `{{` do. It may move back over
+  tokens it has only looked at, as flowchart's `&` chain does, but never after it has built model state. Flowchart
+  edges such as `-- text -->` and `-.->` get a dedicated scanner, so the parser never tries a rule and undoes it. The
+  lexer may lex the whole input before parsing starts, because the tokens do not depend on the parser.
 - **No exceptions on the parse path.** Diagnostics are values. `TryParse` never throws on bad input, and `Parse`
   throws once, at the end, from the collected diagnostics.
 - **One-pass detection.** The diagram type comes from a `switch` on the first keyword after the front matter, the
   directives and the comments. mermaid.js tries its detectors in order.
-- **Interned ids.** A node id such as `A` repeats on many lines. A per-parse table keyed by span maps each id to an
-  integer. Each distinct id allocates one string, and edges store integers. Layout takes those indexes directly, with
-  no second dictionary pass.
+- **Interned ids.** A node id such as `A` repeats on many lines. A per-parse table keyed by span, `IdTable`, maps each
+  id to an integer, so each distinct id allocates one string. The model stores ids as strings, so user code can build
+  documents, and the layout step builds its own indexes from the model.
 - **Deferred work.** The parser keeps Markdown strings and style values as text. The renderer reads them when it
   needs them. Front matter and `%%{init}%%` are parsed only when present, which the first characters decide.
 - **Cheap limit checks.** `ResourceLimits` and the deadline are checked per statement, not per character.
@@ -469,8 +474,9 @@ Native AOT:
 
 - **No virtual calls in hot loops.** Native AOT has no tiered JIT and no dynamic PGO, so it cannot devirtualize from
   a profile. The lexer is a `ref struct` passed by reference, and the parser classes are sealed.
-- **No startup cost.** Tables are static data in the binary, written as `static ReadOnlySpan<byte>` properties.
-  Nothing is built in a static constructor, so the first parse costs the same as the hundredth.
+- **Little startup cost.** The large generated tables, such as the font widths, are static data in the binary,
+  written as `static ReadOnlySpan<byte>` properties. Small lookup tables are `static readonly` `FrozenSet` and
+  `FrozenDictionary` values, built once per process when their type is first used.
 
 Excluded, because the gain does not justify the cost:
 
@@ -481,11 +487,15 @@ Excluded, because the gain does not justify the cost:
 
 ### Budgets and gates
 
-- The first benchmark run measures Mermaider on a fixed set of diagrams. STM's budget is to be no slower and to
-  allocate no more than Mermaider on that set. mermaid.js's own parse time in Node is recorded as a second reference.
+- The first benchmark run measures Mermaider on a fixed set of diagrams, in `docs/benchmarks/mermaider-baseline.md`.
+  STM's budget is to parse no slower and to allocate no more than Mermaider on that set. `BudgetTests` fails when a
+  committed parse row is over it. Layout, render and write are measured and not gated: flowchart's render is over
+  Mermaider's (#158). mermaid.js's own parse time in Node is recorded as a second reference.
 - `SplashTheMusical.Benchmarks` covers parse, layout, render and write for a small, a medium and a large case of every
-  type. It reports nanoseconds and bytes allocated per source character, on JIT and on native AOT.
-- A CI job compares each run with the committed numbers and fails on a regression above 10% in time or allocation.
+  supported type. It reports nanoseconds and bytes allocated per source character, on JIT and on native AOT, and
+  `docs/benchmarks/stm.md` holds the committed run.
+- `mise run bench-compare` compares a run with the committed numbers and fails on a regression above 10% in time or
+  allocation. It runs locally. Pull request CI does not run the benchmarks.
 - Allocation tests assert the exact bytes allocated for small diagrams, which catches accidental allocations at once.
 - A fuzz job feeds mutated corpus cases to the parser under the resource limits and fails on a crash or a missed
   deadline.
@@ -617,17 +627,20 @@ the same font files. Text width then stops being a source of difference, and wha
 
 ### Parity ledger
 
-- One ledger file per diagram type lists every accepted difference under a category: `by-design`, `out-of-scope` or
-  `bug` with an issue reference.
+- One ledger file per diagram type lists every accepted difference at L0 to L3 under a category: `by-design`,
+  `out-of-scope` or `bug` with an issue reference. L4 outcomes are committed per case in `corpus/l4.txt`, and the L4
+  job fails when they change.
 - A new difference fails. A listed difference that no longer occurs fails, so the ledger cannot go stale.
 - The count of `bug` entries per type is published and may only go down within a mermaid version.
 
 ### Generation tests
 
-- **Round trip.** For every accepted case, `Parse(Write(Parse(text)))` equals `Parse(text)`.
+- **Round trip.** For every accepted case, `Parse(Write(Parse(text)))` equals `Parse(text)`. Each type has its own
+  test, such as `FlowchartRoundTripTests`.
 - **Oracle round trip.** The oracle renders the text STM wrote. Its facts must equal the facts of the original text.
-  This proves mermaid.js reads what STM generates.
-- **Property tests.** CsCheck generates random documents per type, writes them, and checks both properties.
+  This proves mermaid.js reads what STM generates. #26 adds it.
+- **Property tests.** CsCheck generates random documents per type, writes them, and checks both properties. #26 adds
+  the shared harness and the flowchart generator.
 
 ### Differential fuzzing
 
@@ -638,8 +651,8 @@ oracle and STM and keeps any case where acceptance or facts differ. Minimized fi
 
 - Every run writes a parity report: a table of diagram type by level, with the pass rate and the ledger counts.
 - The report is published with the docs, and the README shows the totals.
-- Pull request CI runs unit tests, L0 to L3 on JIT and native AOT, the benchmark gate and the API diff. None of them
-  needs Node.
+- Pull request CI runs unit tests, L0 to L3 on JIT and native AOT, the budget check of the committed benchmarks, the
+  size check and the API diff. None of them needs Node.
 - A second job with Node runs L4 and checks that the committed oracle output is what the pinned mermaid.js produces.
 
 ## 8. Staying current with mermaid.js
@@ -668,8 +681,9 @@ report.
 6. **Release.** Every STM release names the mermaid.js version it was verified against, in the release notes and in
    `MermaidCompatibility.MermaidJsVersion`.
 
-A new upstream diagram type follows a checklist: document class, parser, writer, layout, renderer, oracle extractor,
-feature-matrix cases, benchmarks and docs. Mermaider's `contributing/agent-add-diagram-type.md` is the starting point.
+A new upstream diagram type follows [adding-a-diagram-type.md](adding-a-diagram-type.md): where each part lives, the
+parser rules, the oracle extractor, the ledger and tolerances, the tests and benchmarks, the order of work, the shared
+files and the definition of done. It was written from the flowchart work.
 
 ## 9. Roadmap
 
@@ -679,7 +693,7 @@ Each phase ends when its exit criteria hold on JIT and on native AOT.
 |---|---|---|
 | 0. Harness | Repository, build, CI. Oracle, corpus, comparer, ledger and report. A stub STM that refuses everything | The report runs in CI and shows 0%. The oracle output is reproducible |
 | 1. Core | Lexing helpers, `MermaidDocument`, config, front matter, directives, themes, text measurement, `SvgWriter`, the three services, the DependencyModule project, the CLI, AOT and benchmark gates | Theme and config tests pass against the oracle dumps. An empty diagram renders through DI on native AOT |
-| 2. Flowchart | Flowchart end to end, with the dagre port, all shapes, subgraphs, Markdown strings and styling | Flowchart meets L0 to L4. The round-trip tests pass. This phase proves the design |
+| 2. Flowchart | Flowchart end to end, with the dagre port, all shapes, subgraphs, Markdown strings and styling | Flowchart meets the definition of done of [adding-a-diagram-type.md](adding-a-diagram-type.md): L0 at 100%, every L1 to L3 difference in the ledger with an issue, L4 outcomes committed, and the round-trip tests pass. This phase proves the design |
 | 3. Graph types | State, class, ER, requirement, block, C4 | Each type meets its targets |
 | 4. Sequence types | Sequence and ZenUML | Each type meets its targets |
 | 5. Charts | Pie, quadrant, xychart, radar, sankey, gantt, timeline, journey, gitgraph, packet, kanban, treemap, venn | Each type meets its targets |
@@ -688,7 +702,8 @@ Each phase ends when its exit criteria hold on JIT and on native AOT.
 | 8. 1.0 | One real mermaid.js bump done through the update process. Docs. Public API review | The parity report meets the targets in section 1. No `bug` entry is older than one mermaid release |
 
 Phases 3 to 6 are independent per diagram type after phase 2, so they can run in parallel. Within a phase, types are
-ordered by how often they are used.
+ordered by how often they are used. Each type follows [adding-a-diagram-type.md](adding-a-diagram-type.md), which also
+lists the files parallel types share.
 
 ## 10. Risks
 
@@ -720,6 +735,8 @@ ordered by how often they are used.
    agentflow and usecase use ELK unless a diagram asks for `dagre`. The plan's dagre port then gives geometry parity
    only for diagrams that set `layout: dagre`. The options are to port ELK layered, to accept L2 parity through
    `Sugiyama` for these types at default config, or to run the oracle with `layout: dagre` and treat the ELK default
-   as a ledger entry. The roadmap's phase 2 and phase 7 depend on the answer.
+   as a ledger entry. The roadmap's phase 2 and phase 7 depend on the answer. Phase 2 settled it for now: the oracle
+   keeps the ELK default, STM's flowchart lays out with dagre, and the cases mermaid.js draws with ELK that fail L3
+   are `bug #25` ledger entries until #25 brings `Sugiyama` in as the `elk` engine.
 9. **Default look.** Ten types default to look `neo` and theme `redux-color` at 12.3.0. The roadmap puts `neo` in
    phase 7. Moving `neo` and `redux-color` into phase 1 would give those types default-config parity from the start.
