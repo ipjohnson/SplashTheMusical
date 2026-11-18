@@ -1540,7 +1540,7 @@ flowchart/e2e-flowchart-nightly-check-dagre-54-dagre-handle-nested-subgraphs-wit
 flowchart/e2e-flowchart-nightly-check-dagre-55-dagre-handle-nested-subgraphs-with-outgoing-links-2	pass
 flowchart/e2e-flowchart-nightly-check-dagre-56-dagre-handle-nested-subgraphs-with-outgoing-links-3	pass
 flowchart/e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-2	pass
-flowchart/e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4	fail
+flowchart/e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4	pass
 flowchart/e2e-flowchart-nightly-check-dagre-57-x-handle-nested-subgraphs-with-outgoing-links-5	fail
 flowchart/e2e-flowchart-nightly-check-dagre-58-dagre-handle-styling-with-style-expressions	fail
 flowchart/e2e-flowchart-nightly-check-dagre-59-dagre-handle-styling-of-subgraphs-and-links	fail
@@ -2242,8 +2242,8 @@ flowchart/parser-flow-vertice-chaining-005	fail
 flowchart/parser-flow-vertice-chaining-006	fail
 flowchart/parser-flowdb-001	fail
 flowchart/parser-flowdb-002	fail
-flowchart/parser-flowdb-003	fail
-flowchart/parser-flowdb-004	fail
+flowchart/parser-flowdb-003	pass
+flowchart/parser-flowdb-004	pass
 flowchart/parser-flowdb-005	fail
 flowchart/parser-flowdb-006	fail
 flowchart/parser-flowdb-007	fail
