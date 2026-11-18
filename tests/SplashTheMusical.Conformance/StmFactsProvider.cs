@@ -4,6 +4,7 @@ using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
+using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Text;
 
@@ -71,6 +72,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			var layout = new FlowchartModule(flowchart.DiagramType).Layout(flowchart, context);
 			Flowchart(facts, flowchart, config, layout);
 			canvas = FlowchartBoxes(boxes, layout);
+		}
+		else if (document is StateDocument state)
+		{
+			StateFacts.Add(facts, state, preamble, config);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
@@ -346,7 +351,7 @@ public sealed class StmFactsProvider : IFactsProvider
 	});
 
 	/// <summary>The documented short name of a shape, as <c>facts.mjs</c> maps it with mermaid.js's shape table.</summary>
-	private static string ShortShapeName(string shape) => ShortShapeNames.Value.GetValueOrDefault(shape) ?? shape;
+	internal static string ShortShapeName(string shape) => ShortShapeNames.Value.GetValueOrDefault(shape) ?? shape;
 
 	/// <summary>
 	/// <c>extract.mjs</c>'s info extractor: the version as a label, and the box of the version text. The root has no

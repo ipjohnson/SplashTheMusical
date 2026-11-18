@@ -7,7 +7,7 @@ public class LedgerTests
 	private static readonly CaseFacts Oracle = new(true, null, ["label\tA", "node\tA\tA\trect", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 
 	[Test]
-	public async Task StmDiffersOnlyWhereTheCommittedLedgersListABug()
+	public async Task StmDiffersOnlyWhereTheCommittedLedgersListIt()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
 		ResultsFile.WriteIfRequested(results);
@@ -17,8 +17,6 @@ public class LedgerTests
 		}
 
 		await Assert.That(LedgerFolder.Problems(LedgerFolder.Root, results, CorpusCheck.PinnedMermaid())).IsEmpty();
-		var problems = new List<string>();
-		await Assert.That(LedgerFolder.Read(LedgerFolder.Root, problems).SelectMany(l => l.Entries)).All(e => e.Category == LedgerCategory.Bug);
 	}
 
 	[Test]

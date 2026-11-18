@@ -23,7 +23,7 @@ railroad	424
 requirement	720
 sankey	116
 sequence	1660
-state	1140
+state	561
 swimlanes	276
 timeline	236
 treeView	300

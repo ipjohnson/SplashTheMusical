@@ -1097,6 +1097,104 @@ public sealed class InfoModule : DiagramModule<InfoDocument, InfoLayout>
   public override void Render(InfoDocument document, InfoLayout layout, SvgWriter svg, DiagramRenderContext context)
   public override void Write(InfoDocument document, StringBuilder output)
 
+namespace SplashTheMusical.Diagrams.State
+public sealed class StateBlock : StateStatement
+  public List<StateStatement>? Statements { get; set; }
+  public StateBlock(string id)
+  public StateKind Kind { get; set; }
+  public string Id { get; }
+  public string? Description { get; set; }
+public sealed class StateBuilder
+  public StateBuilder Choice(string id)
+  public StateBuilder Class(string className, params string[] ids)
+  public StateBuilder ClassDef(string name, params string[] styles)
+  public StateBuilder Composite(string id, string? title, Action<StateBuilder> body)
+  public StateBuilder Direction(string direction)
+  public StateBuilder Divider()
+  public StateBuilder Fork(string id)
+  public StateBuilder Join(string id)
+  public StateBuilder Note(string id, string text, StateNotePosition position = 1)
+  public StateBuilder State(string id, string? description = null)
+  public StateBuilder Style(string id, params string[] styles)
+  public StateBuilder Transition(string from, string to, string? label = null)
+  public StateBuilder(string direction = "TB")
+  public StateDocument Build()
+public sealed class StateClassAssignment : StateStatement
+  public StateClassAssignment(string ids, string className)
+  public string ClassName { get; }
+  public string Ids { get; }
+public sealed class StateClassDefinition : StateStatement
+  public StateClassDefinition(string name, string styles)
+  public string Name { get; }
+  public string Styles { get; }
+public sealed class StateClick : StateStatement
+  public StateClick(StateRef state, string url)
+  public StateRef State { get; }
+  public string Url { get; }
+  public string? Tooltip { get; set; }
+public sealed class StateDeclaration : StateStatement
+  public StateDeclaration(StateRef state)
+  public StateRef State { get; }
+  public string? Description { get; set; }
+public sealed class StateDirection : StateStatement
+  public StateDirection(string direction)
+  public string Direction { get; }
+public sealed class StateDivider : StateStatement
+  public StateDivider()
+public sealed class StateDocument : MermaidDocument
+  public List<StateStatement> Statements { get; init; }
+  public StateDocument()
+  public override string DiagramType { get; }
+  public string Keyword { get; set; }
+public sealed class StateFloatingNote : StateStatement
+  public StateFloatingNote(string text, string id)
+  public string Id { get; }
+  public string Text { get; }
+public sealed class StateHideEmptyDescription : StateStatement
+  public StateHideEmptyDescription()
+public enum StateKind : int
+  Choice = 3
+  Default = 0
+  Fork = 1
+  Join = 2
+public sealed class StateLayout : DiagramLayout
+  public StateLayout()
+public sealed class StateModule : DiagramModule<StateDocument, StateLayout>
+  public StateModule()
+  public override StateDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override StateLayout Layout(StateDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(StateDocument document, StateLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(StateDocument document, StringBuilder output)
+public sealed class StateNote : StateStatement
+  public StateNote(StateNotePosition position, string id, string text)
+  public StateNotePosition Position { get; }
+  public string Id { get; }
+  public string Text { get; }
+public enum StateNotePosition : int
+  LeftOf = 0
+  RightOf = 1
+public sealed class StateRef
+  public StateRef(string id)
+  public const string StartOrEnd = "[*]"
+  public string Id { get; }
+  public string? ClassName { get; set; }
+public sealed class StateScale : StateStatement
+  public StateScale(string width)
+  public string Width { get; }
+public abstract class StateStatement
+  protected StateStatement()
+public sealed class StateStyle : StateStatement
+  public StateStyle(string ids, string styles)
+  public string Ids { get; }
+  public string Styles { get; }
+public sealed class StateTransition : StateStatement
+  public StateRef From { get; }
+  public StateRef To { get; }
+  public StateTransition(StateRef from, StateRef to)
+  public string? Label { get; set; }
+
 namespace SplashTheMusical.Icons
 public interface IIconProvider
   public MermaidIcon? GetIcon(string name)
