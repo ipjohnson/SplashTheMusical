@@ -34,12 +34,12 @@ public class CrashFuzzerTests
 		{
 			if (source.StartsWith("state", StringComparison.Ordinal) && source.Contains("-->", StringComparison.Ordinal))
 			{
-				Thread.Sleep(60);
+				Thread.Sleep(250);
 			}
-		}, TimeSpan.FromMilliseconds(30), threads: 2);
+		}, TimeSpan.FromMilliseconds(200), threads: 2);
 
 		await Assert.That(run.Finds.Count).IsGreaterThan(0);
-		await Assert.That(run.Finds[0].Problem).Contains("past the 0.03 s deadline");
+		await Assert.That(run.Finds[0].Problem).Contains("past the 0.2 s deadline");
 	}
 
 	[Test]
