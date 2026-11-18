@@ -97,7 +97,7 @@ public class OracleRoundTripTests
 			var copied = OracleRoundTrip.CopyDifferingOriginals(corpus, folder);
 
 			await Assert.That(copied).IsEqualTo(3);
-			await Assert.That(string.Join(",", CorpusCheck.Cases(original))).IsEqualTo("flowchart/fonts,flowchart/unread,flowchart/writer");
+			await Assert.That(string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/')))).IsEqualTo("flowchart/fonts,flowchart/unread,flowchart/writer");
 			await Assert.That(Directory.Exists(Path.Combine(original, "stale"))).IsFalse();
 
 			File.WriteAllText(Path.Combine(original, "flowchart/fonts.facts.txt"), "accept\tyes\nedge-label\tA\n");

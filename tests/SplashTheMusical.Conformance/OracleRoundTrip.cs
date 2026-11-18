@@ -110,14 +110,14 @@ public static class OracleRoundTrip
 		{
 			if (!File.Exists(Path.Combine(written, name + ".facts.txt")))
 			{
-				problems.Add($"{CorpusFolder}/{name}: the oracle wrote no facts");
+				problems.Add($"{CorpusFolder}/{Key(name)}: the oracle wrote no facts");
 				continue;
 			}
 
 			var original = Path.Combine(folder, OriginalFolder);
 			if (File.Exists(Path.Combine(original, name + ".mmd")) && !File.Exists(Path.Combine(original, name + ".facts.txt")))
 			{
-				problems.Add($"{OriginalFolder}/{name}: the oracle wrote no facts");
+				problems.Add($"{OriginalFolder}/{Key(name)}: the oracle wrote no facts");
 				continue;
 			}
 
@@ -127,11 +127,11 @@ public static class OracleRoundTrip
 			var actual = OracleFiles.Read(written, name);
 			if (!actual.Accepted)
 			{
-				problems.Add($"{CorpusFolder}/{name}: mermaid.js refused the written text: {actual.Error}");
+				problems.Add($"{CorpusFolder}/{Key(name)}: mermaid.js refused the written text: {actual.Error}");
 			}
 			else if (FirstDifference(expected.Facts, actual.Facts) is { } difference)
 			{
-				problems.Add($"{CorpusFolder}/{name}: mermaid.js reads the written text differently\n{difference}");
+				problems.Add($"{CorpusFolder}/{Key(name)}: mermaid.js reads the written text differently\n{difference}");
 			}
 		}
 
@@ -140,16 +140,19 @@ public static class OracleRoundTrip
 		{
 			if (!File.Exists(Path.Combine(random, name + ".facts.txt")))
 			{
-				problems.Add($"{RandomFolder}/{name}: the oracle wrote no facts");
+				problems.Add($"{RandomFolder}/{Key(name)}: the oracle wrote no facts");
 			}
 			else if (OracleFiles.Read(random, name) is { Accepted: false } refused)
 			{
-				problems.Add($"{RandomFolder}/{name}: mermaid.js refused the written text: {refused.Error}");
+				problems.Add($"{RandomFolder}/{Key(name)}: mermaid.js refused the written text: {refused.Error}");
 			}
 		}
 
 		return problems;
 	}
+
+	/// <summary>The case's name with <c>/</c> between its folders on every platform.</summary>
+	private static string Key(string name) => name.Replace('\\', '/');
 
 	private static string? FirstDifference(IReadOnlyList<string> expected, IReadOnlyList<string> actual)
 	{
