@@ -78,6 +78,12 @@ internal sealed class FlowNode
 	/// <summary>Whether <c>insertCluster</c> drew the node as a frame, which edges meet as a rectangle.</summary>
 	public bool IsFrame { get; set; }
 
+	/// <summary>A state's descriptions, which <c>rectWithTitle</c> draws under its label.</summary>
+	public IReadOnlyList<string> Description { get; init; } = [];
+
+	/// <summary>The labels of a shape that draws more than one, each with the top left corner of its box, or <c>null</c>.</summary>
+	public IReadOnlyList<(FlowchartLabelBox Box, double X, double Y)>? Labels { get; set; }
+
 	public FlowNode Clone() => (FlowNode)MemberwiseClone();
 }
 
@@ -115,6 +121,9 @@ internal sealed class FlowEdge
 	public IReadOnlyList<string> CssCompiledStyles { get; init; } = [];
 
 	public bool Animated { get; init; }
+
+	/// <summary><c>pattern</c>: <c>dashed</c> for a state note's edge, or <c>null</c> for the stroke's pattern.</summary>
+	public string? Pattern { get; init; }
 
 	// Measured and laid out.
 

@@ -132,7 +132,7 @@ public class FlowchartDagreInputTests
 		return Compare(expected, layout.DagreInputs);
 	}
 
-	private static List<string> Compare(IReadOnlyList<DagreInput> expected, IReadOnlyList<DagreInput> actual)
+	internal static List<string> Compare(IReadOnlyList<DagreInput> expected, IReadOnlyList<DagreInput> actual)
 	{
 		var differences = new List<string>();
 		if (actual.Count != expected.Count)

@@ -40,7 +40,11 @@ internal sealed class FlowchartMeasure
 
 	private readonly HashSet<string> _boxedClasses = new(StringComparer.Ordinal);
 
-	public FlowchartMeasure(MermaidConfig config, string svgId, string diagramType, ITextMeasurer measurer, IReadOnlyList<FlowchartClass>? classes = null)
+	/// <param name="nodeLabels">
+	/// The <c>wrappingWidth</c> and <c>minWidth</c> the diagram's <c>getData</c> gives its nodes, or <c>null</c> for
+	/// <c>flowchart.wrappingWidth</c> and <c>flowchart.minNodeWidth</c>.
+	/// </param>
+	public FlowchartMeasure(MermaidConfig config, string svgId, string diagramType, ITextMeasurer measurer, IReadOnlyList<FlowchartClass>? classes = null, (double? WrappingWidth, double? MinNodeWidth)? nodeLabels = null)
 	{
 		foreach (var definition in classes ?? [])
 		{
@@ -56,10 +60,10 @@ internal sealed class FlowchartMeasure
 		NodeHtmlLabels = config.HtmlLabels ?? true;
 		EdgeHtmlLabels = config.HtmlLabels ?? config.Flowchart.HtmlLabels ?? true;
 		_flowchartHtmlLabels = config.Flowchart.HtmlLabels ?? false;
-		_configWrappingWidth = config.Flowchart.WrappingWidth;
-		_wrappingWidth = Truthy(config.Flowchart.WrappingWidth) ? config.Flowchart.WrappingWidth!.Value : DefaultWrapWidth;
+		_configWrappingWidth = nodeLabels is { } labels ? labels.WrappingWidth : config.Flowchart.WrappingWidth;
+		_wrappingWidth = Truthy(_configWrappingWidth) ? _configWrappingWidth!.Value : DefaultWrapWidth;
 		_imageSize = ImageSizeFactor * (config.FontSize ?? 16);
-		_minNodeWidth = config.Flowchart.MinNodeWidth ?? 0;
+		_minNodeWidth = (nodeLabels is { } minimum ? minimum.MinNodeWidth : config.Flowchart.MinNodeWidth) ?? 0;
 		_markdownAutoWrap = config.MarkdownAutoWrap != false;
 		Padding = Truthy(config.Flowchart.Padding) ? config.Flowchart.Padding!.Value : 8;
 		var family = ThemeString(config, "fontFamily") ?? config.FontFamily ?? "\"trebuchet ms\", verdana, arial, sans-serif";
@@ -106,6 +110,12 @@ internal sealed class FlowchartMeasure
 			return;
 		}
 
+		if (node.Shape == "rectWithTitle")
+		{
+			RectWithTitle(node);
+			return;
+		}
+
 		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true, _markdownAutoWrap) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
 		var pictured = node.Shape is "icon" or "iconCircle" or "iconRounded" or "iconSquare" or "imageSquare";
 		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0)
@@ -146,6 +156,56 @@ internal sealed class FlowchartMeasure
 		node.Width = geometry.Width;
 		node.Height = geometry.Height;
 	}
+
+	/// <summary>
+	/// <c>rectWithTitle</c>, a state with descriptions: the title over the descriptions joined by <c>&lt;br/&gt;</c>, each
+	/// through <c>createLabel</c>, which does not wrap, the narrower centred on the wider. A line under the title divides
+	/// the frame, which is the labels padded by the node's padding.
+	/// </summary>
+	private void RectWithTitle(FlowNode node)
+	{
+		var html = EdgeHtmlLabels;
+		var title = UnwrappedLabel(node.Label, html);
+		var description = UnwrappedLabel(string.Join("<br/>", node.Description), html);
+		var padding = node.Padding;
+		var halfPadding = padding / 2;
+		var titleX = description.Width < title.Width ? 0 : (description.Width - title.Width) / 2;
+		var descriptionX = description.Width > title.Width ? 0 : (title.Width - description.Width) / 2;
+		var descriptionY = title.Height + halfPadding + 5;
+		var width = Math.Max(title.Width, description.Width);
+		var height = descriptionY + description.Height;
+		var labelX = -width / 2;
+		var labelY = (-height / 2) - halfPadding + 3;
+		var x = -width / 2 - halfPadding;
+		var y = -height / 2 - halfPadding;
+		var dividerY = y + title.Height + halfPadding;
+		var rect = new ShapeElement { Kind = ShapeElementKind.Rect, Class = "outer title-state", X = x, Y = y, Width = width + padding, Height = height + padding };
+		var line = new ShapeElement { Kind = ShapeElementKind.Line, Class = "divider", X = x, Y = dividerY, Width = width / 2 + halfPadding, Height = dividerY };
+		var bounds = new ShapeBounds(x, y, x + width + padding, y + height + padding);
+		node.Geometry = new ShapeGeometry
+		{
+			Width = bounds.Width,
+			Height = bounds.Height,
+			Bounds = bounds,
+			Elements = [new ShapeElement { Kind = ShapeElementKind.Group, Children = [rect, line] }],
+			Intersect = ShapeIntersect.Rect,
+		};
+		node.Labels = [(title, labelX + titleX, labelY), (description, labelX + descriptionX, labelY + descriptionY)];
+		node.Width = bounds.Width;
+		node.Height = bounds.Height;
+	}
+
+	/// <summary><c>createLabel</c>'s text: not Markdown, at an unbounded width.</summary>
+	private FlowchartLabelBox UnwrappedLabel(string label, bool html) =>
+		html
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(label, FlowchartLabelType.String, true, _markdownAutoWrap), Font, double.PositiveInfinity, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(label, FlowchartLabelType.String), Font, double.PositiveInfinity, 0, false);
+
+	/// <summary>
+	/// The title of a state's <c>roundedWithTitle</c> frame, which <c>createLabel</c> draws without Markdown at an
+	/// unbounded width.
+	/// </summary>
+	public FlowchartLabelBox StateClusterLabel(FlowNode node) => UnwrappedLabel(node.Label, EdgeHtmlLabels);
 
 	/// <summary>Sizes the edge's label, which dagre makes room for. An SVG label has a background 2 wider on each side.</summary>
 	public void Edge(FlowEdge edge)

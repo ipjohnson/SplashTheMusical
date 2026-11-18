@@ -19,21 +19,23 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// </remarks>
 internal static class FlowchartRenderer
 {
-	public static void Render(FlowchartLayout layout, SvgWriter svg, string svgId)
+	public static void Render(FlowchartLayout layout, SvgWriter svg, string svgId) => Render(layout.Root, layout.Title, layout.Style, svg, svgId);
+
+	/// <summary>Writes the drawing of mermaid.js's dagre renderer for any diagram type it draws, such as a state diagram.</summary>
+	public static void Render(FlowchartDrawing root, FlowchartTitle? title, FlowchartStyle style, SvgWriter svg, string svgId)
 	{
-		var style = layout.Style;
 		svg.StartElement("g");
-		WriteMarkers(svg, svgId, style, ColoredMarkers(layout.Root));
-		WriteRoot(svg, layout.Root, svgId, style);
+		WriteMarkers(svg, svgId, style, ColoredMarkers(root));
+		WriteRoot(svg, root, svgId, style);
 		svg.EndElement();
 		WriteLookDefs(svg, svgId, style);
-		if (layout.Title is { } title)
+		if (title is not null)
 		{
 			svg.StartElement("text");
 			svg.WriteAttribute("text-anchor", "middle");
 			svg.WriteAttribute("x", title.X);
 			svg.WriteAttribute("y", title.Y);
-			svg.WriteAttribute("class", "flowchartTitleText");
+			svg.WriteAttribute("class", title.Class);
 			Paint(svg, "fill", style.TextColor);
 			svg.WriteText(title.Text);
 			svg.EndElement();
@@ -121,7 +123,7 @@ internal static class FlowchartRenderer
 	private static void WriteMarkers(SvgWriter svg, string svgId, FlowchartStyle style, List<ColoredMarker> colored)
 	{
 		var definitions = new Dictionary<string, MarkerDefinition>(StringComparer.Ordinal);
-		foreach (var name in EdgeMarkers.SetsFor(MarkerDiagram.Flowchart, style.Look == "neo"))
+		foreach (var name in EdgeMarkers.SetsFor(style.Markers, style.Look == "neo"))
 		{
 			if (EdgeMarkers.FindSet(name) is not { } set)
 			{
@@ -287,12 +289,27 @@ internal static class FlowchartRenderer
 	{
 		svg.StartElement("g");
 		svg.WriteAttribute("class", WithStyleClass(cluster.Classes, cluster.StyleClass));
-		svg.WriteAttribute("id", svgId + "-" + cluster.Id);
-		svg.WriteAttribute("data-id", cluster.Id);
-		svg.WriteAttribute("data-look", style.Look);
+		svg.WriteAttribute("id", svgId + "-" + cluster.DomId);
+		if (cluster.Shape is "rect" or "roundedWithTitle")
+		{
+			svg.WriteAttribute("data-id", cluster.Id);
+		}
+
+		if (cluster.Shape != "noteGroup")
+		{
+			svg.WriteAttribute("data-look", style.Look);
+		}
+
 		if (cluster.ColorId is { } colorId)
 		{
 			svg.WriteAttribute("data-color-id", colorId);
+		}
+
+		if (cluster.Shape != "rect")
+		{
+			WriteStateCluster(svg, cluster, style);
+			svg.EndElement();
+			return;
 		}
 
 		svg.StartElement("rect");
@@ -309,6 +326,60 @@ internal static class FlowchartRenderer
 		WriteText(svg, cluster.Label, style, "nodeLabel");
 		svg.EndElement();
 		svg.EndElement();
+	}
+
+	/// <summary>
+	/// The state cluster shapes of <c>clusters.js</c>: <c>roundedWithTitle</c>'s outer frame, title and inner frame,
+	/// <c>divider</c>'s frame, and <c>noteGroup</c>'s unfilled frame.
+	/// </summary>
+	private static void WriteStateCluster(SvgWriter svg, FlowchartClusterDrawing cluster, FlowchartStyle style)
+	{
+		if (cluster.Shape == "noteGroup")
+		{
+			svg.StartElement("rect");
+			svg.WriteAttribute("x", cluster.X);
+			svg.WriteAttribute("y", cluster.Y);
+			svg.WriteAttribute("width", cluster.Width);
+			svg.WriteAttribute("height", cluster.Height);
+			svg.WriteAttribute("fill", "none");
+			svg.EndElement();
+			return;
+		}
+
+		svg.StartElement("g");
+		svg.StartElement("rect");
+		svg.WriteAttribute("class", cluster.Shape == "divider" ? "divider" : "outer");
+		svg.WriteAttribute("x", cluster.X);
+		svg.WriteAttribute("y", cluster.Y);
+		svg.WriteAttribute("width", cluster.Width);
+		svg.WriteAttribute("height", cluster.Height);
+		svg.WriteAttribute("data-look", style.Look);
+		Paint(svg, "fill", style.ClusterFill);
+		Paint(svg, "stroke", style.NodeStroke);
+		svg.EndElement();
+		svg.EndElement();
+		if (cluster.Shape == "divider")
+		{
+			return;
+		}
+
+		svg.StartElement("g");
+		svg.WriteAttribute("class", "cluster-label");
+		svg.WriteAttribute("transform", Translate(cluster.LabelX, cluster.LabelY));
+		WriteText(svg, cluster.Label, style, "nodeLabel");
+		svg.EndElement();
+		if (cluster.Inner is { } inner)
+		{
+			svg.StartElement("rect");
+			svg.WriteAttribute("class", "inner");
+			svg.WriteAttribute("x", cluster.X);
+			svg.WriteAttribute("y", inner.Y);
+			svg.WriteAttribute("width", cluster.Width);
+			svg.WriteAttribute("height", inner.Height);
+			Paint(svg, "fill", style.NodeFill);
+			Paint(svg, "stroke", style.NodeStroke);
+			svg.EndElement();
+		}
 	}
 
 	private static void WriteEdge(SvgWriter svg, FlowchartEdgeDrawing edge, string svgId, FlowchartStyle style)
@@ -388,7 +459,21 @@ internal static class FlowchartRenderer
 			WriteShapeElement(svg, element, style);
 		}
 
-		if (node.Label is { HasText: true } label)
+		if (node.Labels is { } labels)
+		{
+			svg.StartElement("g");
+			svg.WriteAttribute("class", "label");
+			foreach (var (box, x, y) in labels)
+			{
+				svg.StartElement("g");
+				svg.WriteAttribute("transform", Translate(x, y));
+				WriteText(svg, box, style, "nodeLabel");
+				svg.EndElement();
+			}
+
+			svg.EndElement();
+		}
+		else if (node.Label is { HasText: true } label)
 		{
 			svg.StartElement("g");
 			svg.WriteAttribute("class", "label");
