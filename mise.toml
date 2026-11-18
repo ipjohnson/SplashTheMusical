@@ -128,6 +128,32 @@ run = [
   'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/ComparesTheFactsWhenAsked"',
 ]
 
+[tasks.fuzz-crash]
+description = "Feed mutated corpus sources to STM's parser and renderer under ResourceLimits.Default, and fail on a crash or a missed deadline"
+usage = '''
+arg "[sources]" help="Sources per diagram type" default="100000"
+arg "[seed]" help="The seed. A find is reproducible from its type, the seed and its index" default="1"
+'''
+run = 'STM_FUZZ_CRASH_SOURCES="${usage_sources}" STM_FUZZ_SEED="${usage_seed}" dotnet run --project tests/SplashTheMusical.Conformance -c Release -- --treenode-filter "/*/*/FuzzRunTests/CrashFuzzesWhenAsked" --output Detailed'
+
+[tasks.fuzz-diff]
+description = "Run sources mutated from the corpus and grammar sentences through mermaid.js and STM, and write the minimized differences to .artifacts/fuzz/differential"
+usage = '''
+arg "[seconds]" help="Seconds per diagram type" default="60"
+arg "[seed]" help="The seed" default="1"
+'''
+run = 'bash tools/fuzz/differential.sh "${usage_seconds}" "${usage_seed}"'
+
+[tasks.fuzz-add]
+description = "Add minimized finds of mise run fuzz-diff to the corpus with their oracle files"
+usage = '''
+arg "[finds]" help="A find, such as .artifacts/fuzz/differential/finds/flowchart/a1b2c3.mmd, or a folder of finds" default=".artifacts/fuzz/differential/finds"
+'''
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  'node tools/oracle/add.mjs "${usage_finds}"',
+]
+
 [tasks.conformance-aot]
 description = "Run the conformance tests under JIT and native AOT, and fail when their corpus results differ"
 run = [

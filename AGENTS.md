@@ -26,6 +26,9 @@ mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's p
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
+mise run fuzz-crash [sources] [seed]  # fail on a crash or missed deadline of 100,000 mutated sources per type, finds in .artifacts/fuzz/crash
+mise run fuzz-diff [seconds] [seed]   # minimized sources STM and mermaid.js differ on, written to .artifacts/fuzz/differential
+mise run fuzz-add [finds]             # add finds of fuzz-diff to the corpus with their oracle files
 mise run bench             # STM's stages on corpus/benchmarks/cases.txt, JIT and AOT, written to .artifacts/bench
 mise run bench-compare     # fail when a run is more than 10% worse than docs/benchmarks/stm.md
 mise run bench-budget      # fail when STM's parse rows are slower or allocate more than docs/benchmarks/mermaider-baseline.md
@@ -142,6 +145,18 @@ compares the written text's facts, boxes and SVG with the case's. `DocumentGener
 CI's `l4` job runs, has the oracle read STM's text of every accepted case and 100 random documents per generator. A
 written case whose facts differ from the committed ones is compared with the oracle's facts of the original case on the
 same machine, so fonts that wrap differently off macOS do not fail it.
+
+The fuzzing of the plan's section 7 is in `tests/SplashTheMusical.Conformance/Fuzzing`, and `FuzzRunTests` runs it when
+its environment variables are set. `CrashFuzzer` feeds sources `Mutator` makes from the corpus to the parser and the
+renderer under `ResourceLimits.Default`, and keeps a crash, an exception other than `MermaidParseException` and a missed
+render deadline. CI's `crash-fuzz` job runs 100,000 sources per type with seed 1 on a pull request and the run id
+otherwise, and a find is reproducible with `mise run fuzz-crash 100000 <seed>`. `DifferentialRunner` sends mutated
+sources and sentences of the pinned tag's grammars to `tools/oracle/serve.mjs` and to STM, and `Minimizer` shrinks each
+source they differ on. `tools/fuzz/differential.sh` runs it, and `.github/workflows/fuzz-differential.yml` runs that
+daily on macOS and opens an issue with the finds, or says in the run's summary that it found none. `tools/oracle/add.mjs`
+adds a find to the corpus. `BrokenRuleReplayTests` replays a recorded run against a flowchart parser with the thick link
+rule broken. Its fixture is re-recorded with `STM_FUZZ_RECORD=1` when the mutator, the minimizer or the flowchart corpus
+changes the run's sources.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it

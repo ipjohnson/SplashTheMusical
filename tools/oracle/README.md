@@ -46,6 +46,27 @@ Each run writes these files to the facts folder:
 | `shapes.txt` | run | [Shape table](#shape-table) |
 | `styles.txt` | run | [Stylesheets](#stylesheets) |
 
+## Fuzzing
+
+```bash
+mise run fuzz-diff [seconds] [seed]   # tools/fuzz/differential.sh, output in .artifacts/fuzz/differential
+mise run fuzz-add [finds]             # node tools/oracle/add.mjs <find.mmd or folder>
+```
+
+The differential fuzzer in `tests/SplashTheMusical.Conformance/Fuzzing` asks `serve.mjs` for the facts of each source
+it makes. `serve.mjs` loads mermaid.js once, as `facts.mjs` does, and answers one source per line on stdin with the
+lines of its facts file. It records no dagre layout. `differential.sh` clones mermaid at the pinned tag into
+`.artifacts/fuzz/mermaid@<version>` for the grammars, unless `STM_FUZZ_MERMAID` names a checkout.
+
+A run writes `report.md`, each minimized find as `finds/<type>/<name>.mmd` and the source it came from as
+`original/<type>/<name>.mmd`. `add.mjs` writes a find as `corpus/<type>/fuzz-<name>.mmd` with its facts, boxes and
+dagre files, skips one whose text is already a case of its type, and rewrites the corpus counts. Fix the difference or
+list it in the type's ledger, then run `mise run raster`.
+
+`.github/workflows/fuzz-differential.yml` runs the fuzzer daily on macOS for 600 seconds per type. A run with finds
+opens an issue with the report and the commands that download its `fuzz-differential` artifact and add the finds. A run
+without finds says so in its summary.
+
 ## What it pins
 
 | Package | Version | Why |
