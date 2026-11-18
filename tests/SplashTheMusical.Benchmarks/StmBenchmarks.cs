@@ -1,4 +1,8 @@
 using BenchmarkDotNet.Attributes;
+using SplashTheMusical.Config;
+using SplashTheMusical.Diagrams;
+using SplashTheMusical.Icons;
+using SplashTheMusical.Text;
 
 namespace SplashTheMusical.Benchmarks;
 
@@ -12,11 +16,30 @@ public sealed record StmStage(string Name, IReadOnlySet<string> Types, Func<stri
 /// <summary>STM's stages on the benchmark set.</summary>
 public class StmBenchmarks
 {
+	/// <summary>The corpus folders of the diagram types that have stages. A diagram type adds its folder when it lands.</summary>
+	public static readonly IReadOnlySet<string> Measured = new HashSet<string>(StringComparer.Ordinal) { "flowchart" };
+
 	/// <summary>
-	/// The stages. A diagram type adds its parse, layout, render and write stages here when it lands. The core has no stage yet,
-	/// so <c>mise run bench</c> writes a result file with no rows.
+	/// The stages. <c>render</c> starts from the source, as Mermaider's <c>render</c> does, so it is parse, layout and render
+	/// together.
 	/// </summary>
-	public static readonly StmStage[] Stages = [];
+	public static readonly StmStage[] Stages =
+	[
+		new("parse", Measured, source => source, source => Mermaid.Default.Parse((string)source)),
+		new("layout", Measured, PrepareLayout, layout => ((Func<DiagramLayout>)layout)()),
+		new("render", Measured, source => source, source => Mermaid.Default.RenderSvg((string)source)),
+		new("write", Measured, source => Mermaid.Default.Parse(source), document => Mermaid.Default.Write((MermaidDocument)document)),
+	];
+
+	/// <summary>Parses the source and resolves its config, as <c>Mermaid.RenderSvg</c> does before it calls the module's layout.</summary>
+	private static Func<DiagramLayout> PrepareLayout(string source)
+	{
+		var document = Mermaid.Default.Parse(source);
+		var module = Mermaid.CoreModules.First(m => m.DiagramType == document.DiagramType);
+		var config = MermaidConfig.Resolve(null, document, document.DiagramType);
+		var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Default);
+		return () => module.Layout(document, context);
+	}
 
 	private StmStage _stage = null!;
 	private object _input = null!;

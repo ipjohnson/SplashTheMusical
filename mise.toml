@@ -147,6 +147,14 @@ arg "[committed]" help="The committed numbers" default="docs/benchmarks/stm.md"
 '''
 run = 'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- compare "${usage_committed}" "${usage_run}"'
 
+[tasks.bench-budget]
+description = "Fail when STM's parse time or allocation is over the Mermaider baseline on a case of a measured type"
+usage = '''
+arg "[run]" help="The result file of a run" default="docs/benchmarks/stm.md"
+arg "[baseline]" help="The Mermaider baseline" default="docs/benchmarks/mermaider-baseline.md"
+'''
+run = 'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- budget "${usage_baseline}" "${usage_run}"'
+
 [tasks.bench-mermaider]
 description = "Run the Mermaider baseline on the benchmark set and rewrite docs/benchmarks/mermaider-baseline.md"
 run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- mermaider"
