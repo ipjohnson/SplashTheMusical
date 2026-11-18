@@ -1,0 +1,1 @@
+# State cases whose dagre graphs still differ from the ones mermaid.js recorded. StateDagreInputTests reads it.

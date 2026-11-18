@@ -21,33 +21,10 @@ internal static class StateFacts
 		var data = StateData.From(document, look);
 		var html = config.HtmlLabels ?? true;
 		var edgeHtml = config.HtmlLabels ?? config.Flowchart.HtmlLabels ?? true;
-		var nodes = new Dictionary<string, StateDataNode>(StringComparer.Ordinal);
-		foreach (var node in data.Nodes)
-		{
-			nodes[node.Id] = node;
-		}
-
-		string? ParentOf(string id)
-		{
-			var parent = nodes.TryGetValue(id, out var node) ? node.ParentId : null;
-			while (parent is not null && parent.EndsWith(ParentSuffix, StringComparison.Ordinal))
-			{
-				parent = nodes.TryGetValue(parent, out var wrapper) ? wrapper.ParentId : null;
-			}
-
-			return parent is null ? null : Region(parent);
-		}
-
-		string Name(string id)
-		{
-			var shape = nodes.TryGetValue(id, out var node) ? node.Shape : null;
-			return shape switch
-			{
-				"stateStart" => $"[*]start@{ParentOf(id) ?? "root"}",
-				"stateEnd" => $"[*]end@{ParentOf(id) ?? "root"}",
-				_ => Region(id),
-			};
-		}
+		var naming = new Naming(data);
+		var nodes = naming.Nodes;
+		string? ParentOf(string id) => naming.ParentOf(id);
+		string Name(string id) => naming.Name(id);
 
 		var children = new Dictionary<string, SortedSet<string>>(StringComparer.Ordinal);
 		foreach (var node in data.Nodes)
@@ -112,6 +89,97 @@ internal static class StateFacts
 
 			var end = edge.ArrowTypeEnd == "arrow_barb" ? "arrow" : edge.ArrowTypeEnd is { Length: > 0 } arrow ? arrow : "none";
 			facts.Add(ConfigLines.Line("edge", Name(edge.Start), Name(edge.End), "none", end, "solid", Text(edge.Label, edgeHtml)));
+		}
+	}
+
+	/// <summary>
+	/// The extractor's state boxes from the module's layout: each state as a node, a note by its state, a composite
+	/// state or region as a group, leaving out a note's wrapper group, and each transition and its label by the names
+	/// of its ends, leaving out a note's edge. The canvas is the viewBox.
+	/// </summary>
+	public static string Boxes(List<string> boxes, StateDocument document, StateLayout layout)
+	{
+		var naming = new Naming(StateData.From(document, layout.Style.Look));
+		var used = new Dictionary<string, int>(StringComparer.Ordinal);
+		void Add(string kind, string name, FlowchartBox box)
+		{
+			var count = used[kind + "\t" + name] = used.GetValueOrDefault(kind + "\t" + name) + 1;
+			boxes.Add(StmFactsProvider.Box(kind, count > 1 ? $"{name} #{count}" : name, box.X, box.Y, box.Width, box.Height));
+		}
+
+		foreach (var box in layout.Boxes())
+		{
+			switch (box.Kind)
+			{
+				case "group" when box.Name.EndsWith(ParentSuffix, StringComparison.Ordinal):
+					break;
+				case "group":
+					Add("group", Region(box.Name), box);
+					break;
+				case "node" when naming.Nodes.TryGetValue(box.Name, out var node) && IsNote(node):
+					Add("note", box.Name.Split("----")[0], box);
+					break;
+				case "node":
+					Add("node", naming.Name(box.Name), box);
+					break;
+				default:
+					var name = box.Name;
+					var hash = name.LastIndexOf(" #", StringComparison.Ordinal);
+					if (hash > 0 && name.AsSpan(hash + 2).Length > 0 && !name.AsSpan(hash + 2).ContainsAnyExcept(Digits))
+					{
+						name = name[..hash];
+					}
+
+					var arrow = name.IndexOf(" --> ", StringComparison.Ordinal);
+					var start = name[..arrow];
+					var end = name[(arrow + 5)..];
+					if (IsNoteId(start, naming.Nodes) || IsNoteId(end, naming.Nodes))
+					{
+						break;
+					}
+
+					Add(box.Kind, naming.Name(start) + " --> " + naming.Name(end), box);
+					break;
+			}
+		}
+
+		var viewBox = layout.ViewBox!.Value;
+		return string.Join('\t', "canvas", StmFactsProvider.Number(viewBox.X), StmFactsProvider.Number(viewBox.Y), StmFactsProvider.Number(viewBox.Width), StmFactsProvider.Number(viewBox.Height));
+	}
+
+	/// <summary>The extractor's names: start and end states by the composite they are in, and the last region as <c>divider-id-N</c>.</summary>
+	private sealed class Naming
+	{
+		public Naming(StateData data)
+		{
+			foreach (var node in data.Nodes)
+			{
+				Nodes[node.Id] = node;
+			}
+		}
+
+		public Dictionary<string, StateDataNode> Nodes { get; } = new(StringComparer.Ordinal);
+
+		public string? ParentOf(string id)
+		{
+			var parent = Nodes.TryGetValue(id, out var node) ? node.ParentId : null;
+			while (parent is not null && parent.EndsWith(ParentSuffix, StringComparison.Ordinal))
+			{
+				parent = Nodes.TryGetValue(parent, out var wrapper) ? wrapper.ParentId : null;
+			}
+
+			return parent is null ? null : Region(parent);
+		}
+
+		public string Name(string id)
+		{
+			var shape = Nodes.TryGetValue(id, out var node) ? node.Shape : null;
+			return shape switch
+			{
+				"stateStart" => $"[*]start@{ParentOf(id) ?? "root"}",
+				"stateEnd" => $"[*]end@{ParentOf(id) ?? "root"}",
+				_ => Region(id),
+			};
 		}
 	}
 

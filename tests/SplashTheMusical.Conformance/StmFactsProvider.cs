@@ -76,6 +76,8 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is StateDocument state)
 		{
 			StateFacts.Add(facts, state, preamble, config);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = StateFacts.Boxes(boxes, state, new StateModule().Layout(state, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
@@ -368,10 +370,10 @@ public sealed class StmFactsProvider : IFactsProvider
 		return "canvas\t0\t0\t400\t150";
 	}
 
-	private static string Box(string kind, string name, double x, double y, double width, double height) =>
+	internal static string Box(string kind, string name, double x, double y, double width, double height) =>
 		string.Join('\t', "box", kind, name, Number(x), Number(y), Number(width), Number(height));
 
-	private static string Number(double value) => JsNumber.ToString(Math.Round(value, 3, MidpointRounding.AwayFromZero));
+	internal static string Number(double value) => JsNumber.ToString(Math.Round(value, 3, MidpointRounding.AwayFromZero));
 
 	/// <summary>
 	/// <c>drawn</c>: whether the SVG has a shape, or a text with something other than space, outside <c>defs</c> and

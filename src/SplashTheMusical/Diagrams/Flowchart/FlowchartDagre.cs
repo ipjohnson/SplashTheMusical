@@ -25,10 +25,14 @@ internal sealed class FlowchartDagre
 	private readonly double _titleTotalMargin;
 	private readonly List<(int Height, DagreInput Input)> _inputs = [];
 
+	/// <summary>The detector id of the state diagram, which the same renderer draws.</summary>
+	public const string StateDiagramType = "stateDiagram";
+
 	public FlowchartDagre(FlowchartMeasure measure, string diagramType, double titleTopMargin, double titleBottomMargin)
 	{
 		_measure = measure;
-		_mergeSelfLoops = diagramType == FlowchartModule.FlowchartV2;
+		// shouldMergeSelfLoopSegments: flowchart-v2 and stateDiagram among the types STM draws, not flowchart-elk.
+		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType;
 		_titleTopMargin = titleTopMargin;
 		_titleTotalMargin = titleTopMargin + titleBottomMargin;
 	}
@@ -719,6 +723,7 @@ internal sealed class FlowchartDagre
 					Y = node.Y,
 					Geometry = node.Geometry,
 					Label = node.LabelBox,
+					Labels = node.Labels,
 					NodeStyles = nodeStyles,
 					LabelStyles = labelStyles,
 					ColorId = node.Shape == "collapsedGroup" ? ColorId(node) : null,
@@ -760,7 +765,86 @@ internal sealed class FlowchartDagre
 	}
 
 	/// <summary><c>insertCluster</c>'s <c>rect</c>: a frame at least as wide as its title and the padding, with the title at its top.</summary>
-	private FlowchartClusterDrawing InsertCluster(FlowNode node)
+	private FlowchartClusterDrawing InsertCluster(FlowNode node) => node.Shape switch
+	{
+		"roundedWithTitle" => RoundedWithTitle(node),
+		"divider" => UntitledCluster(node, "divider"),
+		"noteGroup" => UntitledCluster(node, "noteGroup"),
+		_ => RectCluster(node),
+	};
+
+	/// <summary>
+	/// <c>insertCluster</c>'s <c>roundedWithTitle</c>, a composite state: an outer frame at least as wide as its title
+	/// and the padding, and an inner frame below the title.
+	/// </summary>
+	private FlowchartClusterDrawing RoundedWithTitle(FlowNode node)
+	{
+		var label = _measure.StateClusterLabel(node);
+		var narrow = node.Width <= label.Width + node.Padding;
+		var width = narrow ? label.Width + node.Padding : node.Width;
+		node.Diff = narrow ? ((width - node.Width) / 2) - node.Padding : -node.Padding;
+		var height = node.Height;
+		var x = node.X - (width / 2);
+		var y = node.Y - (height / 2);
+		var innerY = node.Y - (node.Height / 2) + label.Height + 2;
+		var innerHeight = node.Height - label.Height - 6;
+		var (nodeStyles, labelStyles) = FlowchartStyles.NodeStyles(node.CssCompiledStyles, node.CssStyles);
+		var cluster = new FlowchartClusterDrawing
+		{
+			Id = node.Id,
+			DomId = node.DomId,
+			Shape = node.Shape,
+			Classes = node.Classes,
+			X = x,
+			Y = y,
+			Width = width,
+			Height = height,
+			Inner = (innerY, innerHeight),
+			Label = label,
+			NodeStyles = nodeStyles,
+			LabelStyles = labelStyles,
+			ColorId = ColorId(node),
+			LabelX = node.X - (label.Width / 2),
+			LabelY = y + 1 - (label.Html ? 0 : 3),
+		};
+		node.Width = width;
+		node.Height = height;
+		node.IsFrame = true;
+		return cluster;
+	}
+
+	/// <summary>
+	/// <c>insertCluster</c>'s <c>divider</c>, a concurrent region drawn as a dashed frame, and <c>noteGroup</c>, the
+	/// invisible frame around a note and its state. Neither draws its label.
+	/// </summary>
+	private FlowchartClusterDrawing UntitledCluster(FlowNode node, string shape)
+	{
+		if (shape == "divider")
+		{
+			node.Diff = -node.Padding;
+		}
+
+		var (nodeStyles, labelStyles) = FlowchartStyles.NodeStyles(node.CssCompiledStyles, node.CssStyles);
+		var cluster = new FlowchartClusterDrawing
+		{
+			Id = node.Id,
+			DomId = node.DomId,
+			Shape = shape,
+			Classes = shape == "noteGroup" ? "note-cluster" : node.Classes,
+			X = node.X - (node.Width / 2),
+			Y = node.Y - (node.Height / 2),
+			Width = node.Width,
+			Height = node.Height,
+			Label = FlowchartLabelBox.Empty(_measure.EdgeHtmlLabels),
+			NodeStyles = nodeStyles,
+			LabelStyles = labelStyles,
+			ColorId = shape == "divider" ? ColorId(node) : null,
+		};
+		node.IsFrame = true;
+		return cluster;
+	}
+
+	private FlowchartClusterDrawing RectCluster(FlowNode node)
 	{
 		var label = _measure.ClusterLabel(node);
 		var width = node.Width <= label.Width + node.Padding ? label.Width + node.Padding : node.Width;
@@ -772,6 +856,7 @@ internal sealed class FlowchartDagre
 		var cluster = new FlowchartClusterDrawing
 		{
 			Id = node.Id,
+			DomId = node.Id,
 			Classes = ("cluster " + node.Classes).TrimEnd(),
 			X = x,
 			Y = y,
@@ -1082,7 +1167,7 @@ internal sealed class FlowchartDagre
 			FlowchartStroke.Invisible => "edge-thickness-invisible",
 			_ => "edge-thickness-normal",
 		}
-		+ (edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted" : " edge-pattern-solid");
+		+ (edge.Pattern == "dashed" ? " edge-pattern-dashed" : edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted" : " edge-pattern-solid");
 
 	private static bool HasIntersect(FlowNode node) => node.IsFrame || node.Geometry is not null;
 
