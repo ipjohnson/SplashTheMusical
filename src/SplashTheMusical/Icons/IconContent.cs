@@ -1,8 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Immutable;
 using System.Text;
-using System.Xml;
-using System.Xml.Linq;
 using SplashTheMusical.Rendering;
 
 namespace SplashTheMusical.Icons;
@@ -41,59 +39,36 @@ internal static class IconContent
 			return ([], "", [new SvgViolation("document", "too-long")]);
 		}
 
-		var removed = new List<SvgViolation>();
 		var svg = "<svg xmlns=\"" + SvgValues.SvgNamespace + "\">" + body + "</svg>";
-		var document = Load(svg);
-		if (document?.Root is not { } root)
+		if (SvgMarkup.Parse(svg, preserveWhitespace: false) is not { } document)
 		{
 			return ([], "", [new SvgViolation("document", "malformed-xml")]);
 		}
 
-		foreach (var element in root.Descendants())
+		var root = document.Root;
+		foreach (var element in root.DescendantsAndSelf())
 		{
-			if (element.Attribute("style") is { } style)
+			if (!ReferenceEquals(element, root) && element.Attribute("style") is { } style)
 			{
 				ApplyStyle(element, style.Value);
 			}
 		}
 
-		var result = SvgSanitizer.Sanitize(document.ToString(SaveOptions.DisableFormatting), SvgValues.WriterElements, SvgValues.WriterAttributes);
-		foreach (var violation in result.Violations)
-		{
-			// The style attributes were applied above, so removing them loses nothing the icon draws.
-			if (!(violation.Kind == "attribute" && violation.Name == "style"))
-			{
-				removed.Add(violation);
-			}
-		}
+		var (violations, rejected) = SvgSanitizer.Sanitize(document, SvgValues.WriterElements, SvgValues.WriterAttributes, allowStyle: false, depth: 0);
 
-		var clean = result.HasViolations ? Load(result.Svg)?.Root : root;
-		if (clean is null)
+		// The style attributes were applied above, so removing them loses nothing the icon draws.
+		var removed = violations.FindAll(v => !(v.Kind == "attribute" && v.Name == "style"));
+		if (rejected)
 		{
 			return ([], "", removed);
 		}
 
-		var content = Convert(clean.Nodes());
+		var content = Convert(root.Children);
 		return (content, Write(content), removed);
 	}
 
-	private static XDocument? Load(string svg)
-	{
-		var settings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = null };
-		try
-		{
-			using var stringReader = new StringReader(svg);
-			using var reader = XmlReader.Create(stringReader, settings);
-			return XDocument.Load(reader);
-		}
-		catch (XmlException)
-		{
-			return null;
-		}
-	}
-
 	/// <summary>The declarations of <paramref name="style"/> whose property and value are safe, set as attributes.</summary>
-	private static void ApplyStyle(XElement element, string style)
+	private static void ApplyStyle(MarkupNode element, string style)
 	{
 		foreach (var declaration in style.Split(';'))
 		{
@@ -122,36 +97,35 @@ internal static class IconContent
 		value.Length is > 0 and <= 256 && value.IndexOfAny(['{', '}', '\\', '<', '>', '@']) < 0
 		&& (!value.Contains('(', StringComparison.Ordinal) || SvgValues.IsAllowedPaint(value));
 
-	private static ImmutableArray<IconElement> Convert(IEnumerable<XNode> nodes)
+	private static ImmutableArray<IconElement> Convert(List<MarkupNode> nodes)
 	{
 		var list = ImmutableArray.CreateBuilder<IconElement>();
 		foreach (var node in nodes)
 		{
-			switch (node)
+			if (node.Kind == MarkupKind.Element)
 			{
-				case XElement element:
-					list.Add(Convert(element));
-					break;
-				case XText text when text.Value.Length > 0:
-					list.Add(new IconElement(null, [], [], text.Value));
-					break;
+				list.Add(Convert(node));
+			}
+			else if (node.IsText && node.Value.Length > 0)
+			{
+				list.Add(new IconElement(null, [], [], node.Value));
 			}
 		}
 
 		return list.ToImmutable();
 	}
 
-	private static IconElement Convert(XElement element)
+	private static IconElement Convert(MarkupNode element)
 	{
 		var attributes = ImmutableArray.CreateBuilder<IconAttribute>();
-		foreach (var attribute in element.Attributes())
+		foreach (var attribute in element.Attributes)
 		{
-			if (attribute.IsNamespaceDeclaration || attribute.Name.NamespaceName.Length > 0)
+			if (attribute.IsNamespaceDeclaration || attribute.NamespaceName.Length > 0)
 			{
 				continue;
 			}
 
-			var name = attribute.Name.LocalName;
+			var name = attribute.LocalName;
 			var value = attribute.Value;
 			if (name == "id")
 			{
@@ -167,7 +141,7 @@ internal static class IconContent
 			}
 		}
 
-		return new IconElement(element.Name.LocalName, attributes.ToImmutable(), Convert(element.Nodes()), null);
+		return new IconElement(element.LocalName, attributes.ToImmutable(), Convert(element.Children), null);
 	}
 
 	/// <summary>The content as markup, with its ids as the icon holds them.</summary>
@@ -186,7 +160,7 @@ internal static class IconContent
 	{
 		if (element.Name is null)
 		{
-			builder.Append(new XText(element.Text ?? "").ToString());
+			SvgMarkup.AppendEscaped(builder, element.Text ?? "", attribute: false);
 			return;
 		}
 
@@ -194,7 +168,9 @@ internal static class IconContent
 		foreach (var attribute in element.Attributes)
 		{
 			var value = attribute.IsIdReference && attribute.Name != "id" ? "url(#" + attribute.Value + ")" : attribute.Value;
-			builder.Append(' ').Append(new XAttribute(attribute.Name, value).ToString());
+			builder.Append(' ').Append(attribute.Name).Append("=\"");
+			SvgMarkup.AppendEscaped(builder, value, attribute: true);
+			builder.Append('"');
 		}
 
 		if (element.Children.IsEmpty)

@@ -105,6 +105,10 @@ the sanitizer's grammar. A test that writes a document goes through `tests/Splas
 which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unchanged. The writer's lists are built from
 `SvgValues.Elements` and `SvgValues.Attributes`, so a renderer that needs a new element or attribute adds it there.
 
+The core reads XML only with `SvgMarkup` in `src/SplashTheMusical/Rendering`, which `SvgSanitizer` and `IconContent`
+share. `System.Xml` doubled the native AOT `stm` and `Uri` added to it, so the core uses neither. `SvgMarkup`
+accepts a subset of what `XmlReader` accepts, so the sanitizer's fuzz tests can still read its output with `XDocument`.
+
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 
 `StmBenchmarks.Stages` measures parse, layout, render and write on the benchmark cases of the types in

@@ -76,4 +76,21 @@ public class ImageNodeTests
 		svg.Should().NotContain("<image");
 		diagnostics.Should().ContainSingle().Which.Message.Should().Contain("neither a base64 data: PNG or SVG image nor an http or https URL");
 	}
+
+	[Test]
+	[Arguments("https://example.com/logo.svg", true)]
+	[Arguments("HTTP://example.com", true)]
+	[Arguments("http://user@example.com:8080/a?b#c", true)]
+	[Arguments("https://[::1]:443/x.png", true)]
+	[Arguments("http://", false)]
+	[Arguments("http://::1/x", false)]
+	[Arguments("http://:80/x", false)]
+	[Arguments("http://example.com:80a/x", false)]
+	[Arguments("https://exa mple.com", false)]
+	[Arguments("https://example.com/\"onload=\"x", false)]
+	[Arguments("javascript:alert(1)", false)]
+	[Arguments("ftp://example.com/x.png", false)]
+	[Arguments("//example.com/x.png", false)]
+	public void OnlyAnAbsoluteHttpUrlWithAHostIsARemoteImage(string href, bool remote) =>
+		SplashTheMusical.Rendering.SvgWriter.IsRemoteImage(href).Should().Be(remote);
 }

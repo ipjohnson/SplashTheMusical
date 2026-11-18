@@ -179,10 +179,33 @@ public sealed class SvgWriter
 		SvgValues.DecodeImageDataUri(href, svg => !SvgSanitizer.Sanitize(svg).HasViolations) is not null
 		|| (allowRemote && IsRemoteImage(href));
 
-	/// <summary>An absolute <c>http</c> or <c>https</c> URL without white space or control characters.</summary>
-	internal static bool IsRemoteImage(string href) =>
-		href.Length <= 2048 && !href.AsSpan().ContainsAny(" \t\r\n\"'<>\\`") && !href.Any(char.IsControl)
-		&& Uri.TryCreate(href, UriKind.Absolute, out var uri) && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps);
+	/// <summary>
+	/// An absolute <c>http</c> or <c>https</c> URL with a host, without white space or control characters. It is checked
+	/// by hand, because <see cref="Uri"/> would add System.Private.Uri to the native AOT <c>stm</c>.
+	/// </summary>
+	internal static bool IsRemoteImage(string href)
+	{
+		if (href.Length > 2048 || href.AsSpan().ContainsAny(" \t\r\n\"'<>\\`{}|^") || href.Any(char.IsControl))
+		{
+			return false;
+		}
+
+		var rest = href.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ? href.AsSpan(7)
+			: href.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ? href.AsSpan(8)
+			: [];
+		var end = rest.IndexOfAny("/?#");
+		var authority = end < 0 ? rest : rest[..end];
+		var at = authority.LastIndexOf('@');
+		var hostAndPort = authority[(at + 1)..];
+		var close = hostAndPort.IndexOf(']');
+		var colon = !hostAndPort.StartsWith('[') ? hostAndPort.LastIndexOf(':')
+			: close >= 0 && close + 1 < hostAndPort.Length && hostAndPort[close + 1] == ':' ? close + 1
+			: -1;
+		var host = colon < 0 ? hostAndPort : hostAndPort[..colon];
+		var port = colon < 0 ? [] : hostAndPort[(colon + 1)..];
+		return host.Length > 0 && !host.ContainsAny("@%") && (host[0] == '[' ? host[^1] == ']' : !host.ContainsAny("[]:"))
+			&& port.Length <= 5 && !port.ContainsAnyExcept("0123456789");
+	}
 
 	/// <summary>Writes text inside the current element.</summary>
 	/// <exception cref="InvalidOperationException">No element is open.</exception>
