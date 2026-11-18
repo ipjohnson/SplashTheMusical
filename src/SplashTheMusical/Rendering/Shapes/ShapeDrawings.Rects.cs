@@ -2,9 +2,47 @@ namespace SplashTheMusical.Rendering.Shapes;
 
 // Upstream: packages/mermaid/src/rendering-util/rendering-elements/shapes/{drawRect,squareRect,roundedRect,datastore,
 // text,note,stadium,shadedProcess,taggedRect,multiRect,dividedRect,windowPane,halfRoundedRectangle,curvedTrapezoid,
-// bowTieRect}.ts
+// bowTieRect,collapsedGroup}.ts
 internal static partial class ShapeDrawings
 {
+	/// <summary>
+	/// A collapsed subgraph, <c>@{ view: collapsed }</c>: a rounded rect at least 80 wide, with the title above a dashed
+	/// separator and a row of three dots. The theme's cluster colours are left to the stylesheet.
+	/// </summary>
+	public static ShapeGeometry CollapsedGroup(ShapeNode node)
+	{
+		const double indicatorRowHeight = 20, separatorGap = 8, minWidth = 80, radius = 8;
+		var label = Measure(node, node.Width);
+		var padding = node.Padding ?? 8;
+		var totalWidth = Math.Max(Math.Max(label.Width + padding * 2, minWidth), node.Width ?? 0);
+		var totalHeight = Math.Max(label.Height + separatorGap + indicatorRowHeight + padding * 2, node.Height ?? 0);
+		var x = -totalWidth / 2;
+		var y = -totalHeight / 2;
+		var labelShiftY = -(separatorGap + indicatorRowHeight) / 2;
+		var translate = label.Html ? new ShapePoint(-label.Width / 2, -label.Height / 2 + labelShiftY) : new ShapePoint(0, -label.Height / 2 + labelShiftY);
+		const string cls = "basic label-container collapsed-group";
+		var rect = node.IsHandDrawn
+			? RoughPath(ShapePaths.RoundedRect(x, y, totalWidth, totalHeight, radius), cls)
+			: Rect(x, y, totalWidth, totalHeight, cls, radius);
+		var separatorY = y + padding + label.Height + separatorGap;
+		var separator = new ShapeElement
+		{
+			Kind = ShapeElementKind.Line,
+			Class = "collapsed-separator",
+			X = x + 8,
+			Y = separatorY,
+			Width = x + totalWidth - 8,
+			Height = separatorY,
+			Attributes = [new("stroke-dasharray", "3 3")],
+		};
+		var dotY = separatorY + indicatorRowHeight / 2;
+		return Finish(
+			[rect, separator, Circle(-10, dotY, 2.5, "collapsed-indicator"), Circle(0, dotY, 2.5, "collapsed-indicator"), Circle(10, dotY, 2.5, "collapsed-indicator")],
+			label,
+			translate,
+			ShapeIntersect.Rect);
+	}
+
 	/// <summary><c>drawRect</c>: a rect around the label, at least the node's size, with an optional corner radius.</summary>
 	private static ShapeGeometry DrawRect(ShapeNode node, double? radius, double labelPaddingX, double labelPaddingY)
 	{

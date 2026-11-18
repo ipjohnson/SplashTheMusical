@@ -28,6 +28,7 @@ internal static class NodeShapes
 		new("choice", ShapeDrawings.Choice),
 		new("circle", ShapeDrawings.Circle),
 		new("cloud", ShapeDrawings.Cloud),
+		new("collapsedGroup", ShapeDrawings.CollapsedGroup),
 		new("consoleWindow", ShapeDrawings.ConsoleWindow),
 		new("crossedCircle", ShapeDrawings.CrossedCircle),
 		new("curlyBraceLeft", ShapeDrawings.CurlyBraceLeft),

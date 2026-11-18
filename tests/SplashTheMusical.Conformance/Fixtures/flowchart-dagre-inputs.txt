@@ -16,26 +16,6 @@ e2e-katex-pr-check-3-should-render-a-katex-flowchart-containing-set-theory-symbo
 e2e-katex-pr-check-4-should-render-consecutive-latex-equations-separated-by-text
 bug #140
 e2e-flowchart-visual-check-65-3-bigger-font-from-classes
-bug #150
-docs-flowchart-104
-e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4
-e2e-flowchart-nightly-check-redux-color-subgraphs-03-should-render-collapsed-subgraph-containers
-e2e-flowchart-nightly-check-redux-color-subgraphs-07-should-render-collapsed-subgraph-containers
-e2e-flowchart-nightly-check-redux-color-subgraphs-11-should-render-collapsed-subgraph-containers
-e2e-flowchart-nightly-check-redux-color-subgraphs-15-should-render-collapsed-subgraph-containers
-e2e-flowchart-visual-check-57-handle-nested-subgraphs-with-outgoing-links-4
-e2e-flowchart-visual-check-should-collapse-nested-subgraphs-to-the-outermost-collapsed-ancestor
-e2e-flowchart-visual-check-should-redirect-an-edge-targeting-a-deeply-nested-node-to-the-outermost-collapsed-subgraph
-e2e-flowchart-visual-check-should-render-a-collapsed-subgraph-alongside-an-expanded-one
-e2e-flowchart-visual-check-should-render-a-collapsed-subgraph-as-a-single-node-with-edges-redirected-to-it
-e2e-flowchart-visual-check-should-render-self-loops
-e2e-flowchart-visual-check-v2-18-should-render-nested-subgraphs-with-edge-from-cluster-containing-extractable-subgraph
-mermaider-flowchart-collapsed-subgraph
-parser-flowdb-003
-parser-flowdb-004
-parser-flowdb-dropped-subgraph-members-001
-parser-flowdb-dropped-subgraph-members-007
-parser-subgraph-042
 bug #152
 e2e-flowchart-nightly-check-dagre-sub-graphs-and-markdown-strings-2
 e2e-flowchart-visual-check-sub-graphs-and-markdown-strings-2

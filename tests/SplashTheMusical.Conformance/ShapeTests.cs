@@ -110,7 +110,8 @@ public class ShapeTests
 			{
 				foreach (var input in record.Input.Nodes)
 				{
-					if (!nodes.TryGetValue(input.Id, out var node) || decorated.Contains(input.Id) || NodeShapes.Find(node.Shape) is not { } shape)
+					// A collapsed subgraph is not a vertex: it has padding 8 and no minimum width, and FlowchartDagreInputTests compares it.
+					if (!nodes.TryGetValue(input.Id, out var node) || decorated.Contains(input.Id) || NodeShapes.Find(node.Shape) is not { } shape || shape.Handler == "collapsedGroup")
 					{
 						continue;
 					}

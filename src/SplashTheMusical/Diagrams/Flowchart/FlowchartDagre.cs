@@ -23,7 +23,7 @@ internal sealed class FlowchartDagre
 	private readonly bool _mergeSelfLoops;
 	private readonly double _titleTopMargin;
 	private readonly double _titleTotalMargin;
-	private readonly List<DagreInput> _inputs = [];
+	private readonly List<(int Height, DagreInput Input)> _inputs = [];
 
 	public FlowchartDagre(FlowchartMeasure measure, string diagramType, double titleTopMargin, double titleBottomMargin)
 	{
@@ -33,8 +33,14 @@ internal sealed class FlowchartDagre
 		_titleTotalMargin = titleTopMargin + titleBottomMargin;
 	}
 
-	/// <summary>The input of each dagre layout, in call order.</summary>
-	public IReadOnlyList<DagreInput> Inputs => _inputs;
+	/// <summary>
+	/// The input of each dagre layout, in the order mermaid.js calls dagre. <c>measureDagreGraph</c> measures the nodes
+	/// of a graph in one <c>Promise.all</c>, so the extracted subgraphs of a graph are measured side by side, and a graph
+	/// is laid out once its most deeply nested extracted subgraph is drawn. The graphs are laid out by that depth, then
+	/// in the order their measuring started, which is the depth-first order STM lays them out in. The layouts do not
+	/// depend on each other's order.
+	/// </summary>
+	public IReadOnlyList<DagreInput> Inputs => [.. _inputs.OrderBy(input => input.Height).Select(input => input.Input)];
 
 	/// <summary>Lays out and draws the nodes and edges, and returns the drawing of the top <c>g.root</c>.</summary>
 	public FlowchartDrawing Render(List<FlowNode> nodes, List<FlowEdge> edges, string direction, double nodeSpacing, double rankSpacing)
@@ -602,7 +608,7 @@ internal sealed class FlowchartDagre
 			new DagreOptions(RankDir: graph.RankDir, NodeSep: graph.NodeSep, RankSep: graph.RankSep, MarginX: graph.MarginX, MarginY: graph.MarginY),
 			nodes,
 			edges);
-		_inputs.Add(input);
+		_inputs.Add((Height(graph), input));
 		var laid = DagreLayout.Run(input);
 
 		foreach (var v in g.Nodes())
@@ -640,6 +646,22 @@ internal sealed class FlowchartDagre
 				edge.Y = routed.Y;
 			}
 		}
+	}
+
+	/// <summary>How deeply extracted subgraphs nest in the graph: 0 when it holds none.</summary>
+	private static int Height(FlowGraph graph)
+	{
+		var g = graph.G;
+		var height = 0;
+		foreach (var v in g.Nodes())
+		{
+			if (g.NodeOrDefault(v) is { ClusterNode: true, Graph: { } inner })
+			{
+				height = Math.Max(height, Height(inner) + 1);
+			}
+		}
+
+		return height;
 	}
 
 	private (FlowchartDrawing Drawing, double Diff) Paint(FlowGraph graph, bool top)
