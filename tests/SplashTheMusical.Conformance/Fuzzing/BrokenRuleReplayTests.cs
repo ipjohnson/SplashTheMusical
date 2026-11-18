@@ -22,7 +22,7 @@ public class BrokenRuleReplayTests
 	private static string FixturePath => Path.Combine(CorpusCheck.RepositoryRoot, "tests", "SplashTheMusical.Conformance", "Fixtures", "differential-thick-rule.txt");
 
 	[Test]
-	public async Task FindsAndMinimizesAThickLinkRuleBrokenInTheFlowchartParser()
+	public void FindsAndMinimizesAThickLinkRuleBrokenInTheFlowchartParser()
 	{
 		var stm = new StmFactsProvider(new Mermaid(new MermaidOptions { SiteConfig = StmFactsProvider.OracleSite, Limits = ResourceLimits.Unlimited }, [new BrokenThickRule()]));
 		var corpus = CorpusCheck.CorpusRoot;
@@ -39,16 +39,17 @@ public class BrokenRuleReplayTests
 			oracle.Write(FixturePath);
 		}
 
-		await Assert.That(oracle.Misses).IsEqualTo(0).Because($"the run asked for sources the fixture lacks. Rewrite it with {RecordVariable}=1");
+		Verify(oracle.Misses == 0, $"the run asked for sources the fixture lacks. Rewrite it with {RecordVariable}=1, was {oracle.Misses}");
 		var find = run.Finds.FirstOrDefault(ShowsTheBreak);
-		await Assert.That(find).IsNotNull();
+		Verify(find is not null);
 		Console.WriteLine($"Source {find!.Index} of {run.Sources}, minimized from {SourceTokens.Lines(find.Original).Count} lines in {find.Tests} tests: {Mutator.Escape(find.Minimized)}");
-		await Assert.That(find.Disagreement.Signature).IsEqualTo("L1 edge");
-		await Assert.That(find.Minimized).Contains("==");
-		await Assert.That(SourceTokens.Lines(find.Minimized).Count).IsLessThan(SourceTokens.Lines(find.Original).Count);
-		await Assert.That(SourceTokens.Lines(find.Minimized).Count).IsLessThanOrEqualTo(3);
-		await Assert.That(runner.Disagree(find.Minimized)?.Shows("L1 edge")).IsTrue();
-		await Assert.That(new DifferentialRunner(oracle.Facts, new StmFactsProvider().Facts).Disagree(find.Minimized)).IsNull();
+		Verify(find.Disagreement.Signature == "L1 edge", $"was {find.Disagreement.Signature}");
+		Verify(find.Minimized.Contains("=="), $"{find.Minimized}");
+		Verify(SourceTokens.Lines(find.Minimized).Count < SourceTokens.Lines(find.Original).Count, $"was {SourceTokens.Lines(find.Minimized).Count}");
+		Verify(SourceTokens.Lines(find.Minimized).Count <= 3, $"was {SourceTokens.Lines(find.Minimized).Count}");
+		Verify(runner.Disagree(find.Minimized)?.Shows("L1 edge") == true);
+		var unbroken = new DifferentialRunner(oracle.Facts, new StmFactsProvider().Facts).Disagree(find.Minimized);
+		Verify(unbroken is null, $"was {unbroken}");
 	}
 
 	/// <summary>Whether mermaid.js has a thick edge STM lacks.</summary>

@@ -16,7 +16,7 @@ public class DagreRankReplayTests
 	private const int MaxReported = 20;
 
 	[Test]
-	public async Task RanksMatchEveryRecordedLayout()
+	public void RanksMatchEveryRecordedLayout()
 	{
 		var layouts = 0;
 		var failures = new List<string>();
@@ -44,8 +44,8 @@ public class DagreRankReplayTests
 			report.Append(CultureInfo.InvariantCulture, $"and {failures.Count - MaxReported} more of {layouts} layouts\n");
 		}
 
-		await Assert.That(layouts).IsGreaterThan(0);
-		await Assert.That(report.ToString()).IsEqualTo("");
+		Verify(layouts > 0, $"was {layouts}");
+		Verify(report.ToString() == "", $"was {report.ToString()}");
 	}
 
 	private static string? Compare(DagreRecord record)

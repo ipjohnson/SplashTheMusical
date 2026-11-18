@@ -5,18 +5,18 @@ namespace SplashTheMusical.Conformance;
 public class MinimizerTests
 {
 	[Test]
-	public async Task RemovesEveryLineAndTokenTheTestDoesNotNeed()
+	public void RemovesEveryLineAndTokenTheTestDoesNotNeed()
 	{
 		const string Source = "flowchart LR\n  A-->B\n  B-->C\n  C[needle]-->D\n  D-->E\n  E-->F\n";
 
 		var minimized = Minimizer.Minimize(Source, s => s.Contains("flowchart", StringComparison.Ordinal) && s.Contains("needle", StringComparison.Ordinal), 1000, out var tests);
 
-		await Assert.That(minimized).IsEqualTo("flowchartneedle");
-		await Assert.That(tests).IsGreaterThan(0);
+		Verify(minimized == "flowchartneedle", $"was {minimized}");
+		Verify(tests > 0, $"was {tests}");
 	}
 
 	[Test]
-	public async Task StopsAfterItsTests()
+	public void StopsAfterItsTests()
 	{
 		var calls = 0;
 
@@ -26,16 +26,16 @@ public class MinimizerTests
 			return true;
 		}, 3, out var tests);
 
-		await Assert.That(calls).IsEqualTo(3);
-		await Assert.That(tests).IsEqualTo(3);
-		await Assert.That(minimized.Length).IsLessThan(12);
+		Verify(calls == 3, $"was {calls}");
+		Verify(tests == 3, $"was {tests}");
+		Verify(minimized.Length < 12, $"was {minimized.Length}");
 	}
 
 	[Test]
-	public async Task LeavesASourceItCannotShrink()
+	public void LeavesASourceItCannotShrink()
 	{
 		var minimized = Minimizer.Minimize("A-->B", s => s == "A-->B", 100, out _);
 
-		await Assert.That(minimized).IsEqualTo("A-->B");
+		Verify(minimized == "A-->B", $"was {minimized}");
 	}
 }

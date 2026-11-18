@@ -25,7 +25,7 @@ public class StylesheetTests
 	/// <c>getClasses</c> returns them. Every stylesheet must match in full.
 	/// </summary>
 	[Test]
-	public async Task EveryCaseGetsTheOracleStylesheet()
+	public void EveryCaseGetsTheOracleStylesheet()
 	{
 		var lines = File.ReadAllLines(Path.Combine(CorpusCheck.CorpusRoot, "styles.txt"));
 		var cases = lines.Where(line => line.StartsWith("source\t", StringComparison.Ordinal)).Select(line => line.Split('\t')[1]).ToList();
@@ -83,9 +83,9 @@ public class StylesheetTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
-		await Assert.That(cases.Count).IsEqualTo(26);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {lines[1]}");
+		Verify(cases.Count == 26, $"was {cases.Count}");
 	}
 
 	private static string ClassLine(string id, IReadOnlyList<string> styles, IReadOnlyList<string> textStyles) =>

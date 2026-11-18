@@ -15,7 +15,7 @@ public class DagrePositionReplayTests
 	private const int MaxReported = 20;
 
 	[Test]
-	public async Task PositionsMatchEveryRecordedLayout()
+	public void PositionsMatchEveryRecordedLayout()
 	{
 		var layouts = 0;
 		var types = new SortedSet<string>(StringComparer.Ordinal);
@@ -45,8 +45,8 @@ public class DagrePositionReplayTests
 			report.Append(CultureInfo.InvariantCulture, $"and {failures.Count - MaxReported} more of {layouts} layouts\n");
 		}
 
-		await Assert.That(string.Join(' ', types)).IsEqualTo("class er flowchart state");
-		await Assert.That(report.ToString()).IsEqualTo("");
+		Verify(string.Join(' ', types) == "class er flowchart state", $"was {string.Join(' ', types)}");
+		Verify(report.ToString() == "", $"was {report.ToString()}");
 	}
 
 	private static string? Compare(DagreRecord record)

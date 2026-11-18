@@ -7,7 +7,7 @@ public class CrashFuzzerTests
 	private static readonly string[] Seeds = ["flowchart LR\n  A((a)) --> B[b]\n", "stateDiagram-v2\n  [*] --> S\n"];
 
 	[Test]
-	public async Task KeepsEachSourceTheTargetThrowsOnWithAnExceptionOtherThanAParseException()
+	public void KeepsEachSourceTheTargetThrowsOnWithAnExceptionOtherThanAParseException()
 	{
 		var run = CrashFuzzer.Run("test", Seeds, 2000, 3, () => source =>
 		{
@@ -19,16 +19,16 @@ public class CrashFuzzerTests
 			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, "refused", 1, 1));
 		}, TimeSpan.FromSeconds(5), threads: 4);
 
-		await Assert.That(run.Finds.Count).IsEqualTo(CrashFuzzer.MaxFinds);
+		Verify(run.Finds.Count == CrashFuzzer.MaxFinds, $"was {run.Finds.Count}");
 		foreach (var find in run.Finds)
 		{
-			await Assert.That(find.Problem).StartsWith("System.InvalidOperationException: broken");
-			await Assert.That(find.Source).IsEqualTo(CrashFuzzer.Source(Seeds, 3, find.Index));
+			Verify(find.Problem.StartsWith("System.InvalidOperationException: broken", StringComparison.Ordinal), $"was {find.Problem}");
+			Verify(find.Source == CrashFuzzer.Source(Seeds, 3, find.Index), $"was {find.Source}");
 		}
 	}
 
 	[Test]
-	public async Task KeepsASourceThatTakesLongerThanTheDeadline()
+	public void KeepsASourceThatTakesLongerThanTheDeadline()
 	{
 		var run = CrashFuzzer.Run("test", Seeds, 200, 3, () => source =>
 		{
@@ -38,12 +38,12 @@ public class CrashFuzzerTests
 			}
 		}, TimeSpan.FromMilliseconds(200), threads: 2);
 
-		await Assert.That(run.Finds.Count).IsGreaterThan(0);
-		await Assert.That(run.Finds[0].Problem).Contains("past the 0.2 s deadline");
+		Verify(run.Finds.Count > 0, $"was {run.Finds.Count}");
+		Verify(run.Finds[0].Problem.Contains("past the 0.2 s deadline"), $"{run.Finds[0].Problem}");
 	}
 
 	[Test]
-	public async Task EndsTheRunOnASourceThatDoesNotReturn()
+	public void EndsTheRunOnASourceThatDoesNotReturn()
 	{
 		using var release = new ManualResetEventSlim();
 		var run = CrashFuzzer.Run("test", Seeds, 1_000_000, 3, () => source =>
@@ -55,24 +55,24 @@ public class CrashFuzzerTests
 		}, TimeSpan.FromMilliseconds(100), threads: 2);
 		release.Set();
 
-		await Assert.That(run.Finds.Count).IsGreaterThan(0);
-		await Assert.That(run.Finds[^1].Problem).IsEqualTo("did not return within 0.2 s");
-		await Assert.That(run.Sources).IsLessThan(1_000_000);
+		Verify(run.Finds.Count > 0, $"was {run.Finds.Count}");
+		Verify(run.Finds[^1].Problem == "did not return within 0.2 s", $"was {run.Finds[^1].Problem}");
+		Verify(run.Sources < 1_000_000, $"was {run.Sources}");
 	}
 
 	[Test]
-	public async Task RunsMutatedCorpusCasesOfEveryFuzzedTypeThroughStmWithoutACrash()
+	public void RunsMutatedCorpusCasesOfEveryFuzzedTypeThroughStmWithoutACrash()
 	{
 		var corpus = CorpusCheck.CorpusRoot;
 		var folders = FuzzTypes.Folders(corpus);
 
-		await Assert.That(string.Join(",", folders)).IsEqualTo("flowchart,info,state");
+		Verify(string.Join(",", folders) == "flowchart,info,state", $"was {string.Join(",", folders)}");
 		foreach (var folder in folders)
 		{
 			var run = CrashFuzzer.Run(folder, FuzzTypes.Sources(corpus, folder), 300, 1, CrashFuzzer.Stm, ResourceLimits.Default.RenderDeadline!.Value, Environment.ProcessorCount);
 
-			await Assert.That(string.Join("\n", run.Finds.Select(f => $"{f.Index}: {f.Problem}\n{Mutator.Escape(f.Source)}"))).IsEmpty();
-			await Assert.That(run.Sources).IsEqualTo(300);
+			Verify(!run.Finds.Select(f => $"{f.Index}: {f.Problem}\n{Mutator.Escape(f.Source)}").Any(), $"{(string.Join("\n", run.Finds.Select(f => $"{f.Index}: {f.Problem}\n{Mutator.Escape(f.Source)}")))}");
+			Verify(run.Sources == 300, $"was {run.Sources}");
 		}
 	}
 }

@@ -33,19 +33,19 @@ public class ShapeTests
 	];
 
 	[Test]
-	public async Task EveryShapeOfTheTableHasADrawing()
+	public void EveryShapeOfTheTableHasADrawing()
 	{
 		var missing = ShapeLines("shape")
 			.Where(fields => NodeShapes.ForHandler(fields[5]) is null)
 			.Select(fields => fields[1] + " (" + fields[5] + ")")
 			.ToList();
 
-		await Assert.That(ShapeLines("shape").Count()).IsGreaterThanOrEqualTo(53);
-		await Assert.That(string.Join("\n", missing)).IsEqualTo("");
+		Verify(ShapeLines("shape").Count() >= 53, $"was {ShapeLines("shape").Count()}");
+		Verify(!missing.Any(), $"{string.Join("\n", missing)}");
 	}
 
 	[Test]
-	public async Task EveryShapeNameFindsTheTablesHandler()
+	public void EveryShapeNameFindsTheTablesHandler()
 	{
 		var keys = ShapeLines("key").ToList();
 		var wrong = keys
@@ -53,9 +53,9 @@ public class ShapeTests
 			.Select(fields => $"{fields[1]}: {NodeShapes.Handler(fields[1]) ?? "none"}, the table's {fields[2]}")
 			.ToList();
 
-		await Assert.That(keys.Count).IsGreaterThan(0);
-		await Assert.That(string.Join("\n", wrong)).IsEqualTo("");
-		await Assert.That(NodeShapes.Handler("rect-ish")).IsNull();
+		Verify(keys.Count > 0, $"was {keys.Count}");
+		Verify(!wrong.Any(), $"{string.Join("\n", wrong)}");
+		Verify(NodeShapes.Handler("rect-ish") is null, $"was {NodeShapes.Handler("rect-ish")}");
 	}
 
 	/// <summary>
@@ -64,7 +64,7 @@ public class ShapeTests
 	/// is left out, because its size comes from roughjs's random strokes.
 	/// </summary>
 	[Test]
-	public async Task ShapesSizeFlowchartNodesAsTheOracleDid()
+	public void ShapesSizeFlowchartNodesAsTheOracleDid()
 	{
 		var fontSizes = ThemeFontSizes();
 		var compared = 0;
@@ -142,9 +142,9 @@ public class ShapeTests
 		}
 
 		var notCompared = ShapeLines("shape").Select(fields => fields[5]).Where(handler => !checkedShapes.Contains(handler)).ToList();
-		await Assert.That(compared).IsGreaterThanOrEqualTo(MinimumSample);
-		await Assert.That(string.Join("\n", misses)).IsEqualTo("");
-		await Assert.That(string.Join(", ", notCompared)).IsEqualTo("");
+		Verify(compared >= MinimumSample, $"was {compared}");
+		Verify(!misses.Any(), $"{string.Join("\n", misses)}");
+		Verify(!notCompared.Any(), $"{string.Join(", ", notCompared)}");
 	}
 
 	/// <summary>The lines of a kind in <c>corpus/shapes.txt</c>, split at tabs.</summary>

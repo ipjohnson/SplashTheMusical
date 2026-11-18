@@ -15,22 +15,22 @@ namespace SplashTheMusical.Conformance;
 public class RoundTripTests
 {
 	[Test]
-	public async Task EveryAcceptedCaseOfEveryModuleRoundTrips()
+	public void EveryAcceptedCaseOfEveryModuleRoundTrips()
 	{
 		var result = RoundTrip.Run(CorpusCheck.CorpusRoot, Mermaid.CoreModules);
 
-		await Assert.That(string.Join("\n\n", result.Problems)).IsEmpty();
+		Verify(!result.Problems.Any(), $"{string.Join("\n\n", result.Problems)}");
 		var missing = Mermaid.CoreModules.Select(m => m.DiagramType).Where(t => result.Checked.GetValueOrDefault(t) == 0).ToList();
-		await Assert.That(string.Join(", ", missing)).IsEmpty();
+		Verify(!missing.Any(), $"{string.Join(", ", missing)}");
 	}
 
 	[Test]
-	public async Task ChecksTheCasesOfAnAddedModule()
+	public void ChecksTheCasesOfAnAddedModule()
 	{
 		var result = RoundTrip.Run(CorpusCheck.CorpusRoot, [.. Mermaid.CoreModules, new LossyInfoModule()]);
 
-		await Assert.That(result.Checked.GetValueOrDefault("info")).IsGreaterThan(0);
-		await Assert.That(result.Problems.Count).IsEqualTo(result.Checked["info"]);
+		Verify(result.Checked.GetValueOrDefault("info") > 0, $"was {result.Checked.GetValueOrDefault("info")}");
+		Verify(result.Problems.Count == result.Checked["info"], $"was {result.Problems.Count}");
 	}
 
 	/// <summary>An <c>info</c> module whose writer adds an accessibility title, which the round trip must notice.</summary>

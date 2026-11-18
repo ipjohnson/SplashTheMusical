@@ -4,7 +4,7 @@ public class OracleRoundTripTests
 {
 	/// <summary>The first step of <c>mise run oracle-roundtrip</c>, with <see cref="OracleRoundTrip.FolderVariable"/> set. Otherwise it writes nothing.</summary>
 	[Test]
-	public async Task WritesTheCasesWhenAsked()
+	public void WritesTheCasesWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(OracleRoundTrip.FolderVariable) is not { Length: > 0 } folder)
 		{
@@ -13,12 +13,12 @@ public class OracleRoundTripTests
 
 		var written = OracleRoundTrip.WriteCases(CorpusCheck.CorpusRoot, folder);
 
-		await Assert.That(written).IsGreaterThan(0);
+		Verify(written > 0, $"was {written}");
 	}
 
 	/// <summary>The step of <c>mise run oracle-roundtrip</c> after the oracle has written the facts of the folder, before it runs on <c>&lt;folder&gt;/original</c>.</summary>
 	[Test]
-	public async Task CopiesTheDifferingOriginalsWhenAsked()
+	public void CopiesTheDifferingOriginalsWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(OracleRoundTrip.FolderVariable) is not { Length: > 0 } folder)
 		{
@@ -27,23 +27,24 @@ public class OracleRoundTripTests
 
 		OracleRoundTrip.CopyDifferingOriginals(CorpusCheck.CorpusRoot, folder);
 
-		await Assert.That(Directory.Exists(Path.Combine(folder, OracleRoundTrip.OriginalFolder))).IsTrue();
+		Verify(Directory.Exists(Path.Combine(folder, OracleRoundTrip.OriginalFolder)));
 	}
 
 	/// <summary>The last step of <c>mise run oracle-roundtrip</c>, after the oracle has written the facts of <c>&lt;folder&gt;/original</c>.</summary>
 	[Test]
-	public async Task ComparesTheFactsWhenAsked()
+	public void ComparesTheFactsWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(OracleRoundTrip.FolderVariable) is not { Length: > 0 } folder)
 		{
 			return;
 		}
 
-		await Assert.That(string.Join("\n", OracleRoundTrip.Problems(CorpusCheck.CorpusRoot, folder))).IsEmpty();
+		var roundTripProblems = OracleRoundTrip.Problems(CorpusCheck.CorpusRoot, folder);
+		Verify(!roundTripProblems.Any(), $"{string.Join("\n", roundTripProblems)}");
 	}
 
 	[Test]
-	public async Task NamesEachCaseTheOracleReadsDifferentlyOrRefuses()
+	public void NamesEachCaseTheOracleReadsDifferentlyOrRefuses()
 	{
 		var root = Directory.CreateTempSubdirectory("stm-roundtrip-").FullName;
 		try
@@ -62,11 +63,10 @@ public class OracleRoundTripTests
 
 			var problems = OracleRoundTrip.Problems(corpus, folder);
 
-			await Assert.That(string.Join("\n", problems)).IsEqualTo(
-				"corpus/flowchart/other: mermaid.js reads the written text differently\n  expected node\tA\tA\trect\n    actual node\tA\tB\trect\n"
+			Verify(string.Join("\n", problems) == "corpus/flowchart/other: mermaid.js reads the written text differently\n  expected node\tA\tA\trect\n    actual node\tA\tB\trect\n"
 				+ "corpus/flowchart/refused: mermaid.js refused the written text: Parse error\n"
 				+ "corpus/flowchart/unread: the oracle wrote no facts\n"
-				+ "random/flowchart/0002: mermaid.js refused the written text: Lexical error");
+				+ "random/flowchart/0002: mermaid.js refused the written text: Lexical error", $"was {string.Join("\n", problems)}");
 		}
 		finally
 		{
@@ -75,7 +75,7 @@ public class OracleRoundTripTests
 	}
 
 	[Test]
-	public async Task ComparesADifferingCaseWithTheOraclesFactsOfItsOriginalOnTheSameMachine()
+	public void ComparesADifferingCaseWithTheOraclesFactsOfItsOriginalOnTheSameMachine()
 	{
 		var root = Directory.CreateTempSubdirectory("stm-roundtrip-").FullName;
 		try
@@ -96,16 +96,15 @@ public class OracleRoundTripTests
 
 			var copied = OracleRoundTrip.CopyDifferingOriginals(corpus, folder);
 
-			await Assert.That(copied).IsEqualTo(3);
-			await Assert.That(string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/')))).IsEqualTo("flowchart/fonts,flowchart/unread,flowchart/writer");
-			await Assert.That(Directory.Exists(Path.Combine(original, "stale"))).IsFalse();
+			Verify(copied == 3, $"was {copied}");
+			Verify(string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/'))) == "flowchart/fonts,flowchart/unread,flowchart/writer", $"was {string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/')))}");
+			Verify(!(Directory.Exists(Path.Combine(original, "stale"))));
 
 			File.WriteAllText(Path.Combine(original, "flowchart/fonts.facts.txt"), "accept\tyes\nedge-label\tA\n");
 			File.WriteAllText(Path.Combine(original, "flowchart/writer.facts.txt"), "accept\tyes\nnode\tA\tA\trect\n");
 
-			await Assert.That(string.Join("\n", OracleRoundTrip.Problems(corpus, folder))).IsEqualTo(
-				"original/flowchart/unread: the oracle wrote no facts\n"
-				+ "corpus/flowchart/writer: mermaid.js reads the written text differently\n  expected node\tA\tA\trect\n    actual node\tA\tB\trect");
+			Verify(string.Join("\n", OracleRoundTrip.Problems(corpus, folder)) == "original/flowchart/unread: the oracle wrote no facts\n"
+				+ "corpus/flowchart/writer: mermaid.js reads the written text differently\n  expected node\tA\tA\trect\n    actual node\tA\tB\trect", $"was {string.Join("\n", OracleRoundTrip.Problems(corpus, folder))}");
 		}
 		finally
 		{
@@ -114,15 +113,15 @@ public class OracleRoundTripTests
 	}
 
 	[Test]
-	public async Task FailsWhenNothingWasWritten()
+	public void FailsWhenNothingWasWritten()
 	{
 		var root = Directory.CreateTempSubdirectory("stm-roundtrip-").FullName;
 		try
 		{
 			var problems = OracleRoundTrip.Problems(root, Path.Combine(root, "out"));
 
-			await Assert.That(problems.Count).IsEqualTo(1);
-			await Assert.That(problems[0]).Contains("no written cases");
+			Verify(problems.Count == 1, $"was {problems.Count}");
+			Verify(problems[0].Contains("no written cases"), $"{problems[0]}");
 		}
 		finally
 		{
