@@ -19,14 +19,14 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// </remarks>
 internal static class FlowchartRenderer
 {
-	public static void Render(FlowchartLayout layout, SvgWriter svg, string svgId) => Render(layout.Root, layout.Title, layout.Style, svg, svgId);
+	public static void Render(FlowchartLayout layout, SvgWriter svg, string svgId, FlowchartPictures? pictures = null) => Render(layout.Root, layout.Title, layout.Style, svg, svgId, pictures);
 
 	/// <summary>Writes the drawing of mermaid.js's dagre renderer for any diagram type it draws, such as a state diagram.</summary>
-	public static void Render(FlowchartDrawing root, FlowchartTitle? title, FlowchartStyle style, SvgWriter svg, string svgId)
+	public static void Render(FlowchartDrawing root, FlowchartTitle? title, FlowchartStyle style, SvgWriter svg, string svgId, FlowchartPictures? pictures = null)
 	{
 		svg.StartElement("g");
 		WriteMarkers(svg, svgId, style, ColoredMarkers(root));
-		WriteRoot(svg, root, svgId, style);
+		WriteRoot(svg, root, svgId, style, pictures);
 		svg.EndElement();
 		WriteLookDefs(svg, svgId, style);
 		if (title is not null)
@@ -230,7 +230,7 @@ internal static class FlowchartRenderer
 		}
 	}
 
-	private static void WriteRoot(SvgWriter svg, FlowchartDrawing drawing, string svgId, FlowchartStyle style)
+	private static void WriteRoot(SvgWriter svg, FlowchartDrawing drawing, string svgId, FlowchartStyle style, FlowchartPictures? pictures)
 	{
 		svg.StartElement("g");
 		svg.WriteAttribute("class", "root");
@@ -278,7 +278,7 @@ internal static class FlowchartRenderer
 		svg.WriteAttribute("class", "nodes");
 		foreach (var node in drawing.Nodes)
 		{
-			WriteNode(svg, node, svgId, style);
+			WriteNode(svg, node, svgId, style, pictures);
 		}
 
 		svg.EndElement();
@@ -425,7 +425,7 @@ internal static class FlowchartRenderer
 		svg.EndElement();
 	}
 
-	private static void WriteNode(SvgWriter svg, FlowchartNodeDrawing node, string svgId, FlowchartStyle style)
+	private static void WriteNode(SvgWriter svg, FlowchartNodeDrawing node, string svgId, FlowchartStyle style, FlowchartPictures? pictures)
 	{
 		if (node.Subgraph is { } subgraph)
 		{
@@ -433,7 +433,7 @@ internal static class FlowchartRenderer
 			svg.WriteAttribute("class", "root");
 			svg.WriteAttribute("id", svgId + "-" + node.DomId);
 			svg.WriteAttribute("transform", Translate(node.X, node.Y));
-			WriteRoot(svg, subgraph, svgId, style);
+			WriteRoot(svg, subgraph, svgId, style, pictures);
 			svg.EndElement();
 			return;
 		}
@@ -480,6 +480,11 @@ internal static class FlowchartRenderer
 			svg.WriteAttribute("transform", Translate(geometry.LabelTranslate.X, geometry.LabelTranslate.Y));
 			WriteText(svg, label, style, "nodeLabel");
 			svg.EndElement();
+		}
+
+		if (geometry.Picture is { } picture)
+		{
+			pictures?.Write(svg, node, picture, style);
 		}
 
 		svg.EndElement();

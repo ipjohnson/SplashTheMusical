@@ -127,7 +127,7 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 		ArgumentNullException.ThrowIfNull(layout);
 		ArgumentNullException.ThrowIfNull(svg);
 		ArgumentNullException.ThrowIfNull(context);
-		FlowchartRenderer.Render(layout, svg, context.SvgId);
+		FlowchartRenderer.Render(layout, svg, context.SvgId, new FlowchartPictures(context));
 	}
 
 	/// <summary>The size of the title's text, from the <c>flowchartTitleText</c> rule of the flowchart stylesheet.</summary>

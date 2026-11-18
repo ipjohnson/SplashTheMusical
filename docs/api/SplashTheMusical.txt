@@ -53,6 +53,7 @@ public sealed record MermaidOptions : IEquatable<MermaidOptions>
   public MermaidOptions()
   public MermaidValue? SiteConfig { get; init; }
   public ResourceLimits Limits { get; init; }
+  public bool AllowRemoteImages { get; init; }
   public static MermaidOptions Default { get; }
 public class MermaidParseException : Exception
   public IReadOnlyList<MermaidDiagnostic> Diagnostics { get; }
@@ -96,9 +97,11 @@ public sealed record ParseOptions : IEquatable<ParseOptions>
   public ParseOptions()
   public ResourceLimits? Limits { get; init; }
 public sealed record RenderOptions : IEquatable<RenderOptions>
+  public ICollection<MermaidDiagnostic>? Diagnostics { get; init; }
   public MermaidValue? SiteConfig { get; init; }
   public RenderOptions()
   public ResourceLimits? Limits { get; init; }
+  public bool? AllowRemoteImages { get; init; }
   public string? SvgId { get; init; }
 public sealed record ResourceLimits : IEquatable<ResourceLimits>
   public ResourceLimits()
@@ -924,13 +927,15 @@ public sealed class DiagramParseContext
   public void Add(MermaidDiagnostic diagnostic)
   public void AddError(string message, int line, int column)
 public sealed class DiagramRenderContext
-  public DiagramRenderContext(MermaidConfig config, string svgId, ITextMeasurer textMeasurer, IIconProvider icons, IReadOnlyList<ILayoutEngine> layoutEngines, ResourceLimits limits)
+  public DiagramRenderContext(MermaidConfig config, string svgId, ITextMeasurer textMeasurer, IIconProvider icons, IReadOnlyList<ILayoutEngine> layoutEngines, ResourceLimits limits, bool allowRemoteImages = false, ICollection<MermaidDiagnostic>? diagnostics = null)
   public IIconProvider Icons { get; }
   public ILayoutEngine? LayoutEngine(string name)
   public ITextMeasurer TextMeasurer { get; }
   public MermaidConfig Config { get; }
   public ResourceLimits Limits { get; }
+  public bool AllowRemoteImages { get; }
   public string SvgId { get; }
+  public void Report(MermaidDiagnostic diagnostic)
 public interface IDiagramModule
   public DiagramLayout Layout(MermaidDocument document, DiagramRenderContext context)
   public MermaidDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
@@ -1197,11 +1202,33 @@ public sealed class StateTransition : StateStatement
 namespace SplashTheMusical.Icons
 public interface IIconProvider
   public MermaidIcon? GetIcon(string name)
-public sealed record MermaidIcon : IEquatable<MermaidIcon>
-  public MermaidIcon(string Body, double Width, double Height)
-  public double Height { get; init; }
-  public double Width { get; init; }
-  public string Body { get; init; }
+public sealed class IconPack
+  public IReadOnlyCollection<string> Names { get; }
+  public IconPack(string prefix, IEnumerable<KeyValuePair<string, MermaidIcon>> icons)
+  public MermaidIcon? GetIcon(string name)
+  public static IconPack FromIconifyJson(ReadOnlySpan<byte> utf8Json, string? prefix = null)
+  public static IconPack FromIconifyJson(string json, string? prefix = null)
+  public string Prefix { get; }
+public sealed class IconRegistry : IIconProvider
+  public IReadOnlyCollection<string> Prefixes { get; }
+  public IconRegistry With(params IEnumerable<IconPack> packs)
+  public IconRegistry(IEnumerable<IconPack> packs)
+  public MermaidIcon? GetIcon(string name)
+  public static IconRegistry Default { get; }
+public sealed class MermaidIcon
+  public IReadOnlyList<SvgViolation> Removed { get; }
+  public MermaidIcon(string body, double width = 16, double height = 16, double left = 0, double top = 0, int rotate = 0, bool horizontalFlip = false, bool verticalFlip = false)
+  public bool HorizontalFlip { get; }
+  public bool VerticalFlip { get; }
+  public double Height { get; }
+  public double Left { get; }
+  public double Top { get; }
+  public double Width { get; }
+  public int Rotate { get; }
+  public string Body { get; }
+public static class MermaidIcons
+  public static IconPack Architecture { get; }
+  public static MermaidIcon Unknown { get; }
 public sealed class NoIcons : IIconProvider
   public MermaidIcon? GetIcon(string name)
   public static NoIcons Instance { get; }

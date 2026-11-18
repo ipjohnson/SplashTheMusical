@@ -252,6 +252,15 @@ internal sealed class FlowchartNodeDrawing
 	/// <summary>The class that keys the node's <see cref="FlowchartLayout.ElementRules"/>, or <c>null</c> when it has none.</summary>
 	public string? StyleClass { get; set; }
 
+	/// <summary>The <c>icon</c> an icon shape draws in its <see cref="ShapeGeometry.Picture"/>, such as <c>fa:user</c>.</summary>
+	public string? Icon { get; init; }
+
+	/// <summary>The <c>stroke</c> of the node's styles, which colours its icon instead of the theme's <c>nodeBorder</c>.</summary>
+	public string? IconColor { get; init; }
+
+	/// <summary>The <c>img</c> URL an image shape draws in its <see cref="ShapeGeometry.Picture"/>.</summary>
+	public string? Image { get; init; }
+
 	/// <summary>A subgraph without members, which the dagre renderer draws as a node.</summary>
 	public bool IsGroup { get; init; }
 

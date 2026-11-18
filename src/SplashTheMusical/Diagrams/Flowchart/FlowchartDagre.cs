@@ -727,6 +727,9 @@ internal sealed class FlowchartDagre
 					NodeStyles = nodeStyles,
 					LabelStyles = labelStyles,
 					ColorId = node.Shape == "collapsedGroup" ? ColorId(node) : null,
+					Icon = node.Vertex?.Icon,
+					IconColor = node.Vertex?.Icon is null ? null : FlowchartStyles.StyleValue(node.CssCompiledStyles, node.CssStyles, "stroke"),
+					Image = node.Vertex?.Image,
 					IsGroup = node.IsGroup,
 					IsDummy = node.IsDummy,
 				});

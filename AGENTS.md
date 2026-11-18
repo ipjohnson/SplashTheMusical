@@ -87,6 +87,14 @@ attributes, which the writer refuses, so `FlowchartStyles.ElementRules` writes t
 class on the element. `FlowchartStyleTests` compares the style text of each flowchart node, cluster and edge with the
 `element` lines of `corpus/styles.txt`.
 
+Icons come from an `IIconProvider`, by default `IconRegistry.Default`, which holds mermaid's built-in
+`mermaid-architecture` pack. A host registers other packs with `IconRegistry.With` and `IconPack.FromIconifyJson`, which
+reads Iconify JSON with `Utf8JsonReader`. A `MermaidIcon` sanitizes its body when it is made: `IconContent` turns safe
+`style` declarations into attributes and keeps only what `SvgWriter` writes. `FlowchartPictures` draws an icon node's icon
+as a nested `svg`, or mermaid's unknown icon with a warning, and an image node's `img` through `SvgWriter.WriteImage`: a
+`data:` PNG or SVG always, an `http` or `https` URL only with `AllowRemoteImages`, and otherwise a warning in
+`RenderOptions.Diagnostics`. STM never fetches an image. `IconTests` and `ImageNodeTests` cover them.
+
 Stylesheets are built only from the typed rules of `src/SplashTheMusical/Rendering`. `CssDeclaration` refuses a
 property outside its allowlist and a value outside its grammar, so a value from the source or the config cannot hold
 `;`, a brace or `url(`.
