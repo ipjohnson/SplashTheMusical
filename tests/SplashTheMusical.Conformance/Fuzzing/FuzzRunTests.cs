@@ -79,11 +79,7 @@ public class FuzzRunTests
 		var checkout = Environment.GetEnvironmentVariable(MermaidVariable) is { Length: > 0 } m ? m : null;
 		var stmProvider = new StmFactsProvider(new Mermaid(new MermaidOptions { SiteConfig = StmFactsProvider.OracleSite, Limits = ResourceLimits.Default }));
 		using var oracle = new OracleProcess(root, TimeSpan.FromSeconds(30));
-		// A source mermaid.js reads as a type STM has no module for, such as a mutated header, says nothing about STM's parsers.
-		var supported = new HashSet<string>(Mermaid.CoreModules.Select(m => ConfigLines.Line("type", m.DiagramType)), StringComparer.Ordinal);
-		var runner = new DifferentialRunner(
-			source => oracle.Facts("fuzz", source) is { } facts && (!facts.Accepted || facts.Facts.Any(supported.Contains)) ? facts : null,
-			stmProvider.Facts);
+		var runner = new DifferentialRunner(DifferentialRunner.SupportedTypes(oracle), stmProvider.Facts);
 		var runs = new List<DifferentialRun>();
 		foreach (var type in Types(corpus))
 		{

@@ -42,7 +42,7 @@ public class DifferentialRunnerTests
 	[Test]
 	public async Task SkipsASourceTheOracleGivesNoFactsFor()
 	{
-		var runner = new DifferentialRunner(_ => null,_ => throw new InvalidOperationException("STM should not run"));
+		var runner = new DifferentialRunner(_ => null, _ => throw new InvalidOperationException("STM should not run"));
 
 		var run = runner.Run("flowchart", [Seed], null, seed: 1, maxSources: 10, TimeSpan.FromMinutes(1));
 

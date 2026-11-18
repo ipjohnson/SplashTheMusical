@@ -148,42 +148,42 @@ public static class LangiumGrammar
 			switch (token[0])
 			{
 				case '(':
-				{
-					var inner = Alternatives();
-					Skip(")");
-					return inner;
-				}
+					{
+						var inner = Alternatives();
+						Skip(")");
+						return inner;
+					}
 
 				case '{':
 					SkipPast("}");
 					return new GrammarSequence([]);
 				case '[':
-				{
-					var target = Next();
-					if (Peek == ":")
 					{
-						_position++;
-						target = Next();
-					}
+						var target = Next();
+						if (Peek == ":")
+						{
+							_position++;
+							target = Next();
+						}
 
-					SkipPast("]");
-					return new GrammarReference(target);
-				}
+						SkipPast("]");
+						return new GrammarReference(target);
+					}
 
 				case '!' or '&':
 					return Primary();
 				case '"' or '\'':
 					return new GrammarText(token[1..^1]);
 				case '/':
-				{
-					var pattern = token[1..token.LastIndexOf('/')];
-					if (!samplers.ContainsKey(token))
 					{
-						samplers[token] = [PatternSampler.Parse(pattern, jison: false).Sample];
-					}
+						var pattern = token[1..token.LastIndexOf('/')];
+						if (!samplers.ContainsKey(token))
+						{
+							samplers[token] = [PatternSampler.Parse(pattern, jison: false).Sample];
+						}
 
-					return new GrammarReference(token);
-				}
+						return new GrammarReference(token);
+					}
 
 				default:
 					return new GrammarReference(token);

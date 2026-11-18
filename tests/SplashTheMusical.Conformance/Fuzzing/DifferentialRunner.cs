@@ -43,6 +43,9 @@ public sealed class DifferentialRunner(Func<string, CaseFacts?> oracle, Func<str
 	/// <summary>The most finds per type.</summary>
 	public int MaxFinds { get; init; } = 5;
 
+	/// <summary>Ends the run after a find this returns true for.</summary>
+	public Func<DifferentialFind, bool>? StopAfter { get; init; }
+
 	/// <summary>
 	/// Makes sources until <paramref name="maxSources"/> or <paramref name="budget"/> runs out. Every third source is a
 	/// sentence of <paramref name="grammar"/> when there is one, and the others mutate a case of <paramref name="seeds"/>.
@@ -72,7 +75,13 @@ public sealed class DifferentialRunner(Func<string, CaseFacts?> oracle, Func<str
 			var signature = disagreement.Signature;
 			var minimized = Minimizer.Minimize(source, candidate => Disagree(candidate)?.Shows(signature) == true, MaxMinimizeTests, out var tests);
 			var shown = Disagree(minimized) ?? disagreement;
-			finds.Add(new DifferentialFind(type, CorpusCheck.SourceHash(minimized), index, source, minimized, shown, tests));
+			var find = new DifferentialFind(type, CorpusCheck.SourceHash(minimized), index, source, minimized, shown, tests);
+			finds.Add(find);
+			if (StopAfter?.Invoke(find) == true)
+			{
+				index++;
+				break;
+			}
 		}
 
 		return new DifferentialRun(type, seeds.Count, index, compared, finds);
@@ -89,20 +98,40 @@ public sealed class DifferentialRunner(Func<string, CaseFacts?> oracle, Func<str
 	public Disagreement? Disagree(string source) => oracle(source) is { } expected ? Compare(expected, source) : null;
 
 	/// <summary>The sources of the corpus folder's cases whose committed oracle facts STM agrees with.</summary>
-	public static IReadOnlyList<string> AgreeingSeeds(string corpus, string folder, Func<string, CaseFacts> stm)
+	public static IReadOnlyList<string> AgreeingSeeds(string corpus, string folder, Func<string, CaseFacts> stm) =>
+		Seeds(corpus, folder, AgreeingCases(corpus, folder, stm));
+
+	/// <summary>The names of the corpus folder's cases whose committed oracle facts STM agrees with.</summary>
+	public static IReadOnlyList<string> AgreeingCases(string corpus, string folder, Func<string, CaseFacts> stm)
 	{
-		var seeds = new List<string>();
+		var names = new List<string>();
 		var path = Path.Combine(corpus, folder);
 		foreach (var name in CorpusCheck.Cases(path))
 		{
-			var source = CorpusComparison.Source(path, name);
-			if (Compare(OracleFiles.Read(path, name), source, stm) is null)
+			if (Compare(OracleFiles.Read(path, name), CorpusComparison.Source(path, name), stm) is null)
 			{
-				seeds.Add(source);
+				names.Add(name);
 			}
 		}
 
-		return seeds;
+		return names;
+	}
+
+	/// <summary>The sources of the named cases of the corpus folder.</summary>
+	public static IReadOnlyList<string> Seeds(string corpus, string folder, IEnumerable<string> names)
+	{
+		var path = Path.Combine(corpus, folder);
+		return [.. names.Select(name => CorpusComparison.Source(path, name))];
+	}
+
+	/// <summary>
+	/// The oracle's facts of a source, or null when it gives none or reads the source as a type STM has no module for,
+	/// such as a mutated header, which says nothing about STM's parsers.
+	/// </summary>
+	public static Func<string, CaseFacts?> SupportedTypes(OracleProcess oracle)
+	{
+		var supported = new HashSet<string>(Mermaid.CoreModules.Select(m => ConfigLines.Line("type", m.DiagramType)), StringComparer.Ordinal);
+		return source => oracle.Facts("fuzz", source) is { } facts && (!facts.Accepted || facts.Facts.Any(supported.Contains)) ? facts : null;
 	}
 
 	private Disagreement? Compare(CaseFacts expected, string source) => Compare(expected, source, stm);

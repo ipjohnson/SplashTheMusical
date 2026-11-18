@@ -78,29 +78,29 @@ public static class Mutator
 		switch (edit)
 		{
 			case MutatorEdit.Delete:
-			{
-				var at = random.Next(tokens.Count);
-				tokens.RemoveAt(at);
-				kinds.RemoveAt(at);
-				break;
-			}
+				{
+					var at = random.Next(tokens.Count);
+					tokens.RemoveAt(at);
+					kinds.RemoveAt(at);
+					break;
+				}
 
 			case MutatorEdit.Duplicate:
-			{
-				var at = random.Next(tokens.Count);
-				tokens.Insert(at, tokens[at]);
-				kinds.Insert(at, kinds[at]);
-				break;
-			}
+				{
+					var at = random.Next(tokens.Count);
+					tokens.Insert(at, tokens[at]);
+					kinds.Insert(at, kinds[at]);
+					break;
+				}
 
 			case MutatorEdit.Swap:
-			{
-				var a = random.Next(tokens.Count);
-				var b = random.Next(tokens.Count);
-				(tokens[a], tokens[b]) = (tokens[b], tokens[a]);
-				(kinds[a], kinds[b]) = (kinds[b], kinds[a]);
-				break;
-			}
+				{
+					var a = random.Next(tokens.Count);
+					var b = random.Next(tokens.Count);
+					(tokens[a], tokens[b]) = (tokens[b], tokens[a]);
+					(kinds[a], kinds[b]) = (kinds[b], kinds[a]);
+					break;
+				}
 
 			case MutatorEdit.ChangeArrow:
 				Replace(tokens, kinds, SourceTokenKind.Arrow, Arrows, random);

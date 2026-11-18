@@ -198,24 +198,24 @@ public sealed class PatternSampler
 			switch (c)
 			{
 				case '(':
-				{
-					var lookaround = false;
-					if (!AtEnd && Peek == '?')
 					{
-						_position++;
-						if (Peek == '<' && _position + 1 < pattern.Length && pattern[_position + 1] is '=' or '!')
+						var lookaround = false;
+						if (!AtEnd && Peek == '?')
 						{
+							_position++;
+							if (Peek == '<' && _position + 1 < pattern.Length && pattern[_position + 1] is '=' or '!')
+							{
+								_position++;
+							}
+
+							lookaround = Peek is '=' or '!';
 							_position++;
 						}
 
-						lookaround = Peek is '=' or '!';
-						_position++;
+						var inner = Alternation();
+						Expect(')');
+						return lookaround ? new Text("") : inner;
 					}
-
-					var inner = Alternation();
-					Expect(')');
-					return lookaround ? new Text("") : inner;
-				}
 
 				case '[':
 					return Class();
@@ -227,21 +227,21 @@ public sealed class PatternSampler
 					return new Text("");
 				case '"' when jison:
 				case '\'' when jison:
-				{
-					var builder = new StringBuilder();
-					while (pattern[_position] != c)
 					{
-						if (pattern[_position] == '\\')
+						var builder = new StringBuilder();
+						while (pattern[_position] != c)
 						{
-							_position++;
+							if (pattern[_position] == '\\')
+							{
+								_position++;
+							}
+
+							builder.Append(pattern[_position++]);
 						}
 
-						builder.Append(pattern[_position++]);
+						_position++;
+						return new Text(builder.ToString());
 					}
-
-					_position++;
-					return new Text(builder.ToString());
-				}
 
 				default:
 					return new Text(c.ToString());
