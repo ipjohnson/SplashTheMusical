@@ -179,8 +179,10 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
 - **Oracle round trip.** `mise run oracle-roundtrip` writes STM's text of every accepted case of a supported type and
   the random samples to `.artifacts/roundtrip`, runs the oracle on them, and fails when mermaid.js's facts of a written
   case differ from the case's or it refuses a random document. CI's `l4` job runs it, so it needs no step of the
-  type's own. It compares with the committed facts, which come from macOS, so run it on macOS as the job does: on
-  Linux two flowchart cases with `htmlLabels: false` wrap their SVG text at other places and differ.
+  type's own. The committed facts come from macOS, and on Linux two flowchart cases with `htmlLabels: false` wrap
+  their SVG text at other places. So when a written case's facts differ from the committed ones, the task copies the
+  original case to `.artifacts/roundtrip/original`, runs the oracle on it on the same machine, and compares with those
+  facts instead. It passes on Linux and macOS alike.
 - **Detection.** `DiagramDetector` already returns every detector id mermaid.js registers. `DetectionTests` checks it
   against the oracle's `type` fact of every accepted case.
 - **Public API.** `mise run api` rewrites `docs/api/SplashTheMusical.txt` after the type adds public types.

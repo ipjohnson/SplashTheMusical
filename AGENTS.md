@@ -139,7 +139,9 @@ compares the written text's facts, boxes and SVG with the case's. `DocumentGener
 `tests/SplashTheMusical.Tests/Generation` lists one CsCheck generator per type with a writer, and
 `RoundTripPropertyTests` round trips 10,000 random documents of each, comparing them with `DocumentDump`.
 `RoundTripPropertyTests.EveryCoreModuleHasAGenerator` fails when a module has none. `mise run oracle-roundtrip`, which
-CI's `l4` job runs, has the oracle read STM's text of every accepted case and 100 random documents per generator.
+CI's `l4` job runs, has the oracle read STM's text of every accepted case and 100 random documents per generator. A
+written case whose facts differ from the committed ones is compared with the oracle's facts of the original case on the
+same machine, so fonts that wrap differently off macOS do not fail it.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it

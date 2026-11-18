@@ -202,6 +202,15 @@ jobs:
       - name: Run the oracle on STM's text
         run: node tools/oracle/facts.mjs .artifacts/roundtrip .artifacts/roundtrip > .artifacts/roundtrip-oracle.log
 
+      # A written case whose facts differ from the committed ones is compared with the oracle's facts of its original on
+      # this runner, so the round trip does not depend on the runner's fonts.
+      - name: Run the oracle on the original of each case that reads differently
+        env:
+          STM_ROUNDTRIP_DIR: ${{ github.workspace }}/.artifacts/roundtrip
+        run: |
+          dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/CopiesTheDifferingOriginalsWhenAsked"
+          node tools/oracle/facts.mjs .artifacts/roundtrip/original .artifacts/roundtrip/original >> .artifacts/roundtrip-oracle.log
+
       - name: Fail when mermaid.js reads STM's text differently from the case or refuses it
         env:
           STM_ROUNDTRIP_DIR: ${{ github.workspace }}/.artifacts/roundtrip

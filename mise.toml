@@ -123,6 +123,8 @@ run = [
   'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/WritesTheCasesWhenAsked"',
   'dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/OracleSampleTests/*"',
   'node tools/oracle/facts.mjs "$STM_ROUNDTRIP_DIR" "$STM_ROUNDTRIP_DIR" > "$STM_ROUNDTRIP_DIR.log"',
+  'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/CopiesTheDifferingOriginalsWhenAsked"',
+  'node tools/oracle/facts.mjs "$STM_ROUNDTRIP_DIR/original" "$STM_ROUNDTRIP_DIR/original" >> "$STM_ROUNDTRIP_DIR.log"',
   'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/ComparesTheFactsWhenAsked"',
 ]
 
