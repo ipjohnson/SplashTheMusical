@@ -35,10 +35,17 @@ public class ImageNodeTests
 		var mermaid = new Mermaid(new MermaidOptions { AllowRemoteImages = true });
 
 		var svg = mermaid.RenderSvg(Remote, new RenderOptions { Diagnostics = diagnostics });
+		var other = Mermaid.Default.RenderSvg(Remote, new RenderOptions { AllowRemoteImages = true });
 
 		diagnostics.Should().BeEmpty();
 		svg.Should().Contain("""<image href="https://example.com/logo.svg" width="120" height="60" preserveAspectRatio="none" transform="translate(-60, -46.5)"/>""");
-		Mermaid.Default.RenderSvg(Remote, new RenderOptions { AllowRemoteImages = true }).Should().Contain("<image href=\"https://example.com/logo.svg\"");
+		other.Should().Contain("<image href=\"https://example.com/logo.svg\"");
+
+		// SvgDocuments.Checked cannot pass here. This is the one place STM's output goes beyond SvgSanitizer: the
+		// sanitizer keeps only data: hrefs, because it cannot know the host trusts a remote URL, and a host that sets
+		// AllowRemoteImages has said it does. The image's href must be the only thing the sanitizer removes.
+		SvgSanitizer.SanitizeRendererOutput(svg).Violations.Should().Equal(new SvgViolation("attribute", "href", "image"));
+		SvgSanitizer.SanitizeRendererOutput(other).Violations.Should().Equal(new SvgViolation("attribute", "href", "image"));
 	}
 
 	[Test]
@@ -62,9 +69,9 @@ public class ImageNodeTests
 	{
 		var diagnostics = new List<MermaidDiagnostic>();
 
-		var svg = new Mermaid(new MermaidOptions { AllowRemoteImages = true }).RenderSvg(
+		var svg = SvgDocuments.Checked(new Mermaid(new MermaidOptions { AllowRemoteImages = true }).RenderSvg(
 			"flowchart TD\n  P@{ img: \"" + url + "\" }",
-			new RenderOptions { Diagnostics = diagnostics });
+			new RenderOptions { Diagnostics = diagnostics }));
 
 		svg.Should().NotContain("<image");
 		diagnostics.Should().ContainSingle().Which.Message.Should().Contain("neither a base64 data: PNG or SVG image nor an http or https URL");

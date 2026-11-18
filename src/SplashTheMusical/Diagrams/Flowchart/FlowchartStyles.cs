@@ -120,11 +120,6 @@ internal static class FlowchartStyles
 		return [.. document.Classes.Select(c => new StyleClass(c.Id, c.Styles, c.TextStyles))];
 	}
 
-	/// <summary>
-	/// <c>styles2String</c>: the compiled styles, then the node's own, then the label style, keyed by property in the
-	/// order each first appears, each kept with its last value. Label properties go to the label's style and the rest to
-	/// the node's, each with <c>!important</c>, joined by <c>;</c>.
-	/// </summary>
 	/// <summary>The value <c>compileStyles</c>' <c>stylesMap</c> gives <paramref name="property"/>: the last of the class styles and the node's own, or <c>null</c>.</summary>
 	public static string? StyleValue(IReadOnlyList<string> compiled, IReadOnlyList<string> own, string property)
 	{
@@ -141,6 +136,11 @@ internal static class FlowchartStyles
 		return value;
 	}
 
+	/// <summary>
+	/// <c>styles2String</c>: the compiled styles, then the node's own, then the label style, keyed by property in the
+	/// order each first appears, each kept with its last value. Label properties go to the label's style and the rest to
+	/// the node's, each with <c>!important</c>, joined by <c>;</c>.
+	/// </summary>
 	public static (string NodeStyles, string LabelStyles) NodeStyles(IReadOnlyList<string> compiled, IReadOnlyList<string> own)
 	{
 		ArgumentNullException.ThrowIfNull(compiled);

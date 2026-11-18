@@ -65,7 +65,7 @@ public class IconTests
 	{
 		var mermaid = new Mermaid(icons: new IconRegistry([IconPack.FromIconifyJson(Pack)]));
 
-		var svg = mermaid.RenderSvg("flowchart TD\n  A@{ icon: \"test:star-mirrored\" }");
+		var svg = SvgDocuments.Checked(mermaid.RenderSvg("flowchart TD\n  A@{ icon: \"test:star-mirrored\" }"));
 
 		svg.Should().Contain("""viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path""");
 	}
