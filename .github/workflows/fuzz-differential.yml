@@ -1,0 +1,114 @@
+# The differential fuzzing of the parity plan's section 7, which mise run fuzz-diff runs locally. Sources mutated from
+# the corpus and sentences of the pinned tag's grammars go through mermaid.js and STM for a fixed time per diagram type.
+# Each source where acceptance or facts differ is minimized. A run with finds opens one issue with them, and a run
+# without says so in its summary. The finds are kept as the run's fuzz-differential artifact, for mise run fuzz-add.
+name: Differential fuzz
+
+on:
+  schedule:
+    - cron: "41 3 * * *"
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: Seconds per diagram type.
+        required: false
+        default: "600"
+      seed:
+        description: The seed. Empty means the run id.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fuzz-differential
+  cancel-in-progress: false
+
+env:
+  DOTNET_NOLOGO: "1"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1"
+
+jobs:
+  # macOS, because the committed facts were written there and the label boxes depend on the fonts, as in CI's l4 job.
+  differential:
+    runs-on: macos-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22.23"
+
+      - name: Fuzz STM against mermaid.js
+        id: fuzz
+        shell: bash
+        env:
+          SECONDS_PER_TYPE: ${{ inputs.seconds || '600' }}
+          SEED: ${{ inputs.seed || github.run_id }}
+          STM_FUZZ_DIR: ${{ github.workspace }}/.artifacts/fuzz/differential
+        run: |
+          mkdir -p .artifacts
+          bash tools/fuzz/differential.sh "$SECONDS_PER_TYPE" "$SEED" 2>&1 | tee .artifacts/fuzz-differential.log
+
+      # The artifact holds the finds mise run fuzz-add reads, so a failed upload fails the job.
+      - name: Upload the finds and the log
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fuzz-differential
+          path: |
+            .artifacts/fuzz/differential
+            .artifacts/fuzz-differential.log
+          if-no-files-found: ignore
+          retention-days: 90
+
+      # GitHub refuses an issue body over 65,536 characters.
+      - name: Open an issue with the finds, or report that there are none
+        if: steps.fuzz.outcome == 'success'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          folder=.artifacts/fuzz/differential
+          report="$folder/report.md"
+          finds=$(find "$folder/finds" -name '*.mmd' 2>/dev/null | wc -l | tr -d ' ')
+          if [ "$finds" -eq 0 ]; then
+            { echo "## Differential fuzz: no finds"; echo; cat "$report"; } >> "$GITHUB_STEP_SUMMARY"
+            echo "The run found no source on which STM and mermaid.js differ."
+            exit 0
+          fi
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          body=.artifacts/fuzz-issue.md
+          {
+            echo "From $GITHUB_SHA. [Run]($run_url)."
+            echo
+            echo "To add the finds to the corpus, download them and run the add command:"
+            echo
+            echo '```bash'
+            echo "gh run download $GITHUB_RUN_ID --repo $GITHUB_REPOSITORY --name fuzz-differential --dir .artifacts/fuzz/run-$GITHUB_RUN_ID"
+            echo "mise run fuzz-add .artifacts/fuzz/run-$GITHUB_RUN_ID/fuzz/differential/finds"
+            echo '```'
+            echo
+            cat "$report"
+          } > "$body"
+          if [ "$(wc -c < "$body")" -gt 60000 ]; then
+            head -c 60000 "$body" > "$body.cut"
+            printf '\n\n---\nThe report is cut here. The fuzz-differential artifact of the run has all of it.\n' >> "$body.cut"
+            mv "$body.cut" "$body"
+          fi
+          noun=$([ "$finds" -eq 1 ] && echo find || echo finds)
+          url=$(gh issue create --repo "$GITHUB_REPOSITORY" --title "Differential fuzz: $finds $noun on $(date -u +%Y-%m-%d)" --body-file "$body")
+          echo "## Differential fuzz: $finds $noun" >> "$GITHUB_STEP_SUMMARY"
+          echo "$url" >> "$GITHUB_STEP_SUMMARY"

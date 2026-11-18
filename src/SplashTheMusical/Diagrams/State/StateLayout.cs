@@ -78,7 +78,15 @@ internal static class StateLayoutStep
 		var data = StateData.From(document, measure.Look);
 		var (nodes, edges) = Get(data, flowchart.Padding, flowchart.Curve);
 		var dagre = new FlowchartDagre(measure, FlowchartDagre.StateDiagramType, flowchart.SubGraphTitleMargin.Top ?? 0, flowchart.SubGraphTitleMargin.Bottom ?? 0);
-		var root = dagre.Render(nodes, edges, data.RootDirection, Spacing(state.NodeSpacing), Spacing(state.RankSpacing));
+		FlowchartDrawing root;
+		try
+		{
+			root = dagre.Render(nodes, edges, data.RootDirection, Spacing(state.NodeSpacing), Spacing(state.RankSpacing));
+		}
+		catch (DagreException e)
+		{
+			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, e.Message, 0, 0));
+		}
 
 		var bounds = root.Bounds();
 		if (bounds.IsEmpty)

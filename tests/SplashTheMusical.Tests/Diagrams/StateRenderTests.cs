@@ -51,6 +51,15 @@ public class StateRenderTests
 	}
 
 	[Test]
+	public void ACompositeStateInsideItselfIsAParseError()
+	{
+		// graphlib's setParent refuses the cycle in mermaid.js too. Crash fuzz source 41109 of seed 1.
+		var layout = () => Layout("stateDiagram-v2\n    state P {\n        state P {\n            [*] --> f\n        }\n    }\n");
+
+		layout.Should().Throw<MermaidParseException>().WithMessage("*Setting P as parent of P would create a cycle*");
+	}
+
+	[Test]
 	public void ConcurrentRegionsAreCompoundNodesInsideTheirState()
 	{
 		// A region no transition leaves is laid out in a graph of its own, and is a leaf of its parent's graph.

@@ -105,6 +105,46 @@ jobs:
       - name: Fail when the core assembly or stm is more than 5% larger than docs/benchmarks/sizes.md
         run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
 
+  # The crash fuzzing of the parity plan's section 7, which mise run fuzz-crash runs locally: 100,000 sources per diagram
+  # type, mutated from the corpus, go through STM's parser and renderer under ResourceLimits.Default. A crash, an
+  # exception other than MermaidParseException or a missed render deadline fails it. Pull requests use seed 1, so an
+  # unrelated find cannot fail one at random. Pushes to main and the weekly run take the run id, so they try new sources.
+  # A find is reproducible from its type, the seed and its index.
+  crash-fuzz:
+    name: crash fuzz
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - name: Build the conformance runner
+        run: dotnet build tests/SplashTheMusical.Conformance -c Release
+
+      - name: Fuzz the parser and renderer with 100,000 sources per type
+        env:
+          STM_FUZZ_CRASH_SOURCES: "100000"
+          STM_FUZZ_SEED: ${{ github.event_name == 'pull_request' && '1' || github.run_id }}
+          STM_FUZZ_DIR: ${{ github.workspace }}/.artifacts/fuzz
+        run: |
+          echo "seed $STM_FUZZ_SEED"
+          dotnet run --project tests/SplashTheMusical.Conformance -c Release --no-build -- --treenode-filter "/*/*/FuzzRunTests/CrashFuzzesWhenAsked" --output Detailed
+
+      - name: Upload the finds
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: crash-fuzz
+          path: .artifacts/fuzz/crash
+          if-no-files-found: ignore
+          retention-days: 14
+
   # L4 of the parity plan, the check that the committed oracle output is what the pinned mermaid.js writes, and the
   # oracle round trip. It runs on macOS because the committed boxes files name the macOS fonts Chromium falls back to
   # for emoji and CJK text.
