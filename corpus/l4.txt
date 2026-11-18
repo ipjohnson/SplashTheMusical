@@ -3938,12 +3938,12 @@ state/parser-state-parser-011	fail
 state/parser-state-parser-013	fail
 state/parser-state-parser-014	fail
 state/parser-state-parser-015	fail
-state/parser-state-style-001	fail
-state/parser-state-style-002	fail
-state/parser-state-style-003	fail
-state/parser-state-style-004	fail
-state/parser-state-style-005	fail
-state/parser-state-style-006	fail
+state/parser-state-style-001	pass
+state/parser-state-style-002	pass
+state/parser-state-style-003	pass
+state/parser-state-style-004	pass
+state/parser-state-style-005	pass
+state/parser-state-style-006	pass
 state/parser-state-style-007	fail
 state/parser-state-style-008	fail
 state/parser-state-style-009	fail
@@ -3972,7 +3972,7 @@ state/parser-statediagram-022	fail
 state/parser-statediagram-023	fail
 state/parser-statediagram-024	fail
 state/parser-statediagram-025	fail
-state/parser-statediagram-026	fail
+state/parser-statediagram-026	pass
 state/parser-statediagram-027	fail
 state/parser-statediagram-028	n/a
 state/parser-statediagram-colorindex-001	fail
@@ -4010,7 +4010,7 @@ state/parser-statediagram-v2-022	fail
 state/parser-statediagram-v2-023	fail
 state/parser-statediagram-v2-024	fail
 state/parser-statediagram-v2-025	fail
-state/parser-statediagram-v2-026	fail
+state/parser-statediagram-v2-026	pass
 state/parser-statediagram-v2-027	fail
 state/parser-statediagram-v2-028	fail
 state/parser-statediagram-v2-029	fail
@@ -4018,7 +4018,7 @@ state/parser-statediagram-v2-030	fail
 state/parser-statenoteedge-001	fail
 state/parser-statenotenode-001	fail
 state/parser-staterenderer-001	fail
-state/parser-staterenderer-v3-unified-001	fail
+state/parser-staterenderer-v3-unified-001	pass
 swimlanes/docs-swimlanes-001	fail
 swimlanes/docs-swimlanes-002	fail
 swimlanes/docs-swimlanes-003	fail
