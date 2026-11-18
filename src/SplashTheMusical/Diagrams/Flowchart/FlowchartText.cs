@@ -27,7 +27,11 @@ internal static class FlowchartText
 	private const char ParagraphSeparator = (char)0x2029;
 
 	/// <summary>Writes the text the lexer reads for <paramref name="body"/> to <paramref name="output"/>.</summary>
-	public static void Prepare(ReadOnlySpan<char> body, ref PooledList<char> output)
+	/// <param name="foldSpaceAfterBraces">
+	/// Whether to run the last step, which only <c>flowParser.ts</c> does. Other jison diagrams, such as state, get the
+	/// text of the steps before it.
+	/// </param>
+	public static void Prepare(ReadOnlySpan<char> body, ref PooledList<char> output, bool foldSpaceAfterBraces = true)
 	{
 		var first = new PooledList<char>(body.Length + 1);
 		var second = new PooledList<char>(body.Length + 1);
@@ -42,7 +46,14 @@ internal static class FlowchartText
 			first.Truncate(0);
 			EncodeEntities(second.AsSpan(), ref first);
 			first.Add('\n');
-			FoldSpaceAfterBraces(first.AsSpan(), ref output);
+			if (foldSpaceAfterBraces)
+			{
+				FoldSpaceAfterBraces(first.AsSpan(), ref output);
+			}
+			else
+			{
+				output.AddRange(first.AsSpan());
+			}
 		}
 		finally
 		{

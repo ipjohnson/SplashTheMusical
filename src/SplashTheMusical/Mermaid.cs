@@ -6,6 +6,7 @@ using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Diagrams.Info;
+using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Rendering;
@@ -72,6 +73,7 @@ public sealed class Mermaid : IMermaid
 			new InfoModule(),
 			new FlowchartModule(FlowchartModule.FlowchartV2),
 			new FlowchartModule(FlowchartModule.FlowchartElk),
+			new StateModule(),
 		]);
 
 	/// <summary>An instance with the default options, <see cref="CoreModules"/> and the default extension points.</summary>
