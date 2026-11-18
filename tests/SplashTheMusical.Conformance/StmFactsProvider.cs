@@ -22,13 +22,21 @@ public sealed class StmFactsProvider : IFactsProvider
 		["securityLevel"] = MermaidValue.FromString("strict"),
 	});
 
-	private static readonly Mermaid Stm = new(new MermaidOptions { SiteConfig = OracleSite, Limits = ResourceLimits.Unlimited });
+	private static readonly Mermaid DefaultStm = new(new MermaidOptions { SiteConfig = OracleSite, Limits = ResourceLimits.Unlimited });
+
+	private readonly Mermaid _stm;
+
+	public StmFactsProvider()
+		: this(DefaultStm) { }
+
+	/// <param name="stm">An instance with <see cref="OracleSite"/> as its site config, such as one with more modules.</param>
+	public StmFactsProvider(Mermaid stm) => _stm = stm;
 
 	public string Name => "stm";
 
 	public CaseFacts Facts(string source)
 	{
-		if (!Stm.TryParse(source, out var document, out var diagnostics))
+		if (!_stm.TryParse(source, out var document, out var diagnostics))
 		{
 			var error = diagnostics.First(d => d.Severity == DiagnosticSeverity.Error).Message;
 			var lineEnd = error.IndexOf('\n', StringComparison.Ordinal);
@@ -36,7 +44,7 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 
 		var type = document!.DiagramType;
-		var svg = Stm.RenderSvg(document);
+		var svg = _stm.RenderSvg(document);
 		var preamble = PreambleConfig.Resolve(document, type);
 		var facts = new List<string> { ConfigLines.Line("type", type), ConfigLines.Line("drawn", Drawn(svg) ? "yes" : "no") };
 		facts.AddRange(ConfigLines.ConfigFacts(ConfigMerge.Site(OracleSite), ConfigMerge.Apply(OracleSite, preamble, type)));

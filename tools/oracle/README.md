@@ -268,7 +268,8 @@ The runner writes `<name>.dagre.txt` for each accepted case of type `flowchart-v
 `er`. At 12.3.0 these types default to the ELK layout, so the runner renders each such case a second time with
 `layout: dagre` set through `mermaid.initialize`, then initializes mermaid back. Every dagre layout of that render is
 recorded, in call order. mermaid's dagre renderer lays out a cluster that it extracts from the graph on its own, before
-the graph that holds it, so a case can have several layouts.
+the graph that holds it, so a case can have several layouts. When the second render throws, as it does for a flowchart
+with an `INVALID` edge, the case has no dagre file and the runner prints a `dagre-err` line.
 
 The runner records them through a hook. It finds dagre's `layout(g, opts)` in `mermaid.min.js` by its timing labels,
 which minification keeps, and wraps it before the page loads the bundle. The hook reads the graph before and after the

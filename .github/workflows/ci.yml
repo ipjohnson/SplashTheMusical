@@ -105,8 +105,9 @@ jobs:
       - name: Fail when the core assembly or stm is more than 5% larger than docs/benchmarks/sizes.md
         run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
 
-  # L4 of the parity plan, and the check that the committed oracle output is what the pinned mermaid.js writes. It runs
-  # on macOS because the committed boxes files name the macOS fonts Chromium falls back to for emoji and CJK text.
+  # L4 of the parity plan, the check that the committed oracle output is what the pinned mermaid.js writes, and the
+  # oracle round trip. It runs on macOS because the committed boxes files name the macOS fonts Chromium falls back to
+  # for emoji and CJK text.
   l4:
     name: l4 and oracle freshness
     runs-on: macos-latest
@@ -188,6 +189,33 @@ jobs:
             .artifacts/corpus/raster
           key: ${{ steps.oracle-key.outputs.key }}
 
+      # The oracle round trip of the parity plan's section 7, which mise run oracle-roundtrip runs locally: mermaid.js
+      # must read STM's text of every accepted corpus case of a supported type as it reads the case, and accept a sample
+      # of random documents of each generator.
+      - name: Write STM's text of every accepted case and of random documents
+        env:
+          STM_ROUNDTRIP_DIR: ${{ github.workspace }}/.artifacts/roundtrip
+        run: |
+          dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/WritesTheCasesWhenAsked"
+          dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/OracleSampleTests/*"
+
+      - name: Run the oracle on STM's text
+        run: node tools/oracle/facts.mjs .artifacts/roundtrip .artifacts/roundtrip > .artifacts/roundtrip-oracle.log
+
+      # A written case whose facts differ from the committed ones is compared with the oracle's facts of its original on
+      # this runner, so the round trip does not depend on the runner's fonts.
+      - name: Run the oracle on the original of each case that reads differently
+        env:
+          STM_ROUNDTRIP_DIR: ${{ github.workspace }}/.artifacts/roundtrip
+        run: |
+          dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/CopiesTheDifferingOriginalsWhenAsked"
+          node tools/oracle/facts.mjs .artifacts/roundtrip/original .artifacts/roundtrip/original >> .artifacts/roundtrip-oracle.log
+
+      - name: Fail when mermaid.js reads STM's text differently from the case or refuses it
+        env:
+          STM_ROUNDTRIP_DIR: ${{ github.workspace }}/.artifacts/roundtrip
+        run: dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/ComparesTheFactsWhenAsked"
+
       # The artifact only helps a reader, so a full storage quota does not fail the job.
       - name: Upload the scores and the side-by-side images of failing cases
         if: always()
@@ -198,5 +226,7 @@ jobs:
           path: |
             .artifacts/raster
             .artifacts/corpus-oracle.log
+            .artifacts/roundtrip
+            .artifacts/roundtrip-oracle.log
           if-no-files-found: ignore
           retention-days: 7

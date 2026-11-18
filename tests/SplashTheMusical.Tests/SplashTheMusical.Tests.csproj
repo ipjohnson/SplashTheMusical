@@ -1,6 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <!--
+      Allocations.cs asserts the exact bytes a call allocates. With dynamic PGO, the tier-1 code the property tests'
+      profile gives the flowchart parser allocates 24 bytes more than the code the JIT compiles without it, so the
+      count would depend on which tests ran first.
+    -->
+    <TieredPGO>false</TieredPGO>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="TUnit" />

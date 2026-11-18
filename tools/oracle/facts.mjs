@@ -222,9 +222,18 @@ for (const name of names) {
 	} else if (fs.existsSync(boxesFile)) fs.unlinkSync(boxesFile)
 	const dagreFile = path.join(factsDir, name + '.dagre.txt')
 	const type = result.facts?.find(f => f.startsWith('type\t'))?.slice(5)
+	// A case mermaid.js draws can still throw when it is drawn again with dagre, as a random flowchart with an INVALID
+	// edge does in insertEdge. It then has no dagre file, and the run goes on.
+	let layouts = null
 	if (result.error === undefined && dagreTypes.has(type)) {
 		await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(baseName))
-		const layouts = await page.evaluate(dagreLayouts, source, baseName, init)
+		try {
+			layouts = await page.evaluate(dagreLayouts, source, baseName, init)
+		} catch (e) {
+			console.log(`dagre-err  ${name}: ${String(e.message).split('\n')[0]}`)
+		}
+	}
+	if (layouts) {
 		fs.writeFileSync(dagreFile, ['# mermaid.js dagre layouts. Refresh with: mise run oracle', ...header.slice(1), ...layouts].join('\n') + '\n')
 		dagreNames.add(name + '.dagre.txt')
 	} else if (fs.existsSync(dagreFile)) fs.unlinkSync(dagreFile)

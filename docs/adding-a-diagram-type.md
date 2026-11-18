@@ -156,14 +156,33 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
 - **Unit tests** in `tests/SplashTheMusical.Tests/Diagrams`: parser, writer, builder, layout and render tests, as the
   flowchart tests there, such as `tests/SplashTheMusical.Tests/Diagrams/FlowchartParserTests.cs`. A test that writes SVG goes through
   `tests/SplashTheMusical.Tests/Rendering/SvgDocuments.cs`.
-- **Round trip.** Copy `tests/SplashTheMusical.Conformance/FlowchartRoundTripTests.cs`: for every accepted case,
-  parse, write and parse again, and compare model dumps line by line, so a failure names the first line that differs.
-  Pin the number of cases checked.
-- **Property tests.** Section 7 of the plan asks for a CsCheck generator per type that builds random documents, writes
-  them and checks the round trip. Flowchart has none yet. ipjohnson/SplashTheMusical#26 adds the shared harness, the
-  oracle round trip and the flowchart generator. Until it lands a type may add its generator in
-  `tests/SplashTheMusical.Tests`, with `tests/SplashTheMusical.Tests/Rendering/SvgSanitizerFuzzTests.cs` as the
-  CsCheck pattern, and it is not a line of the definition of done.
+- **Round trip.** `RoundTripTests` in `tests/SplashTheMusical.Conformance/RoundTripTests.cs` checks every module of
+  `Mermaid.CoreModules` with no code of the type's own: for every accepted case of the type it writes the parsed
+  document, and the text must parse, write back to the same text, and give the same document preamble, the same
+  `StmFactsProvider` facts and boxes and the same SVG. It fails when a module has no accepted case. A type may add a
+  stricter test of its own model, as `tests/SplashTheMusical.Conformance/FlowchartRoundTripTests.cs` does.
+- **Generator.** Add `tests/SplashTheMusical.Tests/Generation/<Type>Generator.cs`, a static class with a
+  `Gen<<Type>Document> Document` that builds random documents the parser can give, and one line for it in
+  `DocumentGenerators.All` in `tests/SplashTheMusical.Tests/Generation/DocumentGenerators.cs`. Then:
+  - `RoundTripPropertyTests.RandomDocumentsRoundTrip` writes 10,000 of them in the default test run and parses each
+    back. `DocumentDump` compares the documents by reflection, so the type needs no dump.
+  - `RoundTripPropertyTests.EveryCoreModuleHasAGenerator` fails until the type's documents come from a generator.
+  - `OracleSampleTests` writes 100 of them for the oracle round trip below, and mermaid.js must accept each.
+
+  `FlowchartGenerator.cs` and `InfoGenerator.cs` are the examples. Use `GenText` for labels and titles: it has quotes,
+  brackets, entity codes, line breaks and non-ASCII text. Generate only what a parse gives, such as text the grammar's
+  tokens can hold and ids the db generates, and leave out what mermaid.js refuses. A coverage test, as
+  `FlowchartGeneratorTests.cs` is, shows the generator reaches every shape, edge type, statement and label type the
+  type has. When the property fails, CsCheck prints the seed and the written text. Fix the writer or the parser,
+  and add the shrunk text to `corpus/<type>` as a hand-written case, followed by `mise run corpus-oracle`. Set
+  `CsCheck_Iter` to run more documents, such as 300000, and `CsCheck_Seed` to repeat a failure.
+- **Oracle round trip.** `mise run oracle-roundtrip` writes STM's text of every accepted case of a supported type and
+  the random samples to `.artifacts/roundtrip`, runs the oracle on them, and fails when mermaid.js's facts of a written
+  case differ from the case's or it refuses a random document. CI's `l4` job runs it, so it needs no step of the
+  type's own. The committed facts come from macOS, and on Linux two flowchart cases with `htmlLabels: false` wrap
+  their SVG text at other places. So when a written case's facts differ from the committed ones, the task copies the
+  original case to `.artifacts/roundtrip/original`, runs the oracle on it on the same machine, and compares with those
+  facts instead. It passes on Linux and macOS alike.
 - **Detection.** `DiagramDetector` already returns every detector id mermaid.js registers. `DetectionTests` checks it
   against the oracle's `type` fact of every accepted case.
 - **Public API.** `mise run api` rewrites `docs/api/SplashTheMusical.txt` after the type adds public types.
@@ -183,8 +202,8 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
 A type is three steps, each its own pull request, as the state Task files them (#67, #68, #69):
 
 1. **Model, parser and writer, to L0 and L1.** Document, lexer, parser, writer, builder, module registration with a
-   layout and renderer that draw nothing yet, the round trip test and the allocation test. Done when L0 is 100%, every
-   L1 difference is in the ledger and the round trip passes.
+   layout and renderer that draw nothing yet, the generator and the allocation test. Done when L0 is 100%, every L1
+   difference is in the ledger, and the round trip, the property tests and the oracle round trip pass.
 2. **Layout and renderer, to L2.** Layout data, measuring, the layout step, the renderer and the styles, and the
    facts and boxes in `StmFactsProvider`. Done when every L2 difference is in the ledger.
 3. **Parity closeout: L3 and L4.** Fix what the boxes and rasters show, set the tolerances, rewrite the ledger and
@@ -204,7 +223,8 @@ flowchart.
 - L0: the parity report shows 100% acceptance parity for the <type> cases of the corpus.
 - L1 and L2: every remaining <type> difference is in `corpus/ledger/<type>.txt` under `by-design` or `out-of-scope`, or under `bug` with an open issue.
 - L3 and L4: the <type> cases meet the thresholds of `corpus/tolerances/<type>.json`, which are no looser than the starting values of the plan.
-- For every accepted <type> case, parsing, writing and parsing again gives an equal model.
+- For every accepted <type> case, parsing, writing and parsing again gives an equal model, and mermaid.js reads the written text as it reads the case.
+- 10,000 random <type> documents round trip in the default test run, and mermaid.js accepts a sample of them.
 - The shape library has one entry per shape the <type> diagram draws from the oracle's shape table, and a test fails when one is missing.
 - The <type> cases pass on the native AOT conformance runner.
 - Benchmarks for a small, a medium and a large <type> are committed, and parse time and allocation are no worse than the Mermaider baseline.
@@ -218,7 +238,8 @@ How each line is checked, and how flowchart met it:
 | L0 | The type's L0 column in `docs/parity-report.md`, which `mise run parity` writes | 100.0%, 891 of 891 |
 | L1 and L2 | `LedgerTests` | Four L1 entries, the KaTeX cases under `bug #63`. No L2 entries |
 | L3 and L4 | `LedgerTests` for L3, `corpus/l4.txt` for L4, `ToleranceTests` for the thresholds. A case under the threshold is a `bug` entry at L3 or a `fail` in `corpus/l4.txt`, each covered by an open issue | The 649 cases that mermaid.js draws with ELK and that fail L3 are `bug #25`, and most of them fail L4. One label precision case is `bug #152`, and long labels that fail L4 are #157 |
-| Round trip | The type's round trip test | `FlowchartRoundTripTests`, 874 cases |
+| Round trip | `RoundTripTests`, and the oracle round trip of CI's `l4` job | 874 cases, and `FlowchartRoundTripTests` compares the whole model |
+| Random documents | `RoundTripPropertyTests`, and the oracle round trip's random sample | `FlowchartGenerator`, with every shape and edge type, which `FlowchartGeneratorTests` shows |
 | Shape library | `ShapeTests` in `tests/SplashTheMusical.Conformance/ShapeTests.cs` | Every shape of `corpus/shapes.txt`. A type that draws no node shapes marks this line not applicable |
 | Native AOT | CI's AOT runner and `mise run conformance-aot` | Same results under JIT and AOT |
 | Benchmarks | `docs/benchmarks/stm.md` and `BudgetTests` | Small, medium and large parse rows under the Mermaider baseline |
@@ -236,6 +257,7 @@ after rebasing instead of merging them by hand.
 | `src/SplashTheMusical/Diagrams/DiagramDetector.cs` | Usually none. The `switch` detects every type already | Change it only to fix a detection `DetectionTests` shows wrong for your type |
 | `tests/SplashTheMusical.Conformance/OverlapLint.cs` | The type's row of `Roles`, if wrong | Only your row |
 | `tests/SplashTheMusical.Benchmarks/StmBenchmarks.cs` | The type's folder in `Measured` | One name |
+| `tests/SplashTheMusical.Tests/Generation/DocumentGenerators.cs` | The type's generator in `All` | One generator per line, yours appended last |
 | `tools/oracle/extract.mjs`, `tools/oracle/README.md` | The type's extractor and rows, if wrong | Only your function and rows. A shared helper is its own pull request |
 | `corpus/ledger/bugs.txt` | The type's count | Rewrite it with the ledger after rebasing |
 | `src/SplashTheMusical/Rendering/SvgValues.cs` | An element or attribute the renderer needs | Only what the renderer writes |
@@ -271,4 +293,5 @@ The plan now says each of these. They are listed here so a type issue does not f
 - **L4.** The ledger holds L0 to L3. L4 outcomes are committed in `corpus/l4.txt`.
 - **Budget.** `BudgetTests` gates parse time and allocation against Mermaider. Layout, render and write are measured
   only.
-- **Generation tests.** The round trip runs per type. The oracle round trip and the CsCheck generators wait on #26.
+- **Generation tests.** One round trip test covers every module, comparing facts, boxes and SVG rather than a model
+  dump of each type. The property tests need a generator per type, and the oracle round trip runs in the `l4` job.

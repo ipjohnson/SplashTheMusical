@@ -115,6 +115,19 @@ description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write 
 depends = ["stm-svg", "corpus-oracle"]
 run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
 
+[tasks.oracle-roundtrip]
+description = "Write STM's text of every accepted corpus case and of random documents, run the oracle on it, and fail when mermaid.js reads a case differently or refuses one"
+env = { STM_ROUNDTRIP_DIR = "{{config_root}}/.artifacts/roundtrip" }
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/WritesTheCasesWhenAsked"',
+  'dotnet run --project tests/SplashTheMusical.Tests -- --treenode-filter "/*/*/OracleSampleTests/*"',
+  'node tools/oracle/facts.mjs "$STM_ROUNDTRIP_DIR" "$STM_ROUNDTRIP_DIR" > "$STM_ROUNDTRIP_DIR.log"',
+  'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/CopiesTheDifferingOriginalsWhenAsked"',
+  'node tools/oracle/facts.mjs "$STM_ROUNDTRIP_DIR/original" "$STM_ROUNDTRIP_DIR/original" >> "$STM_ROUNDTRIP_DIR.log"',
+  'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/OracleRoundTripTests/ComparesTheFactsWhenAsked"',
+]
+
 [tasks.conformance-aot]
 description = "Run the conformance tests under JIT and native AOT, and fail when their corpus results differ"
 run = [

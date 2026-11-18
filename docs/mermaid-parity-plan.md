@@ -635,12 +635,16 @@ the same font files. Text width then stops being a source of difference, and wha
 
 ### Generation tests
 
-- **Round trip.** For every accepted case, `Parse(Write(Parse(text)))` equals `Parse(text)`. Each type has its own
-  test, such as `FlowchartRoundTripTests`.
+- **Round trip.** For every accepted case, `Parse(Write(Parse(text)))` equals `Parse(text)`. `RoundTripTests` checks
+  every module of `Mermaid.CoreModules`: the written text writes back to itself and gives the same preamble, facts,
+  boxes and SVG. A type may add a model comparison of its own, such as `FlowchartRoundTripTests`.
 - **Oracle round trip.** The oracle renders the text STM wrote. Its facts must equal the facts of the original text.
-  This proves mermaid.js reads what STM generates. #26 adds it.
-- **Property tests.** CsCheck generates random documents per type, writes them, and checks both properties. #26 adds
-  the shared harness and the flowchart generator.
+  This proves mermaid.js reads what STM generates. `mise run oracle-roundtrip` runs it, and so does CI's `l4` job.
+  Where the written text's facts differ from the committed ones, the oracle also renders the original on the same
+  machine, and the two must agree, so the platform's fonts do not decide the result.
+- **Property tests.** CsCheck generates random documents per type, writes them, and checks both properties: 10,000
+  documents per type must read back equal in the default test run, and the oracle must accept 100 of them in the `l4`
+  job. `DocumentGenerators` lists the generators, and `docs/adding-a-diagram-type.md` says how a type adds one.
 
 ### Differential fuzzing
 
