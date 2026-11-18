@@ -3,7 +3,8 @@
 ## Project
 
 SplashTheMusical (STM) parses, generates and renders Mermaid diagrams in .NET. The design is
-[docs/mermaid-parity-plan.md](docs/mermaid-parity-plan.md).
+[docs/mermaid-parity-plan.md](docs/mermaid-parity-plan.md). Work on a diagram type follows
+[docs/adding-a-diagram-type.md](docs/adding-a-diagram-type.md), its checklist, shared files and definition of done.
 
 ## Build and test
 

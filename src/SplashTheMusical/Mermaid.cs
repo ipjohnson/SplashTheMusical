@@ -66,8 +66,13 @@ public sealed class Mermaid : IMermaid
 	}
 
 	/// <summary>The diagram modules of the core, one per diagram type STM supports.</summary>
+	/// <remarks>One module per line, so types added in parallel do not change the same line.</remarks>
 	public static IReadOnlyList<IDiagramModule> CoreModules { get; } = new ReadOnlyCollection<IDiagramModule>(
-		[new InfoModule(), new FlowchartModule(FlowchartModule.FlowchartV2), new FlowchartModule(FlowchartModule.FlowchartElk)]);
+		[
+			new InfoModule(),
+			new FlowchartModule(FlowchartModule.FlowchartV2),
+			new FlowchartModule(FlowchartModule.FlowchartElk),
+		]);
 
 	/// <summary>An instance with the default options, <see cref="CoreModules"/> and the default extension points.</summary>
 	public static Mermaid Default { get; } = new();
