@@ -26,6 +26,9 @@ internal sealed class ShapeGeometry
 
 	public required ShapeIntersect Intersect { get; init; }
 
+	/// <summary>The box an icon or image shape draws its icon or image in, in the node's space, or <c>null</c> for any other shape.</summary>
+	public ShapeBounds? Picture { get; init; }
+
 	/// <summary>Where the line from the node's centre to <paramref name="point"/> leaves the outline, for a node centred on <paramref name="center"/>.</summary>
 	public ShapePoint IntersectFrom(ShapePoint center, ShapePoint point) => Intersect.Find(center, Width, Height, point);
 }

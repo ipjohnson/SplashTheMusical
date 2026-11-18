@@ -10,7 +10,7 @@ internal static partial class ShapeDrawings
 		var iconSize = IconSize(node);
 		var label = Measure(node, Math.Max(iconSize, node.WrappingWidth ?? 0));
 		var frame = Rect(-iconSize / 2, -iconSize / 2, iconSize, iconSize, null, rough: true) with { Attributes = Hidden };
-		return Pictured(node, label, frame, iconSize, iconSize);
+		return Pictured(node, label, frame, iconSize, iconSize, iconSize);
 	}
 
 	/// <summary>The icon in a circle the square root of 2 times its size and 20 more on each side.</summary>
@@ -21,7 +21,7 @@ internal static partial class ShapeDrawings
 		var label = Measure(node, Math.Max(iconSize, node.WrappingWidth ?? 0));
 		var diameter = iconSize * Math.Sqrt(2) + padding * 2;
 		var circle = Circle(0, 0, diameter / 2, rough: true);
-		return Pictured(node, label, circle, diameter, diameter);
+		return Pictured(node, label, circle, diameter, diameter, iconSize);
 	}
 
 	/// <summary>The icon in a square with corners of radius 5, the node's padding wider than the icon.</summary>
@@ -46,7 +46,7 @@ internal static partial class ShapeDrawings
 		var imageHeight = constrained ? imageWidth / aspectRatio : node.AssetHeight ?? naturalHeight;
 		var label = Measure(node, Math.Max(imageWidth, defaultWidth));
 		var frame = Rect(-imageWidth / 2, -imageHeight / 2, imageWidth, imageHeight, null, rough: true);
-		return Pictured(node, label, frame, imageWidth, imageHeight);
+		return Pictured(node, label, frame, imageWidth, imageHeight, null);
 	}
 
 	private static IReadOnlyList<KeyValuePair<string, string>> Hidden { get; } = [new("stroke-opacity", "0"), new("fill-opacity", "0")];
@@ -59,14 +59,14 @@ internal static partial class ShapeDrawings
 		var label = Measure(node, Math.Max(iconSize, node.WrappingWidth ?? 0));
 		var size = iconSize + (node.Padding ?? 0);
 		var frame = RoughPath(ShapePaths.RoundedRect(-size / 2, -size / 2, size, size, radius));
-		return Pictured(node, label, frame, size, size);
+		return Pictured(node, label, frame, size, size, iconSize);
 	}
 
 	/// <summary>
 	/// The picture of <paramref name="width"/> by <paramref name="height"/> with the label above it, for <c>pos: t</c>,
 	/// or below it, 8 apart when the node has a label, inside an invisible box of both, which sizes the node.
 	/// </summary>
-	private static ShapeGeometry Pictured(ShapeNode node, ShapeLabel label, ShapeElement picture, double width, double height)
+	private static ShapeGeometry Pictured(ShapeNode node, ShapeLabel label, ShapeElement picture, double width, double height, double? iconSide)
 	{
 		var top = node.LabelPosition == "t";
 		var labelPadding = node.HasLabel ? 8 : 0;
@@ -76,7 +76,22 @@ internal static partial class ShapeDrawings
 		var outer = Rect(-outerWidth / 2, -outerHeight / 2, outerWidth, outerHeight, null, rough: true) with { Attributes = Hidden };
 		var labelTranslate = new ShapePoint(-label.Width / 2 - label.OffsetX, top ? -outerHeight / 2 : outerHeight / 2 - label.Height);
 		var intersect = node.HasLabel ? ShapeIntersect.Polygon(PicturedOutline(top, label, width, height, outerHeight, labelPadding)) : ShapeIntersect.Rect;
-		return Finish([picture with { Translate = new ShapePoint(0, top ? shift : -shift) }, outer], label, labelTranslate, intersect);
+		var centre = top ? shift : -shift;
+
+		// An icon is iconSize square, centred on its frame. An image fills its frame.
+		var (pictureWidth, pictureHeight) = iconSide is { } side ? (side, side) : (width, height);
+		var geometry = Finish([picture with { Translate = new ShapePoint(0, centre) }, outer], label, labelTranslate, intersect);
+		return new ShapeGeometry
+		{
+			Width = geometry.Width,
+			Height = geometry.Height,
+			Bounds = geometry.Bounds,
+			Elements = geometry.Elements,
+			Label = geometry.Label,
+			LabelTranslate = geometry.LabelTranslate,
+			Intersect = geometry.Intersect,
+			Picture = new ShapeBounds(-pictureWidth / 2, centre - (pictureHeight / 2), pictureWidth / 2, centre + (pictureHeight / 2)),
+		};
 	}
 
 	/// <summary>The outline of the picture and the label that the icon and image shapes intersect, as mermaid.js writes it.</summary>

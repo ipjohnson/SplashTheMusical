@@ -87,6 +87,14 @@ attributes, which the writer refuses, so `FlowchartStyles.ElementRules` writes t
 class on the element. `FlowchartStyleTests` compares the style text of each flowchart node, cluster and edge with the
 `element` lines of `corpus/styles.txt`.
 
+Icons come from an `IIconProvider`, by default `IconRegistry.Default`, which holds mermaid's built-in
+`mermaid-architecture` pack. A host registers other packs with `IconRegistry.With` and `IconPack.FromIconifyJson`, which
+reads Iconify JSON with `Utf8JsonReader`. A `MermaidIcon` sanitizes its body when it is made: `IconContent` turns safe
+`style` declarations into attributes and keeps only what `SvgWriter` writes. `FlowchartPictures` draws an icon node's icon
+as a nested `svg`, or mermaid's unknown icon with a warning, and an image node's `img` through `SvgWriter.WriteImage`: a
+`data:` PNG or SVG always, an `http` or `https` URL only with `AllowRemoteImages`, and otherwise a warning in
+`RenderOptions.Diagnostics`. STM never fetches an image. `IconTests` and `ImageNodeTests` cover them.
+
 Stylesheets are built only from the typed rules of `src/SplashTheMusical/Rendering`. `CssDeclaration` refuses a
 property outside its allowlist and a value outside its grammar, so a value from the source or the config cannot hold
 `;`, a brace or `url(`.
@@ -96,6 +104,10 @@ and `SvgValues.WriterAttributes`, which are subsets of `SvgSanitizer`'s lists, a
 the sanitizer's grammar. A test that writes a document goes through `tests/SplashTheMusical.Tests/Rendering/SvgDocuments.cs`,
 which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unchanged. The writer's lists are built from
 `SvgValues.Elements` and `SvgValues.Attributes`, so a renderer that needs a new element or attribute adds it there.
+
+The core reads XML only with `SvgMarkup` in `src/SplashTheMusical/Rendering`, which `SvgSanitizer` and `IconContent`
+share. `System.Xml` doubled the native AOT `stm` and `Uri` added to it, so the core uses neither. `SvgMarkup`
+accepts a subset of what `XmlReader` accepts, so the sanitizer's fuzz tests can still read its output with `XDocument`.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
 

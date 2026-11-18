@@ -1,6 +1,4 @@
 using System.Collections.Frozen;
-using System.Xml;
-using System.Xml.Linq;
 using SplashTheMusical.Rendering;
 
 namespace SplashTheMusical;
@@ -37,7 +35,7 @@ public enum SanitizeMode
 /// Sanitizes SVG from outside STM, such as user-supplied icons. It keeps only allowlisted elements and attributes, so
 /// <c>script</c>, <c>foreignObject</c>, <c>on*</c> handlers, <c>style</c> and every <c>href</c> are removed because
 /// they are not in the lists. The one <c>href</c> it keeps is a base64 PNG or clean SVG data URI on an <c>image</c>.
-/// The XML is read with <see cref="DtdProcessing.Prohibit"/> and no resolver.
+/// The XML is read by <see cref="SvgMarkup"/>, which refuses a document type declaration, so no entity is expanded.
 /// </summary>
 public static class SvgSanitizer
 {
@@ -90,94 +88,114 @@ public static class SvgSanitizer
 		ArgumentNullException.ThrowIfNull(allowedElements);
 		ArgumentNullException.ThrowIfNull(allowedAttributes);
 
-		var settings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit, XmlResolver = null };
-		XDocument doc;
-		try
-		{
-			using var stringReader = new StringReader(svg);
-			using var reader = XmlReader.Create(stringReader, settings);
-			doc = XDocument.Load(reader, LoadOptions.PreserveWhitespace);
-		}
-		catch (XmlException)
+		if (SvgMarkup.Parse(svg, preserveWhitespace: true) is not { } document)
 		{
 			return Rejected(new SvgViolation("document", "malformed-xml"));
 		}
 
-		if (doc.Root is not { } root)
+		var (violations, rejected) = Sanitize(document, allowedElements, allowedAttributes, allowStyle, depth);
+		if (rejected)
 		{
-			return new SvgSanitizeResult { Svg = svg, HasViolations = false, Violations = [] };
+			return new SvgSanitizeResult { Svg = SvgValues.EmptySvg, HasViolations = true, Violations = violations };
 		}
 
-		var rootNamespace = root.Name.NamespaceName;
-		if (root.Name.LocalName != "svg" || !allowedElements.Contains("svg") || rootNamespace is not ("" or SvgValues.SvgNamespace)
-			|| (rootNamespace == SvgValues.SvgNamespace && root.GetDefaultNamespace().NamespaceName != SvgValues.SvgNamespace))
+		return violations.Count == 0
+			? new SvgSanitizeResult { Svg = svg, HasViolations = false, Violations = [] }
+			: new SvgSanitizeResult { Svg = SvgMarkup.Write(document), HasViolations = true, Violations = violations };
+	}
+
+	/// <summary>
+	/// Removes from <paramref name="document"/> what the lists do not allow, and returns what it removed. When the root
+	/// itself is refused, <c>Rejected</c> is set, the one violation names it, and the document is left as it was.
+	/// </summary>
+	internal static (List<SvgViolation> Violations, bool Rejected) Sanitize(
+		MarkupDocument document, FrozenSet<string> allowedElements, FrozenSet<string> allowedAttributes, bool allowStyle, int depth)
+	{
+		var root = document.Root;
+		var rootNamespace = root.NamespaceName;
+		if (root.LocalName != "svg" || !allowedElements.Contains("svg") || rootNamespace is not ("" or SvgValues.SvgNamespace)
+			|| (rootNamespace == SvgValues.SvgNamespace && DefaultNamespace(root) != SvgValues.SvgNamespace))
 		{
-			return Rejected(new SvgViolation("element", root.Name.LocalName));
+			return ([new SvgViolation("element", root.LocalName)], true);
 		}
 
 		var violations = new List<SvgViolation>();
-		if (doc.Declaration is not null)
+		if (document.HasDeclaration)
 		{
 			violations.Add(new SvgViolation("node", "xml-declaration"));
-			doc.Declaration = null;
+			document.HasDeclaration = false;
 		}
 
-		foreach (var instruction in doc.DescendantNodes().OfType<XProcessingInstruction>().ToList())
+		// The nodes around the root and below it, in document order.
+		var instructions = new List<MarkupNode>();
+		foreach (var node in document.Nodes)
 		{
-			violations.Add(new SvgViolation("node", instruction.Target));
-			instruction.Remove();
+			instructions.AddRange(node.Kind == MarkupKind.Element
+				? node.DescendantNodesAndSelf().FindAll(n => n.Kind == MarkupKind.ProcessingInstruction)
+				: node.Kind == MarkupKind.ProcessingInstruction ? [node] : []);
 		}
 
-		var style = allowStyle ? root.Elements().FirstOrDefault(e => IsRendererStyle(e, root)) : null;
-		var elementsToRemove = root.DescendantsAndSelf()
-			.Where(e => e.Name.NamespaceName != rootNamespace
-				|| (e.Name.LocalName == "style" ? !ReferenceEquals(e, style) : !allowedElements.Contains(e.Name.LocalName) || !SvgValues.Elements.Contains(e.Name.LocalName)))
-			.ToList();
+		foreach (var instruction in instructions)
+		{
+			violations.Add(new SvgViolation("node", instruction.LocalName));
+			if (instruction.Parent is null)
+			{
+				document.Nodes.Remove(instruction);
+			}
+			else
+			{
+				instruction.Remove();
+			}
+		}
+
+		var style = allowStyle ? root.Children.Find(e => e.Kind == MarkupKind.Element && IsRendererStyle(e, root)) : null;
+		var elementsToRemove = root.DescendantsAndSelf().FindAll(e => e.NamespaceName != rootNamespace
+			|| (e.LocalName == "style" ? !ReferenceEquals(e, style) : !allowedElements.Contains(e.LocalName) || !SvgValues.Elements.Contains(e.LocalName)));
 		var removed = elementsToRemove.ToHashSet();
 		foreach (var element in elementsToRemove)
 		{
-			violations.Add(new SvgViolation("element", element.Name.LocalName));
-			if (!element.Ancestors().Any(removed.Contains))
+			violations.Add(new SvgViolation("element", element.LocalName));
+			if (!element.HasAncestorIn(removed))
 			{
 				element.Remove();
 			}
 		}
 
-		var attributesToRemove = root.DescendantsAndSelf()
-			.SelectMany(e => e.Attributes().Select(a => (Element: e, Attribute: a)))
-			.Where(pair => !IsAllowedAttribute(pair.Element, pair.Attribute, root, allowedAttributes, depth))
-			.ToList();
-		foreach (var (element, attribute) in attributesToRemove)
+		foreach (var element in root.DescendantsAndSelf())
 		{
-			violations.Add(new SvgViolation("attribute", attribute.Name.LocalName, element.Name.LocalName));
-			attribute.Remove();
+			foreach (var attribute in element.Attributes.FindAll(a => !IsAllowedAttribute(element, a, root, allowedAttributes, depth)))
+			{
+				violations.Add(new SvgViolation("attribute", attribute.LocalName, element.LocalName));
+				element.Attributes.Remove(attribute);
+			}
 		}
 
 		// An image is an empty element, and title and desc hold only text, whatever their children would be alone.
-		foreach (var element in root.DescendantsAndSelf().Where(e => e.Name.LocalName is "image" or "title" or "desc").ToList())
+		foreach (var element in root.DescendantsAndSelf().FindAll(e => e.LocalName is "image" or "title" or "desc"))
 		{
-			var image = element.Name.LocalName == "image";
-			foreach (var child in element.Nodes().Where(n => image || n is not XText).ToList())
+			var image = element.LocalName == "image";
+			foreach (var child in element.Children.FindAll(n => image || !n.IsText))
 			{
-				violations.Add(child is XElement childElement
-					? new SvgViolation("element", childElement.Name.LocalName, element.Name.LocalName)
-					: new SvgViolation("content", child.NodeType.ToString(), element.Name.LocalName));
+				violations.Add(child.Kind == MarkupKind.Element
+					? new SvgViolation("element", child.LocalName, element.LocalName)
+					: new SvgViolation("content", child.NodeTypeName, element.LocalName));
 				child.Remove();
 			}
 		}
 
-		return violations.Count == 0
-			? new SvgSanitizeResult { Svg = svg, HasViolations = false, Violations = [] }
-			: new SvgSanitizeResult { Svg = doc.ToString(SaveOptions.DisableFormatting), HasViolations = true, Violations = violations };
+		return (violations, false);
 	}
+
+	private static string DefaultNamespace(MarkupNode element) =>
+		element.Attributes.FindLast(a => a.IsNamespaceDeclaration && a.Prefix.Length == 0)?.Value ?? "";
 
 	private static SvgSanitizeResult Rejected(SvgViolation violation) =>
 		new() { Svg = SvgValues.EmptySvg, HasViolations = true, Violations = [violation] };
 
 	// There is no list of names to refuse: an attribute is kept only when a rule below allows it.
-	private static bool IsAllowedAttribute(XElement element, XAttribute attribute, XElement root, FrozenSet<string> allowed, int depth)
+	private static bool IsAllowedAttribute(MarkupNode element, MarkupAttribute attribute, MarkupNode root, FrozenSet<string> allowed, int depth)
 	{
-		var name = attribute.Name.LocalName;
+		var name = attribute.LocalName;
 
 		// A namespace declaration can change what an allowed local name means, so only the SVG default namespace and the
 		// xlink namespace of an image href are kept, on the root.
@@ -189,13 +207,13 @@ public static class SvgSanitizer
 
 		if (name == "href")
 		{
-			return attribute.Name.NamespaceName is "" or SvgValues.XLinkNamespace && element.Name.LocalName == "image"
+			return attribute.NamespaceName is "" or SvgValues.XLinkNamespace && element.LocalName == "image"
 				&& SvgValues.DecodeImageDataUri(attribute.Value, svg => depth < MaxNestedImageDepth
 					&& !Sanitize(svg, SvgValues.Elements, SvgValues.Attributes, allowStyle: false, depth + 1).HasViolations) is not null;
 		}
 
 		// Checked before data-* and aria-*, so a namespaced name cannot pass as one of them.
-		if (attribute.Name.NamespaceName.Length > 0)
+		if (attribute.NamespaceName.Length > 0)
 		{
 			return false;
 		}
@@ -208,9 +226,9 @@ public static class SvgSanitizer
 		return allowed.Contains(name) && SvgValues.Attributes.Contains(name) && SvgValues.IsAllowedValue(name, attribute.Value);
 	}
 
-	private static bool IsRendererStyle(XElement element, XElement root) =>
-		element.Name.LocalName == "style" && !element.HasAttributes && element.Nodes().All(n => n is XText)
-		&& root.Attribute("id") is { } id && StyleTextCheck.IsAllowed(element.Value, id.Value);
+	private static bool IsRendererStyle(MarkupNode element, MarkupNode root) =>
+		element.LocalName == "style" && element.Attributes.Count == 0 && element.Children.TrueForAll(n => n.IsText)
+		&& root.Attribute("id") is { } id && StyleTextCheck.IsAllowed(element.TextValue(), id.Value);
 }
 
 /// <summary>Thrown by <see cref="SanitizeMode.Block"/> when SVG has a violation or is not well-formed XML.</summary>
