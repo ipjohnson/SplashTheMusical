@@ -125,4 +125,51 @@ public class FlowchartWriterTests
 		written.Should().Be("flowchart TB\n    A@{ label: \"say \\x22hi\\x22 100\\x25\\nnow\", labelType: markdown }\n");
 		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
 	}
+
+	// The cases below are ones the round trip property of RoundTripPropertyTests found.
+
+	[Test]
+	public void ATagALabelOpensIsEscapedSoItCannotReachTheNextStatements()
+	{
+		var document = new FlowchartDocument
+		{
+			Nodes =
+			{
+				new FlowchartNode("A") { Label = "<b>ok</b> <a~", Shape = "cyl" },
+				new FlowchartNode("B") { Label = "=", LabelType = FlowchartLabelType.String, Shape = "cyl" },
+			},
+			Edges = { new FlowchartEdge("A", "B", "L_A_B_0") { Type = FlowchartEdgeType.DoublePoint } },
+		};
+
+		var written = Mermaid.Default.Write(document);
+
+		written.Should().Contain("label: \"<b>ok</b> \\x3Ca~\"");
+		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+	}
+
+	[Test]
+	public void ALabelWithAnAtSignGoesInTheDataBlock()
+	{
+		var document = new FlowchartDocument { Nodes = { new FlowchartNode("A") { Label = ",@!", Shape = "odd" } } };
+
+		var written = Mermaid.Default.Write(document);
+
+		written.Should().Be("flowchart TB\n    A>\"_\"]@{ label: \",@!\", labelType: text }\n");
+		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+	}
+
+	[Test]
+	public void AStringLabelWithABraceBeforeALineBreakAndAPercentPairIsWrittenAsAString()
+	{
+		var document = new FlowchartDocument
+		{
+			Nodes = { new FlowchartNode("A"), new FlowchartNode("B") },
+			Edges = { new FlowchartEdge("A", "B", "L_A_B_0") { Label = "a}\nb %% c", LabelType = FlowchartLabelType.String } },
+		};
+
+		var written = Mermaid.Default.Write(document);
+
+		written.Should().Contain("A -->|\"a}\nb %% c\"| B");
+		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+	}
 }

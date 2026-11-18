@@ -6,7 +6,8 @@ namespace SplashTheMusical.Diagrams.State;
 /// <summary>
 /// Writes a <see cref="StateDocument"/> as <c>stateDiagram.jison</c> reads it: one statement per line, the statements
 /// of a composite state inside <c>{ }</c> and indented two spaces per level. A note whose text one line cannot hold is
-/// written over lines up to <c>end note</c>.
+/// written over lines up to <c>end note</c>. A plain <c>state id</c> before a line that starts with a word and holds a
+/// <c>{</c> is refused, as no text reads as the two statements.
 /// </summary>
 internal static class StateWriter
 {
@@ -21,8 +22,10 @@ internal static class StateWriter
 
 	private static void WriteStatements(List<StateStatement> statements, StringBuilder output, int depth)
 	{
+		string? plainState = null;
 		foreach (var statement in statements)
 		{
+			var lineStart = output.Length;
 			Indent(output, depth);
 			switch (statement)
 			{
@@ -83,8 +86,45 @@ internal static class StateWriter
 					throw new ArgumentException($"A state diagram cannot hold a {statement.GetType().Name}.", nameof(statements));
 			}
 
+			if (plainState is not null && ReadsAsStateName(output, lineStart))
+			{
+				throw new ArgumentException(
+					$"The statement after `state {plainState}` cannot be written: its line starts with a word and holds a `{{`, so "
+					+ "stateDiagram.jison reads both lines as a state name of more than one word and refuses it.",
+					nameof(statements));
+			}
+
+			plainState = statement is StateBlock { Kind: StateKind.Default, Description: null, Statements: null } plain ? plain.Id : null;
 			output.Append('\n');
 		}
+	}
+
+	/// <summary>
+	/// Whether the line written from <paramref name="lineStart"/> starts with a word character and holds a <c>{</c>, which
+	/// after a plain <c>state id</c> matches the lexer's <c>&lt;STATE&gt;\w+\s+\w+.*?\{</c>: <c>\s+</c> crosses the line break.
+	/// </summary>
+	private static bool ReadsAsStateName(StringBuilder output, int lineStart)
+	{
+		var at = lineStart;
+		while (at < output.Length && output[at] == ' ')
+		{
+			at++;
+		}
+
+		if (at == output.Length || !StateLexer.IsWordChar(output[at]))
+		{
+			return false;
+		}
+
+		for (; at < output.Length && output[at] != '\n'; at++)
+		{
+			if (output[at] == '{')
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private static void WriteBlock(StateBlock block, StringBuilder output, int depth)
