@@ -19,6 +19,7 @@ mise run check    # fail on formatting drift
 mise run ci       # what CI runs: build, test and the formatting check
 mise run oracle   # mermaid.js facts for tools/oracle/cases, written to .artifacts/oracle
 mise run oracle-test
+mise run oracle-roundtrip  # fail when mermaid.js reads STM's written text of a corpus case differently, or refuses a random document
 mise run colors            # rewrite corpus/colors.txt, khroma's results on mermaid's theme colours
 mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
@@ -131,6 +132,14 @@ the elements of its outline, the label's box and translate, the intersect, and t
 dagre, which is the box of the elements and the label together. `ShapeTests` in `tests/SplashTheMusical.Conformance`
 fails when a `shape` line of `corpus/shapes.txt` has no entry or a `key` line maps elsewhere, and compares the sizes
 with the node sizes of the flowchart `.dagre.txt` files within 0.01.
+
+The generation tests of the plan's section 7 need no code per type except a generator. `RoundTripTests` in
+`tests/SplashTheMusical.Conformance` writes every accepted corpus case of each module of `Mermaid.CoreModules` and
+compares the written text's facts, boxes and SVG with the case's. `DocumentGenerators` in
+`tests/SplashTheMusical.Tests/Generation` lists one CsCheck generator per type with a writer, and
+`RoundTripPropertyTests` round trips 10,000 random documents of each, comparing them with `DocumentDump`.
+`RoundTripPropertyTests.EveryCoreModuleHasAGenerator` fails when a module has none. `mise run oracle-roundtrip`, which
+CI's `l4` job runs, has the oracle read STM's text of every accepted case and 100 random documents per generator.
 
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it

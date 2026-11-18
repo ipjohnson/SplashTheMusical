@@ -71,11 +71,66 @@ internal static class FlowchartWriter
 	}
 
 	/// <summary>
-	/// Whether <see cref="FlowchartText.Prepare"/> leaves the text alone: no <c>%%</c>, which starts a comment or a
-	/// directive, and no <c>}</c> before the end of a line, whose spaces it folds.
+	/// Whether <see cref="FlowchartText.Prepare"/> leaves the text alone: no <c>%%{</c>, which starts a directive, no
+	/// <c>%%</c> at the start of a line of the text, which starts a comment, no space between a <c>}</c> and the last line
+	/// break of the space after it, which it folds, and no tag the text opens and does not close.
 	/// </summary>
-	private static bool SurvivesPreparation(string text) =>
-		!text.Contains("%%", StringComparison.Ordinal) && !(text.Contains('}') && text.Contains('\n'));
+	private static bool SurvivesPreparation(string text)
+	{
+		if (text.Contains("%%{", StringComparison.Ordinal) || OpensTag(text, out _))
+		{
+			return false;
+		}
+
+		for (var at = text.IndexOf("%%", StringComparison.Ordinal); at >= 0; at = text.IndexOf("%%", at + 1, StringComparison.Ordinal))
+		{
+			var lineStart = at;
+			while (lineStart > 0 && text[lineStart - 1] != '\n' && PreambleParser.IsSpace(text[lineStart - 1]))
+			{
+				lineStart--;
+			}
+
+			if (lineStart > 0 && text[lineStart - 1] == '\n')
+			{
+				return false;
+			}
+		}
+
+		for (var at = text.IndexOf('}'); at >= 0; at = text.IndexOf('}', at + 1))
+		{
+			var lastBreak = -1;
+			for (var i = at + 1; i < text.Length && PreambleParser.IsSpace(text[i]); i++)
+			{
+				lastBreak = text[i] == '\n' ? i : lastBreak;
+			}
+
+			if (lastBreak > at + 1)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/// <summary>
+	/// Whether the text has a <c>&lt;</c> and a word character with no <c>&gt;</c> after them. mermaid.js quotes the
+	/// attributes of <c>/&lt;(\w+)([^&gt;]*)&gt;/g</c> in the whole source, so such a tag would reach into the statements
+	/// after the text and change their quotes. <paramref name="at"/> is the first such <c>&lt;</c>.
+	/// </summary>
+	private static bool OpensTag(string text, out int at)
+	{
+		var close = text.LastIndexOf('>');
+		for (at = text.IndexOf('<', close + 1); at >= 0; at = text.IndexOf('<', at + 1))
+		{
+			if (at + 1 < text.Length && FlowchartText.IsWordChar(text[at + 1]))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 	private static bool IsIdText(string id)
 	{
@@ -130,15 +185,21 @@ internal static class FlowchartWriter
 
 	/// <summary>
 	/// A YAML double-quoted string the <c>@{ }</c> lexer passes through unchanged: <c>"</c> would end its string state,
-	/// a line break would become <c>&lt;br/&gt;</c> and <c>%</c> could start a directive, so each is escaped.
+	/// a line break would become <c>&lt;br/&gt;</c>, <c>%</c> could start a directive and a <c>&lt;</c> that opens a tag
+	/// the text does not close would reach into the statements after it, so each is escaped.
 	/// </summary>
 	private static void AppendYamlString(StringBuilder output, string text)
 	{
 		output.Append('"');
-		foreach (var c in text)
+		var openTag = OpensTag(text, out var tag) ? tag : text.Length;
+		for (var i = 0; i < text.Length; i++)
 		{
+			var c = text[i];
 			switch (c)
 			{
+				case '<' when i >= openTag:
+					output.Append("\\x3C");
+					break;
 				case '"':
 					output.Append("\\x22");
 					break;
@@ -387,14 +448,17 @@ internal static class FlowchartWriter
 			var shapeWritten = node.Shape is null;
 			if (node.Property is { } property)
 			{
-				var label = node.LabelType == FlowchartLabelType.Text && IsPlainText(node.Label) ? node.Label : null;
+				var label = node.LabelType == FlowchartLabelType.Text && IsPlainText(node.Label) && !node.Label.Contains('@') ? node.Label : null;
 				line.Append("[|").Append(property.Key).Append(':').Append(property.Value).Append('|').Append(label ?? Placeholder).Append(']');
 				labelWritten = label is not null;
 				shapeWritten = node.Shape == "rect";
 			}
 			else if (Brackets(node.Shape) is var (open, close))
 			{
-				var label = Encode(node.Label, node.LabelType, node.Shape is "trapezoid" or "inv_trapezoid" or "lean_right" or "lean_left");
+				// The lexer reads plain text up to an @ as an edge id, LINK_ID's /[^\s"]+@/, so such a label goes in the @{ } block.
+				var label = node.LabelType == FlowchartLabelType.Text && node.Label.Contains('@')
+					? null
+					: Encode(node.Label, node.LabelType, node.Shape is "trapezoid" or "inv_trapezoid" or "lean_right" or "lean_left");
 				line.Append(open).Append(label ?? Placeholder).Append(close);
 				labelWritten = label is not null;
 				shapeWritten = true;
