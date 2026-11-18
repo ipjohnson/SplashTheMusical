@@ -8,6 +8,7 @@ return args switch
 	["mermaider", .. var rest] => Baseline(Option(rest, "--out") ?? "docs/benchmarks/mermaider-baseline.md", Jobs(rest)),
 	["select"] => Select(),
 	["compare", var committed, var run] => Comparison.Run(committed, run, Console.Out),
+	["budget", var baseline, var run] => Budget.Run(baseline, run, StmBenchmarks.Measured, Console.Out),
 	["size", .. var rest] => Size(rest),
 	["dagre", .. var rest] => Dagre(Option(rest, "--out") ?? "docs/benchmarks/dagre.md", Jobs(rest)),
 	["dagre-layout", var nodes] => DagreLayoutOnce(int.Parse(nodes, System.Globalization.CultureInfo.InvariantCulture)),
@@ -22,6 +23,7 @@ static int Usage()
 		  mermaider [--jobs JIT,AOT] [--out file]   run the Mermaider baseline and write its result file
 		  select                                    pick the benchmark set from the corpus and rewrite its manifest
 		  compare <committed> <run>                 exit 1 when the run is more than 10% worse than the committed numbers
+		  budget <baseline> <run>                   exit 1 when the run's parse rows are slower or allocate more than Mermaider's
 		  size [--sizes file] [--dll file] [--cli file] [--accept]
 		                                            exit 1 when a binary is more than 5% larger than its committed size
 		  dagre [--jobs JIT,AOT] [--out file]       run the dagre port on graphs of 10, 100 and 1,000 nodes and write its result file

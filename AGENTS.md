@@ -26,6 +26,7 @@ mise run raster            # L4: rasterize both SVGs of every corpus case and re
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
 mise run bench             # STM's stages on corpus/benchmarks/cases.txt, JIT and AOT, written to .artifacts/bench
 mise run bench-compare     # fail when a run is more than 10% worse than docs/benchmarks/stm.md
+mise run bench-budget      # fail when STM's parse rows are slower or allocate more than docs/benchmarks/mermaider-baseline.md
 mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the budget STM is held to
 mise run bench-dagre       # rewrite docs/benchmarks/dagre.md, the dagre port on graphs of 10, 100 and 1,000 nodes
 mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
@@ -92,6 +93,11 @@ which fails unless `SvgSanitizer.SanitizeRendererOutput` returns the output unch
 `SvgValues.Elements` and `SvgValues.Attributes`, so a renderer that needs a new element or attribute adds it there.
 
 `tests/SplashTheMusical.Tests/Allocations.cs` asserts the exact bytes one call allocates.
+
+`StmBenchmarks.Stages` measures parse, layout, render and write on the benchmark cases of the types in
+`StmBenchmarks.Measured`, and `mise run bench` writes them. `docs/benchmarks/stm.md` holds the committed run.
+`BudgetTests` fails when a committed `parse` row is slower or allocates more than Mermaider's row in
+`docs/benchmarks/mermaider-baseline.md`.
 
 `src/SplashTheMusical.Layout/Dagre` ports dagre-d3-es 7.0.14, the dagre mermaid 12.3.0 uses. Its `Graph` iterates
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as
