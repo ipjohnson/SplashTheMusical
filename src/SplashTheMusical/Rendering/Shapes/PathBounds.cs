@@ -6,7 +6,8 @@ namespace SplashTheMusical.Rendering.Shapes;
 /// The tight box of the path data the shapes and the edges write: the commands M, L, H, V, C, Q, A and Z in both cases.
 /// A cubic or a quadratic counts its end points and the points where its x or its y turns. An arc counts
 /// its end points and the extreme points of its ellipse that it passes, as the SVG spec's centre parameterization
-/// gives them.
+/// gives them. A number JavaScript writes as <c>NaN</c> or <c>Infinity</c> is an error in path data, and as a browser
+/// draws a path up to its first error, the box is that of the commands before it.
 /// </summary>
 internal static class PathBounds
 {
@@ -18,6 +19,7 @@ internal static class PathBounds
 		var command = '\0';
 		while (reader.Next(ref command))
 		{
+			var before = bounds;
 			var relative = char.IsLower(command);
 			switch (char.ToUpperInvariant(command))
 			{
@@ -76,6 +78,11 @@ internal static class PathBounds
 					break;
 				default:
 					throw new FormatException("Unsupported path command '" + command + "' in " + data);
+			}
+
+			if (reader.Failed)
+			{
+				return before;
 			}
 		}
 
@@ -217,12 +224,21 @@ internal static class PathBounds
 		private readonly ReadOnlySpan<char> _text = text;
 		private int _at;
 
+		/// <summary>Whether the reader has met a number that is not finite, which ends the path.</summary>
+		public bool Failed { get; private set; }
+
 		/// <summary>Moves to the next command letter, or keeps the command when a number follows, as SVG repeats it.</summary>
 		public bool Next(ref char command)
 		{
 			Skip();
-			if (_at >= _text.Length)
+			if (_at >= _text.Length || Failed)
 			{
+				return false;
+			}
+
+			if (NotFinite())
+			{
+				Failed = true;
 				return false;
 			}
 
@@ -241,6 +257,12 @@ internal static class PathBounds
 		public double Number()
 		{
 			Skip();
+			if (Failed || NotFinite())
+			{
+				Failed = true;
+				return double.NaN;
+			}
+
 			var start = _at;
 			if (_at < _text.Length && _text[_at] is '-' or '+')
 			{
@@ -267,6 +289,17 @@ internal static class PathBounds
 			}
 
 			return double.Parse(_text[start.._at], NumberStyles.Float, CultureInfo.InvariantCulture);
+		}
+
+		private readonly bool NotFinite()
+		{
+			var rest = _text[_at..];
+			if (rest.Length > 0 && rest[0] is '-' or '+')
+			{
+				rest = rest[1..];
+			}
+
+			return rest.StartsWith("NaN") || rest.StartsWith("Infinity");
 		}
 
 		private void Skip()

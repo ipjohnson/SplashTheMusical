@@ -101,7 +101,18 @@ internal static class ConfigMerge
 			overrides = Assign(overrides, directed);
 		}
 
-		return With(config, "themeVariables", themes.GetThemeVariables(theme.String, overrides));
+		MermaidValue variables;
+		try
+		{
+			variables = themes.GetThemeVariables(theme.String, overrides);
+		}
+		catch (FormatException e)
+		{
+			// khroma throws on a colour it cannot read, such as "411d4e" without its #, and mermaid.js then draws nothing.
+			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, e.Message, 0, 0));
+		}
+
+		return With(config, "themeVariables", variables);
 	}
 
 	/// <summary><c>addDirective</c>: <c>sanitizeDirective</c>, then the font family copied into the theme variables.</summary>

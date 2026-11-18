@@ -146,6 +146,41 @@ public class MermaidTests
 	}
 
 	[Test]
+	public void RenderRefusesAThemeColourMermaidJsCannotRead()
+	{
+		const string Source = "%%{init: {\"theme\": \"base\", \"themeVariables\": {\"primaryColor\": \"411d4e\"}}}%%\nflowchart LR\n  A --> B";
+
+		var render = () => Mermaid.Default.RenderSvg(Source);
+
+		render.Should().Throw<MermaidParseException>().Which.Diagnostics.Should().ContainSingle()
+			.Which.Message.Should().Be("Unsupported color format: \"411d4e\"");
+	}
+
+	[Test]
+	public void RenderRefusesAFlowchartMermaidJssDagreCannotRank()
+	{
+		// mermaid.js 12.3.0 with layout: dagre throws in dagre's ranking, because the edge ends at subgraph B.
+		const string Source = "flowchart\nb-->B\nsubgraph O\nA\nend\nsubgraph B\nc\nend\nsubgraph A\nb\nB\nend\n";
+
+		var render = () => Mermaid.Default.RenderSvg(Source);
+
+		render.Should().Throw<MermaidParseException>().Which.Diagnostics.Should().ContainSingle()
+			.Which.Message.Should().Be("Cannot set properties of undefined (setting 'rank')");
+	}
+
+	[Test]
+	public void RenderRefusesAFlowchartWhoseSubgraphHoldsItsOwnParent()
+	{
+		// TOP is a member of B2, which is a member of TOP, and graphlib's setParent refuses the cycle.
+		const string Source = "flowchart\nsubgraph TOP\nsubgraph B2\nTOP-->f2\nend\nend\n";
+
+		var render = () => Mermaid.Default.RenderSvg(Source);
+
+		render.Should().Throw<MermaidParseException>().Which.Diagnostics.Should().ContainSingle()
+			.Which.Message.Should().Be("Setting TOP as parent of B2 would create a cycle");
+	}
+
+	[Test]
 	public void TheOptionsOfACallOverrideTheInstancesOptions()
 	{
 		var mermaid = new Mermaid(new MermaidOptions { SiteConfig = Site("theme", "dark") });

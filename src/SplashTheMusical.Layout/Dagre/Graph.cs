@@ -214,7 +214,7 @@ internal class Graph<TNode, TEdge>
 		{
 			if (ancestor == v)
 			{
-				throw new InvalidOperationException($"Setting {_names[parent]} as parent of {_names[v]} would create a cycle");
+				throw new DagreException($"Setting {_names[parent]} as parent of {_names[v]} would create a cycle");
 			}
 		}
 
