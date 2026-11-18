@@ -93,8 +93,24 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 			Theme(config, "clusterBorder"),
 			Theme(config, "lineColor"),
 			Theme(config, "nodeTextColor") ?? Theme(config, "textColor"),
-			measure.Font.Size);
-		return new FlowchartLayout(width, flowchart.UseMaxWidth == true ? null : height, viewBox, root, title, style, dagre.Inputs);
+			measure.Font.Size)
+		{
+			Theme = config.Theme,
+			Gradient = config.ThemeVariables is { Kind: MermaidValueKind.Mapping } variables && variables["useGradient"] is { } useGradient
+				&& Parsing.PreambleParser.IsTruthy(useGradient)
+				? (Theme(config, "gradientStart"), Theme(config, "gradientStop"))
+				: null,
+		};
+		return new FlowchartLayout(
+			width,
+			flowchart.UseMaxWidth == true ? null : height,
+			viewBox,
+			root,
+			title,
+			style,
+			dagre.Inputs,
+			FlowchartStyles.Rules(config),
+			FlowchartStyles.Classes(document));
 	}
 
 	public override void Render(FlowchartDocument document, FlowchartLayout layout, SvgWriter svg, DiagramRenderContext context)
@@ -127,6 +143,10 @@ public sealed class FlowchartModule : DiagramModule<FlowchartDocument, Flowchart
 		Padding = node.Padding,
 		DomId = node.DomId,
 		Classes = node.Classes,
+		CssStyles = node.CssStyles,
+		CssCompiledStyles = node.CssCompiledStyles,
+		ColorIndex = node.ColorIndex,
+		IsSubgraph = node.IsSubgraph,
 	};
 
 	private static string? Theme(MermaidConfig config, string name) =>

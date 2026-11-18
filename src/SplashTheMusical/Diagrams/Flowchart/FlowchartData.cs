@@ -29,7 +29,16 @@ internal sealed class FlowNode
 
 	public string DomId { get; init; } = "";
 
-	public string Classes { get; init; } = "";
+	public string Classes { get; set; } = "";
+
+	/// <summary><c>cssStyles</c>: the declarations of <c>style</c> statements.</summary>
+	public IReadOnlyList<string> CssStyles { get; set; } = [];
+
+	/// <summary><c>cssCompiledStyles</c>: the declarations of the node's <c>classDef</c> classes, as <c>getCompiledStyles</c> joins them.</summary>
+	public IReadOnlyList<string> CssCompiledStyles { get; set; } = [];
+
+	/// <summary><c>colorIndex</c>: a subgraph's place in the depth-first order of the subgraphs, which picks its colour slot.</summary>
+	public int? ColorIndex { get; init; }
 
 	public bool IsDummy { get; init; }
 
@@ -98,6 +107,12 @@ internal sealed class FlowEdge
 	public string? Curve { get; init; }
 
 	public string Classes { get; init; } = "";
+
+	/// <summary><c>style</c>: the declarations of <c>linkStyle default</c>, then the edge's own <c>linkStyle</c>.</summary>
+	public IReadOnlyList<string> Styles { get; init; } = [];
+
+	/// <summary><c>cssCompiledStyles</c>: the declarations of the edge's <c>classDef</c> classes.</summary>
+	public IReadOnlyList<string> CssCompiledStyles { get; init; } = [];
 
 	public bool Animated { get; init; }
 
@@ -217,6 +232,49 @@ internal static class FlowchartData
 			}
 		}
 
+		// declarationIndex: the subgraphs numbered depth first from each top-level one, in the order of the list.
+		var childrenOf = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+		foreach (var subgraph in subgraphs)
+		{
+			if (subgraphParent.TryGetValue(subgraph.Id, out var parent))
+			{
+				if (!childrenOf.TryGetValue(parent, out var children))
+				{
+					childrenOf[parent] = children = [];
+				}
+
+				children.Add(subgraph.Id);
+			}
+		}
+
+		var declarationIndex = new Dictionary<string, int>(StringComparer.Ordinal);
+		void Walk(string id)
+		{
+			if (!declarationIndex.TryAdd(id, declarationIndex.Count))
+			{
+				return;
+			}
+
+			foreach (var child in childrenOf.GetValueOrDefault(id) ?? [])
+			{
+				Walk(child);
+			}
+		}
+
+		foreach (var subgraph in subgraphs)
+		{
+			if (!subgraphParent.ContainsKey(subgraph.Id))
+			{
+				Walk(subgraph.Id);
+			}
+		}
+
+		var classes = new Dictionary<string, FlowchartClass>(StringComparer.Ordinal);
+		foreach (var cls in document.Classes)
+		{
+			classes[cls.Id] = cls;
+		}
+
 		var parents = new Dictionary<string, string>(StringComparer.Ordinal);
 		var groups = new HashSet<string>(StringComparer.Ordinal);
 		for (var i = subgraphs.Count - 1; i >= 0; i--)
@@ -258,6 +316,8 @@ internal static class FlowchartData
 				ParentId = parents.GetValueOrDefault(subgraph.Id),
 				Padding = 8,
 				Classes = string.Join(' ', subgraph.Classes),
+				CssCompiledStyles = CompiledStyles(classes, subgraph.Classes),
+				ColorIndex = declarationIndex.TryGetValue(subgraph.Id, out var colorIndex) ? colorIndex : null,
 				Shape = collapsed ? "collapsedGroup" : "rect",
 				Dir = subgraph.Direction,
 				IsGroup = !collapsed,
@@ -269,8 +329,18 @@ internal static class FlowchartData
 		for (var i = 0; i < document.Nodes.Count; i++)
 		{
 			var vertex = document.Nodes[i];
-			if (hidden.Contains(vertex.Id) || !ids.Add(vertex.Id))
+			if (hidden.Contains(vertex.Id))
 			{
+				continue;
+			}
+
+			if (!ids.Add(vertex.Id))
+			{
+				// addNodeFromVertex: a vertex with a subgraph's id gives the subgraph's node its styles and classes.
+				var existing = nodes.Find(n => n.Id == vertex.Id)!;
+				existing.CssStyles = vertex.Styles;
+				existing.CssCompiledStyles = CompiledStyles(classes, vertex.Classes);
+				existing.Classes = string.Join(' ', vertex.Classes);
 				continue;
 			}
 
@@ -282,6 +352,8 @@ internal static class FlowchartData
 				ParentId = parents.GetValueOrDefault(vertex.Id),
 				Padding = padding,
 				Classes = "default " + string.Join(' ', vertex.Classes),
+				CssStyles = vertex.Styles,
+				CssCompiledStyles = CompiledStyles(classes, ["default", "node", .. vertex.Classes]),
 				Shape = FlowchartShapes.Drawn(vertex),
 				Vertex = vertex,
 				IsGroup = groups.Contains(vertex.Id),
@@ -329,10 +401,28 @@ internal static class FlowchartData
 				Stroke = raw.Stroke,
 				Curve = raw.Interpolate ?? document.DefaultInterpolate ?? defaultCurve,
 				Classes = raw.Stroke == FlowchartStroke.Invisible ? "" : "edge-thickness-normal edge-pattern-solid flowchart-link",
+				Styles = [.. document.DefaultEdgeStyles ?? [], .. raw.Styles ?? []],
+				CssCompiledStyles = CompiledStyles(classes, raw.Classes),
 				Animated = raw.Animate == true || raw.Animation is not null,
 			});
 		}
 
 		return (nodes, edges);
+	}
+
+	/// <summary><c>getCompiledStyles</c>: the styles, then the text styles, of each class that is defined, trimmed.</summary>
+	private static List<string> CompiledStyles(Dictionary<string, FlowchartClass> classes, IReadOnlyList<string> names)
+	{
+		var compiled = new List<string>();
+		foreach (var name in names)
+		{
+			if (classes.TryGetValue(name, out var cls))
+			{
+				compiled.AddRange(cls.Styles.Select(s => s.Trim()));
+				compiled.AddRange(cls.TextStyles.Select(s => s.Trim()));
+			}
+		}
+
+		return compiled;
 	}
 }

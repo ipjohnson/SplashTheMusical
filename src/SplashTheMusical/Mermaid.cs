@@ -255,7 +255,9 @@ public sealed class Mermaid : IMermaid
 
 		WriteTextElement(svg, "title", "chart-title-" + id, document.AccessibilityTitle);
 		WriteTextElement(svg, "desc", "chart-desc-" + id, document.AccessibilityDescription);
-		svg.WriteStyle(MermaidStylesheet.Build(config, [], []));
+		var stylesheet = MermaidStylesheet.Build(config, layout.DiagramRules, layout.Classes);
+		stylesheet.AddRange(layout.ElementRules);
+		svg.WriteStyle(stylesheet);
 		svg.StartElement("g");
 		svg.EndElement();
 		module.Render(document, layout, svg, context);

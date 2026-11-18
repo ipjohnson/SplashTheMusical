@@ -2,6 +2,7 @@ using System.Buffers;
 using System.Text;
 using System.Text.Json;
 using SplashTheMusical.Config;
+using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Rendering;
 
@@ -9,16 +10,19 @@ namespace SplashTheMusical.Conformance;
 
 /// <summary>
 /// <see cref="MermaidStylesheet"/> written by <see cref="SvgWriter"/> against corpus/styles.txt, the style element
-/// mermaid.js writes for a quadrant chart in each theme and for flowcharts with classDef statements.
+/// mermaid.js writes for a quadrant chart and a flowchart in each theme, and for flowcharts with classDef, style, class
+/// and linkStyle statements.
 /// </summary>
 public class StylesheetTests
 {
 	private const string SvgId = "styles";
 
+	private static readonly Mermaid Stm = new(new MermaidOptions { SiteConfig = Site(), Limits = ResourceLimits.Unlimited });
+
 	/// <summary>
-	/// A quadrant chart has no rules of its own, so its stylesheet is the shared rules alone and must match in full.
-	/// mermaid.js puts a flowchart's own rules between the shared rules and the look rules, and STM has not ported them, so
-	/// a flowchart's stylesheet must start with the text STM writes before them and end with the text STM writes after.
+	/// A quadrant chart has no rules of its own, so its stylesheet is the shared rules alone. A flowchart's adds
+	/// <see cref="FlowchartStyles.Rules"/> and its classes, which STM's parser must read as mermaid.js's
+	/// <c>getClasses</c> returns them. Every stylesheet must match in full.
 	/// </summary>
 	[Test]
 	public async Task EveryCaseGetsTheOracleStylesheet()
@@ -29,46 +33,63 @@ public class StylesheetTests
 		foreach (var name in cases)
 		{
 			var source = JsonString(Field(lines, "source", name)[2]);
-			var document = new PreambleDocument();
-			if (!PreambleParser.TryParse(source, document, [], ResourceLimits.Unlimited, out _))
-			{
-				problems.Add($"{name}: the preamble does not parse");
-				continue;
-			}
-
-			var flowchart = name.StartsWith("classdef-", StringComparison.Ordinal);
-			var config = MermaidConfig.Resolve(Site(), document, flowchart ? "flowchart-v2" : "quadrantChart");
-			var classes = lines
+			var oracleClasses = lines
 				.Where(line => line.StartsWith("class\t" + name + "\t", StringComparison.Ordinal))
 				.Select(line => line.Split('\t'))
-				.Select(f => new StyleClass(f[3], JsonStrings(f[4]), JsonStrings(f[5])))
+				.Select(f => ClassLine(f[3], JsonStrings(f[4]), JsonStrings(f[5])))
 				.ToList();
 			var oracle = Field(lines, "style", name)[2];
-			var marker = new CssStyleRule(CssSelector.Parse(".stm-diagram-rules"), CssDeclaration.FromTheme("fill", "red"));
-			var stm = Write(MermaidStylesheet.Build(config, flowchart ? [marker] : [], classes));
-			if (!flowchart)
+			string stm;
+			if (name.StartsWith("theme-", StringComparison.Ordinal))
 			{
-				if (stm != oracle)
+				var document = new PreambleDocument();
+				if (!PreambleParser.TryParse(source, document, [], ResourceLimits.Unlimited, out _))
 				{
-					problems.Add($"{name}:\n  stm    {stm}\n  oracle {oracle}");
+					problems.Add($"{name}: the preamble does not parse");
+					continue;
 				}
 
-				continue;
+				stm = Write(MermaidStylesheet.Build(MermaidConfig.Resolve(Site(), document, "quadrantChart"), [], []));
+			}
+			else
+			{
+				if (!Stm.TryParse(source, out var parsed, out _) || parsed is not FlowchartDocument flowchart)
+				{
+					problems.Add($"{name}: STM refuses the flowchart");
+					continue;
+				}
+
+				var config = MermaidConfig.Resolve(Site(), flowchart, flowchart.DiagramType);
+				var classes = FlowchartStyles.Classes(flowchart);
+				var stmClasses = classes.Select(c => ClassLine(c.Id, c.Styles, c.TextStyles)).ToList();
+				if (!stmClasses.SequenceEqual(oracleClasses))
+				{
+					problems.Add($"{name}: classes\n  stm    {string.Join(" | ", stmClasses)}\n  oracle {string.Join(" | ", oracleClasses)}");
+				}
+
+				stm = Write(MermaidStylesheet.Build(config, FlowchartStyles.Rules(config), classes));
 			}
 
-			var markerText = SvgWriter.StyleText(SvgId, [marker]);
-			var before = stm[..stm.IndexOf(markerText, StringComparison.Ordinal)];
-			var after = stm[(stm.IndexOf(markerText, StringComparison.Ordinal) + markerText.Length)..];
-			if (!oracle.StartsWith(before, StringComparison.Ordinal) || !oracle.EndsWith(after, StringComparison.Ordinal))
+			if (stm != oracle)
 			{
-				problems.Add($"{name}:\n  stm    {before} … {after}\n  oracle {oracle}");
+				var at = 0;
+				while (at < stm.Length && at < oracle.Length && stm[at] == oracle[at])
+				{
+					at++;
+				}
+
+				var from = Math.Max(0, at - 80);
+				problems.Add($"{name}: differs at {at}\n  stm    …{stm[from..Math.Min(stm.Length, at + 120)]}\n  oracle …{oracle[from..Math.Min(oracle.Length, at + 120)]}");
 			}
 		}
 
 		await Assert.That(string.Join('\n', problems)).IsEmpty();
 		await Assert.That(lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
-		await Assert.That(cases.Count).IsEqualTo(13);
+		await Assert.That(cases.Count).IsEqualTo(26);
 	}
+
+	private static string ClassLine(string id, IReadOnlyList<string> styles, IReadOnlyList<string> textStyles) =>
+		$"{id} [{string.Join(", ", styles)}] [{string.Join(", ", textStyles)}]";
 
 	// The style element's text, unescaped. The sanitizer must keep the document unchanged.
 	private static string Write(IEnumerable<CssRule> rules)

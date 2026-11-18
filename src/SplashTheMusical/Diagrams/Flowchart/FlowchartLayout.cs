@@ -1,4 +1,5 @@
 using SplashTheMusical.Layout.Dagre;
+using SplashTheMusical.Rendering;
 using SplashTheMusical.Rendering.Shapes;
 
 namespace SplashTheMusical.Diagrams.Flowchart;
@@ -10,7 +11,16 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// </summary>
 public sealed class FlowchartLayout : DiagramLayout
 {
-	internal FlowchartLayout(double width, double? height, SvgViewBox viewBox, FlowchartDrawing root, FlowchartTitle? title, FlowchartStyle style, IReadOnlyList<DagreInput> dagreInputs)
+	internal FlowchartLayout(
+		double width,
+		double? height,
+		SvgViewBox viewBox,
+		FlowchartDrawing root,
+		FlowchartTitle? title,
+		FlowchartStyle style,
+		IReadOnlyList<DagreInput> dagreInputs,
+		IReadOnlyList<CssRule> diagramRules,
+		IReadOnlyList<StyleClass> classes)
 		: base(width, height)
 	{
 		ViewBox = viewBox;
@@ -18,7 +28,16 @@ public sealed class FlowchartLayout : DiagramLayout
 		Title = title;
 		Style = style;
 		DagreInputs = dagreInputs;
+		DiagramRules = diagramRules;
+		Classes = classes;
+		ElementRules = FlowchartStyles.ElementRules(root);
 	}
+
+	internal override IReadOnlyList<CssRule> DiagramRules { get; }
+
+	internal override IReadOnlyList<StyleClass> Classes { get; }
+
+	internal override IReadOnlyList<CssRule> ElementRules { get; }
 
 	internal FlowchartDrawing Root { get; }
 
@@ -89,8 +108,18 @@ public sealed class FlowchartLayout : DiagramLayout
 /// <summary>A box of <see cref="FlowchartLayout.Boxes"/>: its kind, its name and its rectangle.</summary>
 internal readonly record struct FlowchartBox(string Kind, string Name, double X, double Y, double Width, double Height);
 
-/// <summary>The theme values the renderer paints with, until the flowchart stylesheet does.</summary>
-internal sealed record FlowchartStyle(string DiagramType, string Look, string? NodeFill, string? NodeStroke, string? ClusterFill, string? ClusterStroke, string? LineColor, string? TextColor, double FontSize);
+/// <summary>A copy of the marker <paramref name="BaseId"/>, as <paramref name="Id"/>, with its paths stroked, and filled when <paramref name="Fill"/>, in <paramref name="Color"/>.</summary>
+internal sealed record ColoredMarker(string BaseId, string Id, string Color, bool Fill);
+
+/// <summary>The theme values the renderer writes as presentation attributes, which the flowchart stylesheet overrides.</summary>
+internal sealed record FlowchartStyle(string DiagramType, string Look, string? NodeFill, string? NodeStroke, string? ClusterFill, string? ClusterStroke, string? LineColor, string? TextColor, double FontSize)
+{
+	/// <summary>The theme's name, whose <c>dark</c> darkens <c>insertLookDefs</c>'s shadows.</summary>
+	public string? Theme { get; init; }
+
+	/// <summary>The <c>gradientStart</c> and <c>gradientStop</c> of a theme whose <c>useGradient</c> is truthy, or <c>null</c>.</summary>
+	public (string? Start, string? Stop)? Gradient { get; init; }
+}
 
 /// <summary><c>insertTitle</c>'s text: the front matter title, centred over the drawing.</summary>
 internal sealed record FlowchartTitle(string Text, double X, double Y);
@@ -155,6 +184,18 @@ internal sealed class FlowchartClusterDrawing
 
 	public required FlowchartLabelBox Label { get; init; }
 
+	/// <inheritdoc cref="FlowchartNodeDrawing.NodeStyles"/>
+	public string NodeStyles { get; init; } = "";
+
+	/// <inheritdoc cref="FlowchartNodeDrawing.LabelStyles"/>
+	public string LabelStyles { get; init; } = "";
+
+	/// <inheritdoc cref="FlowchartNodeDrawing.ColorId"/>
+	public string? ColorId { get; init; }
+
+	/// <inheritdoc cref="FlowchartNodeDrawing.StyleClass"/>
+	public string? StyleClass { get; set; }
+
 	/// <summary>The translate of the title's <c>g</c>, its top left corner.</summary>
 	public double LabelX { get; init; }
 
@@ -180,6 +221,18 @@ internal sealed class FlowchartNodeDrawing
 	public ShapeGeometry? Geometry { get; init; }
 
 	public FlowchartLabelBox? Label { get; init; }
+
+	/// <summary>The <c>nodeStyles</c> of <c>styles2String</c>, which mermaid.js writes on the shape's outline.</summary>
+	public string NodeStyles { get; init; } = "";
+
+	/// <summary>The <c>labelStyles</c> of <c>styles2String</c>, which mermaid.js writes on the label.</summary>
+	public string LabelStyles { get; init; } = "";
+
+	/// <summary>The <c>data-color-id</c> of a colour theme's colour slot, or <c>null</c> for none.</summary>
+	public string? ColorId { get; init; }
+
+	/// <summary>The class that keys the node's <see cref="FlowchartLayout.ElementRules"/>, or <c>null</c> when it has none.</summary>
+	public string? StyleClass { get; set; }
 
 	/// <summary>A subgraph without members, which the dagre renderer draws as a node.</summary>
 	public bool IsGroup { get; init; }
@@ -213,6 +266,21 @@ internal sealed class FlowchartEdgeDrawing
 	public string? MarkerStart { get; init; }
 
 	public string? MarkerEnd { get; init; }
+
+	/// <summary>The copies of markers this edge's stroke colour paints, which <c>addEdgeMarker</c> adds.</summary>
+	public IReadOnlyList<ColoredMarker> ColoredMarkers { get; init; } = [];
+
+	/// <summary>The <c>style</c> <c>insertEdge</c> writes on the path in the classic look.</summary>
+	public string PathStyle { get; init; } = "";
+
+	/// <summary>The edge's <c>labelStyle</c>, which mermaid.js writes on the label.</summary>
+	public string LabelStyles { get; init; } = "";
+
+	/// <summary>The class that keys the path's <see cref="FlowchartLayout.ElementRules"/>, or <c>null</c> when it has none.</summary>
+	public string? StyleClass { get; set; }
+
+	/// <summary>The class that keys the label's <see cref="FlowchartLayout.ElementRules"/>, or <c>null</c> when it has none.</summary>
+	public string? LabelStyleClass { get; set; }
 
 	public bool Invisible { get; init; }
 

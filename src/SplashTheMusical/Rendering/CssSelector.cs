@@ -20,8 +20,8 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 
 	/// <summary>
 	/// A selector the renderer writes, such as <c>.node .neo-node</c> or <c>[data-look="neo"].node rect</c>. It may hold
-	/// names, <c>.</c>, <c>#</c>, <c>*</c>, <c>:</c>, the combinators <c>&gt;</c>, <c>+</c>, <c>~</c> and space, and
-	/// attribute selectors whose value is a quoted name.
+	/// names, <c>.</c>, <c>#</c>, <c>*</c>, <c>:</c>, the combinators <c>&gt;</c>, <c>+</c>, <c>~</c> and space,
+	/// attribute selectors whose value is a quoted name, <c>:not()</c> of a compound selector and <c>:nth-of-type()</c>.
 	/// </summary>
 	/// <exception cref="ArgumentException">The selector holds anything else.</exception>
 	public static CssSelector Parse(string selector)
@@ -74,6 +74,16 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 				i += end;
 				anything = true;
 			}
+			else if (c == '(')
+			{
+				var end = selector[i..].IndexOf(')');
+				if (end < 0 || !IsPseudoArgument(selector[..i], selector.Slice(i + 1, end - 1)))
+				{
+					return false;
+				}
+
+				i += end;
+			}
 			else if (CssText.IsNameChar(c) || c is '.' or '#' or '*' or ':')
 			{
 				anything = true;
@@ -85,6 +95,44 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 		}
 
 		return anything;
+	}
+
+	// :not( and :nth-of-type( are the only functional pseudo-classes. :not takes a compound of names, classes and ids, and
+	// :nth-of-type takes an+b with no spaces.
+	private static bool IsPseudoArgument(ReadOnlySpan<char> before, ReadOnlySpan<char> argument)
+	{
+		if (argument.IsEmpty)
+		{
+			return false;
+		}
+
+		if (before.EndsWith(":not", StringComparison.Ordinal))
+		{
+			foreach (var c in argument)
+			{
+				if (!CssText.IsNameChar(c) && c is not ('.' or '#'))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		if (before.EndsWith(":nth-of-type", StringComparison.Ordinal))
+		{
+			foreach (var c in argument)
+			{
+				if (!char.IsAsciiDigit(c) && c is not ('n' or '+' or '-'))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		return false;
 	}
 
 	// name, or name="value" with a value of names and spaces.

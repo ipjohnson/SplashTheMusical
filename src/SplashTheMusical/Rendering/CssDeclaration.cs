@@ -184,8 +184,9 @@ internal sealed class CssDeclaration
 		"stroke-dasharray" => PropertyKind.Dasharray,
 		"font-family" => PropertyKind.FontFamily,
 		"font-weight" => PropertyKind.FontWeight,
-		"font-style" or "stroke-linecap" or "stroke-linejoin" or "visibility" or "display" or "text-decoration" or "text-anchor" => PropertyKind.Keyword,
-		"animation" or "filter" or "margin" or "--mermaid-font-family" or "--mermaid-alt-font-family" => PropertyKind.ThemeOnly,
+		"font-style" or "stroke-linecap" or "stroke-linejoin" or "visibility" or "display" or "text-decoration" or "text-anchor" or "text-align" => PropertyKind.Keyword,
+		"animation" or "filter" or "margin" or "--mermaid-font-family" or "--mermaid-alt-font-family" or "cursor" or "position" or "max-width" or "padding"
+			or "background" or "border" or "border-radius" or "pointer-events" or "z-index" or "height" or "overflow" or "vertical-align" => PropertyKind.ThemeOnly,
 		_ => null,
 	};
 
@@ -491,6 +492,7 @@ internal sealed class CssDeclaration
 			"display" => lower is "none" or "inline" or "block" or "inline-block" or "flex" or "inline-flex" or "grid" or "inline-grid" or "contents",
 			"text-decoration" => lower is "none" or "underline" or "overline" or "line-through",
 			"text-anchor" => lower is "start" or "middle" or "end",
+			"text-align" => lower is "start" or "end" or "left" or "right" or "center" or "justify",
 			_ => false,
 		};
 		return allowed ? lower : null;

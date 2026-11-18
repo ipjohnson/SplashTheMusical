@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Globalization;
 using SplashTheMusical.Layout.Markers;
 using SplashTheMusical.Rendering;
@@ -12,8 +13,9 @@ namespace SplashTheMusical.Diagrams.Flowchart;
 /// mermaid.js draws HTML labels in a <c>foreignObject</c>, which <see cref="SvgWriter"/> does not write.
 /// </summary>
 /// <remarks>
-/// The elements carry mermaid.js's classes and ids. Until the flowchart stylesheet styles them, each is painted with
-/// presentation attributes from the theme, which a stylesheet rule overrides.
+/// The elements carry mermaid.js's classes and ids, and the flowchart stylesheet paints them. Each is also painted with
+/// presentation attributes from the theme, which the stylesheet overrides. A styled element also carries the class of its
+/// <see cref="FlowchartLayout.ElementRules"/>, which stand in for the <c>style</c> attributes mermaid.js writes.
 /// </remarks>
 internal static class FlowchartRenderer
 {
@@ -21,9 +23,10 @@ internal static class FlowchartRenderer
 	{
 		var style = layout.Style;
 		svg.StartElement("g");
-		WriteMarkers(svg, svgId, style);
+		WriteMarkers(svg, svgId, style, ColoredMarkers(layout.Root));
 		WriteRoot(svg, layout.Root, svgId, style);
 		svg.EndElement();
+		WriteLookDefs(svg, svgId, style);
 		if (layout.Title is { } title)
 		{
 			svg.StartElement("text");
@@ -37,8 +40,87 @@ internal static class FlowchartRenderer
 		}
 	}
 
-	private static void WriteMarkers(SvgWriter svg, string svgId, FlowchartStyle style)
+	/// <summary>
+	/// <c>insertLookDefs</c>: the drop shadows the looks' rules filter with, and the gradient they stroke with when the
+	/// theme's <c>useGradient</c> is on.
+	/// </summary>
+	private static void WriteLookDefs(SvgWriter svg, string svgId, FlowchartStyle style)
 	{
+		var flood = style.Theme?.Contains("dark", StringComparison.Ordinal) == true ? "#FFFFFF" : "#000000";
+		foreach (var (suffix, size, offset) in new[] { ("-drop-shadow", "130%", 4), ("-drop-shadow-small", "150%", 2) })
+		{
+			svg.StartElement("defs");
+			svg.StartElement("filter");
+			svg.WriteAttribute("id", svgId + suffix);
+			svg.WriteAttribute("height", size);
+			svg.WriteAttribute("width", size);
+			svg.StartElement("feDropShadow");
+			svg.WriteAttribute("dx", offset);
+			svg.WriteAttribute("dy", offset);
+			svg.WriteAttribute("stdDeviation", 0);
+			svg.WriteAttribute("flood-opacity", "0.06");
+			svg.WriteAttribute("flood-color", flood);
+			svg.EndElement();
+			svg.EndElement();
+			svg.EndElement();
+		}
+
+		if (style.Gradient is not { } gradient)
+		{
+			return;
+		}
+
+		svg.StartElement("linearGradient");
+		svg.WriteAttribute("id", svgId + "-gradient");
+		svg.WriteAttribute("gradientUnits", "objectBoundingBox");
+		svg.WriteAttribute("x1", "0%");
+		svg.WriteAttribute("y1", "0%");
+		svg.WriteAttribute("x2", "100%");
+		svg.WriteAttribute("y2", "0%");
+		foreach (var (offset, color) in new[] { ("0%", gradient.Start), ("100%", gradient.Stop) })
+		{
+			svg.StartElement("stop");
+			svg.WriteAttribute("offset", offset);
+			Paint(svg, "stop-color", color);
+			svg.WriteAttribute("stop-opacity", 1);
+			svg.EndElement();
+		}
+
+		svg.EndElement();
+	}
+
+	/// <summary>The marker copies the edges' stroke colours need, each once, in the order the edges are drawn.</summary>
+	private static List<ColoredMarker> ColoredMarkers(FlowchartDrawing root)
+	{
+		var markers = new List<ColoredMarker>();
+		var seen = new HashSet<string>(StringComparer.Ordinal);
+		void Walk(FlowchartDrawing drawing)
+		{
+			foreach (var edge in drawing.Edges)
+			{
+				markers.AddRange(edge.ColoredMarkers.Where(m => seen.Add(m.Id)));
+			}
+
+			foreach (var node in drawing.Nodes)
+			{
+				if (node.Subgraph is { } subgraph)
+				{
+					Walk(subgraph);
+				}
+			}
+		}
+
+		Walk(root);
+		return markers;
+	}
+
+	/// <summary>
+	/// <c>insertMarkers</c>, then each copy <c>addEdgeMarker</c> appends after the markers: the marker with the copy's id,
+	/// whose paths, circles and lines take the colour as their stroke, and as their fill for an arrow type that fills.
+	/// </summary>
+	private static void WriteMarkers(SvgWriter svg, string svgId, FlowchartStyle style, List<ColoredMarker> colored)
+	{
+		var definitions = new Dictionary<string, MarkerDefinition>(StringComparer.Ordinal);
 		foreach (var name in EdgeMarkers.SetsFor(MarkerDiagram.Flowchart, style.Look == "neo"))
 		{
 			if (EdgeMarkers.FindSet(name) is not { } set)
@@ -48,34 +130,49 @@ internal static class FlowchartRenderer
 
 			foreach (var marker in set.Markers)
 			{
-				if (marker.InDefs)
-				{
-					svg.StartElement("defs");
-				}
+				var id = EdgeMarkers.Id(svgId, style.DiagramType, marker);
+				definitions[id] = marker;
+				WriteMarker(svg, marker, id, style, null);
+			}
+		}
 
-				svg.StartElement("marker");
-				svg.WriteAttribute("id", EdgeMarkers.Id(svgId, style.DiagramType, marker));
-				if (marker.Class is { } cls)
-				{
-					svg.WriteAttribute("class", cls + " " + style.DiagramType);
-				}
-
-				WriteMarkerAttributes(svg, marker.Attributes, style);
-				foreach (var child in marker.Children)
-				{
-					WriteMarkerElement(svg, child, style);
-				}
-
-				svg.EndElement();
-				if (marker.InDefs)
-				{
-					svg.EndElement();
-				}
+		foreach (var copy in colored)
+		{
+			if (definitions.TryGetValue(copy.BaseId, out var marker))
+			{
+				WriteMarker(svg, marker, copy.Id, style, copy);
 			}
 		}
 	}
 
-	private static void WriteMarkerElement(SvgWriter svg, MarkerElement element, FlowchartStyle style)
+	private static void WriteMarker(SvgWriter svg, MarkerDefinition marker, string id, FlowchartStyle style, ColoredMarker? color)
+	{
+		if (marker.InDefs)
+		{
+			svg.StartElement("defs");
+		}
+
+		svg.StartElement("marker");
+		svg.WriteAttribute("id", id);
+		if (marker.Class is { } cls)
+		{
+			svg.WriteAttribute("class", cls + " " + style.DiagramType);
+		}
+
+		WriteMarkerAttributes(svg, marker.Attributes, style, null);
+		foreach (var child in marker.Children)
+		{
+			WriteMarkerElement(svg, child, style, color);
+		}
+
+		svg.EndElement();
+		if (marker.InDefs)
+		{
+			svg.EndElement();
+		}
+	}
+
+	private static void WriteMarkerElement(SvgWriter svg, MarkerElement element, FlowchartStyle style, ColoredMarker? color)
 	{
 		if (!SvgValues.WriterElements.Contains(element.Tag))
 		{
@@ -83,20 +180,26 @@ internal static class FlowchartRenderer
 		}
 
 		svg.StartElement(element.Tag);
-		WriteMarkerAttributes(svg, element.Attributes, style);
+		WriteMarkerAttributes(svg, element.Attributes, style, element.Tag is "path" or "circle" or "line" ? color : null);
 		foreach (var child in element.Children)
 		{
-			WriteMarkerElement(svg, child, style);
+			WriteMarkerElement(svg, child, style, color);
 		}
 
 		svg.EndElement();
 	}
 
-	private static void WriteMarkerAttributes(SvgWriter svg, IEnumerable<MarkerAttribute> attributes, FlowchartStyle style)
+	/// <summary>
+	/// The marker's inline styles as presentation attributes, then its attributes that no style overrides, then the
+	/// colour of a copy, which replaces the stroke and fill attributes but not a style.
+	/// </summary>
+	private static void WriteMarkerAttributes(SvgWriter svg, ImmutableArray<MarkerAttribute> attributes, FlowchartStyle style, ColoredMarker? color)
 	{
-		foreach (var attribute in attributes)
+		var written = new HashSet<string>(StringComparer.Ordinal);
+		foreach (var attribute in attributes.Where(a => a.IsStyle).Concat(attributes.Where(a => !a.IsStyle)))
 		{
-			if (attribute.IsStyle)
+			if (written.Contains(attribute.Name)
+				|| (!attribute.IsStyle && color is not null && (attribute.Name == "stroke" || (color.Fill && attribute.Name == "fill"))))
 			{
 				continue;
 			}
@@ -108,6 +211,20 @@ internal static class FlowchartRenderer
 				_ => attribute.Value,
 			};
 			WriteChecked(svg, attribute.Name, value);
+			written.Add(attribute.Name);
+		}
+
+		if (color is not null)
+		{
+			if (!written.Contains("stroke"))
+			{
+				Paint(svg, "stroke", color.Color);
+			}
+
+			if (color.Fill && !written.Contains("fill"))
+			{
+				Paint(svg, "fill", color.Color);
+			}
 		}
 	}
 
@@ -141,7 +258,7 @@ internal static class FlowchartRenderer
 			if (edge.Label is { HasText: true } label)
 			{
 				svg.StartElement("g");
-				svg.WriteAttribute("class", "edgeLabel");
+				svg.WriteAttribute("class", WithStyleClass("edgeLabel", edge.LabelStyleClass));
 				svg.WriteAttribute("transform", Translate(edge.LabelX, edge.LabelY));
 				svg.StartElement("g");
 				svg.WriteAttribute("class", "label");
@@ -169,10 +286,15 @@ internal static class FlowchartRenderer
 	private static void WriteCluster(SvgWriter svg, FlowchartClusterDrawing cluster, string svgId, FlowchartStyle style)
 	{
 		svg.StartElement("g");
-		svg.WriteAttribute("class", cluster.Classes);
+		svg.WriteAttribute("class", WithStyleClass(cluster.Classes, cluster.StyleClass));
 		svg.WriteAttribute("id", svgId + "-" + cluster.Id);
 		svg.WriteAttribute("data-id", cluster.Id);
 		svg.WriteAttribute("data-look", style.Look);
+		if (cluster.ColorId is { } colorId)
+		{
+			svg.WriteAttribute("data-color-id", colorId);
+		}
+
 		svg.StartElement("rect");
 		svg.WriteAttribute("x", cluster.X);
 		svg.WriteAttribute("y", cluster.Y);
@@ -199,7 +321,7 @@ internal static class FlowchartRenderer
 		svg.StartElement("path");
 		svg.WriteAttribute("d", edge.PathData);
 		svg.WriteAttribute("id", svgId + "-" + edge.Id);
-		svg.WriteAttribute("class", edge.Classes);
+		svg.WriteAttribute("class", WithStyleClass(edge.Classes, edge.StyleClass));
 		svg.WriteAttribute("fill", "none");
 		if (edge.Invisible)
 		{
@@ -251,10 +373,15 @@ internal static class FlowchartRenderer
 		}
 
 		svg.StartElement("g");
-		svg.WriteAttribute("class", node.Classes);
+		svg.WriteAttribute("class", WithStyleClass(node.Classes, node.StyleClass));
 		svg.WriteAttribute("id", svgId + "-" + node.DomId);
 		svg.WriteAttribute("data-id", node.Id);
 		svg.WriteAttribute("data-look", style.Look);
+		if (node.ColorId is { } colorId)
+		{
+			svg.WriteAttribute("data-color-id", colorId);
+		}
+
 		svg.WriteAttribute("transform", Translate(node.X, node.Y));
 		foreach (var element in geometry.Elements)
 		{
@@ -383,6 +510,9 @@ internal static class FlowchartRenderer
 		svg.WriteAttribute("text-anchor", "middle");
 		svg.WriteAttribute("font-size", style.FontSize);
 		Paint(svg, "fill", style.TextColor);
+
+		// A classDef's ".class>*" rule strokes the label's group, which mermaid.js's HTML label ignores and SVG text would inherit.
+		svg.WriteAttribute("stroke", "none");
 		var baseline = (label.LineHeight / 2) + (style.FontSize * 0.35);
 		for (var i = 0; i < label.Lines.Count; i++)
 		{
@@ -414,6 +544,8 @@ internal static class FlowchartRenderer
 
 		svg.EndElement();
 	}
+
+	private static string WithStyleClass(string classes, string? styleClass) => styleClass is null ? classes : classes + " " + styleClass;
 
 	private static void Paint(SvgWriter svg, string name, string? value)
 	{
