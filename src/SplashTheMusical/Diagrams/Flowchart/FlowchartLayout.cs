@@ -53,11 +53,14 @@ public sealed class FlowchartLayout : DiagramLayout
 	/// extractor names them: a node or subgraph by its id, an edge and its label by <c>start --&gt; end</c>, with
 	/// <c> #2</c> and on for a name used again, in the order of the document's edges.
 	/// </summary>
-	internal IReadOnlyList<FlowchartBox> Boxes()
+	internal IReadOnlyList<FlowchartBox> Boxes() => BoxesOf(Root);
+
+	/// <inheritdoc cref="Boxes"/>
+	internal static IReadOnlyList<FlowchartBox> BoxesOf(FlowchartDrawing root)
 	{
 		var boxes = new List<FlowchartBox>();
 		var edges = new List<(FlowchartEdgeDrawing Edge, double Dx, double Dy)>();
-		Collect(Root, 0, 0, boxes, edges);
+		Collect(root, 0, 0, boxes, edges);
 		var used = new Dictionary<string, int>(StringComparer.Ordinal);
 		foreach (var (edge, dx, dy) in edges.OrderBy(e => e.Edge.Index))
 		{
@@ -119,10 +122,13 @@ internal sealed record FlowchartStyle(string DiagramType, string Look, string? N
 
 	/// <summary>The <c>gradientStart</c> and <c>gradientStop</c> of a theme whose <c>useGradient</c> is truthy, or <c>null</c>.</summary>
 	public (string? Start, string? Stop)? Gradient { get; init; }
+
+	/// <summary>The marker sets <c>insertMarkers</c> writes: the diagram's <c>data4Layout.markers</c>.</summary>
+	public Layout.Markers.MarkerDiagram Markers { get; init; } = Layout.Markers.MarkerDiagram.Flowchart;
 }
 
-/// <summary><c>insertTitle</c>'s text: the front matter title, centred over the drawing.</summary>
-internal sealed record FlowchartTitle(string Text, double X, double Y);
+/// <summary><c>insertTitle</c>'s text: the front matter title, centred over the drawing, with the diagram's title class.</summary>
+internal sealed record FlowchartTitle(string Text, double X, double Y, string Class = "flowchartTitleText");
 
 /// <summary>One <c>g.root</c>: its clusters, edges and nodes, in its own space.</summary>
 internal sealed class FlowchartDrawing
@@ -171,6 +177,15 @@ internal sealed class FlowchartDrawing
 internal sealed class FlowchartClusterDrawing
 {
 	public required string Id { get; init; }
+
+	/// <summary>The id of the cluster's <c>g</c>, after the SVG's id.</summary>
+	public required string DomId { get; init; }
+
+	/// <summary>The cluster shape: <c>rect</c>, or a state's <c>roundedWithTitle</c>, <c>divider</c> or <c>noteGroup</c>.</summary>
+	public string Shape { get; init; } = "rect";
+
+	/// <summary>The top and height of a <c>roundedWithTitle</c> frame's inner rectangle, below its title.</summary>
+	public (double Y, double Height)? Inner { get; init; }
 
 	public required string Classes { get; init; }
 
@@ -221,6 +236,9 @@ internal sealed class FlowchartNodeDrawing
 	public ShapeGeometry? Geometry { get; init; }
 
 	public FlowchartLabelBox? Label { get; init; }
+
+	/// <summary>The labels of a shape that draws more than one, such as a state's <c>rectWithTitle</c>, each at its top left corner.</summary>
+	public IReadOnlyList<(FlowchartLabelBox Box, double X, double Y)>? Labels { get; init; }
 
 	/// <summary>The <c>nodeStyles</c> of <c>styles2String</c>, which mermaid.js writes on the shape's outline.</summary>
 	public string NodeStyles { get; init; } = "";

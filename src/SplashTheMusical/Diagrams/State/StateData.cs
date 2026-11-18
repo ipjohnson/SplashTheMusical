@@ -17,12 +17,21 @@ internal sealed class StateData
 	private const string NoteSuffix = "----note";
 	private const string ParentSuffix = "----parent";
 
+	private const string StateClass = "statediagram-state";
+	private const string ClusterClass = "statediagram-cluster";
+	private const string ClusterAltClass = "statediagram-cluster-alt";
+	private const string NoteClass = "statediagram-note";
+
 	private readonly Dictionary<string, DbNode> _nodeDb = new(StringComparer.Ordinal);
 	private readonly Dictionary<string, int> _nodeIndex = new(StringComparer.Ordinal);
+	private readonly Dictionary<string, DbState> _states = new(StringComparer.Ordinal);
+	private readonly OrderedDictionary<string, StateStyleClass> _classes = new(StringComparer.Ordinal);
+	private readonly Dictionary<string, int?> _containerColorIndex = new(StringComparer.Ordinal);
 	private readonly string? _look;
 	private int _graphItemCount;
 	private int _dividers;
 	private int _generated;
+	private int _nextColorIndex;
 
 	private StateData(string? look) => _look = look;
 
@@ -30,6 +39,12 @@ internal sealed class StateData
 	public List<StateDataNode> Nodes { get; } = [];
 
 	public List<StateDataEdge> Edges { get; } = [];
+
+	/// <summary><c>getClasses</c>: the <c>classDef</c> classes of the top-level document, in the order they are first defined.</summary>
+	public IEnumerable<StateStyleClass> Classes => _classes.Values;
+
+	/// <summary><c>getDir</c> of the root document: the last direction statement at the top level, or <c>TB</c>.</summary>
+	public string RootDirection { get; private set; } = "TB";
 
 	/// <summary>The error <c>extract</c> throws, which refuses the diagram, or <c>null</c>.</summary>
 	public string? Error { get; private set; }
@@ -44,9 +59,122 @@ internal sealed class StateData
 		var data = new StateData(look);
 		var root = new Stmt { Kind = StmtKind.Root, Id = Root, Doc = data.Statements(document.Statements) };
 		data.Translate(root, root, true);
+		data.Extract(document.Statements);
+		data.RootDirection = Direction(root);
 		data.Fetch(null, root, true);
 		data.Labels();
 		return data;
+	}
+
+	/// <summary>
+	/// The part of <c>extract</c> that reads the top-level statements into the root document's states and classes:
+	/// the classes a transition's <c>:::</c> gives its ends, <c>classDef</c>, <c>style</c> and <c>class</c>. Statements
+	/// inside a composite state do not reach them.
+	/// </summary>
+	private void Extract(List<StateStatement> statements)
+	{
+		foreach (var statement in statements)
+		{
+			switch (statement)
+			{
+				case StateDeclaration declaration:
+					_ = AddState(declaration.State.Id);
+					break;
+				case StateBlock block:
+					_ = AddState(block.Id);
+					break;
+				case StateNote note:
+					_ = AddState(note.Id);
+					break;
+				case StateTransition transition:
+					AddRelationEnd(transition.From);
+					AddRelationEnd(transition.To);
+					break;
+				case StateClassDefinition definition:
+					AddStyleClass(definition.Name.Trim(), definition.Styles);
+					break;
+				case StateStyle style:
+					foreach (var id in style.Ids.Trim().Split(','))
+					{
+						var state = AddState(id);
+						state.Styles.Clear();
+						foreach (var declaration in style.Styles.Split(','))
+						{
+							state.Styles.Add(declaration.Replace(";", "", StringComparison.Ordinal).Trim());
+						}
+					}
+
+					break;
+				case StateClassAssignment assignment:
+					foreach (var id in assignment.Ids.Trim().Split(','))
+					{
+						AddState(id).Classes.Add(assignment.ClassName.Trim());
+					}
+
+					break;
+			}
+		}
+	}
+
+	/// <summary><c>addRelationObjs</c>: a <c>[*]</c> end is a numbered start or end state no node is named after.</summary>
+	private void AddRelationEnd(StateRef end)
+	{
+		if (end.Id == StateRef.StartOrEnd)
+		{
+			return;
+		}
+
+		var state = AddState(end.Id);
+		if (end.ClassName is { } className)
+		{
+			state.Classes.Add(className.Trim());
+		}
+	}
+
+	private DbState AddState(string id)
+	{
+		var trimmed = StateLexer.Trim(id).ToString();
+		if (!_states.TryGetValue(trimmed, out var state))
+		{
+			_states[trimmed] = state = new DbState();
+		}
+
+		return state;
+	}
+
+	/// <summary>
+	/// <c>addStyleClass</c>: each comma-separated declaration without its first <c>;</c>, and as a text style, with
+	/// <c>fill</c> made <c>bgFill</c> and then <c>color</c> made <c>fill</c>, when it names <c>color</c>.
+	/// </summary>
+	private void AddStyleClass(string id, string attributes)
+	{
+		if (!_classes.TryGetValue(id, out var found))
+		{
+			_classes[id] = found = new StateStyleClass(id);
+		}
+
+		if (attributes.Length == 0)
+		{
+			return;
+		}
+
+		foreach (var attribute in attributes.Split(','))
+		{
+			var semicolon = attribute.IndexOf(';', StringComparison.Ordinal);
+			var fixedAttribute = (semicolon < 0 ? attribute : attribute.Remove(semicolon, 1)).Trim();
+			if (attribute.Contains("color", StringComparison.Ordinal))
+			{
+				found.TextStyles.Add(ReplaceFirst(ReplaceFirst(fixedAttribute, "fill", "bgFill"), "color", "fill"));
+			}
+
+			found.Styles.Add(fixedAttribute);
+		}
+	}
+
+	private static string ReplaceFirst(string text, string find, string replacement)
+	{
+		var at = text.IndexOf(find, StringComparison.Ordinal);
+		return at < 0 ? text : string.Concat(text.AsSpan(0, at), replacement, text.AsSpan(at + find.Length));
 	}
 
 	/// <summary>Whether the db throws for <paramref name="document"/>, which only a composite state with descriptions can make it do.</summary>
@@ -229,6 +357,10 @@ internal sealed class StateData
 	private void Fetch(Stmt? parent, Stmt item, bool altFlag)
 	{
 		var itemId = item.Id;
+		var dbState = _states.GetValueOrDefault(itemId);
+		var classStr = dbState is null ? "" : string.Join(' ', dbState.Classes);
+		IReadOnlyList<string> style = dbState is null ? [] : [.. dbState.Styles];
+		var userStyled = classStr.Trim().Length > 0 || style.Count > 0;
 		if (itemId != Root)
 		{
 			var shape = "rect";
@@ -248,7 +380,7 @@ internal sealed class StateData
 
 			if (!_nodeDb.TryGetValue(itemId, out var node))
 			{
-				_nodeDb[itemId] = node = new DbNode { Shape = shape, Description = itemId };
+				_nodeDb[itemId] = node = new DbNode { Shape = shape, Description = itemId, CssClasses = classStr + " " + StateClass, CssStyles = style };
 			}
 
 			if (item.Descriptions is not null || !string.IsNullOrEmpty(item.Description))
@@ -283,8 +415,11 @@ internal sealed class StateData
 				node.Type = "group";
 				node.Direction = Direction(item);
 				node.Shape = item.Type == "divider" ? "divider" : "roundedWithTitle";
+				node.ColorIndex = ColorSlot(node.Shape, itemId, parent, userStyled);
+				node.CssClasses = node.CssClasses + " " + ClusterClass + " " + (altFlag ? ClusterAltClass : "");
 			}
 
+			var count = _graphItemCount.ToString(System.Globalization.CultureInfo.InvariantCulture);
 			var data = new StateDataNode(itemId)
 			{
 				Shape = node.Shape,
@@ -293,15 +428,42 @@ internal sealed class StateData
 				Type = node.Type,
 				Direction = node.Direction,
 				ParentId = parent is not null && parent.Id != Root ? parent.Id : null,
+				DomId = "state-" + itemId + "-" + count,
+				CssClasses = node.CssClasses,
+				CssStyles = node.CssStyles,
+				ColorIndex = node.ColorIndex,
+				Padding = 8,
 			};
 
 			if (item.Note is { } note)
 			{
-				var noteId = itemId + NoteSuffix + "-" + _graphItemCount;
+				var noteId = itemId + NoteSuffix + "-" + count;
 				var groupId = itemId + ParentSuffix;
 				_graphItemCount++;
-				Insert(new StateDataNode(groupId) { Shape = "noteGroup", Label = [note.Text], IsGroup = true, Type = "group" });
-				Insert(new StateDataNode(noteId) { Shape = "note", Label = [StateLexer.Trim(note.Text).ToString()], ParentId = groupId, NoteOf = itemId, Type = "node" });
+				var position = note.Position == StateNotePosition.LeftOf ? "left of" : "right of";
+				Insert(new StateDataNode(groupId)
+				{
+					Shape = "noteGroup",
+					Label = [note.Text],
+					IsGroup = true,
+					Type = "group",
+					DomId = "state-" + itemId + ParentSuffix + "-" + count,
+					CssClasses = node.CssClasses,
+					Padding = 16,
+					Position = position,
+				});
+				Insert(new StateDataNode(noteId)
+				{
+					Shape = "note",
+					Label = [StateLexer.Trim(note.Text).ToString()],
+					ParentId = groupId,
+					NoteOf = itemId,
+					Type = "node",
+					DomId = "state-" + itemId + NoteSuffix + "-" + count,
+					CssClasses = NoteClass,
+					Padding = null,
+					Position = position,
+				});
 				Insert(data);
 				var leftOf = note.Position == StateNotePosition.LeftOf;
 				var from = leftOf ? noteId : itemId;
@@ -361,12 +523,47 @@ internal sealed class StateData
 		return direction;
 	}
 
-	/// <summary><c>insertOrUpdateNode</c>: a node with a known id takes the new values, and keeps its parent when the new one has none.</summary>
+	/// <summary>
+	/// <c>colorSlotFor</c>: a container takes the next palette slot, or none when the author styled it, and a
+	/// concurrent region takes its composite's.
+	/// </summary>
+	private int? ColorSlot(string shape, string itemId, Stmt? parent, bool userStyled)
+	{
+		if (shape == "divider" && parent is not null && _containerColorIndex.TryGetValue(parent.Id, out var inherited))
+		{
+			_containerColorIndex[itemId] = inherited;
+			return inherited;
+		}
+
+		var slot = _nextColorIndex++;
+		int? effective = userStyled ? null : slot;
+		_containerColorIndex[itemId] = effective;
+		return effective;
+	}
+
+	/// <summary>
+	/// <c>insertOrUpdateNode</c>: the node takes the styles of each <c>classDef</c> its classes name, and a node with a
+	/// known id takes the new values, and keeps its parent when the new one has none.
+	/// </summary>
 	private void Insert(StateDataNode node)
 	{
 		if (node.Id.Length == 0 || node.Id is "</join></fork>" or "</choice>")
 		{
 			return;
+		}
+
+		if (node.CssClasses.Length > 0)
+		{
+			var compiled = new List<string>();
+			foreach (var name in node.CssClasses.Split(' '))
+			{
+				if (_classes.TryGetValue(name, out var definition))
+				{
+					compiled.AddRange(definition.Styles);
+				}
+			}
+
+			node.CssCompiledStyles = compiled;
 		}
 
 		if (_nodeIndex.TryGetValue(node.Id, out var index))
@@ -443,7 +640,28 @@ internal sealed class StateData
 		public List<string>? Descriptions;
 		public string? Type;
 		public string? Direction;
+		public string CssClasses = "";
+		public IReadOnlyList<string> CssStyles = [];
+		public int? ColorIndex;
 	}
+
+	/// <summary>A state of the root document's <c>states</c>, with the classes and styles <c>extract</c> gives it.</summary>
+	private sealed class DbState
+	{
+		public List<string> Classes { get; } = [];
+
+		public List<string> Styles { get; } = [];
+	}
+}
+
+/// <summary>A <c>classDef</c> of a state diagram: its styles, and the text styles of those that name <c>color</c>.</summary>
+internal sealed class StateStyleClass(string id)
+{
+	public string Id { get; } = id;
+
+	public List<string> Styles { get; } = [];
+
+	public List<string> TextStyles { get; } = [];
 }
 
 /// <summary>A node of <see cref="StateData"/>.</summary>
@@ -473,6 +691,27 @@ internal sealed class StateDataNode(string id)
 
 	/// <summary>The id of the state a note node belongs to.</summary>
 	public string? NoteOf { get; init; }
+
+	/// <summary><c>stateDomId</c>: <c>state-&lt;id&gt;-N</c>, with <c>----note</c> or <c>----parent</c> before N for a note and its group.</summary>
+	public string DomId { get; init; } = "";
+
+	/// <summary><c>cssClasses</c>: the state's classes, then <c>statediagram-state</c>, and the cluster classes of a group.</summary>
+	public string CssClasses { get; init; } = "";
+
+	/// <summary><c>cssStyles</c>: the declarations of the state's <c>style</c> statement.</summary>
+	public IReadOnlyList<string> CssStyles { get; init; } = [];
+
+	/// <summary><c>cssCompiledStyles</c>: the styles of the <c>classDef</c> classes the node's classes name.</summary>
+	public IReadOnlyList<string> CssCompiledStyles { get; set; } = [];
+
+	/// <summary><c>colorIndex</c>: a container's palette slot, or <c>null</c>.</summary>
+	public int? ColorIndex { get; init; }
+
+	/// <summary><c>padding</c>, or <c>null</c> for a note, which takes <c>flowchart.padding</c>.</summary>
+	public double? Padding { get; init; }
+
+	/// <summary>A note's and its group's <c>position</c>: <c>left of</c> or <c>right of</c>.</summary>
+	public string? Position { get; init; }
 }
 
 /// <summary>An edge of <see cref="StateData"/>.</summary>

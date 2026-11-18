@@ -3734,7 +3734,7 @@ sequence/parser-sequencediagram-129	fail
 state/docs-stateDiagram-001	fail
 state/docs-stateDiagram-002	fail
 state/docs-stateDiagram-003	fail
-state/docs-stateDiagram-004	fail
+state/docs-stateDiagram-004	pass
 state/docs-stateDiagram-005	fail
 state/docs-stateDiagram-006	fail
 state/docs-stateDiagram-007	fail
@@ -3887,7 +3887,7 @@ state/e2e-state-diagram-v2-nightly-check-v2-state-label-with-names-in-it	fail
 state/e2e-state-diagram-v2-nightly-check-v2-usemaxwidth-false	fail
 state/e2e-state-diagram-v2-nightly-check-v2-usemaxwidth-true	fail
 state/e2e-state-diagram-v2-nightly-check-v2-width-of-compound-state-should-grow-with-title-if-title-is-wider	fail
-state/e2e-state-diagram-v2-pr-check-can-have-styles-applied	fail
+state/e2e-state-diagram-v2-pr-check-can-have-styles-applied	pass
 state/e2e-state-diagram-v2-pr-check-composite-with-a-loop-starts-on-its-start-state	fail
 state/e2e-state-diagram-v2-pr-check-should-render-edge-labels-correctly-with-multiple-transitions	fail
 state/e2e-state-diagram-v2-pr-check-v2-a-compound-state-should-be-able-to-link-to-itself	fail
