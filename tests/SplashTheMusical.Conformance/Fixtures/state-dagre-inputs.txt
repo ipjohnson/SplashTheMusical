@@ -1,1 +1,15 @@
-# State cases whose dagre graphs still differ from the ones mermaid.js recorded. StateDagreInputTests reads it.
+# The state cases whose dagre graphs differ from the ones mermaid.js handed dagre, in corpus/state/*.dagre.txt.
+# StateDagreInputTests fails when another case differs and when a listed case no longer does. A line without a
+# leading '#' and without a space is a case under the issue line above it. Hand-drawn cases are not compared.
+# These cases set layout: elk, so mermaid.js recorded no dagre layout.
+bug #25
+e2e-state-diagram-v2-nightly-check-elk-elk-composite-entry-default-centering
+e2e-state-diagram-v2-nightly-check-elk-elk-notes-keep-their-layout
+e2e-state-diagram-v2-nightly-check-elk-elk-start-end-edge-centering
+e2e-state-diagram-v2-pr-check-composite-with-a-loop-starts-on-its-start-state
+# STM drops the two characters \n from a Markdown edge label, where mermaid.js keeps them as text, so the label is
+# narrower or wraps to fewer lines. These move under that bug's issue once it is filed.
+bug #13
+e2e-state-diagram-nightly-check-should-render-a-transition-descriptions-with-new-lines
+e2e-state-diagram-v2-nightly-check-v2-should-render-a-transition-descriptions-with-new-lines
+mermaider-rfc-migration-lifecycle
