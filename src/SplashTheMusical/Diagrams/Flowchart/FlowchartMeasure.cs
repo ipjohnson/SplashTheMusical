@@ -109,6 +109,7 @@ internal sealed class FlowchartMeasure
 			ExtraLines = NodeHtmlLabels && EdgeHtmlLabels && lines.Count > 0 && BoxedSpan(node.Classes) ? 2 : 0,
 			Inset = NodeHtmlLabels && pictured && lines.Count > 0 ? PicturedLabelPadding : 0,
 			Images = NodeHtmlLabels ? FlowchartLabels.Images(node.Label) : default,
+			HasMinWidth = !node.IsSubgraph && !node.IsGroup,
 		};
 		var vertex = node.Vertex;
 		var imageSide = vertex?.AssetHeight ?? vertex?.AssetWidth ?? DefaultImageSide;
@@ -238,6 +239,12 @@ internal sealed class FlowchartMeasure
 	{
 		public FlowchartLabelBox Box { get; private set; } = FlowchartLabelBox.Empty(measure.NodeHtmlLabels);
 
+		/// <summary>
+		/// Whether the node has <c>node.minWidth</c>, <c>flowchart.minNodeWidth</c>, which <c>FlowDB</c> gives only a
+		/// vertex that is not a group. A subgraph's node, such as a collapsed or an empty one, has none.
+		/// </summary>
+		public bool HasMinWidth { get; init; } = true;
+
 		/// <summary>The empty lines the label's <c>div</c> holds besides its text.</summary>
 		public int ExtraLines { get; init; }
 
@@ -250,7 +257,7 @@ internal sealed class FlowchartMeasure
 		public ShapeLabel Measure(double? nodeWidth, bool ignoreMinWidth)
 		{
 			var width = Truthy(nodeWidth) ? nodeWidth!.Value : measure._wrappingWidth;
-			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth ? measure._minNodeWidth : 0;
+			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth && HasMinWidth ? measure._minNodeWidth : 0;
 			Box = measure.NodeHtmlLabels
 				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true, Inset)
 				: FlowchartLabelText.MeasureSvg(lines, measure.Font, width, minWidth, false);

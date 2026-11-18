@@ -33,6 +33,9 @@ internal sealed class FlowNode
 
 	public bool IsDummy { get; init; }
 
+	/// <summary>Whether the node is a subgraph's, which <c>FlowDB</c> gives no <c>minWidth</c>.</summary>
+	public bool IsSubgraph { get; init; }
+
 	/// <summary>The source's node, with the icon and image of a <c>@{ }</c> block. Null for a subgraph.</summary>
 	public FlowchartNode? Vertex { get; init; }
 
@@ -258,6 +261,7 @@ internal static class FlowchartData
 				Shape = collapsed ? "collapsedGroup" : "rect",
 				Dir = subgraph.Direction,
 				IsGroup = !collapsed,
+				IsSubgraph = true,
 				DomId = subgraph.Id,
 			});
 		}
@@ -312,7 +316,8 @@ internal static class FlowchartData
 
 			edges.Add(new FlowEdge
 			{
-				Id = start == raw.Start && end == raw.End ? raw.Id : $"L_{start}_{end}_{index}",
+				// getEdgeId returns the parser's id, so a redirected edge keeps the id of its original ends.
+				Id = raw.Id,
 				Index = index,
 				Start = start,
 				End = end,

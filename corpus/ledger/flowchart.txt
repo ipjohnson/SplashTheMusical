@@ -1,6 +1,4 @@
 # The parity ledger of flowchart. corpus/ledger/README.md describes it.
-bug #150
-e2e-flowchart-nightly-check-dagre-57-dagre-handle-nested-subgraphs-with-outgoing-links-4	L3
 bug #152
 e2e-flowchart-nightly-check-dagre-with-formatting-in-a-node-2	L3
 bug #25
@@ -617,8 +615,6 @@ parser-flow-vertice-chaining-005	L3
 parser-flow-vertice-chaining-006	L3
 parser-flowdb-001	L3
 parser-flowdb-002	L3
-parser-flowdb-003	L3
-parser-flowdb-004	L3
 parser-flowdb-005	L3
 parser-flowdb-006	L3
 parser-flowdb-007	L3
