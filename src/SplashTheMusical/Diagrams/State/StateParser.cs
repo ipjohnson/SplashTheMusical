@@ -122,19 +122,15 @@ internal ref struct StateParser
 		}
 
 		_document.Keyword = Plain(StateLexer.Trim(Take().Text(_text)));
-		if (!ParseDocument(false, out var statements))
-		{
-			return false;
-		}
-
-		_document.Statements.AddRange(statements);
-		return true;
+		return ParseDocument(false, _document.Statements);
 	}
 
-	/// <summary>The lines up to the end of the input, or up to the <c>}</c> of a composite state.</summary>
-	private bool ParseDocument(bool inStruct, out List<StateStatement> statements)
+	/// <summary>
+	/// The lines up to the end of the input, or up to the <c>}</c> of a composite state, added to
+	/// <paramref name="statements"/> once they have all parsed.
+	/// </summary>
+	private bool ParseDocument(bool inStruct, List<StateStatement> statements)
 	{
-		statements = null!;
 		var frame = _statements.Count;
 		while (true)
 		{
@@ -145,10 +141,8 @@ internal ref struct StateParser
 					continue;
 				case Kind.StructStop when inStruct:
 				case Kind.End when !inStruct:
-					var list = new List<StateStatement>();
-					list.AddRange(_statements.AsSpan()[frame..]);
+					statements.AddRange(_statements.AsSpan()[frame..]);
 					_statements.Truncate(frame);
-					statements = list;
 					return true;
 			}
 
@@ -357,7 +351,8 @@ internal ref struct StateParser
 		_ = Take();
 		_depth++;
 		_guard.Depth(_depth, _cursor);
-		if (!ParseDocument(true, out var statements))
+		var statements = new List<StateStatement>();
+		if (!ParseDocument(true, statements))
 		{
 			return false;
 		}
