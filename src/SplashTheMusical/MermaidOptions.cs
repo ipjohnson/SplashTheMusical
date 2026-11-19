@@ -21,6 +21,13 @@ public sealed record MermaidOptions
 	/// </summary>
 	public IReadOnlyList<string>? LockedKeys { get; init; }
 
+	/// <summary>
+	/// Whether an image node's <c>http</c> or <c>https</c> URL is drawn, as an <c>image</c> the viewer loads. STM never
+	/// fetches it. Default: <c>false</c>, so only a <c>data:</c> PNG or SVG image is drawn, and a remote image gives a
+	/// warning.
+	/// </summary>
+	public bool AllowRemoteImages { get; init; }
+
 	public static MermaidOptions Default { get; } = new();
 }
 
@@ -40,6 +47,15 @@ public sealed record RenderOptions
 	public MermaidValue? SiteConfig { get; init; }
 
 	public ResourceLimits? Limits { get; init; }
+
+	/// <inheritdoc cref="MermaidOptions.AllowRemoteImages"/>
+	public bool? AllowRemoteImages { get; init; }
+
+	/// <summary>
+	/// The collection the render adds its warnings to, such as an icon no pack has or an image it does not draw.
+	/// Default: none, and the warnings are dropped.
+	/// </summary>
+	public ICollection<MermaidDiagnostic>? Diagnostics { get; init; }
 }
 
 /// <summary>The options of one write of <c>.mmd</c> text.</summary>

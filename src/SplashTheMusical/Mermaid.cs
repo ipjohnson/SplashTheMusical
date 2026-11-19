@@ -38,7 +38,7 @@ public sealed class Mermaid : IMermaid
 	/// Diagram modules besides <see cref="CoreModules"/>. A module of a type a core module has replaces it.
 	/// </param>
 	/// <param name="textMeasurer">Measures label text. Default: <see cref="TextMeasurer.Default"/>.</param>
-	/// <param name="icons">The icons diagrams can name. Default: none.</param>
+	/// <param name="icons">The icons diagrams can name. Default: <see cref="IconRegistry.Default"/>.</param>
 	/// <param name="layoutEngines">The graph layouts a <c>layout</c> config can name. Default: none.</param>
 	/// <param name="themes">The themes a <c>theme</c> config can name. Default: <see cref="MermaidThemes.Default"/>.</param>
 	public Mermaid(
@@ -61,7 +61,7 @@ public sealed class Mermaid : IMermaid
 
 		_modules = byType.ToFrozenDictionary(StringComparer.Ordinal);
 		_textMeasurer = textMeasurer ?? TextMeasurer.Default;
-		_icons = icons ?? NoIcons.Instance;
+		_icons = icons ?? IconRegistry.Default;
 		_layoutEngines = layoutEngines is null ? [] : Array.AsReadOnly([.. layoutEngines]);
 		_themes = themes ?? MermaidThemes.Default;
 	}
@@ -171,13 +171,12 @@ public sealed class Mermaid : IMermaid
 		}
 
 		var type = DetectType(source, bodyStart, out var keyword);
-		var (line, column) = TextPosition.Of(source, keyword);
 		if (type is null)
 		{
 			diagnostics.Add(Error(
 				"No diagram type detected matching given configuration for text: " + DiagramDetector.DetectedText(source[keyword..]),
-				line,
-				column));
+				source,
+				keyword));
 			return null;
 		}
 
@@ -185,14 +184,14 @@ public sealed class Mermaid : IMermaid
 		{
 			diagnostics.Add(Error(
 				"Diagrams beginning with --- are not valid. If you were trying to use a YAML front-matter, please ensure that you've correctly opened and closed the YAML front-matter with un-indented `---` blocks",
-				line,
-				column));
+				source,
+				keyword));
 			return null;
 		}
 
 		if (!_modules.TryGetValue(type, out var module))
 		{
-			diagnostics.Add(Error($"STM does not support the {type} diagram yet.", line, column));
+			diagnostics.Add(Error($"STM does not support the {type} diagram yet.", source, keyword));
 			return null;
 		}
 
@@ -201,7 +200,7 @@ public sealed class Mermaid : IMermaid
 		{
 			if (!diagnostics.Exists(d => d.Severity == DiagnosticSeverity.Error))
 			{
-				diagnostics.Add(Error($"The {type} diagram did not parse.", line, column));
+				diagnostics.Add(Error($"The {type} diagram did not parse.", source, keyword));
 			}
 
 			return null;
@@ -231,7 +230,7 @@ public sealed class Mermaid : IMermaid
 
 		var site = options?.SiteConfig is { } siteConfig ? WithLockedKeys(siteConfig, _options.LockedKeys) : _siteConfig;
 		var config = MermaidConfig.Resolve(site, document, document.DiagramType, _themes);
-		var context = new DiagramRenderContext(config, id, _textMeasurer, _icons, _layoutEngines, limits);
+		var context = new DiagramRenderContext(config, id, _textMeasurer, _icons, _layoutEngines, limits, options?.AllowRemoteImages ?? _options.AllowRemoteImages, options?.Diagnostics);
 		var layout = module.Layout(document, context);
 
 		var svg = new SvgWriter(output);
@@ -310,7 +309,11 @@ public sealed class Mermaid : IMermaid
 		return MermaidValue.FromEntries(entries);
 	}
 
-	private static MermaidDiagnostic Error(string message, int line, int column) => new(DiagnosticSeverity.Error, message, line, column);
+	private static MermaidDiagnostic Error(string message, ReadOnlySpan<char> source, int offset)
+	{
+		var (line, column) = TextPosition.Of(source, offset);
+		return new(DiagnosticSeverity.Error, message, line, column);
+	}
 
 	/// <summary>The front matter and directives, before the module's parser makes the document.</summary>
 	private sealed class PreambleDocument : MermaidDocument

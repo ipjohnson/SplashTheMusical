@@ -8,6 +8,7 @@ namespace SplashTheMusical.Diagrams;
 public sealed class DiagramRenderContext
 {
 	private readonly IReadOnlyList<ILayoutEngine> _layoutEngines;
+	private readonly ICollection<MermaidDiagnostic>? _diagnostics;
 
 	public DiagramRenderContext(
 		MermaidConfig config,
@@ -15,7 +16,9 @@ public sealed class DiagramRenderContext
 		ITextMeasurer textMeasurer,
 		IIconProvider icons,
 		IReadOnlyList<ILayoutEngine> layoutEngines,
-		ResourceLimits limits)
+		ResourceLimits limits,
+		bool allowRemoteImages = false,
+		ICollection<MermaidDiagnostic>? diagnostics = null)
 	{
 		ArgumentNullException.ThrowIfNull(config);
 		ArgumentNullException.ThrowIfNull(svgId);
@@ -29,7 +32,15 @@ public sealed class DiagramRenderContext
 		Icons = icons;
 		_layoutEngines = layoutEngines;
 		Limits = limits;
+		AllowRemoteImages = allowRemoteImages;
+		_diagnostics = diagnostics;
 	}
+
+	/// <inheritdoc cref="MermaidOptions.AllowRemoteImages"/>
+	public bool AllowRemoteImages { get; }
+
+	/// <summary>Adds a warning of the render to the caller's <see cref="RenderOptions.Diagnostics"/>, when it gave one.</summary>
+	public void Report(MermaidDiagnostic diagnostic) => _diagnostics?.Add(diagnostic);
 
 	/// <summary>The config the diagram is drawn with: the defaults, the site config, the front matter and the directives.</summary>
 	public MermaidConfig Config { get; }

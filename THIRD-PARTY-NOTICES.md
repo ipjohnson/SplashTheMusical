@@ -211,6 +211,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Iconify utils
+
+`MermaidIcon.Drawing` and the alias merging and name splitting in `src/SplashTheMusical/Icons` port `iconToSVG`,
+`mergeIconData` and `stringToIcon` of [iconify/iconify](https://github.com/iconify/iconify)'s `@iconify/utils`, which
+mermaid 12.3.0 uses. `IconPack.FromIconifyJson` reads its JSON icon set format.
+
+```
+MIT License
+
+Copyright (c) 2021-PRESENT Vjacheslav Trushkin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
@@ -233,6 +263,8 @@ layout and drawing port `getData` in `flowDb.ts`, `flowRenderer-v3-unified.ts`, 
 edge labels and `createText` of `packages/mermaid/src/rendering-util`.
 `src/SplashTheMusical/Rendering/Shapes` ports the node shapes of `packages/mermaid/src/rendering-util/rendering-elements/shapes`
 and the intersections of `rendering-elements/intersect`.
+`src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
+the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 
 ```
 The MIT License (MIT)
