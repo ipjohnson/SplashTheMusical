@@ -12,48 +12,55 @@ public class DagreRankTests
 {
 	[Test]
 	public void RanksAChainEveryOtherRank() =>
-		Ranks(new(), ["a", "b", "c"], [Edge("a", "b"), Edge("b", "c")])
-			.Should().Be("a=0 b=2 c=4 | | reversed:");
+		Verify(Ranks(new(), ["a", "b", "c"], [Edge("a", "b"), Edge("b", "c")]) == "a=0 b=2 c=4 | | reversed:");
 
 	[Test]
 	public void NetworkSimplexShortensTheShortBranch() =>
-		Ranks(new(), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "d")])
-			.Should().Be("a=0 b=2 c=4 d=2 | | reversed:");
+		Verify(Ranks(new(), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "d")]) == "a=0 b=2 c=4 d=2 | | reversed:");
 
 	[Test]
 	public void LongestPathPutsSinksOnTheLastRank() =>
-		Ranks(new(Ranker: "longest-path"), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "d")])
-			.Should().Be("a=0 b=2 c=4 d=4 | | reversed:");
+		Verify(Ranks(new(Ranker: "longest-path"), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "d")]) == "a=0 b=2 c=4 d=4 | | reversed:");
 
 	[Test]
-	public void PutsALabelHalfwayAlongItsEdge() =>
-		Ranks(new(), ["a", "b"], [Edge("a", "b") with { Width = 10, Height = 10, LabelPos = "c" }])
-			.Should().Be("a=0 b=2 | a->b@1 | reversed:");
+	public void PutsALabelHalfwayAlongItsEdge()
+	{
+		var labelled = Edge("a", "b") with { Width = 10, Height = 10, LabelPos = "c" };
+
+		Verify(Ranks(new(), ["a", "b"], [labelled]) == "a=0 b=2 | a->b@1 | reversed:");
+	}
 
 	[Test]
 	public void KeepsAClusterBetweenItsBorders() =>
-		Ranks(new(), ["C", "a C", "b C", "x"], [Edge("a", "b"), Edge("x", "a")])
-			.Should().Be("C=2..6 a=3 b=5 x=0 | | reversed:");
+		Verify(Ranks(new(), ["C", "a C", "b C", "x"], [Edge("a", "b"), Edge("x", "a")]) == "C=2..6 a=3 b=5 x=0 | | reversed:");
 
 	[Test]
-	public void NestsClusters() =>
-		Ranks(new(), ["O", "I O", "p I", "q O", "z"], [Edge("p", "q"), Edge("z", "p"), Edge("q", "z") with { MinLen = 2 }])
-			.Should().Be("O=0..6 I=1..3 p=2 q=5 z=10 | | reversed: p->z");
+	public void NestsClusters()
+	{
+		var closing = Edge("q", "z") with { MinLen = 2 };
+
+		Verify(Ranks(new(), ["O", "I O", "p I", "q O", "z"], [Edge("p", "q"), Edge("z", "p"), closing]) == "O=0..6 I=1..3 p=2 q=5 z=10 | | reversed: p->z");
+	}
 
 	[Test]
-	public void DepthFirstSearchReversesTheEdgeThatClosesTheCycle() =>
-		Ranks(new(), ["a", "b"], [Edge("a", "b"), Edge("b", "a") with { Weight = 5 }])
-			.Should().Be("a=0 b=2 | | reversed: a->b");
+	public void DepthFirstSearchReversesTheEdgeThatClosesTheCycle()
+	{
+		var heavy = Edge("b", "a") with { Weight = 5 };
+
+		Verify(Ranks(new(), ["a", "b"], [Edge("a", "b"), heavy]) == "a=0 b=2 | | reversed: a->b");
+	}
 
 	[Test]
-	public void GreedyFeedbackArcSetReversesTheLighterEdge() =>
-		Ranks(new(Acyclicer: "greedy"), ["a", "b"], [Edge("a", "b"), Edge("b", "a") with { Weight = 5 }])
-			.Should().Be("a=2 b=0 | | reversed: b->a");
+	public void GreedyFeedbackArcSetReversesTheLighterEdge()
+	{
+		var heavy = Edge("b", "a") with { Weight = 5 };
+
+		Verify(Ranks(new(Acyclicer: "greedy"), ["a", "b"], [Edge("a", "b"), heavy]) == "a=2 b=0 | | reversed: b->a");
+	}
 
 	[Test]
 	public void VisitsArrayIndexNamesFirst() =>
-		Ranks(new(), ["b", "10", "2", "a"], [Edge("b", "10"), Edge("2", "a"), Edge("a", "b"), Edge("10", "2")])
-			.Should().Be("2=0 10=6 b=4 a=2 | | reversed: 2->10");
+		Verify(Ranks(new(), ["b", "10", "2", "a"], [Edge("b", "10"), Edge("2", "a"), Edge("a", "b"), Edge("10", "2")]) == "2=0 10=6 b=4 a=2 | | reversed: 2->10");
 
 	[Test]
 	public void RemovesSelfEdgesBeforeRanking()
@@ -62,9 +69,9 @@ public class DagreRankTests
 		DagreLayout.RunRankPhases(g);
 
 		var a = g.Node(g.NodeHandle("a"));
-		a.SelfEdges.Should().ContainSingle();
-		a.Rank.Should().Be(0);
-		g.EdgeCount.Should().Be(0);
+		Verify(a.SelfEdges!.Count() == 1);
+		Verify(Math.Abs(a.Rank) <= 1e-9);
+		Verify(g.EdgeCount == 0);
 	}
 
 	private static DagreEdgeInput Edge(string v, string w) => new(v, w, null);

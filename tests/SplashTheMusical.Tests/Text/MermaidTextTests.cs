@@ -23,8 +23,8 @@ public class MermaidTextTests
 	[Arguments("a<br \t>b")]
 	public void FindsEachFormOfTheBreakTag(string text)
 	{
-		MermaidText.HasBreaks(text).Should().BeTrue();
-		Lines(text).Should().Equal("a", "b");
+		Verify(MermaidText.HasBreaks(text));
+		Verify(Lines(text).SequenceEqual(["a", "b"]));
 	}
 
 	[Test]
@@ -34,48 +34,48 @@ public class MermaidTextTests
 	[Arguments("a<br")]
 	public void IgnoresOtherTags(string text)
 	{
-		MermaidText.HasBreaks(text).Should().BeFalse();
-		Lines(text).Should().Equal(text);
+		Verify(!MermaidText.HasBreaks(text));
+		Verify(Lines(text).SequenceEqual([text]));
 	}
 
 	[Test]
-	public void KeepsEmptyLines() => Lines("<br/>a<br><br>").Should().Equal("", "a", "", "");
+	public void KeepsEmptyLines() => Verify((Lines("<br/>a<br><br>")).SequenceEqual(["", "a", "", ""]));
 
 	[Test]
 	public void AHostMeasurerReplacesTheDefault()
 	{
-		MermaidText.CalculateTextDimensions("abc<br/>de", Font, Host).Should().Be(new TextDimensions(30, 24, 12));
-		MermaidText.CalculateTextWidth("abc", Font).Should().Be(Math.Round(TextMeasurer.Default.Measure("abc", Font).Width));
-		MermaidText.WrapLabel("aa bb cc", 45, Font, Host).Should().Be("aa<br/>bb<br/>cc");
-		MermaidText.WrapLabel("aa bb cc", 45, Font).Should().Be("aa bb cc");
+		Verify(MermaidText.CalculateTextDimensions("abc<br/>de", Font, Host) == new TextDimensions(30, 24, 12));
+		Verify(Math.Abs(MermaidText.CalculateTextWidth("abc", Font) - Math.Round(TextMeasurer.Default.Measure("abc", Font).Width)) <= 1e-9);
+		Verify(MermaidText.WrapLabel("aa bb cc", 45, Font, Host) == "aa<br/>bb<br/>cc");
+		Verify(MermaidText.WrapLabel("aa bb cc", 45, Font) == "aa bb cc");
 	}
 
 	[Test]
 	public void RoundsEachLineToWholePixels() =>
-		MermaidText.CalculateTextDimensions("Hello John, how are you?", new FontSpec("Arial", 16)).Width.Should().Be(181);
+		Verify(Math.Abs(MermaidText.CalculateTextDimensions("Hello John, how are you?", new FontSpec("Arial", 16)).Width - 181) <= 1e-9);
 
 	[Test]
-	public void MeasuresNothingForEmptyText() => MermaidText.CalculateTextDimensions("", Font, Host).Should().Be(default(TextDimensions));
+	public void MeasuresNothingForEmptyText() => Verify(MermaidText.CalculateTextDimensions("", Font, Host) == default(TextDimensions));
 
 	[Test]
 	public void WrapsWhenTheLineAndTheNextWordReachTheMaximum()
 	{
 		// "aa " is 30 and "bb " is 30: 20 + 30 is under 51, and "aa bb" (50) + "cc " (30) reaches it.
-		MermaidText.WrapLabel("aa bb cc", 51, Font, Host).Should().Be("aa bb<br/>cc");
-		MermaidText.WrapLabel("aa  bb", 1000, Font, Host).Should().Be("aa bb");
-		MermaidText.WrapLabel("aa bb cc", 51, Font, Host, joinWith: "\n").Should().Be("aa bb\ncc");
+		Verify(MermaidText.WrapLabel("aa bb cc", 51, Font, Host) == "aa bb<br/>cc");
+		Verify(MermaidText.WrapLabel("aa  bb", 1000, Font, Host) == "aa bb");
+		Verify(MermaidText.WrapLabel("aa bb cc", 51, Font, Host, joinWith: "\n") == "aa bb\ncc");
 	}
 
 	[Test]
-	public void ReturnsALabelWithBreaksAsItIs() => MermaidText.WrapLabel("aa bb<br>cc dd", 10, Font, Host).Should().Be("aa bb<br>cc dd");
+	public void ReturnsALabelWithBreaksAsItIs() => Verify(MermaidText.WrapLabel("aa bb<br>cc dd", 10, Font, Host) == "aa bb<br>cc dd");
 
 	[Test]
 	public void HyphenatesAWordWiderThanTheMaximum()
 	{
-		MermaidText.WrapLabel("x abcdefg", 30, Font, Host).Should().Be("x<br/>abc-<br/>def-<br/>g");
+		Verify(MermaidText.WrapLabel("x abcdefg", 30, Font, Host) == "x<br/>abc-<br/>def-<br/>g");
 		var (lines, remaining) = MermaidText.BreakString("abcdef", 30, Font, Host);
-		lines.Should().Equal("abc-", "def");
-		remaining.Should().BeEmpty();
+		Verify(lines.SequenceEqual(["abc-", "def"]));
+		Verify(!remaining.Any());
 	}
 
 	private static List<string> Lines(string text)

@@ -29,18 +29,18 @@ public class NodeShapeTests
 			_ => ShapeLook.Classic,
 		}));
 
-		geometry.Width.Should().BeGreaterThan(0);
-		geometry.Height.Should().BeGreaterThan(0);
-		geometry.Elements.Should().NotBeEmpty();
+		Verify(geometry.Width > 0);
+		Verify(geometry.Height > 0);
+		Verify(geometry.Elements.Any());
 		foreach (var far in new ShapePoint[] { new(1000, 0), new(-1000, 0), new(0, 1000), new(0, -1000), new(700, 700) })
 		{
 			var hit = geometry.IntersectFrom(new ShapePoint(0, 0), far);
-			Math.Abs(hit.X).Should().BeLessThanOrEqualTo(geometry.Width / 2 + 0.5, $"{handler} towards {far}");
-			Math.Abs(hit.Y).Should().BeLessThanOrEqualTo(geometry.Height / 2 + 0.5, $"{handler} towards {far}");
+			Verify(Math.Abs(hit.X) <= geometry.Width / 2 + 0.5, $"{handler} towards {far}");
+			Verify(Math.Abs(hit.Y) <= geometry.Height / 2 + 0.5, $"{handler} towards {far}");
 			if (handler != "hourglass")
 			{
 				// The hourglass's outline crosses itself at the centre, where a horizontal edge meets it.
-				(Math.Abs(hit.X) + Math.Abs(hit.Y)).Should().BeGreaterThan(0, $"{handler} towards {far}");
+				Verify((Math.Abs(hit.X) + Math.Abs(hit.Y)) > 0, $"{handler} towards {far}");
 			}
 		}
 	}
@@ -50,11 +50,11 @@ public class NodeShapeTests
 	{
 		var geometry = NodeShapes.Find("rect")!.Draw(Node());
 
-		geometry.Width.Should().Be(180);
-		geometry.Height.Should().Be(54);
-		geometry.LabelTranslate.Should().Be(new ShapePoint(-60, -12));
-		geometry.IntersectFrom(new ShapePoint(100, 50), new ShapePoint(300, 50)).Should().Be(new ShapePoint(190, 50));
-		geometry.IntersectFrom(new ShapePoint(100, 50), new ShapePoint(100, -100)).Should().Be(new ShapePoint(100, 23));
+		Verify(Math.Abs(geometry.Width - 180) <= 1e-9);
+		Verify(Math.Abs(geometry.Height - 54) <= 1e-9);
+		Verify(geometry.LabelTranslate == new ShapePoint(-60, -12));
+		Verify(geometry.IntersectFrom(new ShapePoint(100, 50), new ShapePoint(300, 50)) == new ShapePoint(190, 50));
+		Verify(geometry.IntersectFrom(new ShapePoint(100, 50), new ShapePoint(100, -100)) == new ShapePoint(100, 23));
 	}
 
 	[Test]
@@ -62,8 +62,8 @@ public class NodeShapeTests
 	{
 		var geometry = NodeShapes.Find("rect")!.Draw(Node(ShapeLook.Neo, height: 21));
 
-		geometry.Width.Should().Be(152);
-		geometry.Height.Should().Be(45);
+		Verify(Math.Abs(geometry.Width - 152) <= 1e-9);
+		Verify(Math.Abs(geometry.Height - 45) <= 1e-9);
 	}
 
 	[Test]
@@ -72,8 +72,8 @@ public class NodeShapeTests
 		var geometry = NodeShapes.Find("hex")!.Draw(Node());
 		var m = (24 + 15) / 4.0;
 
-		geometry.Width.Should().BeApproximately(120 + 2 * m + 15, 1e-9);
-		geometry.IntersectFrom(new ShapePoint(0, 0), new ShapePoint(500, 0)).X.Should().BeApproximately(geometry.Width / 2, 1e-9);
+		Verify(Math.Abs(geometry.Width - (120 + 2 * m + 15)) <= 1e-9);
+		Verify(Math.Abs(geometry.IntersectFrom(new ShapePoint(0, 0), new ShapePoint(500, 0)).X - (geometry.Width / 2)) <= 1e-9);
 	}
 
 	[Test]
@@ -83,8 +83,8 @@ public class NodeShapeTests
 		var s = 120 + 15 + 24 + 15;
 		var hit = geometry.IntersectFrom(new ShapePoint(0, 0), new ShapePoint(300, 100));
 
-		geometry.Width.Should().Be(s);
-		(Math.Abs(hit.X) + Math.Abs(hit.Y)).Should().BeApproximately(s / 2.0, 1e-9);
+		Verify(Math.Abs(geometry.Width - s) <= 1e-9);
+		Verify(Math.Abs((Math.Abs(hit.X) + Math.Abs(hit.Y)) - (s / 2.0)) <= 1e-9);
 	}
 
 	[Test]
@@ -94,8 +94,8 @@ public class NodeShapeTests
 		var radius = 25 + 7.5;
 		var hit = geometry.IntersectFrom(new ShapePoint(10, 10), new ShapePoint(110, 110));
 
-		geometry.Width.Should().BeApproximately(2 * radius, 1e-9);
-		Math.Sqrt((hit.X - 10) * (hit.X - 10) + (hit.Y - 10) * (hit.Y - 10)).Should().BeApproximately(radius, 1e-9);
+		Verify(Math.Abs(geometry.Width - (2 * radius)) <= 1e-9);
+		Verify(Math.Abs(Math.Sqrt((hit.X - 10) * (hit.X - 10) + (hit.Y - 10) * (hit.Y - 10)) - radius) <= 1e-9);
 	}
 
 	[Test]
@@ -107,9 +107,9 @@ public class NodeShapeTests
 		var h = 24 + 15 + ry;
 		var top = geometry.IntersectFrom(new ShapePoint(0, 0), new ShapePoint(0, -500));
 
-		geometry.Width.Should().BeApproximately(w, 1e-9);
-		geometry.Height.Should().BeApproximately(h + 2 * ry, 1e-9);
-		top.Y.Should().BeApproximately(-geometry.Height / 2, 1e-9);
+		Verify(Math.Abs(geometry.Width - w) <= 1e-9);
+		Verify(Math.Abs(geometry.Height - (h + 2 * ry)) <= 1e-9);
+		Verify(Math.Abs(top.Y - (-geometry.Height / 2)) <= 1e-9);
 	}
 
 	[Test]
@@ -117,15 +117,15 @@ public class NodeShapeTests
 	{
 		foreach (var name in new[] { "f-circ", "fork", "bolt", "cross-circ", "sm-circ", "fr-circ" })
 		{
-			NodeShapes.Find(name)!.Draw(Node()).Label.Should().BeNull(name);
+			Verify(NodeShapes.Find(name)!.Draw(Node()).Label is null);
 		}
 	}
 
 	[Test]
 	public void ANameOutsideTheTableFindsNoShape()
 	{
-		NodeShapes.Find("hexagonal").Should().BeNull();
-		NodeShapes.Find("classBox").Should().BeNull();
-		NodeShapes.Handler("classBox").Should().Be("classBox");
+		Verify(NodeShapes.Find("hexagonal") is null);
+		Verify(NodeShapes.Find("classBox") is null);
+		Verify(NodeShapes.Handler("classBox") == "classBox");
 	}
 }
