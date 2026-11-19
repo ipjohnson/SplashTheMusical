@@ -94,6 +94,15 @@ internal sealed class FlowchartMeasure
 	/// <summary><c>markdownAutoWrap</c>, which is on unless the config sets it false.</summary>
 	public bool MarkdownAutoWrap => _markdownAutoWrap;
 
+	/// <summary>The <c>er</c> config and theme values an entity's <c>erBox</c> reads, or <c>null</c> outside an ER diagram.</summary>
+	public Er.ErBoxSettings? ErBox { get; init; }
+
+	/// <summary><c>createText</c>'s label of <paramref name="text"/> at <paramref name="wrapWidth"/>, as HTML or as SVG text.</summary>
+	public FlowchartLabelBox Text(string text, FlowchartLabelType type, double wrapWidth, bool html) =>
+		html
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(text, type, true, _markdownAutoWrap), Font, wrapWidth, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(text, type), Font, wrapWidth, 0, false);
+
 	/// <summary>Draws the node's shape at its label's size and gives the node the size of the drawing.</summary>
 	public void Node(FlowNode node, string direction)
 	{
@@ -122,6 +131,12 @@ internal sealed class FlowchartMeasure
 		if (node is { Shape: "classBox", ClassBox: { } content })
 		{
 			Class.ClassBox.Measure(this, node, content);
+			return;
+		}
+
+		if (node.Shape == "erBox" && ErBox is { } erBox)
+		{
+			Er.ErBox.Draw(this, erBox, node);
 			return;
 		}
 

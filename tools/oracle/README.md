@@ -10,6 +10,7 @@ mise run oracle                              # cases in tools/oracle/cases, outp
 mise run oracle <cases> <facts-dir> <svg-dir>
 mise run oracle-test                         # node --test on facts.test.mjs and raster.test.mjs
 mise run raster                              # L4: corpus/l4.txt and .artifacts/raster
+mise run screenshots <cases>                 # the named cases side by side in .artifacts/screenshots
 ```
 
 Both tasks run `npm ci` in `tools/oracle` when `node_modules` is missing. Without mise, run
@@ -509,6 +510,13 @@ The run writes these files:
 `corpus/l4.txt` is committed. `docs/parity-report.md` takes its L4 column from it, and `RasterOutcomesTests` in
 `tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build
 artifacts. Scores are not committed, because small differences between machines would change them.
+
+### Named cases
+
+With `STM_RASTER_CASES` set to a comma-separated list of case names, such as `flowchart/basic,state/notes`, the run
+takes only those cases and writes the side-by-side image of each, whatever its outcome and however many its type has.
+It fails when a name is not a corpus case, and it deletes nothing from the oracle raster folder. `mise run screenshots`
+runs it this way and writes the outcomes and images to `.artifacts/screenshots`, so `corpus/l4.txt` is unchanged.
 
 ### The oracle raster folder
 

@@ -559,8 +559,15 @@ internal static class FlowchartRenderer
 
 		if (element.Kind is not ShapeElementKind.Group and not ShapeElementKind.Text)
 		{
-			Paint(svg, "fill", style.NodeFill);
-			Paint(svg, "stroke", style.NodeStroke);
+			if (!Sets(element, "fill"))
+			{
+				Paint(svg, "fill", style.NodeFill);
+			}
+
+			if (!Sets(element, "stroke"))
+			{
+				Paint(svg, "stroke", style.NodeStroke);
+			}
 		}
 
 		if (element.Attributes is { } attributes)
@@ -634,6 +641,9 @@ internal static class FlowchartRenderer
 
 		svg.EndElement();
 	}
+
+	private static bool Sets(ShapeElement element, string name) =>
+		element.Attributes is { } attributes && attributes.Any(a => string.Equals(a.Key, name, StringComparison.Ordinal));
 
 	private static string WithStyleClass(string classes, string? styleClass) => styleClass is null ? classes : classes + " " + styleClass;
 

@@ -115,6 +115,12 @@ description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write 
 depends = ["stm-svg", "corpus-oracle"]
 run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
 
+[tasks.screenshots]
+description = "Draw mermaid.js's and STM's SVG of the named corpus cases side by side as PNGs in .artifacts/screenshots, for a pull request"
+usage = 'arg "<cases>" help="Comma-separated case names, such as flowchart/basic,state/notes"'
+depends = ["stm-svg", "corpus-oracle"]
+run = 'STM_RASTER_CASES="${usage_cases}" node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg .artifacts/screenshots/l4.txt .artifacts/screenshots .artifacts/corpus/raster'
+
 [tasks.oracle-roundtrip]
 description = "Write STM's text of every accepted corpus case and of random documents, run the oracle on it, and fail when mermaid.js reads a case differently or refuses one"
 env = { STM_ROUNDTRIP_DIR = "{{config_root}}/.artifacts/roundtrip" }

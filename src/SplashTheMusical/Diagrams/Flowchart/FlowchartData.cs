@@ -84,6 +84,9 @@ internal sealed class FlowNode
 	/// <summary>A class's annotation, name, members and methods, which <c>classBox</c> draws, or <c>null</c>.</summary>
 	public Class.ClassBoxContent? ClassBox { get; init; }
 
+	/// <summary>An entity's attributes, which <c>erBox</c> draws as rows under its name, or <c>null</c> for any other node.</summary>
+	public IReadOnlyList<Er.ErAttribute>? Attributes { get; init; }
+
 	/// <summary>The labels of a shape that draws more than one, each with the top left corner of its box, or <c>null</c>.</summary>
 	public IReadOnlyList<(FlowchartLabelBox Box, double X, double Y)>? Labels { get; set; }
 
