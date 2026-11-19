@@ -85,6 +85,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
 			canvas = StateFacts.Boxes(boxes, state, new StateModule().Layout(state, context));
 		}
+		else if (document is ErDocument er)
+		{
+			ErFacts.Add(facts, er);
+		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
 	}
