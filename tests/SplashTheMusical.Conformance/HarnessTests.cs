@@ -4,5 +4,5 @@ public class HarnessTests
 {
 	[Test]
 	public void LoadsTheCore() =>
-		Verify(System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name == "SplashTheMusical", $"was {System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name}");
+		Verify(() => System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name == "SplashTheMusical");
 }

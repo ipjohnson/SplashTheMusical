@@ -42,7 +42,7 @@ public class FlowchartRoundTripTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join("\n\n", problems)}");
-		Verify(checkedCases == 874, $"was {checkedCases}");
+		Verify(() => checkedCases == 874);
 	}
 }
 

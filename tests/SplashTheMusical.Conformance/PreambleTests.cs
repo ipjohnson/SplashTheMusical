@@ -51,7 +51,7 @@ public class PreambleTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases >= 1546, $"was {checkedCases}");
+		Verify(() => checkedCases >= 1546);
 	}
 
 	[Test]
@@ -86,7 +86,7 @@ public class PreambleTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases >= 1606, $"was {checkedCases}");
+		Verify(() => checkedCases >= 1606);
 	}
 
 	/// <summary>The source as the oracle reads it, keeping a byte order mark, which mermaid.js sees as a space.</summary>

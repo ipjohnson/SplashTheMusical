@@ -48,7 +48,7 @@ public class AppliedConfigTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases >= 3258, $"was {checkedCases}");
+		Verify(() => checkedCases >= 3258);
 	}
 
 	[Test]
@@ -92,7 +92,7 @@ public class AppliedConfigTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases >= 3249, $"was {checkedCases}");
+		Verify(() => checkedCases >= 3249);
 	}
 
 	[Test]
@@ -124,7 +124,7 @@ public class AppliedConfigTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join(", ", problems)}");
-		Verify(themes.Count == 11, $"was {themes.Count}");
+		Verify(() => themes.Count == 11);
 	}
 
 	/// <summary>

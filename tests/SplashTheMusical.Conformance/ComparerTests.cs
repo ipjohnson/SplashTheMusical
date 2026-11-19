@@ -15,7 +15,7 @@ public class ComparerTests
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
 
-		Verify(results.Count == CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count, $"was {results.Count}");
+		Verify(() => results.Count == CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count);
 		var wrong = new List<string>();
 		foreach (var result in results)
 		{
@@ -30,8 +30,8 @@ public class ComparerTests
 		}
 
 		Verify(wrong.Count == 0, $"{string.Join('\n', wrong)}");
-		Verify(results.Any(r => r[Level.L0].Outcome == Outcome.Pass));
-		Verify(results.Any(r => r[Level.L0].Outcome == Outcome.Fail));
+		Verify(() => results.Any(r => r[Level.L0].Outcome == Outcome.Pass));
+		Verify(() => results.Any(r => r[Level.L0].Outcome == Outcome.Fail));
 	}
 
 	[Test]
@@ -62,8 +62,8 @@ public class ComparerTests
 
 		var result = Comparer.Compare("flowchart/docs-flowchart-001", Oracle, actual);
 
-		Verify(result.Type == "flowchart", $"was {result.Type}");
-		Verify(result[Level.L0].Outcome == Outcome.Pass, $"was {result[Level.L0].Outcome}");
+		Verify(() => result.Type == "flowchart");
+		Verify(() => result[Level.L0].Outcome == Outcome.Pass);
 		LineAssert.Equal(
 			result[Level.L1].Differences.Select(d => d.ToString()),
 			"L1 + edge\tA\tB\tnone\tarrow\tdotted",
@@ -83,10 +83,10 @@ public class ComparerTests
 		var result = Comparer.Compare("flowchart/x", Oracle, CaseFacts.Refused("no"));
 
 		LineAssert.Equal(result[Level.L0].Differences.Select(d => d.ToString()), "L0 + accept\tno", "L0 - accept\tyes");
-		Verify(result[Level.L1].Differences.Count() == 4, $"was {result[Level.L1].Differences.Count()}");
-		Verify(result[Level.L1].Differences.All(d => d.Missing));
-		Verify(result[Level.L2].Differences.Count() == 5, $"was {result[Level.L2].Differences.Count()}");
-		Verify(result[Level.L2].Differences.All(d => d.Missing));
+		Verify(() => result[Level.L1].Differences.Count() == 4);
+		Verify(() => result[Level.L1].Differences.All(d => d.Missing));
+		Verify(() => result[Level.L2].Differences.Count() == 5);
+		Verify(() => result[Level.L2].Differences.All(d => d.Missing));
 		LineAssert.Equal(result[Level.L3].Differences.Select(d => d.ToString()), "L3 - canvas\t0\t0\t64\t112");
 	}
 

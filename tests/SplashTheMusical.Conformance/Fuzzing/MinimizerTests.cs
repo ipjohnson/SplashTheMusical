@@ -11,8 +11,8 @@ public class MinimizerTests
 
 		var minimized = Minimizer.Minimize(Source, s => s.Contains("flowchart", StringComparison.Ordinal) && s.Contains("needle", StringComparison.Ordinal), 1000, out var tests);
 
-		Verify(minimized == "flowchartneedle", $"was {minimized}");
-		Verify(tests > 0, $"was {tests}");
+		Verify(() => minimized == "flowchartneedle");
+		Verify(() => tests > 0);
 	}
 
 	[Test]
@@ -26,9 +26,9 @@ public class MinimizerTests
 			return true;
 		}, 3, out var tests);
 
-		Verify(calls == 3, $"was {calls}");
-		Verify(tests == 3, $"was {tests}");
-		Verify(minimized.Length < 12, $"was {minimized.Length}");
+		Verify(() => calls == 3);
+		Verify(() => tests == 3);
+		Verify(() => minimized.Length < 12);
 	}
 
 	[Test]
@@ -36,6 +36,6 @@ public class MinimizerTests
 	{
 		var minimized = Minimizer.Minimize("A-->B", s => s == "A-->B", 100, out _);
 
-		Verify(minimized == "A-->B", $"was {minimized}");
+		Verify(() => minimized == "A-->B");
 	}
 }

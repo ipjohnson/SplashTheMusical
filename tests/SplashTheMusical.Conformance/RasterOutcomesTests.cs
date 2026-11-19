@@ -24,10 +24,10 @@ public class RasterOutcomesTests
 			problems
 		);
 
-		Verify(outcomes["pie/a"] == Outcome.Pass, $"was {outcomes["pie/a"]}");
-		Verify(outcomes["pie/b"] == Outcome.Fail, $"was {outcomes["pie/b"]}");
-		Verify(outcomes["pie/c"] == Outcome.NotApplicable, $"was {outcomes["pie/c"]}");
-		Verify(outcomes["mindmap/a"] == Outcome.ReportOnly, $"was {outcomes["mindmap/a"]}");
+		Verify(() => outcomes["pie/a"] == Outcome.Pass);
+		Verify(() => outcomes["pie/b"] == Outcome.Fail);
+		Verify(() => outcomes["pie/c"] == Outcome.NotApplicable);
+		Verify(() => outcomes["mindmap/a"] == Outcome.ReportOnly);
 		LineAssert.Equal(
 			problems,
 			"line 6: pie/d\tgood is not a case, a tab and pass, fail, n/a or report",

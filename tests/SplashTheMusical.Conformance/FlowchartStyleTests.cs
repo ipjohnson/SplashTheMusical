@@ -60,8 +60,8 @@ public class FlowchartStyleTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(cases.Count == 13, $"was {cases.Count}");
-		Verify(compared > 50, $"was {compared}");
+		Verify(() => cases.Count == 13);
+		Verify(() => compared > 50);
 	}
 
 	// A node's DOM id ends in mermaid.js's vertexCounter, which counts every addVertex call, where STM counts nodes, so

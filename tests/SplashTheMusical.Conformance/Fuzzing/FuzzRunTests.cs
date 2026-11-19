@@ -95,7 +95,7 @@ public class FuzzRunTests
 		DifferentialReport.Write(folder, runs, seed, CorpusCheck.PinnedMermaid());
 		Console.WriteLine($"Wrote {Path.Combine(folder, DifferentialReport.ReportFile)}");
 
-		Verify(runs.All(r => r.Compared > 0));
+		Verify(() => runs.All(r => r.Compared > 0));
 	}
 
 	private static long Seed() =>

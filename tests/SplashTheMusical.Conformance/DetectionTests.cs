@@ -41,7 +41,7 @@ public class DetectionTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases == 4411, $"was {checkedCases}");
+		Verify(() => checkedCases == 4411);
 	}
 
 	[Test]
@@ -49,39 +49,39 @@ public class DetectionTests
 	{
 		var parsed = Mermaid.Default.TryParse("%%{init: {}}%%\n%% a comment\nnot a diagram %% trailing\nsecond line", out var document, out var diagnostics);
 
-		Verify(!parsed);
-		Verify(document is null, $"was {document}");
-		Verify(diagnostics.Count == 1, $"was {diagnostics.Count}");
-		Verify(diagnostics[0].Message == "No diagram type detected matching given configuration for text: not a diagram\nsecond line", $"was {diagnostics[0].Message}");
-		Verify(diagnostics[0].Line == 3, $"was {diagnostics[0].Line}");
+		Verify(() => !parsed);
+		Verify(() => document is null);
+		Verify(() => diagnostics.Count == 1);
+		Verify(() => diagnostics[0].Message == "No diagram type detected matching given configuration for text: not a diagram\nsecond line");
+		Verify(() => diagnostics[0].Line == 3);
 	}
 
 	[Test]
 	public void TheC4KeywordsAfterTheFirstMatchAnywhereOutsideComments()
 	{
-		Verify(Detect("flowchart LR\n  a[C4Container] --> b") == "c4", $"was {Detect("flowchart LR\n  a[C4Container] --> b")}");
-		Verify(Detect("flowchart LR\n  %% C4Container\n  a --> b") == "flowchart-v2", $"was {Detect("flowchart LR\n  %% C4Container\n  a --> b")}");
-		Verify(Detect("%%{init: {\"x\": \"C4Dynamic\"}}%%\nflowchart LR") == "flowchart-v2", $"was {(Detect("%%{init: {\"x\": \"C4Dynamic\"}}%%\nflowchart LR"))}");
-		Verify(Detect("mindmap\n  C4Container") == "mindmap", $"was {Detect("mindmap\n  C4Container")}");
+		Verify(() => Detect("flowchart LR\n  a[C4Container] --> b") == "c4");
+		Verify(() => Detect("flowchart LR\n  %% C4Container\n  a --> b") == "flowchart-v2");
+		Verify(() => Detect("%%{init: {\"x\": \"C4Dynamic\"}}%%\nflowchart LR") == "flowchart-v2");
+		Verify(() => Detect("mindmap\n  C4Container") == "mindmap");
 	}
 
 	[Test]
 	public void KeywordsMatchAsMermaidsExpressionsDo()
 	{
-		Verify(Detect("graphs") == "flowchart-v2", $"was {Detect("graphs")}");
-		Verify(Detect("flowchart-elk TD") == "flowchart-elk", $"was {Detect("flowchart-elk TD")}");
-		Verify(Detect("agentflow-betax") is null, $"was {Detect("agentflow-betax")}");
-		Verify(Detect("agentflow-beta%% c\n") == "agentflow", $"was {Detect("agentflow-beta%% c\n")}");
-		Verify(Detect("ISHIKAWA-beta") == "ishikawa", $"was {Detect("ISHIKAWA-beta")}");
-		Verify(Detect("ishikawas") is null, $"was {Detect("ishikawas")}");
-		Verify(Detect("Railroad-EBNF-beta") == "railroadEbnf", $"was {Detect("Railroad-EBNF-beta")}");
-		Verify(Detect("usecase-beta:") is null, $"was {(Detect("usecase-beta:"))}");
-		Verify(Detect("cynefin-beta:") == "cynefin", $"was {(Detect("cynefin-beta:"))}");
-		Verify(Detect("  Error  \n") == "error", $"was {Detect("  Error  \n")}");
-		Verify(Detect("---\nx") == "---", $"was {Detect("---\nx")}");
-		Verify(Detect("%%\ninfo") == "info", $"was {Detect("%%\ninfo")}");
-		Verify(Detect("%%{} not a directive\ninfo") == "info", $"was {Detect("%%{} not a directive\ninfo")}");
-		Verify(Detect("%%{ word as a directive\ninfo") is null, $"was {Detect("%%{ word as a directive\ninfo")}");
+		Verify(() => Detect("graphs") == "flowchart-v2");
+		Verify(() => Detect("flowchart-elk TD") == "flowchart-elk");
+		Verify(() => Detect("agentflow-betax") is null);
+		Verify(() => Detect("agentflow-beta%% c\n") == "agentflow");
+		Verify(() => Detect("ISHIKAWA-beta") == "ishikawa");
+		Verify(() => Detect("ishikawas") is null);
+		Verify(() => Detect("Railroad-EBNF-beta") == "railroadEbnf");
+		Verify(() => Detect("usecase-beta:") is null);
+		Verify(() => Detect("cynefin-beta:") == "cynefin");
+		Verify(() => Detect("  Error  \n") == "error");
+		Verify(() => Detect("---\nx") == "---");
+		Verify(() => Detect("%%\ninfo") == "info");
+		Verify(() => Detect("%%{} not a directive\ninfo") == "info");
+		Verify(() => Detect("%%{ word as a directive\ninfo") is null);
 	}
 
 	private static string? Detect(string source)

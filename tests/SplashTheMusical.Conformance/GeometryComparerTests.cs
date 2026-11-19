@@ -9,7 +9,7 @@ public class GeometryComparerTests
 	{
 		var result = Compare("pass");
 
-		Verify(result.Outcome == Outcome.Pass, $"was {result.Outcome}");
+		Verify(() => result.Outcome == Outcome.Pass);
 		Verify(result.Differences.Count == 0, $"{string.Join('\n', result.Differences)}");
 	}
 
@@ -42,7 +42,7 @@ public class GeometryComparerTests
 
 		var result = Comparer.Compare("class/fixture", overlapping, overlapping)[Level.L3];
 
-		Verify(result.Outcome == Outcome.Pass, $"was {result.Outcome}");
+		Verify(() => result.Outcome == Outcome.Pass);
 	}
 
 	[Test]
@@ -50,7 +50,7 @@ public class GeometryComparerTests
 	{
 		var result = Comparer.Compare("class/fixture", Read("oracle"), Read("canvas"), new Tolerance(0.1, 0.8, 0.9, Reason: "wider"))[Level.L3];
 
-		Verify(result.Outcome == Outcome.Pass, $"was {result.Outcome}");
+		Verify(() => result.Outcome == Outcome.Pass);
 	}
 
 	[Test]

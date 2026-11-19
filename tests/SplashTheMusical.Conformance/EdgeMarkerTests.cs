@@ -47,7 +47,7 @@ public class EdgeMarkerTests
 
 	[Test]
 	public void TheFileIsFromThePinnedMermaid() =>
-		Verify(Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {Lines[1]}");
+		Verify(() => Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
 
 	[Test]
 	public void TheDefinitionsAreMermaids()
@@ -100,7 +100,7 @@ public class EdgeMarkerTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal)) == (EdgeMarkers.ArrowTypes.Length + 4) * 2, $"was {Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal))}");
+		Verify(() => Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal)) == (EdgeMarkers.ArrowTypes.Length + 4) * 2);
 	}
 
 	[Test]
@@ -158,7 +158,7 @@ public class EdgeMarkerTests
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
 		foreach (var type in new[] { "flowchart-v2", "stateDiagram", "classDiagram", "er" })
 		{
-			Verify(seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal)) > 1, $"was {seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal))}");
+			Verify(() => seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal)) > 1);
 		}
 	}
 

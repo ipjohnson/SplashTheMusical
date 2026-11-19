@@ -27,8 +27,8 @@ public class StmSvgsTests
 
 			var written = StmSvgs.Write(corpus, new PieOnly(), folder);
 
-			Verify(written == 1, $"was {written}");
-			Verify(File.ReadAllText(Path.Combine(folder, "pie", "a.svg")) == "<svg/>", $"was {File.ReadAllText(Path.Combine(folder, "pie", "a.svg"))}");
+			Verify(() => written == 1);
+			Verify(() => File.ReadAllText(Path.Combine(folder, "pie", "a.svg")) == "<svg/>");
 			Verify(!(File.Exists(Path.Combine(folder, "xychart", "a.svg"))));
 			Verify(!(Directory.Exists(Path.Combine(folder, "old"))));
 		}
@@ -49,6 +49,6 @@ public class StmSvgsTests
 
 		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StmFactsProvider(), folder);
 
-		Verify(written == 1166, $"was {written}");
+		Verify(() => written == 1166);
 	}
 }
