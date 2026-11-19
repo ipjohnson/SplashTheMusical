@@ -1014,7 +1014,6 @@ public enum ClassInteractionKind : int
   ClickHref = 3
   Link = 1
 public sealed class ClassLayout : DiagramLayout
-  public ClassLayout()
 public enum ClassLineStyle : int
   Dotted = 1
   Solid = 0
