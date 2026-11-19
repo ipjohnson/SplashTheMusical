@@ -191,11 +191,49 @@ internal ref struct ErLexer
 			}
 		}
 
-		return KeyLength(text, 0) != text.Length;
+		return KeyLength(text, 0) == 0;
 	}
 
 	/// <summary>Whether <paramref name="text"/>, alone on a line inside an entity's braces, lexes as one <c>ATTRIBUTE_WORD</c> of the <c>~</c> rule.</summary>
-	public static bool IsTildeWord(ReadOnlySpan<char> text) => !text.ContainsAny(LineEnds) && TildeWord(text) == text.Length;
+	public static bool IsTildeWord(ReadOnlySpan<char> text) =>
+		!text.ContainsAny(LineEnds) && KeyLength(text, 0) == 0 && TildeWord(text) == text.Length;
+
+	/// <summary>Whether the <c>~</c> rule matches at the start of <paramref name="text"/>, before the rule for a backquote.</summary>
+	public static bool StartsTildeWord(ReadOnlySpan<char> text) => TildeWord(text) > 0;
+
+	/// <summary>Whether <paramref name="text"/> between double quotes lexes as one <c>ENTITY_NAME</c>.</summary>
+	public static bool IsQuotedEntityName(ReadOnlySpan<char> text) => !text.IsEmpty && !text.ContainsAny(NotInEntityName);
+
+	/// <summary>Whether <paramref name="text"/> lexes after <c>style</c> or <c>classDef</c> as one <c>STYLE_TEXT</c>.</summary>
+	public static bool IsStyleText(ReadOnlySpan<char> text)
+	{
+		foreach (var c in text)
+		{
+			if (!IsStyleTextChar(c))
+			{
+				return false;
+			}
+		}
+
+		return !text.IsEmpty;
+	}
+
+	/// <summary>Whether <paramref name="text"/> lexes after <c>style</c> or <c>classDef</c> as the components of one style.</summary>
+	public static bool IsStyle(ReadOnlySpan<char> text)
+	{
+		foreach (var c in text)
+		{
+			if (!IsStyleTextChar(c) && c is not (':' or '#'))
+			{
+				return false;
+			}
+		}
+
+		return !text.IsEmpty;
+	}
+
+	/// <summary>Whether <paramref name="text"/> lexes inside an entity's braces as one <c>ATTRIBUTE_KEY</c>.</summary>
+	public static bool IsAttributeKey(ReadOnlySpan<char> text) => text.Length == 2 && KeyLength(text, 0) == 2;
 
 	private readonly byte Condition => _conditions[_conditions.Count - 1];
 
