@@ -118,65 +118,64 @@ public class SvgSanitizerFuzzTests
 
 	private static void AssertSafeAndIdempotent(string input, SvgSanitizeResult result)
 	{
-		result.HasViolations.Should().Be(result.Violations.Count > 0);
+		Verify(result.HasViolations == result.Violations.Count > 0);
 		if (!result.HasViolations)
 		{
-			result.Svg.Should().BeSameAs(input);
+			Verify(ReferenceEquals(result.Svg, input));
 		}
 
 		var secondPass = SvgSanitizer.Sanitize(result.Svg);
-		secondPass.HasViolations.Should().BeFalse();
-		secondPass.Svg.Should().BeSameAs(result.Svg);
+		Verify(!secondPass.HasViolations);
+		Verify(ReferenceEquals(secondPass.Svg, result.Svg));
 
 		var doc = XDocument.Parse(result.Svg);
-		doc.Declaration.Should().BeNull();
+		Verify(doc.Declaration is null);
 		var root = doc.Root!;
-		root.Name.LocalName.Should().Be("svg");
-		root.Name.NamespaceName.Should().BeOneOf("", SvgValues.SvgNamespace);
-		root.DescendantsAndSelf().Should().OnlyContain(e => SvgSanitizer.DefaultAllowedElements.Contains(e.Name.LocalName));
-		root.DescendantsAndSelf().Should().NotContain(e => e.Name.LocalName == "style");
-		root.DescendantNodes().Should().NotContain(node => node is XProcessingInstruction);
+		Verify(root.Name.LocalName == "svg");
+		Verify(root.Name.NamespaceName == "" || root.Name.NamespaceName == SvgValues.SvgNamespace);
+		Verify(root.DescendantsAndSelf().All(e => SvgSanitizer.DefaultAllowedElements.Contains(e.Name.LocalName)));
+		Verify(!root.DescendantsAndSelf().Any(e => e.Name.LocalName == "style"));
+		Verify(!root.DescendantNodes().Any(node => node is XProcessingInstruction));
 
 		foreach (var element in root.DescendantsAndSelf())
 		{
 			if (element.Name.LocalName == "image")
 			{
-				element.Nodes().Should().BeEmpty();
+				Verify(!element.Nodes().Any());
 			}
 
 			if (element.Name.LocalName is "title" or "desc")
 			{
-				element.Nodes().Should().OnlyContain(node => node is XText);
+				Verify(element.Nodes().All(node => node is XText));
 			}
 
 			foreach (var attribute in element.Attributes())
 			{
 				if (attribute.IsNamespaceDeclaration)
 				{
-					attribute.Value.Should().BeOneOf(SvgValues.SvgNamespace, SvgValues.XLinkNamespace);
+					Verify(attribute.Value == SvgValues.SvgNamespace || attribute.Value == SvgValues.XLinkNamespace);
 					continue;
 				}
 
 				if (attribute.Name.LocalName == "href")
 				{
-					element.Name.LocalName.Should().Be("image");
-					(attribute.Value.StartsWith("data:image/svg+xml;base64,", StringComparison.Ordinal)
-						|| attribute.Value.StartsWith("data:image/png;base64,", StringComparison.Ordinal)).Should().BeTrue();
+					Verify(element.Name.LocalName == "image");
+					Verify(attribute.Value.StartsWith("data:image/svg+xml;base64,", StringComparison.Ordinal)
+						|| attribute.Value.StartsWith("data:image/png;base64,", StringComparison.Ordinal));
 					continue;
 				}
 
-				attribute.Name.NamespaceName.Should().BeEmpty();
+				Verify(!attribute.Name.NamespaceName.Any());
 				var name = attribute.Name.LocalName;
-				(SvgSanitizer.DefaultAllowedAttributes.Contains(name) || name.StartsWith("data-", StringComparison.Ordinal) || name.StartsWith("aria-", StringComparison.Ordinal))
-					.Should().BeTrue();
+				Verify((SvgSanitizer.DefaultAllowedAttributes.Contains(name) || name.StartsWith("data-", StringComparison.Ordinal) || name.StartsWith("aria-", StringComparison.Ordinal)));
 				if (PaintAttributes.Contains(name))
 				{
-					SvgValues.IsAllowedPaint(attribute.Value).Should().BeTrue();
+					Verify(SvgValues.IsAllowedPaint(attribute.Value));
 				}
 
 				if (LocalReferenceAttributes.Contains(name))
 				{
-					SvgValues.IsAllowedLocalReference(attribute.Value).Should().BeTrue();
+					Verify(SvgValues.IsAllowedLocalReference(attribute.Value));
 				}
 			}
 		}

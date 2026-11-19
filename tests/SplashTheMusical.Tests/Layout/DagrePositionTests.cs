@@ -13,18 +13,15 @@ public class DagrePositionTests
 {
 	[Test]
 	public void UsesTheAlignmentTheGraphNames() =>
-		Layout(new(Align: "UL"), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("a", "c"), Edge("b", "d"), Edge("c", "d"), Edge("a", "d")])
-			.Should().Be("size 130x160 | a 20,10 | b 20,80 | c 110,80 | d 110,150 | a-b 20,20 20,45 20,70 | a-c 40,17.77777777777778 110,45 110,70 | b-d 20,90 20,115 90,142.22222222222223 | c-d 110,90 110,115 110,140 | a-d 40,14.827586206896552 165,45 165,80 165,115 125.71428571428571,140");
+		Verify(Layout(new(Align: "UL"), ["a", "b", "c", "d"], [Edge("a", "b"), Edge("a", "c"), Edge("b", "d"), Edge("c", "d"), Edge("a", "d")]) == "size 130x160 | a 20,10 | b 20,80 | c 110,80 | d 110,150 | a-b 20,20 20,45 20,70 | a-c 40,17.77777777777778 110,45 110,70 | b-d 20,90 20,115 90,142.22222222222223 | c-d 110,90 110,115 110,140 | a-d 40,14.827586206896552 165,45 165,80 165,115 125.71428571428571,140");
 
 	[Test]
 	public void PutsLabelsBesideTheirEdges() =>
-		Layout(new(RankDir: "LR"), ["a", "b", "c"], [Labelled("a", "b", "l"), Labelled("a", "c", "r")])
-			.Should().Be("size 160x110 | a 20,55 | b 140,20 | c 140,90 | a-b 37.14285714285714,45 80,20 120,20 label 80,5 | a-c 37.14285714285714,65 80,90 120,90 label 80,105");
+		Verify(Layout(new(RankDir: "LR"), ["a", "b", "c"], [Labelled("a", "b", "l"), Labelled("a", "c", "r")]) == "size 160x110 | a 20,55 | b 140,20 | c 140,90 | a-b 37.14285714285714,45 80,20 120,20 label 80,5 | a-c 37.14285714285714,65 80,90 120,90 label 80,105");
 
 	[Test]
 	public void RestoresAReversedEdgeWithItsPointsReversed() =>
-		Layout(new(RankDir: "BT"), ["a", "b"], [Edge("a", "b"), Edge("b", "a")])
-			.Should().Be("size 40x90 | a 20,80 | b 20,10 | a-b 17.142857142857142,70 10,45 17.142857142857142,20 | b-a 22.857142857142858,20 30,45 22.857142857142858,70");
+		Verify(Layout(new(RankDir: "BT"), ["a", "b"], [Edge("a", "b"), Edge("b", "a")]) == "size 40x90 | a 20,80 | b 20,10 | a-b 17.142857142857142,70 10,45 17.142857142857142,20 | b-a 22.857142857142858,20 30,45 22.857142857142858,70");
 
 	private static DagreEdgeInput Edge(string v, string w) => new(v, w, null);
 

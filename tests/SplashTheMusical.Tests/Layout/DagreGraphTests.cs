@@ -16,7 +16,7 @@ public class DagreGraphTests
 	[Arguments("1.5", -1L)]
 	[Arguments("", -1L)]
 	[Arguments("a1", -1L)]
-	public void ReadsArrayIndexKeys(string key, long expected) => JsKeys.ArrayIndex(key).Should().Be(expected);
+	public void ReadsArrayIndexKeys(string key, long expected) => Verify(JsKeys.ArrayIndex(key) == expected);
 
 	[Test]
 	public void ListsArrayIndexNamesFirstInNumericOrder()
@@ -27,7 +27,7 @@ public class DagreGraphTests
 			g.SetNode(name, new object());
 		}
 
-		Names(g, g.Nodes()).Should().Equal("2", "10", "b", "a", "02");
+		Verify((Names(g, g.Nodes())).SequenceEqual(["2", "10", "b", "a", "02"]));
 	}
 
 	[Test]
@@ -42,7 +42,7 @@ public class DagreGraphTests
 		g.RemoveNode(g.NodeHandle("a"));
 		g.SetNode("a", new object());
 
-		Names(g, g.Nodes()).Should().Equal("b", "c", "a");
+		Verify((Names(g, g.Nodes())).SequenceEqual(["b", "c", "a"]));
 	}
 
 	[Test]
@@ -58,9 +58,9 @@ public class DagreGraphTests
 		g.SetEdge(b, c, new object());
 		g.SetEdge(b, one, new object());
 
-		g.EdgeV(e).Should().Be(a);
-		g.FindEdge(a, b).Should().Be(e);
-		Names(g, g.Neighbors(b)).Should().Equal("1", "a", "c");
+		Verify(g.EdgeV(e) == a);
+		Verify(g.FindEdge(a, b) == e);
+		Verify((Names(g, g.Neighbors(b))).SequenceEqual(["1", "a", "c"]));
 	}
 
 	[Test]
@@ -71,9 +71,9 @@ public class DagreGraphTests
 			[new("a", "C", 1, 1), new("b", null, 1, 1), new("C", null, 0, 0)],
 			[]));
 
-		Names(g, g.Nodes()).Should().Equal("a", "C", "b");
-		Names(g, g.Children()).Should().Equal("b", "C");
-		Names(g, g.Children(g.NodeHandle("C"))).Should().Equal("a");
+		Verify((Names(g, g.Nodes())).SequenceEqual(["a", "C", "b"]));
+		Verify((Names(g, g.Children())).SequenceEqual(["b", "C"]));
+		Verify((Names(g, g.Children(g.NodeHandle("C")))).SequenceEqual(["a"]));
 	}
 
 	[Test]
@@ -91,11 +91,11 @@ public class DagreGraphTests
 		}
 
 		order.Add(0, -1);
-		order.Add(1, -1).Should().BeFalse();
+		Verify(!(order.Add(1, -1)));
 
 		var expected = Enumerable.Range(0, 40).Where(key => key % 2 == 1).Append(0).ToArray();
-		order.ToArray().Should().Equal(expected);
-		order.First().Should().Be(1);
+		Verify(order.ToArray().SequenceEqual(expected));
+		Verify(order.First() == 1);
 	}
 
 	private static IEnumerable<string> Names<TNode, TEdge>(Graph<TNode, TEdge> g, int[] nodes)

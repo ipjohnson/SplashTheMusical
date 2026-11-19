@@ -12,43 +12,39 @@ public class DagreOrderTests
 {
 	[Test]
 	public void SplitsALongEdgeIntoADummyPerRank() =>
-		Orders(["a", "b", "c"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "c")])
-			.Should().Be("0: a | 1: (d) (d) | 2: b (d) | 3: (d) (d) | 4: c");
+		Verify(Orders(["a", "b", "c"], [Edge("a", "b"), Edge("b", "c"), Edge("a", "c")]) == "0: a | 1: (d) (d) | 2: b (d) | 3: (d) (d) | 4: c");
 
 	[Test]
-	public void PutsTheLabelDummyOnTheLabelRank() =>
-		Orders(["a", "b", "c"], [Edge("a", "b") with { Width = 10, Height = 10, LabelPos = "c" }, Edge("a", "c")])
-			.Should().Be("0: a | 1: (l) (d) | 2: b c");
+	public void PutsTheLabelDummyOnTheLabelRank()
+	{
+		var labelled = Edge("a", "b") with { Width = 10, Height = 10, LabelPos = "c" };
+
+		Verify(Orders(["a", "b", "c"], [labelled, Edge("a", "c")]) == "0: a | 1: (l) (d) | 2: b c");
+	}
 
 	[Test]
 	public void SweepsAwayACrossing() =>
-		Orders(["a", "b", "c", "d"], [Edge("a", "d"), Edge("b", "c"), Edge("b", "d")])
-			.Should().Be("0: a b | 1: (d) (d) (d) | 2: d c");
+		Verify(Orders(["a", "b", "c", "d"], [Edge("a", "d"), Edge("b", "c"), Edge("b", "d")]) == "0: a b | 1: (d) (d) (d) | 2: d c");
 
 	[Test]
 	public void UncrossesAFan() =>
-		Orders(["r", "a", "b", "c", "x", "y", "z"], [Edge("r", "a"), Edge("r", "b"), Edge("r", "c"), Edge("a", "z"), Edge("b", "y"), Edge("c", "x")])
-			.Should().Be("0: r | 1: (d) (d) (d) | 2: a b c | 3: (d) (d) (d) | 4: z y x");
+		Verify(Orders(["r", "a", "b", "c", "x", "y", "z"], [Edge("r", "a"), Edge("r", "b"), Edge("r", "c"), Edge("a", "z"), Edge("b", "y"), Edge("c", "x")]) == "0: r | 1: (d) (d) (d) | 2: a b c | 3: (d) (d) (d) | 4: z y x");
 
 	[Test]
 	public void BreaksBarycenterTiesWithTheBias() =>
-		Orders(["a", "b", "c", "d", "e"], [Edge("a", "c"), Edge("b", "c"), Edge("a", "d"), Edge("b", "e"), Edge("a", "e"), Edge("b", "d")])
-			.Should().Be("0: a b | 1: (d) (d) (d) (d) (d) (d) | 2: c d e");
+		Verify(Orders(["a", "b", "c", "d", "e"], [Edge("a", "c"), Edge("b", "c"), Edge("a", "d"), Edge("b", "e"), Edge("a", "e"), Edge("b", "d")]) == "0: a b | 1: (d) (d) (d) (d) (d) (d) | 2: c d e");
 
 	[Test]
 	public void StartsWithArrayIndexNamesInNumericOrder() =>
-		Orders(["b", "10", "2", "a"], [])
-			.Should().Be("0: 2 10 b a");
+		Verify(Orders(["b", "10", "2", "a"], []) == "0: 2 10 b a");
 
 	[Test]
 	public void KeepsAClusterBetweenItsBorders() =>
-		Orders(["C", "a C", "b C", "x", "y"], [Edge("x", "a"), Edge("y", "b"), Edge("x", "y")])
-			.Should().Be("0: x | 1: (d) (d) | 2: (d) y | 3: (d) (d) | 4: (bl) (b) (d) (d) (br) | 5: (bl) a b (br) | 6: (bl) (br) (b)");
+		Verify(Orders(["C", "a C", "b C", "x", "y"], [Edge("x", "a"), Edge("y", "b"), Edge("x", "y")]) == "0: x | 1: (d) (d) | 2: (d) y | 3: (d) (d) | 4: (bl) (b) (d) (d) (br) | 5: (bl) a b (br) | 6: (bl) (br) (b)");
 
 	[Test]
 	public void ParentsDummiesInTheClustersTheyCross() =>
-		Orders(["O", "I O", "p I", "q O", "z"], [Edge("z", "p"), Edge("p", "q"), Edge("z", "q")])
-			.Should().Be("0: z | 1: (d) (d) | 2: (bl) (b) (d) (d) (br) | 3: (bl) (bl) (b) (d) (br) (d) (br) | 4: (bl) (bl) p (br) (d) (br) | 5: (bl) (bl) (b) (d) (br) (d) (br) | 6: (bl) (d) (d) (br) | 7: (bl) q (br) | 8: (bl) (br) (b)");
+		Verify(Orders(["O", "I O", "p I", "q O", "z"], [Edge("z", "p"), Edge("p", "q"), Edge("z", "q")]) == "0: z | 1: (d) (d) | 2: (bl) (b) (d) (d) (br) | 3: (bl) (bl) (b) (d) (br) (d) (br) | 4: (bl) (bl) p (br) (d) (br) | 5: (bl) (bl) (b) (d) (br) (d) (br) | 6: (bl) (d) (d) (br) | 7: (bl) q (br) | 8: (bl) (br) (b)");
 
 	[Test]
 	public void SortsLikeV8WhenTheComparatorIsInconsistent()
@@ -57,7 +53,7 @@ public class DagreOrderTests
 		List<double> items = [5, double.NaN, 1, 4, 2];
 		JsSort.Sort(items, (a, b) => a - b);
 
-		items.Should().Equal(5, double.NaN, 1, 2, 4);
+		Verify(items.SequenceEqual([5, double.NaN, 1, 2, 4]));
 	}
 
 	private static DagreEdgeInput Edge(string v, string w) => new(v, w, null);

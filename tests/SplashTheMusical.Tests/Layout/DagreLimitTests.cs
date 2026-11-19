@@ -44,7 +44,7 @@ public class DagreLimitTests
 			deadline *= CiAllowance;
 		}
 
-		fastest.Should().BeLessThan(deadline);
+		Verify(fastest < deadline);
 		var placed = 0;
 		foreach (var v in g!.Nodes())
 		{
@@ -55,6 +55,6 @@ public class DagreLimitTests
 			}
 		}
 
-		placed.Should().Be(5_000);
+		Verify(placed == 5_000);
 	}
 }
