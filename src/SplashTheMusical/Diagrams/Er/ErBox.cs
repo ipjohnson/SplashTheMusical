@@ -1,6 +1,7 @@
 // Upstream: packages/mermaid/src/rendering-util/rendering-elements/shapes/erBox.ts
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Rendering.Shapes;
+using SplashTheMusical.Text;
 
 namespace SplashTheMusical.Diagrams.Er;
 
@@ -11,7 +12,15 @@ namespace SplashTheMusical.Diagrams.Er;
 /// <param name="RowOdd">The theme's <c>rowOdd</c>, which fills the odd attribute rows.</param>
 /// <param name="RowEven">The theme's <c>rowEven</c>, which fills the even attribute rows.</param>
 /// <param name="NodeBorder">The theme's <c>nodeBorder</c>, which strokes the attribute rows.</param>
-internal sealed record ErBoxSettings(double DiagramPadding, double EntityPadding, double MinEntityWidth, string? RowOdd, string? RowEven, string? NodeBorder);
+/// <param name="ScalePadding">
+/// Whether the root <c>htmlLabels</c> is unset or false, which scales an entity's paddings by 1.25. The labels are
+/// still HTML when it is unset.
+/// </param>
+/// <param name="ConfigFont">
+/// The root <c>fontFamily</c> and <c>fontSize</c>, which <c>calculateTextWidth</c> measures a name in to decide whether
+/// the entity takes <c>er.minEntityWidth</c>. The label itself is drawn in the theme's font.
+/// </param>
+internal sealed record ErBoxSettings(double DiagramPadding, double EntityPadding, double MinEntityWidth, string? RowOdd, string? RowEven, string? NodeBorder, bool ScalePadding, FontSpec ConfigFont);
 
 /// <summary>
 /// <c>erBox</c>: an entity without attributes is <c>drawRect</c>'s rectangle around its name, at least
@@ -37,7 +46,7 @@ internal static class ErBox
 			return;
 		}
 
-		if (!html)
+		if (settings.ScalePadding)
 		{
 			padding *= 1.25;
 			textPadding *= 1.25;
@@ -151,28 +160,45 @@ internal static class ErBox
 		}
 
 		elements.Add(Divider(x, nameLine, w + x, nameLine));
-		var bounds = new ShapeBounds(x, y, x + w, y + h);
+		var right = x + w;
+		if (!html)
+		{
+			// Chromium's getBBox of the group takes in an empty SVG text at its origin, so the empty keys and comment
+			// texts at the right of a row widen the node past the rectangle.
+			foreach (var (box, labelX, _) in labels)
+			{
+				if (box.Lines.Count == 0 || box.Width == 0)
+				{
+					right = Math.Max(right, labelX);
+				}
+			}
+		}
+
+		var bounds = new ShapeBounds(x, y, right, y + h);
 		node.Geometry = new ShapeGeometry
 		{
-			Width = w,
+			Width = right - x,
 			Height = h,
 			Bounds = bounds,
 			Elements = elements,
 			Intersect = ShapeIntersect.Rect,
 		};
 		node.Labels = labels;
-		node.Width = w;
+		node.Width = right - x;
 		node.Height = h;
 	}
 
-	/// <summary><c>drawRect</c> with no corner radius and the name padded by <c>er.diagramPadding</c> across and 1.5 times it down.</summary>
+	/// <summary>
+	/// <c>drawRect</c> with no corner radius and the name padded by <c>er.diagramPadding</c> across and 1.5 times it down.
+	/// The name wraps at <c>er.minEntityWidth</c> when the entity takes it, and at the wrapping width otherwise.
+	/// </summary>
 	private static void Plain(FlowchartMeasure measure, ErBoxSettings settings, FlowNode node, bool html, double padding)
 	{
 		var paddingY = padding * 1.5;
-		var minimum = measure.Text(node.Label, FlowchartLabelType.Markdown, double.PositiveInfinity, html).Width + (padding * 2) < settings.MinEntityWidth
+		var minimum = MermaidText.CalculateTextWidth(node.Label, settings.ConfigFont, measure.Font.Measurer) + (padding * 2) < settings.MinEntityWidth
 			? settings.MinEntityWidth
 			: 0;
-		var label = measure.Text(node.Label, node.LabelType, minimum > 0 ? minimum : 200, html);
+		var label = measure.Text(node.Label, node.LabelType, minimum > 0 ? minimum : measure.WrappingWidth, html);
 		var w = Math.Max(label.Width + (padding * 2), minimum);
 		var h = label.Height + (paddingY * 2);
 		var x = -w / 2;

@@ -5,6 +5,7 @@ using SplashTheMusical.Layout.Dagre;
 using SplashTheMusical.Layout.Markers;
 using SplashTheMusical.Rendering;
 using SplashTheMusical.Rendering.Shapes;
+using SplashTheMusical.Text;
 
 namespace SplashTheMusical.Diagrams.Er;
 
@@ -60,10 +61,10 @@ public sealed class ErLayout : DiagramLayout
 /// </summary>
 internal static class ErLayoutStep
 {
-	/// <summary>The size STM measures the title at. No ER rule sets <c>erDiagramTitleText</c>'s size.</summary>
-	private const double TitleFontSize = 18;
-
 	private const double ViewPadding = 8;
+
+	/// <summary>The size of the ER stylesheet's <c>.edgeLabel .label</c> rule.</summary>
+	private const double EdgeLabelFontSize = 14;
 
 	public static ErLayout Run(ErDocument document, DiagramRenderContext context)
 	{
@@ -78,7 +79,10 @@ internal static class ErLayoutStep
 				er.MinEntityWidth ?? 0,
 				Theme(config, "rowOdd"),
 				Theme(config, "rowEven"),
-				Theme(config, "nodeBorder")),
+				Theme(config, "nodeBorder"),
+				config.HtmlLabels != true,
+				new FontSpec((config.FontFamily ?? "Arial").TrimEnd(';'), config.FontSize ?? 12)),
+			EdgeLabelFontSize = EdgeLabelFontSize,
 		};
 		var db = ErDb.From(document);
 		var (nodes, edges) = ErData.Get(db);
@@ -104,8 +108,8 @@ internal static class ErLayoutStep
 		{
 			var y = -(er.TitleTopMargin ?? 25);
 			title = new FlowchartTitle(document.Title, bounds.MinX + (bounds.Width / 2), y, "erDiagramTitleText");
-			var metrics = context.TextMeasurer.Measure(document.Title, new Text.FontSpec(measure.Font.Family, TitleFontSize));
-			bounds = bounds.Union(new ShapeBounds(title.X - (metrics.Width / 2), y - metrics.Ascent, title.X + (metrics.Width / 2), y + metrics.Descent));
+			var metrics = context.TextMeasurer.Measure(document.Title, new Text.FontSpec(measure.Font.Family, measure.Font.Size));
+			bounds = bounds.Union(new ShapeBounds(title.X - (metrics.Width / 2), y - Math.Floor(metrics.Ascent + 0.5), title.X + (metrics.Width / 2), y + Math.Floor(metrics.Descent + 0.5)));
 		}
 
 		var width = bounds.Width + (ViewPadding * 2);
