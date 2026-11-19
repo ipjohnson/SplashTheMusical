@@ -16,6 +16,7 @@ public static class DocumentGenerators
 		new("info", InfoGenerator.Document.Select(d => (MermaidDocument)d)),
 		new("flowchart", FlowchartGenerator.Document.Select(d => (MermaidDocument)d)),
 		new("state", StateGenerator.Document.Select(d => (MermaidDocument)d)),
+		new("class", ClassGenerator.Document.Select(d => (MermaidDocument)d)),
 	];
 
 	/// <summary>The names of <see cref="All"/>, for TUnit's <c>MethodDataSource</c>.</summary>

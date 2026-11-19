@@ -306,7 +306,6 @@ internal ref struct ClassParser
 				return true;
 			case Kind.AccDescrMultilineValue:
 				_document.AccessibilityDescription = Plain(ClassLexer.Trim(Take().Text(_text)));
-				_ = Take();
 				return true;
 			default:
 				return Fail(null);

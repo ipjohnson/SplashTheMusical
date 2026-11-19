@@ -976,6 +976,97 @@ public readonly record struct SvgViewBox : IEquatable<SvgViewBox>
   public double X { get; init; }
   public double Y { get; init; }
 
+namespace SplashTheMusical.Diagrams.Class
+public sealed class ClassAnnotation : ClassStatement
+  public ClassAnnotation(string annotation, string className)
+  public string Annotation { get; }
+  public string ClassName { get; }
+public sealed class ClassCssClass : ClassStatement
+  public ClassCssClass(string ids, string className)
+  public string ClassName { get; }
+  public string Ids { get; }
+public sealed class ClassDefinition : ClassStatement
+  public ClassDefinition(string name)
+  public List<string>? Members { get; set; }
+  public string Name { get; }
+  public string? Annotation { get; set; }
+  public string? CssClass { get; set; }
+  public string? Label { get; set; }
+public sealed class ClassDirection : ClassStatement
+  public ClassDirection(string direction)
+  public string Direction { get; }
+public sealed class ClassDocument : MermaidDocument
+  public ClassDocument()
+  public List<ClassStatement> Statements { get; init; }
+  public override string DiagramType { get; }
+  public string Keyword { get; set; }
+public sealed class ClassInteraction : ClassStatement
+  public ClassInteraction(ClassInteractionKind kind, string className, string target)
+  public ClassInteractionKind Kind { get; }
+  public string ClassName { get; }
+  public string Target { get; }
+  public string? Arguments { get; set; }
+  public string? LinkTarget { get; set; }
+  public string? Tooltip { get; set; }
+public enum ClassInteractionKind : int
+  Callback = 0
+  ClickCall = 2
+  ClickHref = 3
+  Link = 1
+public sealed class ClassLayout : DiagramLayout
+  public ClassLayout()
+public enum ClassLineStyle : int
+  Dotted = 1
+  Solid = 0
+public sealed class ClassMemberStatement : ClassStatement
+  public ClassMemberStatement(string className)
+  public string ClassName { get; }
+  public string? Member { get; set; }
+public sealed class ClassModule : DiagramModule<ClassDocument, ClassLayout>
+  public ClassModule()
+  public override ClassDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override ClassLayout Layout(ClassDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(ClassDocument document, ClassLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(ClassDocument document, StringBuilder output)
+public sealed class ClassNamespace : ClassStatement
+  public ClassNamespace(string name)
+  public List<ClassStatement> Statements { get; init; }
+  public string Name { get; }
+  public string? Label { get; set; }
+public sealed class ClassNote : ClassStatement
+  public ClassNote(string text)
+  public string Text { get; }
+  public string? ClassName { get; set; }
+public sealed class ClassRelation : ClassStatement
+  public ClassLineStyle Line { get; set; }
+  public ClassRelation(string from, string to)
+  public ClassRelationEnd FromEnd { get; set; }
+  public ClassRelationEnd ToEnd { get; set; }
+  public string From { get; }
+  public string To { get; }
+  public string? FromCardinality { get; set; }
+  public string? Label { get; set; }
+  public string? ToCardinality { get; set; }
+public enum ClassRelationEnd : int
+  Aggregation = 1
+  Composition = 3
+  Dependency = 4
+  Extension = 2
+  Lollipop = 5
+  None = 0
+public abstract class ClassStatement
+  protected ClassStatement()
+public sealed class ClassStyle : ClassStatement
+  public ClassStyle(string id, List<string> styles)
+  public List<string> Styles { get; }
+  public string Id { get; }
+public sealed class ClassStyleDefinition : ClassStatement
+  public ClassStyleDefinition(List<string> names, List<string> styles)
+  public List<string> Names { get; }
+  public List<string> Styles { get; }
+
 namespace SplashTheMusical.Diagrams.Flowchart
 public sealed class FlowchartBuilder
   public FlowchartBuilder Class(string id, string className)
