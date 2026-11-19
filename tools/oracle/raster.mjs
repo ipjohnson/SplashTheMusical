@@ -7,6 +7,9 @@
 // of a type comes from <corpus-dir>/tolerances/<type>.json. The run fails when an accepted case has no oracle SVG.
 // With oracle-raster-dir, mermaid.js's raster of each accepted case is kept there and reused while its SVG, Chromium,
 // this script and the bundled fonts are unchanged.
+//
+// With STM_RASTER_CASES, a comma-separated list of case names such as flowchart/basic, the run takes only those cases and
+// draws each side by side whatever its outcome. It then deletes nothing from oracle-raster-dir.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -278,7 +281,15 @@ async function sideBySide(name, oracle, stm, width, height, caption) {
 
 fs.rmSync(imagesDir, { recursive: true, force: true })
 fs.mkdirSync(imagesDir, { recursive: true })
-const names = filesUnder(corpusDir).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4))
+const corpusNames = filesUnder(corpusDir).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4))
+const wanted = new Set((process.env.STM_RASTER_CASES ?? '').split(',').map(n => n.trim()).filter(n => n))
+const unknown = [...wanted].filter(n => !corpusNames.includes(n))
+if (unknown.length) {
+	console.error(`not corpus cases: ${unknown.join(', ')}`)
+	await browser.close()
+	process.exit(1)
+}
+const names = wanted.size ? corpusNames.filter(n => wanted.has(n)) : corpusNames
 const outcomes = []
 const scores = []
 const images = new Map()
@@ -305,7 +316,7 @@ for (const name of names) {
 	// A case is drawn only when it is scored or gets an image. With oracle-raster-dir, mermaid.js's side of every accepted
 	// case is drawn, so the folder holds it when STM starts drawing the case.
 	const both = oracle !== undefined && stm !== undefined
-	const imageDue = (images.get(type) ?? 0) < imagesPerType
+	const imageDue = wanted.size > 0 || (images.get(type) ?? 0) < imagesPerType
 	let score
 	let oraclePng
 	let stmPng
@@ -333,7 +344,7 @@ for (const name of names) {
 	counts[outcome]++
 	outcomes.push(`${name}\t${outcome}`)
 	scores.push([name, outcome, score === undefined ? '' : score.toFixed(4)].join('\t').replace(/\t+$/, ''))
-	if (!passed && imageDue) {
+	if ((!passed || wanted.size) && imageDue) {
 		images.set(type, (images.get(type) ?? 0) + 1)
 		const caption = score === undefined
 			? oracle === undefined ? 'mermaid.js refuses it' : 'STM drew nothing'
@@ -345,7 +356,7 @@ await browser.close()
 
 // Rasters of cases that left the corpus or that mermaid.js now refuses.
 let pruned = 0
-for (const file of rasterDir ? filesUnder(rasterDir) : []) {
+for (const file of rasterDir && !wanted.size ? filesUnder(rasterDir) : []) {
 	if (!kept.has(file.replace(/\.(png|key)$/, ''))) {
 		fs.rmSync(path.join(rasterDir, file))
 		pruned++
