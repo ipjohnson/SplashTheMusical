@@ -114,6 +114,43 @@ public class ClassRenderTests
 	}
 
 	[Test]
+	public void AnSvgLabelClassBoxStartsItsMembersAtTheCentre()
+	{
+		// corpus/class/e2e-class-diagram-nightly-check-dagre-dagre-11-1-...-without-htmllabels.dagre.txt: addText's text
+		// starts at x 0, so the box is half the name's width and the widest member's wide, with the padding.
+		var node = Single(Layout("""
+			---
+			config:
+			  htmlLabels: false
+			---
+			classDiagram
+			  class Class10~T~ {
+			  int[] id
+			  test(int[] ids) bool
+			  testArray() bool[]
+			  }
+			""").DagreInputs).Nodes[0];
+
+		Verify(() => Math.Abs(node.Width - 177.3125) < 0.01);
+		Verify(() => node.Height == 139);
+	}
+
+	[Test]
+	public void ANoteDoesNotWrapAndItsEdgeKeepsDagresLabelPosition()
+	{
+		// corpus/class/e2e-class-diagram-nightly-check-dagre-dagre-18b-should-render-a-simple-class-diagram-with-notes:
+		// the note's white-space: nowrap keeps its second line whole, past the wrapping width of 120, and the note's
+		// edge has no labelpos, so dagre's r widens it by the label offset.
+		var graph = Single(Layout("classDiagram\n  class Class10\n  note for Class10 \"Cool class\n  I said it's very cool class!\"\n").DagreInputs);
+		var note = graph.Nodes.First(node => node.Id == "note0");
+		var edge = Single(graph.Edges);
+
+		Verify(() => Math.Abs(note.Width - 165.625) < 0.01);
+		Verify(() => note.Height == 54);
+		Verify(() => edge.LabelPos == "r");
+	}
+
+	[Test]
 	public void TheSvgDrawsTheClassBoxesAndRelationsAndPassesTheSanitizer()
 	{
 		var svg = SvgDocuments.Checked(Mermaid.Default.RenderSvg("""
