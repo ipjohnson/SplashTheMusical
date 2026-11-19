@@ -2,6 +2,7 @@ using System.Xml;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Class;
+using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
@@ -91,6 +92,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			ClassFacts.Add(facts, classDocument, config);
 			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
 			canvas = ClassFacts.Boxes(boxes, classDocument, config, new ClassModule().Layout(classDocument, context));
+		}
+		else if (document is ErDocument er)
+		{
+			ErFacts.Add(facts, er);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);

@@ -6,7 +6,7 @@ block	496
 c4	252
 class	242
 cynefin	124
-er	1404
+er	702
 eventmodeling	132
 flowchart	654
 gantt	336

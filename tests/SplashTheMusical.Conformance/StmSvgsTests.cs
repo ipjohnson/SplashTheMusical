@@ -49,6 +49,6 @@ public class StmSvgsTests
 
 		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StmFactsProvider(), folder);
 
-		Verify(() => written == 1606);
+		Verify(() => written == 1957);
 	}
 }

@@ -1066,6 +1066,84 @@ public sealed class ClassStyleDefinition : ClassStatement
   public List<string> Names { get; }
   public List<string> Styles { get; }
 
+namespace SplashTheMusical.Diagrams.Er
+public sealed class ErAttribute
+  public ErAttribute(string type, string name)
+  public List<string> Keys { get; init; }
+  public string Name { get; }
+  public string Type { get; }
+  public string? Comment { get; set; }
+public sealed class ErAttributes
+  public ErAttributes Attribute(string type, string name, string? keys = null, string? comment = null)
+  public ErAttributes()
+public sealed class ErBuilder
+  public ErBuilder Class(string className, params string[] ids)
+  public ErBuilder ClassDef(string name, params string[] styles)
+  public ErBuilder Direction(string direction)
+  public ErBuilder Entity(string name, Action<ErAttributes>? attributes = null, string? alias = null)
+  public ErBuilder Relationship(string entityA, ErCardinality cardinalityA, string entityB, ErCardinality cardinalityB, string role, bool identifying = true)
+  public ErBuilder Subgraph(string id, string? title, Action<ErBuilder> body)
+  public ErBuilder(string direction = "TB")
+  public ErDocument Build()
+public enum ErCardinality : int
+  MdParent = 4
+  OneOrMore = 2
+  OnlyOne = 0
+  ZeroOrMore = 3
+  ZeroOrOne = 1
+public sealed class ErClassAssignment : ErStatement
+  public ErClassAssignment(List<string> ids, List<string> classes)
+  public List<string> Classes { get; }
+  public List<string> Ids { get; }
+public sealed class ErClassDefinition : ErStatement
+  public ErClassDefinition(List<string> names, List<string> styles)
+  public List<string> Names { get; }
+  public List<string> Styles { get; }
+public sealed class ErDirection : ErStatement
+  public ErDirection(string direction)
+  public string Direction { get; }
+public sealed class ErDocument : MermaidDocument
+  public ErDocument()
+  public List<ErStatement> Statements { get; init; }
+  public override string DiagramType { get; }
+public sealed class ErEntity : ErStatement
+  public ErEntity(string name)
+  public List<ErAttribute>? Attributes { get; set; }
+  public List<string>? Classes { get; set; }
+  public string Name { get; }
+  public string? Alias { get; set; }
+public sealed class ErLayout : DiagramLayout
+  public ErLayout()
+public sealed class ErModule : DiagramModule<ErDocument, ErLayout>
+  public ErModule()
+  public override ErDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override ErLayout Layout(ErDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(ErDocument document, ErLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(ErDocument document, StringBuilder output)
+public sealed class ErRelationship : ErStatement
+  public ErCardinality CardinalityA { get; set; }
+  public ErCardinality CardinalityB { get; set; }
+  public ErRelationship(string entityA, string entityB, string role)
+  public List<string>? ClassesA { get; set; }
+  public List<string>? ClassesB { get; set; }
+  public bool Identifying { get; set; }
+  public string EntityA { get; }
+  public string EntityB { get; }
+  public string Role { get; }
+public abstract class ErStatement
+  protected ErStatement()
+public sealed class ErStyle : ErStatement
+  public ErStyle(List<string> ids, List<string> styles)
+  public List<string> Ids { get; }
+  public List<string> Styles { get; }
+public sealed class ErSubgraph : ErStatement
+  public ErSubgraph(string id)
+  public List<ErStatement> Statements { get; init; }
+  public string Id { get; }
+  public string? Title { get; set; }
+
 namespace SplashTheMusical.Diagrams.Flowchart
 public sealed class FlowchartBuilder
   public FlowchartBuilder Class(string id, string className)
