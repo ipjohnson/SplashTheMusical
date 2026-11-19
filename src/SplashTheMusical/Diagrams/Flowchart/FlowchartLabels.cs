@@ -103,6 +103,17 @@ internal static class FlowchartLabels
 		return lines;
 	}
 
+	/// <summary>
+	/// The text of the label set as HTML as it is, with its entity codes as HTML entities and each <c>br</c> tag as a
+	/// space: what a db's text shows without <c>createText</c>.
+	/// </summary>
+	public static string HtmlTextOf(string label)
+	{
+		var html = new StringBuilder(label.Length + 8);
+		WithHtmlEntities(label, html);
+		return HtmlText(html.ToString());
+	}
+
 	/// <summary>The text of an SVG label's lines: each line's words joined with a space, and the lines run together.</summary>
 	public static string SvgText(IReadOnlyList<IReadOnlyList<LabelRun>> lines)
 	{

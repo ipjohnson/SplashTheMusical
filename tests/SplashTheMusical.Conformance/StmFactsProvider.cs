@@ -2,6 +2,7 @@ using System.Xml;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Class;
+using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
@@ -89,6 +90,10 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is ClassDocument classDocument)
 		{
 			ClassFacts.Add(facts, classDocument, config);
+		}
+		else if (document is ErDocument er)
+		{
+			ErFacts.Add(facts, er);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
