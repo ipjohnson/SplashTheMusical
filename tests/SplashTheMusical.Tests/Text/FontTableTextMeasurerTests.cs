@@ -17,15 +17,20 @@ public class FontTableTextMeasurerTests
 	[Test]
 	public void MeasuresTheAdvancesOfTheHarnessFont() =>
 		// Chromium measured 180.563 for this message text in the oracle's corpus/sequence/docs-sequenceDiagram-001.
-		Width("Hello John, how are you?", Regular).Should().BeApproximately(180.563, 0.05);
+		Verify(Math.Abs(Width("Hello John, how are you?", Regular) - 180.563) <= 0.05);
 
 	[Test]
 	public void AppliesKerning() =>
-		Width("AV", Regular).Should().BeLessThan(Width("A", Regular) + Width("V", Regular));
+		Verify(Width("AV", Regular) < Width("A", Regular) + Width("V", Regular));
 
 	[Test]
-	public void TakesTheBoldFaceOverWeight500() =>
-		Width("Hello", Regular with { Weight = 600 }).Should().BeGreaterThan(Width("Hello", Regular with { Weight = 500 }));
+	public void TakesTheBoldFaceOverWeight500()
+	{
+		var bold = Width("Hello", Regular with { Weight = 600 });
+		var medium = Width("Hello", Regular with { Weight = 500 });
+
+		Verify(bold > medium);
+	}
 
 	[Test]
 	[Arguments(400, FontStyle.Normal, 0)]
@@ -33,11 +38,20 @@ public class FontTableTextMeasurerTests
 	[Arguments(400, FontStyle.Italic, 2)]
 	[Arguments(400, FontStyle.Oblique, 2)]
 	[Arguments(900, FontStyle.Italic, 3)]
-	public void TakesTheFaceOfTheWeightAndStyle(int weight, FontStyle style, int face) =>
-		FontTableTextMeasurer.FaceIndex(Regular with { Weight = weight, Style = style }).Should().Be(face);
+	public void TakesTheFaceOfTheWeightAndStyle(int weight, FontStyle style, int face)
+	{
+		var font = Regular with { Weight = weight, Style = style };
+
+		Verify(FontTableTextMeasurer.FaceIndex(font) == face);
+	}
 
 	[Test]
-	public void ScalesWithTheSize() => Width("Hello", Regular with { Size = 32 }).Should().BeApproximately(2 * Width("Hello", Regular), 1e-9);
+	public void ScalesWithTheSize()
+	{
+		var doubled = Width("Hello", Regular with { Size = 32 });
+
+		Verify(Math.Abs(doubled - (2 * Width("Hello", Regular))) <= 1e-9);
+	}
 
 	[Test]
 	[Arguments("Liberation Sans")]
@@ -45,29 +59,33 @@ public class FontTableTextMeasurerTests
 	[Arguments("  helvetica , serif")]
 	[Arguments("Unknown Font")]
 	[Arguments("")]
-	public void FallsBackByFamilyNameThenToSansSerif(string family) =>
-		Width("Hello", Regular with { Family = family }).Should().Be(Width("Hello", Regular));
+	public void FallsBackByFamilyNameThenToSansSerif(string family)
+	{
+		var font = Regular with { Family = family };
+
+		Verify(Math.Abs(Width("Hello", font) - Width("Hello", Regular)) <= 1e-9);
+	}
 
 	[Test]
 	public void GivesTheLineBoxOfTheFont()
 	{
 		var metrics = TextMeasurer.Default.Measure("Hello", Regular);
-		metrics.Ascent.Should().BeApproximately(1854.0 / 2048 * 16, 1e-9);
-		metrics.Descent.Should().BeApproximately(434.0 / 2048 * 16, 1e-9);
+		Verify(Math.Abs(metrics.Ascent - (1854.0 / 2048 * 16)) <= 1e-9);
+		Verify(Math.Abs(metrics.Descent - (434.0 / 2048 * 16)) <= 1e-9);
 	}
 
 	[Test]
-	public void GivesWideCharactersOneEm() => Width("漢字", Regular).Should().Be(32);
+	public void GivesWideCharactersOneEm() => Verify(Math.Abs(Width("漢字", Regular) - 32) <= 1e-9);
 
 	[Test]
-	public void GivesAnEmojiOneEm() => Width("\U0001F600", Regular).Should().Be(16);
+	public void GivesAnEmojiOneEm() => Verify(Math.Abs(Width("\U0001F600", Regular) - 16) <= 1e-9);
 
 	[Test]
-	public void GivesMarksAndFormatCharactersNoWidth() => Width("é‍", Regular).Should().Be(Width("e", Regular));
+	public void GivesMarksAndFormatCharactersNoWidth() => Verify(Math.Abs(Width("é‍", Regular) - Width("e", Regular)) <= 1e-9);
 
 	[Test]
 	public void GivesOtherScriptsTheMeanLetterWidth() =>
-		Width("क", Regular).Should().BeApproximately(1003.0 / 2048 * 16, 1e-9);
+		Verify(Math.Abs(Width("क", Regular) - (1003.0 / 2048 * 16)) <= 1e-9);
 
 	[Test]
 	public void MeasuringAStringAllocatesNothing()
@@ -80,8 +98,8 @@ public class FontTableTextMeasurerTests
 	[Test]
 	public void TheTablesAreStaticData()
 	{
-		typeof(FontTableTextMeasurer).TypeInitializer.Should().BeNull();
-		typeof(FontTables).TypeInitializer.Should().BeNull();
+		Verify(typeof(FontTableTextMeasurer).TypeInitializer is null);
+		Verify(typeof(FontTables).TypeInitializer is null);
 	}
 
 	[Test]
@@ -89,7 +107,7 @@ public class FontTableTextMeasurerTests
 	{
 		var repository = Repository();
 		var committed = File.ReadAllText(Path.Combine(repository, "src", "SplashTheMusical", "Text", "Generated", "FontTables.g.cs"));
-		FontTableWriter.Write(repository, FontTableWriter.Families).Should().Be(committed);
+		Verify(FontTableWriter.Write(repository, FontTableWriter.Families) == committed);
 	}
 
 	private static string Repository()

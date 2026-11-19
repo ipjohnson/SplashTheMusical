@@ -36,8 +36,11 @@ public class StylesheetTests
 			Config(),
 			new StyleClass("evil", ["fill:red;} svg{background:url(https://x.test/a)", "stroke:url(#a)", "color:blue }", "stroke-width:2px"], ["color:red;}"]));
 
-		css.Should().NotContain("url(").And.NotContain("x.test").And.NotContain("background").And.NotContain("red");
-		css.Should().EndWith("#svg-1 .evil>*{stroke-width:2px!important;}#svg-1 .evil span{stroke-width:2px!important;}");
+		Verify(!css.Contains("url(", StringComparison.Ordinal));
+		Verify(!css.Contains("x.test", StringComparison.Ordinal));
+		Verify(!css.Contains("background", StringComparison.Ordinal));
+		Verify(!css.Contains("red", StringComparison.Ordinal));
+		Verify(css.EndsWith("#svg-1 .evil>*{stroke-width:2px!important;}#svg-1 .evil span{stroke-width:2px!important;}", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -45,7 +48,7 @@ public class StylesheetTests
 	{
 		var css = Css(Config(), new StyleClass("a{}b", ["fill:#f9f"], []), new StyleClass("1st", ["fill:#f9f"], []));
 
-		css.Should().NotContain("rgb(255, 153, 255)");
+		Verify(!css.Contains("rgb(255, 153, 255)", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -53,9 +56,11 @@ public class StylesheetTests
 	{
 		var css = Css(Config(("lineColor", "red;} svg{fill:url(https://x.test/a)"), ("textColor", "url(https://x.test/b)"), ("errorBkgColor", "#123")));
 
-		css.Should().NotContain("url(").And.NotContain("x.test");
-		css.Should().NotContain(".marker").And.Contain("#svg-1 .error-icon{fill:#123;}");
-		css.Should().StartWith("#svg-1{font-family:\"trebuchet ms\",verdana,arial,sans-serif;font-size:16px;}");
+		Verify(!css.Contains("url(", StringComparison.Ordinal));
+		Verify(!css.Contains("x.test", StringComparison.Ordinal));
+		Verify(!css.Contains(".marker", StringComparison.Ordinal));
+		Verify(css.Contains("#svg-1 .error-icon{fill:#123;}", StringComparison.Ordinal));
+		Verify(css.StartsWith("#svg-1{font-family:\"trebuchet ms\",verdana,arial,sans-serif;font-size:16px;}", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -63,8 +68,8 @@ public class StylesheetTests
 	{
 		var css = SvgWriter.StyleText("svg-1", MermaidStylesheet.Build(new MermaidConfig { ThemeVariables = Theme.Variables("redux", null) }, [], []));
 
-		css.Should().Contain("filter:url(#svg-1-drop-shadow);");
-		css.Replace("url(#svg-1-drop-shadow)", string.Empty, StringComparison.Ordinal).Should().NotContain("url(");
+		Verify(css.Contains("filter:url(#svg-1-drop-shadow);", StringComparison.Ordinal));
+		Verify(!(css.Replace("url(#svg-1-drop-shadow)", string.Empty, StringComparison.Ordinal)).Contains("url(", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -77,7 +82,7 @@ public class StylesheetTests
 	[Arguments("font-weight:Bold", "font-weight:bold")]
 	[Arguments("stroke-width:2.50px", "stroke-width:2.5px")]
 	public void AClassDefValueIsWrittenAsChromiumSerializesIt(string source, string css) =>
-		Text(CssDeclaration.FromSource(source, important: false)).Should().Be(css);
+		Verify(Text(CssDeclaration.FromSource(source, important: false)) == css);
 
 	[Test]
 	[Arguments("fill:#12345")]
@@ -90,18 +95,18 @@ public class StylesheetTests
 	[Arguments("font-family:\"a\\\"b\"")]
 	[Arguments("animation:dash 1s")]
 	public void AClassDefValueThePropertyDoesNotTakeIsRefused(string source) =>
-		CssDeclaration.FromSource(source, important: false).Should().BeNull();
+		Verify(CssDeclaration.FromSource(source, important: false) is null);
 
 	[Test]
 	[Arguments("'{'")]
 	[Arguments("\"a;b\"")]
 	[Arguments("'}'")]
 	public void AQuotedThemeValueHoldingASemicolonOrBraceIsRefused(string value) =>
-		CssDeclaration.FromTheme("fill", value).Should().BeNull();
+		Verify(CssDeclaration.FromTheme("fill", value) is null);
 
 	[Test]
 	public void AQuotedThemeFontFamilyIsKept() =>
-		Text(CssDeclaration.FromTheme("font-family", "\"trebuchet ms\", verdana, arial")!).Should().Contain("\"trebuchet ms\"");
+		Verify((Text(CssDeclaration.FromTheme("font-family", "\"trebuchet ms\", verdana, arial")!)).Contains("\"trebuchet ms\"", StringComparison.Ordinal));
 
 	[Test]
 	public void NoSourceOrThemeValueCanEndTheDeclaration() =>
@@ -112,8 +117,9 @@ public class StylesheetTests
 				if (declaration is not null)
 				{
 					var text = Text(declaration);
-					text.IndexOfAny([';', '{', '}', '<', '&', '\\', '!', '@']).Should().Be(-1, text);
-					text.Should().NotContain("url(").And.NotContain("/*");
+					Verify(text.IndexOfAny([';', '{', '}', '<', '&', '\\', '!', '@']) == -1, $"{text}");
+					Verify(!text.Contains("url(", StringComparison.Ordinal));
+					Verify(!text.Contains("/*", StringComparison.Ordinal));
 				}
 			}
 		});
@@ -129,7 +135,7 @@ public class StylesheetTests
 			writer.EndElement();
 		});
 
-		svg.Should().Be("<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"s\"><style>#s .a&gt;*{fill:red;}</style></svg>");
+		Verify(svg == "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"s\"><style>#s .a&gt;*{fill:red;}</style></svg>");
 	}
 
 	[Test]
@@ -155,7 +161,7 @@ public class StylesheetTests
 	[Arguments("[x=y]")]
 	[Arguments(".a</style>")]
 	public void ASelectorOutsideTheGrammarIsRefused(string selector) =>
-		FluentActions.Invoking(() => CssSelector.Parse(selector)).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => CssSelector.Parse(selector));
 
 	private static string Text(CssDeclaration? declaration) =>
 		declaration is null ? "(refused)" : declaration.Property + ":" + declaration.Value;

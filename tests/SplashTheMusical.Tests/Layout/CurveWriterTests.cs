@@ -13,22 +13,21 @@ public class CurveWriterTests
 	[Test]
 	public void TheLayoutCopyOfJsNumberFormatsAsTheCores() =>
 		Gen.Double.Sample(value =>
-			SplashTheMusical.Layout.Paths.JsNumber.ToString(value).Should().Be(SplashTheMusical.JsNumber.ToString(value)));
+			Verify(SplashTheMusical.Layout.Paths.JsNumber.ToString(value) == SplashTheMusical.JsNumber.ToString(value)));
 
 	[Test]
 	public void D3CurvesRoundToThreeDecimalsWithJavaScriptsRounding() =>
-		CurveWriter.ToString(Curve.Linear, [new(0.0005, -0.0005), new(1.0015, 2e21)]).Should().Be("M0.001,0L1.002,2e+21");
+		Verify(CurveWriter.ToString(Curve.Linear, [new(0.0005, -0.0005), new(1.0015, 2e21)]) == "M0.001,0L1.002,2e+21");
 
 	[Test]
 	public void TheRoundedCurveWritesNumbersInFull() =>
-		CurveWriter.ToString(Curve.Rounded, [new(0, 0), new(10, 0), new(10, 10.123456789)])
-			.Should().Be("M0,0L5,0Q10,0 10,5L10,10.123456789");
+		Verify(CurveWriter.ToString(Curve.Rounded, [new(0, 0), new(10, 0), new(10, 10.123456789)]) == "M0,0L5,0Q10,0 10,5L10,10.123456789");
 
 	[Test]
 	public void OnePointClosesAndNoPointsWriteNothing()
 	{
-		CurveWriter.ToString(Curve.Basis, [new(5, 5)]).Should().Be("M5,5Z");
-		CurveWriter.ToString(Curve.Natural, []).Should().BeEmpty();
+		Verify(CurveWriter.ToString(Curve.Basis, [new(5, 5)]) == "M5,5Z");
+		Verify(!(CurveWriter.ToString(Curve.Natural, [])).Any());
 	}
 
 	[Test]
@@ -38,5 +37,5 @@ public class CurveWriterTests
 	[Arguments("curveLinear", "basis")]
 	[Arguments(null, "basis")]
 	public void UnknownNamesDrawBasisAsInsertEdgeDoes(string? name, string expected) =>
-		CurveNames.Name(CurveNames.Parse(name)).Should().Be(expected);
+		Verify(CurveNames.Name(CurveNames.Parse(name)) == expected);
 }

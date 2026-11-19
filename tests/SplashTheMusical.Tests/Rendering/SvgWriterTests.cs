@@ -27,7 +27,8 @@ public class SvgWriterTests
 		var writer = new SvgWriter(new ArrayBufferWriter<byte>());
 		writer.StartElement("svg");
 
-		FluentActions.Invoking(() => writer.StartElement(name)).Should().Throw<ArgumentException>().WithMessage($"*<{name}>*");
+		var failure = Throws<ArgumentException>(() => writer.StartElement(name));
+		Verify(failure.Message.Contains($"<{name}>", StringComparison.Ordinal), $"{failure.Message}");
 	}
 
 	[Test]
@@ -47,7 +48,8 @@ public class SvgWriterTests
 		var writer = new SvgWriter(new ArrayBufferWriter<byte>());
 		writer.StartElement("svg");
 
-		FluentActions.Invoking(() => writer.WriteAttribute(name, "x")).Should().Throw<ArgumentException>().WithMessage($"*'{name}'*");
+		var failure = Throws<ArgumentException>(() => writer.WriteAttribute(name, "x"));
+		Verify(failure.Message.Contains($"'{name}'", StringComparison.Ordinal), $"{failure.Message}");
 	}
 
 	[Test]
@@ -61,12 +63,12 @@ public class SvgWriterTests
 		var writer = new SvgWriter(new ArrayBufferWriter<byte>());
 		writer.StartElement("svg");
 
-		FluentActions.Invoking(() => writer.WriteAttribute(name, value)).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => writer.WriteAttribute(name, value));
 	}
 
 	[Test]
 	public void TheRootMustBeSvg() =>
-		FluentActions.Invoking(() => new SvgWriter(new ArrayBufferWriter<byte>()).StartElement("g")).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => new SvgWriter(new ArrayBufferWriter<byte>()).StartElement("g"));
 
 	[Test]
 	public void AnAttributeCannotBeWrittenTwice()
@@ -75,7 +77,7 @@ public class SvgWriterTests
 		writer.StartElement("svg");
 		writer.WriteAttribute("width", 10);
 
-		FluentActions.Invoking(() => writer.WriteAttribute("width", 20)).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => writer.WriteAttribute("width", 20));
 	}
 
 	[Test]
@@ -86,7 +88,7 @@ public class SvgWriterTests
 		writer.StartElement("g");
 		writer.EndElement();
 
-		FluentActions.Invoking(() => writer.WriteAttribute("width", 20)).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => writer.WriteAttribute("width", 20));
 	}
 
 	[Test]
@@ -99,7 +101,7 @@ public class SvgWriterTests
 		writer.StartElement(name);
 		writer.WriteText("ok");
 
-		FluentActions.Invoking(() => writer.StartElement("text")).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => writer.StartElement("text"));
 	}
 
 	[Test]
@@ -118,11 +120,11 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Be(
+		Verify(svg ==
 			Root + " aria-label=\"a&lt;b &amp; &quot;c&quot; &lt;script&gt;alert('x')&lt;/script&gt;\">"
 			+ "<text class=\"a&lt;b &amp; &quot;c&quot; &lt;script&gt;alert('x')&lt;/script&gt;\">"
 			+ "a&lt;b &amp; \"c\" &lt;script&gt;alert('x')&lt;/script&gt;</text></svg>");
-		System.Xml.Linq.XDocument.Parse(svg).Root!.Value.Should().Be(Hostile);
+		Verify(System.Xml.Linq.XDocument.Parse(svg).Root!.Value == Hostile);
 	}
 
 	[Test]
@@ -136,10 +138,10 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Be(Root + " data-x=\"a&#9;b&#10;c&#13;d\">e&#13;\nf</svg>");
+		Verify(svg == Root + " data-x=\"a&#9;b&#10;c&#13;d\">e&#13;\nf</svg>");
 		var root = System.Xml.Linq.XDocument.Parse(svg).Root!;
-		root.Attribute("data-x")!.Value.Should().Be("a\tb\nc\rd");
-		root.Value.Should().Be("e\r\nf");
+		Verify(root.Attribute("data-x")!.Value == "a\tb\nc\rd");
+		Verify(root.Value == "e\r\nf");
 	}
 
 	[Test]
@@ -153,7 +155,7 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Be(Root + " data-x=\"a�b�c�\">�d�</svg>");
+		Verify(svg == Root + " data-x=\"a�b�c�\">�d�</svg>");
 	}
 
 	[Test]
@@ -171,7 +173,7 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Be(Root + "><g class=\"nodes\"><rect width=\"10\"/></g></svg>");
+		Verify(svg == Root + "><g class=\"nodes\"><rect width=\"10\"/></g></svg>");
 	}
 
 	[Test]
@@ -190,7 +192,7 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Contain("marker-end=\"url(#mermaid-1_flowchart-pointEnd)\"");
+		Verify(svg.Contains("marker-end=\"url(#mermaid-1_flowchart-pointEnd)\"", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -204,7 +206,7 @@ public class SvgWriterTests
 				writer.EndElement();
 			});
 
-			svg.Should().Be(Root + " width=\"" + JsNumber.ToString(value) + "\"/>");
+			Verify(svg == Root + " width=\"" + JsNumber.ToString(value) + "\"/>");
 		});
 
 	[Test]
@@ -220,11 +222,11 @@ public class SvgWriterTests
 				bytes[name] = SvgDocuments.WriteBytes(CultureDocument);
 			}
 
-			bytes["tr-TR"].Should().Equal(bytes["de-DE"]);
-			bytes["tr-TR"].Should().Equal(bytes[""]);
+			Verify((bytes["tr-TR"]).SequenceEqual(bytes["de-DE"]));
+			Verify((bytes["tr-TR"]).SequenceEqual(bytes[""]));
 			var svg = Encoding.UTF8.GetString(bytes["tr-TR"]);
-			svg.Should().StartWith(Root + " id=\"DIAGRAM-I\" width=\"1234.5\" height=\"0.000001\"><style>#DIAGRAM-I{font-family:");
-			svg.Should().Contain("<rect x=\"1e+21\" y=\"0.30000000000000004\" rx=\"1.5e-7\" stroke-width=\"-1234567.891\" class=\"IiIı\"/>");
+			Verify(svg.StartsWith(Root + " id=\"DIAGRAM-I\" width=\"1234.5\" height=\"0.000001\"><style>#DIAGRAM-I{font-family:", StringComparison.Ordinal));
+			Verify(svg.Contains("<rect x=\"1e+21\" y=\"0.30000000000000004\" rx=\"1.5e-7\" stroke-width=\"-1234567.891\" class=\"IiIı\"/>", StringComparison.Ordinal));
 		}
 		finally
 		{
@@ -263,9 +265,9 @@ public class SvgWriterTests
 			HundredElements(writer);
 		});
 
-		writer.IsComplete.Should().BeTrue();
+		Verify(writer.IsComplete);
 		var svg = SvgDocuments.Checked(Encoding.UTF8.GetString(buffer.WrittenSpan));
-		System.Xml.Linq.XDocument.Parse(svg).Root!.DescendantsAndSelf().Should().HaveCount(100);
+		Verify(System.Xml.Linq.XDocument.Parse(svg).Root!.DescendantsAndSelf().Count() == 100);
 	}
 
 	private static void HundredElements(SvgWriter writer)
@@ -305,12 +307,12 @@ public class SvgWriterTests
 		writer.StartElement("svg");
 		writer.EndElement();
 
-		SvgDocuments.Checked(Encoding.UTF8.GetString(buffer.WrittenSpan)).Should().Be(Root + "/>");
+		Verify(SvgDocuments.Checked(Encoding.UTF8.GetString(buffer.WrittenSpan)) == Root + "/>");
 	}
 
 	[Test]
 	public void TheStringOverloadThrowsWhenAnElementIsLeftOpen() =>
-		FluentActions.Invoking(() => SvgWriter.Write(0, static (writer, _) => writer.StartElement("svg"))).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => SvgWriter.Write(0, static (writer, _) => writer.StartElement("svg")));
 
 	[Test]
 	public void TheStyleElementIsScopedToTheRootsId()
@@ -323,7 +325,8 @@ public class SvgWriterTests
 			writer.EndElement();
 		});
 
-		svg.Should().Contain("<style>#mermaid-7{").And.Contain("filter:url(#mermaid-7-drop-shadow)");
+		Verify(svg.Contains("<style>#mermaid-7{", StringComparison.Ordinal));
+		Verify(svg.Contains("filter:url(#mermaid-7-drop-shadow)", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -332,23 +335,23 @@ public class SvgWriterTests
 		var rules = new List<CssRule> { new CssStyleRule(CssSelector.Root, CssDeclaration.FromTheme("fill", "red")) };
 		var noId = new SvgWriter(new ArrayBufferWriter<byte>());
 		noId.StartElement("svg");
-		FluentActions.Invoking(() => noId.WriteStyle(rules)).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => noId.WriteStyle(rules));
 
 		var nested = new SvgWriter(new ArrayBufferWriter<byte>());
 		nested.StartElement("svg");
 		nested.WriteAttribute("id", "a");
 		nested.StartElement("g");
-		FluentActions.Invoking(() => nested.WriteStyle(rules)).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => nested.WriteStyle(rules));
 
 		var twice = new SvgWriter(new ArrayBufferWriter<byte>());
 		twice.StartElement("svg");
 		twice.WriteAttribute("id", "a");
 		twice.WriteStyle(rules);
-		FluentActions.Invoking(() => twice.WriteStyle(rules)).Should().Throw<InvalidOperationException>();
+		Throws<InvalidOperationException>(() => twice.WriteStyle(rules));
 
 		var notIdentifier = new SvgWriter(new ArrayBufferWriter<byte>());
 		notIdentifier.StartElement("svg");
 		notIdentifier.WriteAttribute("id", "1a");
-		FluentActions.Invoking(() => notIdentifier.WriteStyle(rules)).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => notIdentifier.WriteStyle(rules));
 	}
 }
