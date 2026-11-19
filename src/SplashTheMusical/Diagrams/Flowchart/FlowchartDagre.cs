@@ -31,11 +31,14 @@ internal sealed class FlowchartDagre
 	/// <summary>The detector id of the class diagram, which the same renderer draws.</summary>
 	public const string ClassDiagramType = "classDiagram";
 
+	/// <summary>The detector id of the entity relationship diagram, which the same renderer draws.</summary>
+	public const string ErDiagramType = "er";
+
 	public FlowchartDagre(FlowchartMeasure measure, string diagramType, double titleTopMargin, double titleBottomMargin)
 	{
 		_measure = measure;
-		// shouldMergeSelfLoopSegments: flowchart-v2, stateDiagram and classDiagram among the types STM draws, not flowchart-elk.
-		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType or ClassDiagramType;
+		// shouldMergeSelfLoopSegments: flowchart-v2, stateDiagram, classDiagram and er among the types STM draws, not flowchart-elk.
+		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType or ClassDiagramType or ErDiagramType;
 		_titleTopMargin = titleTopMargin;
 		_titleTotalMargin = titleTopMargin + titleBottomMargin;
 	}
@@ -729,7 +732,7 @@ internal sealed class FlowchartDagre
 					Labels = node.Labels,
 					NodeStyles = nodeStyles,
 					LabelStyles = labelStyles,
-					ColorId = node.Shape is "collapsedGroup" or "classBox" ? ColorId(node) : null,
+					ColorId = node.Shape is "collapsedGroup" or "classBox" or "erBox" ? ColorId(node) : null,
 					Icon = node.Vertex?.Icon,
 					IconColor = node.Vertex?.Icon is null ? null : FlowchartStyles.StyleValue(node.CssCompiledStyles, node.CssStyles, "stroke"),
 					Image = node.Vertex?.Image,
