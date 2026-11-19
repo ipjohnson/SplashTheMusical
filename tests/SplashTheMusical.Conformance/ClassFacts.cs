@@ -95,6 +95,69 @@ internal static class ClassFacts
 		}
 	}
 
+	/// <summary>
+	/// The extractor's class boxes from the module's layout: each class by its id, a namespace as a group, a note by its
+	/// text, leaving out the lollipops' interfaces, and each relation and its label by the names of its ends, leaving
+	/// out a note's edge. The canvas is the viewBox.
+	/// </summary>
+	public static string Boxes(List<string> boxes, ClassDocument document, MermaidConfig config, ClassLayout layout)
+	{
+		var data = ClassData.From(document);
+		var html = config.HtmlLabels ?? true;
+		var interfaces = data.Interfaces.ToDictionary(i => i.Id, i => "()" + Decode(i.Label), StringComparer.Ordinal);
+		var notes = data.Notes.ToDictionary(n => n.Id, n => n.Text, StringComparer.Ordinal);
+		string Name(string id) => interfaces.GetValueOrDefault(id) ?? id;
+		var used = new Dictionary<string, int>(StringComparer.Ordinal);
+		void Add(string kind, string name, FlowchartBox box)
+		{
+			// The extractor's norm: runs of white space, such as a class name's line breaks, as one space.
+			name = string.Join(' ', name.Split((char[])[' ', '\t', '\n', '\r', '\f', '\v'], StringSplitOptions.RemoveEmptyEntries));
+			var count = used[kind + "\t" + name] = used.GetValueOrDefault(kind + "\t" + name) + 1;
+			boxes.Add(StmFactsProvider.Box(kind, count > 1 ? $"{name} #{count}" : name, box.X, box.Y, box.Width, box.Height));
+		}
+
+		var all = layout.Boxes();
+		foreach (var box in all.Where(b => b.Kind is "group" or "node"))
+		{
+			if (box.Kind == "group")
+			{
+				Add("namespace", box.Name, box);
+			}
+			else if (notes.TryGetValue(box.Name, out var text))
+			{
+				var shown = FlowchartLabels.Text(text, FlowchartLabelType.Markdown, html);
+				Add("note", shown.Length > 0 ? shown : Decode(text), box);
+			}
+			else if (!interfaces.ContainsKey(box.Name))
+			{
+				Add("class", box.Name, box);
+			}
+		}
+
+		foreach (var box in all.Where(b => b.Kind is "edge" or "edge-label"))
+		{
+			var name = box.Name;
+			var hash = name.LastIndexOf(" #", StringComparison.Ordinal);
+			if (hash > 0 && int.TryParse(name.AsSpan(hash + 2), System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out _))
+			{
+				name = name[..hash];
+			}
+
+			var arrow = name.IndexOf(" --> ", StringComparison.Ordinal);
+			var start = name[..arrow];
+			var end = name[(arrow + 5)..];
+			if (notes.ContainsKey(start) || notes.ContainsKey(end))
+			{
+				continue;
+			}
+
+			Add(box.Kind == "edge" ? "relation" : "relation-label", Name(start) + " --> " + Name(end), box);
+		}
+
+		var viewBox = layout.ViewBox!.Value;
+		return string.Join('\t', "canvas", StmFactsProvider.Number(viewBox.X), StmFactsProvider.Number(viewBox.Y), StmFactsProvider.Number(viewBox.Width), StmFactsProvider.Number(viewBox.Height));
+	}
+
 	private static string End(ClassRelationEnd end) => end switch
 	{
 		ClassRelationEnd.Aggregation => "diamond",

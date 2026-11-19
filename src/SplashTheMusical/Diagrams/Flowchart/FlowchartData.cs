@@ -81,6 +81,9 @@ internal sealed class FlowNode
 	/// <summary>A state's descriptions, which <c>rectWithTitle</c> draws under its label.</summary>
 	public IReadOnlyList<string> Description { get; init; } = [];
 
+	/// <summary>A class's annotation, name, members and methods, which <c>classBox</c> draws, or <c>null</c>.</summary>
+	public Class.ClassBoxContent? ClassBox { get; init; }
+
 	/// <summary>The labels of a shape that draws more than one, each with the top left corner of its box, or <c>null</c>.</summary>
 	public IReadOnlyList<(FlowchartLabelBox Box, double X, double Y)>? Labels { get; set; }
 
