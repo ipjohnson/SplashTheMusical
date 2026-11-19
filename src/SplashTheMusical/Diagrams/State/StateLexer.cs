@@ -1,5 +1,6 @@
 // Upstream grammar: packages/mermaid/src/diagrams/state/parser/stateDiagram.jison
 using System.Buffers;
+using System.Runtime.CompilerServices;
 using SplashTheMusical.Parsing;
 
 namespace SplashTheMusical.Diagrams.State;
@@ -110,6 +111,9 @@ internal ref struct StateLexer
 	private PooledList<byte> _conditions;
 	private int _at;
 	private bool _done;
+
+	// The end of a line whose rest, from an earlier position, holds no "direction", so no later position on it does.
+	private int _noDirectionBefore;
 
 	private StateLexer(ReadOnlySpan<char> text)
 	{
@@ -705,7 +709,10 @@ internal ref struct StateLexer
 			return Skip(comment);
 		}
 
-		var marker = Marker(rest, "<<fork>>", StateTokenKind.Fork)
+		var line = rest[..LineLength(rest)];
+		var marker = line.IndexOf("<<", StringComparison.Ordinal) < 0 && line.IndexOf("[[", StringComparison.Ordinal) < 0
+			? null
+			: Marker(rest, "<<fork>>", StateTokenKind.Fork)
 			?? Marker(rest, "<<join>>", StateTokenKind.Join)
 			?? Marker(rest, "<<choice>>", StateTokenKind.Choice)
 			?? Marker(rest, "[[fork]]", StateTokenKind.Fork)
@@ -860,12 +867,18 @@ internal ref struct StateLexer
 	/// which may cross lines, then the direction and the rest of its line. <c>.*</c> takes the last such
 	/// <c>direction</c>. Returns the length and which direction, 0 to 3 in that order.
 	/// </summary>
-	private static int DirectionRule(ReadOnlySpan<char> rest, out byte direction)
+	private int DirectionRule(ReadOnlySpan<char> rest, out byte direction)
 	{
+		direction = 0;
+		if (_at < _noDirectionBefore)
+		{
+			return 0;
+		}
+
 		var line = rest[..LineLength(rest)];
 		if (line.IndexOf("direction", StringComparison.OrdinalIgnoreCase) < 0)
 		{
-			direction = 0;
+			_noDirectionBefore = _at + line.Length;
 			return 0;
 		}
 
@@ -1012,10 +1025,17 @@ internal ref struct StateLexer
 	}
 
 	/// <summary>A literal and, as jison adds after a rule that ends in a letter, a word boundary.</summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static bool Keyword(ReadOnlySpan<char> rest, string keyword) =>
 		StartsWith(rest, keyword) && (rest.Length == keyword.Length || !IsWordChar(rest[keyword.Length]));
 
-	private static bool StartsWith(ReadOnlySpan<char> rest, string text) => rest.StartsWith(text, StringComparison.OrdinalIgnoreCase);
+	// The first character is compared first. Two ASCII characters equal ignoring case are equal after | 0x20, and a
+	// non-ASCII one, which may fold to ASCII, goes to the full comparison.
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private static bool StartsWith(ReadOnlySpan<char> rest, string text) =>
+		rest.Length >= text.Length
+		&& (rest[0] >= '\u0080' || (rest[0] | 0x20) == (text[0] | 0x20))
+		&& rest.StartsWith(text, StringComparison.OrdinalIgnoreCase);
 
 	private static int NotAny(ReadOnlySpan<char> rest, char stop)
 	{
@@ -1038,6 +1058,7 @@ internal ref struct StateLexer
 
 	private static readonly SearchValues<char> LineEnds = SearchValues.Create(['\n', '\r', (char)0x2028, (char)0x2029]);
 
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static int Spaces(ReadOnlySpan<char> rest)
 	{
 		var at = 0;

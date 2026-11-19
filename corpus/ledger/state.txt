@@ -1,5 +1,9 @@
 # The parity ledger of state. corpus/ledger/README.md describes it.
-bug #13
+bug #166
+e2e-state-diagram-nightly-check-should-render-a-transition-descriptions-with-new-lines	L3
+e2e-state-diagram-v2-nightly-check-v2-should-render-a-transition-descriptions-with-new-lines	L3
+mermaider-rfc-migration-lifecycle	L3
+bug #25
 docs-stateDiagram-001	L3
 docs-stateDiagram-002	L3
 docs-stateDiagram-003	L3
@@ -41,7 +45,6 @@ e2e-state-diagram-nightly-check-should-render-a-simple-state-diagrams	L3
 e2e-state-diagram-nightly-check-should-render-a-simple-state-diagrams-2	L3
 e2e-state-diagram-nightly-check-should-render-a-state-with-a-note	L3
 e2e-state-diagram-nightly-check-should-render-a-state-with-on-the-left-side-when-so-specified	L3
-e2e-state-diagram-nightly-check-should-render-a-transition-descriptions-with-new-lines	L3
 e2e-state-diagram-nightly-check-simplest-composite-state	L3
 e2e-state-diagram-nightly-check-transitions-with-labels-neo-look-neo-dark-theme	L3
 e2e-state-diagram-nightly-check-transitions-with-labels-neo-look-neo-theme	L3
@@ -137,7 +140,6 @@ e2e-state-diagram-v2-nightly-check-v2-should-render-a-state-with-a-note-together
 e2e-state-diagram-v2-nightly-check-v2-should-render-a-state-with-on-the-left-side-when-so-specified	L3
 e2e-state-diagram-v2-nightly-check-v2-should-render-a-state-with-states-in-it	L3
 e2e-state-diagram-v2-nightly-check-v2-should-render-a-states-with-descriptions-including-multi-line-descriptions	L3
-e2e-state-diagram-v2-nightly-check-v2-should-render-a-transition-descriptions-with-new-lines	L3
 e2e-state-diagram-v2-nightly-check-v2-should-render-forks-and-joins	L3
 e2e-state-diagram-v2-nightly-check-v2-should-render-forks-in-composite-states	L3
 e2e-state-diagram-v2-nightly-check-v2-should-render-multiple-composite-states	L3
@@ -161,12 +163,12 @@ mermaider-compat-state-basic	L3
 mermaider-compat-state-failure-retry	L3
 mermaider-compat-state-linear-flow	L3
 mermaider-compat-state-multiple-end-states	L3
+mermaider-compat-state-multiple-self-loops	L2
 mermaider-compat-state-multiple-self-loops	L3
 mermaider-compat-state-self-loop	L3
 mermaider-compat-state-start-end	L3
 mermaider-i81-nested-a	L3
 mermaider-i81-nested-b	L3
-mermaider-rfc-migration-lifecycle	L3
 mermaider-spec-state-branching-transitions	L3
 mermaider-spec-state-choice-pseudostate	L3
 mermaider-spec-state-composite-state	L3
@@ -247,8 +249,6 @@ parser-statediagram-v2-029	L3
 parser-statediagram-v2-030	L3
 parser-statenoteedge-001	L3
 parser-statenotenode-001	L3
-bug #25
-mermaider-compat-state-multiple-self-loops	L2
 by-design
 docs-stateDiagram-017	L2
 e2e-state-diagram-nightly-check-dark-theme	L1
