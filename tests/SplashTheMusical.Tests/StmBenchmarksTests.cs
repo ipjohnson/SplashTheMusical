@@ -9,7 +9,7 @@ public class StmBenchmarksTests
 	public void EveryStageRunsOnTheBenchmarkCasesOfItsTypes()
 	{
 		var cases = StmBenchmarks.Cases().ToList();
-		cases.Should().Contain(["flowchart-small/parse", "flowchart-medium/layout", "flowchart-large/render", "flowchart-large/write", "state-small/parse", "state-medium/layout", "state-large/render", "state-large/write"]);
+		cases.Should().Contain(["flowchart-small/parse", "flowchart-medium/layout", "flowchart-large/render", "flowchart-large/write", "state-small/parse", "state-medium/layout", "state-large/render", "state-large/write", "class-small/parse", "class-medium/layout", "class-large/render", "class-large/write"]);
 		foreach (var id in cases)
 		{
 			var benchmark = new StmBenchmarks { Case = id };

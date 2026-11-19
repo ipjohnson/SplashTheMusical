@@ -107,6 +107,12 @@ internal sealed class FlowEdge
 
 	public double MinLen { get; init; } = 1;
 
+	/// <summary>
+	/// <c>labelpos</c>: <c>c</c>, which the db gives every edge, or dagre's default <c>r</c> for an edge without one,
+	/// as a class note's is. dagre widens an edge whose label is not centred by the label offset.
+	/// </summary>
+	public string LabelPos { get; init; } = "c";
+
 	public string ArrowTypeStart { get; set; } = "none";
 
 	public string ArrowTypeEnd { get; set; } = "arrow_point";

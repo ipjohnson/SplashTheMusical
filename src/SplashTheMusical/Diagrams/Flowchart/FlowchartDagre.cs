@@ -608,7 +608,7 @@ internal sealed class FlowchartDagre
 		foreach (var e in g.Edges())
 		{
 			var edge = g.Edge(e);
-			edges.Add(new DagreEdgeInput(g.Name(g.EdgeV(e)), g.Name(g.EdgeW(e)), g.EdgeName(e), edge.MinLen, 1, edge.Width, edge.Height, 10, "c"));
+			edges.Add(new DagreEdgeInput(g.Name(g.EdgeV(e)), g.Name(g.EdgeW(e)), g.EdgeName(e), edge.MinLen, 1, edge.Width, edge.Height, 10, edge.LabelPos));
 		}
 
 		var input = new DagreInput(
