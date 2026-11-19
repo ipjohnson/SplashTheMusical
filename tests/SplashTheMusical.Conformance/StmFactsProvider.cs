@@ -95,7 +95,9 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 		else if (document is ErDocument er)
 		{
-			ErFacts.Add(facts, er);
+			ErFacts.Add(facts, er, svg);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = ErFacts.Boxes(boxes, er, new ErModule().Layout(er, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
