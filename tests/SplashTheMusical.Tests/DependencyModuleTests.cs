@@ -26,7 +26,7 @@ public class DependencyModuleTests
 		provider.GetRequiredService<IMermaidRenderer>().Should().BeSameAs(mermaid);
 		provider.GetRequiredService<IMermaidWriter>().Should().BeSameAs(mermaid);
 		provider.GetRequiredService<ITextMeasurer>().Should().BeSameAs(TextMeasurer.Default);
-		provider.GetRequiredService<IIconProvider>().Should().BeSameAs(NoIcons.Instance);
+		provider.GetRequiredService<IIconProvider>().Should().BeSameAs(IconRegistry.Default);
 		provider.GetRequiredService<IThemeProvider>().Should().BeSameAs(MermaidThemes.Default);
 		provider.GetServices<IDiagramModule>().Should().Equal(Mermaid.CoreModules);
 		provider.GetRequiredService<MermaidOptions>().Should().Be(MermaidOptions.Default);

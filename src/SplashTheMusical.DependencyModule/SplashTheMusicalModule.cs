@@ -25,7 +25,7 @@ public partial class SplashTheMusicalModule : IServiceCollectionConfiguration
 	{
 		services.TryAddSingleton<MermaidOptions>(CreateOptions);
 		services.TryAddSingleton<ITextMeasurer>(TextMeasurer.Default);
-		services.TryAddSingleton<IIconProvider>(NoIcons.Instance);
+		services.TryAddSingleton<IIconProvider>(IconRegistry.Default);
 		services.TryAddSingleton<IThemeProvider>(MermaidThemes.Default);
 		// TryAddEnumerable keeps one registration per implementation type, and two core modules share FlowchartModule.
 		foreach (var module in Mermaid.CoreModules)

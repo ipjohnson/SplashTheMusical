@@ -38,7 +38,7 @@ public sealed class Mermaid : IMermaid
 	/// Diagram modules besides <see cref="CoreModules"/>. A module of a type a core module has replaces it.
 	/// </param>
 	/// <param name="textMeasurer">Measures label text. Default: <see cref="TextMeasurer.Default"/>.</param>
-	/// <param name="icons">The icons diagrams can name. Default: none.</param>
+	/// <param name="icons">The icons diagrams can name. Default: <see cref="IconRegistry.Default"/>.</param>
 	/// <param name="layoutEngines">The graph layouts a <c>layout</c> config can name. Default: none.</param>
 	/// <param name="themes">The themes a <c>theme</c> config can name. Default: <see cref="MermaidThemes.Default"/>.</param>
 	public Mermaid(
@@ -61,7 +61,7 @@ public sealed class Mermaid : IMermaid
 
 		_modules = byType.ToFrozenDictionary(StringComparer.Ordinal);
 		_textMeasurer = textMeasurer ?? TextMeasurer.Default;
-		_icons = icons ?? NoIcons.Instance;
+		_icons = icons ?? IconRegistry.Default;
 		_layoutEngines = layoutEngines is null ? [] : Array.AsReadOnly([.. layoutEngines]);
 		_themes = themes ?? MermaidThemes.Default;
 	}
@@ -230,7 +230,7 @@ public sealed class Mermaid : IMermaid
 
 		var site = options?.SiteConfig is { } siteConfig ? WithLockedKeys(siteConfig, _options.LockedKeys) : _siteConfig;
 		var config = MermaidConfig.Resolve(site, document, document.DiagramType, _themes);
-		var context = new DiagramRenderContext(config, id, _textMeasurer, _icons, _layoutEngines, limits);
+		var context = new DiagramRenderContext(config, id, _textMeasurer, _icons, _layoutEngines, limits, options?.AllowRemoteImages ?? _options.AllowRemoteImages, options?.Diagnostics);
 		var layout = module.Layout(document, context);
 
 		var svg = new SvgWriter(output);

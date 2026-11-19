@@ -131,6 +131,82 @@ public sealed class SvgWriter
 		WriteAttribute(name, (ReadOnlySpan<char>)text[..JsNumber.Format(value, text)]);
 	}
 
+	/// <summary>
+	/// Writes an empty <c>image</c> element with <paramref name="href"/> and <c>preserveAspectRatio="none"</c>, as
+	/// mermaid's <c>imageSquare</c> draws it. It is the one element the writer gives an <c>href</c>, and the one it
+	/// writes outside <see cref="SvgValues.WriterElements"/>.
+	/// </summary>
+	/// <exception cref="ArgumentException"><paramref name="href"/> is not <see cref="IsDrawableImage">drawable</see>.</exception>
+	/// <exception cref="InvalidOperationException">No element is open.</exception>
+	internal void WriteImage(string href, bool allowRemote, double width, double height, string transform)
+	{
+		ArgumentNullException.ThrowIfNull(href);
+		ArgumentNullException.ThrowIfNull(transform);
+		if (_depth == 0)
+		{
+			throw new InvalidOperationException("An image must be inside an element.");
+		}
+
+		if (!IsDrawableImage(href, allowRemote))
+		{
+			throw new ArgumentException("The image is not a data URI the sanitizer keeps, or an allowed remote URL.", nameof(href));
+		}
+
+		CloseStartTag();
+		_output.Write("<image href=\""u8);
+		WriteEscaped(href, AttributeEscapes);
+		_output.Write("\""u8);
+		if (_depth == _elements.Length)
+		{
+			Array.Resize(ref _elements, _depth * 2);
+		}
+
+		_elements[_depth++] = "image";
+		_startTagOpen = true;
+		_attributeCount = 0;
+		WriteAttribute("width", width);
+		WriteAttribute("height", height);
+		WriteAttribute("preserveAspectRatio", "none");
+		WriteAttribute("transform", transform);
+		EndElement();
+	}
+
+	/// <summary>
+	/// Whether <see cref="WriteImage"/> draws <paramref name="href"/>: a base64 PNG, or SVG that passes the sanitizer,
+	/// as a <c>data:</c> URI, or, when <paramref name="allowRemote"/>, an absolute <c>http</c> or <c>https</c> URL.
+	/// </summary>
+	internal static bool IsDrawableImage(string href, bool allowRemote) =>
+		SvgValues.DecodeImageDataUri(href, svg => !SvgSanitizer.Sanitize(svg).HasViolations) is not null
+		|| (allowRemote && IsRemoteImage(href));
+
+	/// <summary>
+	/// An absolute <c>http</c> or <c>https</c> URL with a host, without white space or control characters. It is checked
+	/// by hand, because <see cref="Uri"/> would add System.Private.Uri to the native AOT <c>stm</c>.
+	/// </summary>
+	internal static bool IsRemoteImage(string href)
+	{
+		if (href.Length > 2048 || href.AsSpan().ContainsAny(" \t\r\n\"'<>\\`{}|^") || href.Any(char.IsControl))
+		{
+			return false;
+		}
+
+		var rest = href.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ? href.AsSpan(7)
+			: href.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ? href.AsSpan(8)
+			: [];
+		var end = rest.IndexOfAny("/?#");
+		var authority = end < 0 ? rest : rest[..end];
+		var at = authority.LastIndexOf('@');
+		var hostAndPort = authority[(at + 1)..];
+		var close = hostAndPort.IndexOf(']');
+		var colon = !hostAndPort.StartsWith('[') ? hostAndPort.LastIndexOf(':')
+			: close >= 0 && close + 1 < hostAndPort.Length && hostAndPort[close + 1] == ':' ? close + 1
+			: -1;
+		var host = colon < 0 ? hostAndPort : hostAndPort[..colon];
+		var port = colon < 0 ? [] : hostAndPort[(colon + 1)..];
+		return host.Length > 0 && !host.ContainsAny("@%") && (host[0] == '[' ? host[^1] == ']' : !host.ContainsAny("[]:"))
+			&& port.Length <= 5 && !port.ContainsAnyExcept("0123456789");
+	}
+
 	/// <summary>Writes text inside the current element.</summary>
 	/// <exception cref="InvalidOperationException">No element is open.</exception>
 	public void WriteText(ReadOnlySpan<char> text)
