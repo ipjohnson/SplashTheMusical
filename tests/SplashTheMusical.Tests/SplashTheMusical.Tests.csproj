@@ -12,6 +12,8 @@
     <PackageReference Include="TUnit" />
     <PackageReference Include="AwesomeAssertions" />
     <PackageReference Include="CsCheck" />
+    <PackageReference Include="VerificationGlue" />
+    <PackageReference Include="VerificationGlue.Mocks" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>

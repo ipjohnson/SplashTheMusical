@@ -5,24 +5,24 @@ namespace SplashTheMusical.Conformance;
 public class GrammarTests
 {
 	[Test]
-	public async Task SamplesTextAPatternMatches()
+	public void SamplesTextAPatternMatches()
 	{
 		static string Sample(string pattern, bool jison, int index) => PatternSampler.Parse(pattern, jison).Sample(FuzzRandom.For(11, index));
 
 		for (var i = 0; i < 20; i++)
 		{
 			var call = Sample("\"call\"[\\s]+", true, i);
-			await Assert.That(call.StartsWith("call", StringComparison.Ordinal) && call.Length > 4 && call[4..].All(char.IsWhiteSpace)).IsTrue();
-			await Assert.That(Sample("[0-9]+", false, i).All(char.IsAsciiDigit)).IsTrue();
-			await Assert.That(Sample("[^\"\\s]+", false, i).Any(c => c == '"' || char.IsWhiteSpace(c))).IsFalse();
-			await Assert.That(Sample("(?!x)a{2}\\u0041$", false, i)).IsEqualTo("aaA");
-			await Assert.That(Sample("(?:ab|cd)", false, i) is "ab" or "cd").IsTrue();
-			await Assert.That(Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0]).IsEqualTo('{');
+			Verify(call.StartsWith("call", StringComparison.Ordinal) && call.Length > 4 && call[4..].All(char.IsWhiteSpace));
+			Verify(Sample("[0-9]+", false, i).All(char.IsAsciiDigit));
+			Verify(!(Sample("[^\"\\s]+", false, i).Any(c => c == '"' || char.IsWhiteSpace(c))));
+			Verify(Sample("(?!x)a{2}\\u0041$", false, i) == "aaA", $"was {(Sample("(?!x)a{2}\\u0041$", false, i))}");
+			Verify(Sample("(?:ab|cd)", false, i) is "ab" or "cd");
+			Verify(Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0] == '{', $"was {Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0]}");
 		}
 	}
 
 	[Test]
-	public async Task EmitsSentencesOfAJisonGrammarWithTheTextOfTheStatesAroundATokenThatNeedsThem()
+	public void EmitsSentencesOfAJisonGrammarWithTheTextOfTheStatesAroundATokenThatNeedsThem()
 	{
 		const string Text = """
 			%lex
@@ -51,15 +51,15 @@ public class GrammarTests
 
 		var sentences = Enumerable.Range(0, 100).Select(i => grammar.Sentence(FuzzRandom.For(3, i))).ToList();
 
-		await Assert.That(sentences.All(s => s.StartsWith("graph", StringComparison.Ordinal))).IsTrue();
-		await Assert.That(sentences.All(s => s.Count(c => c == '"') % 2 == 0)).IsTrue();
-		await Assert.That(sentences.Any(s => s.Contains(" --> ", StringComparison.Ordinal))).IsTrue();
-		await Assert.That(sentences.Any(s => s.Contains(" & ", StringComparison.Ordinal))).IsTrue();
-		await Assert.That(sentences.Any(s => s.Contains('"', StringComparison.Ordinal))).IsTrue();
+		Verify(sentences.All(s => s.StartsWith("graph", StringComparison.Ordinal)));
+		Verify(sentences.All(s => s.Count(c => c == '"') % 2 == 0));
+		Verify(sentences.Any(s => s.Contains(" --> ", StringComparison.Ordinal)));
+		Verify(sentences.Any(s => s.Contains(" & ", StringComparison.Ordinal)));
+		Verify(sentences.Any(s => s.Contains('"', StringComparison.Ordinal)));
 	}
 
 	[Test]
-	public async Task EmitsSentencesOfALangiumGrammarAndTheGrammarsItImports()
+	public void EmitsSentencesOfALangiumGrammarAndTheGrammarsItImports()
 	{
 		var folder = Directory.CreateTempSubdirectory("stm-langium-").FullName;
 		try
@@ -85,11 +85,11 @@ public class GrammarTests
 
 			var sentences = Enumerable.Range(0, 50).Select(i => grammar.Sentence(FuzzRandom.For(5, i))).ToList();
 
-			await Assert.That(sentences.All(s => s.Trim().StartsWith("main", StringComparison.Ordinal))).IsTrue();
-			await Assert.That(sentences.Any(s => s.Contains(" : ", StringComparison.Ordinal))).IsTrue();
+			Verify(sentences.All(s => s.Trim().StartsWith("main", StringComparison.Ordinal)));
+			Verify(sentences.Any(s => s.Contains(" : ", StringComparison.Ordinal)));
 			var item = sentences.SelectMany(s => s.Split('\n')).First(l => l.Contains(':', StringComparison.Ordinal)).Trim().Split(' ');
-			await Assert.That(item[0].All(char.IsAsciiLetterLower)).IsTrue();
-			await Assert.That(item[2].All(char.IsAsciiDigit)).IsTrue();
+			Verify(item[0].All(char.IsAsciiLetterLower));
+			Verify(item[2].All(char.IsAsciiDigit));
 		}
 		finally
 		{
@@ -99,7 +99,7 @@ public class GrammarTests
 
 	/// <summary>With <see cref="FuzzRunTests.MermaidVariable"/> set, STM must accept some sentences of each fuzzed type's grammar.</summary>
 	[Test]
-	public async Task EmitsSentencesStmAcceptsFromEachUpstreamGrammarWhenAsked()
+	public void EmitsSentencesStmAcceptsFromEachUpstreamGrammarWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(FuzzRunTests.MermaidVariable) is not { Length: > 0 } checkout)
 		{
@@ -113,17 +113,17 @@ public class GrammarTests
 			var accepted = Enumerable.Range(0, 300).Count(i => stm.TryParse(grammar.Sentence(FuzzRandom.For(1, i)), out _, out _));
 			Console.WriteLine($"{type}: STM accepts {accepted} of 300 sentences");
 
-			await Assert.That(accepted).IsGreaterThan(0);
+			Verify(accepted > 0, $"was {accepted}");
 		}
 	}
 
 	[Test]
-	public async Task FindsTheGrammarOfEachFuzzedTypeInItsParserSources()
+	public void FindsTheGrammarOfEachFuzzedTypeInItsParserSources()
 	{
 		var root = CorpusCheck.RepositoryRoot;
 
-		await Assert.That(FuzzTypes.GrammarPath(root, "flowchart")).IsEqualTo("packages/mermaid/src/diagrams/flowchart/parser/flow.jison");
-		await Assert.That(FuzzTypes.GrammarPath(root, "info")).IsEqualTo("packages/parser/src/language/info/info.langium");
-		await Assert.That(FuzzTypes.GrammarPath(root, "pie")).IsNull();
+		Verify(FuzzTypes.GrammarPath(root, "flowchart") == "packages/mermaid/src/diagrams/flowchart/parser/flow.jison", $"was {FuzzTypes.GrammarPath(root, "flowchart")}");
+		Verify(FuzzTypes.GrammarPath(root, "info") == "packages/parser/src/language/info/info.langium", $"was {FuzzTypes.GrammarPath(root, "info")}");
+		Verify(FuzzTypes.GrammarPath(root, "pie") is null, $"was {FuzzTypes.GrammarPath(root, "pie")}");
 	}
 }

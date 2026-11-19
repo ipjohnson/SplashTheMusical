@@ -13,7 +13,7 @@ public class PreambleTests
 	private const string Prefix = "preamble-";
 
 	[Test]
-	public async Task EveryCaseReadsTheTitleAndConfigTheOracleRecorded()
+	public void EveryCaseReadsTheTitleAndConfigTheOracleRecorded()
 	{
 		var checkedCases = 0;
 		var problems = new List<string>();
@@ -50,12 +50,12 @@ public class PreambleTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsGreaterThanOrEqualTo(1546);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(checkedCases >= 1546, $"was {checkedCases}");
 	}
 
 	[Test]
-	public async Task EveryCaseWithAPreambleRoundTrips()
+	public void EveryCaseWithAPreambleRoundTrips()
 	{
 		var checkedCases = 0;
 		var problems = new List<string>();
@@ -85,8 +85,8 @@ public class PreambleTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsGreaterThanOrEqualTo(1606);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(checkedCases >= 1606, $"was {checkedCases}");
 	}
 
 	/// <summary>The source as the oracle reads it, keeping a byte order mark, which mermaid.js sees as a space.</summary>

@@ -2,11 +2,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <!-- The native runner checks the corpus with the same tests as dotnet test. AwesomeAssertions is not trim safe, so
-         these tests use TUnit's assertions. -->
+         these tests use VerificationGlue's checks, whose messages are generated at compile time. -->
     <PublishAot>true</PublishAot>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="TUnit" />
+    <PackageReference Include="VerificationGlue" />
+    <PackageReference Include="VerificationGlue.Mocks" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />

@@ -5,7 +5,7 @@ public class OverlapLintTests
 	private static readonly Rect Canvas = new(0, 0, 500, 500);
 
 	[Test]
-	public async Task EachCheckFindsItsOverlap()
+	public void EachCheckFindsItsOverlap()
 	{
 		Box[] boxes =
 		[
@@ -21,7 +21,7 @@ public class OverlapLintTests
 
 		var lines = OverlapLint.Run("class", Canvas, boxes).Select(f => f.Line).Order(StringComparer.Ordinal);
 
-		await LineAssert.Equal(
+		LineAssert.Equal(
 			lines,
 			"overlap\tcanvas\tnode class 'far'",
 			"overlap\tgroup-overlap\tgroup namespace 'M' / group namespace 'N'",
@@ -33,7 +33,7 @@ public class OverlapLintTests
 	}
 
 	[Test]
-	public async Task NestedNodesNestedGroupsTouchingBoxesAndUnlintedKindsAreNotOverlaps()
+	public void NestedNodesNestedGroupsTouchingBoxesAndUnlintedKindsAreNotOverlaps()
 	{
 		Box[] boxes =
 		[
@@ -44,23 +44,25 @@ public class OverlapLintTests
 			NewBox("relation", "A --> B", 20, 20, 150, 40),
 		];
 
-		await Assert.That(OverlapLint.Run("class", Canvas, boxes)).IsEmpty();
-		await Assert.That(OverlapLint.Run("venn", Canvas, [NewBox("set", "A", 0, 0, 10, 10), NewBox("set", "B", 5, 5, 10, 10)])).IsEmpty();
+		var classFindings = OverlapLint.Run("class", Canvas, boxes);
+		Verify(classFindings.Count == 0, $"{string.Join('\n', classFindings)}");
+		var vennFindings = OverlapLint.Run("venn", Canvas, [NewBox("set", "A", 0, 0, 10, 10), NewBox("set", "B", 5, 5, 10, 10)]);
+		Verify(vennFindings.Count == 0, $"{string.Join('\n', vennFindings)}");
 	}
 
 	[Test]
-	public async Task OnlyKeepsTheFindingsTheOtherSideLacksAsAMultiset()
+	public void OnlyKeepsTheFindingsTheOtherSideLacksAsAMultiset()
 	{
 		var a = new Finding(OverlapLint.LabelOverNode, "x");
 		var b = new Finding(OverlapLint.NodeOverNode, "y");
 
 		var only = OverlapLint.Only([a, a, b], [a]);
 
-		await LineAssert.Equal(only.Select(f => f.Line), a.Line, b.Line);
+		LineAssert.Equal(only.Select(f => f.Line), a.Line, b.Line);
 	}
 
 	[Test]
-	public async Task EveryCorpusTypeHasRolesAndEveryRoleNamesAKindItsBoxesUse()
+	public void EveryCorpusTypeHasRolesAndEveryRoleNamesAKindItsBoxesUse()
 	{
 		var corpus = CorpusCheck.CorpusRoot;
 		var kinds = new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
@@ -91,7 +93,7 @@ public class OverlapLintTests
 			}
 		}
 
-		await Assert.That(problems).IsEmpty();
+		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
 	}
 
 	private static Box NewBox(string kind, string name, double x, double y, double width, double height) =>

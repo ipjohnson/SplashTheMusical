@@ -46,11 +46,11 @@ public class EdgeMarkerTests
 	};
 
 	[Test]
-	public async Task TheFileIsFromThePinnedMermaid() =>
-		await Assert.That(Lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
+	public void TheFileIsFromThePinnedMermaid() =>
+		Verify(Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {Lines[1]}");
 
 	[Test]
-	public async Task TheDefinitionsAreMermaids()
+	public void TheDefinitionsAreMermaids()
 	{
 		var expected = Lines.Where(line => line.StartsWith("element\t", StringComparison.Ordinal)).ToArray();
 		var actual = new List<string>();
@@ -80,11 +80,11 @@ public class EdgeMarkerTests
 			}
 		}
 
-		await Assert.That(Diff(expected, actual)).IsEmpty();
+		Verify(!Diff(expected, actual).Any(), $"{string.Join('\n', Diff(expected, actual))}");
 	}
 
 	[Test]
-	public async Task EveryArrowTypeGetsMermaidsMarkerId()
+	public void EveryArrowTypeGetsMermaidsMarkerId()
 	{
 		var problems = new List<string>();
 		foreach (var fields in Lines.Select(line => line.Split('\t')).Where(fields => fields[0] == "arrow"))
@@ -99,13 +99,12 @@ public class EdgeMarkerTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal)))
-			.IsEqualTo((EdgeMarkers.ArrowTypes.Length + 4) * 2);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal)) == (EdgeMarkers.ArrowTypes.Length + 4) * 2, $"was {Lines.Count(line => line.StartsWith("arrow\t", StringComparison.Ordinal))}");
 	}
 
 	[Test]
-	public async Task EveryEndTheFactsNameHasAMarker()
+	public void EveryEndTheFactsNameHasAMarker()
 	{
 		var problems = new SortedSet<string>(StringComparer.Ordinal);
 		var seen = new HashSet<string>(StringComparer.Ordinal);
@@ -156,10 +155,10 @@ public class EdgeMarkerTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
 		foreach (var type in new[] { "flowchart-v2", "stateDiagram", "classDiagram", "er" })
 		{
-			await Assert.That(seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal))).IsGreaterThan(1);
+			Verify(seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal)) > 1, $"was {seen.Count(entry => entry.StartsWith(type + " ", StringComparison.Ordinal))}");
 		}
 	}
 

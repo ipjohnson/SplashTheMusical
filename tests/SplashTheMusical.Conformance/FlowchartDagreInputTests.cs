@@ -33,7 +33,7 @@ public class FlowchartDagreInputTests
 	/// look to L2.
 	/// </summary>
 	[Test]
-	public async Task StmHandsDagreTheGraphsMermaidDid()
+	public void StmHandsDagreTheGraphsMermaidDid()
 	{
 		var listed = Listed();
 		var unlisted = new List<string>();
@@ -75,13 +75,13 @@ public class FlowchartDagreInputTests
 		}
 
 		var stale = same.Concat(listed.Keys.Where(name => !File.Exists(Path.Combine(CorpusCheck.CorpusRoot, "flowchart", name + ".dagre.txt"))).Select(name => name + " is not a flowchart case with a dagre record"));
-		await Assert.That(string.Join("\n", unlisted)).IsEqualTo("");
-		await Assert.That(string.Join("\n", stale)).IsEqualTo("");
-		await Assert.That(compared - Listed().Count).IsGreaterThanOrEqualTo(MinimumSame);
+		Verify(!unlisted.Any(), $"{string.Join("\n", unlisted)}");
+		Verify(!stale.Any(), $"{string.Join("\n", stale)}");
+		Verify(compared - Listed().Count >= MinimumSame, $"was {compared - Listed().Count}");
 	}
 
 	[Test]
-	public async Task AGraphEqualsItselfAndNotAGraphWithAnotherNodeSize()
+	public void AGraphEqualsItselfAndNotAGraphWithAnotherNodeSize()
 	{
 		var graph = new DagreInput(
 			new DagreOptions("LR", 50, null, 50, 8, 8),
@@ -89,8 +89,10 @@ public class FlowchartDagreInputTests
 			[new DagreEdgeInput("A", "B", "L_A_B_0", LabelPos: "c")]);
 		var wider = graph with { Nodes = [graph.Nodes[0], graph.Nodes[1] with { Width = 152.5 }] };
 
-		await Assert.That(string.Join("\n", Compare([graph], [graph with { Options = graph.Options with { EdgeSep = 20 } }]))).IsEqualTo("");
-		await Assert.That(string.Join("\n", Compare([graph], [wider]))).IsEqualTo("node-size #0 B 152.5x45, mermaid 152x45");
+		var spaced = graph with { Options = graph.Options with { EdgeSep = 20 } };
+
+		Verify(!Compare([graph], [spaced]).Any(), $"{string.Join("\n", Compare([graph], [spaced]))}");
+		Verify(string.Join("\n", Compare([graph], [wider])) == "node-size #0 B 152.5x45, mermaid 152x45", $"was {string.Join("\n", Compare([graph], [wider]))}");
 	}
 
 	/// <summary>The cases of the list, each with its issue line.</summary>
