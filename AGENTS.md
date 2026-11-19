@@ -230,10 +230,11 @@ Tests may use reflection to check these rules.
 - `tests/SplashTheMusical.Conformance` publishes with native AOT, so its checks are VerificationGlue's `Verify`, `Check`,
   `Throws` and `ThrowsAsync`, which `GlobalUsings.cs` imports from `VerificationGlue.VerifySyntax`. Their messages are
   generated at compile time and are the same under JIT and AOT.
-- A check in a TUnit test body gets VerificationGlue's tier 2 message, which names the condition but none of its values.
-  Put the value in the interpolated message, as in `Verify(cases.Count == 9, $"was {cases.Count}")` and
-  `Verify(!problems.Any(), $"{string.Join('\n', problems)}")`. Pass a message as `$"..."`, because a plain string binds to
-  the condition's text. Compare lines with `LineAssert.Equal`, whose failure names the first differing line with both
-  values. A test with no `await` is a `void` method.
+- Write a check as `Verify(() => cases.Count == 9)`, whose failure lists the value of each part, also in a TUnit test
+  body. Keep `Verify(condition)` when the condition awaits, or when the next lines rely on a null check in it, such as
+  `Verify(accepted!.Accepted)`. A list prints as its type name, so a check on a list of problems joins them in an
+  interpolated message: `Verify(!problems.Any(), $"{string.Join('\n', problems)}")`. Pass a message as `$"..."`, because
+  a plain string binds to the condition's text. Compare lines with `LineAssert.Equal`, whose failure names the first
+  differing line with both values. A test with no `await` is a `void` method.
 - In test files, `Assembly` is ambiguous with TUnit's `HookType.Assembly`. Write `System.Reflection.Assembly`.
 - Code derived from another project is listed in `THIRD-PARTY-NOTICES.md` with its license.
