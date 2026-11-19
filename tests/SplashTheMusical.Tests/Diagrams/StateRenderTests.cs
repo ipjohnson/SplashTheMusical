@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.State;
@@ -27,14 +26,18 @@ public class StateRenderTests
 	public void ACompositeStateIsACompoundNodeThatHoldsItsStates()
 	{
 		// The transition into A crosses Parent's border, so dagre lays out the whole diagram in one graph.
-		var graph = Layout(Composite).DagreInputs.Should().ContainSingle().Subject;
+		var graphs = Layout(Composite).DagreInputs;
+		Verify(graphs.Count == 1);
+		var graph = graphs[0];
 		var parents = graph.Nodes.ToDictionary(node => node.Id, node => node.Parent);
 
-		parents["A"].Should().Be("Parent");
-		parents["B"].Should().Be("Parent");
-		parents["Parent"].Should().BeNull();
-		parents["Idle"].Should().BeNull();
-		graph.Edges.Select(edge => (edge.V, edge.W)).Should().Contain(("A", "B")).And.Contain(("Idle", "A"));
+		Verify(parents["A"] == "Parent");
+		Verify(parents["B"] == "Parent");
+		Verify(parents["Parent"] is null);
+		Verify(parents["Idle"] is null);
+		var edges = graph.Edges.Select(edge => (edge.V, edge.W)).ToList();
+		Verify(edges.Contains(("A", "B")));
+		Verify(edges.Contains(("Idle", "A")));
 	}
 
 	[Test]
@@ -43,11 +46,12 @@ public class StateRenderTests
 		// As in corpus/state/e2e-state-diagram-nightly-check-simplest-composite-state.dagre.txt.
 		var inputs = Layout("stateDiagram\n  state Parent {\n  C\n  }\n").DagreInputs;
 
-		inputs.Should().HaveCount(2);
-		inputs[0].Nodes.Select(node => (node.Id, node.Parent)).Should().Equal(("C", "Parent"), ("Parent", null));
-		inputs[0].Options.RankSep.Should().Be(75);
-		inputs[1].Nodes.Should().ContainSingle().Which.Id.Should().Be("Parent");
-		inputs[1].Nodes[0].Width.Should().BeGreaterThan(inputs[0].Nodes[0].Width);
+		Verify(inputs.Count == 2);
+		SequenceAssert.Equal(inputs[0].Nodes.Select(node => (node.Id, node.Parent)), ("C", "Parent"), ("Parent", null));
+		Verify(Math.Abs((inputs[0].Options.RankSep ?? 0) - 75) <= 1e-9);
+		Verify(inputs[1].Nodes.Count == 1);
+		Verify(inputs[1].Nodes[0].Id == "Parent");
+		Verify(inputs[1].Nodes[0].Width > inputs[0].Nodes[0].Width);
 	}
 
 	[Test]
@@ -56,7 +60,7 @@ public class StateRenderTests
 		// graphlib's setParent refuses the cycle in mermaid.js too. Crash fuzz source 41109 of seed 1.
 		var layout = () => Layout("stateDiagram-v2\n    state P {\n        state P {\n            [*] --> f\n        }\n    }\n");
 
-		layout.Should().Throw<MermaidParseException>().WithMessage("*Setting P as parent of P would create a cycle*");
+		Verify(Throws<MermaidParseException>(() => layout()).Message.Contains("Setting P as parent of P would create a cycle", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -75,10 +79,12 @@ public class StateRenderTests
 
 		var regionOfX = parents["X"];
 		var regionOfP = parents["P"];
-		regionOfX.Should().NotBeNull().And.NotBe("Active");
-		regionOfP.Should().NotBeNull().And.NotBe(regionOfX);
-		parents[regionOfX!].Should().Be("Active");
-		parents[regionOfP!].Should().Be("Active");
+		Verify(regionOfX is not null);
+		Verify(regionOfX != "Active");
+		Verify(regionOfP is not null);
+		Verify(regionOfP != regionOfX);
+		Verify(parents[regionOfX!] == "Active");
+		Verify(parents[regionOfP!] == "Active");
 	}
 
 	[Test]
@@ -90,14 +96,14 @@ public class StateRenderTests
 		foreach (var name in new[] { "node A", "node B" })
 		{
 			var node = boxes[name];
-			node.X.Should().BeGreaterThanOrEqualTo(group.X);
-			node.Y.Should().BeGreaterThanOrEqualTo(group.Y);
-			(node.X + node.Width).Should().BeLessThanOrEqualTo(group.X + group.Width);
-			(node.Y + node.Height).Should().BeLessThanOrEqualTo(group.Y + group.Height);
+			Verify(node.X >= group.X);
+			Verify(node.Y >= group.Y);
+			Verify((node.X + node.Width) <= group.X + group.Width);
+			Verify((node.Y + node.Height) <= group.Y + group.Height);
 		}
 
 		var idle = boxes["node Idle"];
-		(idle.Y + idle.Height <= group.Y || idle.Y >= group.Y + group.Height).Should().BeTrue();
+		Verify((idle.Y + idle.Height <= group.Y || idle.Y >= group.Y + group.Height));
 	}
 
 	[Test]
@@ -118,18 +124,18 @@ public class StateRenderTests
 			  Busy --> [*]
 			"""));
 
-		svg.Should().Contain("aria-roledescription=\"stateDiagram\"");
-		svg.Should().Contain("class=\"outer\"", "a composite state is drawn as roundedWithTitle");
-		svg.Should().Contain("class=\"inner\"");
-		svg.Should().Contain("class=\"divider\"", "a concurrent region is drawn as divider");
-		svg.Should().Contain("fill=\"none\"", "a note's group is drawn as noteGroup");
-		svg.Should().Contain("marker-end=\"url(#mermaid_stateDiagram-barbEnd-margin)\"");
+		Verify(svg.Contains("aria-roledescription=\"stateDiagram\"", StringComparison.Ordinal));
+		Verify(svg.Contains("class=\"outer\"", StringComparison.Ordinal), $"a composite state is drawn as roundedWithTitle");
+		Verify(svg.Contains("class=\"inner\"", StringComparison.Ordinal));
+		Verify(svg.Contains("class=\"divider\"", StringComparison.Ordinal), $"a concurrent region is drawn as divider");
+		Verify(svg.Contains("fill=\"none\"", StringComparison.Ordinal), $"a note's group is drawn as noteGroup");
+		Verify(svg.Contains("marker-end=\"url(#mermaid_stateDiagram-barbEnd-margin)\"", StringComparison.Ordinal));
 
 		// A state with two descriptions is a rectWithTitle whose title is the first description, so its id is not drawn.
-		svg.Should().NotContain(">Idle<");
+		Verify(!svg.Contains(">Idle<", StringComparison.Ordinal));
 		foreach (var text in new[] { "waiting", "for work", "Busy", "start", "a note" })
 		{
-			svg.Should().Contain(">" + text + "<");
+			Verify(svg.Contains(">" + text + "<", StringComparison.Ordinal));
 		}
 	}
 

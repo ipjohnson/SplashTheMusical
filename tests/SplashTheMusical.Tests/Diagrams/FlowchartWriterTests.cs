@@ -1,4 +1,4 @@
-using AwesomeAssertions;
+using SplashTheMusical.Tests.Generation;
 using SplashTheMusical.Diagrams.Flowchart;
 
 namespace SplashTheMusical.Tests.Diagrams;
@@ -21,7 +21,7 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(Mermaid.Default.Parse(Source));
 
-		written.Should().Be("""
+		Verify(written == """
 			flowchart LR
 			    A[Start]
 			    B{Is it?}
@@ -76,8 +76,8 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(document);
 
-		Mermaid.Default.TryParse(written, out var again, out var diagnostics).Should().BeTrue(string.Join("; ", diagnostics) + "\n" + written);
-		again.Should().BeEquivalentTo(document, options => options.WithStrictOrdering(), written);
+		Verify(Mermaid.Default.TryParse(written, out var again, out var diagnostics), $"{string.Join("; ", diagnostics)}\n{written}");
+		SequenceAssert.Equal(DocumentDump.Lines(again!), DocumentDump.Lines(document).ToArray());
 	}
 
 	[Test]
@@ -85,8 +85,8 @@ public class FlowchartWriterTests
 	{
 		var document = (FlowchartDocument)Mermaid.Default.Parse("flowchart TD\nA o-- text --> B");
 
-		document.Edges.Single().Type.Should().Be(FlowchartEdgeType.Invalid);
-		Mermaid.Default.Write(document).Should().EndWith("    A x-- text --> B\n");
+		Verify(document.Edges.Single().Type == FlowchartEdgeType.Invalid);
+		Verify(Mermaid.Default.Write(document).EndsWith("    A x-- text --> B\n", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -94,7 +94,7 @@ public class FlowchartWriterTests
 	{
 		var document = new FlowchartDocument { Nodes = { new FlowchartNode("A") { Label = "a ] b", Shape = "round" } } };
 
-		Mermaid.Default.Write(document).Should().Be("flowchart TB\n    A(\"_\")@{ label: \"a ] b\", labelType: text }\n");
+		Verify(Mermaid.Default.Write(document) == "flowchart TB\n    A(\"_\")@{ label: \"a ] b\", labelType: text }\n");
 	}
 
 	[Test]
@@ -102,7 +102,7 @@ public class FlowchartWriterTests
 	{
 		var document = (FlowchartDocument)Mermaid.Default.Parse("flowchart TD\nsubgraph A\nend\nsubgraph \"a ] b\"\nC\nend");
 
-		Mermaid.Default.Write(document).Should().EndWith("    subgraph A\n    end\n    subgraph \"a ] b\"\n        C\n    end\n");
+		Verify(Mermaid.Default.Write(document).EndsWith("    subgraph A\n    end\n    subgraph \"a ] b\"\n        C\n    end\n", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -112,7 +112,7 @@ public class FlowchartWriterTests
 
 		var writing = () => Mermaid.Default.Write(document);
 
-		writing.Should().Throw<ArgumentException>().WithMessage("*'S'*");
+		Verify(Throws<ArgumentException>(() => writing()).Message.Contains("'S'", StringComparison.Ordinal));
 	}
 
 	[Test]
@@ -122,8 +122,8 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(document);
 
-		written.Should().Be("flowchart TB\n    A@{ label: \"say \\x22hi\\x22 100\\x25\\nnow\", labelType: markdown }\n");
-		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+		Verify(written == "flowchart TB\n    A@{ label: \"say \\x22hi\\x22 100\\x25\\nnow\", labelType: markdown }\n");
+		SequenceAssert.Equal(DocumentDump.Lines(Mermaid.Default.Parse(written)), DocumentDump.Lines(document).ToArray());
 	}
 
 	// The cases below are ones the round trip property of RoundTripPropertyTests found.
@@ -143,8 +143,8 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(document);
 
-		written.Should().Contain("label: \"<b>ok</b> \\x3Ca~\"");
-		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+		Verify(written.Contains("label: \"<b>ok</b> \\x3Ca~\"", StringComparison.Ordinal));
+		SequenceAssert.Equal(DocumentDump.Lines(Mermaid.Default.Parse(written)), DocumentDump.Lines(document).ToArray());
 	}
 
 	[Test]
@@ -154,8 +154,8 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(document);
 
-		written.Should().Be("flowchart TB\n    A>\"_\"]@{ label: \",@!\", labelType: text }\n");
-		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+		Verify(written == "flowchart TB\n    A>\"_\"]@{ label: \",@!\", labelType: text }\n");
+		SequenceAssert.Equal(DocumentDump.Lines(Mermaid.Default.Parse(written)), DocumentDump.Lines(document).ToArray());
 	}
 
 	[Test]
@@ -169,7 +169,7 @@ public class FlowchartWriterTests
 
 		var written = Mermaid.Default.Write(document);
 
-		written.Should().Contain("A -->|\"a}\nb %% c\"| B");
-		Mermaid.Default.Parse(written).Should().BeEquivalentTo(document, options => options.WithStrictOrdering());
+		Verify(written.Contains("A -->|\"a}\nb %% c\"| B", StringComparison.Ordinal));
+		SequenceAssert.Equal(DocumentDump.Lines(Mermaid.Default.Parse(written)), DocumentDump.Lines(document).ToArray());
 	}
 }
