@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams.State;
 
 namespace SplashTheMusical.Tests.Diagrams;
@@ -10,13 +9,8 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram-v2\n  [*] --> Idle\n  Idle --> Busy : start\n  Busy : Working hard\n  Busy --> [*]\n");
 
-		document.DiagramType.Should().Be("stateDiagram");
-		StateDump.Lines(document).Should().Equal(
-			"keyword stateDiagram-v2",
-			"transition [*] -> Idle label=",
-			"transition Idle -> Busy label=start",
-			"state Busy description=Working hard",
-			"transition Busy -> [*] label=");
+		Verify(document.DiagramType == "stateDiagram");
+		SequenceAssert.Equal(StateDump.Lines(document), "keyword stateDiagram-v2", "transition [*] -> Idle label=", "transition Idle -> Busy label=start", "state Busy description=Working hard", "transition Busy -> [*] label=");
 	}
 
 	[Test]
@@ -24,7 +18,7 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram\nA --> B");
 
-		StateDump.Lines(document).Should().Equal("keyword stateDiagram", "transition A -> B label=");
+		SequenceAssert.Equal(StateDump.Lines(document), "keyword stateDiagram", "transition A -> B label=");
 	}
 
 	[Test]
@@ -44,15 +38,7 @@ public class StateParserTests
 			  }
 			""");
 
-		StateDump.Lines(document).Should().Equal(
-			"keyword stateDiagram-v2",
-			"block Active kind=Default description=The active state body=True",
-			"  transition [*] -> Left label=",
-			"  divider",
-			"  transition [*] -> Right label=",
-			"block Plain kind=Default description= body=True",
-			"  block Inner kind=Default description= body=True",
-			"    state X description=");
+		SequenceAssert.Equal(StateDump.Lines(document), "keyword stateDiagram-v2", "block Active kind=Default description=The active state body=True", "  transition [*] -> Left label=", "  divider", "  transition [*] -> Right label=", "block Plain kind=Default description= body=True", "  block Inner kind=Default description= body=True", "    state X description=");
 	}
 
 	[Test]
@@ -60,11 +46,7 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram-v2\nstate f <<fork>>\nstate j <<join>>\nstate c <<choice>>\nstate f2 [[fork]]\n");
 
-		StateDump.Lines(document).Skip(1).Should().Equal(
-			"block f kind=Fork description= body=False",
-			"block j kind=Join description= body=False",
-			"block c kind=Choice description= body=False",
-			"block f2 kind=Fork description= body=False");
+		SequenceAssert.Equal(StateDump.Lines(document).Skip(1), "block f kind=Fork description= body=False", "block j kind=Join description= body=False", "block c kind=Choice description= body=False", "block f2 kind=Fork description= body=False");
 	}
 
 	[Test]
@@ -82,10 +64,14 @@ public class StateParserTests
 			""");
 
 		var notes = document.Statements.OfType<StateNote>().ToList();
-		notes.Select(n => (n.Position, n.Id)).Should().Equal((StateNotePosition.LeftOf, "A"), (StateNotePosition.RightOf, "A"));
-		notes[0].Text.Should().Be("on one line");
-		notes[1].Text.Should().StartWith("first line\n").And.EndWith("second line");
-		document.Statements.OfType<StateFloatingNote>().Should().ContainSingle().Which.Should().BeEquivalentTo(new { Id = "N", Text = "floating" });
+		SequenceAssert.Equal(notes.Select(n => (n.Position, n.Id)), (StateNotePosition.LeftOf, "A"), (StateNotePosition.RightOf, "A"));
+		Verify(notes[0].Text == "on one line");
+		Verify(notes[1].Text.StartsWith("first line\n", StringComparison.Ordinal));
+		Verify(notes[1].Text.EndsWith("second line", StringComparison.Ordinal));
+		var floating = document.Statements.OfType<StateFloatingNote>().ToList();
+		Verify(floating.Count == 1);
+		Verify(floating[0].Id == "N");
+		Verify(floating[0].Text == "floating");
 	}
 
 	[Test]
@@ -102,14 +88,7 @@ public class StateParserTests
 			  scale 350 width
 			""");
 
-		StateDump.Lines(document).Skip(1).Should().Equal(
-			"direction LR",
-			"classDef bad fill:#f00,color:white",
-			"transition A:::bad -> B label=",
-			"class A,B bad",
-			"style B fill:#0f0",
-			"hide empty description",
-			"scale 350");
+		SequenceAssert.Equal(StateDump.Lines(document).Skip(1), "direction LR", "classDef bad fill:#f00,color:white", "transition A:::bad -> B label=", "class A,B bad", "style B fill:#0f0", "hide empty description", "scale 350");
 	}
 
 	[Test]
@@ -117,9 +96,7 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram-v2\nA\nclick A \"https://example.com\" \"Go there\"\nclick A href \"https://example.org\"\n");
 
-		document.Statements.OfType<StateClick>().Select(c => (c.State.Id, c.Url, c.Tooltip)).Should().Equal(
-			("A", "https://example.com", "Go there"),
-			("A", "https://example.org", (string?)null));
+		SequenceAssert.Equal(document.Statements.OfType<StateClick>().Select(c => (c.State.Id, c.Url, c.Tooltip)), ("A", "https://example.com", "Go there"), ("A", "https://example.org", (string?)null));
 	}
 
 	[Test]
@@ -127,9 +104,9 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram-v2\naccTitle: The title\naccDescr: The description\nA\n");
 
-		document.AccessibilityTitle.Should().Be("The title");
-		document.AccessibilityDescription.Should().Be("The description");
-		StateDump.Lines(document).Skip(1).Should().Equal("state A description=");
+		Verify(document.AccessibilityTitle == "The title");
+		Verify(document.AccessibilityDescription == "The description");
+		SequenceAssert.Equal(StateDump.Lines(document).Skip(1), "state A description=");
 	}
 
 	[Test]
@@ -137,7 +114,7 @@ public class StateParserTests
 	{
 		var document = Parse("stateDiagram-v2\nA : say #quot;hi#quot;\n");
 
-		document.Statements.OfType<StateDeclaration>().Single().Description.Should().Be("say #quot;hi#quot;");
+		Verify(document.Statements.OfType<StateDeclaration>().Single().Description == "say #quot;hi#quot;");
 	}
 
 	[Test]
@@ -146,33 +123,34 @@ public class StateParserTests
 		var document = Parse("stateDiagram-v2\nA --> B\nB --> A\n");
 
 		var transitions = document.Statements.OfType<StateTransition>().ToList();
-		transitions[1].To.Id.Should().BeSameAs(transitions[0].From.Id);
-		transitions[1].From.Id.Should().BeSameAs(transitions[0].To.Id);
+		Verify(ReferenceEquals(transitions[1].To.Id, transitions[0].From.Id));
+		Verify(ReferenceEquals(transitions[1].From.Id, transitions[0].To.Id));
 	}
 
 	[Test]
 	public void AnUnclosedCompositeStateIsAParseError()
 	{
-		Mermaid.Default.TryParse("stateDiagram-v2\nstate A {\nB\n", out _, out var diagnostics).Should().BeFalse();
+		Verify(!Mermaid.Default.TryParse("stateDiagram-v2\nstate A {\nB\n", out _, out var diagnostics));
 
-		diagnostics.Should().ContainSingle().Which.Message.Should().StartWith("Parse error on line ");
+		Verify(diagnostics.Count == 1);
+		Verify(diagnostics[0].Message.StartsWith("Parse error on line ", StringComparison.Ordinal));
 	}
 
 	[Test]
 	public void ALexicalErrorRefusesTheSource()
 	{
-		Mermaid.Default.TryParse("stateDiagram-v2\nA --> B\nA --> \"quoted\"\n", out _, out var diagnostics).Should().BeFalse();
+		Verify(!Mermaid.Default.TryParse("stateDiagram-v2\nA --> B\nA --> \"quoted\"\n", out _, out var diagnostics));
 
-		diagnostics.Should().ContainSingle();
+		Verify(diagnostics.Count == 1);
 	}
 
 	[Test]
 	public void ACompositeStateWithASecondDescriptionIsRefusedAsTheDbRefusesIt()
 	{
-		Mermaid.Default.TryParse("stateDiagram-v2\nstate \"Title\" as G {\nX\n}\nG : more\n", out _, out var diagnostics).Should().BeFalse();
+		Verify(!Mermaid.Default.TryParse("stateDiagram-v2\nstate \"Title\" as G {\nX\n}\nG : more\n", out _, out var diagnostics));
 
-		diagnostics.Should().ContainSingle().Which.Message.Should()
-			.Be("Group nodes can only have label. Remove the additional description for node [G]");
+		Verify(diagnostics.Count == 1);
+		Verify(diagnostics[0].Message == "Group nodes can only have label. Remove the additional description for node [G]");
 	}
 
 	private static StateDocument Parse(string source) => (StateDocument)Mermaid.Default.Parse(source);

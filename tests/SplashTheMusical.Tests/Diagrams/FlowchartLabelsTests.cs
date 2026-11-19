@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams.Flowchart;
 
 namespace SplashTheMusical.Tests.Diagrams;
@@ -18,7 +17,7 @@ public class FlowchartLabelsTests
 	[Arguments("#35; and #9829;", "# and ♥")]
 	[Arguments("a &amp; b &lt; c", "a & b < c")]
 	public void HtmlLabelIsTheTextTheBrowserShows(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Text).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Text) == expected);
 
 	[Test]
 	[Arguments("one<br>two", "one two")]
@@ -26,7 +25,7 @@ public class FlowchartLabelsTests
 	[Arguments("one\ntwo", "one two")]
 	[Arguments("one\\ntwo", "one two")]
 	public void HtmlLabelReadsALineBreakAsASpace(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Text).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Text) == expected);
 
 	[Test]
 	public void HtmlLabelTakesOutIcons()
@@ -35,8 +34,8 @@ public class FlowchartLabelsTests
 
 		var text = FlowchartLabels.Text("fa:fa-car Car fab:fa-github", FlowchartLabelType.Text, icons: icons);
 
-		text.Should().Be(" Car ");
-		icons.Should().Equal("fa:fa-car", "fab:fa-github");
+		Verify(text == " Car ");
+		SequenceAssert.Equal(icons, "fa:fa-car", "fab:fa-github");
 	}
 
 	[Test]
@@ -46,7 +45,7 @@ public class FlowchartLabelsTests
 	[Arguments("one\n   two", "one two")]
 	[Arguments("a * b", "a * b")]
 	public void MarkdownLabelTakesOffTheMarkers(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Markdown).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Markdown) == expected);
 
 	[Test]
 	[Arguments("one<br>two", "onetwo")]
@@ -54,7 +53,7 @@ public class FlowchartLabelsTests
 	[Arguments("one\ntwo", "onetwo")]
 	[Arguments("one\\ntwo", "onetwo")]
 	public void SvgLabelRunsItsLinesTogether(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Text, htmlLabels: false).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Text, htmlLabels: false) == expected);
 
 	[Test]
 	[Arguments("one   two", "one two")]
@@ -62,12 +61,12 @@ public class FlowchartLabelsTests
 	[Arguments("<11", "<11")]
 	[Arguments("a &amp; b", "a & b")]
 	public void SvgLabelDrawsItsWordsAndTagsAsText(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Text, htmlLabels: false).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Text, htmlLabels: false) == expected);
 
 	[Test]
 	[Arguments("<**1**1", "< 1 1")]
 	[Arguments("**bold** words", "bold words")]
 	[Arguments("one\ntwo", "onetwo")]
 	public void SvgMarkdownLabelMakesStrongAndEmphasisTheirOwnWords(string label, string expected) =>
-		FlowchartLabels.Text(label, FlowchartLabelType.Markdown, htmlLabels: false).Should().Be(expected);
+		Verify(FlowchartLabels.Text(label, FlowchartLabelType.Markdown, htmlLabels: false) == expected);
 }

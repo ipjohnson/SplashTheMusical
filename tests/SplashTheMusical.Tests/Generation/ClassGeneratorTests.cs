@@ -73,6 +73,15 @@ public class ClassGeneratorTests
 		Sample.Value.Should().Contain(d => d.AccessibilityTitle != null && d.AccessibilityDescription != null && d.AccessibilityDescription.Contains('\n'));
 	}
 
+	/// <summary>
+	/// The document of the seed CI's macOS run failed on. Its member <c>Duck : *ß&lt;Node</c> lost a parenthesis, colon or
+	/// semicolon after the tags were removed, and mermaid.js's <c>cleanupText</c> read the <c>&lt;Node</c> as a tag up to the
+	/// <c>&gt;</c> of a later class label, rewriting the <c>="</c> on the way to <c>='</c>.
+	/// </summary>
+	[Test]
+	public void TheTextAfterAColonHoldsNoTag() =>
+		DocumentGenerators.Named("class").Documents.Sample(RoundTripPropertyTests.AssertRoundTrips, seed: "fXwAV48Tlua8", iter: 1, threads: 1);
+
 	private static IEnumerable<ClassStatement> All(List<ClassStatement> statements) =>
 		statements.SelectMany(s => s is ClassNamespace n ? [s, .. All(n.Statements)] : new[] { s });
 }
