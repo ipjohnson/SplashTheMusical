@@ -40,14 +40,18 @@ public static class ClassGenerator
 	/// </summary>
 	private static readonly Gen<string> Quoted = GenText.Label.Select(text => GenText.WithoutTags(GenText.Without(text, "\"%")));
 
-	/// <summary>The text after a colon: one line, without the <c>:</c> and <c>;</c> the writer writes as entity codes.</summary>
-	private static readonly Gen<string> Label = GenText.Line.Select(text => GenText.Without(text, ":;"));
+	/// <summary>
+	/// The text after a colon: one line, without the <c>:</c> and <c>;</c> the writer writes as entity codes. Removing
+	/// them can join a <c>&lt;</c> to a word, so the tags are removed again: mermaid.js's <c>cleanupText</c> rewrites
+	/// <c>="..."</c> to <c>='...'</c> from a tag start to the next <c>&gt;</c>, across lines.
+	/// </summary>
+	private static readonly Gen<string> Label = GenText.Line.Select(text => GenText.WithoutTags(GenText.Without(text, ":;")));
 
 	/// <summary>
 	/// The member of <c>name : member</c>: a <see cref="Label"/> without parentheses, as ClassDB reads text with a
-	/// <c>)</c> as a method and refuses one it cannot split.
+	/// <c>)</c> as a method and refuses one it cannot split. As in <see cref="Label"/>, the tags are removed again.
 	/// </summary>
-	private static readonly Gen<string> MemberText = Label.Select(text => GenText.Without(text, "()"));
+	private static readonly Gen<string> MemberText = Label.Select(text => GenText.WithoutTags(GenText.Without(text, "()")));
 
 	/// <summary>
 	/// Styles as the parser gives them: one style, the declarations joined by commas, the first without a <c>-</c>.
