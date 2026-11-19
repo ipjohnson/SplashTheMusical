@@ -28,7 +28,7 @@ public class FlowchartStyleTests
 	/// markers. The neo look prefixes a path's style with a dash array from the path's length, which is left out.
 	/// </summary>
 	[Test]
-	public async Task EveryElementGetsTheOracleStyle()
+	public void EveryElementGetsTheOracleStyle()
 	{
 		var lines = File.ReadAllLines(Path.Combine(CorpusCheck.CorpusRoot, "styles.txt"));
 		var cases = lines
@@ -59,9 +59,9 @@ public class FlowchartStyleTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(cases.Count).IsEqualTo(13);
-		await Assert.That(compared).IsGreaterThan(50);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(() => cases.Count == 13);
+		Verify(() => compared > 50);
 	}
 
 	// A node's DOM id ends in mermaid.js's vertexCounter, which counts every addVertex call, where STM counts nodes, so

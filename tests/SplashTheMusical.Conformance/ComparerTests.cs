@@ -11,11 +11,11 @@ public class ComparerTests
 	);
 
 	[Test]
-	public async Task TheStubFailsEveryLevelOfEveryCaseTheOracleAcceptsAndMatchesEveryCaseItRefuses()
+	public void TheStubFailsEveryLevelOfEveryCaseTheOracleAcceptsAndMatchesEveryCaseItRefuses()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StubFactsProvider());
 
-		await Assert.That(results.Count).IsEqualTo(CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count);
+		Verify(() => results.Count == CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count);
 		var wrong = new List<string>();
 		foreach (var result in results)
 		{
@@ -29,13 +29,13 @@ public class ComparerTests
 			}
 		}
 
-		await Assert.That(wrong).IsEmpty();
-		await Assert.That(results).Contains(r => r[Level.L0].Outcome == Outcome.Pass);
-		await Assert.That(results).Contains(r => r[Level.L0].Outcome == Outcome.Fail);
+		Verify(wrong.Count == 0, $"{string.Join('\n', wrong)}");
+		Verify(() => results.Any(r => r[Level.L0].Outcome == Outcome.Pass));
+		Verify(() => results.Any(r => r[Level.L0].Outcome == Outcome.Fail));
 	}
 
 	[Test]
-	public async Task AProviderThatWritesTheOracleFactsPassesEveryLevelOfEveryCase()
+	public void AProviderThatWritesTheOracleFactsPassesEveryLevelOfEveryCase()
 	{
 		var corpus = CorpusCheck.CorpusRoot;
 		var wrong = new List<string>();
@@ -48,11 +48,11 @@ public class ComparerTests
 			}
 		}
 
-		await Assert.That(wrong).IsEmpty();
+		Verify(wrong.Count == 0, $"{string.Join('\n', wrong)}");
 	}
 
 	[Test]
-	public async Task EachLevelReportsTheLinesThatAreMissingAndExtra()
+	public void EachLevelReportsTheLinesThatAreMissingAndExtra()
 	{
 		var actual = Oracle with
 		{
@@ -62,15 +62,15 @@ public class ComparerTests
 
 		var result = Comparer.Compare("flowchart/docs-flowchart-001", Oracle, actual);
 
-		await Assert.That(result.Type).IsEqualTo("flowchart");
-		await Assert.That(result[Level.L0].Outcome).IsEqualTo(Outcome.Pass);
-		await LineAssert.Equal(
+		Verify(() => result.Type == "flowchart");
+		Verify(() => result[Level.L0].Outcome == Outcome.Pass);
+		LineAssert.Equal(
 			result[Level.L1].Differences.Select(d => d.ToString()),
 			"L1 + edge\tA\tB\tnone\tarrow\tdotted",
 			"L1 - edge\tA\tB\tnone\tarrow\tsolid"
 		);
-		await LineAssert.Equal(result[Level.L2].Differences.Select(d => d.ToString()), "L2 + box\tedge\tA --> B", "L2 - box\tnode\tB", "L2 - label\tA");
-		await LineAssert.Equal(
+		LineAssert.Equal(result[Level.L2].Differences.Select(d => d.ToString()), "L2 + box\tedge\tA --> B", "L2 - box\tnode\tB", "L2 - label\tA");
+		LineAssert.Equal(
 			result[Level.L3].Differences.Select(d => d.ToString()),
 			"L3 + box\tnode\tA\t0\t0\t10\t10",
 			"L3 - box\tnode\tA\t12\t12\t40\t20"
@@ -78,16 +78,16 @@ public class ComparerTests
 	}
 
 	[Test]
-	public async Task ASourceOnlyTheOracleAcceptsFailsEveryLevel()
+	public void ASourceOnlyTheOracleAcceptsFailsEveryLevel()
 	{
 		var result = Comparer.Compare("flowchart/x", Oracle, CaseFacts.Refused("no"));
 
-		await LineAssert.Equal(result[Level.L0].Differences.Select(d => d.ToString()), "L0 + accept\tno", "L0 - accept\tyes");
-		await Assert.That(result[Level.L1].Differences).Count().IsEqualTo(4);
-		await Assert.That(result[Level.L1].Differences).All(d => d.Missing);
-		await Assert.That(result[Level.L2].Differences).Count().IsEqualTo(5);
-		await Assert.That(result[Level.L2].Differences).All(d => d.Missing);
-		await LineAssert.Equal(result[Level.L3].Differences.Select(d => d.ToString()), "L3 - canvas\t0\t0\t64\t112");
+		LineAssert.Equal(result[Level.L0].Differences.Select(d => d.ToString()), "L0 + accept\tno", "L0 - accept\tyes");
+		Verify(() => result[Level.L1].Differences.Count() == 4);
+		Verify(() => result[Level.L1].Differences.All(d => d.Missing));
+		Verify(() => result[Level.L2].Differences.Count() == 5);
+		Verify(() => result[Level.L2].Differences.All(d => d.Missing));
+		LineAssert.Equal(result[Level.L3].Differences.Select(d => d.ToString()), "L3 - canvas\t0\t0\t64\t112");
 	}
 
 	private sealed class FixedProvider(CaseFacts facts) : IFactsProvider

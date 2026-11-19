@@ -225,8 +225,16 @@ Tests may use reflection to check these rules.
 - Tabs, Allman braces, file-scoped namespaces and `var`. `.editorconfig` holds the full rules, and `mise run check`
   enforces them.
 - `_camelCase` private instance fields, PascalCase static and constant fields.
-- TUnit for tests, AwesomeAssertions for assertions and CsCheck for property tests, as in ipjohnson/mermaider.
-- `tests/SplashTheMusical.Conformance` publishes with native AOT, so it uses TUnit's assertions instead of
-  AwesomeAssertions, and not TUnit's collection `IsEquivalentTo`, which needs reflection.
+- TUnit for tests, AwesomeAssertions for assertions and CsCheck for property tests, as in ipjohnson/mermaider. Both test
+  projects reference VerificationGlue and VerificationGlue.Mocks, pinned in `Directory.Packages.props`.
+- `tests/SplashTheMusical.Conformance` publishes with native AOT, so its checks are VerificationGlue's `Verify`, `Check`,
+  `Throws` and `ThrowsAsync`, which `GlobalUsings.cs` imports from `VerificationGlue.VerifySyntax`. Their messages are
+  generated at compile time and are the same under JIT and AOT.
+- Write a check as `Verify(() => cases.Count == 9)`, whose failure lists the value of each part, also in a TUnit test
+  body. Keep `Verify(condition)` when the condition awaits, or when the next lines rely on a null check in it, such as
+  `Verify(accepted!.Accepted)`. A list prints as its type name, so a check on a list of problems joins them in an
+  interpolated message: `Verify(!problems.Any(), $"{string.Join('\n', problems)}")`. Pass a message as `$"..."`, because
+  a plain string binds to the condition's text. Compare lines with `LineAssert.Equal`, whose failure names the first
+  differing line with both values. A test with no `await` is a `void` method.
 - In test files, `Assembly` is ambiguous with TUnit's `HookType.Assembly`. Write `System.Reflection.Assembly`.
 - Code derived from another project is listed in `THIRD-PARTY-NOTICES.md` with its license.

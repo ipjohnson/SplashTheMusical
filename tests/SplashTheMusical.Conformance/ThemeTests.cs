@@ -14,7 +14,7 @@ public class ThemeTests
 	private const string Kind = "theme-variable";
 
 	[Test]
-	public async Task EveryThemeComputesTheVariablesOfThemesTxt()
+	public void EveryThemeComputesTheVariablesOfThemesTxt()
 	{
 		var lines = File.ReadAllLines(Path.Combine(CorpusCheck.CorpusRoot, "themes.txt"));
 		var oracle = lines
@@ -29,9 +29,9 @@ public class ThemeTests
 			Compare(problems, theme.Key, [.. theme], [.. stm.Select(line => "theme\t" + line)]);
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
-		await Assert.That(oracle.Count).IsEqualTo(11);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(() => lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
+		Verify(() => oracle.Count == 11);
 	}
 
 	/// <summary>
@@ -40,7 +40,7 @@ public class ThemeTests
 	/// tools/oracle/facts.mjs.
 	/// </summary>
 	[Test]
-	public async Task EveryCaseThatSetsThemeVariablesGetsTheOracleVariables()
+	public void EveryCaseThatSetsThemeVariablesGetsTheOracleVariables()
 	{
 		var site = MermaidValue.FromEntries(new OrderedDictionary<string, MermaidValue>
 		{
@@ -73,15 +73,15 @@ public class ThemeTests
 			checkedCases++;
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsGreaterThanOrEqualTo(29);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(() => checkedCases >= 29);
 	}
 
 	[Test]
-	public async Task AThemeNoThemeHasGivesNull()
+	public void AThemeNoThemeHasGivesNull()
 	{
-		await Assert.That(Theme.Variables("null", null)).IsNull();
-		await Assert.That(Theme.Variables("Default", null)).IsNull();
+		Verify(() => Theme.Variables("null", null) is null);
+		Verify(() => Theme.Variables("Default", null) is null);
 	}
 
 	/// <summary>Adds each line only one side has, under <paramref name="name"/>.</summary>

@@ -7,7 +7,7 @@ public class ParityReportTests
 	private static readonly CaseFacts Refused = CaseFacts.Refused("no");
 
 	[Test]
-	public async Task TheCommittedReportIsStmsReport()
+	public void TheCommittedReportIsStmsReport()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
 		var problems = new List<string>();
@@ -23,13 +23,13 @@ public class ParityReportTests
 			File.WriteAllText(ParityReport.FilePath, report);
 		}
 
-		await Assert.That(problems).IsEmpty();
+		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
 		var committed = File.Exists(ParityReport.FilePath) ? File.ReadAllText(ParityReport.FilePath) : "";
-		await Assert.That(committed).IsEqualTo(report).Because("mise run parity rewrites docs/parity-report.md");
+		LineAssert.Equal(committed.Split('\n'), report.Split('\n'), "mise run parity rewrites docs/parity-report.md");
 	}
 
 	[Test]
-	public async Task EachTypeHasARowOfRatesAndLedgerCounts()
+	public void EachTypeHasARowOfRatesAndLedgerCounts()
 	{
 		var results = new[]
 		{
@@ -63,11 +63,9 @@ public class ParityReportTests
 
 		var lines = ParityReport.Render(results, ledgers, l4, "test", "12.3.0").Split('\n');
 
-		await Assert.That(lines).Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
-		await Assert.That(lines).Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | n/a | 0 | 0 | 0 |");
-		await Assert.That(lines).Contains("| mindmap | 1 | 0 | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | report-only | 0 | 0 | 0 |");
-		await Assert
-			.That(lines)
-			.Contains("| **Total** | 6 | 3 | 66.7% (4 of 6) | 50.0% (2 of 4) | 50.0% (2 of 4) | 50.0% (2 of 4) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		Verify(lines.Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |"), $"{string.Join('\n', lines)}");
+		Verify(lines.Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | n/a | 0 | 0 | 0 |"), $"{string.Join('\n', lines)}");
+		Verify(lines.Contains("| mindmap | 1 | 0 | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | report-only | 0 | 0 | 0 |"), $"{string.Join('\n', lines)}");
+		Verify(lines.Contains("| **Total** | 6 | 3 | 66.7% (4 of 6) | 50.0% (2 of 4) | 50.0% (2 of 4) | 50.0% (2 of 4) | 33.3% (1 of 3) | 1 | 1 | 1 |"), $"{string.Join('\n', lines)}");
 	}
 }

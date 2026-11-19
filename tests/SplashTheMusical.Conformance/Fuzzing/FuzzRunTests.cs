@@ -28,7 +28,7 @@ public class FuzzRunTests
 	public const string MermaidVariable = "STM_FUZZ_MERMAID";
 
 	[Test]
-	public async Task CrashFuzzesWhenAsked()
+	public void CrashFuzzesWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(CrashSourcesVariable) is not { Length: > 0 } sources)
 		{
@@ -61,11 +61,11 @@ public class FuzzRunTests
 			}
 		}
 
-		await Assert.That(string.Join("\n", problems)).IsEmpty();
+		Verify(!problems.Any(), $"{string.Join("\n", problems)}");
 	}
 
 	[Test]
-	public async Task DifferentialFuzzesWhenAsked()
+	public void DifferentialFuzzesWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(DifferentialSecondsVariable) is not { Length: > 0 } seconds)
 		{
@@ -95,7 +95,7 @@ public class FuzzRunTests
 		DifferentialReport.Write(folder, runs, seed, CorpusCheck.PinnedMermaid());
 		Console.WriteLine($"Wrote {Path.Combine(folder, DifferentialReport.ReportFile)}");
 
-		await Assert.That(runs.All(r => r.Compared > 0)).IsTrue();
+		Verify(() => runs.All(r => r.Compared > 0));
 	}
 
 	private static long Seed() =>

@@ -11,7 +11,7 @@ public class StmSvgsTests
 	}
 
 	[Test]
-	public async Task WritesTheSvgOfEachCaseTheProviderDraws()
+	public void WritesTheSvgOfEachCaseTheProviderDraws()
 	{
 		var root = Directory.CreateTempSubdirectory("stm-svgs-").FullName;
 		try
@@ -27,10 +27,10 @@ public class StmSvgsTests
 
 			var written = StmSvgs.Write(corpus, new PieOnly(), folder);
 
-			await Assert.That(written).IsEqualTo(1);
-			await Assert.That(File.ReadAllText(Path.Combine(folder, "pie", "a.svg"))).IsEqualTo("<svg/>");
-			await Assert.That(File.Exists(Path.Combine(folder, "xychart", "a.svg"))).IsFalse();
-			await Assert.That(Directory.Exists(Path.Combine(folder, "old"))).IsFalse();
+			Verify(() => written == 1);
+			Verify(() => File.ReadAllText(Path.Combine(folder, "pie", "a.svg")) == "<svg/>");
+			Verify(!(File.Exists(Path.Combine(folder, "xychart", "a.svg"))));
+			Verify(!(Directory.Exists(Path.Combine(folder, "old"))));
 		}
 		finally
 		{
@@ -40,7 +40,7 @@ public class StmSvgsTests
 
 	/// <summary><c>mise run stm-svg</c> runs this with <see cref="StmSvgs.FolderVariable"/> set. Otherwise it writes nothing.</summary>
 	[Test]
-	public async Task WritesStmsSvgsWhenAsked()
+	public void WritesStmsSvgsWhenAsked()
 	{
 		if (Environment.GetEnvironmentVariable(StmSvgs.FolderVariable) is not { Length: > 0 } folder)
 		{
@@ -49,6 +49,6 @@ public class StmSvgsTests
 
 		var written = StmSvgs.Write(CorpusCheck.CorpusRoot, new StmFactsProvider(), folder);
 
-		await Assert.That(written).IsEqualTo(1166);
+		Verify(() => written == 1166);
 	}
 }

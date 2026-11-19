@@ -8,49 +8,49 @@ public class MutatorTests
 	[Arguments("flowchart LR\n  A-->B\r\n  B[\"x y\"]~~~C;")]
 	[Arguments("")]
 	[Arguments("graph TD\n  A((😀)) -.-> B{{b}}\r")]
-	public async Task SplitsASourceIntoTokensThatJoinBackToIt(string source)
+	public void SplitsASourceIntoTokensThatJoinBackToIt(string source)
 	{
-		await Assert.That(string.Concat(SourceTokens.Split(source).Select(t => t.Text))).IsEqualTo(source);
-		await Assert.That(string.Concat(SourceTokens.Lines(source))).IsEqualTo(source);
+		Verify(() => string.Concat(SourceTokens.Split(source).Select(t => t.Text)) == source);
+		Verify(() => string.Concat(SourceTokens.Lines(source)) == source);
 	}
 
 	[Test]
-	public async Task SplitsArrowsBracketsWordsAndLineBreaks()
+	public void SplitsArrowsBracketsWordsAndLineBreaks()
 	{
 		var tokens = SourceTokens.Split("A-->B[x]\r\n");
 
-		await Assert.That(string.Join(",", tokens.Select(t => $"{t.Kind}:{Mutator.Escape(t.Text)}")))
-			.IsEqualTo("Word:A,Arrow:-->,Word:B,Bracket:[,Word:x,Bracket:],Newline:\\r\\n");
+		var joined = string.Join(",", tokens.Select(t => $"{t.Kind}:{Mutator.Escape(t.Text)}"));
+		Verify(() => joined == "Word:A,Arrow:-->,Word:B,Bracket:[,Word:x,Bracket:],Newline:\\r\\n");
 	}
 
 	[Test]
-	public async Task MakesTheSameSourceFromTheSameSeedAndIndex()
+	public void MakesTheSameSourceFromTheSameSeedAndIndex()
 	{
 		const string Source = "flowchart LR\n  A-->B\n  B-->C[c]\n";
 
 		var first = Enumerable.Range(0, 50).Select(i => Mutator.Mutate(Source, FuzzRandom.For(7, i))).ToList();
 		var second = Enumerable.Range(0, 50).Select(i => Mutator.Mutate(Source, FuzzRandom.For(7, i))).ToList();
 
-		await Assert.That(string.Join("|", first)).IsEqualTo(string.Join("|", second));
-		await Assert.That(first.Distinct(StringComparer.Ordinal).Count()).IsGreaterThan(40);
-		await Assert.That(first.Count(m => m != Source)).IsGreaterThan(45);
+		Verify(() => string.Join("|", first) == string.Join("|", second));
+		Verify(() => first.Distinct(StringComparer.Ordinal).Count() > 40);
+		Verify(() => first.Count(m => m != Source) > 45);
 	}
 
 	[Test]
-	public async Task ChangesAnArrowToAnotherArrow()
+	public void ChangesAnArrowToAnotherArrow()
 	{
 		for (var i = 0; i < 20; i++)
 		{
 			var mutated = Mutator.Apply("A-->B", MutatorEdit.ChangeArrow, FuzzRandom.For(1, i));
 
-			await Assert.That(mutated[0]).IsEqualTo('A');
-			await Assert.That(mutated[^1]).IsEqualTo('B');
-			await Assert.That(Mutator.Arrows.Contains(mutated[1..^1])).IsTrue();
+			Verify(() => mutated[0] == 'A');
+			Verify(() => mutated[^1] == 'B');
+			Verify(() => Mutator.Arrows.Contains(mutated[1..^1]));
 		}
 	}
 
 	[Test]
-	public async Task ChangesABracketToAnotherBracket()
+	public void ChangesABracketToAnotherBracket()
 	{
 		for (var i = 0; i < 20; i++)
 		{
@@ -59,23 +59,23 @@ public class MutatorTests
 			var changed = mutated.StartsWith("A[x", StringComparison.Ordinal)
 				? mutated[3..]
 				: mutated[1..mutated.IndexOf('x', StringComparison.Ordinal)];
-			await Assert.That(Mutator.Brackets.Contains(changed)).IsTrue();
+			Verify(() => Mutator.Brackets.Contains(changed));
 		}
 	}
 
 	[Test]
-	public async Task InsertsAnArrowWhenTheSourceHasNone()
+	public void InsertsAnArrowWhenTheSourceHasNone()
 	{
 		var mutated = Mutator.Apply("A B", MutatorEdit.ChangeArrow, FuzzRandom.For(3, 0));
 
-		await Assert.That(Mutator.Arrows.Any(a => mutated.Contains(a, StringComparison.Ordinal))).IsTrue();
+		Verify(() => Mutator.Arrows.Any(a => mutated.Contains(a, StringComparison.Ordinal)));
 	}
 
 	[Test]
 	[Arguments(MutatorEdit.InsertWhitespace)]
 	[Arguments(MutatorEdit.InsertComment)]
 	[Arguments(MutatorEdit.InsertLineBreak)]
-	public async Task InsertsTextWithoutLosingAnyOfTheSource(MutatorEdit edit)
+	public void InsertsTextWithoutLosingAnyOfTheSource(MutatorEdit edit)
 	{
 		var mutated = Mutator.Apply("A-->B", edit, FuzzRandom.For(5, (int)edit));
 		var inserted = edit switch
@@ -85,19 +85,19 @@ public class MutatorTests
 			_ => Mutator.LineBreaks,
 		};
 
-		await Assert.That(inserted.Any(text => RemoveOnce(mutated, text) == "A-->B")).IsTrue();
+		Verify(inserted.Any(text => RemoveOnce(mutated, text) == "A-->B"));
 	}
 
 	[Test]
-	public async Task DeletesDuplicatesAndSwapsTokens()
+	public void DeletesDuplicatesAndSwapsTokens()
 	{
 		var deleted = Mutator.Apply("A --> B", MutatorEdit.Delete, FuzzRandom.For(2, 0));
 		var duplicated = Mutator.Apply("A --> B", MutatorEdit.Duplicate, FuzzRandom.For(2, 0));
 		var swapped = Mutator.Apply("A --> B", MutatorEdit.Swap, FuzzRandom.For(2, 1));
 
-		await Assert.That(SourceTokens.Split(deleted).Count).IsEqualTo(4);
-		await Assert.That(SourceTokens.Split(duplicated).Count).IsGreaterThanOrEqualTo(5);
-		await Assert.That(string.Concat(swapped.Order())).IsEqualTo(string.Concat("A --> B".Order()));
+		Verify(() => SourceTokens.Split(deleted).Count == 4);
+		Verify(() => SourceTokens.Split(duplicated).Count >= 5);
+		Verify(() => string.Concat(swapped.Order()) == string.Concat("A --> B".Order()));
 	}
 
 	private static string RemoveOnce(string text, string part)

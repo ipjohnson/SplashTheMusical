@@ -9,7 +9,7 @@ namespace SplashTheMusical.Conformance;
 public class DetectionTests
 {
 	[Test]
-	public async Task EveryAcceptedCaseIsDetectedAsTheTypeTheOracleRecorded()
+	public void EveryAcceptedCaseIsDetectedAsTheTypeTheOracleRecorded()
 	{
 		// tools/oracle registers ZenUML as an external diagram, as a host adds a module.
 		var mermaid = new Mermaid(modules: [new ZenUmlDetector()]);
@@ -40,48 +40,48 @@ public class DetectionTests
 			checkedCases++;
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsEqualTo(4411);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(() => checkedCases == 4411);
 	}
 
 	[Test]
-	public async Task ASourceOfNoKnownTypeGivesMermaidsError()
+	public void ASourceOfNoKnownTypeGivesMermaidsError()
 	{
 		var parsed = Mermaid.Default.TryParse("%%{init: {}}%%\n%% a comment\nnot a diagram %% trailing\nsecond line", out var document, out var diagnostics);
 
-		await Assert.That(parsed).IsFalse();
-		await Assert.That(document).IsNull();
-		await Assert.That(diagnostics.Count).IsEqualTo(1);
-		await Assert.That(diagnostics[0].Message).IsEqualTo("No diagram type detected matching given configuration for text: not a diagram\nsecond line");
-		await Assert.That(diagnostics[0].Line).IsEqualTo(3);
+		Verify(() => !parsed);
+		Verify(() => document is null);
+		Verify(() => diagnostics.Count == 1);
+		Verify(() => diagnostics[0].Message == "No diagram type detected matching given configuration for text: not a diagram\nsecond line");
+		Verify(() => diagnostics[0].Line == 3);
 	}
 
 	[Test]
-	public async Task TheC4KeywordsAfterTheFirstMatchAnywhereOutsideComments()
+	public void TheC4KeywordsAfterTheFirstMatchAnywhereOutsideComments()
 	{
-		await Assert.That(Detect("flowchart LR\n  a[C4Container] --> b")).IsEqualTo("c4");
-		await Assert.That(Detect("flowchart LR\n  %% C4Container\n  a --> b")).IsEqualTo("flowchart-v2");
-		await Assert.That(Detect("%%{init: {\"x\": \"C4Dynamic\"}}%%\nflowchart LR")).IsEqualTo("flowchart-v2");
-		await Assert.That(Detect("mindmap\n  C4Container")).IsEqualTo("mindmap");
+		Verify(() => Detect("flowchart LR\n  a[C4Container] --> b") == "c4");
+		Verify(() => Detect("flowchart LR\n  %% C4Container\n  a --> b") == "flowchart-v2");
+		Verify(() => Detect("%%{init: {\"x\": \"C4Dynamic\"}}%%\nflowchart LR") == "flowchart-v2");
+		Verify(() => Detect("mindmap\n  C4Container") == "mindmap");
 	}
 
 	[Test]
-	public async Task KeywordsMatchAsMermaidsExpressionsDo()
+	public void KeywordsMatchAsMermaidsExpressionsDo()
 	{
-		await Assert.That(Detect("graphs")).IsEqualTo("flowchart-v2");
-		await Assert.That(Detect("flowchart-elk TD")).IsEqualTo("flowchart-elk");
-		await Assert.That(Detect("agentflow-betax")).IsNull();
-		await Assert.That(Detect("agentflow-beta%% c\n")).IsEqualTo("agentflow");
-		await Assert.That(Detect("ISHIKAWA-beta")).IsEqualTo("ishikawa");
-		await Assert.That(Detect("ishikawas")).IsNull();
-		await Assert.That(Detect("Railroad-EBNF-beta")).IsEqualTo("railroadEbnf");
-		await Assert.That(Detect("usecase-beta:")).IsNull();
-		await Assert.That(Detect("cynefin-beta:")).IsEqualTo("cynefin");
-		await Assert.That(Detect("  Error  \n")).IsEqualTo("error");
-		await Assert.That(Detect("---\nx")).IsEqualTo("---");
-		await Assert.That(Detect("%%\ninfo")).IsEqualTo("info");
-		await Assert.That(Detect("%%{} not a directive\ninfo")).IsEqualTo("info");
-		await Assert.That(Detect("%%{ word as a directive\ninfo")).IsNull();
+		Verify(() => Detect("graphs") == "flowchart-v2");
+		Verify(() => Detect("flowchart-elk TD") == "flowchart-elk");
+		Verify(() => Detect("agentflow-betax") is null);
+		Verify(() => Detect("agentflow-beta%% c\n") == "agentflow");
+		Verify(() => Detect("ISHIKAWA-beta") == "ishikawa");
+		Verify(() => Detect("ishikawas") is null);
+		Verify(() => Detect("Railroad-EBNF-beta") == "railroadEbnf");
+		Verify(() => Detect("usecase-beta:") is null);
+		Verify(() => Detect("cynefin-beta:") == "cynefin");
+		Verify(() => Detect("  Error  \n") == "error");
+		Verify(() => Detect("---\nx") == "---");
+		Verify(() => Detect("%%\ninfo") == "info");
+		Verify(() => Detect("%%{} not a directive\ninfo") == "info");
+		Verify(() => Detect("%%{ word as a directive\ninfo") is null);
 	}
 
 	private static string? Detect(string source)

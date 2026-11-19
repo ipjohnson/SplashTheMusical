@@ -6,7 +6,7 @@ namespace SplashTheMusical.Conformance;
 public class StateRoundTripTests
 {
 	[Test]
-	public async Task EveryAcceptedStateCaseRoundTrips()
+	public void EveryAcceptedStateCaseRoundTrips()
 	{
 		var checkedCases = 0;
 		var problems = new List<string>();
@@ -40,8 +40,8 @@ public class StateRoundTripTests
 			}
 		}
 
-		await Assert.That(string.Join("\n\n", problems)).IsEmpty();
-		await Assert.That(checkedCases).IsEqualTo(285);
+		Verify(!problems.Any(), $"{string.Join("\n\n", problems)}");
+		Verify(() => checkedCases == 285);
 	}
 }
 

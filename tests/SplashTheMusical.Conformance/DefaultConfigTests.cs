@@ -18,7 +18,7 @@ public class DefaultConfigTests
 	];
 
 	[Test]
-	public async Task TheDefaultConfigIsMermaidsDefaultConfig()
+	public void TheDefaultConfigIsMermaidsDefaultConfig()
 	{
 		var oracle = File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "config.txt"))
 			.Where(line => line.StartsWith(KeyPrefix, StringComparison.Ordinal))
@@ -43,7 +43,7 @@ public class DefaultConfigTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(expected.Count).IsGreaterThanOrEqualTo(524);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(() => expected.Count >= 524);
 	}
 }

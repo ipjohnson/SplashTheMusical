@@ -3,18 +3,19 @@ namespace SplashTheMusical.Conformance;
 public class RasterOutcomesTests
 {
 	[Test]
-	public async Task TheCommittedFileHasOneOutcomePerCorpusCase()
+	public void TheCommittedFileHasOneOutcomePerCorpusCase()
 	{
 		var problems = new List<string>();
 
 		var outcomes = RasterOutcomes.Read(RasterOutcomes.FilePath, problems);
 
-		await Assert.That(problems).IsEmpty();
-		await Assert.That(RasterOutcomes.Problems(outcomes, CorpusCheck.Cases(CorpusCheck.CorpusRoot))).IsEmpty();
+		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
+		var outcomeProblems = RasterOutcomes.Problems(outcomes, CorpusCheck.Cases(CorpusCheck.CorpusRoot));
+		Verify(outcomeProblems.Count == 0, $"{string.Join('\n', outcomeProblems)}");
 	}
 
 	[Test]
-	public async Task EachOutcomeIsReadAndABadLineIsReported()
+	public void EachOutcomeIsReadAndABadLineIsReported()
 	{
 		var problems = new List<string>();
 
@@ -23,11 +24,11 @@ public class RasterOutcomesTests
 			problems
 		);
 
-		await Assert.That(outcomes["pie/a"]).IsEqualTo(Outcome.Pass);
-		await Assert.That(outcomes["pie/b"]).IsEqualTo(Outcome.Fail);
-		await Assert.That(outcomes["pie/c"]).IsEqualTo(Outcome.NotApplicable);
-		await Assert.That(outcomes["mindmap/a"]).IsEqualTo(Outcome.ReportOnly);
-		await LineAssert.Equal(
+		Verify(() => outcomes["pie/a"] == Outcome.Pass);
+		Verify(() => outcomes["pie/b"] == Outcome.Fail);
+		Verify(() => outcomes["pie/c"] == Outcome.NotApplicable);
+		Verify(() => outcomes["mindmap/a"] == Outcome.ReportOnly);
+		LineAssert.Equal(
 			problems,
 			"line 6: pie/d\tgood is not a case, a tab and pass, fail, n/a or report",
 			"line 7: pie/e is not a case, a tab and pass, fail, n/a or report",
@@ -36,11 +37,11 @@ public class RasterOutcomesTests
 	}
 
 	[Test]
-	public async Task ACaseWithoutAnOutcomeAndAnOutcomeWithoutACaseAreReported()
+	public void ACaseWithoutAnOutcomeAndAnOutcomeWithoutACaseAreReported()
 	{
 		var outcomes = new Dictionary<string, Outcome> { ["pie/a"] = Outcome.Pass, ["pie/gone"] = Outcome.Fail };
 
-		await LineAssert.Equal(
+		LineAssert.Equal(
 			RasterOutcomes.Problems(outcomes, ["pie/a", Path.Combine("pie", "b")]),
 			"pie/b: no L4 outcome",
 			"pie/gone: has an L4 outcome and no case"
