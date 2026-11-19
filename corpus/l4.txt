@@ -840,8 +840,8 @@ class/parser-classdiagram-005	fail
 class/parser-classdiagram-006	fail
 class/parser-classdiagram-007	fail
 class/parser-classdiagram-008	fail
-class/parser-classdiagram-009	fail
-class/parser-classdiagram-010	fail
+class/parser-classdiagram-009	pass
+class/parser-classdiagram-010	pass
 class/parser-classdiagram-011	fail
 class/parser-classdiagram-012	fail
 class/parser-classdiagram-013	fail
