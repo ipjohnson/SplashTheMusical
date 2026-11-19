@@ -18,7 +18,7 @@ public class ToleranceTests
 
 		var tolerance = Tolerance.Parse("pie.json", """{ "canvas": 0.02, "overlap": 0.9, "raster": 0.95 }""", problems);
 
-		Verify(tolerance == new Tolerance(0.02, 0.9, 0.95), $"was {tolerance}");
+		Verify(() => tolerance == new Tolerance(0.02, 0.9, 0.95));
 		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
 	}
 
@@ -52,7 +52,7 @@ public class ToleranceTests
 			problems
 		);
 
-		Verify(tolerance == new Tolerance(0.2, 0.5, 0.9, true, "force-directed"), $"was {tolerance}");
+		Verify(() => tolerance == new Tolerance(0.2, 0.5, 0.9, true, "force-directed"));
 		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
 	}
 
@@ -65,7 +65,7 @@ public class ToleranceTests
 		_ = Tolerance.Parse("b.json", """{ "canvas": 2, "overlap": "high", "rasterReportOnly": 1, "reason": 1, "ssim": 0.9 }""", problems);
 		_ = Tolerance.Parse("c.json", "{", problems);
 
-		Verify(problems.Count() == 8, $"was {problems.Count()}");
+		Verify(() => problems.Count() == 8);
 		LineAssert.Equal(
 			problems.Take(7),
 			"a.json: is not a JSON object",
@@ -76,7 +76,7 @@ public class ToleranceTests
 			"b.json: ssim is not canvas, overlap, raster, rasterReportOnly or reason",
 			"b.json: needs canvas, overlap and raster"
 		);
-		Verify(problems[7].StartsWith("c.json: ", StringComparison.Ordinal), $"was {problems[7]}");
+		Verify(() => problems[7].StartsWith("c.json: ", StringComparison.Ordinal));
 	}
 
 	[Test]

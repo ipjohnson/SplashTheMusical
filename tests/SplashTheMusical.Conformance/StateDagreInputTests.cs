@@ -72,7 +72,7 @@ public class StateDagreInputTests
 		var stale = same.Concat(listed.Keys.Where(name => !File.Exists(Path.Combine(CorpusCheck.CorpusRoot, "state", name + ".dagre.txt"))).Select(name => name + " is not a state case with a dagre record"));
 		Verify(!unlisted.Any(), $"{string.Join("\n", unlisted)}");
 		Verify(!stale.Any(), $"{string.Join("\n", stale)}");
-		Verify(compared - Listed().Count >= MinimumSame, $"was {compared - Listed().Count}");
+		Verify(() => compared - Listed().Count >= MinimumSame);
 	}
 
 	/// <summary>The cases of the list, each with its issue line.</summary>
@@ -123,8 +123,8 @@ public class StateDagreInputTests
 
 		var named = Generated([graph])[0];
 
-		Verify(string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent)) == "id-generated-1<,id-generated-1_start<id-generated-1,id-x<", $"was {string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent))}");
-		Verify(named.Edges[0].V == "id-generated-1_start", $"was {named.Edges[0].V}");
+		Verify(() => string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent)) == "id-generated-1<,id-generated-1_start<id-generated-1,id-x<");
+		Verify(() => named.Edges[0].V == "id-generated-1_start");
 	}
 
 	/// <summary>

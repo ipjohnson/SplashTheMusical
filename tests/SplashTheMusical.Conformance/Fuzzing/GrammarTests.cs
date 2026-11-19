@@ -15,9 +15,9 @@ public class GrammarTests
 			Verify(call.StartsWith("call", StringComparison.Ordinal) && call.Length > 4 && call[4..].All(char.IsWhiteSpace));
 			Verify(Sample("[0-9]+", false, i).All(char.IsAsciiDigit));
 			Verify(!(Sample("[^\"\\s]+", false, i).Any(c => c == '"' || char.IsWhiteSpace(c))));
-			Verify(Sample("(?!x)a{2}\\u0041$", false, i) == "aaA", $"was {(Sample("(?!x)a{2}\\u0041$", false, i))}");
+			Verify(() => Sample("(?!x)a{2}\\u0041$", false, i) == "aaA");
 			Verify(Sample("(?:ab|cd)", false, i) is "ab" or "cd");
-			Verify(Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0] == '{', $"was {Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0]}");
+			Verify(() => Sample("\\s*\"{\"[^}]*\\}", true, i).Trim()[0] == '{');
 		}
 	}
 
@@ -88,8 +88,8 @@ public class GrammarTests
 			Verify(sentences.All(s => s.Trim().StartsWith("main", StringComparison.Ordinal)));
 			Verify(sentences.Any(s => s.Contains(" : ", StringComparison.Ordinal)));
 			var item = sentences.SelectMany(s => s.Split('\n')).First(l => l.Contains(':', StringComparison.Ordinal)).Trim().Split(' ');
-			Verify(item[0].All(char.IsAsciiLetterLower));
-			Verify(item[2].All(char.IsAsciiDigit));
+			Verify(() => item[0].All(char.IsAsciiLetterLower));
+			Verify(() => item[2].All(char.IsAsciiDigit));
 		}
 		finally
 		{
@@ -113,7 +113,7 @@ public class GrammarTests
 			var accepted = Enumerable.Range(0, 300).Count(i => stm.TryParse(grammar.Sentence(FuzzRandom.For(1, i)), out _, out _));
 			Console.WriteLine($"{type}: STM accepts {accepted} of 300 sentences");
 
-			Verify(accepted > 0, $"was {accepted}");
+			Verify(() => accepted > 0);
 		}
 	}
 
@@ -122,8 +122,8 @@ public class GrammarTests
 	{
 		var root = CorpusCheck.RepositoryRoot;
 
-		Verify(FuzzTypes.GrammarPath(root, "flowchart") == "packages/mermaid/src/diagrams/flowchart/parser/flow.jison", $"was {FuzzTypes.GrammarPath(root, "flowchart")}");
-		Verify(FuzzTypes.GrammarPath(root, "info") == "packages/parser/src/language/info/info.langium", $"was {FuzzTypes.GrammarPath(root, "info")}");
-		Verify(FuzzTypes.GrammarPath(root, "pie") is null, $"was {FuzzTypes.GrammarPath(root, "pie")}");
+		Verify(() => FuzzTypes.GrammarPath(root, "flowchart") == "packages/mermaid/src/diagrams/flowchart/parser/flow.jison");
+		Verify(() => FuzzTypes.GrammarPath(root, "info") == "packages/parser/src/language/info/info.langium");
+		Verify(() => FuzzTypes.GrammarPath(root, "pie") is null);
 	}
 }

@@ -173,13 +173,12 @@ public sealed class Mermaid : IMermaid
 		}
 
 		var type = DetectType(source, bodyStart, out var keyword);
-		var (line, column) = TextPosition.Of(source, keyword);
 		if (type is null)
 		{
 			diagnostics.Add(Error(
 				"No diagram type detected matching given configuration for text: " + DiagramDetector.DetectedText(source[keyword..]),
-				line,
-				column));
+				source,
+				keyword));
 			return null;
 		}
 
@@ -187,14 +186,14 @@ public sealed class Mermaid : IMermaid
 		{
 			diagnostics.Add(Error(
 				"Diagrams beginning with --- are not valid. If you were trying to use a YAML front-matter, please ensure that you've correctly opened and closed the YAML front-matter with un-indented `---` blocks",
-				line,
-				column));
+				source,
+				keyword));
 			return null;
 		}
 
 		if (!_modules.TryGetValue(type, out var module))
 		{
-			diagnostics.Add(Error($"STM does not support the {type} diagram yet.", line, column));
+			diagnostics.Add(Error($"STM does not support the {type} diagram yet.", source, keyword));
 			return null;
 		}
 
@@ -203,7 +202,7 @@ public sealed class Mermaid : IMermaid
 		{
 			if (!diagnostics.Exists(d => d.Severity == DiagnosticSeverity.Error))
 			{
-				diagnostics.Add(Error($"The {type} diagram did not parse.", line, column));
+				diagnostics.Add(Error($"The {type} diagram did not parse.", source, keyword));
 			}
 
 			return null;
@@ -312,7 +311,11 @@ public sealed class Mermaid : IMermaid
 		return MermaidValue.FromEntries(entries);
 	}
 
-	private static MermaidDiagnostic Error(string message, int line, int column) => new(DiagnosticSeverity.Error, message, line, column);
+	private static MermaidDiagnostic Error(string message, ReadOnlySpan<char> source, int offset)
+	{
+		var (line, column) = TextPosition.Of(source, offset);
+		return new(DiagnosticSeverity.Error, message, line, column);
+	}
 
 	/// <summary>The front matter and directives, before the module's parser makes the document.</summary>
 	private sealed class PreambleDocument : MermaidDocument

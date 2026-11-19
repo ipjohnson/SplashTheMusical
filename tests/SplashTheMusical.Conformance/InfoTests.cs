@@ -21,10 +21,10 @@ public class InfoTests
 		}
 
 		Verify(!failures.Any(), $"{string.Join('\n', failures)}");
-		Verify(cases.Count == 9, $"was {cases.Count}");
+		Verify(() => cases.Count == 9);
 	}
 
 	[Test]
 	public void TheVersionIsTheOnePinnedByTheOracle() =>
-		Verify(MermaidCompatibility.MermaidJsVersion == CorpusCheck.PinnedMermaid(), $"was {MermaidCompatibility.MermaidJsVersion}");
+		Verify(() => MermaidCompatibility.MermaidJsVersion == CorpusCheck.PinnedMermaid());
 }

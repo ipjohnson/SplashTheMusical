@@ -13,7 +13,7 @@ public class OracleRoundTripTests
 
 		var written = OracleRoundTrip.WriteCases(CorpusCheck.CorpusRoot, folder);
 
-		Verify(written > 0, $"was {written}");
+		Verify(() => written > 0);
 	}
 
 	/// <summary>The step of <c>mise run oracle-roundtrip</c> after the oracle has written the facts of the folder, before it runs on <c>&lt;folder&gt;/original</c>.</summary>
@@ -27,7 +27,7 @@ public class OracleRoundTripTests
 
 		OracleRoundTrip.CopyDifferingOriginals(CorpusCheck.CorpusRoot, folder);
 
-		Verify(Directory.Exists(Path.Combine(folder, OracleRoundTrip.OriginalFolder)));
+		Verify(() => Directory.Exists(Path.Combine(folder, OracleRoundTrip.OriginalFolder)));
 	}
 
 	/// <summary>The last step of <c>mise run oracle-roundtrip</c>, after the oracle has written the facts of <c>&lt;folder&gt;/original</c>.</summary>
@@ -96,8 +96,8 @@ public class OracleRoundTripTests
 
 			var copied = OracleRoundTrip.CopyDifferingOriginals(corpus, folder);
 
-			Verify(copied == 3, $"was {copied}");
-			Verify(string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/'))) == "flowchart/fonts,flowchart/unread,flowchart/writer", $"was {string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/')))}");
+			Verify(() => copied == 3);
+			Verify(() => string.Join(",", CorpusCheck.Cases(original).Select(n => n.Replace('\\', '/'))) == "flowchart/fonts,flowchart/unread,flowchart/writer");
 			Verify(!(Directory.Exists(Path.Combine(original, "stale"))));
 
 			File.WriteAllText(Path.Combine(original, "flowchart/fonts.facts.txt"), "accept\tyes\nedge-label\tA\n");
@@ -120,7 +120,7 @@ public class OracleRoundTripTests
 		{
 			var problems = OracleRoundTrip.Problems(root, Path.Combine(root, "out"));
 
-			Verify(problems.Count == 1, $"was {problems.Count}");
+			Verify(() => problems.Count == 1);
 			Verify(problems[0].Contains("no written cases"), $"{problems[0]}");
 		}
 		finally

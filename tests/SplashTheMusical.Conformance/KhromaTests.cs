@@ -34,10 +34,10 @@ public class KhromaTests
 		}
 
 		Verify(!problems.Take(40).Any(), $"{string.Join('\n', problems.Take(40))}");
-		Verify(lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {lines[1]}");
+		Verify(() => lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
 		foreach (var function in new[] { "adjust", "darken", "lighten", "invert", "isDark", "rgba", "mkBorder" })
 		{
-			Verify(calls.GetValueOrDefault(function) > 100, $"was {calls.GetValueOrDefault(function)}");
+			Verify(() => calls.GetValueOrDefault(function) > 100);
 		}
 	}
 

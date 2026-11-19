@@ -44,6 +44,6 @@ public class DefaultConfigTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(expected.Count >= 524, $"was {expected.Count}");
+		Verify(() => expected.Count >= 524);
 	}
 }

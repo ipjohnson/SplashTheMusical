@@ -41,7 +41,7 @@ public class StateRoundTripTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join("\n\n", problems)}");
-		Verify(checkedCases == 285, $"was {checkedCases}");
+		Verify(() => checkedCases == 285);
 	}
 }
 

@@ -44,8 +44,8 @@ public class DagreRankReplayTests
 			report.Append(CultureInfo.InvariantCulture, $"and {failures.Count - MaxReported} more of {layouts} layouts\n");
 		}
 
-		Verify(layouts > 0, $"was {layouts}");
-		Verify(report.ToString() == "", $"was {report.ToString()}");
+		Verify(() => layouts > 0);
+		Verify(() => report.ToString() == "");
 	}
 
 	private static string? Compare(DagreRecord record)

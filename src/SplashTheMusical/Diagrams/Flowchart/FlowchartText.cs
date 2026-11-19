@@ -1,3 +1,4 @@
+using System.Buffers;
 using SplashTheMusical.Parsing;
 
 namespace SplashTheMusical.Diagrams.Flowchart;
@@ -25,6 +26,7 @@ internal static class FlowchartText
 	private const string EntityEnd = "¶ß";
 	private const char LineSeparator = (char)0x2028;
 	private const char ParagraphSeparator = (char)0x2029;
+	private static readonly SearchValues<char> Rewritten = SearchValues.Create("\r<%#");
 
 	/// <summary>Writes the text the lexer reads for <paramref name="body"/> to <paramref name="output"/>.</summary>
 	/// <param name="foldSpaceAfterBraces">
@@ -33,6 +35,14 @@ internal static class FlowchartText
 	/// </param>
 	public static void Prepare(ReadOnlySpan<char> body, ref PooledList<char> output, bool foldSpaceAfterBraces = true)
 	{
+		// Steps 1 to 4 change only text with one of these characters, or with space at the start.
+		if (!foldSpaceAfterBraces && !body.ContainsAny(Rewritten) && (body.IsEmpty || !PreambleParser.IsSpace(body[0])))
+		{
+			output.AddRange(body);
+			output.Add('\n');
+			return;
+		}
+
 		var first = new PooledList<char>(body.Length + 1);
 		var second = new PooledList<char>(body.Length + 1);
 		try
@@ -43,17 +53,17 @@ internal static class FlowchartText
 			RemoveDirectives(second.AsSpan(), ref first);
 			second.Truncate(0);
 			CleanupComments(first.AsSpan(), ref second);
+			if (!foldSpaceAfterBraces)
+			{
+				EncodeEntities(second.AsSpan(), ref output);
+				output.Add('\n');
+				return;
+			}
+
 			first.Truncate(0);
 			EncodeEntities(second.AsSpan(), ref first);
 			first.Add('\n');
-			if (foldSpaceAfterBraces)
-			{
-				FoldSpaceAfterBraces(first.AsSpan(), ref output);
-			}
-			else
-			{
-				output.AddRange(first.AsSpan());
-			}
+			FoldSpaceAfterBraces(first.AsSpan(), ref output);
 		}
 		finally
 		{
@@ -245,18 +255,33 @@ internal static class FlowchartText
 	/// </summary>
 	private static void EncodeEntities(ReadOnlySpan<char> text, ref PooledList<char> output)
 	{
-		var line = new PooledList<char>(256);
+		// Both rewrites need a '#' on the line, so a line without one is copied as it is.
+		if (!text.Contains('#'))
+		{
+			output.AddRange(text);
+			return;
+		}
+
+		var line = new PooledList<char>(0);
 		try
 		{
 			while (true)
 			{
 				var end = text.IndexOfAny('\n', LineSeparator, ParagraphSeparator);
 				var segment = end < 0 ? text : text[..end];
-				line.Truncate(0);
-				line.AddRange(segment);
-				DropSemicolon(ref line, "style");
-				DropSemicolon(ref line, "classDef");
-				ReplaceEntities(line.AsSpan(), ref output);
+				if (segment.Contains('#'))
+				{
+					line.Truncate(0);
+					line.AddRange(segment);
+					DropSemicolon(ref line, "style");
+					DropSemicolon(ref line, "classDef");
+					ReplaceEntities(line.AsSpan(), ref output);
+				}
+				else
+				{
+					output.AddRange(segment);
+				}
+
 				if (end < 0)
 				{
 					return;

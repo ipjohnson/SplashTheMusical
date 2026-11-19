@@ -45,8 +45,8 @@ public class DagrePositionReplayTests
 			report.Append(CultureInfo.InvariantCulture, $"and {failures.Count - MaxReported} more of {layouts} layouts\n");
 		}
 
-		Verify(string.Join(' ', types) == "class er flowchart state", $"was {string.Join(' ', types)}");
-		Verify(report.ToString() == "", $"was {report.ToString()}");
+		Verify(() => string.Join(' ', types) == "class er flowchart state");
+		Verify(() => report.ToString() == "");
 	}
 
 	private static string? Compare(DagreRecord record)

@@ -10,8 +10,8 @@ public class MutatorTests
 	[Arguments("graph TD\n  A((😀)) -.-> B{{b}}\r")]
 	public void SplitsASourceIntoTokensThatJoinBackToIt(string source)
 	{
-		Verify(string.Concat(SourceTokens.Split(source).Select(t => t.Text)) == source, $"was {string.Concat(SourceTokens.Split(source).Select(t => t.Text))}");
-		Verify(string.Concat(SourceTokens.Lines(source)) == source, $"was {string.Concat(SourceTokens.Lines(source))}");
+		Verify(() => string.Concat(SourceTokens.Split(source).Select(t => t.Text)) == source);
+		Verify(() => string.Concat(SourceTokens.Lines(source)) == source);
 	}
 
 	[Test]
@@ -19,7 +19,8 @@ public class MutatorTests
 	{
 		var tokens = SourceTokens.Split("A-->B[x]\r\n");
 
-		Verify(string.Join(",", tokens.Select(t => $"{t.Kind}:{Mutator.Escape(t.Text)}")) == "Word:A,Arrow:-->,Word:B,Bracket:[,Word:x,Bracket:],Newline:\\r\\n", $"was {(string.Join(",", tokens.Select(t => $"{t.Kind}:{Mutator.Escape(t.Text)}")))}");
+		var joined = string.Join(",", tokens.Select(t => $"{t.Kind}:{Mutator.Escape(t.Text)}"));
+		Verify(() => joined == "Word:A,Arrow:-->,Word:B,Bracket:[,Word:x,Bracket:],Newline:\\r\\n");
 	}
 
 	[Test]
@@ -30,9 +31,9 @@ public class MutatorTests
 		var first = Enumerable.Range(0, 50).Select(i => Mutator.Mutate(Source, FuzzRandom.For(7, i))).ToList();
 		var second = Enumerable.Range(0, 50).Select(i => Mutator.Mutate(Source, FuzzRandom.For(7, i))).ToList();
 
-		Verify(string.Join("|", first) == string.Join("|", second), $"was {string.Join("|", first)}");
-		Verify(first.Distinct(StringComparer.Ordinal).Count() > 40, $"was {first.Distinct(StringComparer.Ordinal).Count()}");
-		Verify(first.Count(m => m != Source) > 45, $"was {first.Count(m => m != Source)}");
+		Verify(() => string.Join("|", first) == string.Join("|", second));
+		Verify(() => first.Distinct(StringComparer.Ordinal).Count() > 40);
+		Verify(() => first.Count(m => m != Source) > 45);
 	}
 
 	[Test]
@@ -42,9 +43,9 @@ public class MutatorTests
 		{
 			var mutated = Mutator.Apply("A-->B", MutatorEdit.ChangeArrow, FuzzRandom.For(1, i));
 
-			Verify(mutated[0] == 'A', $"was {mutated[0]}");
-			Verify(mutated[^1] == 'B', $"was {mutated[^1]}");
-			Verify(Mutator.Arrows.Contains(mutated[1..^1]));
+			Verify(() => mutated[0] == 'A');
+			Verify(() => mutated[^1] == 'B');
+			Verify(() => Mutator.Arrows.Contains(mutated[1..^1]));
 		}
 	}
 
@@ -58,7 +59,7 @@ public class MutatorTests
 			var changed = mutated.StartsWith("A[x", StringComparison.Ordinal)
 				? mutated[3..]
 				: mutated[1..mutated.IndexOf('x', StringComparison.Ordinal)];
-			Verify(Mutator.Brackets.Contains(changed));
+			Verify(() => Mutator.Brackets.Contains(changed));
 		}
 	}
 
@@ -67,7 +68,7 @@ public class MutatorTests
 	{
 		var mutated = Mutator.Apply("A B", MutatorEdit.ChangeArrow, FuzzRandom.For(3, 0));
 
-		Verify(Mutator.Arrows.Any(a => mutated.Contains(a, StringComparison.Ordinal)));
+		Verify(() => Mutator.Arrows.Any(a => mutated.Contains(a, StringComparison.Ordinal)));
 	}
 
 	[Test]
@@ -94,9 +95,9 @@ public class MutatorTests
 		var duplicated = Mutator.Apply("A --> B", MutatorEdit.Duplicate, FuzzRandom.For(2, 0));
 		var swapped = Mutator.Apply("A --> B", MutatorEdit.Swap, FuzzRandom.For(2, 1));
 
-		Verify(SourceTokens.Split(deleted).Count == 4, $"was {SourceTokens.Split(deleted).Count}");
-		Verify(SourceTokens.Split(duplicated).Count >= 5, $"was {SourceTokens.Split(duplicated).Count}");
-		Verify(string.Concat(swapped.Order()) == string.Concat("A --> B".Order()), $"was {string.Concat(swapped.Order())}");
+		Verify(() => SourceTokens.Split(deleted).Count == 4);
+		Verify(() => SourceTokens.Split(duplicated).Count >= 5);
+		Verify(() => string.Concat(swapped.Order()) == string.Concat("A --> B".Order()));
 	}
 
 	private static string RemoveOnce(string text, string part)

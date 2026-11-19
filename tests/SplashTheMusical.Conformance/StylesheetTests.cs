@@ -84,8 +84,8 @@ public class StylesheetTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {lines[1]}");
-		Verify(cases.Count == 26, $"was {cases.Count}");
+		Verify(() => lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
+		Verify(() => cases.Count == 26);
 	}
 
 	private static string ClassLine(string id, IReadOnlyList<string> styles, IReadOnlyList<string> textStyles) =>

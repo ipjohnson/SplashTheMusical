@@ -29,8 +29,8 @@ public class RoundTripTests
 	{
 		var result = RoundTrip.Run(CorpusCheck.CorpusRoot, [.. Mermaid.CoreModules, new LossyInfoModule()]);
 
-		Verify(result.Checked.GetValueOrDefault("info") > 0, $"was {result.Checked.GetValueOrDefault("info")}");
-		Verify(result.Problems.Count == result.Checked["info"], $"was {result.Problems.Count}");
+		Verify(() => result.Checked.GetValueOrDefault("info") > 0);
+		Verify(() => result.Problems.Count == result.Checked["info"]);
 	}
 
 	/// <summary>An <c>info</c> module whose writer adds an accessibility title, which the round trip must notice.</summary>
