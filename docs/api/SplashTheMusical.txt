@@ -1113,7 +1113,6 @@ public sealed class ErEntity : ErStatement
   public string Name { get; }
   public string? Alias { get; set; }
 public sealed class ErLayout : DiagramLayout
-  public ErLayout()
 public sealed class ErModule : DiagramModule<ErDocument, ErLayout>
   public ErModule()
   public override ErDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
