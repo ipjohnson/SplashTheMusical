@@ -1,5 +1,5 @@
 # The parity ledger of class. corpus/ledger/README.md describes it.
-bug #172
+bug #25
 docs-classDiagram-001	L3
 docs-classDiagram-002	L3
 docs-classDiagram-005	L3
@@ -32,8 +32,6 @@ e2e-class-diagram-nightly-check-1-should-render-a-simple-class-diagram-3	L3
 e2e-class-diagram-nightly-check-10-should-render-a-simple-class-diagram-with-clickable-callback	L3
 e2e-class-diagram-nightly-check-10-should-render-a-simple-class-diagram-with-clickable-callback-2	L3
 e2e-class-diagram-nightly-check-10-should-render-a-simple-class-diagram-with-clickable-callback-3	L3
-e2e-class-diagram-nightly-check-11-1-should-render-a-simple-class-diagram-with-return-type-on-method-without-htmllabels	L3
-e2e-class-diagram-nightly-check-12-1-should-render-a-simple-class-diagram-with-generic-types-without-htmllabels	L3
 e2e-class-diagram-nightly-check-15-should-render-a-simple-class-diagram-with-css-classes-applied-to-multiple-classes	L3
 e2e-class-diagram-nightly-check-15-should-render-a-simple-class-diagram-with-css-classes-applied-two-multiple-classes	L3
 e2e-class-diagram-nightly-check-15-should-render-a-simple-class-diagram-with-css-classes-applied-two-multiple-classes-2	L3
@@ -61,29 +59,13 @@ e2e-class-diagram-nightly-check-8-should-render-a-simple-class-diagram-with-gene
 e2e-class-diagram-nightly-check-9-should-render-a-simple-class-diagram-with-clickable-link	L3
 e2e-class-diagram-nightly-check-9-should-render-a-simple-class-diagram-with-clickable-link-2	L3
 e2e-class-diagram-nightly-check-9-should-render-a-simple-class-diagram-with-clickable-link-3	L3
-e2e-class-diagram-nightly-check-dagre-dagre-11-1-should-render-a-simple-class-diagram-with-return-type-on-method-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-12-1-should-render-a-simple-class-diagram-with-generic-types-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-18b-should-render-a-simple-class-diagram-with-notes	L3
-e2e-class-diagram-nightly-check-dagre-dagre-2-3-should-render-a-simple-class-diagram-with-different-visibilities-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-5-1-should-render-a-simple-class-diagram-with-abstract-method-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-6-1-should-render-a-simple-class-diagram-with-static-method-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-7-1-should-render-a-simple-class-diagram-with-generic-class-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-full-class-diagram-using-dagre	L3
-e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-simple-class-diagram-with-markdown-styling-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-full-class-diagram-with-the-handdrawn-look	L3
-e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-styles-and-the-handdrawn-look	L3
-e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-styles-and-the-handdrawn-look-without-htmllabels	L3
-e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-the-handdrawn-look	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-0-should-render-a-simple-class-diagram	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-10-should-render-a-simple-class-diagram-with-clickable-callback	L3
-e2e-class-diagram-nightly-check-handdrawn-hd-11-1-should-render-a-simple-class-diagram-with-return-type-on-method-without-htmllabels	L3
-e2e-class-diagram-nightly-check-handdrawn-hd-12-1-should-render-a-simple-class-diagram-with-generic-types-without-htmllabels	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-1433-should-render-a-simple-class-with-a-title	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-16b-should-handle-the-direction-statement-with-tb	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-17a-should-handle-the-direction-statement-with-bt	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-17b-should-handle-the-direction-statement-with-rl	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-18a-should-handle-the-direction-statement-with-lr	L3
-e2e-class-diagram-nightly-check-handdrawn-hd-18b-should-render-a-simple-class-diagram-with-notes	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-5-1-should-render-a-simple-class-diagram-with-abstract-method-without-htmllabels	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-5-should-render-a-simple-class-diagram-with-abstract-method	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-6-1-should-render-a-simple-class-diagram-with-static-method-without-htmllabels	L3
@@ -97,7 +79,6 @@ e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-class-with-text-lab
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-namespace-with-a-custom-label	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-self-referential-class-diagram-with-multiplicity-labels	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-simple-class-diagram-with-classdefs-being-applied-without-htmllabels	L3
-e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-simple-class-diagram-with-markdown-styling-without-htmllabels	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-simple-class-diagram-with-no-members-if-hideemptymembersbox-is-enabled	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-a-simple-class-diagram-with-the-handdrawn-look	L3
 e2e-class-diagram-nightly-check-handdrawn-hd-should-render-classes-with-different-text-labels	L3
@@ -124,7 +105,6 @@ e2e-class-diagram-nightly-check-should-render-a-class-with-a-text-label-members-
 e2e-class-diagram-nightly-check-should-render-a-class-with-text-label	L3
 e2e-class-diagram-nightly-check-should-render-a-namespace-with-a-custom-label	L3
 e2e-class-diagram-nightly-check-should-render-a-self-referential-class-diagram-with-multiplicity-labels-fixes-7560	L3
-e2e-class-diagram-nightly-check-should-render-a-simple-class-diagram-with-markdown-styling-without-htmllabels	L3
 e2e-class-diagram-nightly-check-should-render-class-diagram-with-newlines-in-title	L3
 e2e-class-diagram-nightly-check-should-render-classes-with-different-text-labels	L3
 e2e-class-diagram-nightly-check-should-render-classlabel-if-class-has-already-been-defined-earlier	L3
@@ -139,7 +119,6 @@ e2e-class-diagram-pr-check-17b-should-handle-the-direction-statement-with-rl-2	L
 e2e-class-diagram-pr-check-2-should-render-a-simple-class-diagrams-with-cardinality-3	L3
 e2e-class-diagram-pr-check-5-1-should-render-a-simple-class-diagram-with-abstract-method-without-htmllabels	L3
 e2e-class-diagram-pr-check-6-should-render-a-simple-class-diagram-with-static-method	L3
-e2e-class-diagram-pr-check-dagre-1-1-should-render-a-simple-class-diagram-without-htmllabels	L3
 e2e-class-diagram-pr-check-hd-8-should-render-a-simple-class-diagram-with-generic-class-and-relations	L3
 e2e-class-diagram-visual-check-dark-theme	L3
 e2e-class-diagram-visual-check-default-theme	L3
@@ -242,3 +221,8 @@ parser-classdiagram-125	L3
 parser-classdiagram-styles-003	L3
 parser-classdiagram-styles-005	L3
 parser-classdiagram-styles-006	L3
+bug #61
+e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-full-class-diagram-with-the-handdrawn-look	L3
+e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-styles-and-the-handdrawn-look	L3
+e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-styles-and-the-handdrawn-look-without-htmllabels	L3
+e2e-class-diagram-nightly-check-dagre-handdrawn-dagre-should-render-a-simple-class-diagram-with-the-handdrawn-look	L3
