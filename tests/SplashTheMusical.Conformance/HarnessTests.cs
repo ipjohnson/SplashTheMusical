@@ -3,6 +3,6 @@ namespace SplashTheMusical.Conformance;
 public class HarnessTests
 {
 	[Test]
-	public async Task LoadsTheCore() =>
-		await Assert.That(System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name).IsEqualTo("SplashTheMusical");
+	public void LoadsTheCore() =>
+		Verify(System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name == "SplashTheMusical", $"was {System.Reflection.Assembly.Load("SplashTheMusical").GetName().Name}");
 }

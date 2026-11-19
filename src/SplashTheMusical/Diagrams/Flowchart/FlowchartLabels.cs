@@ -322,16 +322,41 @@ internal static class FlowchartLabels
 
 	/// <summary>
 	/// The text of <c>markdownToHTML</c>'s output for the inline Markdown of a label: the <c>*</c> and <c>_</c> markers of
-	/// strong and emphasis are taken off, and a newline is a line break.
+	/// strong and emphasis are taken off, a backslash before ASCII punctuation is marked's <c>escape</c> and leaves the
+	/// punctuation, and a newline is a line break.
 	/// </summary>
 	private static void MarkdownText(ReadOnlySpan<char> text, StringBuilder output)
 	{
+		// The text between delimiter runs, and the runs, in order. A run's piece holds its index in runs.
+		var pieces = new List<(string? Text, int Run)>();
+		var runs = new List<DelimiterRun>();
+		var literal = new StringBuilder();
+		void Flush()
+		{
+			if (literal.Length > 0)
+			{
+				pieces.Add((literal.ToString(), -1));
+				_ = literal.Clear();
+			}
+		}
+
 		for (var i = 0; i < text.Length; i++)
 		{
 			var c = text[i];
-			if (c == '\n')
+			if (c == '\\' && i + 1 < text.Length && char.IsAscii(text[i + 1]) && IsMarkdownPunctuation(text[i + 1]))
 			{
-				output.Append("<br>");
+				i++;
+				_ = text[i] switch
+				{
+					'&' => literal.Append("&amp;"),
+					'<' => literal.Append("&lt;"),
+					'>' => literal.Append("&gt;"),
+					_ => literal.Append(text[i]),
+				};
+			}
+			else if (c == '\n')
+			{
+				literal.Append("<br>");
 				while (i + 1 < text.Length && text[i + 1] == ' ')
 				{
 					i++;
@@ -339,30 +364,124 @@ internal static class FlowchartLabels
 			}
 			else if (c is '*' or '_')
 			{
-				var run = 1;
-				while (i + run < text.Length && text[i + run] == c)
+				var length = 1;
+				while (i + length < text.Length && text[i + length] == c)
 				{
-					run++;
+					length++;
 				}
 
-				var close = text[(i + run)..].IndexOf(text.Slice(i, run));
-				if (close > 0)
+				Flush();
+				var before = i > 0 ? text[i - 1] : ' ';
+				var after = i + length < text.Length ? text[i + length] : ' ';
+				var left = IsLeftFlanking(before, after);
+				var right = IsRightFlanking(before, after);
+				runs.Add(new DelimiterRun
 				{
-					output.Append(text.Slice(i + run, close));
-					i += run + close + run - 1;
-				}
-				else
-				{
-					output.Append(text.Slice(i, run));
-					i += run - 1;
-				}
+					Char = c,
+					Count = length,
+					Length = length,
+					CanOpen = c == '*' ? left : left && (!right || IsMarkdownPunctuation(before)),
+					CanClose = c == '*' ? right : right && (!left || IsMarkdownPunctuation(after)),
+				});
+				pieces.Add((null, runs.Count - 1));
+				i += length - 1;
 			}
 			else
 			{
-				output.Append(c);
+				literal.Append(c);
+			}
+		}
+
+		Flush();
+		MatchEmphasis(runs);
+		foreach (var (piece, run) in pieces)
+		{
+			_ = piece is not null ? output.Append(piece) : output.Append(runs[run].Char, runs[run].Count);
+		}
+	}
+
+	/// <summary>
+	/// CommonMark's <c>process emphasis</c>: each run that can close takes the nearest run of its character before it
+	/// that can open, one or two characters from each at a time, and the runs between them become text. What a run has
+	/// left is text. Only the characters left matter here, as the label's text has no strong or emphasis markers.
+	/// </summary>
+	private static void MatchEmphasis(List<DelimiterRun> runs)
+	{
+		var bottomStar = 0;
+		var bottomUnderscore = 0;
+		for (var c = 0; c < runs.Count; c++)
+		{
+			var closer = runs[c];
+			while (closer.CanClose && closer.Count > 0 && !closer.Removed)
+			{
+				var bottom = closer.Char == '*' ? bottomStar : bottomUnderscore;
+				var found = -1;
+				for (var o = c - 1; o >= bottom; o--)
+				{
+					var opener = runs[o];
+					if (opener.Removed || opener.Count == 0 || !opener.CanOpen || opener.Char != closer.Char)
+					{
+						continue;
+					}
+
+					if ((opener.CanClose || closer.CanOpen) && (opener.Length + closer.Length) % 3 == 0 && (opener.Length % 3 != 0 || closer.Length % 3 != 0))
+					{
+						continue;
+					}
+
+					found = o;
+					break;
+				}
+
+				if (found < 0)
+				{
+					if (closer.Char == '*')
+					{
+						bottomStar = c;
+					}
+					else
+					{
+						bottomUnderscore = c;
+					}
+
+					break;
+				}
+
+				var use = closer.Count >= 2 && runs[found].Count >= 2 ? 2 : 1;
+				runs[found].Count -= use;
+				closer.Count -= use;
+				for (var between = found + 1; between < c; between++)
+				{
+					runs[between].Removed = true;
+				}
 			}
 		}
 	}
+
+	/// <summary>A run of <c>*</c> or <c>_</c>, with the characters it has left after <see cref="MatchEmphasis"/>.</summary>
+	private sealed class DelimiterRun
+	{
+		public char Char { get; init; }
+
+		public int Count { get; set; }
+
+		public int Length { get; init; }
+
+		public bool CanOpen { get; init; }
+
+		public bool CanClose { get; init; }
+
+		/// <summary>Whether it lay between an opener and a closer that matched, so it is text.</summary>
+		public bool Removed { get; set; }
+	}
+
+	private static bool IsLeftFlanking(char before, char after) =>
+		!char.IsWhiteSpace(after) && (!IsMarkdownPunctuation(after) || char.IsWhiteSpace(before) || IsMarkdownPunctuation(before));
+
+	private static bool IsRightFlanking(char before, char after) =>
+		!char.IsWhiteSpace(before) && (!IsMarkdownPunctuation(before) || char.IsWhiteSpace(after) || IsMarkdownPunctuation(after));
+
+	private static bool IsMarkdownPunctuation(char c) => char.IsPunctuation(c) || char.IsSymbol(c);
 
 	/// <summary><c>replaceIconSubstring</c>: <c>/(fa[bklrs]?):fa-([\w-]+)/g</c> becomes an empty <c>i</c> element.</summary>
 	private static void ReplaceIcons(ReadOnlySpan<char> text, StringBuilder output, List<string>? icons)

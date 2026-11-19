@@ -7,7 +7,7 @@ namespace SplashTheMusical.Conformance;
 public class KhromaTests
 {
 	[Test]
-	public async Task EveryCallMatchesKhroma()
+	public void EveryCallMatchesKhroma()
 	{
 		var lines = File.ReadAllLines(Path.Combine(CorpusCheck.CorpusRoot, "colors.txt"));
 		var problems = new List<string>();
@@ -33,11 +33,11 @@ public class KhromaTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems.Take(40))).IsEmpty();
-		await Assert.That(lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
+		Verify(!problems.Take(40).Any(), $"{string.Join('\n', problems.Take(40))}");
+		Verify(lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {lines[1]}");
 		foreach (var function in new[] { "adjust", "darken", "lighten", "invert", "isDark", "rgba", "mkBorder" })
 		{
-			await Assert.That(calls.GetValueOrDefault(function)).IsGreaterThan(100);
+			Verify(calls.GetValueOrDefault(function) > 100, $"was {calls.GetValueOrDefault(function)}");
 		}
 	}
 

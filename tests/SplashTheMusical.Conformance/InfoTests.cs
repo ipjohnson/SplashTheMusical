@@ -3,7 +3,7 @@ namespace SplashTheMusical.Conformance;
 public class InfoTests
 {
 	[Test]
-	public async Task EveryInfoCasePassesL0ToL2()
+	public void EveryInfoCasePassesL0ToL2()
 	{
 		var corpus = CorpusCheck.CorpusRoot;
 		var failures = new List<string>();
@@ -20,11 +20,11 @@ public class InfoTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', failures)).IsEmpty();
-		await Assert.That(cases.Count).IsEqualTo(9);
+		Verify(!failures.Any(), $"{string.Join('\n', failures)}");
+		Verify(cases.Count == 9, $"was {cases.Count}");
 	}
 
 	[Test]
-	public async Task TheVersionIsTheOnePinnedByTheOracle() =>
-		await Assert.That(MermaidCompatibility.MermaidJsVersion).IsEqualTo(CorpusCheck.PinnedMermaid());
+	public void TheVersionIsTheOnePinnedByTheOracle() =>
+		Verify(MermaidCompatibility.MermaidJsVersion == CorpusCheck.PinnedMermaid(), $"was {MermaidCompatibility.MermaidJsVersion}");
 }

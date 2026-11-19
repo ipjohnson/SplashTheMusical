@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
+using SplashTheMusical.Diagrams.Class;
 using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Diagrams.Info;
@@ -75,6 +76,7 @@ public sealed class Mermaid : IMermaid
 			new FlowchartModule(FlowchartModule.FlowchartV2),
 			new FlowchartModule(FlowchartModule.FlowchartElk),
 			new StateModule(),
+			new ClassModule(),
 			new ErModule(),
 		]);
 

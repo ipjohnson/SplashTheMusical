@@ -41,7 +41,7 @@ public class TextMeasurementTests
 	];
 
 	[Test]
-	public async Task MeasuresTheOracleLabelsWithinOnePercent()
+	public void MeasuresTheOracleLabelsWithinOnePercent()
 	{
 		var sample = SequenceLabels().Concat(GanttLabels()).ToList();
 		var misses = sample
@@ -50,8 +50,8 @@ public class TextMeasurementTests
 			.Select(pair => string.Create(CultureInfo.InvariantCulture, $"{pair.label.Case}: \"{pair.label.Text}\" is {pair.measured:0.###}, the oracle's {pair.label.Width}"))
 			.ToList();
 
-		await Assert.That(sample.Count).IsGreaterThanOrEqualTo(MinimumSample);
-		await Assert.That(string.Join("\n", misses)).IsEqualTo("");
+		Verify(sample.Count >= MinimumSample, $"was {sample.Count}");
+		Verify(!misses.Any(), $"{string.Join("\n", misses)}");
 	}
 
 	/// <summary>The message texts whose box the facts name without doubt: the only message between its two actors.</summary>

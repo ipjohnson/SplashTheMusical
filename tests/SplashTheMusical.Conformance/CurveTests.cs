@@ -13,20 +13,20 @@ public class CurveTests
 	private static readonly string[] Lines = File.ReadAllLines(Path.Combine(CorpusCheck.CorpusRoot, "curves.txt"));
 
 	[Test]
-	public async Task TheFileIsFromThePinnedMermaid() =>
-		await Assert.That(Lines[1]).IsEqualTo("# mermaid " + CorpusCheck.PinnedMermaid());
+	public void TheFileIsFromThePinnedMermaid() =>
+		Verify(Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {Lines[1]}");
 
 	[Test]
-	public async Task TheCurvesAreTheSchemasCurveValues()
+	public void TheCurvesAreTheSchemasCurveValues()
 	{
 		var schema = Records("curve-name").Select(fields => fields[1]).ToArray();
 		var ported = CurveNames.All.Select(entry => entry.Name).ToArray();
-		await Assert.That(string.Join(' ', ported)).IsEqualTo(string.Join(' ', schema));
-		await Assert.That(Enum.GetValues<Curve>().Length).IsEqualTo(schema.Length);
+		Verify(string.Join(' ', ported) == string.Join(' ', schema), $"was {string.Join(' ', ported)}");
+		Verify(Enum.GetValues<Curve>().Length == schema.Length, $"was {Enum.GetValues<Curve>().Length}");
 	}
 
 	[Test]
-	public async Task EveryCurveWritesD3sPath()
+	public void EveryCurveWritesD3sPath()
 	{
 		var problems = new List<string>();
 		var counts = new Dictionary<string, int>(StringComparer.Ordinal);
@@ -47,15 +47,15 @@ public class CurveTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems.Take(20))).IsEmpty();
+		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
 		foreach (var (name, _) in CurveNames.All)
 		{
-			await Assert.That(counts.GetValueOrDefault(name)).IsGreaterThanOrEqualTo(20);
+			Verify(counts.GetValueOrDefault(name) >= 20, $"was {counts.GetValueOrDefault(name)}");
 		}
 	}
 
 	[Test]
-	public async Task EveryEdgePathMatchesInsertEdge()
+	public void EveryEdgePathMatchesInsertEdge()
 	{
 		var problems = new List<string>();
 		var count = 0;
@@ -70,12 +70,12 @@ public class CurveTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems.Take(20))).IsEmpty();
-		await Assert.That(count).IsGreaterThanOrEqualTo(1000);
+		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
+		Verify(count >= 1000, $"was {count}");
 	}
 
 	[Test]
-	public async Task JsMathGivesV8sResults()
+	public void JsMathGivesV8sResults()
 	{
 		var problems = new List<string>();
 		var counts = new Dictionary<string, int>(StringComparer.Ordinal);
@@ -100,18 +100,18 @@ public class CurveTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems.Take(20))).IsEmpty();
+		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
 		foreach (var name in new[] { "acos", "atan", "atan2", "sin", "cos", "hypot" })
 		{
-			await Assert.That(counts.GetValueOrDefault(name)).IsGreaterThan(1000);
+			Verify(counts.GetValueOrDefault(name) > 1000, $"was {counts.GetValueOrDefault(name)}");
 		}
 	}
 
 	[Test]
-	public async Task TheMarkerOffsetsAreMermaids()
+	public void TheMarkerOffsetsAreMermaids()
 	{
-		await Assert.That(Offsets(MarkerOffsets.Line)).IsEqualTo(Offsets(Records("marker-offset")));
-		await Assert.That(Offsets(MarkerOffsets.Dash)).IsEqualTo(Offsets(Records("dash-offset")));
+		Verify(Offsets(MarkerOffsets.Line) == Offsets(Records("marker-offset")), $"was {Offsets(MarkerOffsets.Line)}");
+		Verify(Offsets(MarkerOffsets.Dash) == Offsets(Records("dash-offset")), $"was {Offsets(MarkerOffsets.Dash)}");
 	}
 
 	private static IEnumerable<string[]> Records(string kind) =>

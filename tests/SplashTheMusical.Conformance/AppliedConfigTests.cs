@@ -32,7 +32,7 @@ public class AppliedConfigTests
 	});
 
 	[Test]
-	public async Task EveryCaseMergesToTheConfigTheOracleRecorded()
+	public void EveryCaseMergesToTheConfigTheOracleRecorded()
 	{
 		var site = ConfigMerge.Site(OracleSite);
 		var checkedCases = 0;
@@ -47,12 +47,12 @@ public class AppliedConfigTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsGreaterThanOrEqualTo(3258);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(checkedCases >= 3258, $"was {checkedCases}");
 	}
 
 	[Test]
-	public async Task EveryCaseResolvesToAMermaidConfigWithTheValuesTheOracleRecorded()
+	public void EveryCaseResolvesToAMermaidConfigWithTheValuesTheOracleRecorded()
 	{
 		var site = MermaidConfig.FromValue(ConfigMerge.Site(OracleSite)).ToValue();
 		var checkedCases = 0;
@@ -91,22 +91,22 @@ public class AppliedConfigTests
 			}
 		}
 
-		await Assert.That(string.Join('\n', problems)).IsEmpty();
-		await Assert.That(checkedCases).IsGreaterThanOrEqualTo(3249);
+		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
+		Verify(checkedCases >= 3249, $"was {checkedCases}");
 	}
 
 	[Test]
-	public async Task ConfigKeysAreTheNamesOfConfigTxt()
+	public void ConfigKeysAreTheNamesOfConfigTxt()
 	{
 		var names = File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "config.txt"))
 			.Where(line => line.StartsWith("name\t", StringComparison.Ordinal))
 			.Select(line => line["name\t".Length..])
 			.Order(StringComparer.Ordinal);
-		await Assert.That(string.Join('\n', ConfigKeys.All)).IsEqualTo(string.Join('\n', names));
+		LineAssert.Equal(ConfigKeys.All, names);
 	}
 
 	[Test]
-	public async Task EveryThemeOfThemesTxtIsATheme()
+	public void EveryThemeOfThemesTxtIsATheme()
 	{
 		var themes = File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "themes.txt"))
 			.Where(line => line.StartsWith("theme\t", StringComparison.Ordinal))
@@ -123,8 +123,8 @@ public class AppliedConfigTests
 			}
 		}
 
-		await Assert.That(string.Join(", ", problems)).IsEmpty();
-		await Assert.That(themes.Count).IsEqualTo(11);
+		Verify(!problems.Any(), $"{string.Join(", ", problems)}");
+		Verify(themes.Count == 11, $"was {themes.Count}");
 	}
 
 	/// <summary>

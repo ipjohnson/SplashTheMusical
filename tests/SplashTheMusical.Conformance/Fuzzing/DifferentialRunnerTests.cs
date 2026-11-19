@@ -7,7 +7,7 @@ public class DifferentialRunnerTests
 	private const string Seed = "flowchart LR\n    A --> B\n    B --> C\n    C --> D\n    D --> E\n    E --> F\n";
 
 	[Test]
-	public async Task FindsAndMinimizesASourceTheTwoSidesReadDifferently()
+	public void FindsAndMinimizesASourceTheTwoSidesReadDifferently()
 	{
 		var stm = new StmFactsProvider();
 		// An oracle whose rule for thick arrows is broken: it reads ==> as -->.
@@ -15,55 +15,55 @@ public class DifferentialRunnerTests
 
 		var run = runner.Run("flowchart", [Seed], null, seed: 1, maxSources: 2000, TimeSpan.FromMinutes(5));
 
-		await Assert.That(run.Finds.Count).IsEqualTo(1);
+		Verify(run.Finds.Count == 1, $"was {run.Finds.Count}");
 		var find = run.Finds[0];
-		await Assert.That(find.Minimized).Contains("==>");
-		await Assert.That(find.Minimized.Length).IsLessThan(find.Original.Length);
-		await Assert.That(SourceTokens.Lines(find.Minimized).Count).IsLessThanOrEqualTo(2);
-		await Assert.That(find.Disagreement.Signature).IsEqualTo("L1 edge");
-		await Assert.That(runner.Disagree(find.Minimized)?.Shows("L1 edge")).IsTrue();
-		await Assert.That(find.Name).IsEqualTo(CorpusCheck.SourceHash(find.Minimized));
-		await Assert.That(DifferentialRunner.Source([Seed], null, 1, find.Index)).IsEqualTo(find.Original);
+		Verify(find.Minimized.Contains("==>", StringComparison.Ordinal), $"{find.Minimized}");
+		Verify(find.Minimized.Length < find.Original.Length, $"was {find.Minimized.Length}");
+		Verify(SourceTokens.Lines(find.Minimized).Count <= 2, $"was {SourceTokens.Lines(find.Minimized).Count}");
+		Verify(find.Disagreement.Signature == "L1 edge", $"was {find.Disagreement.Signature}");
+		Verify(runner.Disagree(find.Minimized)?.Shows("L1 edge") == true);
+		Verify(find.Name == CorpusCheck.SourceHash(find.Minimized), $"was {find.Name}");
+		Verify(DifferentialRunner.Source([Seed], null, 1, find.Index) == find.Original, $"was {DifferentialRunner.Source([Seed], null, 1, find.Index)}");
 	}
 
 	[Test]
-	public async Task KeepsNothingWhenTheTwoSidesAgree()
+	public void KeepsNothingWhenTheTwoSidesAgree()
 	{
 		var stm = new StmFactsProvider();
 		var runner = new DifferentialRunner(stm.Facts, stm.Facts);
 
 		var run = runner.Run("flowchart", [Seed], null, seed: 1, maxSources: 100, TimeSpan.FromMinutes(5));
 
-		await Assert.That(run.Finds.Count).IsEqualTo(0);
-		await Assert.That(run.Sources).IsEqualTo(100);
-		await Assert.That(run.Compared).IsEqualTo(100);
+		Verify(run.Finds.Count == 0, $"was {run.Finds.Count}");
+		Verify(run.Sources == 100, $"was {run.Sources}");
+		Verify(run.Compared == 100, $"was {run.Compared}");
 	}
 
 	[Test]
-	public async Task SkipsASourceTheOracleGivesNoFactsFor()
+	public void SkipsASourceTheOracleGivesNoFactsFor()
 	{
 		var runner = new DifferentialRunner(_ => null, _ => throw new InvalidOperationException("STM should not run"));
 
 		var run = runner.Run("flowchart", [Seed], null, seed: 1, maxSources: 10, TimeSpan.FromMinutes(1));
 
-		await Assert.That(run.Compared).IsEqualTo(0);
-		await Assert.That(run.Finds.Count).IsEqualTo(0);
+		Verify(run.Compared == 0, $"was {run.Compared}");
+		Verify(run.Finds.Count == 0, $"was {run.Finds.Count}");
 	}
 
 	[Test]
-	public async Task TellsAnAcceptanceDifferenceAndAnExceptionFromAFactDifference()
+	public void TellsAnAcceptanceDifferenceAndAnExceptionFromAFactDifference()
 	{
 		var stm = new StmFactsProvider();
 		var refusing = new DifferentialRunner(_ => CaseFacts.Refused("Parse error"), stm.Facts);
 		var throwing = new DifferentialRunner(stm.Facts, _ => throw new InvalidOperationException("broken"));
 
-		await Assert.That(refusing.Disagree(Seed)?.Signature).IsEqualTo("L0 STM-accepts");
-		await Assert.That(refusing.Disagree("flowchart LR\n  A-->")).IsNull();
-		await Assert.That(throwing.Disagree(Seed)?.Signature).IsEqualTo("exception InvalidOperationException");
+		Verify(refusing.Disagree(Seed)?.Signature == "L0 STM-accepts", $"was {refusing.Disagree(Seed)?.Signature}");
+		Verify(refusing.Disagree("flowchart LR\n  A-->") is null, $"was {refusing.Disagree("flowchart LR\n  A-->")}");
+		Verify(throwing.Disagree(Seed)?.Signature == "exception InvalidOperationException", $"was {throwing.Disagree(Seed)?.Signature}");
 	}
 
 	[Test]
-	public async Task WritesTheFindsAndAReport()
+	public void WritesTheFindsAndAReport()
 	{
 		var folder = Directory.CreateTempSubdirectory("stm-differential-").FullName;
 		try
@@ -74,15 +74,15 @@ public class DifferentialRunnerTests
 
 			DifferentialReport.Write(folder, [new DifferentialRun("flowchart", 3, 100, 90, [find]), new DifferentialRun("state", 2, 50, 50, [])], 9, "12.3.0");
 
-			await Assert.That(File.ReadAllText(Path.Combine(folder, "finds", "flowchart", "0123456789abcdef.mmd"))).IsEqualTo("flowchart\nA==>B");
-			await Assert.That(File.ReadAllText(Path.Combine(folder, "original", "flowchart", "0123456789abcdef.mmd"))).IsEqualTo("flowchart LR\n  A==>B\n  C\n");
-			await Assert.That(Directory.Exists(Path.Combine(folder, "finds", "stale"))).IsFalse();
+			Verify(File.ReadAllText(Path.Combine(folder, "finds", "flowchart", "0123456789abcdef.mmd")) == "flowchart\nA==>B", $"was {File.ReadAllText(Path.Combine(folder, "finds", "flowchart", "0123456789abcdef.mmd"))}");
+			Verify(File.ReadAllText(Path.Combine(folder, "original", "flowchart", "0123456789abcdef.mmd")) == "flowchart LR\n  A==>B\n  C\n", $"was {File.ReadAllText(Path.Combine(folder, "original", "flowchart", "0123456789abcdef.mmd"))}");
+			Verify(!(Directory.Exists(Path.Combine(folder, "finds", "stale"))));
 			var report = File.ReadAllText(Path.Combine(folder, DifferentialReport.ReportFile));
-			await Assert.That(report).StartsWith("Differential fuzzing of STM against mermaid.js 12.3.0 with seed 9: 1 find.\n");
-			await Assert.That(report).Contains("| `flowchart` | 3 | 100 | 90 | 1 |\n| `state` | 2 | 50 | 50 | 0 |\n");
-			await Assert.That(report).Contains("## `flowchart/0123456789abcdef`: L1 edge\n\nSource 42 of the run, minimized from 3 lines to 2 in 17 tests.\n\n```text\nflowchart\nA==>B\n```\n");
-			await Assert.That(report).Contains("```text\n- edge\tA\tB\n+ edge\tA\tC\n```\n");
-			await Assert.That(DifferentialReport.Markdown([new DifferentialRun("info", 1, 10, 10, [])], 1, "12.3.0")).Contains("with seed 1: no finds.");
+			Verify(report.StartsWith("Differential fuzzing of STM against mermaid.js 12.3.0 with seed 9: 1 find.\n", StringComparison.Ordinal), $"was {report}");
+			Verify(report.Contains("| `flowchart` | 3 | 100 | 90 | 1 |\n| `state` | 2 | 50 | 50 | 0 |\n"), $"{report}");
+			Verify(report.Contains("## `flowchart/0123456789abcdef`: L1 edge\n\nSource 42 of the run, minimized from 3 lines to 2 in 17 tests.\n\n```text\nflowchart\nA==>B\n```\n", StringComparison.Ordinal), $"{report}");
+			Verify(report.Contains("```text\n- edge\tA\tB\n+ edge\tA\tC\n```\n"), $"{report}");
+			Verify(DifferentialReport.Markdown([new DifferentialRun("info", 1, 10, 10, [])], 1, "12.3.0").Contains("with seed 1: no finds."), $"{DifferentialReport.Markdown([new DifferentialRun("info", 1, 10, 10, [])], 1, "12.3.0")}");
 		}
 		finally
 		{
@@ -91,16 +91,16 @@ public class DifferentialRunnerTests
 	}
 
 	[Test]
-	public async Task ReadsTheAnswersOfTheOracleProcess()
+	public void ReadsTheAnswersOfTheOracleProcess()
 	{
 		var accepted = OracleProcess.Parse(["# mermaid.js facts", "# mermaid 12.3.0", "accept\tyes", "node\tA\tA\trect"]);
 		var refused = OracleProcess.Parse(["accept\tno", "# error Parse error on line 3:"]);
 
-		await Assert.That(accepted!.Accepted).IsTrue();
-		await Assert.That(string.Join("|", accepted.Facts)).IsEqualTo("node\tA\tA\trect");
-		await Assert.That(refused!.Accepted).IsFalse();
-		await Assert.That(refused.Error).IsEqualTo("Parse error on line 3:");
-		await Assert.That(OracleProcess.Parse(["# unknown-type zenuml"])).IsNull();
-		await Assert.That(OracleProcess.Parse(["# oracle-error Target closed"])).IsNull();
+		Verify(accepted!.Accepted);
+		Verify(string.Join("|", accepted.Facts) == "node\tA\tA\trect", $"was {string.Join("|", accepted.Facts)}");
+		Verify(!(refused!.Accepted));
+		Verify(refused.Error == "Parse error on line 3:", $"was {refused.Error}");
+		Verify(OracleProcess.Parse(["# unknown-type zenuml"]) is null, $"was {OracleProcess.Parse(["# unknown-type zenuml"])}");
+		Verify(OracleProcess.Parse(["# oracle-error Target closed"]) is null, $"was {OracleProcess.Parse(["# oracle-error Target closed"])}");
 	}
 }

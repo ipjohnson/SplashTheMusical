@@ -7,7 +7,7 @@ namespace SplashTheMusical.Conformance;
 public class FlowchartRoundTripTests
 {
 	[Test]
-	public async Task EveryAcceptedFlowchartCaseRoundTrips()
+	public void EveryAcceptedFlowchartCaseRoundTrips()
 	{
 		var checkedCases = 0;
 		var problems = new List<string>();
@@ -41,8 +41,8 @@ public class FlowchartRoundTripTests
 			}
 		}
 
-		await Assert.That(string.Join("\n\n", problems)).IsEmpty();
-		await Assert.That(checkedCases).IsEqualTo(874);
+		Verify(!problems.Any(), $"{string.Join("\n\n", problems)}");
+		Verify(checkedCases == 874, $"was {checkedCases}");
 	}
 }
 

@@ -28,7 +28,7 @@ public class StateDagreInputTests
 	/// hand-drawn look is left out, as for flowchart, because roughjs's random strokes size its nodes.
 	/// </summary>
 	[Test]
-	public async Task StmHandsDagreTheGraphsMermaidDid()
+	public void StmHandsDagreTheGraphsMermaidDid()
 	{
 		var listed = Listed();
 		var unlisted = new List<string>();
@@ -70,9 +70,9 @@ public class StateDagreInputTests
 		}
 
 		var stale = same.Concat(listed.Keys.Where(name => !File.Exists(Path.Combine(CorpusCheck.CorpusRoot, "state", name + ".dagre.txt"))).Select(name => name + " is not a state case with a dagre record"));
-		await Assert.That(string.Join("\n", unlisted)).IsEqualTo("");
-		await Assert.That(string.Join("\n", stale)).IsEqualTo("");
-		await Assert.That(compared - Listed().Count).IsGreaterThanOrEqualTo(MinimumSame);
+		Verify(!unlisted.Any(), $"{string.Join("\n", unlisted)}");
+		Verify(!stale.Any(), $"{string.Join("\n", stale)}");
+		Verify(compared - Listed().Count >= MinimumSame, $"was {compared - Listed().Count}");
 	}
 
 	/// <summary>The cases of the list, each with its issue line.</summary>
@@ -114,7 +114,7 @@ public class StateDagreInputTests
 	}
 
 	[Test]
-	public async Task AGeneratedRegionIdIsNamedByItsFirstAppearance()
+	public void AGeneratedRegionIdIsNamedByItsFirstAppearance()
 	{
 		var graph = new DagreInput(
 			new DagreOptions("TB", 50, null, 50, 8, 8),
@@ -123,8 +123,8 @@ public class StateDagreInputTests
 
 		var named = Generated([graph])[0];
 
-		await Assert.That(string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent))).IsEqualTo("id-generated-1<,id-generated-1_start<id-generated-1,id-x<");
-		await Assert.That(named.Edges[0].V).IsEqualTo("id-generated-1_start");
+		Verify(string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent)) == "id-generated-1<,id-generated-1_start<id-generated-1,id-x<", $"was {string.Join(",", named.Nodes.Select(n => n.Id + "<" + n.Parent))}");
+		Verify(named.Edges[0].V == "id-generated-1_start", $"was {named.Edges[0].V}");
 	}
 
 	/// <summary>

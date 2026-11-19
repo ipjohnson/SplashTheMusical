@@ -3,7 +3,7 @@ namespace SplashTheMusical.Conformance;
 public class ResultsFileTests
 {
 	[Test]
-	public async Task EachCaseAndLevelIsALineWithItsDifferencesBelowIt()
+	public void EachCaseAndLevelIsALineWithItsDifferencesBelowIt()
 	{
 		var oracle = new CaseFacts(true, null, ["type\tpie", "label\tA"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 		var actual = new CaseFacts(true, null, ["type\tpie", "label\tB"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
@@ -11,7 +11,7 @@ public class ResultsFileTests
 
 		var text = ResultsFile.Text([Comparer.Compare("pie\\b", refused, refused), Comparer.Compare("pie/a", oracle, actual)]);
 
-		await LineAssert.Equal(
+		LineAssert.Equal(
 			text.Split('\n'),
 			"pie/a\tL0\tpass",
 			"pie/a\tL1\tpass",
