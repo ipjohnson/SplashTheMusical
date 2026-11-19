@@ -50,7 +50,7 @@ public class TextMeasurementTests
 			.Select(pair => string.Create(CultureInfo.InvariantCulture, $"{pair.label.Case}: \"{pair.label.Text}\" is {pair.measured:0.###}, the oracle's {pair.label.Width}"))
 			.ToList();
 
-		Verify(sample.Count >= MinimumSample, $"was {sample.Count}");
+		Verify(() => sample.Count >= MinimumSample);
 		Verify(!misses.Any(), $"{string.Join("\n", misses)}");
 	}
 

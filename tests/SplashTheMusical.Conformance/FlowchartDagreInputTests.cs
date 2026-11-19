@@ -77,7 +77,7 @@ public class FlowchartDagreInputTests
 		var stale = same.Concat(listed.Keys.Where(name => !File.Exists(Path.Combine(CorpusCheck.CorpusRoot, "flowchart", name + ".dagre.txt"))).Select(name => name + " is not a flowchart case with a dagre record"));
 		Verify(!unlisted.Any(), $"{string.Join("\n", unlisted)}");
 		Verify(!stale.Any(), $"{string.Join("\n", stale)}");
-		Verify(compared - Listed().Count >= MinimumSame, $"was {compared - Listed().Count}");
+		Verify(() => compared - Listed().Count >= MinimumSame);
 	}
 
 	[Test]
@@ -92,7 +92,7 @@ public class FlowchartDagreInputTests
 		var spaced = graph with { Options = graph.Options with { EdgeSep = 20 } };
 
 		Verify(!Compare([graph], [spaced]).Any(), $"{string.Join("\n", Compare([graph], [spaced]))}");
-		Verify(string.Join("\n", Compare([graph], [wider])) == "node-size #0 B 152.5x45, mermaid 152x45", $"was {string.Join("\n", Compare([graph], [wider]))}");
+		Verify(() => string.Join("\n", Compare([graph], [wider])) == "node-size #0 B 152.5x45, mermaid 152x45");
 	}
 
 	/// <summary>The cases of the list, each with its issue line.</summary>

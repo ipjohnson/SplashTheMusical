@@ -40,7 +40,7 @@ public class ShapeTests
 			.Select(fields => fields[1] + " (" + fields[5] + ")")
 			.ToList();
 
-		Verify(ShapeLines("shape").Count() >= 53, $"was {ShapeLines("shape").Count()}");
+		Verify(() => ShapeLines("shape").Count() >= 53);
 		Verify(!missing.Any(), $"{string.Join("\n", missing)}");
 	}
 
@@ -53,9 +53,9 @@ public class ShapeTests
 			.Select(fields => $"{fields[1]}: {NodeShapes.Handler(fields[1]) ?? "none"}, the table's {fields[2]}")
 			.ToList();
 
-		Verify(keys.Count > 0, $"was {keys.Count}");
+		Verify(() => keys.Count > 0);
 		Verify(!wrong.Any(), $"{string.Join("\n", wrong)}");
-		Verify(NodeShapes.Handler("rect-ish") is null, $"was {NodeShapes.Handler("rect-ish")}");
+		Verify(() => NodeShapes.Handler("rect-ish") is null);
 	}
 
 	/// <summary>
@@ -142,7 +142,7 @@ public class ShapeTests
 		}
 
 		var notCompared = ShapeLines("shape").Select(fields => fields[5]).Where(handler => !checkedShapes.Contains(handler)).ToList();
-		Verify(compared >= MinimumSample, $"was {compared}");
+		Verify(() => compared >= MinimumSample);
 		Verify(!misses.Any(), $"{string.Join("\n", misses)}");
 		Verify(!notCompared.Any(), $"{string.Join(", ", notCompared)}");
 	}

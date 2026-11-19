@@ -30,8 +30,8 @@ public class ThemeTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {lines[1]}");
-		Verify(oracle.Count == 11, $"was {oracle.Count}");
+		Verify(() => lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
+		Verify(() => oracle.Count == 11);
 	}
 
 	/// <summary>
@@ -74,14 +74,14 @@ public class ThemeTests
 		}
 
 		Verify(!problems.Any(), $"{string.Join('\n', problems)}");
-		Verify(checkedCases >= 29, $"was {checkedCases}");
+		Verify(() => checkedCases >= 29);
 	}
 
 	[Test]
 	public void AThemeNoThemeHasGivesNull()
 	{
-		Verify(Theme.Variables("null", null) is null, $"was {Theme.Variables("null", null)}");
-		Verify(Theme.Variables("Default", null) is null, $"was {Theme.Variables("Default", null)}");
+		Verify(() => Theme.Variables("null", null) is null);
+		Verify(() => Theme.Variables("Default", null) is null);
 	}
 
 	/// <summary>Adds each line only one side has, under <paramref name="name"/>.</summary>

@@ -43,13 +43,13 @@ public class BrokenRuleReplayTests
 		var find = run.Finds.FirstOrDefault(ShowsTheBreak);
 		Verify(find is not null);
 		Console.WriteLine($"Source {find!.Index} of {run.Sources}, minimized from {SourceTokens.Lines(find.Original).Count} lines in {find.Tests} tests: {Mutator.Escape(find.Minimized)}");
-		Verify(find.Disagreement.Signature == "L1 edge", $"was {find.Disagreement.Signature}");
+		Verify(() => find.Disagreement.Signature == "L1 edge");
 		Verify(find.Minimized.Contains("=="), $"{find.Minimized}");
-		Verify(SourceTokens.Lines(find.Minimized).Count < SourceTokens.Lines(find.Original).Count, $"was {SourceTokens.Lines(find.Minimized).Count}");
-		Verify(SourceTokens.Lines(find.Minimized).Count <= 3, $"was {SourceTokens.Lines(find.Minimized).Count}");
+		Verify(() => SourceTokens.Lines(find.Minimized).Count < SourceTokens.Lines(find.Original).Count);
+		Verify(() => SourceTokens.Lines(find.Minimized).Count <= 3);
 		Verify(runner.Disagree(find.Minimized)?.Shows("L1 edge") == true);
 		var unbroken = new DifferentialRunner(oracle.Facts, new StmFactsProvider().Facts).Disagree(find.Minimized);
-		Verify(unbroken is null, $"was {unbroken}");
+		Verify(() => unbroken is null);
 	}
 
 	/// <summary>Whether mermaid.js has a thick edge STM lacks.</summary>

@@ -13,7 +13,7 @@ public class CorpusTests
 	public void TheCorpusHoldsEveryCaseOfMermaider()
 	{
 		var cases = CorpusCheck.Cases(CorpusCheck.CorpusRoot).Count;
-		Verify(cases >= 4364, $"was {cases}");
+		Verify(() => cases >= 4364);
 	}
 
 	[Test]
@@ -33,9 +33,9 @@ public class CorpusTests
 			File.Delete(Path.Combine(corpus, untouched + ".mmd"));
 
 			var problems = CorpusCheck.Problems(corpus, CorpusCheck.PinnedMermaid());
-			Verify(problems.Count() == 6, $"was {problems.Count()}");
-			Verify(problems[0].StartsWith(accepted + ".facts.txt: source ", StringComparison.Ordinal), $"was {problems[0]}");
-			Verify(problems[1].StartsWith(accepted + ".boxes.txt: source ", StringComparison.Ordinal), $"was {problems[1]}");
+			Verify(() => problems.Count() == 6);
+			Verify(() => problems[0].StartsWith(accepted + ".facts.txt: source ", StringComparison.Ordinal));
+			Verify(() => problems[1].StartsWith(accepted + ".boxes.txt: source ", StringComparison.Ordinal));
 			LineAssert.Equal(
 				problems.Skip(2),
 				refused + ": no facts file",

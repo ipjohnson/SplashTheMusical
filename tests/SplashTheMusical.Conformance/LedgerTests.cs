@@ -122,8 +122,8 @@ public class LedgerTests
 
 		var ledger = Ledger.Parse("pie", "pie.txt", lines, problems);
 
-		Verify(ledger.Entries.Count() == 1, $"was {ledger.Entries.Count()}");
-		Verify(ledger.Entries[0] == new LedgerEntry("a", Level.L1, LedgerCategory.Bug, "#13"), $"was {ledger.Entries[0]}");
+		Verify(() => ledger.Entries.Count() == 1);
+		Verify(() => ledger.Entries[0] == new LedgerEntry("a", Level.L1, LedgerCategory.Bug, "#13"));
 		LineAssert.Equal(
 			problems,
 			"pie.txt:1: a is not under a category",

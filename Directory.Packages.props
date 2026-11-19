@@ -14,8 +14,8 @@
     <PackageVersion Include="TUnit" Version="1.83.8" />
     <PackageVersion Include="AwesomeAssertions" Version="9.6.0" />
     <PackageVersion Include="CsCheck" Version="5.0.1" />
-    <PackageVersion Include="VerificationGlue" Version="0.1.0-preview.1" />
-    <PackageVersion Include="VerificationGlue.Mocks" Version="0.1.0-preview.1" />
+    <PackageVersion Include="VerificationGlue" Version="0.2.0-preview.1" />
+    <PackageVersion Include="VerificationGlue.Mocks" Version="0.2.0-preview.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- Benchmark dependencies -->

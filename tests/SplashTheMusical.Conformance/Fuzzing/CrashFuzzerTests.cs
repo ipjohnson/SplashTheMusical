@@ -19,11 +19,11 @@ public class CrashFuzzerTests
 			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, "refused", 1, 1));
 		}, TimeSpan.FromSeconds(5), threads: 4);
 
-		Verify(run.Finds.Count == CrashFuzzer.MaxFinds, $"was {run.Finds.Count}");
+		Verify(() => run.Finds.Count == CrashFuzzer.MaxFinds);
 		foreach (var find in run.Finds)
 		{
-			Verify(find.Problem.StartsWith("System.InvalidOperationException: broken", StringComparison.Ordinal), $"was {find.Problem}");
-			Verify(find.Source == CrashFuzzer.Source(Seeds, 3, find.Index), $"was {find.Source}");
+			Verify(() => find.Problem.StartsWith("System.InvalidOperationException: broken", StringComparison.Ordinal));
+			Verify(() => find.Source == CrashFuzzer.Source(Seeds, 3, find.Index));
 		}
 	}
 
@@ -38,7 +38,7 @@ public class CrashFuzzerTests
 			}
 		}, TimeSpan.FromMilliseconds(200), threads: 2);
 
-		Verify(run.Finds.Count > 0, $"was {run.Finds.Count}");
+		Verify(() => run.Finds.Count > 0);
 		Verify(run.Finds[0].Problem.Contains("past the 0.2 s deadline"), $"{run.Finds[0].Problem}");
 	}
 
@@ -55,9 +55,9 @@ public class CrashFuzzerTests
 		}, TimeSpan.FromMilliseconds(100), threads: 2);
 		release.Set();
 
-		Verify(run.Finds.Count > 0, $"was {run.Finds.Count}");
-		Verify(run.Finds[^1].Problem == "did not return within 0.2 s", $"was {run.Finds[^1].Problem}");
-		Verify(run.Sources < 1_000_000, $"was {run.Sources}");
+		Verify(() => run.Finds.Count > 0);
+		Verify(() => run.Finds[^1].Problem == "did not return within 0.2 s");
+		Verify(() => run.Sources < 1_000_000);
 	}
 
 	[Test]
@@ -66,13 +66,13 @@ public class CrashFuzzerTests
 		var corpus = CorpusCheck.CorpusRoot;
 		var folders = FuzzTypes.Folders(corpus);
 
-		Verify(string.Join(",", folders) == "flowchart,info,state", $"was {string.Join(",", folders)}");
+		Verify(() => string.Join(",", folders) == "flowchart,info,state");
 		foreach (var folder in folders)
 		{
 			var run = CrashFuzzer.Run(folder, FuzzTypes.Sources(corpus, folder), 300, 1, CrashFuzzer.Stm, ResourceLimits.Default.RenderDeadline!.Value, Environment.ProcessorCount);
 
 			Verify(!run.Finds.Select(f => $"{f.Index}: {f.Problem}\n{Mutator.Escape(f.Source)}").Any(), $"{(string.Join("\n", run.Finds.Select(f => $"{f.Index}: {f.Problem}\n{Mutator.Escape(f.Source)}")))}");
-			Verify(run.Sources == 300, $"was {run.Sources}");
+			Verify(() => run.Sources == 300);
 		}
 	}
 }

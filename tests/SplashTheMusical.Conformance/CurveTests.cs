@@ -14,15 +14,15 @@ public class CurveTests
 
 	[Test]
 	public void TheFileIsFromThePinnedMermaid() =>
-		Verify(Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid(), $"was {Lines[1]}");
+		Verify(() => Lines[1] == "# mermaid " + CorpusCheck.PinnedMermaid());
 
 	[Test]
 	public void TheCurvesAreTheSchemasCurveValues()
 	{
 		var schema = Records("curve-name").Select(fields => fields[1]).ToArray();
 		var ported = CurveNames.All.Select(entry => entry.Name).ToArray();
-		Verify(string.Join(' ', ported) == string.Join(' ', schema), $"was {string.Join(' ', ported)}");
-		Verify(Enum.GetValues<Curve>().Length == schema.Length, $"was {Enum.GetValues<Curve>().Length}");
+		Verify(() => string.Join(' ', ported) == string.Join(' ', schema));
+		Verify(() => Enum.GetValues<Curve>().Length == schema.Length);
 	}
 
 	[Test]
@@ -50,7 +50,7 @@ public class CurveTests
 		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
 		foreach (var (name, _) in CurveNames.All)
 		{
-			Verify(counts.GetValueOrDefault(name) >= 20, $"was {counts.GetValueOrDefault(name)}");
+			Verify(() => counts.GetValueOrDefault(name) >= 20);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class CurveTests
 		}
 
 		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
-		Verify(count >= 1000, $"was {count}");
+		Verify(() => count >= 1000);
 	}
 
 	[Test]
@@ -103,15 +103,15 @@ public class CurveTests
 		Verify(!problems.Take(20).Any(), $"{string.Join('\n', problems.Take(20))}");
 		foreach (var name in new[] { "acos", "atan", "atan2", "sin", "cos", "hypot" })
 		{
-			Verify(counts.GetValueOrDefault(name) > 1000, $"was {counts.GetValueOrDefault(name)}");
+			Verify(() => counts.GetValueOrDefault(name) > 1000);
 		}
 	}
 
 	[Test]
 	public void TheMarkerOffsetsAreMermaids()
 	{
-		Verify(Offsets(MarkerOffsets.Line) == Offsets(Records("marker-offset")), $"was {Offsets(MarkerOffsets.Line)}");
-		Verify(Offsets(MarkerOffsets.Dash) == Offsets(Records("dash-offset")), $"was {Offsets(MarkerOffsets.Dash)}");
+		Verify(() => Offsets(MarkerOffsets.Line) == Offsets(Records("marker-offset")));
+		Verify(() => Offsets(MarkerOffsets.Dash) == Offsets(Records("dash-offset")));
 	}
 
 	private static IEnumerable<string[]> Records(string kind) =>
