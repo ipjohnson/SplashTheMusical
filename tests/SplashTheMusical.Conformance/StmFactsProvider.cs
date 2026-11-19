@@ -89,6 +89,8 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is ClassDocument classDocument)
 		{
 			ClassFacts.Add(facts, classDocument, config);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = ClassFacts.Boxes(boxes, classDocument, config, new ClassModule().Layout(classDocument, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);

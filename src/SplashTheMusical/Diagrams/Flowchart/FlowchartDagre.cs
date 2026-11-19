@@ -28,11 +28,14 @@ internal sealed class FlowchartDagre
 	/// <summary>The detector id of the state diagram, which the same renderer draws.</summary>
 	public const string StateDiagramType = "stateDiagram";
 
+	/// <summary>The detector id of the class diagram, which the same renderer draws.</summary>
+	public const string ClassDiagramType = "classDiagram";
+
 	public FlowchartDagre(FlowchartMeasure measure, string diagramType, double titleTopMargin, double titleBottomMargin)
 	{
 		_measure = measure;
-		// shouldMergeSelfLoopSegments: flowchart-v2 and stateDiagram among the types STM draws, not flowchart-elk.
-		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType;
+		// shouldMergeSelfLoopSegments: flowchart-v2, stateDiagram and classDiagram among the types STM draws, not flowchart-elk.
+		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType or ClassDiagramType;
 		_titleTopMargin = titleTopMargin;
 		_titleTotalMargin = titleTopMargin + titleBottomMargin;
 	}
@@ -726,7 +729,7 @@ internal sealed class FlowchartDagre
 					Labels = node.Labels,
 					NodeStyles = nodeStyles,
 					LabelStyles = labelStyles,
-					ColorId = node.Shape == "collapsedGroup" ? ColorId(node) : null,
+					ColorId = node.Shape is "collapsedGroup" or "classBox" ? ColorId(node) : null,
 					Icon = node.Vertex?.Icon,
 					IconColor = node.Vertex?.Icon is null ? null : FlowchartStyles.StyleValue(node.CssCompiledStyles, node.CssStyles, "stroke"),
 					Image = node.Vertex?.Image,
@@ -1170,7 +1173,9 @@ internal sealed class FlowchartDagre
 			FlowchartStroke.Invisible => "edge-thickness-invisible",
 			_ => "edge-thickness-normal",
 		}
-		+ (edge.Pattern == "dashed" ? " edge-pattern-dashed" : edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted" : " edge-pattern-solid");
+		+ (edge.Pattern == "dashed" ? " edge-pattern-dashed"
+			: edge.Pattern == "dotted" || edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted"
+			: " edge-pattern-solid");
 
 	private static bool HasIntersect(FlowNode node) => node.IsFrame || node.Geometry is not null;
 

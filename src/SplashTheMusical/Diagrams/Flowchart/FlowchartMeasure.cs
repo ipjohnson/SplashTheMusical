@@ -91,6 +91,9 @@ internal sealed class FlowchartMeasure
 
 	public FlowchartFont Font { get; }
 
+	/// <summary><c>markdownAutoWrap</c>, which is on unless the config sets it false.</summary>
+	public bool MarkdownAutoWrap => _markdownAutoWrap;
+
 	/// <summary>Draws the node's shape at its label's size and gives the node the size of the drawing.</summary>
 	public void Node(FlowNode node, string direction)
 	{
@@ -113,6 +116,12 @@ internal sealed class FlowchartMeasure
 		if (node.Shape == "rectWithTitle")
 		{
 			RectWithTitle(node);
+			return;
+		}
+
+		if (node is { Shape: "classBox", ClassBox: { } content })
+		{
+			Class.ClassBox.Measure(this, node, content);
 			return;
 		}
 
