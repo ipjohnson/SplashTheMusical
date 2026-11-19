@@ -197,25 +197,6 @@ internal ref struct ErLexer
 	/// <summary>Whether <paramref name="text"/>, alone on a line inside an entity's braces, lexes as one <c>ATTRIBUTE_WORD</c> of the <c>~</c> rule.</summary>
 	public static bool IsTildeWord(ReadOnlySpan<char> text) => !text.ContainsAny(LineEnds) && TildeWord(text) == text.Length;
 
-	/// <summary>Whether <paramref name="text"/> lexes inside <c>style</c> and <c>classDef</c> as one <c>STYLE_TEXT</c>.</summary>
-	public static bool IsStyleText(ReadOnlySpan<char> text)
-	{
-		if (text.IsEmpty)
-		{
-			return false;
-		}
-
-		foreach (var c in text)
-		{
-			if (!IsStyleTextChar(c))
-			{
-				return false;
-			}
-		}
-
-		return true;
-	}
-
 	private readonly byte Condition => _conditions[_conditions.Count - 1];
 
 	private void Push(byte condition) => _conditions.Add(condition);

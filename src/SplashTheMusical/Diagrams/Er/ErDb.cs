@@ -100,7 +100,8 @@ internal sealed class ErDb
 					Direction = direction.Direction;
 					break;
 				case ErSubgraph subgraph:
-					members?.Add(AddSubgraph(subgraph));
+					var subgraphId = AddSubgraph(subgraph);
+					members?.Add(subgraphId);
 					break;
 			}
 		}
