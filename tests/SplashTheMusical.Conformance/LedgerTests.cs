@@ -9,7 +9,7 @@ public class LedgerTests
 	[Test]
 	public void StmDiffersOnlyWhereTheCommittedLedgersListIt()
 	{
-		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
+		var results = StmCorpusResults.All;
 		ResultsFile.WriteIfRequested(results);
 		if (Environment.GetEnvironmentVariable(LedgerFolder.WriteVariable) is { Length: > 0 } issue)
 		{

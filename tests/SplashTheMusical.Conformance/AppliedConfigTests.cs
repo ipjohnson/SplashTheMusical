@@ -37,7 +37,7 @@ public class AppliedConfigTests
 		var site = ConfigMerge.Site(OracleSite);
 		var checkedCases = 0;
 		var problems = new List<string>();
-		foreach (var (name, type, document, oracle) in Cases())
+		foreach (var (name, type, document, oracle) in Cases.Value)
 		{
 			var applied = ConfigMerge.Apply(OracleSite, PreambleConfig.Resolve(document, type), type);
 			Compare(problems, name, oracle, Facts(site, applied));
@@ -58,7 +58,7 @@ public class AppliedConfigTests
 		var checkedCases = 0;
 		var notBoundSeen = new HashSet<string>(StringComparer.Ordinal);
 		var problems = new List<string>();
-		foreach (var (name, type, document, oracle) in Cases())
+		foreach (var (name, type, document, oracle) in Cases.Value)
 		{
 			var stm = Facts(site, MermaidConfig.Resolve(OracleSite, document, type).ToValue());
 			var expected = new List<string>();
@@ -144,12 +144,16 @@ public class AppliedConfigTests
 		return read is not null && stm.Contains(read) ? read : line;
 	}
 
+	/// <summary>The cases of <see cref="ReadCases"/>, read and parsed once for both tests, which only read them.</summary>
+	private static readonly Lazy<IReadOnlyList<(string Name, string Type, MermaidDocument Document, List<string> Oracle)>> Cases =
+		new(() => [.. ReadCases()]);
+
 	/// <summary>
 	/// Each accepted case with its diagram type, its preamble and its oracle config facts. A <c>missing</c> fact for a
 	/// path that config.txt holds as <c>undefined</c> is left out, because a MermaidValue has no undefined: the site
 	/// config's <c>sankey.nodeColors</c> is undefined, and a case that sets colours under it gets that fact.
 	/// </summary>
-	private static IEnumerable<(string Name, string Type, MermaidDocument Document, List<string> Oracle)> Cases()
+	private static IEnumerable<(string Name, string Type, MermaidDocument Document, List<string> Oracle)> ReadCases()
 	{
 		var undefined = File.ReadLines(Path.Combine(CorpusCheck.CorpusRoot, "config.txt"))
 			.Where(line => line.StartsWith("key\t", StringComparison.Ordinal) && line.EndsWith("\tundefined", StringComparison.Ordinal))
