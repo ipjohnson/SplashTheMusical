@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.State;
 
@@ -24,9 +23,9 @@ public class StateAllocationTests
 		var parse = Allocations.Measure(() => parsed = StateParser.Parse(Source, context));
 		var model = Allocations.Measure(() => Sink = Model());
 
-		StateDump.Lines(parsed!).Should().Equal(StateDump.Lines((StateDocument)Sink!));
-		context.Diagnostics.Should().BeEmpty();
-		parse.Should().Be(model);
+		SequenceAssert.Equal(StateDump.Lines(parsed!), StateDump.Lines((StateDocument)Sink!));
+		Verify(!context.Diagnostics.Any());
+		Verify(parse == model);
 	}
 
 	/// <summary>The document <see cref="Source"/> parses to, built with the strings and lists the parser makes.</summary>

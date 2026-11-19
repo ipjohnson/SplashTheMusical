@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams.Class;
 
 namespace SplashTheMusical.Tests.Diagrams;
@@ -10,13 +9,13 @@ public class ClassParserTests
 	{
 		var document = (ClassDocument)Mermaid.Default.Parse("classDiagram\n  accDescr {\n  My description\n  }\n  note \"x\"\n  class A\n");
 
-		document.AccessibilityDescription.Should().Be("My description");
-		document.Statements.Should().HaveCount(2);
-		document.Statements[0].Should().BeOfType<ClassNote>().Which.Text.Should().Be("x");
-		document.Statements[1].Should().BeOfType<ClassDefinition>().Which.Name.Should().Be("A");
+		Verify(document.AccessibilityDescription == "My description");
+		Verify(document.Statements.Count == 2);
+		Verify(document.Statements[0] is ClassNote { Text: "x" });
+		Verify(document.Statements[1] is ClassDefinition { Name: "A" });
 	}
 
 	[Test]
 	public void RefusesAStatementOnTheLineThatEndsAMultilineAccessibilityDescription() =>
-		Mermaid.Default.TryParse("classDiagram\n  accDescr {\n  a\n  } class A\n", out _, out _).Should().BeFalse("the grammar needs a NEWLINE after the description");
+		Verify(!Mermaid.Default.TryParse("classDiagram\n  accDescr {\n  a\n  } class A\n", out _, out _), $"the grammar needs a NEWLINE after the description");
 }

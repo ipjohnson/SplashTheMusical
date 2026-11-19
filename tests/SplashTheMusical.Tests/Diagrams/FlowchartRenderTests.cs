@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Flowchart;
@@ -24,15 +23,7 @@ public class FlowchartRenderTests
 	{
 		var layout = Layout(Source);
 
-		layout.Boxes().Select(b => b.Kind + " " + b.Name).Order(StringComparer.Ordinal).Should().Equal(
-			"edge A --> B",
-			"edge B --> C",
-			"edge C --> A",
-			"edge-label A --> B",
-			"group S",
-			"node A",
-			"node B",
-			"node C");
+		SequenceAssert.Equal(layout.Boxes().Select(b => b.Kind + " " + b.Name).Order(StringComparer.Ordinal), "edge A --> B", "edge B --> C", "edge C --> A", "edge-label A --> B", "group S", "node A", "node B", "node C");
 	}
 
 	[Test]
@@ -44,14 +35,14 @@ public class FlowchartRenderTests
 		foreach (var name in new[] { "node B", "node C" })
 		{
 			var node = boxes[name];
-			node.X.Should().BeGreaterThanOrEqualTo(group.X);
-			node.Y.Should().BeGreaterThanOrEqualTo(group.Y);
-			(node.X + node.Width).Should().BeLessThanOrEqualTo(group.X + group.Width);
-			(node.Y + node.Height).Should().BeLessThanOrEqualTo(group.Y + group.Height);
+			Verify(node.X >= group.X);
+			Verify(node.Y >= group.Y);
+			Verify((node.X + node.Width) <= group.X + group.Width);
+			Verify((node.Y + node.Height) <= group.Y + group.Height);
 		}
 
 		var outside = boxes["node A"];
-		(outside.X + outside.Width <= group.X || outside.X >= group.X + group.Width).Should().BeTrue();
+		Verify((outside.X + outside.Width <= group.X || outside.X >= group.X + group.Width));
 	}
 
 	[Test]
@@ -61,9 +52,9 @@ public class FlowchartRenderTests
 		var boxes = layout.Boxes();
 		var viewBox = layout.ViewBox!.Value;
 
-		viewBox.X.Should().BeApproximately(boxes.Min(b => b.X) - 8, 1e-9);
-		viewBox.Y.Should().BeApproximately(boxes.Min(b => b.Y) - 8, 1e-9);
-		layout.Width.Should().Be(viewBox.Width);
+		Verify(Math.Abs(viewBox.X - (boxes.Min(b => b.X) - 8)) <= 1e-9);
+		Verify(Math.Abs(viewBox.Y - (boxes.Min(b => b.Y) - 8)) <= 1e-9);
+		Verify(Math.Abs(layout.Width - viewBox.Width) <= 1e-9);
 	}
 
 	[Test]
@@ -71,10 +62,10 @@ public class FlowchartRenderTests
 	{
 		var svg = SvgDocuments.Checked(Mermaid.Default.RenderSvg(Source));
 
-		svg.Should().Contain("aria-roledescription=\"flowchart-v2\"");
+		Verify(svg.Contains("aria-roledescription=\"flowchart-v2\"", StringComparison.Ordinal));
 		foreach (var text in new[] { "Start", "Markdown", "Choice", "Group", "go" })
 		{
-			svg.Should().Contain(">" + text + "<");
+			Verify(svg.Contains(">" + text + "<", StringComparison.Ordinal));
 		}
 	}
 

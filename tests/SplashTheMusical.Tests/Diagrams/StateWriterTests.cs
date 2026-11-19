@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams.State;
 
 namespace SplashTheMusical.Tests.Diagrams;
@@ -32,7 +31,7 @@ public class StateWriterTests
 			click Busy href "https://example.org"
 			""";
 
-		Write(Source).Should().Be("""
+		Verify(Write(Source) == """
 			stateDiagram-v2
 			  accTitle: Title
 			  direction LR
@@ -67,8 +66,8 @@ public class StateWriterTests
 		var document = Parse("stateDiagram-v2\nA\n" + note + "\n");
 		var written = Mermaid.Default.Write(document);
 
-		written.Should().Contain("\n  end note\n");
-		StateDump.Lines(Parse(written)).Should().Equal(StateDump.Lines(document));
+		Verify(written.Contains("\n  end note\n", StringComparison.Ordinal));
+		SequenceAssert.Equal(StateDump.Lines(Parse(written)), StateDump.Lines(document));
 	}
 
 	[Test]
@@ -81,7 +80,7 @@ public class StateWriterTests
 	{
 		var document = Parse(source);
 
-		StateDump.Lines(Parse(Mermaid.Default.Write(document))).Should().Equal(StateDump.Lines(document));
+		SequenceAssert.Equal(StateDump.Lines(Parse(Mermaid.Default.Write(document))), StateDump.Lines(document));
 	}
 
 	[Test]
@@ -100,7 +99,7 @@ public class StateWriterTests
 			.Style("Idle", "stroke:#333")
 			.Build();
 
-		Mermaid.Default.Write(document).Should().Be("""
+		Verify(Mermaid.Default.Write(document) == """
 			stateDiagram-v2
 			  direction LR
 			  [*] --> Idle
@@ -123,14 +122,14 @@ public class StateWriterTests
 
 	[Test]
 	public void TheBuilderRefusesAnUnknownDirection() =>
-		FluentActions.Invoking(() => new StateBuilder("TD")).Should().Throw<ArgumentException>();
+		Throws<ArgumentException>(() => new StateBuilder("TD"));
 
 	[Test]
 	public void WritesAPlainStateBeforeALineWithoutABrace()
 	{
 		const string Source = "stateDiagram-v2\n  state s0\n  s1 --> s2\n  state s3 {\n    a\n  }\n";
 
-		Mermaid.Default.Write(Mermaid.Default.Parse(Source)).Should().Be(Source);
+		Verify(Mermaid.Default.Write(Mermaid.Default.Parse(Source)) == Source);
 	}
 
 	// stateDiagram.jison's <STATE>\w+\s+\w+.*?\{ reads `s0` and `state s1 {` on the next line as one state name.
@@ -144,8 +143,8 @@ public class StateWriterTests
 
 		var writing = () => Mermaid.Default.Write(document);
 
-		writing.Should().Throw<ArgumentException>().WithMessage("*`state s0`*");
-		Mermaid.Default.TryParse("stateDiagram-v2\n  state s0\n  state s1 {\n    a\n  }\n", out _, out _).Should().BeFalse();
+		Verify(Throws<ArgumentException>(() => writing()).Message.Contains("`state s0`", StringComparison.Ordinal));
+		Verify(!Mermaid.Default.TryParse("stateDiagram-v2\n  state s0\n  state s1 {\n    a\n  }\n", out _, out _));
 	}
 
 	private static StateDocument Parse(string source) => (StateDocument)Mermaid.Default.Parse(source);

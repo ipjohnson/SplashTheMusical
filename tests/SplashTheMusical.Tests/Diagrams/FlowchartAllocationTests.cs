@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Diagrams;
 using SplashTheMusical.Diagrams.Flowchart;
 
@@ -24,9 +23,9 @@ public class FlowchartAllocationTests
 		var parse = Allocations.Measure(() => parsed = FlowchartParser.Parse(Source, context));
 		var model = Allocations.Measure(() => Sink = Model());
 
-		Describe(parsed!).Should().Be(Describe((FlowchartDocument)Sink!));
-		context.Diagnostics.Should().BeEmpty();
-		parse.Should().Be(model);
+		Verify(Describe(parsed!) == Describe((FlowchartDocument)Sink!));
+		Verify(!context.Diagnostics.Any());
+		Verify(parse == model);
 	}
 
 	/// <summary>The document <see cref="Source"/> parses to, built with the strings and lists the parser makes.</summary>
