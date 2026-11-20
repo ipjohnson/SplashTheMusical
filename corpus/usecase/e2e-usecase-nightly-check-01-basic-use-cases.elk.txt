@@ -21,8 +21,8 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
-node	Admin	root	104	121
+node	Customer	root	80.6875	121
+node	Admin	root	102.46875	121
 node	Browse	root	160	58
 option	node	Browse		elk.portAlignment.default	CENTER
 node	Checkout	root	160	58
@@ -41,18 +41,18 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	328	328.5833333333333
-place	Customer	root	34	29.50000000000001	82	121
-place	Admin	root	12	195.58333333333331	104	121
-place	Browse	root	156	12	160	58
-place	Checkout	root	156	110.00000000000001	160	58
-place	Manage	root	156	235.08333333333331	152	42
+place	root		0	0	326.46875	328.5833333333333
+place	Customer	root	33.78125	29.50000000000001	80.6875	121
+place	Admin	root	12	195.58333333333331	102.46875	121
+place	Browse	root	154.46875	12	160	58
+place	Checkout	root	154.46875	110.00000000000001	160	58
+place	Manage	root	154.46875	235.08333333333331	152	42
 route	edge-0	root	root
-section	edge-0	edge-0_s0	116,73.16666666666667	156,41	136,73.16666666666667 136,41	Customer	Browse
+section	edge-0	edge-0_s0	114.46875,73.16666666666667	154.46875,41	134.46875,73.16666666666667 134.46875,41	Customer	Browse
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	116,106.83333333333334	156,139	136,106.83333333333334 136,139	Customer	Checkout
+section	edge-1	edge-1_s0	114.46875,106.83333333333334	154.46875,139	134.46875,106.83333333333334 134.46875,139	Customer	Checkout
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	116,256.0833333333333	156,256.0833333333333		Admin	Manage
+section	edge-2	edge-2_s0	114.46875,256.0833333333333	154.46875,256.0833333333333		Admin	Manage
 place-label	edge	edge-2	0	0	0	0	0

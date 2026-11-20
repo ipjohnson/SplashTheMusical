@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	req_a	root	164	166
-node	elem_a	root	113	103
+node	req_a	root	161.09375	166
+node	elem_a	root	109.96875	103
 edge	elem_a-req_a-0	root	elem_a	req_a
-label	edge	elem_a-req_a-0	0	&lt;&lt;refines&gt;&gt;	75	21
+label	edge	elem_a-req_a-0	0	&lt;&lt;refines&gt;&gt;	74.734375	21
 option	edge-label	elem_a-req_a-0	0	edgeLabels.inline	true
 option	edge-label	elem_a-req_a-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	188	394
-place	req_a	root	12	216	164	166
-place	elem_a	root	37.5	12	113	103
+place	root		0	0	185.09375	394
+place	req_a	root	12	216	161.09375	166
+place	elem_a	root	37.5625	12	109.96875	103
 route	elem_a-req_a-0	root	root
-section	elem_a-req_a-0	elem_a-req_a-0_s0	94,115	94,216		elem_a	req_a
-place-label	edge	elem_a-req_a-0	0	56.5	155	75	21
+section	elem_a-req_a-0	elem_a-req_a-0_s0	92.546875,115	92.546875,216		elem_a	req_a
+place-label	edge	elem_a-req_a-0	0	55.046875	155	74.734375	21

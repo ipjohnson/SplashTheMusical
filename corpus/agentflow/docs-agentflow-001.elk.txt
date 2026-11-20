@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	reviewer	root
 option	node	reviewer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	reviewer		nodeSize.minimum	(94, 0)
+option	node	reviewer		nodeSize.minimum	(93.609375, 0)
 option	node	reviewer		spacing.baseValue	24
 option	node	reviewer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	reviewer		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	reviewer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	reviewer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	reviewer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	reviewer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	reviewer	0	Review Agent	86	19
+label	node	reviewer	0	Review Agent	85.609375	19
 node	changes	reviewer	186	36
 node	analyse	reviewer	150	51
 node	lint	reviewer	164	33
@@ -56,7 +56,7 @@ option	edge-label	L_lint_ok_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	258	459
 place	reviewer	root	12	12	234	435
-place-label	node	reviewer	0	74	5	86	19
+place-label	node	reviewer	0	74.1953125	5	85.609375	19
 place	changes	reviewer	24	48	186	36
 place	analyse	reviewer	42	108	150	51
 place	lint	reviewer	35	183	164	33

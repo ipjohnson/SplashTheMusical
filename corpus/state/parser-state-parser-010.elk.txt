@@ -24,13 +24,13 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	locked	root	136	37
 node	pending	root	136	37
 edge	edge0	root	locked	pending
-label	edge	edge0	0	recoverable error (ex: timeout)	194	21
+label	edge	edge0	0	recoverable error (ex: timeout)	188.296875	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	218	199
-place	locked	root	41	12	136	37
-place	pending	root	41	150	136	37
+place	root		0	0	212.296875	199
+place	locked	root	38.5	12	136	37
+place	pending	root	38.5	150	136	37
 route	edge0	root	root
-section	edge0	edge0_s0	109,49	109,150		locked	pending
-place-label	edge	edge0	0	12	89	194	21
+section	edge0	edge0_s0	106.5,49	106.5,150		locked	pending
+place-label	edge	edge0	0	12	89	188.296875	21

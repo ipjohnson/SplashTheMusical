@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	namedState1	root	136	37
 node	bigState1	root
 option	node	bigState1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	bigState1		nodeSize.minimum	(77, 0)
+option	node	bigState1		nodeSize.minimum	(76.5, 0)
 option	node	bigState1		spacing.baseValue	24
 option	node	bigState1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	bigState1		elk.spacing.edgeEdge	20
@@ -40,12 +40,12 @@ option	node	bigState1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	bigState1		elk.algorithm	elk.layered
 option	node	bigState1		elk.direction	DOWN
 option	node	bigState1		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	bigState1	0	Big State 1	69	19
-node	bigState1InternalState	bigState1	157	37
+label	node	bigState1	0	Big State 1	68.5	19
+node	bigState1InternalState	bigState1	154.546875	37
 node	namedState2	root	136	37
 node	bigState2	root
 option	node	bigState2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	bigState2		nodeSize.minimum	(68, 0)
+option	node	bigState2		nodeSize.minimum	(67.171875, 0)
 option	node	bigState2		spacing.baseValue	24
 option	node	bigState2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	bigState2		elk.spacing.edgeEdge	20
@@ -61,8 +61,8 @@ option	node	bigState2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	bigState2		elk.algorithm	elk.layered
 option	node	bigState2		elk.direction	DOWN
 option	node	bigState2		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	bigState2	0	bigState2	60	19
-node	bigState2InternalState	bigState2	157	37
+label	node	bigState2	0	bigState2	59.171875	19
+node	bigState2InternalState	bigState2	154.546875	37
 edge	edge0	root	namedState1	bigState1
 label	edge	edge0	0	should point to \\nBig State 1 container	200	42
 option	edge-label	edge0	0	edgeLabels.inline	true
@@ -72,18 +72,18 @@ label	edge	edge1	0	should point to \\nbigState2 container	200	42
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	474	292
-place	namedState1	root	46.5	12	136	37
-place	bigState1	root	12	171	205	109
-place-label	node	bigState1	0	68	5	69	19
-place	bigState1InternalState	bigState1	24	48	157	37
-place	namedState2	root	291.5	12	136	37
-place	bigState2	root	257	171	205	109
-place-label	node	bigState2	0	72.5	5	60	19
-place	bigState2InternalState	bigState2	24	48	157	37
+place	root		0	0	469.09375	292
+place	namedState1	root	45.2734375	12	136	37
+place	bigState1	root	12	171	202.546875	109
+place-label	node	bigState1	0	67.0234375	5	68.5	19
+place	bigState1InternalState	bigState1	24	48	154.546875	37
+place	namedState2	root	287.8203125	12	136	37
+place	bigState2	root	254.546875	171	202.546875	109
+place-label	node	bigState2	0	71.6875	5	59.171875	19
+place	bigState2InternalState	bigState2	24	48	154.546875	37
 route	edge0	root	root
-section	edge0	edge0_s0	114.5,49	114.5,171		namedState1	bigState1
-place-label	edge	edge0	0	14.5	89	200	42
+section	edge0	edge0_s0	113.2734375,49	113.2734375,171		namedState1	bigState1
+place-label	edge	edge0	0	13.2734375	89	200	42
 route	edge1	root	root
-section	edge1	edge1_s0	359.5,49	359.5,171		namedState2	bigState2
-place-label	edge	edge1	0	259.5	89	200	42
+section	edge1	edge1_s0	355.8203125,49	355.8203125,171		namedState2	bigState2
+place-label	edge	edge1	0	255.8203125	89	200	42

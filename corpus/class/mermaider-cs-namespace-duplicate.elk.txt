@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	One	root
 node	Two	root
 option	node	Two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Two		nodeSize.minimum	(42, 0)
+option	node	Two		nodeSize.minimum	(41.6875, 0)
 option	node	Two		spacing.baseValue	24
 option	node	Two		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Two		elk.spacing.edgeEdge	20
@@ -37,11 +37,11 @@ option	node	Two		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Two	0	Two	26	19
-node	A	Two	34	81
+label	node	Two	0	Two	25.6875	19
+node	A	Two	34.125	81
 result
-place	root		0	0	146	177
+place	root		0	0	146.125	177
 place	One	root	12	88.5	0	0
-place	Two	root	52	12	82	153
-place-label	node	Two	0	28	5	26	19
-place	A	Two	24	48	34	81
+place	Two	root	52	12	82.125	153
+place-label	node	Two	0	28.21875	5	25.6875	19
+place	A	Two	24	48	34.125	81

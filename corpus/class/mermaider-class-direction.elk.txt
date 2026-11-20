@@ -21,9 +21,9 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Controller	root	157	120
-node	Service	root	155	120
-node	Repository	root	155.5	141
+node	Controller	root	154.3515625	120
+node	Service	root	152.7890625	120
+node	Repository	root	152.765625	141
 edge	id_Controller_Service_1	root	Controller	Service
 label	edge	id_Controller_Service_1	0		0	0
 option	edge-label	id_Controller_Service_1	0	edgeLabels.inline	true
@@ -33,13 +33,13 @@ label	edge	id_Service_Repository_2	0		0	0
 option	edge-label	id_Service_Repository_2	0	edgeLabels.inline	true
 option	edge-label	id_Service_Repository_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	571.5	165
-place	Controller	root	12	22.5	157	120
-place	Service	root	209	22.5	155	120
-place	Repository	root	404	12	155.5	141
+place	root		0	0	563.90625	165
+place	Controller	root	12	22.5	154.3515625	120
+place	Service	root	206.3515625	22.5	152.7890625	120
+place	Repository	root	399.140625	12	152.765625	141
 route	id_Controller_Service_1	root	root
-section	id_Controller_Service_1	id_Controller_Service_1_s0	169,82.5	209,82.5		Controller	Service
+section	id_Controller_Service_1	id_Controller_Service_1_s0	166.3515625,82.5	206.3515625,82.5		Controller	Service
 place-label	edge	id_Controller_Service_1	0	0	0	0	0
 route	id_Service_Repository_2	root	root
-section	id_Service_Repository_2	id_Service_Repository_2_s0	364,82.5	404,82.5		Service	Repository
+section	id_Service_Repository_2	id_Service_Repository_2_s0	359.140625,82.5	399.140625,82.5		Service	Repository
 place-label	edge	id_Service_Repository_2	0	0	0	0	0

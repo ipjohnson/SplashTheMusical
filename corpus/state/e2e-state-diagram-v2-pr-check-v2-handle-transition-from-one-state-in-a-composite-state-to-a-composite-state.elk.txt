@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	S1	root
 option	node	S1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	S1		nodeSize.minimum	(25, 0)
+option	node	S1		nodeSize.minimum	(25.125, 0)
 option	node	S1		spacing.baseValue	24
 option	node	S1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	S1		elk.spacing.edgeEdge	20
@@ -39,13 +39,13 @@ option	node	S1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	S1		elk.algorithm	elk.layered
 option	node	S1		elk.direction	DOWN
 option	node	S1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	S1	0	S1	17	19
+label	node	S1	0	S1	17.125	19
 node	sub1	S1	136	37
 option	node	sub1		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	sub2	S1	136	37
 node	S2	root
 option	node	S2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	S2		nodeSize.minimum	(25, 0)
+option	node	S2		nodeSize.minimum	(25.125, 0)
 option	node	S2		spacing.baseValue	24
 option	node	S2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	S2		elk.spacing.edgeEdge	20
@@ -61,7 +61,7 @@ option	node	S2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	S2		elk.algorithm	elk.layered
 option	node	S2		elk.direction	DOWN
 option	node	S2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	S2	0	S2	17	19
+label	node	S2	0	S2	17.125	19
 node	sub4	S2	136	37
 option	node	sub4		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	edge0	root	sub1	sub2
@@ -79,11 +79,11 @@ option	edge-label	edge2	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	288	399
 place	S1	root	12	12	224	206
-place-label	node	S1	0	103.5	5	17	19
+place-label	node	S1	0	103.4375	5	17.125	19
 place	sub1	S1	63.99999999999999	48	136	37
 place	sub2	S1	24	145	136	37
 place	S2	root	92	278	184	109
-place-label	node	S2	0	83.5	5	17	19
+place-label	node	S2	0	83.4375	5	17.125	19
 place	sub4	S2	24	48	136	37
 route	edge0	root	S1
 section	edge0	edge0_s0	112.93333333333334,85	92,145	112.93333333333334,115 92,115	sub1	sub2

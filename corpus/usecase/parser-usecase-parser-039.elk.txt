@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Payment_service	root
 option	node	Payment_service		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Payment_service		nodeSize.minimum	(125, 0)
+option	node	Payment_service		nodeSize.minimum	(123.484375, 0)
 option	node	Payment_service		spacing.baseValue	24
 option	node	Payment_service		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Payment_service		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	Payment_service		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Payment_service		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Payment_service		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Payment_service		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Payment_service	0	Payment service	105	19
+label	node	Payment_service	0	Payment service	103.484375	19
 node	Authorize	Payment_service	160	58
 option	node	Authorize		elk.portAlignment.default	CENTER
 node	Billing	root
 option	node	Billing		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Billing		nodeSize.minimum	(57, 0)
+option	node	Billing		nodeSize.minimum	(57.359375, 0)
 option	node	Billing		spacing.baseValue	24
 option	node	Billing		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Billing		elk.spacing.edgeEdge	20
@@ -54,13 +54,13 @@ option	node	Billing		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Billing		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Billing		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Billing		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Billing	0	Billing	37	19
+label	node	Billing	0	Billing	37.359375	19
 node	Invoice	Billing	152	42
 result
 place	root		0	0	232	308
 place	Payment_service	root	12	12	208	130
-place-label	node	Payment_service	0	51.5	5	105	19
+place-label	node	Payment_service	0	52.2578125	5	103.484375	19
 place	Authorize	Payment_service	24	48	160	58
 place	Billing	root	16	182	200	114
-place-label	node	Billing	0	81.5	5	37	19
+place-label	node	Billing	0	81.3203125	5	37.359375	19
 place	Invoice	Billing	24	48	152	42

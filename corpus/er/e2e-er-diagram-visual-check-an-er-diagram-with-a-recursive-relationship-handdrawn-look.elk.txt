@@ -21,32 +21,32 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-CUSTOMER-0	root	122.96326446533203	84.78113555908203
+node	entity-CUSTOMER-0	root	122.9632568359375	84.78113555908203
 node	entity-ORDER-1	root	103.45500946044922	84.51153564453125
-node	entity-LINE-ITEM-2	root	113.71684265136719	84.51348876953125
+node	entity-LINE-ITEM-2	root	112.30711364746094	84.68158721923828
 edge	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	root	entity-CUSTOMER-0	entity-CUSTOMER-0
-label	edge	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	refers	37	21
+label	edge	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	refers	35.796875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	edgeLabels.placement	CENTER
 edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	root	entity-CUSTOMER-0	entity-ORDER-1
-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	edgeLabels.placement	CENTER
 edge	id_entity-ORDER-1_entity-LINE-ITEM-2_2	root	entity-ORDER-1	entity-LINE-ITEM-2
-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	contains	53	21
+label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	contains	52.15625	21
 option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	207.96326446533203	479.80615997314453
-place	entity-CUSTOMER-0	root	73	12	122.96326446533203	84.78113555908203
-place	entity-ORDER-1	root	82.7541275024414	197.78113555908203	103.45500946044922	84.51153564453125
-place	entity-LINE-ITEM-2	root	77.62321090698242	383.2926712036133	113.71684265136719	84.51348876953125
+place	root		0	0	206.7601318359375	479.97425842285156
+place	entity-CUSTOMER-0	root	71.796875	12	122.9632568359375	84.78113555908203
+place	entity-ORDER-1	root	81.55099868774414	197.78113555908203	103.45500946044922	84.51153564453125
+place	entity-LINE-ITEM-2	root	77.12494659423828	383.2926712036133	112.30711364746094	84.68158721923828
 route	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	root	root
-section	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0_s0	73,44.260378519694015	73,64.52075703938803	53,44.260378519694015 53,64.52075703938803	entity-CUSTOMER-0	entity-CUSTOMER-0
-place-label	edge	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	12	43.890567779541016	37	21
+section	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0_s0	71.796875,44.260378519694015	71.796875,64.52075703938803	51.796875,44.260378519694015 51.796875,64.52075703938803	entity-CUSTOMER-0	entity-CUSTOMER-0
+place-label	edge	id_entity-CUSTOMER-0_entity-CUSTOMER-0_0	0	12	43.890567779541016	35.796875	21
 route	id_entity-CUSTOMER-0_entity-ORDER-1_1	root	root
-section	id_entity-CUSTOMER-0_entity-ORDER-1_1	id_entity-CUSTOMER-0_entity-ORDER-1_1_s0	134.48163223266602,96.78113555908203	134.48163223266602,197.78113555908203		entity-CUSTOMER-0	entity-ORDER-1
-place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	113.98163223266602	136.78113555908203	41	21
+section	id_entity-CUSTOMER-0_entity-ORDER-1_1	id_entity-CUSTOMER-0_entity-ORDER-1_1_s0	133.27850341796875,96.78113555908203	133.27850341796875,197.78113555908203		entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	112.77850341796875	136.78113555908203	40.46875	21
 route	id_entity-ORDER-1_entity-LINE-ITEM-2_2	root	root
-section	id_entity-ORDER-1_entity-LINE-ITEM-2_2	id_entity-ORDER-1_entity-LINE-ITEM-2_2_s0	134.48163223266602,282.2926712036133	134.48163223266602,383.2926712036133		entity-ORDER-1	entity-LINE-ITEM-2
-place-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	107.98163223266602	322.2926712036133	53	21
+section	id_entity-ORDER-1_entity-LINE-ITEM-2_2	id_entity-ORDER-1_entity-LINE-ITEM-2_2_s0	133.27850341796875,282.2926712036133	133.27850341796875,383.2926712036133		entity-ORDER-1	entity-LINE-ITEM-2
+place-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_2	0	106.77850341796875	322.2926712036133	52.15625	21

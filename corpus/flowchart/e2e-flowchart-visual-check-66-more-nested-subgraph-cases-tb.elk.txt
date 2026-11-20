@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	three	root
 option	node	three		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	three		nodeSize.minimum	(41, 0)
+option	node	three		nodeSize.minimum	(39.921875, 0)
 option	node	three		spacing.baseValue	24
 option	node	three		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	three		elk.spacing.edgeEdge	20
@@ -37,12 +37,12 @@ option	node	three		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	three		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	three		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	three		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	three	0	three	33	19
+label	node	three	0	three	31.921875	19
 node	c2	three	152	45
 option	node	c2		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	two	root
 option	node	two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	two		nodeSize.minimum	(30, 0)
+option	node	two		nodeSize.minimum	(29.796875, 0)
 option	node	two		spacing.baseValue	24
 option	node	two		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	two		elk.spacing.edgeEdge	20
@@ -56,7 +56,7 @@ option	node	two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	two		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	two	0	two	22	19
+label	node	two	0	two	21.796875	19
 node	b1	two	152	45
 edge	L_two_c2_0	root	c2	two
 label	edge	L_two_c2_0	0		0	0
@@ -69,10 +69,10 @@ option	edge-label	L_three_two_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	308
 place	three	root	12.000000000000014	12	200	117
-place-label	node	three	0	83.5	5	33	19
+place-label	node	three	0	84.0390625	5	31.921875	19
 place	c2	three	24	48	152	45
 place	two	root	12	179	200	117
-place-label	node	two	0	89	5	22	19
+place-label	node	two	0	89.1015625	5	21.796875	19
 place	b1	two	24	48	152	45
 route	L_two_c2_0	root	root
 section	L_two_c2_0	L_two_c2_0_s0	112,105	82,179	112.00000000000001,139 112.00000000000001,159 82,159	c2	two

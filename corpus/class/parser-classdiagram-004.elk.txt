@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Outer	root
 option	node	Outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Outer		nodeSize.minimum	(52, 0)
+option	node	Outer		nodeSize.minimum	(51.015625, 0)
 option	node	Outer		spacing.baseValue	24
 option	node	Outer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Outer		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	Outer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Outer	0	Outer	36	19
+label	node	Outer	0	Outer	35.015625	19
 node	Outer.Inner	Outer
 option	node	Outer.Inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Outer.Inner		nodeSize.minimum	(49, 0)
+option	node	Outer.Inner		nodeSize.minimum	(47.921875, 0)
 option	node	Outer.Inner		spacing.baseValue	24
 option	node	Outer.Inner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Outer.Inner		elk.spacing.edgeEdge	20
@@ -52,14 +52,14 @@ option	node	Outer.Inner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Outer.Inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Outer.Inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Outer.Inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Outer.Inner	0	Inner	33	19
-node	Foo	Outer.Inner	76.5	120
-node	Baz	Outer	77.5	120
+label	node	Outer.Inner	0	Inner	31.921875	19
+node	Foo	Outer.Inner	74.5625	120
+node	Baz	Outer	76.53125	120
 result
-place	root		0	0	324	288
-place	Outer	root	12	12	300	264
-place-label	node	Outer	0	132	5	36	19
-place	Outer.Inner	Outer	24	48	124.5	192
-place-label	node	Outer.Inner	0	45.75	5	33	19
-place	Foo	Outer.Inner	24	48	76.5	120
-place	Baz	Outer	198.5	84	77.5	120
+place	root		0	0	321.09375	288
+place	Outer	root	12	12	297.09375	264
+place-label	node	Outer	0	131.0390625	5	35.015625	19
+place	Outer.Inner	Outer	24	48	122.5625	192
+place-label	node	Outer.Inner	0	45.3203125	5	31.921875	19
+place	Foo	Outer.Inner	24	48	74.5625	120
+place	Baz	Outer	196.5625	84	76.53125	120

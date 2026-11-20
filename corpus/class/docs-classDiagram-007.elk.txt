@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Animal Class!	root	118	81
-node	Car Class	root	89	81
+node	Animal Class!	root	116.59375	81
+node	Car Class	root	88.59375	81
 edge	id_Animal Class!_Car Class_1	root	Animal\sClass!	Car\sClass
 label	edge	id_Animal Class!_Car Class_1	0		0	0
 option	edge-label	id_Animal Class!_Car Class_1	0	edgeLabels.inline	true
 option	edge-label	id_Animal Class!_Car Class_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	142	226
-place	Animal Class!	root	12	12	118	81
-place	Car Class	root	26.5	133	89	81
+place	root		0	0	140.59375	226
+place	Animal Class!	root	12	12	116.59375	81
+place	Car Class	root	26	133	88.59375	81
 route	id_Animal Class!_Car Class_1	root	root
-section	id_Animal Class!_Car Class_1	id_Animal Class!_Car Class_1_s0	71,93	71,133		Animal\sClass!	Car\sClass
+section	id_Animal Class!_Car Class_1	id_Animal Class!_Car Class_1_s0	70.296875,93	70.296875,133		Animal\sClass!	Car\sClass
 place-label	edge	id_Animal Class!_Car Class_1	0	0	0	0	0

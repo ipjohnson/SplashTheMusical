@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 node	Auditor	root	76	121
 node	Browse	root	160	58
 option	node	Browse		elk.portAlignment.default	CENTER
@@ -40,17 +40,17 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	506	274.5
-place	Customer	root	12	141.5	82	121
-place	Auditor	root	218	12	76	121
-place	Browse	root	134	173	160	58
-place	Checkout	root	334	108.25	160	58
+place	root		0	0	504.6875	274.5
+place	Customer	root	12	141.5	80.6875	121
+place	Auditor	root	216.6875	12	76	121
+place	Browse	root	132.6875	173	160	58
+place	Checkout	root	332.6875	108.25	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,202	134,202		Customer	Browse
+section	edge-0	edge-0_s0	92.6875,202	132.6875,202		Customer	Browse
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	294,202	334,147.25	314,202 314,147.25	Browse	Checkout
+section	edge-1	edge-1_s0	292.6875,202	332.6875,147.25	312.6875,202 312.6875,147.25	Browse	Checkout
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	294,72.5	334,127.25	314,72.5 314,127.25	Auditor	Checkout
+section	edge-2	edge-2_s0	292.6875,72.5	332.6875,127.25	312.6875,72.5 312.6875,127.25	Auditor	Checkout
 place-label	edge	edge-2	0	0	0	0	0

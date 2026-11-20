@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	subgraph2	root
 option	node	subgraph2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subgraph2		nodeSize.minimum	(76, 0)
+option	node	subgraph2		nodeSize.minimum	(74.171875, 0)
 option	node	subgraph2		spacing.baseValue	24
 option	node	subgraph2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subgraph2		elk.spacing.edgeEdge	20
@@ -39,13 +39,13 @@ option	node	subgraph2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	subgraph2		elk.algorithm	elk.layered
 option	node	subgraph2		elk.direction	DOWN
 option	node	subgraph2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	subgraph2	0	subgraph2	68	19
+label	node	subgraph2	0	subgraph2	66.171875	19
 node	top2	subgraph2	152	45
 option	node	top2		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	bottom2	subgraph2	152	45
 node	subgraph1	root
 option	node	subgraph1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subgraph1		nodeSize.minimum	(76, 0)
+option	node	subgraph1		nodeSize.minimum	(74.171875, 0)
 option	node	subgraph1		spacing.baseValue	24
 option	node	subgraph1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subgraph1		elk.spacing.edgeEdge	20
@@ -61,7 +61,7 @@ option	node	subgraph1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	subgraph1		elk.algorithm	elk.layered
 option	node	subgraph1		elk.direction	DOWN
 option	node	subgraph1		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	subgraph1	0	subgraph1	68	19
+label	node	subgraph1	0	subgraph1	66.171875	19
 node	top1	subgraph1	152	45
 node	bottom1	subgraph1	152	45
 node	outside	root	152	45
@@ -85,11 +85,11 @@ option	edge-label	L_outside_top2_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	602	367
 place	subgraph2	root	214	238	376	117
-place-label	node	subgraph2	0	154	5	68	19
+place-label	node	subgraph2	0	154.9140625	5	66.171875	19
 place	top2	subgraph2	24	48	152	45
 place	bottom2	subgraph2	200	48	152	45
 place	subgraph1	root	214	12	200	186
-place-label	node	subgraph1	0	66	5	68	19
+place-label	node	subgraph1	0	66.9140625	5	66.171875	19
 place	top1	subgraph1	24	48	152	45
 place	bottom1	subgraph1	24	117	152	45
 place	outside	root	12	184.25	152	45

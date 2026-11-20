@@ -21,46 +21,46 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	142	135
-node	Order	root	143	156
-node	LineItem	root	130.5	114
-node	Payment	root	175.5	141
+node	Customer	root	140.3515625	135
+node	Order	root	140.71875	156
+node	LineItem	root	128.6796875	114
+node	Payment	root	171.875	141
 edge	id_Customer_Order_1	root	Customer	Order
-label	edge	id_Customer_Order_1	0	places	41	21
+label	edge	id_Customer_Order_1	0	places	40.46875	21
 option	edge-label	id_Customer_Order_1	0	edgeLabels.inline	true
 option	edge-label	id_Customer_Order_1	0	edgeLabels.placement	CENTER
-label	edge	id_Customer_Order_1	1	1	6	16.5
+label	edge	id_Customer_Order_1	1	1	6.125	16.5
 option	edge-label	id_Customer_Order_1	1	edgeLabels.placement	TAIL
-label	edge	id_Customer_Order_1	2	*	16	28.5
+label	edge	id_Customer_Order_1	2	*	16.28125	28.5
 option	edge-label	id_Customer_Order_1	2	edgeLabels.placement	HEAD
 edge	id_Order_LineItem_2	root	Order	LineItem
-label	edge	id_Order_LineItem_2	0	contains	53	21
+label	edge	id_Order_LineItem_2	0	contains	52.15625	21
 option	edge-label	id_Order_LineItem_2	0	edgeLabels.inline	true
 option	edge-label	id_Order_LineItem_2	0	edgeLabels.placement	CENTER
-label	edge	id_Order_LineItem_2	1	1	18	28.5
+label	edge	id_Order_LineItem_2	1	1	18.125	28.5
 option	edge-label	id_Order_LineItem_2	1	edgeLabels.placement	TAIL
-label	edge	id_Order_LineItem_2	2	*	4	16.5
+label	edge	id_Order_LineItem_2	2	*	4.28125	16.5
 option	edge-label	id_Order_LineItem_2	2	edgeLabels.placement	HEAD
 edge	id_Order_Payment_3	root	Order	Payment
-label	edge	id_Order_Payment_3	0	settled by	61	21
+label	edge	id_Order_Payment_3	0	settled by	59.9375	21
 option	edge-label	id_Order_Payment_3	0	edgeLabels.inline	true
 option	edge-label	id_Order_Payment_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	370	743.5
-place	Customer	root	102.75	12	142	135
-place	Order	root	102.25	301	143	156
-place	LineItem	root	12	611	130.5	114
-place	Payment	root	182.5	590.5	175.5	141
+place	root		0	0	364.5546875	743.5
+place	Customer	root	101.302734375	12	140.3515625	135
+place	Order	root	101.119140625	301	140.71875	156
+place	LineItem	root	12	611	128.6796875	114
+place	Payment	root	180.6796875	590.5	171.875	141
 route	id_Customer_Order_1	root	root
-section	id_Customer_Order_1	id_Customer_Order_1_s0	173.75,147	173.75,301		Customer	Order
-place-label	edge	id_Customer_Order_1	0	153.25	207.5	41	21
-place-label	edge	id_Customer_Order_1	1	178.75	151	6	16.5
-place-label	edge	id_Customer_Order_1	2	178.75	268.5	16	28.5
+section	id_Customer_Order_1	id_Customer_Order_1_s0	171.478515625,147	171.478515625,301		Customer	Order
+place-label	edge	id_Customer_Order_1	0	150.978515625	207.5	40.46875	21
+place-label	edge	id_Customer_Order_1	1	176.478515625	151	6.125	16.5
+place-label	edge	id_Customer_Order_1	2	176.478515625	268.5	16.28125	28.5
 route	id_Order_LineItem_2	root	root
-section	id_Order_LineItem_2	id_Order_LineItem_2_s0	153.25,457	77.25,611	153.25,509.5 77.25,509.5	Order	LineItem
-place-label	edge	id_Order_LineItem_2	0	50.75	529.5	53	21
-place-label	edge	id_Order_LineItem_2	1	158.25	461	18	28.5
-place-label	edge	id_Order_LineItem_2	2	82.25	590.5	4	16.5
+section	id_Order_LineItem_2	id_Order_LineItem_2_s0	151.35872395833331,457	76.33984375,611	151.35872395833331,509.5 76.33984375,509.5	Order	LineItem
+place-label	edge	id_Order_LineItem_2	0	49.83984375	529.5	52.15625	21
+place-label	edge	id_Order_LineItem_2	1	156.35872395833331	461	18.125	28.5
+place-label	edge	id_Order_LineItem_2	2	81.33984375	590.5	4.28125	16.5
 route	id_Order_Payment_3	root	root
-section	id_Order_Payment_3	id_Order_Payment_3_s0	194.25,457	270.25,590.5	194.25,509.5 270.25,509.5	Order	Payment
-place-label	edge	id_Order_Payment_3	0	239.75	529.5	61	21
+section	id_Order_Payment_3	id_Order_Payment_3_s0	191.59830729166666,457	266.6171875,590.5	191.59830729166666,509.5 266.6171875,509.5	Order	Payment
+place-label	edge	id_Order_Payment_3	0	236.6171875	529.5	59.9375	21

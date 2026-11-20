@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	phase1	root
 node	lane1	root
 option	node	lane1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	lane1		nodeSize.minimum	(43, 0)
+option	node	lane1		nodeSize.minimum	(42.265625, 0)
 option	node	lane1		spacing.baseValue	24
 option	node	lane1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	lane1		elk.spacing.edgeEdge	20
@@ -37,11 +37,11 @@ option	node	lane1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	lane1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	lane1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	lane1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	lane1	0	lane1	35	19
+label	node	lane1	0	lane1	34.265625	19
 node	a	lane1	152	45
 result
 place	root		0	0	224	181
 place	phase1	root	112	12	0	0
 place	lane1	root	12	52	200	117
-place-label	node	lane1	0	82.5	5	35	19
+place-label	node	lane1	0	82.8671875	5	34.265625	19
 place	a	lane1	24	48	152	45

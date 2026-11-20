@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Group	root
 option	node	Group		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Group		nodeSize.minimum	(48, 0)
+option	node	Group		nodeSize.minimum	(46.921875, 0)
 option	node	Group		spacing.baseValue	24
 option	node	Group		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Group		elk.spacing.edgeEdge	20
@@ -37,21 +37,21 @@ option	node	Group		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Group		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Group		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Group		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Group	0	Group	40	19
+label	node	Group	0	Group	38.921875	19
 node	entity-A-0	Group	100	81
 option	node	entity-A-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	entity-B-1	root	100	81
 option	node	entity-B-1		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_entity-A-0_entity-B-1_0	root	entity-A-0	entity-B-1
-label	edge	id_entity-A-0_entity-B-1_0	0	relates to	59	21
+label	edge	id_entity-A-0_entity-B-1_0	0	relates to	57.59375	21
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	172	369
 place	Group	root	12	12	148	153
-place-label	node	Group	0	54	5	40	19
+place-label	node	Group	0	54.5390625	5	38.921875	19
 place	entity-A-0	Group	24	48	100	81
 place	entity-B-1	root	36	276	100	81
 route	id_entity-A-0_entity-B-1_0	root	root
 section	id_entity-A-0_entity-B-1_0	id_entity-A-0_entity-B-1_0_s0	86,141	86,276	86,175	entity-A-0	entity-B-1
-place-label	edge	id_entity-A-0_entity-B-1_0	0	56.5	215	59	21
+place-label	edge	id_entity-A-0_entity-B-1_0	0	57	215	57.59375	21

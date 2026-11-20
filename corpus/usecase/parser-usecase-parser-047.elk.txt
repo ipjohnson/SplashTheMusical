@@ -21,8 +21,8 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	1	root	82	121
-node	1mg	root	77	121
+node	1	root	80.6875	121
+node	1mg	root	76	121
 node	2	root	160	58
 option	node	2		elk.portAlignment.default	CENTER
 node	3rd	root	160	58
@@ -41,18 +41,18 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	484	306
-place	1	root	12	12	82	121
-place	1mg	root	17	173	77	121
-place	2	root	134	43.5	160	58
-place	3rd	root	134	204.5	160	58
-place	4	root	334	42.5	138	60
+place	root		0	0	482.6875	306
+place	1	root	12	12	80.6875	121
+place	1mg	root	16.6875	173	76	121
+place	2	root	132.6875	43.5	160	58
+place	3rd	root	132.6875	204.5	160	58
+place	4	root	332.6875	42.5	138	60
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,72.5	134,72.5		1	2
+section	edge-0	edge-0_s0	92.6875,72.5	132.6875,72.5		1	2
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	94,233.5	134,233.5		1mg	3rd
+section	edge-1	edge-1_s0	92.6875,233.5	132.6875,233.5		1mg	3rd
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	294,72.5	334,72.5		2	4
+section	edge-2	edge-2_s0	292.6875,72.5	332.6875,72.5		2	4
 place-label	edge	edge-2	0	0	0	0	0

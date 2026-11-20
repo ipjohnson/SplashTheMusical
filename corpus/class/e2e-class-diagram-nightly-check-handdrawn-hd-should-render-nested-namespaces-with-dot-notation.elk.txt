@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Company	root
 option	node	Company		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company		nodeSize.minimum	(77, 0)
+option	node	Company		nodeSize.minimum	(75.921875, 0)
 option	node	Company		spacing.baseValue	24
 option	node	Company		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	Company		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Company		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Company		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Company	0	Company	61	19
+label	node	Company	0	Company	59.921875	19
 node	Company.Engineering	Company
 option	node	Company.Engineering		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Engineering		nodeSize.minimum	(92, 0)
+option	node	Company.Engineering		nodeSize.minimum	(90.734375, 0)
 option	node	Company.Engineering		spacing.baseValue	24
 option	node	Company.Engineering		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Engineering		elk.spacing.edgeEdge	20
@@ -53,10 +53,10 @@ option	node	Company.Engineering		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Company.Engineering		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Engineering		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Company.Engineering		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Company.Engineering	0	Engineering	76	19
+label	node	Company.Engineering	0	Engineering	74.734375	19
 node	Company.Engineering.Backend	Company.Engineering
 option	node	Company.Engineering.Backend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Engineering.Backend		nodeSize.minimum	(71, 0)
+option	node	Company.Engineering.Backend		nodeSize.minimum	(70.484375, 0)
 option	node	Company.Engineering.Backend		spacing.baseValue	24
 option	node	Company.Engineering.Backend		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Engineering.Backend		elk.spacing.edgeEdge	20
@@ -70,12 +70,12 @@ option	node	Company.Engineering.Backend		elk.layered.cycleBreaking.strategy	DEPT
 option	node	Company.Engineering.Backend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Engineering.Backend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Company.Engineering.Backend		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Company.Engineering.Backend	0	Backend	55	19
-node	Developer	Company.Engineering.Backend	145.5445098876953	123.3811264038086
+label	node	Company.Engineering.Backend	0	Backend	54.484375	19
+node	Developer	Company.Engineering.Backend	143.1248321533203	123.4614028930664
 option	node	Developer		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Company.Engineering.Frontend	Company.Engineering
 option	node	Company.Engineering.Frontend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Engineering.Frontend		nodeSize.minimum	(74, 0)
+option	node	Company.Engineering.Frontend		nodeSize.minimum	(72.046875, 0)
 option	node	Company.Engineering.Frontend		spacing.baseValue	24
 option	node	Company.Engineering.Frontend		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Engineering.Frontend		elk.spacing.edgeEdge	20
@@ -89,35 +89,35 @@ option	node	Company.Engineering.Frontend		elk.layered.cycleBreaking.strategy	DEP
 option	node	Company.Engineering.Frontend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Engineering.Frontend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Company.Engineering.Frontend		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Company.Engineering.Frontend	0	Frontend	58	19
-node	Designer	Company.Engineering.Frontend	167.5950469970703	123.37860870361328
+label	node	Company.Engineering.Frontend	0	Frontend	56.046875	19
+node	Designer	Company.Engineering.Frontend	165.23141479492188	123.37860870361328
 option	node	Designer		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	TechLead	Company.Engineering	143.457275390625	123.3386459350586
+node	TechLead	Company.Engineering	141.95211791992188	123.20795440673828
 option	node	TechLead		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_TechLead_Developer_1	root	TechLead	Developer
-label	edge	id_TechLead_Developer_1	0	leads	34	21
+label	edge	id_TechLead_Developer_1	0	leads	33.46875	21
 option	edge-label	id_TechLead_Developer_1	0	edgeLabels.inline	true
 option	edge-label	id_TechLead_Developer_1	0	edgeLabels.placement	CENTER
 edge	id_TechLead_Designer_2	root	TechLead	Designer
-label	edge	id_TechLead_Designer_2	0	leads	34	21
+label	edge	id_TechLead_Designer_2	0	leads	33.46875	21
 option	edge-label	id_TechLead_Designer_2	0	edgeLabels.inline	true
 option	edge-label	id_TechLead_Designer_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	579.1395568847656	601.7197723388672
-place	Company	root	12	12	555.1395568847656	577.7197723388672
-place-label	node	Company	0	247.0697784423828	5	61	19
-place	Company.Engineering	Company	24	48	507.1395568847656	505.7197723388672
-place-label	node	Company.Engineering	0	215.5697784423828	5	76	19
-place	Company.Engineering.Backend	Company.Engineering	24	286.3386459350586	193.5445098876953	195.3811264038086
-place-label	node	Company.Engineering.Backend	0	69.27225494384766	5	55	19
-place	Developer	Company.Engineering.Backend	24	48	145.5445098876953	123.3811264038086
-place	Company.Engineering.Frontend	Company.Engineering	267.5445098876953	286.3386459350586	215.5950469970703	195.37860870361328
-place-label	node	Company.Engineering.Frontend	0	78.79752349853516	5	58	19
-place	Designer	Company.Engineering.Frontend	24	48	167.5950469970703	123.37860870361328
-place	TechLead	Company.Engineering	176.32850646972656	48	143.457275390625	123.3386459350586
+place	root		0	0	574.3562469482422	601.6693572998047
+place	Company	root	12	12	550.3562469482422	577.6693572998047
+place-label	node	Company	0	245.2171859741211	5	59.921875	19
+place	Company.Engineering	Company	24	48	502.3562469482422	505.6693572998047
+place-label	node	Company.Engineering	0	213.8109359741211	5	74.734375	19
+place	Company.Engineering.Backend	Company.Engineering	24	286.2079544067383	191.1248321533203	195.4614028930664
+place-label	node	Company.Engineering.Backend	0	68.32022857666016	5	54.484375	19
+place	Developer	Company.Engineering.Backend	24	48	143.1248321533203	123.4614028930664
+place	Company.Engineering.Frontend	Company.Engineering	265.1248321533203	286.2079544067383	213.23141479492188	195.37860870361328
+place-label	node	Company.Engineering.Frontend	0	78.59226989746094	5	56.046875	19
+place	Designer	Company.Engineering.Frontend	24	48	165.23141479492188	123.37860870361328
+place	TechLead	Company.Engineering	174.67541885375977	48	141.95211791992188	123.20795440673828
 route	id_TechLead_Developer_1	root	Company.Engineering
-section	id_TechLead_Developer_1	id_TechLead_Developer_1_s0	227.74759826660156,171.3386459350586	120.77225494384766,334.3386459350586	227.74759826660156,201.3386459350586 120.77225494384766,201.3386459350586 120.77225494384766,276.3386459350586	TechLead	Developer
-place-label	edge	id_TechLead_Developer_1	0	103.77225494384766	231.3386459350586	34	21
+section	id_TechLead_Developer_1	id_TechLead_Developer_1_s0	225.59279149373373,171.20795440673828	119.56241607666016,334.2079544067383	225.59279149373373,201.20795440673828 119.56241607666016,201.20795440673828 119.56241607666016,276.2079544067383	TechLead	Developer
+place-label	edge	id_TechLead_Developer_1	0	102.56241607666016	231.20795440673828	33.46875	21
 route	id_TechLead_Designer_2	root	Company.Engineering
-section	id_TechLead_Designer_2	id_TechLead_Designer_2_s0	268.36669006347654,171.3386459350586	375.34203338623047,334.3386459350586	268.36669006347654,201.3386459350586 375.34203338623047,201.3386459350586 375.34203338623047,276.3386459350586	TechLead	Designer
-place-label	edge	id_TechLead_Designer_2	0	358.34203338623047	231.3386459350586	34	21
+section	id_TechLead_Designer_2	id_TechLead_Designer_2_s0	265.7101641337077,171.20795440673828	371.74053955078125,334.2079544067383	265.7101641337077,201.20795440673828 371.74053955078125,201.20795440673828 371.74053955078125,276.2079544067383	TechLead	Designer
+place-label	edge	id_TechLead_Designer_2	0	354.74053955078125	231.20795440673828	33.46875	21

@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	C1	root	178.0912628173828	84.72118377685547
-node	C2	root	180.87754821777344	84.76607513427734
+node	C1	root	174.3297119140625	84.51750946044922
+node	C2	root	176.2327880859375	84.67632293701172
 edge	id_C1_C2_1	root	C1	C2
 label	edge	id_C1_C2_1	0		0	0
 option	edge-label	id_C1_C2_1	0	edgeLabels.inline	true
 option	edge-label	id_C1_C2_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	204.87754821777344	233.4872589111328
-place	C1	root	13.393142700195312	12	178.0912628173828	84.72118377685547
-place	C2	root	12	136.72118377685547	180.87754821777344	84.76607513427734
+place	root		0	0	200.2327880859375	233.19383239746094
+place	C1	root	12.9515380859375	12	174.3297119140625	84.51750946044922
+place	C2	root	12	136.51750946044922	176.2327880859375	84.67632293701172
 route	id_C1_C2_1	root	root
-section	id_C1_C2_1	id_C1_C2_1_s0	102.43877410888672,96.72118377685547	102.43877410888672,136.72118377685547		C1	C2
+section	id_C1_C2_1	id_C1_C2_1_s0	100.11639404296875,96.51750946044922	100.11639404296875,136.51750946044922		C1	C2
 place-label	edge	id_C1_C2_1	0	0	0	0	0

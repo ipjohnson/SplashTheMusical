@@ -30,7 +30,7 @@ node	F	root	152	45
 node	G	root	152	45
 node	H	root	152	45
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	label text	57	21
+label	edge	L_A_B_0	0	label text	56.046875	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_C_D_0	root	C	D
@@ -38,11 +38,11 @@ label	edge	L_C_D_0	0		0	0
 option	edge-label	L_C_D_0	0	edgeLabels.inline	true
 option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
 edge	L_E_F_0	root	E	F
-label	edge	L_E_F_0	0	open label	66	21
+label	edge	L_E_F_0	0	open label	64.625	21
 option	edge-label	L_E_F_0	0	edgeLabels.inline	true
 option	edge-label	L_E_F_0	0	edgeLabels.placement	CENTER
 edge	L_G_H_0	root	G	H
-label	edge	L_G_H_0	0	bidirectional	76	21
+label	edge	L_G_H_0	0	bidirectional	74.71875	21
 option	edge-label	L_G_H_0	0	edgeLabels.inline	true
 option	edge-label	L_G_H_0	0	edgeLabels.placement	CENTER
 result
@@ -57,13 +57,13 @@ place	G	root	588	12	152	45
 place	H	root	588	182	152	45
 route	L_A_B_0	root	root
 section	L_A_B_0	L_A_B_0_s0	88,57	88,182		A	B
-place-label	edge	L_A_B_0	0	59.5	109	57	21
+place-label	edge	L_A_B_0	0	59.5	109	56.046875	21
 route	L_C_D_0	root	root
 section	L_C_D_0	L_C_D_0_s0	280,57	280,97		C	D
 place-label	edge	L_C_D_0	0	0	0	0	0
 route	L_E_F_0	root	root
 section	L_E_F_0	L_E_F_0_s0	472,57	472,182		E	F
-place-label	edge	L_E_F_0	0	439	109	66	21
+place-label	edge	L_E_F_0	0	439.5	109	64.625	21
 route	L_G_H_0	root	root
 section	L_G_H_0	L_G_H_0_s0	664,57	664,182		G	H
-place-label	edge	L_G_H_0	0	626	109	76	21
+place-label	edge	L_G_H_0	0	626.5	109	74.71875	21

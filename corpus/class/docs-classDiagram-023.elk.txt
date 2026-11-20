@@ -21,53 +21,53 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	90	81
-node	Ticket	root	66	81
-node	Student	root	78	81
-node	Course	root	73	81
-node	Galaxy	root	71	81
-node	Star	root	51	81
+node	Customer	root	89.359375	81
+node	Ticket	root	64.21875	81
+node	Student	root	76.109375	81
+node	Course	root	72.234375	81
+node	Galaxy	root	69.9375	81
+node	Star	root	51.234375	81
 edge	id_Customer_Ticket_1	root	Customer	Ticket
 label	edge	id_Customer_Ticket_1	0		0	0
 option	edge-label	id_Customer_Ticket_1	0	edgeLabels.inline	true
 option	edge-label	id_Customer_Ticket_1	0	edgeLabels.placement	CENTER
-label	edge	id_Customer_Ticket_1	1	1	6	16.5
+label	edge	id_Customer_Ticket_1	1	1	6.125	16.5
 option	edge-label	id_Customer_Ticket_1	1	edgeLabels.placement	TAIL
-label	edge	id_Customer_Ticket_1	2	*	16	28.5
+label	edge	id_Customer_Ticket_1	2	*	16.28125	28.5
 option	edge-label	id_Customer_Ticket_1	2	edgeLabels.placement	HEAD
 edge	id_Student_Course_2	root	Student	Course
 label	edge	id_Student_Course_2	0		0	0
 option	edge-label	id_Student_Course_2	0	edgeLabels.inline	true
 option	edge-label	id_Student_Course_2	0	edgeLabels.placement	CENTER
-label	edge	id_Student_Course_2	1	1	6	16.5
+label	edge	id_Student_Course_2	1	1	6.125	16.5
 option	edge-label	id_Student_Course_2	1	edgeLabels.placement	TAIL
-label	edge	id_Student_Course_2	2	1..*	28	28.5
+label	edge	id_Student_Course_2	2	1..*	28.515625	28.5
 option	edge-label	id_Student_Course_2	2	edgeLabels.placement	HEAD
 edge	id_Galaxy_Star_3	root	Galaxy	Star
-label	edge	id_Galaxy_Star_3	0	Contains	56	21
+label	edge	id_Galaxy_Star_3	0	Contains	55.265625	21
 option	edge-label	id_Galaxy_Star_3	0	edgeLabels.inline	true
 option	edge-label	id_Galaxy_Star_3	0	edgeLabels.placement	CENTER
-label	edge	id_Galaxy_Star_3	1	many	39	28.5
+label	edge	id_Galaxy_Star_3	1	many	38.90625	28.5
 option	edge-label	id_Galaxy_Star_3	1	edgeLabels.placement	HEAD
 result
-place	root		0	0	351.5	432.5
-place	Customer	root	12	12	90	81
-place	Ticket	root	24	186	66	81
-place	Student	root	142	12	78	81
-place	Course	root	144.5	186	73	81
-place	Galaxy	root	260	12	71	81
-place	Star	root	270	339.5	51	81
+place	root		0	0	348.34375	432.5
+place	Customer	root	12	12	89.359375	81
+place	Ticket	root	24.5703125	186	64.21875	81
+place	Student	root	141.359375	12	76.109375	81
+place	Course	root	143.296875	186	72.234375	81
+place	Galaxy	root	257.46875	12	69.9375	81
+place	Star	root	266.8203125	339.5	51.234375	81
 route	id_Customer_Ticket_1	root	root
-section	id_Customer_Ticket_1	id_Customer_Ticket_1_s0	57,93	57,186		Customer	Ticket
+section	id_Customer_Ticket_1	id_Customer_Ticket_1_s0	56.6796875,93	56.6796875,186		Customer	Ticket
 place-label	edge	id_Customer_Ticket_1	0	0	0	0	0
-place-label	edge	id_Customer_Ticket_1	1	62	97	6	16.5
-place-label	edge	id_Customer_Ticket_1	2	62	153.5	16	28.5
+place-label	edge	id_Customer_Ticket_1	1	61.6796875	97	6.125	16.5
+place-label	edge	id_Customer_Ticket_1	2	61.6796875	153.5	16.28125	28.5
 route	id_Student_Course_2	root	root
-section	id_Student_Course_2	id_Student_Course_2_s0	181,93	181,186		Student	Course
+section	id_Student_Course_2	id_Student_Course_2_s0	179.4140625,93	179.4140625,186		Student	Course
 place-label	edge	id_Student_Course_2	0	0	0	0	0
-place-label	edge	id_Student_Course_2	1	186	97	6	16.5
-place-label	edge	id_Student_Course_2	2	186	153.5	28	28.5
+place-label	edge	id_Student_Course_2	1	184.4140625	97	6.125	16.5
+place-label	edge	id_Student_Course_2	2	184.4140625	153.5	28.515625	28.5
 route	id_Galaxy_Star_3	root	root
-section	id_Galaxy_Star_3	id_Galaxy_Star_3_s0	295.5,93	295.5,339.5		Galaxy	Star
-place-label	edge	id_Galaxy_Star_3	0	267.5	199.75	56	21
-place-label	edge	id_Galaxy_Star_3	1	300.5	307	39	28.5
+section	id_Galaxy_Star_3	id_Galaxy_Star_3_s0	292.4375,93	292.4375,339.5		Galaxy	Star
+place-label	edge	id_Galaxy_Star_3	0	264.4375	199.75	55.265625	21
+place-label	edge	id_Galaxy_Star_3	1	297.4375	307	38.90625	28.5

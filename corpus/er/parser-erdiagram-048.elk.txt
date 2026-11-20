@@ -21,18 +21,18 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-CUSTOMER-0	root	120	81
+node	entity-CUSTOMER-0	root	119.859375	81
 node	entity-DELIVERY-ADDRESS-1	root	160	102
 node	entity-0.1-2	root	100	81
 edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	root	entity-CUSTOMER-0	entity-DELIVERY-ADDRESS-1
-label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	has	23	21
+label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	has	22.578125	21
 option	edge-label	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	304	308
-place	entity-CUSTOMER-0	root	32	12	120	81
+place	root		0	0	303.9296875	308
+place	entity-CUSTOMER-0	root	32.0703125	12	119.859375	81
 place	entity-DELIVERY-ADDRESS-1	root	12	194	160	102
-place	entity-0.1-2	root	192	12	100	81
+place	entity-0.1-2	root	191.9296875	12	100	81
 route	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	root	root
 section	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0_s0	92,93	92,194		entity-CUSTOMER-0	entity-DELIVERY-ADDRESS-1
-place-label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	80.5	133	23	21
+place-label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	80.5	133	22.578125	21

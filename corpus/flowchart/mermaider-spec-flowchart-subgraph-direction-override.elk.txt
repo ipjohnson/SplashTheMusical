@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Horizontal	root
 option	node	Horizontal		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Horizontal		nodeSize.minimum	(72, 0)
+option	node	Horizontal		nodeSize.minimum	(71.03125, 0)
 option	node	Horizontal		spacing.baseValue	24
 option	node	Horizontal		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Horizontal		elk.spacing.edgeEdge	20
@@ -36,13 +36,13 @@ option	node	Horizontal		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Horizontal		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Horizontal		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Horizontal		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Horizontal	0	Horizontal	64	19
+label	node	Horizontal	0	Horizontal	63.03125	19
 node	H1	Horizontal	152	45
 node	H2	Horizontal	152	45
 node	H3	Horizontal	152	45
 node	Vertical	root
 option	node	Vertical		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Vertical		nodeSize.minimum	(54, 0)
+option	node	Vertical		nodeSize.minimum	(53.921875, 0)
 option	node	Vertical		spacing.baseValue	24
 option	node	Vertical		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Vertical		elk.spacing.edgeEdge	20
@@ -58,7 +58,7 @@ option	node	Vertical		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,rig
 option	node	Vertical		elk.algorithm	elk.layered
 option	node	Vertical		elk.direction	DOWN
 option	node	Vertical		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Vertical	0	Vertical	46	19
+label	node	Vertical	0	Vertical	45.921875	19
 node	V1	Vertical	152	45
 node	V2	Vertical	152	45
 node	V3	Vertical	152	45
@@ -85,12 +85,12 @@ option	edge-label	L_Vertical_Horizontal_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	816	279
 place	Horizontal	root	252	81	552	117
-place-label	node	Horizontal	0	244	5	64	19
+place-label	node	Horizontal	0	244.484375	5	63.03125	19
 place	H1	Horizontal	24	48	152	45
 place	H2	Horizontal	200	48	152	45
 place	H3	Horizontal	376	48	152	45
 place	Vertical	root	12	12	200	255
-place-label	node	Vertical	0	77	5	46	19
+place-label	node	Vertical	0	77.0390625	5	45.921875	19
 place	V1	Vertical	24	48	152	45
 place	V2	Vertical	24	117	152	45
 place	V3	Vertical	24	186	152	45

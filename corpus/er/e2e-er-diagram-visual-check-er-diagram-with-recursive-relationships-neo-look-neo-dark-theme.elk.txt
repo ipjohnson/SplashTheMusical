@@ -21,23 +21,23 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-EMPLOYEE-0	root	197	159
-node	entity-DEPARTMENT-1	root	135	81
+node	entity-EMPLOYEE-0	root	194.859375	159
+node	entity-DEPARTMENT-1	root	135.15625	81
 edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	root	entity-EMPLOYEE-0	entity-EMPLOYEE-0
-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	manages	59	21
+label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	manages	57.59375	21
 option	edge-label	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	edgeLabels.placement	CENTER
 edge	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	root	entity-DEPARTMENT-1	entity-EMPLOYEE-0
-label	edge	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	employs	53	21
+label	edge	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	employs	52.140625	21
 option	edge-label	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	304	365
-place	entity-EMPLOYEE-0	root	95	194	197	159
-place	entity-DEPARTMENT-1	root	126	12	135	81
+place	root		0	0	300.453125	365
+place	entity-EMPLOYEE-0	root	93.59375	194	194.859375	159
+place	entity-DEPARTMENT-1	root	123.4453125	12	135.15625	81
 route	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	root	root
-section	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0_s0	95,251	95,296	75,251 75,296	entity-EMPLOYEE-0	entity-EMPLOYEE-0
-place-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	12	263	59	21
+section	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0_s0	93.59375,251	93.59375,296	73.59375,251 73.59375,296	entity-EMPLOYEE-0	entity-EMPLOYEE-0
+place-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	12	263	57.59375	21
 route	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	root	root
-section	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1_s0	193.5,93	193.5,194		entity-DEPARTMENT-1	entity-EMPLOYEE-0
-place-label	edge	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	167	133	53	21
+section	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1_s0	191.0234375,93	191.0234375,194		entity-DEPARTMENT-1	entity-EMPLOYEE-0
+place-label	edge	id_entity-DEPARTMENT-1_entity-EMPLOYEE-0_1	0	164.5234375	133	52.140625	21

@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	15.520973205566406	13.991668701171875
 node	Active	root
 option	node	Active		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Active		nodeSize.minimum	(46, 0)
+option	node	Active		nodeSize.minimum	(46.125, 0)
 option	node	Active		spacing.baseValue	24
 option	node	Active		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Active		elk.spacing.edgeEdge	20
@@ -40,7 +40,7 @@ option	node	Active		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Active		elk.algorithm	elk.layered
 option	node	Active		elk.direction	DOWN
 option	node	Active		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Active	0	Active	38	19
+label	node	Active	0	Active	38.125	19
 node	divider-id-1	Active
 option	node	divider-id-1		spacing.baseValue	24
 option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -138,7 +138,7 @@ result
 place	root		0	0	468.1875457763672	608.3849477767944
 place	root_start	root	224.0937728881836	12	15.520973205566406	13.991668701171875
 place	Active	root	12	65.99166870117188	444.1875457763672	475.9849977493286
-place-label	node	Active	0	203.0937728881836	5	38	19
+place-label	node	Active	0	203.0312728881836	5	38.125	19
 place	divider-id-1	Active	24	48	186.0802459716797	189.30035018920898
 place-label	node	divider-id-1	0	0	0	0	0
 place	divider-id-1_start	divider-id-1	82.24012298583985	24	15.45621395111084	14.109756469726562

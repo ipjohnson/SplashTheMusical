@@ -26,7 +26,7 @@ option	node	note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Payload	root	138	60
 node	Auth	root
 option	node	Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Auth		nodeSize.minimum	(49, 0)
+option	node	Auth		nodeSize.minimum	(48.8125, 0)
 option	node	Auth		spacing.baseValue	24
 option	node	Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Auth		elk.spacing.edgeEdge	20
@@ -40,12 +40,12 @@ option	node	Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Auth		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Auth	0	Auth	29	19
-node	User	Auth	82	144
+label	node	Auth	0	Auth	28.8125	19
+node	User	Auth	80.703125	144
 node	Login	Auth	152	42
 option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	includeEdge	root	Login	Login
-label	edge	includeEdge	0	«include»	49	15
+label	edge	includeEdge	0	«include»	46.8125	15
 option	edge-label	includeEdge	0	edgeLabels.inline	true
 option	edge-label	includeEdge	0	edgeLabels.placement	CENTER
 edge	note-0-edge	root	note-0	Login
@@ -57,12 +57,12 @@ place	root		0	0	414	436.9
 place	note-0	root	12	283.9	140	41
 place	Payload	root	13	364.9	138	60
 place	Auth	root	202	12	200	337.4
-place-label	node	Auth	0	85.5	5	29	19
-place	User	Auth	59	48	82	144
+place-label	node	Auth	0	85.59375	5	28.8125	19
+place	User	Auth	59.6484375	48	80.703125	144
 place	Login	Auth	24	271.4	152	42
 route	includeEdge	root	Auth
 section	includeEdge	includeEdge_s0	78.66666666666667,271.4	121.33333333333334,271.4	78.66666666666667,259.4 121.33333333333334,259.4	Login	Login
-place-label	edge	includeEdge	0	75.5	242	49	15
+place-label	edge	includeEdge	0	76.59375	242	46.8125	15
 route	note-0-edge	root	root
 section	note-0-edge	note-0-edge_s0	152,304.4	226,304.4	192,304.4	note-0	Login
 place-label	edge	note-0-edge	0	0	0	0	0

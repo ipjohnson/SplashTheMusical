@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Two	root
 option	node	Two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Two		nodeSize.minimum	(34, 0)
+option	node	Two		nodeSize.minimum	(33.6875, 0)
 option	node	Two		spacing.baseValue	24
 option	node	Two		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Two		elk.spacing.edgeEdge	20
@@ -37,12 +37,12 @@ option	node	Two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Two		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Two	0	Two	26	19
+label	node	Two	0	Two	25.6875	19
 node	Z	Two	152	45
 option	node	Z		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	One	root
 option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	One		nodeSize.minimum	(35, 0)
+option	node	One		nodeSize.minimum	(34.46875, 0)
 option	node	One		spacing.baseValue	24
 option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	One		elk.spacing.edgeEdge	20
@@ -56,7 +56,7 @@ option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	One		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	One	0	One	27	19
+label	node	One	0	One	26.46875	19
 node	X	One	152	45
 node	Y	One	152	45
 option	node	Y		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -71,10 +71,10 @@ option	edge-label	L_Y_Z_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	660	141
 place	Two	root	448	12	200	117
-place-label	node	Two	0	87	5	26	19
+place-label	node	Two	0	87.15625	5	25.6875	19
 place	Z	Two	24	48	152	45
 place	One	root	12	12	376	117
-place-label	node	One	0	174.5	5	27	19
+place-label	node	One	0	174.765625	5	26.46875	19
 place	X	One	24	48	152	45
 place	Y	One	200	48	152	45
 route	L_X_Y_0	root	One

@@ -26,7 +26,7 @@ node	Draft	root	136	37
 node	Submitted	root	136	37
 node	Review	root
 option	node	Review		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Review		nodeSize.minimum	(54, 0)
+option	node	Review		nodeSize.minimum	(53.90625, 0)
 option	node	Review		spacing.baseValue	24
 option	node	Review		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Review		elk.spacing.edgeEdge	20
@@ -42,7 +42,7 @@ option	node	Review		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Review		elk.algorithm	elk.layered
 option	node	Review		elk.direction	DOWN
 option	node	Review		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Review	0	Review	46	19
+label	node	Review	0	Review	45.90625	19
 node	Review_start	Review	14	14
 node	Screening	Review	136	37
 node	Decision	Review	136	37
@@ -53,7 +53,7 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Draft	Submitted
-label	edge	edge1	0	submit	42	21
+label	edge	edge1	0	submit	41.234375	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Review_start	Screening
@@ -69,11 +69,11 @@ label	edge	edge4	0		0	0
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	Review	Published
-label	edge	edge5	0	approved	60	21
+label	edge	edge5	0	approved	58.390625	21
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	Review	Draft
-label	edge	edge6	0	rejected	51	21
+label	edge	edge6	0	rejected	49.8125	21
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	Published	root_end
@@ -86,7 +86,7 @@ place	root_start	root	113.99999999999999	12	14	14
 place	Draft	root	55.99999999999999	66	136	37
 place	Submitted	root	12	204	136	37
 place	Review	root	32.000000000000014	281	184	208
-place-label	node	Review	0	69	5	46	19
+place-label	node	Review	0	69.046875	5	45.90625	19
 place	Review_start	Review	81.2	48	14	14
 place	Screening	Review	24	86	136	37
 place	Decision	Review	24	147	136	37
@@ -97,7 +97,7 @@ section	edge0	edge0_s0	123.99999999999999,26	123.99999999999999,66		root_start	D
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
 section	edge1	edge1_s0	104.66666666666667,103	80,204	104.66666666666667,123 80,123	Draft	Submitted
-place-label	edge	edge1	0	59	143	42	21
+place-label	edge	edge1	0	59	143	41.234375	21
 route	edge2	root	Review
 section	edge2	edge2_s0	92,62	92,86		Review_start	Screening
 place-label	edge	edge2	0	0	0	0	0
@@ -109,10 +109,10 @@ section	edge4	edge4_s0	80,241	96.66666666666667,281	80,261 96.66666666666667,261
 place-label	edge	edge4	0	0	0	0	0
 route	edge5	root	root
 section	edge5	edge5_s0	124.00000000000001,489	124.00000000000001,590		Review	Published
-place-label	edge	edge5	0	94.00000000000001	529	60	21
+place-label	edge	edge5	0	94.50000000000001	529	58.390625	21
 route	edge6	root	root
 section	edge6	edge6_s0	151.33333333333331,281	143.33333333333331,103	151.33333333333331,261 168,261 168,222.5 168,123 143.33333333333331,123	Review	Draft
-place-label	edge	edge6	0	142.5	143	51	21
+place-label	edge	edge6	0	143	143	49.8125	21
 route	edge7	root	root
 section	edge7	edge7_s0	124.00000000000001,627	124.00000000000001,667		Published	root_end
 place-label	edge	edge7	0	0	0	0	0

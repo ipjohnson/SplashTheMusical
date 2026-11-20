@@ -24,20 +24,20 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	A	root	152	45
 node	B	root	152	45
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	This is the 123 s text	131	21
+label	edge	L_A_B_0	0	This is the 123 s text	128.40625	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_A_B_2	root	A	B
-label	edge	L_A_B_2	0	This is the second edge	151	21
+label	edge	L_A_B_2	0	This is the second edge	147.875	21
 option	edge-label	L_A_B_2	0	edgeLabels.inline	true
 option	edge-label	L_A_B_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	326	215
-place	A	root	82	12	152	45
-place	B	root	82	158	152	45
+place	root		0	0	320.28125	215
+place	A	root	79.453125	12	152	45
+place	B	root	79.453125	158	152	45
 route	L_A_B_0	root	root
-section	L_A_B_0	L_A_B_0_s0	136,57	136,158	136,77 77.5,77 77.5,138 136,138	A	B
-place-label	edge	L_A_B_0	0	12	97	131	21
+section	L_A_B_0	L_A_B_0_s0	133.453125,57	133.453125,158	133.453125,77 76.5,77 76.5,138 133.453125,138	A	B
+place-label	edge	L_A_B_0	0	12	97	128.40625	21
 route	L_A_B_2	root	root
-section	L_A_B_2	L_A_B_2_s0	180,57	180,158	180,77 238.5,77 238.5,138 180,138	A	B
-place-label	edge	L_A_B_2	0	163	97	151	21
+section	L_A_B_2	L_A_B_2_s0	177.453125,57	177.453125,158	177.453125,77 234.40625,77 234.40625,138 177.453125,138	A	B
+place-label	edge	L_A_B_2	0	160.40625	97	147.875	21

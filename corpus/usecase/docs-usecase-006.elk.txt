@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	SalesAgent	root	99	144
+node	SalesAgent	root	97.828125	144
 node	Broker	root	76	121
 node	Quote	root	160	78
 option	node	Quote		elk.portAlignment.default	CENTER
@@ -39,17 +39,17 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	515	329
-place	SalesAgent	root	12	12	99	144
-place	Broker	root	35	196	76	121
-place	Quote	root	151	131.25	160	78
-place	Archive	root	351	140.25	152	60
+place	root		0	0	513.828125	329
+place	SalesAgent	root	12	12	97.828125	144
+place	Broker	root	33.828125	196	76	121
+place	Quote	root	149.828125	131.25	160	78
+place	Archive	root	349.828125	140.25	152	60
 route	edge-0	root	root
-section	edge-0	edge-0_s0	111,84	151,160.25	131,84 131,160.25	SalesAgent	Quote
+section	edge-0	edge-0_s0	109.828125,84	149.828125,160.25	129.828125,84 129.828125,160.25	SalesAgent	Quote
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	111,256.5	151,180.25	131,256.5 131,180.25	Broker	Quote
+section	edge-1	edge-1_s0	109.828125,256.5	149.828125,180.25	129.828125,256.5 129.828125,180.25	Broker	Quote
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	311,170.25	351,170.25		Quote	Archive
+section	edge-2	edge-2_s0	309.828125,170.25	349.828125,170.25		Quote	Archive
 place-label	edge	edge-2	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	subGraph3	root
 option	node	subGraph3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subGraph3		nodeSize.minimum	(75, 0)
+option	node	subGraph3		nodeSize.minimum	(74.140625, 0)
 option	node	subGraph3		spacing.baseValue	24
 option	node	subGraph3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subGraph3		elk.spacing.edgeEdge	20
@@ -36,11 +36,11 @@ option	node	subGraph3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	subGraph3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	subGraph3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	subGraph3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	subGraph3	0	Same Title	67	19
+label	node	subGraph3	0	Same Title	66.140625	19
 node	d	subGraph3	152	45
 node	subGraph2	root
 option	node	subGraph2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subGraph2		nodeSize.minimum	(75, 0)
+option	node	subGraph2		nodeSize.minimum	(74.140625, 0)
 option	node	subGraph2		spacing.baseValue	24
 option	node	subGraph2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subGraph2		elk.spacing.edgeEdge	20
@@ -53,11 +53,11 @@ option	node	subGraph2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	subGraph2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	subGraph2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	subGraph2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	subGraph2	0	Same Title	67	19
+label	node	subGraph2	0	Same Title	66.140625	19
 node	c	subGraph2	152	45
 node	B	root
 option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B		nodeSize.minimum	(17, 0)
+option	node	B		nodeSize.minimum	(17.34375, 0)
 option	node	B		spacing.baseValue	24
 option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B		elk.spacing.edgeEdge	20
@@ -70,11 +70,11 @@ option	node	B		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	B	0	B	9	19
+label	node	B	0	B	9.34375	19
 node	b	B	152	45
 node	A	root
 option	node	A		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A		nodeSize.minimum	(17, 0)
+option	node	A		nodeSize.minimum	(17.34375, 0)
 option	node	A		spacing.baseValue	24
 option	node	A		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A		elk.spacing.edgeEdge	20
@@ -87,19 +87,19 @@ option	node	A		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	A		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	A	0	A	9	19
+label	node	A	0	A	9.34375	19
 node	a	A	152	45
 result
 place	root		0	0	224	612
 place	subGraph3	root	12	12	200	117
-place-label	node	subGraph3	0	66.5	5	67	19
+place-label	node	subGraph3	0	66.9296875	5	66.140625	19
 place	d	subGraph3	24	48	152	45
 place	subGraph2	root	12	169	200	117
-place-label	node	subGraph2	0	66.5	5	67	19
+place-label	node	subGraph2	0	66.9296875	5	66.140625	19
 place	c	subGraph2	24	48	152	45
 place	B	root	12	326	200	117
-place-label	node	B	0	95.5	5	9	19
+place-label	node	B	0	95.328125	5	9.34375	19
 place	b	B	24	48	152	45
 place	A	root	12	483	200	117
-place-label	node	A	0	95.5	5	9	19
+place-label	node	A	0	95.328125	5	9.34375	19
 place	a	A	24	48	152	45

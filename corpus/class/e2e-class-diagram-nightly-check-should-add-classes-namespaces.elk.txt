@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Namespace1	root
 option	node	Namespace1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Namespace1		nodeSize.minimum	(100, 0)
+option	node	Namespace1		nodeSize.minimum	(98.5, 0)
 option	node	Namespace1		spacing.baseValue	24
 option	node	Namespace1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Namespace1		elk.spacing.edgeEdge	20
@@ -36,23 +36,23 @@ option	node	Namespace1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Namespace1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Namespace1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Namespace1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Namespace1	0	Namespace1	84	19
-node	C1	Namespace1	42	81
-node	C2	Namespace1	42	81
-node	C3	root	42	81
-node	C4	root	42	81
+label	node	Namespace1	0	Namespace1	82.5	19
+node	C1	Namespace1	41.90625	81
+node	C2	Namespace1	41.90625	81
+node	C3	root	41.90625	81
+node	C4	root	41.90625	81
 edge	id_C1_C2_1	root	C1	C2
 label	edge	id_C1_C2_1	0		0	0
 option	edge-label	id_C1_C2_1	0	edgeLabels.inline	true
 option	edge-label	id_C1_C2_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	278	282
-place	Namespace1	root	12	12	90	258
-place-label	node	Namespace1	0	3	5	84	19
-place	C1	Namespace1	24	48	42	81
-place	C2	Namespace1	24	153	42	81
-place	C3	root	142	100.5	42	81
-place	C4	root	224	100.5	42	81
+place	root		0	0	277.71875	282
+place	Namespace1	root	12	12	89.90625	258
+place-label	node	Namespace1	0	3.703125	5	82.5	19
+place	C1	Namespace1	24	48	41.90625	81
+place	C2	Namespace1	24	153	41.90625	81
+place	C3	root	141.90625	100.5	41.90625	81
+place	C4	root	223.8125	100.5	41.90625	81
 route	id_C1_C2_1	root	Namespace1
-section	id_C1_C2_1	id_C1_C2_1_s0	45,129	45,153		C1	C2
+section	id_C1_C2_1	id_C1_C2_1_s0	44.953125,129	44.953125,153		C1	C2
 place-label	edge	id_C1_C2_1	0	0	0	0	0

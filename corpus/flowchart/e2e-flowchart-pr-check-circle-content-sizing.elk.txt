@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	doubles	root
 option	node	doubles		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	doubles		nodeSize.minimum	(54, 0)
+option	node	doubles		nodeSize.minimum	(53.125, 0)
 option	node	doubles		spacing.baseValue	24
 option	node	doubles		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	doubles		elk.spacing.edgeEdge	20
@@ -39,15 +39,15 @@ option	node	doubles		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	doubles		elk.algorithm	elk.layered
 option	node	doubles		elk.direction	DOWN
 option	node	doubles		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	doubles	0	dbl-circ	46	19
+label	node	doubles	0	dbl-circ	45.125	19
 node	dt	doubles	152	45
-node	d1	doubles	78.47220611572266	78.47220611572266
-node	d2	doubles	97.67733001708984	97.67733001708984
+node	d1	doubles	78.40069580078125	78.40069580078125
+node	d2	doubles	97.488525390625	97.488525390625
 node	d3	doubles	191.53228759765625	191.53228759765625
 node	db	doubles	150	51
 node	circles	root
 option	node	circles		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	circles		nodeSize.minimum	(41, 0)
+option	node	circles		nodeSize.minimum	(40.671875, 0)
 option	node	circles		spacing.baseValue	24
 option	node	circles		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	circles		elk.spacing.edgeEdge	20
@@ -63,10 +63,10 @@ option	node	circles		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	circles		elk.algorithm	elk.layered
 option	node	circles		elk.direction	DOWN
 option	node	circles		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	circles	0	circle	33	19
+label	node	circles	0	circle	32.671875	19
 node	ct	circles	152	45
-node	c1	circles	54.472206115722656	54.472206115722656
-node	c2	circles	73.67733001708984	73.67733001708984
+node	c1	circles	54.40069580078125	54.40069580078125
+node	c2	circles	73.488525390625	73.488525390625
 node	c3	circles	167.53228759765625	167.53228759765625
 node	cb	circles	150	51
 edge	L_ct_c1_0	root	ct	c1
@@ -106,45 +106,45 @@ label	edge	L_circles_doubles_0	0		0	0
 option	edge-label	L_circles_doubles_0	0	edgeLabels.inline	true
 option	edge-label	L_circles_doubles_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	519.0645751953125	655.6818237304688
-place	doubles	root	267.53228759765625	12	239.53228759765625	631.6818237304688
-place-label	node	doubles	0	96.76614379882812	5	46	19
+place	root		0	0	519.0645751953125	655.4215087890625
+place	doubles	root	267.53228759765625	12	239.53228759765625	631.4215087890625
+place-label	node	doubles	0	97.20364379882812	5	45.125	19
 place	dt	doubles	43.766143798828125	48	152	45
-place	d1	doubles	80.53004074096678	117	78.47220611572266	78.47220611572266
-place	d2	doubles	70.92747879028319	219.47220611572266	97.67733001708984	97.67733001708984
-place	d3	doubles	24	341.1495361328125	191.53228759765625	191.53228759765625
-place	db	doubles	44.766143798828125	556.6818237304688	150	51
-place	circles	root	12	48	215.53228759765625	559.6818237304688
-place-label	node	circles	0	91.26614379882812	5	33	19
+place	d1	doubles	80.56579589843749	117	78.40069580078125	78.40069580078125
+place	d2	doubles	71.02188110351561	219.40069580078125	97.488525390625	97.488525390625
+place	d3	doubles	24	340.88922119140625	191.53228759765625	191.53228759765625
+place	db	doubles	44.766143798828125	556.4215087890625	150	51
+place	circles	root	12	48	215.53228759765625	559.4215087890625
+place-label	node	circles	0	91.43020629882812	5	32.671875	19
 place	ct	circles	31.766143798828125	48	152	45
-place	c1	circles	80.53004074096678	117	54.472206115722656	54.472206115722656
-place	c2	circles	70.92747879028319	195.47220611572266	73.67733001708984	73.67733001708984
-place	c3	circles	24	293.1495361328125	167.53228759765625	167.53228759765625
-place	cb	circles	32.766143798828125	484.68182373046875	150	51
+place	c1	circles	80.56579589843749	117	54.40069580078125	54.40069580078125
+place	c2	circles	71.02188110351561	195.40069580078125	73.488525390625	73.488525390625
+place	c3	circles	24	292.88922119140625	167.53228759765625	167.53228759765625
+place	cb	circles	32.766143798828125	484.4215087890625	150	51
 route	L_ct_c1_0	root	circles
 section	L_ct_c1_0	L_ct_c1_0_s0	107.76614379882811,93	107.76614379882811,117		ct	c1
 place-label	edge	L_ct_c1_0	0	0	0	0	0
 route	L_c1_c2_0	root	circles
-section	L_c1_c2_0	L_c1_c2_0_s0	107.76614379882811,171.47220611572266	107.76614379882811,195.47220611572266		c1	c2
+section	L_c1_c2_0	L_c1_c2_0_s0	107.76614379882811,171.40069580078125	107.76614379882811,195.40069580078125		c1	c2
 place-label	edge	L_c1_c2_0	0	0	0	0	0
 route	L_c2_c3_0	root	circles
-section	L_c2_c3_0	L_c2_c3_0_s0	107.76614379882811,269.1495361328125	107.76614379882811,293.1495361328125		c2	c3
+section	L_c2_c3_0	L_c2_c3_0_s0	107.76614379882811,268.88922119140625	107.76614379882811,292.88922119140625		c2	c3
 place-label	edge	L_c2_c3_0	0	0	0	0	0
 route	L_c3_cb_0	root	circles
-section	L_c3_cb_0	L_c3_cb_0_s0	107.76614379882811,460.68182373046875	107.76614379882811,484.68182373046875		c3	cb
+section	L_c3_cb_0	L_c3_cb_0_s0	107.76614379882811,460.4215087890625	107.76614379882811,484.4215087890625		c3	cb
 place-label	edge	L_c3_cb_0	0	0	0	0	0
 route	L_dt_d1_0	root	doubles
 section	L_dt_d1_0	L_dt_d1_0_s0	119.76614379882811,93	119.76614379882811,117		dt	d1
 place-label	edge	L_dt_d1_0	0	0	0	0	0
 route	L_d1_d2_0	root	doubles
-section	L_d1_d2_0	L_d1_d2_0_s0	119.76614379882811,195.47220611572266	119.76614379882811,219.47220611572266		d1	d2
+section	L_d1_d2_0	L_d1_d2_0_s0	119.76614379882811,195.40069580078125	119.76614379882811,219.40069580078125		d1	d2
 place-label	edge	L_d1_d2_0	0	0	0	0	0
 route	L_d2_d3_0	root	doubles
-section	L_d2_d3_0	L_d2_d3_0_s0	119.76614379882811,317.1495361328125	119.76614379882811,341.1495361328125		d2	d3
+section	L_d2_d3_0	L_d2_d3_0_s0	119.76614379882811,316.88922119140625	119.76614379882811,340.88922119140625		d2	d3
 place-label	edge	L_d2_d3_0	0	0	0	0	0
 route	L_d3_db_0	root	doubles
-section	L_d3_db_0	L_d3_db_0_s0	119.76614379882811,532.6818237304688	119.76614379882811,556.6818237304688		d3	db
+section	L_d3_db_0	L_d3_db_0_s0	119.76614379882811,532.4215087890625	119.76614379882811,556.4215087890625		d3	db
 place-label	edge	L_d3_db_0	0	0	0	0	0
 route	L_circles_doubles_0	root	root
-section	L_circles_doubles_0	L_circles_doubles_0_s0	227.53228759765625,327.8409118652344	267.53228759765625,327.8409118652344		circles	doubles
+section	L_circles_doubles_0	L_circles_doubles_0_s0	227.53228759765625,327.71075439453125	267.53228759765625,327.71075439453125		circles	doubles
 place-label	edge	L_circles_doubles_0	0	0	0	0	0

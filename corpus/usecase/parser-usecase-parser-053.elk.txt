@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Authentication_System	root
 option	node	Authentication_System		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Authentication_System		nodeSize.minimum	(161, 0)
+option	node	Authentication_System		nodeSize.minimum	(159.296875, 0)
 option	node	Authentication_System		spacing.baseValue	24
 option	node	Authentication_System		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Authentication_System		elk.spacing.edgeEdge	20
@@ -36,9 +36,9 @@ option	node	Authentication_System		elk.layered.nodePlacement.strategy	BRANDES_KO
 option	node	Authentication_System		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Authentication_System		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Authentication_System		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Authentication_System	0	Authentication System	141	19
+label	node	Authentication_System	0	Authentication System	139.296875	19
 node	User	Authentication_System	76	121
-node	Admin	Authentication_System	104	121
+node	Admin	Authentication_System	102.46875	121
 node	Login	Authentication_System	160	58
 option	node	Login		elk.portAlignment.default	CENTER
 node	Report	Authentication_System	152	42
@@ -49,9 +49,9 @@ option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	408	480
 place	Authentication_System	root	12	12	384	456
-place-label	node	Authentication_System	0	121.5	5	141	19
+place-label	node	Authentication_System	0	122.3515625	5	139.296875	19
 place	User	Authentication_System	100	311	76	121
-place	Admin	Authentication_System	48	140	104	121
+place	Admin	Authentication_System	48.765625	140	102.46875	121
 place	Login	Authentication_System	200	342.5	160	58
 place	Report	Authentication_System	24	48	152	42
 route	edge-0	root	Authentication_System

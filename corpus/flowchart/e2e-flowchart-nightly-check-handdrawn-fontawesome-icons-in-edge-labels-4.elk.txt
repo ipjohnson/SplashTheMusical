@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	B	root
 option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B		nodeSize.minimum	(19, 0)
+option	node	B		nodeSize.minimum	(18.671875, 0)
 option	node	B		spacing.baseValue	24
 option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	B		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	B	0	B	11	22
+label	node	B	0	B	10.671875	22
 node	i	B	183.05625915527344	57.644832611083984
 node	f	B	182.8761444091797	57.50224685668945
 node	A	root
 option	node	A		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A		nodeSize.minimum	(19, 0)
+option	node	A		nodeSize.minimum	(18.671875, 0)
 option	node	A		spacing.baseValue	24
 option	node	A		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A		elk.spacing.edgeEdge	20
@@ -54,7 +54,7 @@ option	node	A		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	A		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	A	0	A	11	22
+label	node	A	0	A	10.671875	22
 node	a	A	182.89468383789062	57.22427749633789
 node	b	A	182.9641571044922	57.500240325927734
 edge	L_a_b_0	root	a	b
@@ -72,11 +72,11 @@ option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	939.7912445068359	156.64483261108398
 place	B	root	489.8588409423828	12	437.9324035644531	132.64483261108398
-place-label	node	B	0	213.46620178222656	5	11	22
+place-label	node	B	0	213.63026428222656	5	10.671875	22
 place	i	B	24	51	183.05625915527344	57.644832611083984
 place	f	B	231.05625915527344	51.071292877197266	182.8761444091797	57.50224685668945
 place	A	root	12	12.072296142578125	437.8588409423828	132.50024032592773
-place-label	node	A	0	213.4294204711914	5	11	22
+place-label	node	A	0	213.5934829711914	5	10.671875	22
 place	a	A	24	51.13798141479492	182.89468383789062	57.22427749633789
 place	b	A	230.89468383789062	51	182.9641571044922	57.500240325927734
 route	L_a_b_0	root	A

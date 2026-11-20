@@ -21,17 +21,17 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	A	root	189.40625	46.515625
-node	B	root	150	86.828125
-node	C	root	150	41.390625
-node	D	root	152.3125	47.375
-node	E	root	239.15625	49.390625
+node	A	root	174.109375	46.78125
+node	B	root	150	84.3125
+node	C	root	150	40.109375
+node	D	root	150	47.640625
+node	E	root	226.921875	49.453125
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	$$\\Bigg(\\bigg(\\Big(\\big((\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a})\\big)\\Big)\\bigg)\\Bigg)$$	146.4375	34.828125
+label	edge	L_A_B_0	0	$$\\Bigg(\\bigg(\\Big(\\big((\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a})\\big)\\Big)\\bigg)\\Bigg)$$	136.203125	34.765625
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_A_C_0	root	A	C
-label	edge	L_A_C_0	0	$$\\overbrace{a+b+c}^{\\text{note}}$$	53.4375	31.15625
+label	edge	L_A_C_0	0	$$\\overbrace{a+b+c}^{\\text{note}}$$	49.65625	26.578125
 option	edge-label	L_A_C_0	0	edgeLabels.inline	true
 option	edge-label	L_A_C_0	0	edgeLabels.placement	CENTER
 edge	L_B_D_0	root	B	D
@@ -43,21 +43,21 @@ label	edge	L_C_E_0	0		0	0
 option	edge-label	L_C_E_0	0	edgeLabels.inline	true
 option	edge-label	L_C_E_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	869	196.21875
-place	A	root	12	84.2109375	189.40625	46.515625
-place	B	root	427.84375	12	150	86.828125
-place	C	root	427.84375	138.828125	150	41.390625
-place	D	root	617.84375	31.7265625	152.3125	47.375
-place	E	root	617.84375	134.828125	239.15625	49.390625
+place	root		0	0	831.234375	193.09375
+place	A	root	12	81.87109375	174.109375	46.78125
+place	B	root	402.3125	12	150	84.3125
+place	C	root	402.3125	136.3125	150	40.109375
+place	D	root	592.3125	30.3359375	150	47.640625
+place	E	root	592.3125	131.640625	226.921875	49.453125
 route	L_A_B_0	root	root
-section	L_A_B_0	L_A_B_0_s0	201.40625,103.04947916666666	427.84375,55.4140625	221.40625,103.04947916666666 221.40625,55.4140625	A	B
-place-label	edge	L_A_B_0	0	241.40625	37.4140625	146.4375	34.828125
+section	L_A_B_0	L_A_B_0_s0	186.109375,100.79817708333334	402.3125,54.15625	206.109375,100.79817708333334 206.109375,54.15625	A	B
+place-label	edge	L_A_B_0	0	226.109375	36.15625	136.203125	34.765625
 route	L_A_C_0	root	root
-section	L_A_C_0	L_A_C_0_s0	201.40625,111.88802083333333	427.84375,159.5234375	221.40625,111.88802083333333 221.40625,159.5234375	A	C
-place-label	edge	L_A_C_0	0	287.90625	143.0234375	53.4375	31.15625
+section	L_A_C_0	L_A_C_0_s0	186.109375,109.72526041666667	402.3125,156.3671875	206.109375,109.72526041666667 206.109375,156.3671875	A	C
+place-label	edge	L_A_C_0	0	269.3828125	142.3671875	49.65625	26.578125
 route	L_B_D_0	root	root
-section	L_B_D_0	L_B_D_0_s0	577.84375,55.4140625	617.84375,55.4140625		B	D
+section	L_B_D_0	L_B_D_0_s0	552.3125,54.15625	592.3125,54.15625		B	D
 place-label	edge	L_B_D_0	0	0	0	0	0
 route	L_C_E_0	root	root
-section	L_C_E_0	L_C_E_0_s0	577.84375,159.5234375	617.84375,159.5234375		C	E
+section	L_C_E_0	L_C_E_0_s0	552.3125,156.3671875	592.3125,156.3671875		C	E
 place-label	edge	L_C_E_0	0	0	0	0	0

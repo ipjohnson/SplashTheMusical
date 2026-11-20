@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	S2	root
 option	node	S2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	S2		nodeSize.minimum	(25, 0)
+option	node	S2		nodeSize.minimum	(25.125, 0)
 option	node	S2		spacing.baseValue	24
 option	node	S2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	S2		elk.spacing.edgeEdge	20
@@ -37,12 +37,12 @@ option	node	S2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	S2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	S2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	S2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	S2	0	S2	17	19
+label	node	S2	0	S2	17.125	19
 node	sub4	S2	152	45
 option	node	sub4		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	S1	root
 option	node	S1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	S1		nodeSize.minimum	(25, 0)
+option	node	S1		nodeSize.minimum	(25.125, 0)
 option	node	S1		spacing.baseValue	24
 option	node	S1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	S1		elk.spacing.edgeEdge	20
@@ -56,7 +56,7 @@ option	node	S1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	S1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	S1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	S1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	S1	0	S1	17	19
+label	node	S1	0	S1	17.125	19
 node	sub1	S1	152	45
 option	node	sub1		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	sub2	S1	152	45
@@ -75,10 +75,10 @@ option	edge-label	L_sub1_sub4_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	312	423
 place	S2	root	100.00000000000001	294	200	117
-place-label	node	S2	0	91.5	5	17	19
+place-label	node	S2	0	91.4375	5	17.125	19
 place	sub4	S2	24	48	152	45
 place	S1	root	12	12	244.00000000000003	222
-place-label	node	S1	0	113.50000000000001	5	17	19
+place-label	node	S1	0	113.43750000000001	5	17.125	19
 place	sub1	S1	68.00000000000001	48	152	45
 place	sub2	S1	24	153	152	45
 route	L_sub1_sub2_0	root	S1

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	One	root
 option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	One		nodeSize.minimum	(43, 0)
+option	node	One		nodeSize.minimum	(42.46875, 0)
 option	node	One		spacing.baseValue	24
 option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	One		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	One		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	One	0	One	27	19
+label	node	One	0	One	26.46875	19
 node	One.Two	One
 option	node	One.Two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	One.Two		nodeSize.minimum	(42, 0)
+option	node	One.Two		nodeSize.minimum	(41.6875, 0)
 option	node	One.Two		spacing.baseValue	24
 option	node	One.Two		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	One.Two		elk.spacing.edgeEdge	20
@@ -52,12 +52,12 @@ option	node	One.Two		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	One.Two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	One.Two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	One.Two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	One.Two	0	Two	26	19
-node	A	One.Two	34	81
+label	node	One.Two	0	Two	25.6875	19
+node	A	One.Two	34.125	81
 result
-place	root		0	0	154	249
-place	One	root	12	12	130	225
-place-label	node	One	0	51.5	5	27	19
-place	One.Two	One	24	48	82	153
-place-label	node	One.Two	0	28	5	26	19
-place	A	One.Two	24	48	34	81
+place	root		0	0	154.125	249
+place	One	root	12	12	130.125	225
+place-label	node	One	0	51.828125	5	26.46875	19
+place	One.Two	One	24	48	82.125	153
+place-label	node	One.Two	0	28.21875	5	25.6875	19
+place	A	One.Two	24	48	34.125	81

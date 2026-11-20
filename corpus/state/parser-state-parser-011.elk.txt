@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	A	root	136	37
 node	B	root	136	37
 edge	edge0	root	A	B
-label	edge	edge0	0	info: key: value	95	21
+label	edge	edge0	0	info: key: value	93.390625	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 result
@@ -33,4 +33,4 @@ place	A	root	12	12	136	37
 place	B	root	12	150	136	37
 route	edge0	root	root
 section	edge0	edge0_s0	80,49	80,150		A	B
-place-label	edge	edge0	0	32.5	89	95	21
+place-label	edge	edge0	0	33	89	93.390625	21

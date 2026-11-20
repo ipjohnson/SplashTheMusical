@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	apa	root
 option	node	apa		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	apa		nodeSize.minimum	(32, 0)
+option	node	apa		nodeSize.minimum	(31.359375, 0)
 option	node	apa		spacing.baseValue	24
 option	node	apa		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	apa		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	apa		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12
 option	node	apa		elk.algorithm	elk.layered
 option	node	apa		elk.direction	DOWN
 option	node	apa		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	apa	0	apa	24	19
+label	node	apa	0	apa	23.359375	19
 node	apa_start	apa	14	14
 node	Still	apa	136	37
 node	apa_end	apa	14.013293266296387	14
@@ -72,7 +72,7 @@ option	edge-label	edge5	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224.03333333333336	415
 place	apa	root	12	12	200.03333333333336	391
-place-label	node	apa	0	88.01666666666668	5	24	19
+place-label	node	apa	0	88.33697916666668	5	23.359375	19
 place	apa_start	apa	97.23333333333333	48	14	14
 place	Still	apa	40.03333333333334	86	136	37
 place	apa_end	apa	109.42890224456787	353	14.013293266296387	14

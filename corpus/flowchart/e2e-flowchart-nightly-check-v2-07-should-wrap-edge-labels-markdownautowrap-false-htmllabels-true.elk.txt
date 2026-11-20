@@ -22,24 +22,24 @@ option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	A	root	152	150
-node	B	root	669	45
+node	B	root	658.125	45
 node	C	root	152	45
 edge	L_A_B_0	root	A	B
 label	edge	L_A_B_0	0	Plain text **labels** in flowcharts will autowrap,like node labels. \\n Newline characters work too.	200	84
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_B_C_0	root	B	C
-label	edge	L_B_C_0	0	**Markdown** edge labels will autowrap, unless markdownAutoWrap: false is set	491	21
+label	edge	L_B_C_0	0	**Markdown** edge labels will autowrap, unless markdownAutoWrap: false is set	482.1875	21
 option	edge-label	L_B_C_0	0	edgeLabels.inline	true
 option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	693	529
-place	A	root	270.5	12	152	150
-place	B	root	12	326	669	45
-place	C	root	270.5	472	152	45
+place	root		0	0	682.125	529
+place	A	root	265.0625	12	152	150
+place	B	root	12	326	658.125	45
+place	C	root	265.0625	472	152	45
 route	L_A_B_0	root	root
-section	L_A_B_0	L_A_B_0_s0	346.5,162	346.5,326		A	B
-place-label	edge	L_A_B_0	0	246.5	202	200	84
+section	L_A_B_0	L_A_B_0_s0	341.0625,162	341.0625,326		A	B
+place-label	edge	L_A_B_0	0	241.0625	202	200	84
 route	L_B_C_0	root	root
-section	L_B_C_0	L_B_C_0_s0	346.5,371	346.5,472		B	C
-place-label	edge	L_B_C_0	0	101	411	491	21
+section	L_B_C_0	L_B_C_0_s0	341.0625,371	341.0625,472		B	C
+place-label	edge	L_B_C_0	0	99.5625	411	482.1875	21

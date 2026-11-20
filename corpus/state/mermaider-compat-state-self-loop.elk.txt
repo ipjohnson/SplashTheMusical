@@ -29,24 +29,24 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Ready	Ready
-label	edge	edge1	0	A	9	21
+label	edge	edge1	0	A	9.34375	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Ready	Stopped
-label	edge	edge2	0	X	9	21
+label	edge	edge2	0	X	9.34375	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	193	253
-place	root_start	root	103	12	14	14
-place	Ready	root	45	66	136	37
-place	Stopped	root	45	204	136	37
+place	root		0	0	193.34375	253
+place	root_start	root	103.34375	12	14	14
+place	Ready	root	45.34375	66	136	37
+place	Stopped	root	45.34375	204	136	37
 route	edge0	root	root
-section	edge0	edge0_s0	113,26	113,66		root_start	Ready
+section	edge0	edge0_s0	113.34375,26	113.34375,66		root_start	Ready
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	45,82.33333333333334	45,86.66666666666667	25,82.33333333333334 25,86.66666666666667	Ready	Ready
-place-label	edge	edge1	0	12	74	9	21
+section	edge1	edge1_s0	45.34375,82.33333333333334	45.34375,86.66666666666667	25.34375,82.33333333333334 25.34375,86.66666666666667	Ready	Ready
+place-label	edge	edge1	0	12	74	9.34375	21
 route	edge2	root	root
-section	edge2	edge2_s0	113,103	113,204		Ready	Stopped
-place-label	edge	edge2	0	108.5	143	9	21
+section	edge2	edge2_s0	113.34375,103	113.34375,204		Ready	Stopped
+place-label	edge	edge2	0	108.34375	143	9.34375	21

@@ -27,7 +27,7 @@ node	State2	root	136	37
 node	root_end	root	14.013293266296387	14
 node	State3	root
 option	node	State3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State3		nodeSize.minimum	(49, 0)
+option	node	State3		nodeSize.minimum	(48.484375, 0)
 option	node	State3		spacing.baseValue	24
 option	node	State3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State3		elk.spacing.edgeEdge	20
@@ -43,8 +43,8 @@ option	node	State3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	State3		elk.algorithm	elk.layered
 option	node	State3		elk.direction	DOWN
 option	node	State3		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State3	0	State3	41	19
-node	long1	State3	169	80
+label	node	State3	0	State3	40.484375	19
+node	long1	State3	166.765625	80
 node	State3_start	State3	14	14
 node	ProcessData	State3	136	37
 edge	edge0	root	root_start	State1
@@ -52,19 +52,19 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	State1	State2
-label	edge	edge1	0	Succeeded	71	21
+label	edge	edge1	0	Succeeded	70.0625	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	State1	root_end
-label	edge	edge2	0	Aborted	50	21
+label	edge	edge2	0	Aborted	49.046875	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	State2	State3
-label	edge	edge3	0	Succeeded	71	21
+label	edge	edge3	0	Succeeded	70.0625	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	State2	root_end
-label	edge	edge4	0	Aborted	50	21
+label	edge	edge4	0	Aborted	49.046875	21
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	State3_start	long1
@@ -72,66 +72,66 @@ label	edge	edge5	0		0	0
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	long1	long1
-label	edge	edge6	0	New Data	62	21
+label	edge	edge6	0	New Data	61.46875	21
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	long1	ProcessData
-label	edge	edge7	0	Enough Data	83	21
+label	edge	edge7	0	Enough Data	81.734375	21
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 edge	edge8	root	State3	State3
-label	edge	edge8	0	Failed	39	21
+label	edge	edge8	0	Failed	38.140625	21
 option	edge-label	edge8	0	edgeLabels.inline	true
 option	edge-label	edge8	0	edgeLabels.placement	CENTER
 edge	edge9	root	State3	root_end
-label	edge	edge9	0	Succeeded / Save Result	159	21
+label	edge	edge9	0	Succeeded / Save Result	157.21875	21
 option	edge-label	edge9	0	edgeLabels.inline	true
 option	edge-label	edge9	0	edgeLabels.placement	CENTER
 edge	edge10	root	State3	root_end
-label	edge	edge10	0	Aborted	50	21
+label	edge	edge10	0	Aborted	49.046875	21
 option	edge-label	edge10	0	edgeLabels.inline	true
 option	edge-label	edge10	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	527.7333333333333	825
-place	root_start	root	361.54999999999995	12	14	14
-place	State1	root	303.54999999999995	66	136	37
-place	State2	root	259.54999999999995	204	136	37
-place	root_end	root	360.01002003351846	799	14.013293266296387	14
-place	State3	root	75	342	293.4	296
-place-label	node	State3	0	126.19999999999999	5	41	19
-place	long1	State3	100.4	86	169	80
-place	State3_start	State3	174.1	48	14	14
-place	ProcessData	State3	116.89999999999999	235	136	37
+place	root		0	0	523.1552083333333	825
+place	root_start	root	358.61640624999995	12	14	14
+place	State1	root	300.61640624999995	66	136	37
+place	State2	root	256.61640624999995	204	136	37
+place	root_end	root	356.66627003351846	799	14.013293266296387	14
+place	State3	root	74.140625	342	290.634375	296
+place-label	node	State3	0	125.07499999999999	5	40.484375	19
+place	long1	State3	99.86875	86	166.765625	80
+place	State3_start	State3	172.4515625	48	14	14
+place	ProcessData	State3	115.25156249999999	235	136	37
 route	edge0	root	root
-section	edge0	edge0_s0	371.54999999999995,26	371.54999999999995,66		root_start	State1
+section	edge0	edge0_s0	368.61640624999995,26	368.61640624999995,66		root_start	State1
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	352.2166666666667,103	327.54999999999995,204	352.2166666666667,123 327.54999999999995,123	State1	State2
-place-label	edge	edge1	0	292.04999999999995	143	71	21
+section	edge1	edge1_s0	349.2830729166667,103	324.61640624999995,204	349.2830729166667,123 324.61640624999995,123	State1	State2
+place-label	edge	edge1	0	289.11640624999995	143	70.0625	21
 route	edge2	root	root
-section	edge2	edge2_s0	390.8833333333333,103	365.22065464655554,799	390.8833333333333,123 490.73333333333335,123 490.73333333333335,153.5 490.73333333333335,222.5 490.73333333333335,490 490.73333333333335,688.5 490.73333333333335,719 365.22065464655554,719	State1	root_end
-place-label	edge	edge2	0	465.73333333333335	281	50	21
+section	edge2	edge2_s0	387.9497395833333,103	361.87690464655554,799	387.9497395833333,123 487.10833333333335,123 487.10833333333335,153.5 487.10833333333335,222.5 487.10833333333335,490 487.10833333333335,688.5 487.10833333333335,719 361.87690464655554,719	State1	root_end
+place-label	edge	edge2	0	462.10833333333335	281	49.046875	21
 route	edge3	root	root
-section	edge3	edge3_s0	308.2166666666667,241	221.7,342	308.2166666666667,261 221.7,261	State2	State3
-place-label	edge	edge3	0	186.2	281	71	21
+section	edge3	edge3_s0	305.2830729166667,241	219.4578125,342	305.2830729166667,261 219.4578125,261	State2	State3
+place-label	edge	edge3	0	183.9578125	281	70.0625	21
 route	edge4	root	root
-section	edge4	edge4_s0	346.8833333333333,241	366.41799599329636,799	346.8833333333333,261 433.4,261 433.4,291.5 433.4,688.5 433.4,739 366.41799599329636,739	State2	root_end
-place-label	edge	edge4	0	408.4	479.5	50	21
+section	edge4	edge4_s0	343.9497395833333,241	363.07424599329636,799	343.9497395833333,261 429.775,261 429.775,291.5 429.775,688.5 429.775,739 363.07424599329636,739	State2	root_end
+place-label	edge	edge4	0	404.775	479.5	49.046875	21
 route	edge5	root	State3
-section	edge5	edge5_s0	184.9,62	184.89999999999998,86		State3_start	long1
+section	edge5	edge5_s0	183.2515625,62	183.25156249999998,86		State3_start	long1
 place-label	edge	edge5	0	0	0	0	0
 route	edge6	root	State3
-section	edge6	edge6_s0	100.4,116.66666666666667	100.4,135.33333333333334	88.4,116.66666666666667 88.4,135.33333333333334	long1	long1
-place-label	edge	edge6	0	24	115.5	62	21
+section	edge6	edge6_s0	99.86875,116.66666666666667	99.86875,135.33333333333334	87.86875,116.66666666666667 87.86875,135.33333333333334	long1	long1
+place-label	edge	edge6	0	24	115.5	61.46875	21
 route	edge7	root	State3
-section	edge7	edge7_s0	184.89999999999998,166	184.89999999999998,235		long1	ProcessData
-place-label	edge	edge7	0	143.39999999999998	190	83	21
+section	edge7	edge7_s0	183.25156249999998,166	183.25156249999998,235		long1	ProcessData
+place-label	edge	edge7	0	142.25156249999998	190	81.734375	21
 route	edge8	root	root
-section	edge8	edge8_s0	75,444.6666666666667	75,535.3333333333334	55,444.6666666666667 55,535.3333333333334	State3	State3
-place-label	edge	edge8	0	12	479.5	39	21
+section	edge8	edge8_s0	74.140625,444.6666666666667	74.140625,535.3333333333334	54.140625,444.6666666666667 54.140625,535.3333333333334	State3	State3
+place-label	edge	edge8	0	12	479.5	38.140625	21
 route	edge9	root	root
-section	edge9	edge9_s0	176.13333333333333,638	368.81267868677776,799	176.13333333333333,658 159.45,658 159.45,779 368.81267868677776,779	State3	root_end
-place-label	edge	edge9	0	79.94999999999999	678	159	21
+section	edge9	edge9_s0	174.35208333333333,638	365.46892868677776,799	174.35208333333333,658 157.8484375,658 157.8484375,779 365.46892868677776,779	State3	root_end
+place-label	edge	edge9	0	78.84843749999999	678	157.21875	21
 route	edge10	root	root
-section	edge10	edge10_s0	267.26666666666665,638	367.61533734003706,799	267.26666666666665,658 283.95,658 283.95,759 367.61533734003706,759	State3	root_end
-place-label	edge	edge10	0	258.95	678	50	21
+section	edge10	edge10_s0	264.56354166666665,638	364.27158734003706,799	264.56354166666665,658 281.0671875,658 281.0671875,759 364.27158734003706,759	State3	root_end
+place-label	edge	edge10	0	256.0671875	678	49.046875	21

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Composite	root
 option	node	Composite		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Composite		nodeSize.minimum	(76, 0)
+option	node	Composite		nodeSize.minimum	(74.921875, 0)
 option	node	Composite		spacing.baseValue	24
 option	node	Composite		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Composite		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	Composite		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	Composite		elk.algorithm	elk.layered
 option	node	Composite		elk.direction	DOWN
 option	node	Composite		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Composite	0	Composite	68	19
+label	node	Composite	0	Composite	66.921875	19
 node	A	Composite	136	37
 node	B	Composite	136	37
 node	Composite----parent	root
@@ -56,7 +56,7 @@ option	node	Composite----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Composite----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Composite----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Composite----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Composite----parent	0	hello	30	19
+label	node	Composite----parent	0	hello	29.59375	19
 node	Composite----note-1	Composite----parent	150	51
 option	node	Composite----note-1		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	edge0	root	A	B
@@ -70,11 +70,11 @@ option	edge-label	Composite-Composite----note-1	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	222	367
 place	Composite	root	18.999999999999986	12	184	170
-place-label	node	Composite	0	58	5	68	19
+place-label	node	Composite	0	58.5390625	5	66.921875	19
 place	A	Composite	24	48	136	37
 place	B	Composite	24	109	136	37
 place	Composite----parent	root	12	232	198	123
-place-label	node	Composite----parent	0	84	5	30	19
+place-label	node	Composite----parent	0	84.203125	5	29.59375	19
 place	Composite----note-1	Composite----parent	24	48	150	51
 route	edge0	root	Composite
 section	edge0	edge0_s0	92,85	92,109		A	B

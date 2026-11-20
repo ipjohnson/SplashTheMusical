@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Customer Domain	root
 option	node	Customer Domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Customer Domain		nodeSize.minimum	(123, 0)
+option	node	Customer Domain		nodeSize.minimum	(120.828125, 0)
 option	node	Customer Domain		spacing.baseValue	24
 option	node	Customer Domain		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Customer Domain		elk.spacing.edgeEdge	20
@@ -36,19 +36,19 @@ option	node	Customer Domain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Customer Domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Customer Domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Customer Domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Customer Domain	0	Customer Domain	115	19
-node	entity-CUSTOMER-0	Customer Domain	120	81
+label	node	Customer Domain	0	Customer Domain	112.828125	19
+node	entity-CUSTOMER-0	Customer Domain	119.859375	81
 node	entity-ORDER-2	root	100	81
 edge	id_Customer Domain_entity-ORDER-2_0	root	Customer\sDomain	entity-ORDER-2
-label	edge	id_Customer Domain_entity-ORDER-2_0	0	contains	53	21
+label	edge	id_Customer Domain_entity-ORDER-2_0	0	contains	52.15625	21
 option	edge-label	id_Customer Domain_entity-ORDER-2_0	0	edgeLabels.inline	true
 option	edge-label	id_Customer Domain_entity-ORDER-2_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	192	359
-place	Customer Domain	root	12	12	168	153
-place-label	node	Customer Domain	0	26.5	5	115	19
-place	entity-CUSTOMER-0	Customer Domain	24	48	120	81
-place	entity-ORDER-2	root	46	266	100	81
+place	root		0	0	191.859375	359
+place	Customer Domain	root	12	12	167.859375	153
+place-label	node	Customer Domain	0	27.515625	5	112.828125	19
+place	entity-CUSTOMER-0	Customer Domain	24	48	119.859375	81
+place	entity-ORDER-2	root	45.9296875	266	100	81
 route	id_Customer Domain_entity-ORDER-2_0	root	root
-section	id_Customer Domain_entity-ORDER-2_0	id_Customer Domain_entity-ORDER-2_0_s0	96,165	96,266		Customer\sDomain	entity-ORDER-2
-place-label	edge	id_Customer Domain_entity-ORDER-2_0	0	69.5	205	53	21
+section	id_Customer Domain_entity-ORDER-2_0	id_Customer Domain_entity-ORDER-2_0_s0	95.9296875,165	95.9296875,266		Customer\sDomain	entity-ORDER-2
+place-label	edge	id_Customer Domain_entity-ORDER-2_0	0	69.4296875	205	52.15625	21

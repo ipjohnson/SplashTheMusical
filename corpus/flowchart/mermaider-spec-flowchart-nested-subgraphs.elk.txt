@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Outer	root
 option	node	Outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Outer		nodeSize.minimum	(84, 0)
+option	node	Outer		nodeSize.minimum	(82.703125, 0)
 option	node	Outer		spacing.baseValue	24
 option	node	Outer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Outer		elk.spacing.edgeEdge	20
@@ -37,10 +37,10 @@ option	node	Outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Outer		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Outer	0	Deployment	76	19
+label	node	Outer	0	Deployment	74.703125	19
 node	Inner2	Outer
 option	node	Inner2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Inner2		nodeSize.minimum	(66, 0)
+option	node	Inner2		nodeSize.minimum	(65.578125, 0)
 option	node	Inner2		spacing.baseValue	24
 option	node	Inner2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Inner2		elk.spacing.edgeEdge	20
@@ -54,12 +54,12 @@ option	node	Inner2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Inner2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Inner2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Inner2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Inner2	0	Cluster B	58	19
+label	node	Inner2	0	Cluster B	57.578125	19
 node	B1	Inner2	152	45
 node	B2	Inner2	152	45
 node	Inner1	Outer
 option	node	Inner1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Inner1		nodeSize.minimum	(65, 0)
+option	node	Inner1		nodeSize.minimum	(64.8125, 0)
 option	node	Inner1		spacing.baseValue	24
 option	node	Inner1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Inner1		elk.spacing.edgeEdge	20
@@ -73,7 +73,7 @@ option	node	Inner1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Inner1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Inner1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Inner1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Inner1	0	Cluster A	57	19
+label	node	Inner1	0	Cluster A	56.8125	19
 node	A1	Inner1	152	45
 node	A2	Inner1	152	45
 node	LB	root	152	45
@@ -97,13 +97,13 @@ option	edge-label	L_LB_Inner2_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	522	397
 place	Outer	root	12	127	498	258
-place-label	node	Outer	0	211	5	76	19
+place-label	node	Outer	0	211.6484375	5	74.703125	19
 place	Inner2	Outer	24	48	200	186
-place-label	node	Inner2	0	71	5	58	19
+place-label	node	Inner2	0	71.2109375	5	57.578125	19
 place	B1	Inner2	24	48	152	45
 place	B2	Inner2	24	117	152	45
 place	Inner1	Outer	274	48	200	186
-place-label	node	Inner1	0	71.5	5	57	19
+place-label	node	Inner1	0	71.59375	5	56.8125	19
 place	A1	Inner1	24	48	152	45
 place	A2	Inner1	24	117	152	45
 place	LB	root	185	12	152	45

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Frontend	root
 option	node	Frontend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Frontend		nodeSize.minimum	(66, 0)
+option	node	Frontend		nodeSize.minimum	(64.046875, 0)
 option	node	Frontend		spacing.baseValue	24
 option	node	Frontend		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Frontend		elk.spacing.edgeEdge	20
@@ -37,14 +37,14 @@ option	node	Frontend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Frontend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Frontend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Frontend		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Frontend	0	Frontend	58	19
+label	node	Frontend	0	Frontend	56.046875	19
 node	UI	Frontend	152	45
 option	node	UI		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	State	Frontend	152	45
 option	node	State		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Backend	root
 option	node	Backend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Backend		nodeSize.minimum	(63, 0)
+option	node	Backend		nodeSize.minimum	(62.484375, 0)
 option	node	Backend		spacing.baseValue	24
 option	node	Backend		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Backend		elk.spacing.edgeEdge	20
@@ -60,7 +60,7 @@ option	node	Backend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	Backend		elk.algorithm	elk.layered
 option	node	Backend		elk.direction	RIGHT
 option	node	Backend		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Backend	0	Backend	55	19
+label	node	Backend	0	Backend	54.484375	19
 node	API	Backend	152	45
 option	node	API		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	DB	Backend	144	85.14869689941406
@@ -88,11 +88,11 @@ option	edge-label	L_State_API_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	410	568.1486968994141
 place	Frontend	root	105.00000000000003	12	244.5	222
-place-label	node	Frontend	0	93.25	5	58	19
+place-label	node	Frontend	0	94.2265625	5	56.046875	19
 place	UI	Frontend	24	48	152	45
 place	State	Frontend	68.49999999999999	153	152	45
 place	Backend	root	12	294	386	262.14869689941406
-place-label	node	Backend	0	165.5	5	55	19
+place-label	node	Backend	0	165.7578125	5	54.484375	19
 place	API	Backend	117.00000000000003	48	152	45
 place	DB	Backend	24	153	144	85.14869689941406
 place	Cache	Backend	218	153	144	85.14869689941406

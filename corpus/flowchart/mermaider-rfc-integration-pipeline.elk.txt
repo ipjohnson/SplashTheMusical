@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	outputLayer	root
 option	node	outputLayer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	outputLayer		nodeSize.minimum	(51, 0)
+option	node	outputLayer		nodeSize.minimum	(50.03125, 0)
 option	node	outputLayer		spacing.baseValue	24
 option	node	outputLayer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	outputLayer		elk.spacing.edgeEdge	20
@@ -37,13 +37,13 @@ option	node	outputLayer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	outputLayer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	outputLayer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	outputLayer		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	outputLayer	0	Output	43	19
-node	pathProvider	outputLayer	222	87
+label	node	outputLayer	0	Output	42.03125	19
+node	pathProvider	outputLayer	219.5625	87
 node	sidebarHtml	outputLayer	152	87
 node	outputFiles	outputLayer	152	87
 node	contentProc	root
 option	node	contentProc		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	contentProc		nodeSize.minimum	(197, 0)
+option	node	contentProc		nodeSize.minimum	(193.984375, 0)
 option	node	contentProc		spacing.baseValue	24
 option	node	contentProc		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	contentProc		elk.spacing.edgeEdge	20
@@ -57,14 +57,14 @@ option	node	contentProc		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	contentProc		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	contentProc		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	contentProc		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	contentProc	0	Content Processing — per file	189	19
+label	node	contentProc	0	Content Processing — per file	185.984375	19
 node	relLinks	contentProc	152	129
 node	images	contentProc	152	129
 node	includes	contentProc	152	129
-node	xlinks	contentProc	183	108
+node	xlinks	contentProc	180.640625	108
 node	dualVal	root
 option	node	dualVal		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	dualVal		nodeSize.minimum	(221, 0)
+option	node	dualVal		nodeSize.minimum	(217.859375, 0)
 option	node	dualVal		spacing.baseValue	24
 option	node	dualVal		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	dualVal		elk.spacing.edgeEdge	20
@@ -77,12 +77,12 @@ option	node	dualVal		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	dualVal		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	dualVal		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	dualVal		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	dualVal	0	Dual Validation — both must pass	213	19
+label	node	dualVal	0	Dual Validation — both must pass	209.859375	19
 node	valV1	dualVal	152	108
 node	valV2	dualVal	152	150
 node	navAssembly	root
 option	node	navAssembly		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	navAssembly		nodeSize.minimum	(139, 0)
+option	node	navAssembly		nodeSize.minimum	(137.953125, 0)
 option	node	navAssembly		spacing.baseValue	24
 option	node	navAssembly		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	navAssembly		elk.spacing.edgeEdge	20
@@ -96,14 +96,14 @@ option	node	navAssembly		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	navAssembly		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	navAssembly		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	navAssembly		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	navAssembly	0	Navigation Assembly	131	19
-node	v1Nav	navAssembly	183	87
-node	v2Nav	navAssembly	183	87
-node	fileLookup	navAssembly	265	66
+label	node	navAssembly	0	Navigation Assembly	129.953125	19
+node	v1Nav	navAssembly	180.640625	87
+node	v2Nav	navAssembly	180.640625	87
+node	fileLookup	navAssembly	260.8125	66
 option	node	fileLookup		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	inputs	root
 option	node	inputs		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	inputs		nodeSize.minimum	(47, 0)
+option	node	inputs		nodeSize.minimum	(46.140625, 0)
 option	node	inputs		spacing.baseValue	24
 option	node	inputs		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	inputs		elk.spacing.edgeEdge	20
@@ -117,14 +117,14 @@ option	node	inputs		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	inputs		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	inputs		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	inputs		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	inputs	0	Inputs	39	19
+label	node	inputs	0	Inputs	38.140625	19
 node	assemblerYml	inputs	152	87
 option	node	assemblerYml		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	navYml	inputs	152	45
 option	node	navYml		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	navV2Yml	inputs	152	45
 option	node	navV2Yml		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	repoCheckouts	inputs	152	150
+node	repoCheckouts	inputs	152	129
 option	node	repoCheckouts		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	L_navYml_navAssembly_0	root	navYml	navAssembly
 label	edge	L_navYml_navAssembly_0	0		0	0
@@ -151,15 +151,15 @@ label	edge	L_fileLookup_contentProc_0	0		0	0
 option	edge-label	L_fileLookup_contentProc_0	0	edgeLabels.inline	true
 option	edge-label	L_fileLookup_contentProc_0	0	edgeLabels.placement	CENTER
 edge	L_dualVal_contentProc_0	root	dualVal	contentProc
-label	edge	L_dualVal_contentProc_0	0	both pass	62	21
+label	edge	L_dualVal_contentProc_0	0	both pass	60.71875	21
 option	edge-label	L_dualVal_contentProc_0	0	edgeLabels.inline	true
 option	edge-label	L_dualVal_contentProc_0	0	edgeLabels.placement	CENTER
 edge	L_repoCheckouts_contentProc_0	root	repoCheckouts	contentProc
-label	edge	L_repoCheckouts_contentProc_0	0	.md source files	100	21
+label	edge	L_repoCheckouts_contentProc_0	0	.md source files	98.046875	21
 option	edge-label	L_repoCheckouts_contentProc_0	0	edgeLabels.inline	true
 option	edge-label	L_repoCheckouts_contentProc_0	0	edgeLabels.placement	CENTER
 edge	L_assemblerYml_outputLayer_0	root	assemblerYml	outputLayer
-label	edge	L_assemblerYml_outputLayer_0	0	nav-v2 flag	70	21
+label	edge	L_assemblerYml_outputLayer_0	0	nav-v2 flag	68.484375	21
 option	edge-label	L_assemblerYml_outputLayer_0	0	edgeLabels.inline	true
 option	edge-label	L_assemblerYml_outputLayer_0	0	edgeLabels.placement	CENTER
 edge	L_contentProc_outputLayer_0	root	contentProc	outputLayer
@@ -167,60 +167,60 @@ label	edge	L_contentProc_outputLayer_0	0		0	0
 option	edge-label	L_contentProc_outputLayer_0	0	edgeLabels.inline	true
 option	edge-label	L_contentProc_outputLayer_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1317.125	1289
-place	outputLayer	root	631.125	1118	674	159
-place-label	node	outputLayer	0	315.5	5	43	19
-place	pathProvider	outputLayer	226	48	222	87
-place	sidebarHtml	outputLayer	498	48	152	87
+place	root		0	0	1308.392578125	1267
+place	outputLayer	root	624.830078125	1096	671.5625	159
+place-label	node	outputLayer	0	314.765625	5	42.03125	19
+place	pathProvider	outputLayer	226	48	219.5625	87
+place	sidebarHtml	outputLayer	495.5625	48	152	87
 place	outputFiles	outputLayer	24	48	152	87
-place	contentProc	root	332.5	877	837	201
-place-label	node	contentProc	0	324	5	189	19
+place	contentProc	root	326.8671875	855	834.640625	201
+place-label	node	contentProc	0	324.328125	5	185.984375	19
 place	relLinks	contentProc	226	48	152	129
 place	images	contentProc	428	48	152	129
 place	includes	contentProc	24	48	152	129
-place	xlinks	contentProc	630	58.5	183	108
-place	dualVal	root	329	553	402	223
-place-label	node	dualVal	0	94.5	5	213	19
+place	xlinks	contentProc	630	58.5	180.640625	108
+place	dualVal	root	322.1875	532	402	222
+place-label	node	dualVal	0	96.0703125	5	209.859375	19
 place	valV1	dualVal	24	69	152	108
 place	valV2	dualVal	226	48	152	150
-place	navAssembly	root	12	324	779	159
-place-label	node	navAssembly	0	324	5	131	19
-place	v1Nav	navAssembly	24	48	183	87
-place	v2Nav	navAssembly	257	48	183	87
-place	fileLookup	navAssembly	490	58.5	265	66
-place	inputs	root	165.36666666666667	12	806	222
-place-label	node	inputs	0	383.5	5	39	19
-place	assemblerYml	inputs	24	111	152	87
-place	navYml	inputs	226	153	152	45
-place	navV2Yml	inputs	428	153	152	45
-place	repoCheckouts	inputs	630	48	152	150
+place	navAssembly	root	12	303	770.09375	159
+place-label	node	navAssembly	0	320.0703125	5	129.953125	19
+place	v1Nav	navAssembly	24	48	180.640625	87
+place	v2Nav	navAssembly	254.640625	48	180.640625	87
+place	fileLookup	navAssembly	485.28125	58.5	260.8125	66
+place	inputs	root	158.55416666666667	12	806	201
+place-label	node	inputs	0	383.9296875	5	38.140625	19
+place	assemblerYml	inputs	24	90	152	87
+place	navYml	inputs	226	132	152	45
+place	navV2Yml	inputs	428	132	152	45
+place	repoCheckouts	inputs	630	48	152	129
 route	L_navYml_navAssembly_0	root	root
-section	L_navYml_navAssembly_0	L_navYml_navAssembly_0_s0	467.3666666666667,210	646.5000000000001,324	467.3666666666668,244 467.3666666666668,304 646.5000000000001,304	navYml	navAssembly
+section	L_navYml_navAssembly_0	L_navYml_navAssembly_0_s0	460.5541666666667,189	639.6875000000001,303	460.5541666666668,223 460.5541666666668,283 639.6875000000001,283	navYml	navAssembly
 place-label	edge	L_navYml_navAssembly_0	0	0	0	0	0
 route	L_navV2Yml_navAssembly_0	root	root
-section	L_navV2Yml_navAssembly_0	L_navV2Yml_navAssembly_0_s0	669.3666666666667,210	658.5000000000001,324	669.3666666666668,244 669.3666666666668,264 658.5000000000001,264	navV2Yml	navAssembly
+section	L_navV2Yml_navAssembly_0	L_navV2Yml_navAssembly_0_s0	662.5541666666667,189	651.6875000000001,303	662.5541666666668,223 662.5541666666668,243 651.6875000000001,243	navV2Yml	navAssembly
 place-label	edge	L_navV2Yml_navAssembly_0	0	0	0	0	0
 route	L_repoCheckouts_navAssembly_0	root	root
-section	L_repoCheckouts_navAssembly_0	L_repoCheckouts_navAssembly_0_s0	849.6333333333333,210	670.5000000000001,324	849.6333333333334,244 849.6333333333334,304 670.5000000000001,304	repoCheckouts	navAssembly
+section	L_repoCheckouts_navAssembly_0	L_repoCheckouts_navAssembly_0_s0	842.8208333333333,189	663.6875000000001,303	842.8208333333334,223 842.8208333333334,283 663.6875000000001,283	repoCheckouts	navAssembly
 place-label	edge	L_repoCheckouts_navAssembly_0	0	0	0	0	0
 route	L_navAssembly_dualVal_0	root	root
-section	L_navAssembly_dualVal_0	L_navAssembly_dualVal_0_s0	646.5,483	530,553	646.5,533 530,533	navAssembly	dualVal
+section	L_navAssembly_dualVal_0	L_navAssembly_dualVal_0_s0	639.6875,462	523.1875,532	639.6875,512 523.1875,512	navAssembly	dualVal
 place-label	edge	L_navAssembly_dualVal_0	0	0	0	0	0
 route	L_navAssembly_fileLookup_0	root	navAssembly
-section	L_navAssembly_fileLookup_0	L_navAssembly_fileLookup_0_s0	622.5,0	622.5,58.5		navAssembly	fileLookup
+section	L_navAssembly_fileLookup_0	L_navAssembly_fileLookup_0_s0	615.6875,0	615.6875,58.5		navAssembly	fileLookup
 place-label	edge	L_navAssembly_fileLookup_0	0	0	0	0	0
 route	L_fileLookup_contentProc_0	root	root
-section	L_fileLookup_contentProc_0	L_fileLookup_contentProc_0_s0	634.5,448.5	751,877	634.5,493 634.5,513 751,513 751,664.5 751,826.5	fileLookup	contentProc
+section	L_fileLookup_contentProc_0	L_fileLookup_contentProc_0_s0	627.6875,427.5	744.1875,855	627.6875,472 627.6875,492 744.1875,492 744.1875,643 744.1875,804.5	fileLookup	contentProc
 place-label	edge	L_fileLookup_contentProc_0	0	0	0	0	0
 route	L_dualVal_contentProc_0	root	root
-section	L_dualVal_contentProc_0	L_dualVal_contentProc_0_s0	530,776	546.75,877	530,857 546.75,857	dualVal	contentProc
-place-label	edge	L_dualVal_contentProc_0	0	499	816	62	21
+section	L_dualVal_contentProc_0	L_dualVal_contentProc_0_s0	523.1875,754	540.52734375,855	523.1875,835 540.52734375,835	dualVal	contentProc
+place-label	edge	L_dualVal_contentProc_0	0	492.6875	794	60.71875	21
 route	L_repoCheckouts_contentProc_0	root	root
-section	L_repoCheckouts_contentProc_0	L_repoCheckouts_contentProc_0_s0	893.1,210	955.2500000000001,877	893.1000000000001,244 893.1000000000001,304 955.4916666666668,304 955.4916666666668,408.5 955.4916666666668,826.5 955.4916666666668,857 955.2500000000001,857	repoCheckouts	contentProc
-place-label	edge	L_repoCheckouts_contentProc_0	0	905.4916666666666	654	100	21
+section	L_repoCheckouts_contentProc_0	L_repoCheckouts_contentProc_0_s0	886.2875,189	947.8476562500001,855	886.2875000000001,223 886.2875000000001,283 948.3842447916668,283 948.3842447916668,387.5 948.3842447916668,804.5 948.3842447916668,835 947.8476562500001,835	repoCheckouts	contentProc
+place-label	edge	L_repoCheckouts_contentProc_0	0	898.8842447916666	632.5	98.046875	21
 route	L_assemblerYml_outputLayer_0	root	root
-section	L_assemblerYml_outputLayer_0	L_assemblerYml_outputLayer_0_s0	265.3666666666667,210	1077.125,1118	265.3666666666668,244 265.3666666666668,284 1189.5,284 1189.5,408.5 1189.5,826.5 1189.5,977.5 1189.5,1098 1077.125,1098	assemblerYml	outputLayer
-place-label	edge	L_assemblerYml_outputLayer_0	0	1154.5	654	70	21
+section	L_assemblerYml_outputLayer_0	L_assemblerYml_outputLayer_0_s0	258.5541666666667,189	1069.205078125,1096	258.5541666666668,223 258.5541666666668,263 1181.5078125,263 1181.5078125,387.5 1181.5078125,804.5 1181.5078125,955.5 1181.5078125,1076 1069.205078125,1076	assemblerYml	outputLayer
+place-label	edge	L_assemblerYml_outputLayer_0	0	1147.0078125	632.5	68.484375	21
 route	L_contentProc_outputLayer_0	root	root
-section	L_contentProc_outputLayer_0	L_contentProc_outputLayer_0_s0	751,1078	859.125,1118	751,1098 859.125,1098	contentProc	outputLayer
+section	L_contentProc_outputLayer_0	L_contentProc_outputLayer_0_s0	744.1875,1056	852.017578125,1096	744.1875,1076 852.017578125,1076	contentProc	outputLayer
 place-label	edge	L_contentProc_outputLayer_0	0	0	0	0	0

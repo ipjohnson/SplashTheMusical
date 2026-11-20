@@ -27,7 +27,7 @@ node	User	root	76	121
 option	node	User		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Authentication	root
 option	node	Authentication		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Authentication		nodeSize.minimum	(110, 0)
+option	node	Authentication		nodeSize.minimum	(108.734375, 0)
 option	node	Authentication		spacing.baseValue	24
 option	node	Authentication		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Authentication		elk.spacing.edgeEdge	20
@@ -41,7 +41,7 @@ option	node	Authentication		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Authentication		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Authentication		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Authentication		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Authentication	0	Authentication	90	19
+label	node	Authentication	0	Authentication	88.734375	19
 node	Login	Authentication	160	58
 option	node	Login		elk.portAlignment.default	CENTER
 option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -60,7 +60,7 @@ place	root		0	0	358	350
 place	Admin	root	12	56	76	121
 place	User	root	12	217	76	121
 place	Authentication	root	138	12	208	238
-place-label	node	Authentication	0	59	5	90	19
+place-label	node	Authentication	0	59.6328125	5	88.734375	19
 place	Login	Authentication	24	156	160	58
 place	Logout	Authentication	24	48	160	58
 route	edge-0	root	root

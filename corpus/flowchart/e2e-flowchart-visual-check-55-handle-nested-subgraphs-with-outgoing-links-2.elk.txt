@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	one	root
 option	node	one		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	one		nodeSize.minimum	(35, 0)
+option	node	one		nodeSize.minimum	(34.46875, 0)
 option	node	one		spacing.baseValue	24
 option	node	one		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	one		elk.spacing.edgeEdge	20
@@ -37,10 +37,10 @@ option	node	one		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	one		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	one		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	one		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	one	0	One	27	19
+label	node	one	0	One	26.46875	19
 node	sub_two	one
 option	node	sub_two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	sub_two		nodeSize.minimum	(63, 0)
+option	node	sub_two		nodeSize.minimum	(62.234375, 0)
 option	node	sub_two		spacing.baseValue	24
 option	node	sub_two		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	sub_two		elk.spacing.edgeEdge	20
@@ -53,11 +53,11 @@ option	node	sub_two		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	sub_two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	sub_two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	sub_two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	sub_two	0	Sub Two	55	19
+label	node	sub_two	0	Sub Two	54.234375	19
 node	_sub_two	sub_two	152	45
 node	sub_one	one
 option	node	sub_one		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	sub_one		nodeSize.minimum	(64, 0)
+option	node	sub_one		nodeSize.minimum	(63.265625, 0)
 option	node	sub_one		spacing.baseValue	24
 option	node	sub_one		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	sub_one		elk.spacing.edgeEdge	20
@@ -70,7 +70,7 @@ option	node	sub_one		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	sub_one		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	sub_one		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	sub_one		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	sub_one	0	Sub One	56	19
+label	node	sub_one	0	Sub One	55.265625	19
 node	_sub_one	sub_one	152	45
 node	_one	one	152	45
 option	node	_one		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -87,12 +87,12 @@ option	edge-label	L__one_b_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	474	449
 place	one	root	12	12	450	330
-place-label	node	one	0	211.5	5	27	19
+place-label	node	one	0	211.765625	5	26.46875	19
 place	sub_two	one	24	189	200	117
-place-label	node	sub_two	0	72.5	5	55	19
+place-label	node	sub_two	0	72.8828125	5	54.234375	19
 place	_sub_two	sub_two	24	48	152	45
 place	sub_one	one	24	48	200	117
-place-label	node	sub_one	0	72	5	56	19
+place-label	node	sub_one	0	72.3671875	5	55.265625	19
 place	_sub_one	sub_one	24	48	152	45
 place	_one	one	274	261	152	45
 place	b	root	286	392	152	45

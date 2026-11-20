@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	14	14
 node	Active	root
 option	node	Active		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Active		nodeSize.minimum	(52, 0)
+option	node	Active		nodeSize.minimum	(51.578125, 0)
 option	node	Active		spacing.baseValue	24
 option	node	Active		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Active		elk.spacing.edgeEdge	20
@@ -40,7 +40,7 @@ option	node	Active		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Active		elk.algorithm	elk.layered
 option	node	Active		elk.direction	DOWN
 option	node	Active		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Active	0	Active	44	22
+label	node	Active	0	Active	43.578125	22
 node	divider-id-1	Active
 option	node	divider-id-1		spacing.baseValue	24
 option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -103,7 +103,7 @@ node	ScrollLockOff	id-8akd4ci62fa-6	136	40
 node	ScrollLockOn	id-8akd4ci62fa-6	136	40
 node	SomethingElse	root
 option	node	SomethingElse		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	SomethingElse		nodeSize.minimum	(117, 0)
+option	node	SomethingElse		nodeSize.minimum	(115.625, 0)
 option	node	SomethingElse		spacing.baseValue	24
 option	node	SomethingElse		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	SomethingElse		elk.spacing.edgeEdge	20
@@ -119,7 +119,7 @@ option	node	SomethingElse		elk.spacing.portsSurrounding	[top=12,left=12,bottom=1
 option	node	SomethingElse		elk.algorithm	elk.layered
 option	node	SomethingElse		elk.direction	DOWN
 option	node	SomethingElse		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	SomethingElse	0	SomethingElse	109	22
+label	node	SomethingElse	0	SomethingElse	107.625	22
 node	A	SomethingElse	136	40
 node	B	SomethingElse	136	40
 node	SomethingElse----parent	root
@@ -136,7 +136,7 @@ option	node	SomethingElse----parent		elk.layered.cycleBreaking.strategy	DEPTH_FI
 option	node	SomethingElse----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	SomethingElse----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	SomethingElse----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	SomethingElse----parent	0	This is the note to the right.	190	22
+label	node	SomethingElse----parent	0	This is the note to the right.	193	22
 node	SomethingElse----note-13	SomethingElse----parent	150	78
 option	node	SomethingElse----note-13		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	edge0	root	root_start	Active
@@ -148,11 +148,11 @@ label	edge	edge1	0		0	0
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	NumLockOff	NumLockOn
-label	edge	edge2	0	EvNumLockPressed	146	24
+label	edge	edge2	0	EvNumLockPressed	144.953125	24
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	NumLockOn	NumLockOff
-label	edge	edge3	0	EvNumLockPressed	146	24
+label	edge	edge3	0	EvNumLockPressed	144.953125	24
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	divider-id-2_start	CapsLockOff
@@ -160,11 +160,11 @@ label	edge	edge4	0		0	0
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	CapsLockOff	CapsLockOn
-label	edge	edge5	0	EvCapsLockPressed	150	24
+label	edge	edge5	0	EvCapsLockPressed	148.515625	24
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	CapsLockOn	CapsLockOff
-label	edge	edge6	0	EvCapsLockPressed	150	24
+label	edge	edge6	0	EvCapsLockPressed	148.515625	24
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	id-8akd4ci62fa-6_start	ScrollLockOff
@@ -172,11 +172,11 @@ label	edge	edge7	0		0	0
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 edge	edge8	root	ScrollLockOff	ScrollLockOn
-label	edge	edge8	0	EvCapsLockPressed	150	24
+label	edge	edge8	0	EvCapsLockPressed	148.515625	24
 option	edge-label	edge8	0	edgeLabels.inline	true
 option	edge-label	edge8	0	edgeLabels.placement	CENTER
 edge	edge9	root	ScrollLockOn	ScrollLockOff
-label	edge	edge9	0	EvCapsLockPressed	150	24
+label	edge	edge9	0	EvCapsLockPressed	148.515625	24
 option	edge-label	edge9	0	edgeLabels.inline	true
 option	edge-label	edge9	0	edgeLabels.placement	CENTER
 edge	edge10	root	A	B
@@ -196,62 +196,62 @@ label	edge	SomethingElse-SomethingElse----note-13	0		0	0
 option	edge-label	SomethingElse-SomethingElse----note-13	0	edgeLabels.inline	true
 option	edge-label	SomethingElse-SomethingElse----note-13	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	824	1219
-place	root_start	root	402	12	14	14
-place	Active	root	12	66	800	719
-place-label	node	Active	0	378	5	44	22
-place	divider-id-1	Active	24	51	360	310
+place	root		0	0	818.9375	1219
+place	root_start	root	399.46875	12	14	14
+place	Active	root	12	66	794.9375	719
+place-label	node	Active	0	375.6796875	5	43.578125	22
+place	divider-id-1	Active	24	51	357.90625	310
 place-label	node	divider-id-1	0	0	0	0	0
-place	divider-id-1_start	divider-id-1	169.2	24	14	14
-place	NumLockOff	divider-id-1	112	62	136	40
-place	NumLockOn	divider-id-1	112	246	136	40
-place	divider-id-2	Active	408	51	368	310
+place	divider-id-1_start	divider-id-1	168.1765625	24	14	14
+place	NumLockOff	divider-id-1	110.9765625	62	136	40
+place	NumLockOn	divider-id-1	110.9765625	246	136	40
+place	divider-id-2	Active	405.90625	51	365.03125	310
 place-label	node	divider-id-2	0	0	0	0	0
-place	divider-id-2_start	divider-id-2	173.2	24	14	14
-place	CapsLockOff	divider-id-2	116	62	136	40
-place	CapsLockOn	divider-id-2	116	246	136	40
-place	id-8akd4ci62fa-6	Active	24	385	368	310
+place	divider-id-2_start	divider-id-2	171.9578125	24	14	14
+place	CapsLockOff	divider-id-2	114.7578125	62	136	40
+place	CapsLockOn	divider-id-2	114.7578125	246	136	40
+place	id-8akd4ci62fa-6	Active	24	385	365.03125	310
 place-label	node	id-8akd4ci62fa-6	0	0	0	0	0
-place	id-8akd4ci62fa-6_start	id-8akd4ci62fa-6	173.2	24	14	14
-place	ScrollLockOff	id-8akd4ci62fa-6	116	62	136	40
-place	ScrollLockOn	id-8akd4ci62fa-6	116	246	136	40
-place	SomethingElse	root	320	825	184	179
-place-label	node	SomethingElse	0	37.5	5	109	22
+place	id-8akd4ci62fa-6_start	id-8akd4ci62fa-6	171.9578125	24	14	14
+place	ScrollLockOff	id-8akd4ci62fa-6	114.7578125	62	136	40
+place	ScrollLockOn	id-8akd4ci62fa-6	114.7578125	246	136	40
+place	SomethingElse	root	317.46875	825	184	179
+place-label	node	SomethingElse	0	38.1875	5	107.625	22
 place	A	SomethingElse	24	51	136	40
 place	B	SomethingElse	24	115	136	40
-place	SomethingElse----parent	root	313	1054	198	153
-place-label	node	SomethingElse----parent	0	4	5	190	22
+place	SomethingElse----parent	root	310.46875	1054	198	153
+place-label	node	SomethingElse----parent	0	2.5	5	193	22
 place	SomethingElse----note-13	SomethingElse----parent	24	51	150	78
 route	edge0	root	root
-section	edge0	edge0_s0	412,26	412,66		root_start	Active
+section	edge0	edge0_s0	409.46875,26	409.46875,66		root_start	Active
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	divider-id-1
-section	edge1	edge1_s0	180,38	180,62		divider-id-1_start	NumLockOff
+section	edge1	edge1_s0	178.9765625,38	178.9765625,62		divider-id-1_start	NumLockOff
 place-label	edge	edge1	0	0	0	0	0
 route	edge2	root	divider-id-1
-section	edge2	edge2_s0	199.06666666666666,102	199.06666666666666,246	199.06666666666666,132 263,132 263,216 199.06666666666666,216	NumLockOff	NumLockOn
-place-label	edge	edge2	0	190	162	146	24
+section	edge2	edge2_s0	198.04322916666666,102	198.04322916666666,246	198.04322916666666,132 261.453125,132 261.453125,216 198.04322916666666,216	NumLockOff	NumLockOn
+place-label	edge	edge2	0	188.953125	162	144.953125	24
 route	edge3	root	divider-id-1
-section	edge3	edge3_s0	160.93333333333334,246	160.93333333333334,102	160.93333333333334,216 97,216 97,132 160.93333333333334,132	NumLockOn	NumLockOff
-place-label	edge	edge3	0	24	162	146	24
+section	edge3	edge3_s0	159.90989583333334,246	159.90989583333334,102	159.90989583333334,216 96.5,216 96.5,132 159.90989583333334,132	NumLockOn	NumLockOff
+place-label	edge	edge3	0	24	162	144.953125	24
 route	edge4	root	divider-id-2
-section	edge4	edge4_s0	184,38	184,62		divider-id-2_start	CapsLockOff
+section	edge4	edge4_s0	182.7578125,38	182.7578125,62		divider-id-2_start	CapsLockOff
 place-label	edge	edge4	0	0	0	0	0
 route	edge5	root	divider-id-2
-section	edge5	edge5_s0	203.06666666666666,102	203.06666666666666,246	203.06666666666666,132 269,132 269,216 203.06666666666666,216	CapsLockOff	CapsLockOn
-place-label	edge	edge5	0	194	162	150	24
+section	edge5	edge5_s0	201.82447916666666,102	201.82447916666666,246	201.82447916666666,132 267.015625,132 267.015625,216 201.82447916666666,216	CapsLockOff	CapsLockOn
+place-label	edge	edge5	0	192.515625	162	148.515625	24
 route	edge6	root	divider-id-2
-section	edge6	edge6_s0	164.93333333333334,246	164.93333333333334,102	164.93333333333334,216 99,216 99,132 164.93333333333334,132	CapsLockOn	CapsLockOff
-place-label	edge	edge6	0	24	162	150	24
+section	edge6	edge6_s0	163.69114583333334,246	163.69114583333334,102	163.69114583333334,216 98.5,216 98.5,132 163.69114583333334,132	CapsLockOn	CapsLockOff
+place-label	edge	edge6	0	24	162	148.515625	24
 route	edge7	root	id-8akd4ci62fa-6
-section	edge7	edge7_s0	184,38	184,62		id-8akd4ci62fa-6_start	ScrollLockOff
+section	edge7	edge7_s0	182.7578125,38	182.7578125,62		id-8akd4ci62fa-6_start	ScrollLockOff
 place-label	edge	edge7	0	0	0	0	0
 route	edge8	root	id-8akd4ci62fa-6
-section	edge8	edge8_s0	203.06666666666666,102	203.06666666666666,246	203.06666666666666,132 269,132 269,216 203.06666666666666,216	ScrollLockOff	ScrollLockOn
-place-label	edge	edge8	0	194	162	150	24
+section	edge8	edge8_s0	201.82447916666666,102	201.82447916666666,246	201.82447916666666,132 267.015625,132 267.015625,216 201.82447916666666,216	ScrollLockOff	ScrollLockOn
+place-label	edge	edge8	0	192.515625	162	148.515625	24
 route	edge9	root	id-8akd4ci62fa-6
-section	edge9	edge9_s0	164.93333333333334,246	164.93333333333334,102	164.93333333333334,216 99,216 99,132 164.93333333333334,132	ScrollLockOn	ScrollLockOff
-place-label	edge	edge9	0	24	162	150	24
+section	edge9	edge9_s0	163.69114583333334,246	163.69114583333334,102	163.69114583333334,216 98.5,216 98.5,132 163.69114583333334,132	ScrollLockOn	ScrollLockOff
+place-label	edge	edge9	0	24	162	148.515625	24
 route	edge10	root	SomethingElse
 section	edge10	edge10_s0	111.06666666666668,91	111.06666666666668,115		A	B
 place-label	edge	edge10	0	0	0	0	0
@@ -259,8 +259,8 @@ route	edge11	root	SomethingElse
 section	edge11	edge11_s0	72.93333333333334,115	72.93333333333334,91		B	A
 place-label	edge	edge11	0	0	0	0	0
 route	edge12	root	root
-section	edge12	edge12_s0	412,785	412,825		Active	SomethingElse
+section	edge12	edge12_s0	409.46875,785	409.46875,825		Active	SomethingElse
 place-label	edge	edge12	0	0	0	0	0
 route	SomethingElse-SomethingElse----note-13	root	root
-section	SomethingElse-SomethingElse----note-13	SomethingElse-SomethingElse----note-13_s0	412,1004	412,1105	412,1044	SomethingElse	SomethingElse----note-13
+section	SomethingElse-SomethingElse----note-13	SomethingElse-SomethingElse----note-13_s0	409.46875,1004	409.46875,1105	409.46875,1044	SomethingElse	SomethingElse----note-13
 place-label	edge	SomethingElse-SomethingElse----note-13	0	0	0	0	0

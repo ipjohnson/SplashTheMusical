@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	review_agent	root
 option	node	review_agent		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	review_agent		nodeSize.minimum	(132, 0)
+option	node	review_agent		nodeSize.minimum	(130.96875, 0)
 option	node	review_agent		spacing.baseValue	24
 option	node	review_agent		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	review_agent		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	review_agent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	review_agent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	review_agent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	review_agent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	review_agent	0	Code Review Agent	124	19
+label	node	review_agent	0	Code Review Agent	122.96875	19
 node	pipeline	review_agent
 option	node	pipeline		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	pipeline		nodeSize.minimum	(108, 0)
+option	node	pipeline		nodeSize.minimum	(107.609375, 0)
 option	node	pipeline		spacing.baseValue	24
 option	node	pipeline		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	pipeline		elk.spacing.edgeEdge	20
@@ -52,10 +52,10 @@ option	node	pipeline		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	pipeline		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	pipeline		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	pipeline		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	pipeline	0	Review Pipeline	100	19
+label	node	pipeline	0	Review Pipeline	99.609375	19
 node	assess	pipeline
 option	node	assess		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	assess		nodeSize.minimum	(84, 0)
+option	node	assess		nodeSize.minimum	(84.234375, 0)
 option	node	assess		spacing.baseValue	24
 option	node	assess		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	assess		elk.spacing.edgeEdge	20
@@ -68,12 +68,12 @@ option	node	assess		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	assess		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	assess		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	assess		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	assess	0	Assess Risk	76	19
+label	node	assess	0	Assess Risk	76.234375	19
 node	evaluate	assess	150	51
 node	risk	assess	150	51
 node	extract	pipeline
 option	node	extract		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	extract		nodeSize.minimum	(113, 0)
+option	node	extract		nodeSize.minimum	(111.5, 0)
 option	node	extract		spacing.baseValue	24
 option	node	extract		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	extract		elk.spacing.edgeEdge	20
@@ -86,7 +86,7 @@ option	node	extract		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	extract		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	extract		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	extract		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	extract	0	Extract Changes	105	19
+label	node	extract	0	Extract Changes	103.5	19
 node	receive_pr	extract	150	51
 node	analysis	extract	150	51
 edge	L_receive_pr_analysis_0	root	receive_pr	analysis
@@ -104,15 +104,15 @@ option	edge-label	L_extract_assess_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	888	291
 place	review_agent	root	12	12	864	267
-place-label	node	review_agent	0	370	5	124	19
+place-label	node	review_agent	0	370.515625	5	122.96875	19
 place	pipeline	review_agent	24	48	816	195
-place-label	node	pipeline	0	358	5	100	19
+place-label	node	pipeline	0	358.1953125	5	99.609375	19
 place	assess	pipeline	420	48	372	123
-place-label	node	assess	0	148	5	76	19
+place-label	node	assess	0	147.8828125	5	76.234375	19
 place	evaluate	assess	24	48	150	51
 place	risk	assess	198	48	150	51
 place	extract	pipeline	24	48	372	123
-place-label	node	extract	0	133.5	5	105	19
+place-label	node	extract	0	134.25	5	103.5	19
 place	receive_pr	extract	24	48	150	51
 place	analysis	extract	198	48	150	51
 route	L_receive_pr_analysis_0	root	extract

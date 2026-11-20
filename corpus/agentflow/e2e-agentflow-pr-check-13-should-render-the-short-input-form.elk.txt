@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	f	root
 option	node	f		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	f		nodeSize.minimum	(102, 0)
+option	node	f		nodeSize.minimum	(99.828125, 0)
 option	node	f		spacing.baseValue	24
 option	node	f		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	f		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	f		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	f		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	f		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	f		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	f	0	Morning digest	94	19
+label	node	f	0	Morning digest	91.828125	19
 node	every_morning	f	207	57
 node	request	f	186	36
 node	summarise	f	150	51
@@ -51,7 +51,7 @@ option	edge-label	L_request_summarise_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	515	264
 place	f	root	12	12	491	240
-place-label	node	f	0	198.5	5	94	19
+place-label	node	f	0	199.5859375	5	91.828125	19
 place	every_morning	f	260	48	207	57
 place	request	f	24	69	186	36
 place	summarise	f	165.25	165	150	51

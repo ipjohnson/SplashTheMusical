@@ -33,19 +33,19 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Received	Validated
-label	edge	edge1	0	validate	49	21
+label	edge	edge1	0	validate	48.265625	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Validated	Enriched
-label	edge	edge2	0	enrich	39	21
+label	edge	edge2	0	enrich	38.140625	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Enriched	Stored
-label	edge	edge3	0	persist	42	21
+label	edge	edge3	0	persist	41.234375	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	Stored	Published
-label	edge	edge4	0	notify	34	21
+label	edge	edge4	0	notify	33.46875	21
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	Published	root_end
@@ -66,16 +66,16 @@ section	edge0	edge0_s0	80,26	80,66		root_start	Received
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
 section	edge1	edge1_s0	80,103	80,204		Received	Validated
-place-label	edge	edge1	0	55.5	143	49	21
+place-label	edge	edge1	0	55.5	143	48.265625	21
 route	edge2	root	root
 section	edge2	edge2_s0	80,241	80,342		Validated	Enriched
-place-label	edge	edge2	0	60.5	281	39	21
+place-label	edge	edge2	0	60.5	281	38.140625	21
 route	edge3	root	root
 section	edge3	edge3_s0	80,379	80,480		Enriched	Stored
-place-label	edge	edge3	0	59	419	42	21
+place-label	edge	edge3	0	59	419	41.234375	21
 route	edge4	root	root
 section	edge4	edge4_s0	80,517	80,618		Stored	Published
-place-label	edge	edge4	0	63	557	34	21
+place-label	edge	edge4	0	63	557	33.46875	21
 route	edge5	root	root
 section	edge5	edge5_s0	80,655	80,695		Published	root_end
 place-label	edge	edge5	0	0	0	0	0

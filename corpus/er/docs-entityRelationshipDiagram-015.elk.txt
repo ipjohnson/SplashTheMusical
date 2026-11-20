@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	title2	root
 option	node	title2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title2		nodeSize.minimum	(38, 0)
+option	node	title2		nodeSize.minimum	(37.578125, 0)
 option	node	title2		spacing.baseValue	24
 option	node	title2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title2		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	title2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	title2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	title2	0	title2	30	19
+label	node	title2	0	title2	29.578125	19
 node	title3	title2
 option	node	title3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title3		nodeSize.minimum	(38, 0)
+option	node	title3		nodeSize.minimum	(37.578125, 0)
 option	node	title3		spacing.baseValue	24
 option	node	title3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title3		elk.spacing.edgeEdge	20
@@ -52,13 +52,13 @@ option	node	title3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	title3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	title3	0	title3	30	19
-node	entity-PERSON-3	title3	146	159
+label	node	title3	0	title3	29.578125	19
+node	entity-PERSON-3	title3	144.140625	159
 node	entity-CAR-1	title2	100	81
-node	entity-NAMED-DRIVER-2	title2	147	81
+node	entity-NAMED-DRIVER-2	title2	148.125	81
 node	title1	root
 option	node	title1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title1		nodeSize.minimum	(38, 0)
+option	node	title1		nodeSize.minimum	(37.578125, 0)
 option	node	title1		spacing.baseValue	24
 option	node	title1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title1		elk.spacing.edgeEdge	20
@@ -71,24 +71,24 @@ option	node	title1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	title1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	title1	0	title1	30	19
-node	entity-CUSTOMER-0	title1	162	159
+label	node	title1	0	title1	29.578125	19
+node	entity-CUSTOMER-0	title1	159.703125	159
 edge	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	root	entity-CAR-1	entity-NAMED-DRIVER-2
-label	edge	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	allows	39	21
+label	edge	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	allows	38.90625	21
 option	edge-label	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	689.5	477
-place	title2	root	12	12	415.5	453
-place-label	node	title2	0	192.75	5	30	19
-place	title3	title2	24	48	194	231
-place-label	node	title3	0	82	5	30	19
-place	entity-PERSON-3	title3	24	48	146	159
-place	entity-CAR-1	title2	268	198	100	81
-place	entity-NAMED-DRIVER-2	title2	244.5	348	147	81
-place	title1	root	467.5	123	210	231
-place-label	node	title1	0	90	5	30	19
-place	entity-CUSTOMER-0	title1	24	48	162	159
+place	root		0	0	685.90625	477
+place	title2	root	12	12	414.203125	453
+place-label	node	title2	0	192.3125	5	29.578125	19
+place	title3	title2	24	48	192.140625	231
+place-label	node	title3	0	81.28125	5	29.578125	19
+place	entity-PERSON-3	title3	24	48	144.140625	159
+place	entity-CAR-1	title2	266.140625	198	100	81
+place	entity-NAMED-DRIVER-2	title2	242.078125	348	148.125	81
+place	title1	root	466.203125	123	207.703125	231
+place-label	node	title1	0	89.0625	5	29.578125	19
+place	entity-CUSTOMER-0	title1	24	48	159.703125	159
 route	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	root	title2
-section	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	id_entity-CAR-1_entity-NAMED-DRIVER-2_0_s0	318,279	318,348		entity-CAR-1	entity-NAMED-DRIVER-2
-place-label	edge	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	298.5	303	39	21
+section	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	id_entity-CAR-1_entity-NAMED-DRIVER-2_0_s0	316.140625,279	316.140625,348		entity-CAR-1	entity-NAMED-DRIVER-2
+place-label	edge	id_entity-CAR-1_entity-NAMED-DRIVER-2_0	0	296.640625	303	38.90625	21

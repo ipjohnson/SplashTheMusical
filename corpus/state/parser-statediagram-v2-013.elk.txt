@@ -25,7 +25,7 @@ node	root_start	root	14	14
 node	State1	root	136	37
 node	root_end	root	14.013293266296387	14
 edge	edge0	root	root_start	State1
-label	edge	edge0	0	This is the description +-!	159	21
+label	edge	edge0	0	This is the description +-!	156.015625	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	State1	root_end
@@ -33,13 +33,13 @@ label	edge	edge1	0		0	0
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	183	230
-place	root_start	root	81.5	12	14	14
-place	State1	root	23.5	127	136	37
-place	root_end	root	81.5	204	14.013293266296387	14
+place	root		0	0	180.015625	230
+place	root_start	root	80.5	12	14	14
+place	State1	root	22.5	127	136	37
+place	root_end	root	80.5	204	14.013293266296387	14
 route	edge0	root	root
-section	edge0	edge0_s0	91.5,26	91.5,127		root_start	State1
-place-label	edge	edge0	0	12	66	159	21
+section	edge0	edge0_s0	90.5,26	90.5,127		root_start	State1
+place-label	edge	edge0	0	12	66	156.015625	21
 route	edge1	root	root
-section	edge1	edge1_s0	91.5,164	91.5,204		State1	root_end
+section	edge1	edge1_s0	90.5,164	90.5,204		State1	root_end
 place-label	edge	edge1	0	0	0	0	0

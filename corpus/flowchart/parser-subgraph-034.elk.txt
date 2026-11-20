@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	myTitle	root
 option	node	myTitle		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	myTitle		nodeSize.minimum	(53, 0)
+option	node	myTitle		nodeSize.minimum	(52.59375, 0)
 option	node	myTitle		spacing.baseValue	24
 option	node	myTitle		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	myTitle		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	myTitle		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	myTitle		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	myTitle		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	myTitle		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	myTitle	0	myTitle	45	19
+label	node	myTitle	0	myTitle	44.59375	19
 node	inner	myTitle
 option	node	inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	inner		nodeSize.minimum	(40, 0)
+option	node	inner		nodeSize.minimum	(39.140625, 0)
 option	node	inner		spacing.baseValue	24
 option	node	inner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	inner		elk.spacing.edgeEdge	20
@@ -52,7 +52,7 @@ option	node	inner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	inner	0	inner	32	19
+label	node	inner	0	inner	31.140625	19
 node	e	inner	152	45
 node	f	inner	152	45
 node	h	inner	152	45
@@ -80,9 +80,9 @@ option	edge-label	L_h_i_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	868	436
 place	myTitle	root	12	12	652	327
-place-label	node	myTitle	0	303.5	5	45	19
+place-label	node	myTitle	0	303.703125	5	44.59375	19
 place	inner	myTitle	24	48	402	186
-place-label	node	inner	0	185	5	32	19
+place-label	node	inner	0	185.4296875	5	31.140625	19
 place	e	inner	24	48	152	45
 place	f	inner	24	117	152	45
 place	h	inner	226	48	152	45

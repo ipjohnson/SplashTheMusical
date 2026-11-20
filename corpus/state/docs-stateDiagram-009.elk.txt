@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	s1	root	136	37
 node	s2	root	136	37
 edge	edge0	root	s1	s2
-label	edge	edge0	0	A transition	70	21
+label	edge	edge0	0	A transition	69.265625	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 result
@@ -33,4 +33,4 @@ place	s1	root	12	12	136	37
 place	s2	root	12	150	136	37
 route	edge0	root	root
 section	edge0	edge0_s0	80,49	80,150		s1	s2
-place-label	edge	edge0	0	45	89	70	21
+place-label	edge	edge0	0	45	89	69.265625	21

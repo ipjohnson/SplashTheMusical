@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	**Two**	root
 option	node	**Two**		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	**Two**		nodeSize.minimum	(36, 0)
+option	node	**Two**		nodeSize.minimum	(34.96875, 0)
 option	node	**Two**		spacing.baseValue	24
 option	node	**Two**		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	**Two**		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	**Two**		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	**Two**		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	**Two**		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	**Two**		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	**Two**	0	**Two**	28	13.999999046325684
+label	node	**Two**	0	**Two**	26.96875	13.999999046325684
 node	c	**Two**	150	61.400001525878906
 node	d	**Two**	150	46
 node	One	root
 option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	One		nodeSize.minimum	(35, 0)
+option	node	One		nodeSize.minimum	(34.46875, 0)
 option	node	One		spacing.baseValue	24
 option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	One		elk.spacing.edgeEdge	20
@@ -54,30 +54,30 @@ option	node	One		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	One	0	One	27	13.999999046325684
+label	node	One	0	One	26.46875	13.999999046325684
 node	a	One	150	61.400001525878906
-node	b	One	209.94285583496094	101.4000015258789
+node	b	One	201.14285278320312	86
 edge	L_a_b_0	root	a	b
-label	edge	L_a_b_0	0	edge label	70	19.999998092651367
+label	edge	L_a_b_0	0	edge label	68.625	19.999998092651367
 option	edge-label	L_a_b_0	0	edgeLabels.inline	true
 option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
 edge	L_c_d_0	root	c	d
-label	edge	L_c_d_0	0	Bold **edge label**	107	19.999998092651367
+label	edge	L_c_d_0	0	Bold **edge label**	104.40625	19.999998092651367
 option	edge-label	L_c_d_0	0	edgeLabels.inline	true
 option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	549.9428558349609	360.8000011444092
-place	**Two**	root	23.47142791748047	12	503	128.4000005722046
-place-label	node	**Two**	0	237.5	5	28	13.999999046325684
+place	root		0	0	539.7678527832031	345.3999996185303
+place	**Two**	root	19.680801391601562	12	500.40625	128.4000005722046
+place-label	node	**Two**	0	236.71875	5	26.96875	13.999999046325684
 place	c	**Two**	24	42.999999046325684	150	61.400001525878906
-place	d	**Two**	329	50.69999980926514	150	46
-place	One	root	12	180.4000005722046	525.9428558349609	168.4000005722046
-place-label	node	One	0	249.47142791748047	5	27	13.999999046325684
-place	a	One	24	62.999999046325684	150	61.400001525878906
-place	b	One	292	42.999999046325684	209.94285583496094	101.4000015258789
+place	d	**Two**	326.40625	50.69999980926514	150	46
+place	One	root	12	180.4000005722046	515.7678527832031	152.99999904632568
+place-label	node	One	0	244.64955139160156	5	26.46875	13.999999046325684
+place	a	One	24	55.29999828338623	150	61.400001525878906
+place	b	One	290.625	42.999999046325684	201.14285278320312	86
 route	L_a_b_0	root	One
-section	L_a_b_0	L_a_b_0_s0	174,93.69999980926514	292,93.69999980926514		a	b
-place-label	edge	L_a_b_0	0	198	83.19999980926514	70	19.999998092651367
+section	L_a_b_0	L_a_b_0_s0	174,85.99999904632568	290.625,85.99999904632568		a	b
+place-label	edge	L_a_b_0	0	198	75.49999904632568	68.625	19.999998092651367
 route	L_c_d_0	root	**Two**
-section	L_c_d_0	L_c_d_0_s0	174,73.69999980926514	329,73.69999980926514		c	d
-place-label	edge	L_c_d_0	0	198	63.19999980926514	107	19.999998092651367
+section	L_c_d_0	L_c_d_0_s0	174,73.69999980926514	326.40625,73.69999980926514		c	d
+place-label	edge	L_c_d_0	0	198	63.19999980926514	104.40625	19.999998092651367

@@ -37,7 +37,7 @@ option	node	State1----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	State1----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	State1----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	State1----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	State1----parent	0	Important information! You can write\n  notes.	229	40
+label	node	State1----parent	0	Important information! You can write\n  notes.	223.34375	40
 node	State1----note-0	State1----parent	150	114
 option	node	State1----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	State2	root	136	37
@@ -56,7 +56,7 @@ option	node	State2----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	State2----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	State2----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	State2----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	State2----parent	0	This is the note	97	19
+label	node	State2----parent	0	This is the note	94.9375	19
 node	State2----note-2	State2----parent	150	51
 option	node	State2----note-2		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	State1-State1----note-0	root	State1	State1----note-0
@@ -64,7 +64,7 @@ label	edge	State1-State1----note-0	0		0	0
 option	edge-label	State1-State1----note-0	0	edgeLabels.inline	true
 option	edge-label	State1-State1----note-0	0	edgeLabels.placement	CENTER
 edge	edge1	root	State1	State2
-label	edge	edge1	0	With a label	74	21
+label	edge	edge1	0	With a label	73.15625	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	State2----note-2-State2	root	State2----note-2	State2
@@ -72,21 +72,21 @@ label	edge	State2----note-2-State2	0		0	0
 option	edge-label	State2----note-2-State2	0	edgeLabels.inline	true
 option	edge-label	State2----note-2-State2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	605	416
-place	State1	root	154.25	12	136	58
-place	State1----parent	root	27.5	120	198	207
-place-label	node	State1----parent	0	-15.5	5	229	40
+place	root		0	0	598.5	416
+place	State1	root	150.0078125	12	136	58
+place	State1----parent	root	24.671875	120	198	207
+place-label	node	State1----parent	0	-12.671875	5	223.34375	40
 place	State1----note-0	State1----parent	24	69	150	114
-place	State2	root	338	367	136	37
-place	State2----parent	root	395	194	198	123
-place-label	node	State2----parent	0	50.5	5	97	19
+place	State2	root	331.921875	367	136	37
+place	State2----parent	root	388.5	194	198	123
+place-label	node	State2----parent	0	51.53125	5	94.9375	19
 place	State2----note-2	State2----parent	24	48	150	51
 route	State1-State1----note-0	root	root
-section	State1-State1----note-0	State1-State1----note-0_s0	202.91666666666669,70	126.49999999999999,189	202.91666666666669,90 126.49999999999999,90 126.49999999999999,110	State1	State1----note-0
+section	State1-State1----note-0	State1-State1----note-0_s0	198.67447916666669,70	123.67187499999999,189	198.67447916666669,90 123.67187499999999,90 123.67187499999999,110	State1	State1----note-0
 place-label	edge	State1-State1----note-0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	241.58333333333334,70	386.6666666666667,367	241.58333333333334,90 318,90 318,347 386.6666666666667,347	State1	State2
-place-label	edge	edge1	0	281	208	74	21
+section	edge1	edge1_s0	237.34114583333334,70	380.5885416666667,367	237.34114583333334,90 312.34375,90 312.34375,347 380.5885416666667,347	State1	State2
+place-label	edge	edge1	0	275.34375	208	73.15625	21
 route	State2----note-2-State2	root	root
-section	State2----note-2-State2	State2----note-2-State2_s0	494,293	425.33333333333337,367	494,327 494,347 425.33333333333337,347	State2----note-2	State2
+section	State2----note-2-State2	State2----note-2-State2_s0	487.5,293	419.25520833333337,367	487.5,327 487.5,347 419.25520833333337,347	State2----note-2	State2
 place-label	edge	State2----note-2-State2	0	0	0	0	0

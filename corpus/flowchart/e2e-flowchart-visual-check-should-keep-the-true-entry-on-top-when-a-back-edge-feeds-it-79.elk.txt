@@ -45,11 +45,11 @@ label	edge	L_decide_end_decision_0	0		0	0
 option	edge-label	L_decide_end_decision_0	0	edgeLabels.inline	true
 option	edge-label	L_decide_end_decision_0	0	edgeLabels.placement	CENTER
 edge	L_end_decision_format_json_0	root	end_decision	format_json
-label	edge	L_end_decision_format_json_0	0	Yes	23	21
+label	edge	L_end_decision_format_json_0	0	Yes	22.84375	21
 option	edge-label	L_end_decision_format_json_0	0	edgeLabels.inline	true
 option	edge-label	L_end_decision_format_json_0	0	edgeLabels.placement	CENTER
 edge	L_end_decision_stockholm_0	root	end_decision	stockholm
-label	edge	L_end_decision_stockholm_0	0	No	18	21
+label	edge	L_end_decision_stockholm_0	0	No	17.90625	21
 option	edge-label	L_end_decision_stockholm_0	0	edgeLabels.inline	true
 option	edge-label	L_end_decision_stockholm_0	0	edgeLabels.placement	CENTER
 result
@@ -74,7 +74,7 @@ section	L_decide_end_decision_0	L_decide_end_decision_0_s0	88,417	125.3333333333
 place-label	edge	L_decide_end_decision_0	0	0	0	0	0
 route	L_end_decision_format_json_0	root	root
 section	L_end_decision_format_json_0	L_end_decision_format_json_0_s0	150.5,628	150.5,729		end_decision	format_json
-place-label	edge	L_end_decision_format_json_0	0	139	668	23	21
+place-label	edge	L_end_decision_format_json_0	0	139	668	22.84375	21
 route	L_end_decision_stockholm_0	root	root
 section	L_end_decision_stockholm_0	L_end_decision_stockholm_0_s0	175.66666666666669,457	172.5,99	175.66666666666669,437 213,437 213,384 213,172 213,119 172.5,119	end_decision	stockholm
-place-label	edge	L_end_decision_stockholm_0	0	204	267.5	18	21
+place-label	edge	L_end_decision_stockholm_0	0	204	267.5	17.90625	21

@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	14	14
 node	TV	root
 option	node	TV		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	TV		nodeSize.minimum	(26, 0)
+option	node	TV		nodeSize.minimum	(25.890625, 0)
 option	node	TV		spacing.baseValue	24
 option	node	TV		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	TV		elk.spacing.edgeEdge	20
@@ -40,7 +40,7 @@ option	node	TV		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	TV		elk.algorithm	elk.layered
 option	node	TV		elk.direction	DOWN
 option	node	TV		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	TV	0	TV	18	19
+label	node	TV	0	TV	17.890625	19
 node	TV_start	TV	14	14
 node	fork_state	TV	136	37
 node	State2	TV	136	37
@@ -84,7 +84,7 @@ result
 place	root		0	0	394	518
 place	root_start	root	187	12	14	14
 place	TV	root	12	66	370	440
-place-label	node	TV	0	176	5	18	19
+place-label	node	TV	0	176.0546875	5	17.890625	19
 place	TV_start	TV	174.2	48	14	14
 place	fork_state	TV	117	86	136	37
 place	State2	TV	210	183	136	37

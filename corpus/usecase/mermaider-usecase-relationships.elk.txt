@@ -27,7 +27,7 @@ node	User	root	76	121
 option	node	User		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Account	root
 option	node	Account		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Account		nodeSize.minimum	(71, 0)
+option	node	Account		nodeSize.minimum	(70.59375, 0)
 option	node	Account		spacing.baseValue	24
 option	node	Account		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Account		elk.spacing.edgeEdge	20
@@ -41,7 +41,7 @@ option	node	Account		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Account		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Account		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Account		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Account	0	Account	51	19
+label	node	Account	0	Account	50.59375	19
 node	Login	Account	160	58
 option	node	Login		elk.portAlignment.default	CENTER
 option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -58,11 +58,11 @@ label	edge	edge-1	0		0	0
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 edge	edge-2	root	Reset	Login
-label	edge	edge-2	0	«extend»	48	15
+label	edge	edge-2	0	«extend»	45.15625	15
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 edge	edge-3	root	Login	Audit
-label	edge	edge-3	0	«include»	49	15
+label	edge	edge-3	0	«include»	46.8125	15
 option	edge-label	edge-3	0	edgeLabels.inline	true
 option	edge-label	edge-3	0	edgeLabels.placement	CENTER
 edge	edge-4	root	Admin	Audit
@@ -74,7 +74,7 @@ place	root		0	0	320	784
 place	Admin	root	196.75	12	76	121
 place	User	root	167.75	173	76	121
 place	Account	root	12	344	296	428
-place-label	node	Account	0	122.5	5	51	19
+place-label	node	Account	0	122.703125	5	50.59375	19
 place	Login	Account	70	205	160	58
 place	Reset	Account	24	48	160	58
 place	Audit	Account	120.00000000000003	362	152	42
@@ -86,10 +86,10 @@ section	edge-1	edge-1_s0	205.75,294	168,549	205.75,314 208,314 208,334 208,519 1
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	Account
 section	edge-2	edge-2_s0	103.99999999999999,106	144,205	103.99999999999999,175 144,175	Reset	Login
-place-label	edge	edge-2	0	79.99999999999999	130	48	15
+place-label	edge	edge-2	0	80.99999999999999	130	45.15625	15
 route	edge-3	root	Account
 section	edge-3	edge-3_s0	150,263	174.26666666666668,362	150,332 174.26666666666668,332	Login	Audit
-place-label	edge	edge-3	0	125.5	287	49	15
+place-label	edge	edge-3	0	126.5	287	46.8125	15
 route	edge-4	root	root
 section	edge-4	edge-4_s0	244.08333333333334,133	229.73333333333332,706	244.08333333333334,153 263.75,153 263.75,233.5 263.75,314 261.5,314 261.5,334 261.5,676 229.73333333333332,676	Admin	Audit
 place-label	edge	edge-4	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	tools	root
 option	node	tools		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	tools		nodeSize.minimum	(49, 39)
+option	node	tools		nodeSize.minimum	(48.6875, 39)
 option	node	tools		spacing.baseValue	15
 option	node	tools		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	tools		elk.spacing.edgeEdge	20
@@ -46,12 +46,12 @@ option	node	tools		elk.rectpacking.packing.compaction.rowHeightReevaluation	true
 option	node	tools		elk.rectpacking.packing.compaction.iterations	10
 option	node	tools		elk.rectpacking.whiteSpaceElimination.strategy	EQUAL_BETWEEN_STRUCTURES
 option	node	tools		elk.rectpacking.widthApproximation.strategy	SCANLINE
-label	node	tools	0	Tools	33	19
+label	node	tools	0	Tools	32.6875	19
 node	a	tools	164	33
 node	b	tools	164	33
 result
 place	root		0	0	208	144
 place	tools	root	12	12	184	120
-place-label	node	tools	0	75.5	5	33	19
+place-label	node	tools	0	75.65625	5	32.6875	19
 place	a	tools	10	29	164	33
 place	b	tools	10	77	164	33

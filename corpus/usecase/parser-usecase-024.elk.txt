@@ -44,16 +44,16 @@ label	edge	many	0		0	0
 option	edge-label	many	0	edgeLabels.inline	true
 option	edge-label	many	0	edgeLabels.placement	CENTER
 edge	labelled	root	D	E
-label	edge	labelled	0	long	24	15
+label	edge	labelled	0	long	22.90625	15
 option	edge-label	labelled	0	edgeLabels.inline	true
 option	edge-label	labelled	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1048	82
+place	root		0	0	1046.90625	82
 place	A	root	12	12	160	58
 place	B	root	212	12	160	58
 place	C	root	412	12	160	58
 place	D	root	612	12	160	58
-place	E	root	876	12	160	58
+place	E	root	874.90625	12	160	58
 route	base	root	root
 section	base	base_s0	172,41	212,41		A	B
 place-label	edge	base	0	0	0	0	0
@@ -64,5 +64,5 @@ route	many	root	root
 section	many	many_s0	572,41	612,41		C	D
 place-label	edge	many	0	0	0	0	0
 route	labelled	root	root
-section	labelled	labelled_s0	772,41	876,41		D	E
-place-label	edge	labelled	0	812	33	24	15
+section	labelled	labelled_s0	772,41	874.90625,41		D	E
+place-label	edge	labelled	0	812	33	22.90625	15

@@ -21,9 +21,9 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Shape	root	140.5	156
-node	Color	root	121	219
+node	Shape	root	138.796875	156
+node	Color	root	120.5	219
 result
-place	root		0	0	325.5	243
-place	Shape	root	12	43.5	140.5	156
-place	Color	root	192.5	12	121	219
+place	root		0	0	323.296875	243
+place	Shape	root	12	43.5	138.796875	156
+place	Color	root	190.796875	12	120.5	219

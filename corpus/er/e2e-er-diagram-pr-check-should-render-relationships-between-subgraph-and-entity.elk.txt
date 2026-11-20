@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	orders	root
 option	node	orders		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	orders		nodeSize.minimum	(49, 0)
+option	node	orders		nodeSize.minimum	(47.6875, 0)
 option	node	orders		spacing.baseValue	24
 option	node	orders		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	orders		elk.spacing.edgeEdge	20
@@ -37,11 +37,11 @@ option	node	orders		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	orders		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	orders		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	orders		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	orders	0	orders	41	19
+label	node	orders	0	orders	39.6875	19
 node	entity-ORDER-1	orders	100	81
 node	customers	root
 option	node	customers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	customers		nodeSize.minimum	(74, 0)
+option	node	customers		nodeSize.minimum	(72.578125, 0)
 option	node	customers		spacing.baseValue	24
 option	node	customers		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	customers		elk.spacing.edgeEdge	20
@@ -55,21 +55,21 @@ option	node	customers		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	customers		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	customers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	customers		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	customers	0	customers	66	19
-node	entity-CUSTOMER-0	customers	120	81
+label	node	customers	0	customers	64.578125	19
+node	entity-CUSTOMER-0	customers	119.859375	81
 option	node	entity-CUSTOMER-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_entity-CUSTOMER-0_orders_0	root	entity-CUSTOMER-0	orders
-label	edge	id_entity-CUSTOMER-0_orders_0	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_orders_0	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_orders_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_orders_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	192	441
-place	orders	root	22	276	148	153
-place-label	node	orders	0	53.5	5	41	19
+place	root		0	0	191.859375	441
+place	orders	root	21.9296875	276	148	153
+place-label	node	orders	0	54.15625	5	39.6875	19
 place	entity-ORDER-1	orders	24	48	100	81
-place	customers	root	12	12	168	153
-place-label	node	customers	0	51	5	66	19
-place	entity-CUSTOMER-0	customers	24	48	120	81
+place	customers	root	12	12	167.859375	153
+place-label	node	customers	0	51.640625	5	64.578125	19
+place	entity-CUSTOMER-0	customers	24	48	119.859375	81
 route	id_entity-CUSTOMER-0_orders_0	root	root
-section	id_entity-CUSTOMER-0_orders_0	id_entity-CUSTOMER-0_orders_0_s0	96,141	96,276	96,175	entity-CUSTOMER-0	orders
-place-label	edge	id_entity-CUSTOMER-0_orders_0	0	75.5	215	41	21
+section	id_entity-CUSTOMER-0_orders_0	id_entity-CUSTOMER-0_orders_0_s0	95.9296875,141	95.9296875,276	95.9296875,175	entity-CUSTOMER-0	orders
+place-label	edge	id_entity-CUSTOMER-0_orders_0	0	75.4296875	215	40.46875	21

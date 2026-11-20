@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	V	root	152	45
 node	a	root	152	45
 edge	L_V_a_0	root	V	a
-label	edge	L_V_a_0	0	test string()	72	21
+label	edge	L_V_a_0	0	test string()	70.015625	21
 option	edge-label	L_V_a_0	0	edgeLabels.inline	true
 option	edge-label	L_V_a_0	0	edgeLabels.placement	CENTER
 result
@@ -33,4 +33,4 @@ place	V	root	12	12	152	45
 place	a	root	12	158	152	45
 route	L_V_a_0	root	root
 section	L_V_a_0	L_V_a_0_s0	88,57	88,158		V	a
-place-label	edge	L_V_a_0	0	52	97	72	21
+place-label	edge	L_V_a_0	0	52.5	97	70.015625	21

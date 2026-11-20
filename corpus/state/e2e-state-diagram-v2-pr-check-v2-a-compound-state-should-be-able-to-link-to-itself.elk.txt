@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Active	root
 option	node	Active		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Active		nodeSize.minimum	(46, 0)
+option	node	Active		nodeSize.minimum	(46.125, 0)
 option	node	Active		spacing.baseValue	24
 option	node	Active		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Active		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	Active		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Active		elk.algorithm	elk.layered
 option	node	Active		elk.direction	DOWN
 option	node	Active		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Active	0	Active	38	19
+label	node	Active	0	Active	38.125	19
 node	Idle	Active	136	37
 option	node	Idle		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Inactive	root	136	37
@@ -49,18 +49,18 @@ label	edge	edge0	0	ACT	28	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Active	Active
-label	edge	edge1	0	LOG	30	21
+label	edge	edge1	0	LOG	29.578125	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	258	321
+place	root		0	0	257.578125	321
 place	Active	root	12	180	184	109
-place-label	node	Active	0	73	5	38	19
+place-label	node	Active	0	72.9375	5	38.125	19
 place	Idle	Active	24	48	136	37
 place	Inactive	root	36	12	136	37
 route	edge0	root	root
 section	edge0	edge0_s0	104,49	104,228	104,170	Inactive	Idle
 place-label	edge	edge0	0	90	89	28	21
 route	edge1	root	root
-section	edge1	edge1_s0	76,289	116,180	76,309 231,309 231,150 116,150	Active	Active
-place-label	edge	edge1	0	216	224	30	21
+section	edge1	edge1_s0	76,289	116,180	76,309 230.7890625,309 230.7890625,150 116,150	Active	Active
+place-label	edge	edge1	0	216	224	29.578125	21

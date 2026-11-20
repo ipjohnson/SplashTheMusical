@@ -21,12 +21,12 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Animal	root	141.5	177
-node	Duck	root	155.5	156
-node	Fish	root	129	135
-node	Zebra	root	124.5	135
-node	note0	root	141	33
-node	note1	root	152	96
+node	Animal	root	139.578125	177
+node	Duck	root	153.5703125	156
+node	Fish	root	126.328125	135
+node	Zebra	root	123.625	135
+node	note0	root	138.03125	33
+node	note1	root	149.015625	96
 edge	edgeNote1	root	note1	Duck
 label	edge	edgeNote1	0		0	0
 option	edge-label	edgeNote1	0	edgeLabels.inline	true
@@ -44,22 +44,22 @@ label	edge	id_Animal_Zebra_3	0		0	0
 option	edge-label	id_Animal_Zebra_3	0	edgeLabels.inline	true
 option	edge-label	id_Animal_Zebra_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	630.8125	417
-place	Animal	root	104.3125	12	141.5	177
-place	Duck	root	442.47916666666663	249	155.5	156
-place	Fish	root	12	249	129	135
-place	Zebra	root	181	249	124.5	135
-place	note0	root	285.8125	84	141	33
-place	note1	root	466.8125	93	152	96
+place	root		0	0	621.435546875	417
+place	Animal	root	102.810546875	12	139.578125	177
+place	Duck	root	435.880859375	249	153.5703125	156
+place	Fish	root	12	249	126.328125	135
+place	Zebra	root	178.328125	249	123.625	135
+place	note0	root	282.388671875	84	138.03125	33
+place	note1	root	460.419921875	93	149.015625	96
 route	edgeNote1	root	root
-section	edgeNote1	edgeNote1_s0	542.8125,189	542.8125,249		note1	Duck
+section	edgeNote1	edgeNote1_s0	534.927734375,189	534.927734375,249		note1	Duck
 place-label	edge	edgeNote1	0	0	0	0	0
 route	id_Animal_Duck_1	root	root
-section	id_Animal_Duck_1	id_Animal_Duck_1_s0	205.4375,189	497.6458333333333,249	205.4375,209 497.6458333333333,209	Animal	Duck
+section	id_Animal_Duck_1	id_Animal_Duck_1_s0	202.494140625,189	490.404296875,249	202.494140625,209 490.404296875,209	Animal	Duck
 place-label	edge	id_Animal_Duck_1	0	0	0	0	0
 route	id_Animal_Fish_2	root	root
-section	id_Animal_Fish_2	id_Animal_Fish_2_s0	144.6875,189	76.5,249	144.6875,209 76.5,209	Animal	Fish
+section	id_Animal_Fish_2	id_Animal_Fish_2_s0	142.705078125,189	75.1640625,249	142.705078125,209 75.1640625,209	Animal	Fish
 place-label	edge	id_Animal_Fish_2	0	0	0	0	0
 route	id_Animal_Zebra_3	root	root
-section	id_Animal_Zebra_3	id_Animal_Zebra_3_s0	175.0625,189	243.25,249	175.0625,229 243.25,229	Animal	Zebra
+section	id_Animal_Zebra_3	id_Animal_Zebra_3_s0	172.599609375,189	240.140625,249	172.599609375,229 240.140625,229	Animal	Zebra
 place-label	edge	id_Animal_Zebra_3	0	0	0	0	0

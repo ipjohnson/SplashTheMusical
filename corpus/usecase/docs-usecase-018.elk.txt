@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 node	Checkout	root	160	58
 option	node	Checkout		elk.portAlignment.default	CENTER
 option	node	Checkout		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -29,7 +29,7 @@ node	Session	root	138	60
 option	node	Session		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Account	root
 option	node	Account		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Account		nodeSize.minimum	(71, 0)
+option	node	Account		nodeSize.minimum	(70.59375, 0)
 option	node	Account		spacing.baseValue	24
 option	node	Account		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Account		elk.spacing.edgeEdge	20
@@ -43,7 +43,7 @@ option	node	Account		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Account		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Account		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Account		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Account	0	Account	51	19
+label	node	Account	0	Account	50.59375	19
 node	Profile	Account	152	42
 option	node	Profile		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	edge-0	root	Customer	Checkout
@@ -59,19 +59,19 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	744	153.5
-place	Customer	root	12	20.5	82	121
-place	Checkout	root	134	52	160	58
-place	Session	root	594	51	138	60
-place	Account	root	344	12	200	114
-place-label	node	Account	0	74.5	5	51	19
+place	root		0	0	742.6875	153.5
+place	Customer	root	12	20.5	80.6875	121
+place	Checkout	root	132.6875	52	160	58
+place	Session	root	592.6875	51	138	60
+place	Account	root	342.6875	12	200	114
+place-label	node	Account	0	74.703125	5	50.59375	19
 place	Profile	Account	24	48	152	42
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,81	134,81		Customer	Checkout
+section	edge-0	edge-0_s0	92.6875,81	132.6875,81		Customer	Checkout
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	294,81	368,81	334,81	Checkout	Profile
+section	edge-1	edge-1_s0	292.6875,81	366.6875,81	332.6875,81	Checkout	Profile
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	520,81	594,81	554,81	Profile	Session
+section	edge-2	edge-2_s0	518.6875,81	592.6875,81	552.6875,81	Profile	Session
 place-label	edge	edge-2	0	0	0	0	0

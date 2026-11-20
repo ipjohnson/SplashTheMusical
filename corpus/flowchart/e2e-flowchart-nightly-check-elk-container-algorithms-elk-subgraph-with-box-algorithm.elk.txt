@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	grp	root
 option	node	grp		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	grp		nodeSize.minimum	(72, 49)
+option	node	grp		nodeSize.minimum	(70.484375, 49)
 option	node	grp		spacing.baseValue	24
 option	node	grp		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	grp		elk.spacing.edgeEdge	20
@@ -41,7 +41,7 @@ option	node	grp		elk.hierarchyHandling	SEPARATE_CHILDREN
 option	node	grp		elk.aspectRatio	2.0
 option	node	grp		elk.contentAlignment	H_CENTER V_TOP
 option	node	grp		elk.expandNodes	true
-label	node	grp	0	Grouped	56	19
+label	node	grp	0	Grouped	54.484375	19
 node	a	grp	152	45
 node	b	grp	152	45
 node	c	grp	152	45
@@ -58,7 +58,7 @@ option	edge-label	L_grp_done_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	206	478
 place	grp	root	12	97	182	284
-place-label	node	grp	0	63	5	56	19
+place-label	node	grp	0	63.7578125	5	54.484375	19
 place	a	grp	15	34	152	45
 place	b	grp	15	129	152	45
 place	c	grp	15	224	152	45

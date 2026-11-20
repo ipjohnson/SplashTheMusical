@@ -21,15 +21,15 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 option	node	Customer		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	Staff	root	88	121
+node	Staff	root	85.890625	121
 option	node	Staff		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	note-0	root	140	62
 option	node	note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	ordering	root
 option	node	ordering		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	ordering		nodeSize.minimum	(125, 0)
+option	node	ordering		nodeSize.minimum	(122.703125, 0)
 option	node	ordering		spacing.baseValue	24
 option	node	ordering		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	ordering		elk.spacing.edgeEdge	20
@@ -43,7 +43,7 @@ option	node	ordering		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	ordering		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	ordering		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	ordering		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	ordering	0	Ordering system	105	19
+label	node	ordering	0	Ordering system	102.703125	19
 node	Browse	ordering	160	58
 option	node	Browse		elk.portAlignment.default	CENTER
 option	node	Browse		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -59,11 +59,11 @@ label	edge	edge-0	0		0	0
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 edge	edge-1	root	Customer	Checkout
-label	edge	edge-1	0	places order	61	15
+label	edge	edge-1	0	places order	59.03125	15
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 edge	edge-2	root	Checkout	Payment
-label	edge	edge-2	0	«include»	49	15
+label	edge	edge-2	0	«include»	46.8125	15
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 edge	edge-3	root	Staff	Review
@@ -75,28 +75,28 @@ label	edge	note-0-edge	0		0	0
 option	edge-label	note-0-edge	0	edgeLabels.inline	true
 option	edge-label	note-0-edge	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	801	435.25
-place	Customer	root	12	36.250000000000014	82	121
-place	Staff	root	186	302.25	88	121
-place	note-0	root	134	200.25	140	62
-place	ordering	root	324	12	465	348
-place-label	node	ordering	0	180	5	105	19
+place	root		0	0	797.5	435.25
+place	Customer	root	12	36.250000000000014	80.6875	121
+place	Staff	root	186.796875	302.25	85.890625	121
+place	note-0	root	132.6875	200.25	140	62
+place	ordering	root	322.6875	12	462.8125	348
+place-label	node	ordering	0	180.0546875	5	102.703125	19
 place	Browse	ordering	24	48	160	58
 place	Checkout	ordering	24	156	160	76
-place	Payment	ordering	281	165	160	58
+place	Payment	ordering	278.8125	165	160	58
 place	Review	ordering	24	282	152	42
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,79.91666666666667	348,89	114,79.91666666666667 114,82.25 204,82.25 294,82.25 294,89 314,89	Customer	Browse
+section	edge-0	edge-0_s0	92.6875,79.91666666666667	346.6875,89	112.6875,79.91666666666667 112.6875,82.25 202.6875,82.25 292.6875,82.25 292.6875,89 312.6875,89	Customer	Browse
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	94,113.58333333333334	348,200	114,113.58333333333334 114,152.25 294,152.25 294,200 314,200	Customer	Checkout
-place-label	edge	edge-1	0	173.5	144.25	61	15
+section	edge-1	edge-1_s0	92.6875,113.58333333333334	346.6875,200	112.6875,113.58333333333334 112.6875,152.25 292.6875,152.25 292.6875,200 312.6875,200	Customer	Checkout
+place-label	edge	edge-1	0	173.171875	144.25	59.03125	15
 route	edge-2	root	ordering
-section	edge-2	edge-2_s0	184,194	281,194		Checkout	Payment
-place-label	edge	edge-2	0	208	186	49	15
+section	edge-2	edge-2_s0	184,194	278.8125,194		Checkout	Payment
+place-label	edge	edge-2	0	208	186	46.8125	15
 route	edge-3	root	root
-section	edge-3	edge-3_s0	274,362.75	348,315	294,362.75 294,315 314,315	Staff	Review
+section	edge-3	edge-3_s0	272.6875,362.75	346.6875,315	292.6875,362.75 292.6875,315 312.6875,315	Staff	Review
 place-label	edge	edge-3	0	0	0	0	0
 route	note-0-edge	root	root
-section	note-0-edge	note-0-edge_s0	274,231.25	348,212	294,231.25 294,212 314,212	note-0	Checkout
+section	note-0-edge	note-0-edge_s0	272.6875,231.25	346.6875,212	292.6875,231.25 292.6875,212 312.6875,212	note-0	Checkout
 place-label	edge	note-0-edge	0	0	0	0	0

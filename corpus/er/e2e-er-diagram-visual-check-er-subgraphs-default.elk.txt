@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	customers	root
 option	node	customers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	customers		nodeSize.minimum	(74, 0)
+option	node	customers		nodeSize.minimum	(72.578125, 0)
 option	node	customers		spacing.baseValue	24
 option	node	customers		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	customers		elk.spacing.edgeEdge	20
@@ -36,19 +36,19 @@ option	node	customers		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	customers		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	customers		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	customers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	customers	0	customers	66	19
-node	entity-CUSTOMER-0	customers	120	81
+label	node	customers	0	customers	64.578125	19
+node	entity-CUSTOMER-0	customers	119.859375	81
 node	entity-ORDER-1	customers	100	81
 edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	192	327
-place	customers	root	12	12	168	303
-place-label	node	customers	0	51	5	66	19
-place	entity-CUSTOMER-0	customers	24	48	120	81
-place	entity-ORDER-1	customers	34	198	100	81
+place	root		0	0	191.859375	327
+place	customers	root	12	12	167.859375	303
+place-label	node	customers	0	51.640625	5	64.578125	19
+place	entity-CUSTOMER-0	customers	24	48	119.859375	81
+place	entity-ORDER-1	customers	33.9296875	198	100	81
 route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	customers
-section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	84,129	84,198		entity-CUSTOMER-0	entity-ORDER-1
-place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	63.5	153	41	21
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	83.9296875,129	83.9296875,198		entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	63.4296875	153	40.46875	21

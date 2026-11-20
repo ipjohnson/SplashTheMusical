@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-BOOK-0	root	195.5	139
-node	entity-STORE-1	root	187.5	139
+node	entity-BOOK-0	root	191.65625	139
+node	entity-STORE-1	root	183.90625	139
 edge	id_entity-BOOK-0_entity-STORE-1_0	root	entity-BOOK-0	entity-STORE-1
-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	soldBy	46	19.999998092651367
+label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	soldBy	46.03125	19.999998092651367
 option	edge-label	id_entity-BOOK-0_entity-STORE-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-BOOK-0_entity-STORE-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	219.5	401.99999809265137
-place	entity-BOOK-0	root	12	12	195.5	139
-place	entity-STORE-1	root	16	250.99999809265137	187.5	139
+place	root		0	0	215.65625	401.99999809265137
+place	entity-BOOK-0	root	12	12	191.65625	139
+place	entity-STORE-1	root	15.875	250.99999809265137	183.90625	139
 route	id_entity-BOOK-0_entity-STORE-1_0	root	root
-section	id_entity-BOOK-0_entity-STORE-1_0	id_entity-BOOK-0_entity-STORE-1_0_s0	109.75,151	109.75,250.99999809265137		entity-BOOK-0	entity-STORE-1
-place-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	86.75	191	46	19.999998092651367
+section	id_entity-BOOK-0_entity-STORE-1_0	id_entity-BOOK-0_entity-STORE-1_0_s0	107.828125,151	107.828125,250.99999809265137		entity-BOOK-0	entity-STORE-1
+place-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	84.328125	191	46.03125	19.999998092651367

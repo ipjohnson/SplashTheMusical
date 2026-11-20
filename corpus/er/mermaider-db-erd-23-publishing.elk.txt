@@ -21,27 +21,27 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-Assembly-0	root	101	81
-node	entity-PublishEnvironment-1	root	166	81
-node	entity-FeatureFlag-2	root	118	81
-node	entity-AnalyticsIntegration-3	root	164	81
-node	entity-SearchIndex-4	root	120	81
-node	entity-RedirectStore-5	root	127	81
+node	entity-Assembly-0	root	100.6875	81
+node	entity-PublishEnvironment-1	root	164.515625	81
+node	entity-FeatureFlag-2	root	115.484375	81
+node	entity-AnalyticsIntegration-3	root	162.1875	81
+node	entity-SearchIndex-4	root	118.609375	81
+node	entity-RedirectStore-5	root	125.59375	81
 node	entity-Build-6	root	100	81
-node	entity-BuildType-7	root	102	81
-node	entity-AssembledDocumentationSet-8	root	227	81
-node	entity-DocumentationSet-9	root	157	81
-node	entity-GenerationState-10	root	144	81
-node	entity-BuildStamp-11	root	112	81
-node	entity-CloudfrontRedirectMap-12	root	187	81
-node	entity-Redirect-13	root	93	81
-node	entity-SyncPlan-14	root	99	81
+node	entity-BuildType-7	root	101.484375	81
+node	entity-AssembledDocumentationSet-8	root	224.4375	81
+node	entity-DocumentationSet-9	root	155.1875	81
+node	entity-GenerationState-10	root	141.96875	81
+node	entity-BuildStamp-11	root	111.59375	81
+node	entity-CloudfrontRedirectMap-12	root	183.96875	81
+node	entity-Redirect-13	root	92.140625	81
+node	entity-SyncPlan-14	root	99.15625	81
 edge	id_entity-Assembly-0_entity-PublishEnvironment-1_0	root	entity-Assembly-0	entity-PublishEnvironment-1
-label	edge	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	environments	86	21
+label	edge	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	environments	84.046875	21
 option	edge-label	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	root	entity-PublishEnvironment-1	entity-FeatureFlag-2
-label	edge	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	feature_flags	83	21
+label	edge	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	feature_flags	80.953125	21
 option	edge-label	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	root	entity-PublishEnvironment-1	entity-AnalyticsIntegration-3
@@ -49,112 +49,112 @@ label	edge	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	0	goog
 option	edge-label	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	0	edgeLabels.placement	CENTER
 edge	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	root	entity-PublishEnvironment-1	entity-SearchIndex-4
-label	edge	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	index name suffix	111	21
+label	edge	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	index name suffix	108.703125	21
 option	edge-label	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	edgeLabels.inline	true
 option	edge-label	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	edgeLabels.placement	CENTER
 edge	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	root	entity-PublishEnvironment-1	entity-RedirectStore-5
-label	edge	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	KVS	27	21
+label	edge	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	KVS	28.015625	21
 option	edge-label	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	edgeLabels.inline	true
 option	edge-label	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-BuildType-7_5	root	entity-Build-6	entity-BuildType-7
-label	edge	id_entity-Build-6_entity-BuildType-7_5	0	type	27	21
+label	edge	id_entity-Build-6_entity-BuildType-7_5	0	type	26.46875	21
 option	edge-label	id_entity-Build-6_entity-BuildType-7_5	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-BuildType-7_5	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-PublishEnvironment-1_6	root	entity-Build-6	entity-PublishEnvironment-1
-label	edge	id_entity-Build-6_entity-PublishEnvironment-1_6	0	environment	79	21
+label	edge	id_entity-Build-6_entity-PublishEnvironment-1_6	0	environment	77.046875	21
 option	edge-label	id_entity-Build-6_entity-PublishEnvironment-1_6	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-PublishEnvironment-1_6	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	root	entity-Build-6	entity-AssembledDocumentationSet-8
-label	edge	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	assembles	68	21
+label	edge	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	assembles	66.921875	21
 option	edge-label	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	edgeLabels.placement	CENTER
 edge	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	root	entity-AssembledDocumentationSet-8	entity-DocumentationSet-9
-label	edge	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	docset	42	21
+label	edge	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	docset	41.25	21
 option	edge-label	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	edgeLabels.inline	true
 option	edge-label	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-GenerationState-10_9	root	entity-Build-6	entity-GenerationState-10
-label	edge	id_entity-Build-6_entity-GenerationState-10_9	0	per docset	67	21
+label	edge	id_entity-Build-6_entity-GenerationState-10_9	0	per docset	65.375	21
 option	edge-label	id_entity-Build-6_entity-GenerationState-10_9	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-GenerationState-10_9	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-BuildStamp-11_10	root	entity-Build-6	entity-BuildStamp-11
-label	edge	id_entity-Build-6_entity-BuildStamp-11_10	0	assembler only	96	21
+label	edge	id_entity-Build-6_entity-BuildStamp-11_10	0	assembler only	94.15625	21
 option	edge-label	id_entity-Build-6_entity-BuildStamp-11_10	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-BuildStamp-11_10	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	root	entity-Build-6	entity-CloudfrontRedirectMap-12
-label	edge	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	redirects.json	85	21
+label	edge	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	redirects.json	83.265625	21
 option	edge-label	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	edgeLabels.placement	CENTER
 edge	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	root	entity-CloudfrontRedirectMap-12	entity-Redirect-13
-label	edge	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	derived from	80	21
+label	edge	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	derived from	77.8125	21
 option	edge-label	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	edgeLabels.inline	true
 option	edge-label	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	edgeLabels.placement	CENTER
 edge	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	root	entity-CloudfrontRedirectMap-12	entity-RedirectStore-5
-label	edge	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	deployed to	74	21
+label	edge	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	deployed to	72.40625	21
 option	edge-label	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	edgeLabels.inline	true
 option	edge-label	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	edgeLabels.placement	CENTER
 edge	id_entity-Build-6_entity-SyncPlan-14_14	root	entity-Build-6	entity-SyncPlan-14
-label	edge	id_entity-Build-6_entity-SyncPlan-14_14	0	deploy plan	73	21
+label	edge	id_entity-Build-6_entity-SyncPlan-14_14	0	deploy plan	71.625	21
 option	edge-label	id_entity-Build-6_entity-SyncPlan-14_14	0	edgeLabels.inline	true
 option	edge-label	id_entity-Build-6_entity-SyncPlan-14_14	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1476.2833333333333	590
-place	entity-Assembly-0	root	1233.6666666666667	12	101	81
-place	entity-PublishEnvironment-1	root	1123	254	166	81
-place	entity-FeatureFlag-2	root	1346.2833333333335	497	118	81
-place	entity-AnalyticsIntegration-3	root	1142.2833333333335	497	164	81
-place	entity-SearchIndex-4	root	809.5833333333334	497	120	81
-place	entity-RedirectStore-5	root	970.4166666666666	497	127	81
-place	entity-Build-6	root	566.0333333333334	12	100	81
-place	entity-BuildType-7	root	981	254	102	81
-place	entity-AssembledDocumentationSet-8	root	348	254	227	81
-place	entity-DocumentationSet-9	root	383	497	157	81
-place	entity-GenerationState-10	root	12	254	144	81
-place	entity-BuildStamp-11	root	196	254	112	81
-place	entity-CloudfrontRedirectMap-12	root	754	254	187	81
-place	entity-Redirect-13	root	676.5833333333334	497	93	81
-place	entity-SyncPlan-14	root	615	254	99	81
+place	root		0	0	1463.6544270833333	590
+place	entity-Assembly-0	root	1222.984375	12	100.6875	81
+place	entity-PublishEnvironment-1	root	1114.609375	254	164.515625	81
+place	entity-FeatureFlag-2	root	1336.1700520833335	497	115.484375	81
+place	entity-AnalyticsIntegration-3	root	1133.9825520833335	497	162.1875	81
+place	entity-SearchIndex-4	root	803.69921875	497	118.609375	81
+place	entity-RedirectStore-5	root	963.0130208333334	497	125.59375	81
+place	entity-Build-6	root	561.0294270833334	12	100	81
+place	entity-BuildType-7	root	973.125	254	101.484375	81
+place	entity-AssembledDocumentationSet-8	root	345.5625	254	224.4375	81
+place	entity-DocumentationSet-9	root	380.1875	497	155.1875	81
+place	entity-GenerationState-10	root	12	254	141.96875	81
+place	entity-BuildStamp-11	root	193.96875	254	111.59375	81
+place	entity-CloudfrontRedirectMap-12	root	749.15625	254	183.96875	81
+place	entity-Redirect-13	root	671.55859375	497	92.140625	81
+place	entity-SyncPlan-14	root	610	254	99.15625	81
 route	id_entity-Assembly-0_entity-PublishEnvironment-1_0	root	root
-section	id_entity-Assembly-0_entity-PublishEnvironment-1_0	id_entity-Assembly-0_entity-PublishEnvironment-1_0_s0	1284.1666666666667,93	1230.3333333333333,254	1284.1666666666667,234 1230.3333333333333,234	entity-Assembly-0	entity-PublishEnvironment-1
-place-label	edge	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	1241.1666666666667	193	86	21
+section	id_entity-Assembly-0_entity-PublishEnvironment-1_0	id_entity-Assembly-0_entity-PublishEnvironment-1_0_s0	1273.328125,93	1220.953125,254	1273.328125,234 1220.953125,234	entity-Assembly-0	entity-PublishEnvironment-1
+place-label	edge	id_entity-Assembly-0_entity-PublishEnvironment-1_0	0	1230.828125	193	84.046875	21
 route	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	root	root
-section	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1_s0	1249.8,335	1405.2833333333335,497	1249.8,355 1405.2833333333335,355	entity-PublishEnvironment-1	entity-FeatureFlag-2
-place-label	edge	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	1363.7833333333335	425.5	83	21
+section	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1_s0	1240.221875,335	1393.9122395833335,497	1240.221875,355 1393.9122395833335,355	entity-PublishEnvironment-1	entity-FeatureFlag-2
+place-label	edge	id_entity-PublishEnvironment-1_entity-FeatureFlag-2_1	0	1353.4122395833335	425.5	80.953125	21
 route	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	root	root
-section	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2_s0	1220.6,335	1224.2833333333335,497	1220.6,355 1224.2833333333335,355	entity-PublishEnvironment-1	entity-AnalyticsIntegration-3
-place-label	edge	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	0	1124.2833333333335	415	200	42
+section	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2_s0	1211.31875,335	1215.0763020833335,497	1211.31875,355 1215.0763020833335,355	entity-PublishEnvironment-1	entity-AnalyticsIntegration-3
+place-label	edge	id_entity-PublishEnvironment-1_entity-AnalyticsIntegration-3_2	0	1115.0763020833335	415	200	42
 route	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	root	root
-section	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3_s0	1162.2,335	869.5833333333334,497	1162.2,375 869.5833333333334,375	entity-PublishEnvironment-1	entity-SearchIndex-4
-place-label	edge	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	814.0833333333334	425.5	111	21
+section	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3_s0	1153.5125,335	863.00390625,497	1153.5125,375 863.00390625,375	entity-PublishEnvironment-1	entity-SearchIndex-4
+place-label	edge	id_entity-PublishEnvironment-1_entity-SearchIndex-4_3	0	808.50390625	425.5	108.703125	21
 route	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	root	root
-section	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4_s0	1191.4,335	1051.75,497	1191.4,395 1073.7,395 1073.7,477 1051.75,477	entity-PublishEnvironment-1	entity-RedirectStore-5
-place-label	edge	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	1060.2	425.5	27	21
+section	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4_s0	1182.415625,335	1043.4088541666667,497	1182.415625,395 1065.17265625,395 1065.17265625,477 1043.4088541666667,477	entity-PublishEnvironment-1	entity-RedirectStore-5
+place-label	edge	id_entity-PublishEnvironment-1_entity-RedirectStore-5_4	0	1050.67265625	425.5	28.015625	21
 route	id_entity-Build-6_entity-BuildType-7_5	root	root
-section	id_entity-Build-6_entity-BuildType-7_5	id_entity-Build-6_entity-BuildType-7_5_s0	636.0333333333334,93	1032,254	636.0333333333334,133 1032,133	entity-Build-6	entity-BuildType-7
-place-label	edge	id_entity-Build-6_entity-BuildType-7_5	0	1018.5	193	27	21
+section	id_entity-Build-6_entity-BuildType-7_5	id_entity-Build-6_entity-BuildType-7_5_s0	631.0294270833334,93	1023.8671875,254	631.0294270833334,133 1023.8671875,133	entity-Build-6	entity-BuildType-7
+place-label	edge	id_entity-Build-6_entity-BuildType-7_5	0	1010.3671875	193	26.46875	21
 route	id_entity-Build-6_entity-PublishEnvironment-1_6	root	root
-section	id_entity-Build-6_entity-PublishEnvironment-1_6	id_entity-Build-6_entity-PublishEnvironment-1_6_s0	646.0333333333334,93	1181.6666666666667,254	646.0333333333334,113 1178.1833333333334,113 1178.1833333333334,234 1181.6666666666667,234	entity-Build-6	entity-PublishEnvironment-1
-place-label	edge	id_entity-Build-6_entity-PublishEnvironment-1_6	0	1138.6833333333334	193	79	21
+section	id_entity-Build-6_entity-PublishEnvironment-1_6	id_entity-Build-6_entity-PublishEnvironment-1_6_s0	641.0294270833334,93	1172.78125,254	641.0294270833334,113 1168.1130208333334,113 1168.1130208333334,234 1172.78125,234	entity-Build-6	entity-PublishEnvironment-1
+place-label	edge	id_entity-Build-6_entity-PublishEnvironment-1_6	0	1129.1130208333334	193	77.046875	21
 route	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	root	root
-section	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	id_entity-Build-6_entity-AssembledDocumentationSet-8_7_s0	606.0333333333334,93	461.5,254	606.0333333333334,153 461.5,153	entity-Build-6	entity-AssembledDocumentationSet-8
-place-label	edge	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	427.5	193	68	21
+section	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	id_entity-Build-6_entity-AssembledDocumentationSet-8_7_s0	601.0294270833334,93	457.78125,254	601.0294270833334,153 457.78125,153	entity-Build-6	entity-AssembledDocumentationSet-8
+place-label	edge	id_entity-Build-6_entity-AssembledDocumentationSet-8_7	0	424.28125	193	66.921875	21
 route	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	root	root
-section	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8_s0	461.5,335	461.5,497		entity-AssembledDocumentationSet-8	entity-DocumentationSet-9
-place-label	edge	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	440.5	425.5	42	21
+section	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8_s0	457.78125,335	457.78125,497		entity-AssembledDocumentationSet-8	entity-DocumentationSet-9
+place-label	edge	id_entity-AssembledDocumentationSet-8_entity-DocumentationSet-9_8	0	436.78125	425.5	41.25	21
 route	id_entity-Build-6_entity-GenerationState-10_9	root	root
-section	id_entity-Build-6_entity-GenerationState-10_9	id_entity-Build-6_entity-GenerationState-10_9_s0	586.0333333333334,93	84,254	586.0333333333334,113 84,113	entity-Build-6	entity-GenerationState-10
-place-label	edge	id_entity-Build-6_entity-GenerationState-10_9	0	50.5	193	67	21
+section	id_entity-Build-6_entity-GenerationState-10_9	id_entity-Build-6_entity-GenerationState-10_9_s0	581.0294270833334,93	82.984375,254	581.0294270833334,113 82.984375,113	entity-Build-6	entity-GenerationState-10
+place-label	edge	id_entity-Build-6_entity-GenerationState-10_9	0	49.984375	193	65.375	21
 route	id_entity-Build-6_entity-BuildStamp-11_10	root	root
-section	id_entity-Build-6_entity-BuildStamp-11_10	id_entity-Build-6_entity-BuildStamp-11_10_s0	596.0333333333334,93	252,254	596.0333333333334,133 252,133	entity-Build-6	entity-BuildStamp-11
-place-label	edge	id_entity-Build-6_entity-BuildStamp-11_10	0	204	193	96	21
+section	id_entity-Build-6_entity-BuildStamp-11_10	id_entity-Build-6_entity-BuildStamp-11_10_s0	591.0294270833334,93	249.765625,254	591.0294270833334,133 249.765625,133	entity-Build-6	entity-BuildStamp-11
+place-label	edge	id_entity-Build-6_entity-BuildStamp-11_10	0	202.265625	193	94.15625	21
 route	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	root	root
-section	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11_s0	626.0333333333334,93	847.5,254	626.0333333333334,153 847.5,153	entity-Build-6	entity-CloudfrontRedirectMap-12
-place-label	edge	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	805	193	85	21
+section	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11_s0	621.0294270833334,93	841.140625,254	621.0294270833334,153 841.140625,153	entity-Build-6	entity-CloudfrontRedirectMap-12
+place-label	edge	id_entity-Build-6_entity-CloudfrontRedirectMap-12_11	0	799.140625	193	83.265625	21
 route	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	root	root
-section	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12_s0	819.6666666666666,335	723.0833333333334,497	819.6666666666666,355 723.0833333333334,355	entity-CloudfrontRedirectMap-12	entity-Redirect-13
-place-label	edge	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	683.0833333333334	425.5	80	21
+section	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12_s0	813.8125,335	717.62890625,497	813.8125,355 717.62890625,355	entity-CloudfrontRedirectMap-12	entity-Redirect-13
+place-label	edge	id_entity-CloudfrontRedirectMap-12_entity-Redirect-13_12	0	678.62890625	425.5	77.8125	21
 route	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	root	root
-section	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13_s0	875.3333333333333,335	1016.0833333333333,497	875.3333333333333,355 998.6666666666667,355 998.6666666666667,477 1016.0833333333333,477	entity-CloudfrontRedirectMap-12	entity-RedirectStore-5
-place-label	edge	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	961.6666666666667	425.5	74	21
+section	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13_s0	868.46875,335	1008.2109375,497	868.46875,355 990.6067708333335,355 990.6067708333335,477 1008.2109375,477	entity-CloudfrontRedirectMap-12	entity-RedirectStore-5
+place-label	edge	id_entity-CloudfrontRedirectMap-12_entity-RedirectStore-5_13	0	954.1067708333335	425.5	72.40625	21
 route	id_entity-Build-6_entity-SyncPlan-14_14	root	root
-section	id_entity-Build-6_entity-SyncPlan-14_14	id_entity-Build-6_entity-SyncPlan-14_14_s0	616.0333333333334,93	664.5,254	616.0333333333334,173 664.5,173	entity-Build-6	entity-SyncPlan-14
-place-label	edge	id_entity-Build-6_entity-SyncPlan-14_14	0	628	193	73	21
+section	id_entity-Build-6_entity-SyncPlan-14_14	id_entity-Build-6_entity-SyncPlan-14_14_s0	611.0294270833334,93	659.578125,254	611.0294270833334,173 659.578125,173	entity-Build-6	entity-SyncPlan-14
+place-label	edge	id_entity-Build-6_entity-SyncPlan-14_14	0	623.578125	193	71.625	21

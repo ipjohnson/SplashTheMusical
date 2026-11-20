@@ -21,43 +21,43 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-p-0	root	149.4969940185547	122.93346405029297
-node	entity-a-1	root	168.97410583496094	83.34745025634766
-node	entity-b-2	root	241.16062927246094	83.0262680053711
-node	entity-c-3	root	219.85789489746094	83.24453735351562
-node	entity-d-4	root	194.88497924804688	83.1274185180664
+node	entity-p-0	root	147.35142517089844	122.7857894897461
+node	entity-a-1	root	167.6231231689453	83.17888641357422
+node	entity-b-2	root	238.53639221191406	83.21880340576172
+node	entity-c-3	root	216.9281768798828	83.02318572998047
+node	entity-d-4	root	193.35240173339844	83.34520721435547
 edge	id_entity-p-0_entity-a-1_0	root	entity-p-0	entity-a-1
-label	edge	id_entity-p-0_entity-a-1_0	0	has\none	24	42
+label	edge	id_entity-p-0_entity-a-1_0	0	has\none	23.359375	42
 option	edge-label	id_entity-p-0_entity-a-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-p-0_entity-a-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-p-0_entity-b-2_1	root	entity-p-0	entity-b-2
-label	edge	id_entity-p-0_entity-b-2_1	0	has\none\ntwo	24	63
+label	edge	id_entity-p-0_entity-b-2_1	0	has\none\ntwo	23.359375	63
 option	edge-label	id_entity-p-0_entity-b-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-p-0_entity-b-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-p-0_entity-c-3_2	root	entity-p-0	entity-c-3
-label	edge	id_entity-p-0_entity-c-3_2	0	has\none\ntwo\nthree	33	84
+label	edge	id_entity-p-0_entity-c-3_2	0	has\none\ntwo\nthree	31.921875	84
 option	edge-label	id_entity-p-0_entity-c-3_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-p-0_entity-c-3_2	0	edgeLabels.placement	CENTER
 edge	id_entity-p-0_entity-d-4_3	root	entity-p-0	entity-d-4
-label	edge	id_entity-p-0_entity-d-4_3	0	has\none\ntwo\nthree\n...\nNth	33	126
+label	edge	id_entity-p-0_entity-d-4_3	0	has\none\ntwo\nthree\n...\nNth	31.921875	126
 option	edge-label	id_entity-p-0_entity-d-4_3	0	edgeLabels.inline	true
 option	edge-label	id_entity-p-0_entity-d-4_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	968.8776092529297	456.2809143066406
-place	entity-p-0	root	402.06055450439453	12	149.4969940185547	122.93346405029297
-place	entity-a-1	root	12	360.93346405029297	168.97410583496094	83.34745025634766
-place	entity-b-2	root	220.97410583496094	360.93346405029297	241.16062927246094	83.0262680053711
-place	entity-c-3	root	502.1347351074219	360.93346405029297	219.85789489746094	83.24453735351562
-place	entity-d-4	root	761.9926300048828	360.93346405029297	194.88497924804688	83.1274185180664
+place	root		0	0	960.4400939941406	456.13099670410156
+place	entity-p-0	root	399.08174896240234	12	147.35142517089844	122.7857894897461
+place	entity-a-1	root	12	360.7857894897461	167.6231231689453	83.17888641357422
+place	entity-b-2	root	219.6231231689453	360.7857894897461	238.53639221191406	83.21880340576172
+place	entity-c-3	root	498.1595153808594	360.7857894897461	216.9281768798828	83.02318572998047
+place	entity-d-4	root	755.0876922607422	360.7857894897461	193.35240173339844	83.34520721435547
 route	id_entity-p-0_entity-a-1_0	root	root
-section	id_entity-p-0_entity-a-1_0	id_entity-p-0_entity-a-1_0_s0	437.95995330810547,134.93346405029297	96.48705291748047,360.93346405029297	437.95995330810547,154.93346405029297 96.48705291748047,154.93346405029297	entity-p-0	entity-a-1
-place-label	edge	id_entity-p-0_entity-a-1_0	0	84.48705291748047	236.93346405029297	24	42
+section	id_entity-p-0_entity-a-1_0	id_entity-p-0_entity-a-1_0_s0	434.55203399658205,134.7857894897461	95.81156158447266,360.7857894897461	434.55203399658205,154.7857894897461 95.81156158447266,154.7857894897461	entity-p-0	entity-a-1
+place-label	edge	id_entity-p-0_entity-a-1_0	0	83.81156158447266	236.7857894897461	23.359375	42
 route	id_entity-p-0_entity-b-2_1	root	root
-section	id_entity-p-0_entity-b-2_1	id_entity-p-0_entity-b-2_1_s0	463.8593521118164,134.93346405029297	341.5544204711914,360.93346405029297	463.8593521118164,174.93346405029297 341.5544204711914,174.93346405029297	entity-p-0	entity-b-2
-place-label	edge	id_entity-p-0_entity-b-2_1	0	329.5544204711914	226.43346405029297	24	63
+section	id_entity-p-0_entity-b-2_1	id_entity-p-0_entity-b-2_1_s0	460.0223190307617,134.7857894897461	338.89131927490234,360.7857894897461	460.0223190307617,174.7857894897461 338.89131927490234,174.7857894897461	entity-p-0	entity-b-2
+place-label	edge	id_entity-p-0_entity-b-2_1	0	326.89131927490234	226.2857894897461	23.359375	63
 route	id_entity-p-0_entity-c-3_2	root	root
-section	id_entity-p-0_entity-c-3_2	id_entity-p-0_entity-c-3_2_s0	489.75875091552734,134.93346405029297	612.0636825561523,360.93346405029297	489.75875091552734,174.93346405029297 612.0636825561523,174.93346405029297	entity-p-0	entity-c-3
-place-label	edge	id_entity-p-0_entity-c-3_2	0	595.5636825561523	215.93346405029297	33	84
+section	id_entity-p-0_entity-c-3_2	id_entity-p-0_entity-c-3_2_s0	485.4926040649414,134.7857894897461	606.6236038208008,360.7857894897461	485.4926040649414,174.7857894897461 606.6236038208008,174.7857894897461	entity-p-0	entity-c-3
+place-label	edge	id_entity-p-0_entity-c-3_2	0	590.6236038208008	215.7857894897461	31.921875	84
 route	id_entity-p-0_entity-d-4_3	root	root
-section	id_entity-p-0_entity-d-4_3	id_entity-p-0_entity-d-4_3_s0	515.6581497192383,134.93346405029297	859.4351196289062,360.93346405029297	515.6581497192383,154.93346405029297 859.4351196289062,154.93346405029297	entity-p-0	entity-d-4
-place-label	edge	id_entity-p-0_entity-d-4_3	0	842.9351196289062	194.93346405029297	33	126
+section	id_entity-p-0_entity-d-4_3	id_entity-p-0_entity-d-4_3_s0	510.96288909912107,134.7857894897461	851.7638931274414,360.7857894897461	510.96288909912107,154.7857894897461 851.7638931274414,154.7857894897461	entity-p-0	entity-d-4
+place-label	edge	id_entity-p-0_entity-d-4_3	0	835.7638931274414	194.7857894897461	31.921875	126

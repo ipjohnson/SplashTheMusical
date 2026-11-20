@@ -21,34 +21,34 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Car	root	72	81
-node	Driver	root	64	81
-node	Wheel	root	66	81
-node	Person	root	72	81
+node	Car	root	72.25	81
+node	Driver	root	64.46875	81
+node	Wheel	root	65.234375	81
+node	Person	root	71.46875	81
 edge	id_Driver_Car_1	root	Driver	Car
-label	edge	id_Driver_Car_1	0	drives >	50	21
+label	edge	id_Driver_Car_1	0	drives >	49.421875	21
 option	edge-label	id_Driver_Car_1	0	edgeLabels.inline	true
 option	edge-label	id_Driver_Car_1	0	edgeLabels.placement	CENTER
 edge	id_Car_Wheel_2	root	Car	Wheel
-label	edge	id_Car_Wheel_2	0	have 4 >	55	21
+label	edge	id_Car_Wheel_2	0	have 4 >	54.109375	21
 option	edge-label	id_Car_Wheel_2	0	edgeLabels.inline	true
 option	edge-label	id_Car_Wheel_2	0	edgeLabels.placement	CENTER
 edge	id_Car_Person_3	root	Car	Person
-label	edge	id_Car_Person_3	0	&lt; owns	45	21
+label	edge	id_Car_Person_3	0	&lt; owns	44.75	21
 option	edge-label	id_Car_Person_3	0	edgeLabels.inline	true
 option	edge-label	id_Car_Person_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	202	469
-place	Car	root	63.50000000000001	194	72	81
-place	Driver	root	67.5	12	64	81
-place	Wheel	root	12	376	66	81
-place	Person	root	118	376	72	81
+place	root		0	0	200.703125	469
+place	Car	root	62.66796874999999	194	72.25	81
+place	Driver	root	66.55859375	12	64.46875	81
+place	Wheel	root	12	376	65.234375	81
+place	Person	root	117.234375	376	71.46875	81
 route	id_Driver_Car_1	root	root
-section	id_Driver_Car_1	id_Driver_Car_1_s0	99.5,93	99.5,194		Driver	Car
-place-label	edge	id_Driver_Car_1	0	74.5	133	50	21
+section	id_Driver_Car_1	id_Driver_Car_1_s0	98.79296875,93	98.79296875,194		Driver	Car
+place-label	edge	id_Driver_Car_1	0	73.79296875	133	49.421875	21
 route	id_Car_Wheel_2	root	root
-section	id_Car_Wheel_2	id_Car_Wheel_2_s0	90.83333333333334,275	45,376	90.83333333333334,295 45,295	Car	Wheel
-place-label	edge	id_Car_Wheel_2	0	17.5	315	55	21
+section	id_Car_Wheel_2	id_Car_Wheel_2_s0	90.08463541666666,275	44.6171875,376	90.08463541666666,295 44.6171875,295	Car	Wheel
+place-label	edge	id_Car_Wheel_2	0	17.1171875	315	54.109375	21
 route	id_Car_Person_3	root	root
-section	id_Car_Person_3	id_Car_Person_3_s0	108.16666666666667,275	154,376	108.16666666666667,295 154,295	Car	Person
-place-label	edge	id_Car_Person_3	0	131.5	315	45	21
+section	id_Car_Person_3	id_Car_Person_3_s0	107.50130208333333,275	152.96875,376	107.50130208333333,295 152.96875,295	Car	Person
+place-label	edge	id_Car_Person_3	0	130.46875	315	44.75	21

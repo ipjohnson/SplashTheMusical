@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	output	root
 option	node	output		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	output		nodeSize.minimum	(51, 0)
+option	node	output		nodeSize.minimum	(50.03125, 0)
 option	node	output		spacing.baseValue	24
 option	node	output		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	output		elk.spacing.edgeEdge	20
@@ -37,14 +37,14 @@ option	node	output		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	output		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	output		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	output		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	output	0	Output	43	19
+label	node	output	0	Output	42.03125	19
 node	publish	output	204	91
 option	node	publish		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	processing	root	86	65
+node	processing	root	85.265625	65
 option	node	processing		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	intake	root
 option	node	intake		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	intake		nodeSize.minimum	(47, 0)
+option	node	intake		nodeSize.minimum	(46.140625, 0)
 option	node	intake		spacing.baseValue	24
 option	node	intake		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	intake		elk.spacing.edgeEdge	20
@@ -58,7 +58,7 @@ option	node	intake		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	intake		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	intake		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	intake		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	intake	0	Intake	39	19
+label	node	intake	0	Intake	38.140625	19
 node	receive	intake	186	36
 option	node	receive		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	L_receive_validate_0	root	receive	processing
@@ -72,11 +72,11 @@ option	edge-label	L_enrich_publish_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	276	460
 place	output	root	12	285	252	163
-place-label	node	output	0	104.5	5	43	19
+place-label	node	output	0	104.984375	5	42.03125	19
 place	publish	output	24	48	204	91
-place	processing	root	94.99999999999999	170	86	65
+place	processing	root	95.36718749999999	170	85.265625	65
 place	intake	root	21	12	234	108
-place-label	node	intake	0	97.5	5	39	19
+place-label	node	intake	0	97.9296875	5	38.140625	19
 place	receive	intake	24	48	186	36
 route	L_receive_validate_0	root	root
 section	L_receive_validate_0	L_receive_validate_0_s0	138,96	138,170	138,130	receive	processing

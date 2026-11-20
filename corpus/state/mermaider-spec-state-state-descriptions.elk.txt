@@ -30,15 +30,15 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Booting	Ready
-label	edge	edge1	0	initialized	58	21
+label	edge	edge1	0	initialized	57.59375	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Ready	Processing
-label	edge	edge2	0	request	48	21
+label	edge	edge2	0	request	46.703125	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Processing	Ready
-label	edge	edge3	0	done	32	21
+label	edge	edge3	0	done	31.15625	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 result
@@ -52,10 +52,10 @@ section	edge0	edge0_s0	80,26	80,66		root_start	Booting
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
 section	edge1	edge1_s0	80,124	80,225		Booting	Ready
-place-label	edge	edge1	0	51	164	58	21
+place-label	edge	edge1	0	51	164	57.59375	21
 route	edge2	root	root
-section	edge2	edge2_s0	60.66666666666667,283	60.66666666666667,384	60.66666666666667,303 50.00000000000001,303 50.00000000000001,364 60.66666666666667,364	Ready	Processing
-place-label	edge	edge2	0	26.000000000000007	323	48	21
+section	edge2	edge2_s0	60.66666666666667,283	60.66666666666667,384	60.66666666666667,303 50.39843750000001,303 50.39843750000001,364 60.66666666666667,364	Ready	Processing
+place-label	edge	edge2	0	26.898437500000007	323	46.703125	21
 route	edge3	root	root
-section	edge3	edge3_s0	99.33333333333334,384	99.33333333333334,283	99.33333333333334,364 110,364 110,303 99.33333333333334,303	Processing	Ready
-place-label	edge	edge3	0	94	323	32	21
+section	edge3	edge3_s0	99.33333333333334,384	99.33333333333334,283	99.33333333333334,364 109.6015625,364 109.6015625,303 99.33333333333334,303	Processing	Ready
+place-label	edge	edge3	0	93.6015625	323	31.15625	21

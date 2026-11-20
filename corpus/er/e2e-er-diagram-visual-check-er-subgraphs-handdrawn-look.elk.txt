@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	customers	root
 option	node	customers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	customers		nodeSize.minimum	(74, 0)
+option	node	customers		nodeSize.minimum	(72.578125, 0)
 option	node	customers		spacing.baseValue	24
 option	node	customers		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	customers		elk.spacing.edgeEdge	20
@@ -36,19 +36,19 @@ option	node	customers		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	customers		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	customers		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	customers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	customers	0	customers	66	19
-node	entity-CUSTOMER-0	customers	122.93254852294922	84.34976196289062
+label	node	customers	0	customers	64.578125	19
+node	entity-CUSTOMER-0	customers	122.93254852294922	84.5630111694336
 node	entity-ORDER-1	customers	103.16004180908203	84.43151092529297
 edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	194.93254852294922	333.7812728881836
-place	customers	root	12	12	170.93254852294922	309.7812728881836
-place-label	node	customers	0	52.46627426147461	5	66	19
-place	entity-CUSTOMER-0	customers	24	48	122.93254852294922	84.34976196289062
-place	entity-ORDER-1	customers	33.886253356933594	201.34976196289062	103.16004180908203	84.43151092529297
+place	root		0	0	194.93254852294922	333.99452209472656
+place	customers	root	12	12	170.93254852294922	309.99452209472656
+place-label	node	customers	0	53.17721176147461	5	64.578125	19
+place	entity-CUSTOMER-0	customers	24	48	122.93254852294922	84.5630111694336
+place	entity-ORDER-1	customers	33.886253356933594	201.5630111694336	103.16004180908203	84.43151092529297
 route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	customers
-section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	85.46627426147461,132.34976196289062	85.46627426147461,201.34976196289062		entity-CUSTOMER-0	entity-ORDER-1
-place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	64.96627426147461	156.34976196289062	41	21
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	85.46627426147461,132.5630111694336	85.46627426147461,201.5630111694336		entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	64.96627426147461	156.5630111694336	40.46875	21

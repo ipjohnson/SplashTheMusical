@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Company	root
 option	node	Company		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company		nodeSize.minimum	(77, 0)
+option	node	Company		nodeSize.minimum	(75.921875, 0)
 option	node	Company		spacing.baseValue	24
 option	node	Company		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	Company		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Company		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Company		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Company	0	Company	61	19
+label	node	Company	0	Company	59.921875	19
 node	Company.Project	Company
 option	node	Company.Project		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Project		nodeSize.minimum	(60, 0)
+option	node	Company.Project		nodeSize.minimum	(59.578125, 0)
 option	node	Company.Project		spacing.baseValue	24
 option	node	Company.Project		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Project		elk.spacing.edgeEdge	20
@@ -52,10 +52,10 @@ option	node	Company.Project		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Company.Project		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Company.Project		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Project		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Company.Project	0	Project	44	19
+label	node	Company.Project	0	Project	43.578125	19
 node	Company.Project.Module	Company.Project
 option	node	Company.Project.Module		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Project.Module		nodeSize.minimum	(63, 0)
+option	node	Company.Project.Module		nodeSize.minimum	(61.921875, 0)
 option	node	Company.Project.Module		spacing.baseValue	24
 option	node	Company.Project.Module		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Project.Module		elk.spacing.edgeEdge	20
@@ -69,10 +69,10 @@ option	node	Company.Project.Module		elk.layered.cycleBreaking.strategy	DEPTH_FIR
 option	node	Company.Project.Module		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Project.Module		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Company.Project.Module		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Company.Project.Module	0	Module	47	19
+label	node	Company.Project.Module	0	Module	45.921875	19
 node	Company.Project.Module.SubModule	Company.Project.Module
 option	node	Company.Project.Module.SubModule		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Company.Project.Module.SubModule		nodeSize.minimum	(88, 0)
+option	node	Company.Project.Module.SubModule		nodeSize.minimum	(86.828125, 0)
 option	node	Company.Project.Module.SubModule		spacing.baseValue	24
 option	node	Company.Project.Module.SubModule		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Company.Project.Module.SubModule		elk.spacing.edgeEdge	20
@@ -86,27 +86,27 @@ option	node	Company.Project.Module.SubModule		elk.layered.cycleBreaking.strategy
 option	node	Company.Project.Module.SubModule		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Company.Project.Module.SubModule		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Company.Project.Module.SubModule		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Company.Project.Module.SubModule	0	SubModule	72	19
-node	Report	Company.Project.Module.SubModule	208	141
+label	node	Company.Project.Module.SubModule	0	SubModule	70.828125	19
+node	Report	Company.Project.Module.SubModule	204.9375	141
 option	node	Report		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	Admin	Company.Project.Module	164	120
+node	Admin	Company.Project.Module	160.578125	120
 option	node	Admin		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_Admin_Report_1	root	Admin	Report
-label	edge	id_Admin_Report_1	0	generates	64	21
+label	edge	id_Admin_Report_1	0	generates	62.28125	21
 option	edge-label	id_Admin_Report_1	0	edgeLabels.inline	true
 option	edge-label	id_Admin_Report_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	424	652
-place	Company	root	12	12	400	628
-place-label	node	Company	0	169.5	5	61	19
-place	Company.Project	Company	24	48	352	556
-place-label	node	Company.Project	0	154	5	44	19
-place	Company.Project.Module	Company.Project	24	48	304	484
-place-label	node	Company.Project.Module	0	128.5	5	47	19
-place	Company.Project.Module.SubModule	Company.Project.Module	24	247	256	213
-place-label	node	Company.Project.Module.SubModule	0	92	5	72	19
-place	Report	Company.Project.Module.SubModule	24	48	208	141
-place	Admin	Company.Project.Module	70	48	164	120
+place	root		0	0	420.9375	652
+place	Company	root	12	12	396.9375	628
+place-label	node	Company	0	168.5078125	5	59.921875	19
+place	Company.Project	Company	24	48	348.9375	556
+place-label	node	Company.Project	0	152.6796875	5	43.578125	19
+place	Company.Project.Module	Company.Project	24	48	300.9375	484
+place-label	node	Company.Project.Module	0	127.5078125	5	45.921875	19
+place	Company.Project.Module.SubModule	Company.Project.Module	24	247	252.9375	213
+place-label	node	Company.Project.Module.SubModule	0	91.0546875	5	70.828125	19
+place	Report	Company.Project.Module.SubModule	24	48	204.9375	141
+place	Admin	Company.Project.Module	70.1796875	48	160.578125	120
 route	id_Admin_Report_1	root	Company.Project.Module
-section	id_Admin_Report_1	id_Admin_Report_1_s0	152,168	152,295	152,237	Admin	Report
-place-label	edge	id_Admin_Report_1	0	119.99999999999999	192	64	21
+section	id_Admin_Report_1	id_Admin_Report_1_s0	150.46875,168	150.46875,295	150.46875,237	Admin	Report
+place-label	edge	id_Admin_Report_1	0	118.96874999999999	192	62.28125	21

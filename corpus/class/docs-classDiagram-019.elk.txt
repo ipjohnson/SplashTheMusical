@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Auth	root
 option	node	Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Auth		nodeSize.minimum	(157, 0)
+option	node	Auth		nodeSize.minimum	(155.3125, 0)
 option	node	Auth		spacing.baseValue	24
 option	node	Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Auth		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	Auth		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Auth	0	Authentication Service	141	19
-node	UserService	Auth	121.5	141
+label	node	Auth	0	Authentication Service	139.3125	19
+node	UserService	Auth	120.1328125	141
 result
-place	root		0	0	193.5	237
-place	Auth	root	12	12	169.5	213
-place-label	node	Auth	0	14.25	5	141	19
-place	UserService	Auth	24	48	121.5	141
+place	root		0	0	192.1328125	237
+place	Auth	root	12	12	168.1328125	213
+place-label	node	Auth	0	14.41015625	5	139.3125	19
+place	UserService	Auth	24	48	120.1328125	141

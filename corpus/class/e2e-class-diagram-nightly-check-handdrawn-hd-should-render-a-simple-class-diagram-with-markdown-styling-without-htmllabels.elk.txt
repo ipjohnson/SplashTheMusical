@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Class10	root	155.23326110839844	199.26185607910156
+node	Class10	root	151.51251220703125	199.30874633789062
 result
-place	root		0	0	179.23326110839844	223.26185607910156
-place	Class10	root	12	12	155.23326110839844	199.26185607910156
+place	root		0	0	175.51251220703125	223.30874633789062
+place	Class10	root	12	12	151.51251220703125	199.30874633789062

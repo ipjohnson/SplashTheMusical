@@ -21,41 +21,41 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-USER-0	root	193	198.75
-node	entity-POST-1	root	189	238.5
-node	entity-COMMENT-2	root	169	159
-node	entity-TAG-3	root	165	119.25
+node	entity-USER-0	root	190.953125	198.75
+node	entity-POST-1	root	187.859375	238.5
+node	entity-COMMENT-2	root	167.640625	159
+node	entity-TAG-3	root	163.71875	119.25
 edge	id_entity-USER-0_entity-POST-1_0	root	entity-USER-0	entity-POST-1
-label	edge	id_entity-USER-0_entity-POST-1_0	0	writes	37	21
+label	edge	id_entity-USER-0_entity-POST-1_0	0	writes	36.5625	21
 option	edge-label	id_entity-USER-0_entity-POST-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-USER-0_entity-POST-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-USER-0_entity-COMMENT-2_1	root	entity-USER-0	entity-COMMENT-2
-label	edge	id_entity-USER-0_entity-COMMENT-2_1	0	writes	37	21
+label	edge	id_entity-USER-0_entity-COMMENT-2_1	0	writes	36.5625	21
 option	edge-label	id_entity-USER-0_entity-COMMENT-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-USER-0_entity-COMMENT-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-POST-1_entity-COMMENT-2_2	root	entity-POST-1	entity-COMMENT-2
-label	edge	id_entity-POST-1_entity-COMMENT-2_2	0	has	23	21
+label	edge	id_entity-POST-1_entity-COMMENT-2_2	0	has	22.578125	21
 option	edge-label	id_entity-POST-1_entity-COMMENT-2_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-POST-1_entity-COMMENT-2_2	0	edgeLabels.placement	CENTER
 edge	id_entity-POST-1_entity-TAG-3_3	root	entity-POST-1	entity-TAG-3
-label	edge	id_entity-POST-1_entity-TAG-3_3	0	tagged	44	21
+label	edge	id_entity-POST-1_entity-TAG-3_3	0	tagged	42.828125	21
 option	edge-label	id_entity-POST-1_entity-TAG-3_3	0	edgeLabels.inline	true
 option	edge-label	id_entity-POST-1_entity-TAG-3_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	398	822.25
-place	entity-USER-0	root	128	12	193	198.75
-place	entity-POST-1	root	53.5	311.75	189	238.5
-place	entity-COMMENT-2	root	217	651.25	169	159
-place	entity-TAG-3	root	12	651.25	165	119.25
+place	root		0	0	395.359375	822.25
+place	entity-USER-0	root	127.51432291666667	12	190.953125	198.75
+place	entity-POST-1	root	52.84635416666667	311.75	187.859375	238.5
+place	entity-COMMENT-2	root	215.71875	651.25	167.640625	159
+place	entity-TAG-3	root	12	651.25	163.71875	119.25
 route	id_entity-USER-0_entity-POST-1_0	root	root
-section	id_entity-USER-0_entity-POST-1_0	id_entity-USER-0_entity-POST-1_0_s0	195.66666666666669,210.75	148,311.75	195.66666666666669,230.75 148,230.75	entity-USER-0	entity-POST-1
-place-label	edge	id_entity-USER-0_entity-POST-1_0	0	129.5	250.75	37	21
+section	id_entity-USER-0_entity-POST-1_0	id_entity-USER-0_entity-POST-1_0_s0	194.49869791666669,210.75	146.77604166666669,311.75	194.49869791666669,230.75 146.77604166666669,230.75	entity-USER-0	entity-POST-1
+place-label	edge	id_entity-USER-0_entity-POST-1_0	0	128.27604166666669	250.75	36.5625	21
 route	id_entity-USER-0_entity-COMMENT-2_1	root	root
-section	id_entity-USER-0_entity-COMMENT-2_1	id_entity-USER-0_entity-COMMENT-2_1_s0	253.33333333333331,210.75	326.33333333333337,651.25	253.33333333333331,230.75 322.3333333333333,230.75 322.3333333333333,261.25 322.3333333333333,600.75 322.3333333333333,631.25 326.33333333333337,631.25	entity-USER-0	entity-COMMENT-2
-place-label	edge	id_entity-USER-0_entity-COMMENT-2_1	0	303.8333333333333	420.5	37	21
+section	id_entity-USER-0_entity-COMMENT-2_1	id_entity-USER-0_entity-COMMENT-2_1_s0	251.48307291666669,210.75	324.1458333333333,651.25	251.48307291666669,230.75 320.2604166666667,230.75 320.2604166666667,261.25 320.2604166666667,600.75 320.2604166666667,631.25 324.1458333333333,631.25	entity-USER-0	entity-COMMENT-2
+place-label	edge	id_entity-USER-0_entity-COMMENT-2_1	0	301.7604166666667	420.5	36.5625	21
 route	id_entity-POST-1_entity-COMMENT-2_2	root	root
-section	id_entity-POST-1_entity-COMMENT-2_2	id_entity-POST-1_entity-COMMENT-2_2_s0	176.16666666666669,550.25	276.6666666666667,651.25	176.16666666666669,570.25 239.08333333333337,570.25 239.08333333333337,631.25 276.6666666666667,631.25	entity-POST-1	entity-COMMENT-2
-place-label	edge	id_entity-POST-1_entity-COMMENT-2_2	0	227.58333333333337	590.25	23	21
+section	id_entity-POST-1_entity-COMMENT-2_2	id_entity-POST-1_entity-COMMENT-2_2_s0	174.75260416666669,550.25	274.9322916666667,651.25	174.75260416666669,570.25 237.3125,570.25 237.3125,631.25 274.9322916666667,631.25	entity-POST-1	entity-COMMENT-2
+place-label	edge	id_entity-POST-1_entity-COMMENT-2_2	0	225.8125	590.25	22.578125	21
 route	id_entity-POST-1_entity-TAG-3_3	root	root
-section	id_entity-POST-1_entity-TAG-3_3	id_entity-POST-1_entity-TAG-3_3_s0	119.83333333333334,550.25	94.5,651.25	119.83333333333334,570.25 94.5,570.25	entity-POST-1	entity-TAG-3
-place-label	edge	id_entity-POST-1_entity-TAG-3_3	0	72.5	590.25	44	21
+section	id_entity-POST-1_entity-TAG-3_3	id_entity-POST-1_entity-TAG-3_3_s0	118.79947916666667,550.25	93.859375,651.25	118.79947916666667,570.25 93.859375,570.25	entity-POST-1	entity-TAG-3
+place-label	edge	id_entity-POST-1_entity-TAG-3_3	0	72.359375	590.25	42.828125	21

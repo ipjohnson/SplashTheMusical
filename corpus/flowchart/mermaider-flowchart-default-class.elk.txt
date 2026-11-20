@@ -40,11 +40,11 @@ label	edge	L_C_D_0	0		0	0
 option	edge-label	L_C_D_0	0	edgeLabels.inline	true
 option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
 edge	L_D_E_0	root	D	E
-label	edge	L_D_E_0	0	Yes	23	21
+label	edge	L_D_E_0	0	Yes	22.84375	21
 option	edge-label	L_D_E_0	0	edgeLabels.inline	true
 option	edge-label	L_D_E_0	0	edgeLabels.placement	CENTER
 edge	L_D_F_0	root	D	F
-label	edge	L_D_F_0	0	No	18	21
+label	edge	L_D_F_0	0	No	17.90625	21
 option	edge-label	L_D_F_0	0	edgeLabels.inline	true
 option	edge-label	L_D_F_0	0	edgeLabels.placement	CENTER
 result
@@ -66,7 +66,7 @@ section	L_C_D_0	L_C_D_0_s0	184,227	184,267		C	D
 place-label	edge	L_C_D_0	0	0	0	0	0
 route	L_D_E_0	root	root
 section	L_D_E_0	L_D_E_0_s0	158.83333333333331,438	88,539	158.83333333333331,458 88,458	D	E
-place-label	edge	L_D_E_0	0	76.5	478	23	21
+place-label	edge	L_D_E_0	0	76.5	478	22.84375	21
 route	L_D_F_0	root	root
 section	L_D_F_0	L_D_F_0_s0	209.16666666666666,438	280,539	209.16666666666666,458 280,458	D	F
-place-label	edge	L_D_F_0	0	271	478	18	21
+place-label	edge	L_D_F_0	0	271	478	17.90625	21

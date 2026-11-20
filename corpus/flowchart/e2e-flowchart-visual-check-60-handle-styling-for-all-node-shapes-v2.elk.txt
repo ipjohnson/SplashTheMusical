@@ -26,7 +26,7 @@ node	B	root	150	51
 node	C	root	171.2268829345703	45
 node	D	root	164	33
 node	E	root	144	85.14869689941406
-node	F	root	89.93962097167969	89.93962097167969
+node	F	root	88.95066833496094	88.95066833496094
 node	G	root	173.25	45
 node	H	root	171	171
 node	I	root	204	91
@@ -35,79 +35,79 @@ node	K	root	186	36
 node	L	root	186	36
 node	M	root	231	51
 node	N	root	152	45
-node	O	root	108.39274597167969	108.39274597167969
-node	P	root	113.93962097167969	113.93962097167969
+node	O	root	107.20724487304688	107.20724487304688
+node	P	root	112.95066833496094	112.95066833496094
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	default style	76	21
+label	edge	L_A_B_0	0	default style	74.71875	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_C_D_0	root	C	D
-label	edge	L_C_D_0	0	default style	76	21
+label	edge	L_C_D_0	0	default style	74.71875	21
 option	edge-label	L_C_D_0	0	edgeLabels.inline	true
 option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
 edge	L_E_F_0	root	E	F
-label	edge	L_E_F_0	0	default style	76	21
+label	edge	L_E_F_0	0	default style	74.71875	21
 option	edge-label	L_E_F_0	0	edgeLabels.inline	true
 option	edge-label	L_E_F_0	0	edgeLabels.placement	CENTER
 edge	L_G_H_0	root	G	H
-label	edge	L_G_H_0	0	default style	76	21
+label	edge	L_G_H_0	0	default style	74.71875	21
 option	edge-label	L_G_H_0	0	edgeLabels.inline	true
 option	edge-label	L_G_H_0	0	edgeLabels.placement	CENTER
 edge	L_I_J_0	root	I	J
-label	edge	L_I_J_0	0	default style	76	21
+label	edge	L_I_J_0	0	default style	74.71875	21
 option	edge-label	L_I_J_0	0	edgeLabels.inline	true
 option	edge-label	L_I_J_0	0	edgeLabels.placement	CENTER
 edge	L_K_L_0	root	K	L
-label	edge	L_K_L_0	0	default style	76	21
+label	edge	L_K_L_0	0	default style	74.71875	21
 option	edge-label	L_K_L_0	0	edgeLabels.inline	true
 option	edge-label	L_K_L_0	0	edgeLabels.placement	CENTER
 edge	L_M_N_0	root	M	N
-label	edge	L_M_N_0	0	default style	76	21
+label	edge	L_M_N_0	0	default style	74.71875	21
 option	edge-label	L_M_N_0	0	edgeLabels.inline	true
 option	edge-label	L_M_N_0	0	edgeLabels.placement	CENTER
 edge	L_O_P_0	root	O	P
-label	edge	L_O_P_0	0	default style	76	21
+label	edge	L_O_P_0	0	default style	74.71875	21
 option	edge-label	L_O_P_0	0	edgeLabels.inline	true
 option	edge-label	L_O_P_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	597	917.2103424072266
+place	root		0	0	595.71875	915.6286392211914
 place	A	root	91	15	152	45
-place	B	root	399	12	150	51
+place	B	root	397.71875	12	150	51
 place	C	root	71.77311706542969	100	171.2268829345703	45
-place	D	root	399	106	164	33
+place	D	root	397.71875	106	164	33
 place	E	root	99	185	144	85.14869689941406
-place	F	root	399	182.6045379638672	89.93962097167969	89.93962097167969
-place	G	root	69.75	375.5441589355469	173.25	45
-place	H	root	399	312.5441589355469	171	171
-place	I	root	39	496.0441589355469	204	91
-place	J	root	399	523.5441589355469	186	36
-place	K	root	57	627.0441589355469	186	36
-place	L	root	399	627.0441589355469	186	36
-place	M	root	12	703.0441589355469	231	51
-place	N	root	399	706.0441589355469	152	45
-place	O	root	134.6072540283203	794.0441589355469	108.39274597167969	108.39274597167969
-place	P	root	399	791.2707214355469	113.93962097167969	113.93962097167969
+place	F	root	397.71875	183.09901428222656	88.95066833496094	88.95066833496094
+place	G	root	69.75	375.0496826171875	173.25	45
+place	H	root	397.71875	312.0496826171875	171	171
+place	I	root	39	495.5496826171875	204	91
+place	J	root	397.71875	523.0496826171875	186	36
+place	K	root	57	626.5496826171875	186	36
+place	L	root	397.71875	626.5496826171875	186	36
+place	M	root	12	702.5496826171875	231	51
+place	N	root	397.71875	705.5496826171875	152	45
+place	O	root	135.79275512695312	793.5496826171875	107.20724487304688	107.20724487304688
+place	P	root	397.71875	790.6779708862305	112.95066833496094	112.95066833496094
 route	L_A_B_0	root	root
-section	L_A_B_0	L_A_B_0_s0	243,37.5	399,37.5		A	B
-place-label	edge	L_A_B_0	0	283	26.5	76	21
+section	L_A_B_0	L_A_B_0_s0	243,37.5	397.71875,37.5		A	B
+place-label	edge	L_A_B_0	0	283	26.5	74.71875	21
 route	L_C_D_0	root	root
-section	L_C_D_0	L_C_D_0_s0	243,122.5	399,122.5		C	D
-place-label	edge	L_C_D_0	0	283	111.5	76	21
+section	L_C_D_0	L_C_D_0_s0	243,122.5	397.71875,122.5		C	D
+place-label	edge	L_C_D_0	0	283	111.5	74.71875	21
 route	L_E_F_0	root	root
-section	L_E_F_0	L_E_F_0_s0	243,227.57434844970703	399,227.57434844970703		E	F
-place-label	edge	L_E_F_0	0	283	216.57434844970703	76	21
+section	L_E_F_0	L_E_F_0_s0	243,227.57434844970703	397.71875,227.57434844970703		E	F
+place-label	edge	L_E_F_0	0	283	216.57434844970703	74.71875	21
 route	L_G_H_0	root	root
-section	L_G_H_0	L_G_H_0_s0	243,398.0441589355469	399,398.0441589355469		G	H
-place-label	edge	L_G_H_0	0	283	387.0441589355469	76	21
+section	L_G_H_0	L_G_H_0_s0	243,397.5496826171875	397.71875,397.5496826171875		G	H
+place-label	edge	L_G_H_0	0	283	386.5496826171875	74.71875	21
 route	L_I_J_0	root	root
-section	L_I_J_0	L_I_J_0_s0	243,541.5441589355469	399,541.5441589355469		I	J
-place-label	edge	L_I_J_0	0	283	530.5441589355469	76	21
+section	L_I_J_0	L_I_J_0_s0	243,541.0496826171875	397.71875,541.0496826171875		I	J
+place-label	edge	L_I_J_0	0	283	530.0496826171875	74.71875	21
 route	L_K_L_0	root	root
-section	L_K_L_0	L_K_L_0_s0	243,645.0441589355469	399,645.0441589355469		K	L
-place-label	edge	L_K_L_0	0	283	634.0441589355469	76	21
+section	L_K_L_0	L_K_L_0_s0	243,644.5496826171875	397.71875,644.5496826171875		K	L
+place-label	edge	L_K_L_0	0	283	633.5496826171875	74.71875	21
 route	L_M_N_0	root	root
-section	L_M_N_0	L_M_N_0_s0	243,728.5441589355469	399,728.5441589355469		M	N
-place-label	edge	L_M_N_0	0	283	717.5441589355469	76	21
+section	L_M_N_0	L_M_N_0_s0	243,728.0496826171875	397.71875,728.0496826171875		M	N
+place-label	edge	L_M_N_0	0	283	717.0496826171875	74.71875	21
 route	L_O_P_0	root	root
-section	L_O_P_0	L_O_P_0_s0	243,848.2405319213867	399,848.2405319213867		O	P
-place-label	edge	L_O_P_0	0	283	837.2405319213867	76	21
+section	L_O_P_0	L_O_P_0_s0	243,847.1533050537109	397.71875,847.1533050537109		O	P
+place-label	edge	L_O_P_0	0	283	836.1533050537109	74.71875	21

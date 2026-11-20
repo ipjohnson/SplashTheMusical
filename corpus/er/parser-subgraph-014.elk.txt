@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Group	root
 option	node	Group		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Group		nodeSize.minimum	(48, 0)
+option	node	Group		nodeSize.minimum	(46.921875, 0)
 option	node	Group		spacing.baseValue	24
 option	node	Group		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Group		elk.spacing.edgeEdge	20
@@ -36,28 +36,28 @@ option	node	Group		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Group		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Group		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Group		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Group	0	Group	40	19
+label	node	Group	0	Group	38.921875	19
 node	entity-A-0	Group	100	81
 node	entity-B-1	Group	100	81
 node	entity-C-2	Group	100	81
 edge	id_entity-A-0_entity-B-1_0	root	entity-A-0	entity-B-1
-label	edge	id_entity-A-0_entity-B-1_0	0	r1	13	21
+label	edge	id_entity-A-0_entity-B-1_0	0	r1	12.453125	21
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-B-1_entity-C-2_1	root	entity-B-1	entity-C-2
-label	edge	id_entity-B-1_entity-C-2_1	0	r2	13	21
+label	edge	id_entity-B-1_entity-C-2_1	0	r2	12.453125	21
 option	edge-label	id_entity-B-1_entity-C-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-B-1_entity-C-2_1	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	172	477
 place	Group	root	12	12	148	453
-place-label	node	Group	0	54	5	40	19
+place-label	node	Group	0	54.5390625	5	38.921875	19
 place	entity-A-0	Group	24	48	100	81
 place	entity-B-1	Group	24	198	100	81
 place	entity-C-2	Group	24	348	100	81
 route	id_entity-A-0_entity-B-1_0	root	Group
 section	id_entity-A-0_entity-B-1_0	id_entity-A-0_entity-B-1_0_s0	74,129	74,198		entity-A-0	entity-B-1
-place-label	edge	id_entity-A-0_entity-B-1_0	0	67.5	153	13	21
+place-label	edge	id_entity-A-0_entity-B-1_0	0	67.5	153	12.453125	21
 route	id_entity-B-1_entity-C-2_1	root	Group
 section	id_entity-B-1_entity-C-2_1	id_entity-B-1_entity-C-2_1_s0	74,279	74,348		entity-B-1	entity-C-2
-place-label	edge	id_entity-B-1_entity-C-2_1	0	67.5	303	13	21
+place-label	edge	id_entity-B-1_entity-C-2_1	0	67.5	303	12.453125	21

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	State1_____________	root
 option	node	State1_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State1_____________		nodeSize.minimum	(153, 0)
+option	node	State1_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State1_____________		spacing.baseValue	24
 option	node	State1_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State1_____________		elk.spacing.edgeEdge	20
@@ -39,11 +39,11 @@ option	node	State1_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State1_____________		elk.algorithm	elk.layered
 option	node	State1_____________		elk.direction	DOWN
 option	node	State1_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State1_____________	0	State1_____________	145	19
+label	node	State1_____________	0	State1_____________	141.703125	19
 node	c0	State1_____________	136	37
 node	State2_____________	root
 option	node	State2_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State2_____________		nodeSize.minimum	(153, 0)
+option	node	State2_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State2_____________		spacing.baseValue	24
 option	node	State2_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State2_____________		elk.spacing.edgeEdge	20
@@ -59,11 +59,11 @@ option	node	State2_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State2_____________		elk.algorithm	elk.layered
 option	node	State2_____________		elk.direction	DOWN
 option	node	State2_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State2_____________	0	State2_____________	145	19
+label	node	State2_____________	0	State2_____________	141.703125	19
 node	c1	State2_____________	136	37
 node	State3_____________	root
 option	node	State3_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State3_____________		nodeSize.minimum	(153, 0)
+option	node	State3_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State3_____________		spacing.baseValue	24
 option	node	State3_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State3_____________		elk.spacing.edgeEdge	20
@@ -79,11 +79,11 @@ option	node	State3_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State3_____________		elk.algorithm	elk.layered
 option	node	State3_____________		elk.direction	DOWN
 option	node	State3_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State3_____________	0	State3_____________	145	19
+label	node	State3_____________	0	State3_____________	141.703125	19
 node	c7	State3_____________	136	37
 node	State4_____________	root
 option	node	State4_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State4_____________		nodeSize.minimum	(153, 0)
+option	node	State4_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State4_____________		spacing.baseValue	24
 option	node	State4_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State4_____________		elk.spacing.edgeEdge	20
@@ -99,11 +99,11 @@ option	node	State4_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State4_____________		elk.algorithm	elk.layered
 option	node	State4_____________		elk.direction	DOWN
 option	node	State4_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State4_____________	0	State4_____________	145	19
+label	node	State4_____________	0	State4_____________	141.703125	19
 node	c2	State4_____________	136	37
 node	State5_____________	root
 option	node	State5_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State5_____________		nodeSize.minimum	(153, 0)
+option	node	State5_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State5_____________		spacing.baseValue	24
 option	node	State5_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State5_____________		elk.spacing.edgeEdge	20
@@ -119,11 +119,11 @@ option	node	State5_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State5_____________		elk.algorithm	elk.layered
 option	node	State5_____________		elk.direction	DOWN
 option	node	State5_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State5_____________	0	State5_____________	145	19
+label	node	State5_____________	0	State5_____________	141.703125	19
 node	c3	State5_____________	136	37
 node	State6_____________	root
 option	node	State6_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State6_____________		nodeSize.minimum	(153, 0)
+option	node	State6_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State6_____________		spacing.baseValue	24
 option	node	State6_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State6_____________		elk.spacing.edgeEdge	20
@@ -139,11 +139,11 @@ option	node	State6_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State6_____________		elk.algorithm	elk.layered
 option	node	State6_____________		elk.direction	DOWN
 option	node	State6_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State6_____________	0	State6_____________	145	19
+label	node	State6_____________	0	State6_____________	141.703125	19
 node	c4	State6_____________	136	37
 node	State7_____________	root
 option	node	State7_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State7_____________		nodeSize.minimum	(153, 0)
+option	node	State7_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State7_____________		spacing.baseValue	24
 option	node	State7_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State7_____________		elk.spacing.edgeEdge	20
@@ -159,11 +159,11 @@ option	node	State7_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State7_____________		elk.algorithm	elk.layered
 option	node	State7_____________		elk.direction	DOWN
 option	node	State7_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State7_____________	0	State7_____________	145	19
+label	node	State7_____________	0	State7_____________	141.703125	19
 node	c5	State7_____________	136	37
 node	State8_____________	root
 option	node	State8_____________		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	State8_____________		nodeSize.minimum	(153, 0)
+option	node	State8_____________		nodeSize.minimum	(149.703125, 0)
 option	node	State8_____________		spacing.baseValue	24
 option	node	State8_____________		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	State8_____________		elk.spacing.edgeEdge	20
@@ -179,7 +179,7 @@ option	node	State8_____________		elk.spacing.portsSurrounding	[top=12,left=12,bo
 option	node	State8_____________		elk.algorithm	elk.layered
 option	node	State8_____________		elk.direction	DOWN
 option	node	State8_____________		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	State8_____________	0	State8_____________	145	19
+label	node	State8_____________	0	State8_____________	141.703125	19
 node	c6	State8_____________	136	37
 node	root_start	root	14	14
 edge	edge0	root	root_start	State1_____________
@@ -187,15 +187,15 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	State1_____________	State2_____________
-label	edge	edge1	0	Transition1_____	110	21
+label	edge	edge1	0	Transition1_____	107.671875	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	State2_____________	State4_____________
-label	edge	edge2	0	Transition2_____	110	21
+label	edge	edge2	0	Transition2_____	107.671875	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	State2_____________	State3_____________
-label	edge	edge3	0	Transition3_____	110	21
+label	edge	edge3	0	Transition3_____	107.671875	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	State3_____________	State2_____________
@@ -203,121 +203,121 @@ label	edge	edge4	0		0	0
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	State4_____________	State2_____________
-label	edge	edge5	0	Transition5_____	110	21
+label	edge	edge5	0	Transition5_____	107.671875	21
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	State4_____________	State5_____________
-label	edge	edge6	0	Transition6_____	110	21
+label	edge	edge6	0	Transition6_____	107.671875	21
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	State5_____________	State6_____________
-label	edge	edge7	0	Transition7_____	110	21
+label	edge	edge7	0	Transition7_____	107.671875	21
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 edge	edge8	root	State6_____________	State4_____________
-label	edge	edge8	0	Transition8_____	110	21
+label	edge	edge8	0	Transition8_____	107.671875	21
 option	edge-label	edge8	0	edgeLabels.inline	true
 option	edge-label	edge8	0	edgeLabels.placement	CENTER
 edge	edge9	root	State2_____________	State7_____________
-label	edge	edge9	0	Transition4_____	110	21
+label	edge	edge9	0	Transition4_____	107.671875	21
 option	edge-label	edge9	0	edgeLabels.inline	true
 option	edge-label	edge9	0	edgeLabels.placement	CENTER
 edge	edge10	root	State4_____________	State7_____________
-label	edge	edge10	0	Transition4_____	110	21
+label	edge	edge10	0	Transition4_____	107.671875	21
 option	edge-label	edge10	0	edgeLabels.inline	true
 option	edge-label	edge10	0	edgeLabels.placement	CENTER
 edge	edge11	root	State5_____________	State7_____________
-label	edge	edge11	0	Transition4_____	110	21
+label	edge	edge11	0	Transition4_____	107.671875	21
 option	edge-label	edge11	0	edgeLabels.inline	true
 option	edge-label	edge11	0	edgeLabels.placement	CENTER
 edge	edge12	root	State6_____________	State7_____________
-label	edge	edge12	0	Transition4_____	110	21
+label	edge	edge12	0	Transition4_____	107.671875	21
 option	edge-label	edge12	0	edgeLabels.inline	true
 option	edge-label	edge12	0	edgeLabels.placement	CENTER
 edge	edge13	root	State7_____________	State1_____________
-label	edge	edge13	0	Transition9_____	110	21
+label	edge	edge13	0	Transition9_____	107.671875	21
 option	edge-label	edge13	0	edgeLabels.inline	true
 option	edge-label	edge13	0	edgeLabels.placement	CENTER
 edge	edge14	root	State5_____________	State8_____________
-label	edge	edge14	0	Transition10____	110	21
+label	edge	edge14	0	Transition10____	107.671875	21
 option	edge-label	edge14	0	edgeLabels.inline	true
 option	edge-label	edge14	0	edgeLabels.placement	CENTER
 edge	edge15	root	State8_____________	State5_____________
-label	edge	edge15	0	Transition11____	109	21
+label	edge	edge15	0	Transition11____	106.640625	21
 option	edge-label	edge15	0	edgeLabels.inline	true
 option	edge-label	edge15	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1014.8333333333334	1297
-place	State1_____________	root	743.3333333333334	66	184	109
-place-label	node	State1_____________	0	19.5	5	145	19
+place	root		0	0	1005.5052083333334	1297
+place	State1_____________	root	735.3333333333334	66	184	109
+place-label	node	State1_____________	0	21.1484375	5	141.703125	19
 place	c0	State1_____________	24	48	136	37
-place	State2_____________	root	625.5	276	184	109
-place-label	node	State2_____________	0	19.5	5	145	19
+place	State2_____________	root	618.6640625	276	184	109
+place-label	node	State2_____________	0	21.1484375	5	141.703125	19
 place	c1	State2_____________	24	48	136	37
-place	State3_____________	root	743.8333333333334	506	184	109
-place-label	node	State3_____________	0	19.5	5	145	19
+place	State3_____________	root	735.8333333333334	506	184	109
+place-label	node	State3_____________	0	21.1484375	5	141.703125	19
 place	c7	State3_____________	24	48	136	37
-place	State4_____________	root	69.16666666666674	506	184	109
-place-label	node	State4_____________	0	19.5	5	145	19
+place	State4_____________	root	67.00260416666674	506	184	109
+place-label	node	State4_____________	0	21.1484375	5	141.703125	19
 place	c2	State4_____________	24	48	136	37
-place	State5_____________	root	336.58333333333337	716	184	109
-place-label	node	State5_____________	0	19.5	5	145	19
+place	State5_____________	root	333.41927083333337	716	184	109
+place-label	node	State5_____________	0	21.1484375	5	141.703125	19
 place	c3	State5_____________	24	48	136	37
-place	State6_____________	root	88	946	184	109
-place-label	node	State6_____________	0	19.5	5	145	19
+place	State6_____________	root	87	946	184	109
+place-label	node	State6_____________	0	21.1484375	5	141.703125	19
 place	c4	State6_____________	24	48	136	37
-place	State7_____________	root	267.60000000000014	1176	184	109
-place-label	node	State7_____________	0	19.5	5	145	19
+place	State7_____________	root	264.43593750000014	1176	184	109
+place-label	node	State7_____________	0	21.1484375	5	141.703125	19
 place	c5	State7_____________	24	48	136	37
-place	State8_____________	root	462	946	184	109
-place-label	node	State8_____________	0	19.5	5	145	19
+place	State8_____________	root	458.671875	946	184	109
+place-label	node	State8_____________	0	21.1484375	5	141.703125	19
 place	c6	State8_____________	24	48	136	37
-place	root_start	root	825.3333333333334	12	14	14
+place	root_start	root	817.3333333333334	12	14	14
 route	edge0	root	root
-section	edge0	edge0_s0	835.3333333333334,26	835.3333333333334,66		root_start	State1_____________
+section	edge0	edge0_s0	827.3333333333334,26	827.3333333333334,66		root_start	State1_____________
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	808.0000000000001,175	717.5,276	808.0000000000001,195 717.5,195	State1_____________	State2_____________
-place-label	edge	edge1	0	662.5	215	110	21
+section	edge1	edge1_s0	800.0000000000001,175	710.6640625,276	800.0000000000001,195 710.6640625,195	State1_____________	State2_____________
+place-label	edge	edge1	0	656.6640625	215	107.671875	21
 route	edge2	root	root
-section	edge2	edge2_s0	662.8333333333334,385	133.83333333333337,506	662.8333333333334,405 103,405 103,486 133.83333333333337,486	State2_____________	State4_____________
-place-label	edge	edge2	0	48	445	110	21
+section	edge2	edge2_s0	655.9973958333334,385	131.66927083333337,506	655.9973958333334,405 102,405 102,486 131.66927083333337,486	State2_____________	State4_____________
+place-label	edge	edge2	0	48	445	107.671875	21
 route	edge3	root	root
-section	edge3	edge3_s0	744.8333333333334,385	808.5,506	744.8333333333334,425 798.3333333333334,425 798.3333333333334,486 808.5,486	State2_____________	State3_____________
-place-label	edge	edge3	0	743.3333333333334	445	110	21
+section	edge3	edge3_s0	737.9973958333334,385	800.5,506	737.9973958333334,425 790.9973958333334,425 790.9973958333334,486 800.5,486	State2_____________	State3_____________
+place-label	edge	edge3	0	736.9973958333334	445	107.671875	21
 route	edge4	root	root
-section	edge4	edge4_s0	863.1666666666667,506	772.1666666666667,385	863.1666666666667,486 873.3333333333334,486 873.3333333333334,455.5 873.3333333333334,405 772.1666666666667,405	State3_____________	State2_____________
+section	edge4	edge4_s0	855.1666666666667,506	765.3307291666667,385	855.1666666666667,486 864.6692708333334,486 864.6692708333334,455.5 864.6692708333334,405 765.3307291666667,405	State3_____________	State2_____________
 place-label	edge	edge4	0	0	0	0	0
 route	edge5	root	root
-section	edge5	edge5_s0	188.5,506	690.1666666666667,385	188.5,486 233,486 233,425 690.1666666666667,425	State4_____________	State2_____________
-place-label	edge	edge5	0	178	445	110	21
+section	edge5	edge5_s0	186.3359375,506	683.3307291666667,385	186.3359375,486 229.671875,486 229.671875,425 683.3307291666667,425	State4_____________	State2_____________
+place-label	edge	edge5	0	175.671875	445	107.671875	21
 route	edge6	root	root
-section	edge6	edge6_s0	202.16666666666674,615	428.58333333333337,716	202.16666666666674,635 428.58333333333337,635	State4_____________	State5_____________
-place-label	edge	edge6	0	373.58333333333337	655	110	21
+section	edge6	edge6_s0	200.00260416666674,615	425.41927083333337,716	200.00260416666674,635 425.41927083333337,635	State4_____________	State5_____________
+place-label	edge	edge6	0	371.41927083333337	655	107.671875	21
 route	edge7	root	root
-section	edge7	edge7_s0	379.3833333333334,825	207.33333333333326,946	379.3833333333334,845 237.16666666666674,845 237.16666666666674,926 207.33333333333326,926	State5_____________	State6_____________
-place-label	edge	edge7	0	182.16666666666674	885	110	21
+section	edge7	edge7_s0	376.2192708333334,825	206.33333333333326,946	376.2192708333334,845 234.00260416666674,845 234.00260416666674,926 206.33333333333326,926	State5_____________	State6_____________
+place-label	edge	edge7	0	180.00260416666674	885	107.671875	21
 route	edge8	root	root
-section	edge8	edge8_s0	152.66666666666663,946	161.16666666666674,615	152.66666666666663,895.5 152.66666666666663,665.5 152.66666666666663,635 161.16666666666674,635	State6_____________	State4_____________
-place-label	edge	edge8	0	97.66666666666663	760	110	21
+section	edge8	edge8_s0	151.66666666666663,946	159.00260416666674,615	151.66666666666663,895.5 151.66666666666663,665.5 151.66666666666663,635 159.00260416666674,635	State6_____________	State4_____________
+place-label	edge	edge8	0	97.66666666666663	760	107.671875	21
 route	edge9	root	root
-section	edge9	edge9_s0	717.5,385	386.93333333333345,1176	717.5,455.5 717.5,560.5 717.5,665.5 717.5,895.5 717.5,1000.5 717.5,1105.5 717.5,1136 386.93333333333345,1136	State2_____________	State7_____________
-place-label	edge	edge9	0	662.5	760	110	21
+section	edge9	edge9_s0	710.6640625,385	383.76927083333345,1176	710.6640625,455.5 710.6640625,560.5 710.6640625,665.5 710.6640625,895.5 710.6640625,1000.5 710.6640625,1105.5 710.6640625,1136 383.76927083333345,1136	State2_____________	State7_____________
+place-label	edge	edge9	0	656.6640625	760	107.671875	21
 route	edge10	root	root
-section	edge10	edge10_s0	120.16666666666674,615	304.93333333333345,1176	120.16666666666674,635 67,635 67,665.5 67,770.5 67,1000.5 67,1105.5 67,1156 304.93333333333345,1156	State4_____________	State7_____________
-place-label	edge	edge10	0	12	885	110	21
+section	edge10	edge10_s0	118.00260416666674,615	301.76927083333345,1176	118.00260416666674,635 66,635 66,665.5 66,770.5 66,1000.5 66,1105.5 66,1156 301.76927083333345,1156	State4_____________	State7_____________
+place-label	edge	edge10	0	12	885	107.671875	21
 route	edge11	root	root
-section	edge11	edge11_s0	412.1833333333334,825	359.60000000000014,1176	412.1833333333334,865 367,865 367,895.5 367,1105.5 367,1136 359.60000000000014,1136	State5_____________	State7_____________
-place-label	edge	edge11	0	312	990	110	21
+section	edge11	edge11_s0	409.0192708333334,825	356.43593750000014,1176	409.0192708333334,865 365,865 365,895.5 365,1105.5 365,1136 356.43593750000014,1136	State5_____________	State7_____________
+place-label	edge	edge11	0	311	990	107.671875	21
 route	edge12	root	root
-section	edge12	edge12_s0	180,1055	332.26666666666677,1176	180,1136 332.26666666666677,1136	State6_____________	State7_____________
-place-label	edge	edge12	0	125	1095	110	21
+section	edge12	edge12_s0	179,1055	329.10260416666677,1176	179,1136 329.10260416666677,1136	State6_____________	State7_____________
+place-label	edge	edge12	0	125	1095	107.671875	21
 route	edge13	root	root
-section	edge13	edge13_s0	414.26666666666677,1176	862.6666666666667,175	414.26666666666677,1156 947.8333333333334,1156 947.8333333333334,1105.5 947.8333333333334,1000.5 947.8333333333334,895.5 947.8333333333334,770.5 947.8333333333334,560.5 947.8333333333334,455.5 947.8333333333334,330.5 947.8333333333334,225.5 947.8333333333334,195 862.6666666666667,195	State7_____________	State1_____________
-place-label	edge	edge13	0	892.8333333333334	655	110	21
+section	edge13	edge13_s0	411.10260416666677,1176	854.6666666666667,175	411.10260416666677,1156 939.8333333333334,1156 939.8333333333334,1105.5 939.8333333333334,1000.5 939.8333333333334,895.5 939.8333333333334,770.5 939.8333333333334,560.5 939.8333333333334,455.5 939.8333333333334,330.5 939.8333333333334,225.5 939.8333333333334,195 854.6666666666667,195	State7_____________	State1_____________
+place-label	edge	edge13	0	885.8333333333334	655	107.671875	21
 route	edge14	root	root
-section	edge14	edge14_s0	444.98333333333335,825	526.6666666666666,946	444.98333333333335,865 508.41666666666674,865 508.41666666666674,926 526.6666666666666,926	State5_____________	State8_____________
-place-label	edge	edge14	0	453.41666666666674	885	110	21
+section	edge14	edge14_s0	441.81927083333335,825	523.3385416666666,946	441.81927083333335,865 504.58854166666674,865 504.58854166666674,926 523.3385416666666,926	State5_____________	State8_____________
+place-label	edge	edge14	0	450.58854166666674	885	107.671875	21
 route	edge15	root	root
-section	edge15	edge15_s0	581.3333333333333,946	477.78333333333336,825	581.3333333333333,926 637.9166666666667,926 637.9166666666667,845 477.78333333333336,845	State8_____________	State5_____________
-place-label	edge	edge15	0	583.4166666666667	885	109	21
+section	edge15	edge15_s0	578.0052083333333,946	474.61927083333336,825	578.0052083333333,926 631.7604166666667,926 631.7604166666667,845 474.61927083333336,845	State8_____________	State5_____________
+place-label	edge	edge15	0	578.2604166666667	885	106.640625	21

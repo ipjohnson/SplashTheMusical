@@ -21,38 +21,38 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-PARENT-0	root	95	81
+node	entity-PARENT-0	root	95.75	81
 node	entity-CHILD-1	root	100	81
-node	entity-CATEGORY-2	root	117	81
-node	entity-PRODUCT-3	root	109	81
+node	entity-CATEGORY-2	root	117.28125	81
+node	entity-PRODUCT-3	root	109.234375	81
 node	entity-TEAM-4	root	100	81
-node	entity-MEMBER-5	root	101	81
+node	entity-MEMBER-5	root	101.453125	81
 edge	id_entity-PARENT-0_entity-CHILD-1_0	root	entity-PARENT-0	entity-CHILD-1
-label	edge	id_entity-PARENT-0_entity-CHILD-1_0	0	has	23	21
+label	edge	id_entity-PARENT-0_entity-CHILD-1_0	0	has	22.578125	21
 option	edge-label	id_entity-PARENT-0_entity-CHILD-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-PARENT-0_entity-CHILD-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-CATEGORY-2_entity-PRODUCT-3_1	root	entity-CATEGORY-2	entity-PRODUCT-3
-label	edge	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	classifies	57	21
+label	edge	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	classifies	56.796875	21
 option	edge-label	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	edgeLabels.placement	CENTER
 edge	id_entity-TEAM-4_entity-MEMBER-5_2	root	entity-TEAM-4	entity-MEMBER-5
-label	edge	id_entity-TEAM-4_entity-MEMBER-5_2	0	includes	52	21
+label	edge	id_entity-TEAM-4_entity-MEMBER-5_2	0	includes	51.375	21
 option	edge-label	id_entity-TEAM-4_entity-MEMBER-5_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-TEAM-4_entity-MEMBER-5_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	419	287
-place	entity-PARENT-0	root	14.5	12	95	81
+place	root		0	0	419.8828125	287
+place	entity-PARENT-0	root	14.125	12	95.75	81
 place	entity-CHILD-1	root	12	194	100	81
-place	entity-CATEGORY-2	root	149.5	12	117	81
-place	entity-PRODUCT-3	root	153.5	194	109	81
-place	entity-TEAM-4	root	306.5	12	100	81
-place	entity-MEMBER-5	root	306	194	101	81
+place	entity-CATEGORY-2	root	149.875	12	117.28125	81
+place	entity-PRODUCT-3	root	153.8984375	194	109.234375	81
+place	entity-TEAM-4	root	307.15625	12	100	81
+place	entity-MEMBER-5	root	306.4296875	194	101.453125	81
 route	id_entity-PARENT-0_entity-CHILD-1_0	root	root
 section	id_entity-PARENT-0_entity-CHILD-1_0	id_entity-PARENT-0_entity-CHILD-1_0_s0	62,93	62,194		entity-PARENT-0	entity-CHILD-1
-place-label	edge	id_entity-PARENT-0_entity-CHILD-1_0	0	50.5	133	23	21
+place-label	edge	id_entity-PARENT-0_entity-CHILD-1_0	0	50.5	133	22.578125	21
 route	id_entity-CATEGORY-2_entity-PRODUCT-3_1	root	root
-section	id_entity-CATEGORY-2_entity-PRODUCT-3_1	id_entity-CATEGORY-2_entity-PRODUCT-3_1_s0	208,93	208,194		entity-CATEGORY-2	entity-PRODUCT-3
-place-label	edge	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	179.5	133	57	21
+section	id_entity-CATEGORY-2_entity-PRODUCT-3_1	id_entity-CATEGORY-2_entity-PRODUCT-3_1_s0	208.515625,93	208.515625,194		entity-CATEGORY-2	entity-PRODUCT-3
+place-label	edge	id_entity-CATEGORY-2_entity-PRODUCT-3_1	0	180.015625	133	56.796875	21
 route	id_entity-TEAM-4_entity-MEMBER-5_2	root	root
-section	id_entity-TEAM-4_entity-MEMBER-5_2	id_entity-TEAM-4_entity-MEMBER-5_2_s0	356.5,93	356.5,194		entity-TEAM-4	entity-MEMBER-5
-place-label	edge	id_entity-TEAM-4_entity-MEMBER-5_2	0	330.5	133	52	21
+section	id_entity-TEAM-4_entity-MEMBER-5_2	id_entity-TEAM-4_entity-MEMBER-5_2_s0	357.15625,93	357.15625,194		entity-TEAM-4	entity-MEMBER-5
+place-label	edge	id_entity-TEAM-4_entity-MEMBER-5_2	0	331.15625	133	51.375	21

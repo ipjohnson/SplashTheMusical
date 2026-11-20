@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Operator	root	77	121
+node	Operator	root	76	121
 node	A	root	160	58
 option	node	A		elk.portAlignment.default	CENTER
 node	B	root	160	58
@@ -47,21 +47,21 @@ label	edge	offEdge	0		0	0
 option	edge-label	offEdge	0	edgeLabels.inline	true
 option	edge-label	offEdge	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	321	376
-place	Operator	root	12	127.5	77	121
-place	A	root	149	12	160	58
-place	B	root	149	110	160	58
-place	C	root	149	208	160	58
-place	D	root	149	306	160	58
+place	root		0	0	320	376
+place	Operator	root	12	127.5	76	121
+place	A	root	148	12	160	58
+place	B	root	148	110	160	58
+place	C	root	148	208	160	58
+place	D	root	148	306	160	58
 route	trueEdge	root	root
-section	trueEdge	trueEdge_s0	89,157.7	149,41	109,157.7 109,41	Operator	A
+section	trueEdge	trueEdge_s0	88,157.7	148,41	108,157.7 108,41	Operator	A
 place-label	edge	trueEdge	0	0	0	0	0
 route	fastEdge	root	root
-section	fastEdge	fastEdge_s0	89,177.9	149,139	129,177.9 129,139	Operator	B
+section	fastEdge	fastEdge_s0	88,177.9	148,139	128,177.9 128,139	Operator	B
 place-label	edge	fastEdge	0	0	0	0	0
 route	slowEdge	root	root
-section	slowEdge	slowEdge_s0	89,198.1	149,237	129,198.1 129,237	Operator	C
+section	slowEdge	slowEdge_s0	88,198.1	148,237	128,198.1 128,237	Operator	C
 place-label	edge	slowEdge	0	0	0	0	0
 route	offEdge	root	root
-section	offEdge	offEdge_s0	89,218.3	149,335	109,218.3 109,335	Operator	D
+section	offEdge	offEdge_s0	88,218.3	148,335	108,218.3 108,335	Operator	D
 place-label	edge	offEdge	0	0	0	0	0

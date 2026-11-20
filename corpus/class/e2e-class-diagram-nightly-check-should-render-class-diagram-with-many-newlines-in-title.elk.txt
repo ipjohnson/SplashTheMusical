@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	This\n  Title\n  Has\n  Many\n  Newlines	root	142	303
+node	This\n  Title\n  Has\n  Many\n  Newlines	root	139.1640625	303
 result
-place	root		0	0	166	327
-place	This\n  Title\n  Has\n  Many\n  Newlines	root	12	12	142	303
+place	root		0	0	163.1640625	327
+place	This\n  Title\n  Has\n  Many\n  Newlines	root	12	12	139.1640625	303

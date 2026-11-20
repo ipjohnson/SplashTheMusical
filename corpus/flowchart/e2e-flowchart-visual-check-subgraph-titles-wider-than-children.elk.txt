@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	shared	root
 option	node	shared		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	shared		nodeSize.minimum	(223, 0)
+option	node	shared		nodeSize.minimum	(218.90625, 0)
 option	node	shared		spacing.baseValue	24
 option	node	shared		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	shared		elk.spacing.edgeEdge	20
@@ -37,13 +37,13 @@ option	node	shared		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	shared		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	shared		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	shared		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	shared	0	Shared design system and tokens	215	19
+label	node	shared	0	Shared design system and tokens	210.90625	19
 node	design	shared	152	45
 option	node	design		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	icons	shared	152	45
 node	product	root
 option	node	product		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	product		nodeSize.minimum	(235, 0)
+option	node	product		nodeSize.minimum	(229.828125, 0)
 option	node	product		spacing.baseValue	24
 option	node	product		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	product		elk.spacing.edgeEdge	20
@@ -57,12 +57,12 @@ option	node	product		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	product		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	product		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	product		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	product	0	Product experience and onboarding	227	19
+label	node	product	0	Product experience and onboarding	221.828125	19
 node	app	product	152	45
 option	node	app		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	platform	root
 option	node	platform		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	platform		nodeSize.minimum	(233, 0)
+option	node	platform		nodeSize.minimum	(228.203125, 0)
 option	node	platform		spacing.baseValue	24
 option	node	platform		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	platform		elk.spacing.edgeEdge	20
@@ -76,7 +76,7 @@ option	node	platform		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	platform		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	platform		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	platform		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	platform	0	Platform and infrastructure services	225	19
+label	node	platform	0	Platform and infrastructure services	220.203125	19
 node	infra	platform	152	45
 option	node	infra		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	org	root	152	45
@@ -101,30 +101,30 @@ label	edge	L_design_app_0	0		0	0
 option	edge-label	L_design_app_0	0	edgeLabels.inline	true
 option	edge-label	L_design_app_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1093	319.25
-place	shared	root	224	95.25	225	212
-place-label	node	shared	0	5	5	215	19
+place	root		0	0	1078.9375	319.25
+place	shared	root	224	95.25	220.90625	212
+place-label	node	shared	0	5	5	210.90625	19
 place	design	shared	24	143	152	45
 place	icons	shared	24	48	152	45
-place	product	root	529	91	237	118.5
-place-label	node	product	0	5	5	227	19
+place	product	root	524.90625	91	231.828125	118.5
+place-label	node	product	0	5	5	221.828125	19
 place	app	product	24	48	152	45
-place	platform	root	846	39.25	235	118.5
-place-label	node	platform	0	5	5	225	19
+place	platform	root	836.734375	39.25	230.203125	118.5
+place-label	node	platform	0	5	5	220.203125	19
 place	infra	platform	24	48	152	45
 place	org	root	12	58.25	152	45
 route	L_org_platform_0	root	root
-section	L_org_platform_0	L_org_platform_0_s0	164,74.5	846,121.75	184,74.5 184,12 341.5,12 647.5,12 816,12 816,121.75	org	platform
+section	L_org_platform_0	L_org_platform_0_s0	164,74.5	836.734375,121.75	184,74.5 184,12 339.453125,12 640.8203125,12 806.734375,12 806.734375,121.75	org	platform
 place-label	edge	L_org_platform_0	0	0	0	0	0
 route	L_org_product_0	root	root
-section	L_org_product_0	L_org_product_0_s0	164,80.75	529,173.5	204,80.75 204,74.25 341.5,74.25 499,74.25 499,173.5	org	product
+section	L_org_product_0	L_org_product_0_s0	164,80.75	524.90625,173.5	204,80.75 204,74.25 339.453125,74.25 494.90625,74.25 494.90625,173.5	org	product
 place-label	edge	L_org_product_0	0	0	0	0	0
 route	L_org_shared_0	root	root
 section	L_org_shared_0	L_org_shared_0_s0	164,87	224,190.75	184,87 184,190.75	org	shared
 place-label	edge	L_org_shared_0	0	0	0	0	0
 route	L_app_infra_0	root	root
-section	L_app_infra_0	L_app_infra_0_s0	705,161.5	870,109.75	776,161.5 796,161.5 796,109.75 836,109.75	app	infra
+section	L_app_infra_0	L_app_infra_0_s0	700.90625,161.5	860.734375,109.75	766.734375,161.5 786.734375,161.5 786.734375,109.75 826.734375,109.75	app	infra
 place-label	edge	L_app_infra_0	0	0	0	0	0
 route	L_design_app_0	root	root
-section	L_design_app_0	L_design_app_0_s0	400,260.75	553,161.5	459,260.75 479,260.75 479,161.5 519,161.5	design	app
+section	L_design_app_0	L_design_app_0_s0	400,260.75	548.90625,161.5	454.90625,260.75 474.90625,260.75 474.90625,161.5 514.90625,161.5	design	app
 place-label	edge	L_design_app_0	0	0	0	0	0

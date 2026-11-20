@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 node	SignIn	root	160	58
 option	node	SignIn		elk.portAlignment.default	CENTER
 node	Reset	root	160	58
@@ -35,13 +35,13 @@ label	edge	edge-1	0		0	0
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	306	180
-place	Customer	root	12	29.500000000000004	82	121
-place	SignIn	root	134	12	160	58
-place	Reset	root	134	109.99999999999999	160	58
+place	root		0	0	304.6875	180
+place	Customer	root	12	29.500000000000004	80.6875	121
+place	SignIn	root	132.6875	12	160	58
+place	Reset	root	132.6875	109.99999999999999	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,73.16666666666667	134,41	114,73.16666666666667 114,41	Customer	SignIn
+section	edge-0	edge-0_s0	92.6875,73.16666666666667	132.6875,41	112.6875,73.16666666666667 112.6875,41	Customer	SignIn
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	94,106.83333333333333	134,139	114,106.83333333333333 114,139	Customer	Reset
+section	edge-1	edge-1_s0	92.6875,106.83333333333333	132.6875,139	112.6875,106.83333333333333 112.6875,139	Customer	Reset
 place-label	edge	edge-1	0	0	0	0	0

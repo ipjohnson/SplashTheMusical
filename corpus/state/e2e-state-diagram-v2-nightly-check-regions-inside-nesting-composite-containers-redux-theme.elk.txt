@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Machine	root
 option	node	Machine		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Machine		nodeSize.minimum	(62, 0)
+option	node	Machine		nodeSize.minimum	(60.921875, 0)
 option	node	Machine		spacing.baseValue	24
 option	node	Machine		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Machine		elk.spacing.edgeEdge	20
@@ -39,10 +39,10 @@ option	node	Machine		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	Machine		elk.algorithm	elk.layered
 option	node	Machine		elk.direction	DOWN
 option	node	Machine		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Machine	0	Machine	54	19
+label	node	Machine	0	Machine	52.921875	19
 node	Concurrent	Machine
 option	node	Concurrent		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Concurrent		nodeSize.minimum	(79, 0)
+option	node	Concurrent		nodeSize.minimum	(77.265625, 0)
 option	node	Concurrent		spacing.baseValue	24
 option	node	Concurrent		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Concurrent		elk.spacing.edgeEdge	20
@@ -58,7 +58,7 @@ option	node	Concurrent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,r
 option	node	Concurrent		elk.algorithm	elk.layered
 option	node	Concurrent		elk.direction	DOWN
 option	node	Concurrent		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Concurrent	0	Concurrent	71	19
+label	node	Concurrent	0	Concurrent	69.265625	19
 node	divider-id-1	Concurrent
 option	node	divider-id-1		spacing.baseValue	24
 option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -99,7 +99,7 @@ node	id-176og2aqm55-94_start	id-176og2aqm55-94	14	14
 node	Right	id-176og2aqm55-94	136	37
 node	Finish	Machine
 option	node	Finish		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Finish		nodeSize.minimum	(46, 0)
+option	node	Finish		nodeSize.minimum	(45.359375, 0)
 option	node	Finish		spacing.baseValue	24
 option	node	Finish		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Finish		elk.spacing.edgeEdge	20
@@ -115,12 +115,12 @@ option	node	Finish		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Finish		elk.algorithm	elk.layered
 option	node	Finish		elk.direction	DOWN
 option	node	Finish		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Finish	0	Finish	38	19
+label	node	Finish	0	Finish	37.359375	19
 node	Finish_start	Finish	14	14
 node	Flush	Finish	136	37
 node	Deep	Finish
 option	node	Deep		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Deep		nodeSize.minimum	(42, 0)
+option	node	Deep		nodeSize.minimum	(41.46875, 0)
 option	node	Deep		spacing.baseValue	24
 option	node	Deep		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Deep		elk.spacing.edgeEdge	20
@@ -136,7 +136,7 @@ option	node	Deep		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 option	node	Deep		elk.algorithm	elk.layered
 option	node	Deep		elk.direction	DOWN
 option	node	Deep		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Deep	0	Deep	34	19
+label	node	Deep	0	Deep	33.46875	19
 node	Deep_start	Deep	14	14
 node	Done	Deep	136	37
 edge	edge0	root	divider-id-1_start	Left
@@ -162,9 +162,9 @@ option	edge-label	edge4	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	304	780
 place	Machine	root	12	12	280	756
-place-label	node	Machine	0	113	5	54	19
+place-label	node	Machine	0	113.5390625	5	52.921875	19
 place	Concurrent	Machine	24	48	232	342
-place-label	node	Concurrent	0	80.5	5	71	19
+place-label	node	Concurrent	0	81.3671875	5	69.265625	19
 place	divider-id-1	Concurrent	24	48	184	123
 place-label	node	divider-id-1	0	0	0	0	0
 place	divider-id-1_start	divider-id-1	81.2	24	14	14
@@ -174,11 +174,11 @@ place-label	node	id-176og2aqm55-94	0	0	0	0	0
 place	id-176og2aqm55-94_start	id-176og2aqm55-94	81.2	24	14	14
 place	Right	id-176og2aqm55-94	24	62	136	37
 place	Finish	Machine	24	414	232	318
-place-label	node	Finish	0	97	5	38	19
+place-label	node	Finish	0	97.3203125	5	37.359375	19
 place	Finish_start	Finish	81.2	48	14	14
 place	Flush	Finish	24	86	136	37
 place	Deep	Finish	24	147	184	147
-place-label	node	Deep	0	75	5	34	19
+place-label	node	Deep	0	75.265625	5	33.46875	19
 place	Deep_start	Deep	81.2	48	14	14
 place	Done	Deep	24	86	136	37
 route	edge0	root	divider-id-1

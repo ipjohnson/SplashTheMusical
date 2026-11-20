@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	WithTD	root
 option	node	WithTD		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	WithTD		nodeSize.minimum	(55, 0)
+option	node	WithTD		nodeSize.minimum	(54.671875, 0)
 option	node	WithTD		spacing.baseValue	24
 option	node	WithTD		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	WithTD		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	WithTD		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	WithTD		elk.algorithm	elk.layered
 option	node	WithTD		elk.direction	DOWN
 option	node	WithTD		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	WithTD	0	WithTD	47	19
+label	node	WithTD	0	WithTD	46.671875	19
 node	A1	WithTD	152	45
 node	A2	WithTD	152	45
 edge	L_A1_A2_0	root	A1	A2
@@ -49,7 +49,7 @@ option	edge-label	L_A1_A2_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	210
 place	WithTD	root	12	12	200	186
-place-label	node	WithTD	0	76.5	5	47	19
+place-label	node	WithTD	0	76.6640625	5	46.671875	19
 place	A1	WithTD	24	48	152	45
 place	A2	WithTD	24	117	152	45
 route	L_A1_A2_0	root	WithTD

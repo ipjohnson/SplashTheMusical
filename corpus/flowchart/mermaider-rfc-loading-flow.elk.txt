@@ -21,15 +21,15 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	disk	root	152	87
+node	disk	root	152	66
 node	v1Load	root	152	87
 node	uriResolve	root	152	108
-node	v1Nodes	root	172	66
+node	v1Nodes	root	169.75	66
 node	hasV2	root	192	192
 node	loadV2	root	152	87
 node	loadFallback	root	152	108
-node	v2Nodes	root	172	66
-node	v2NodesFallback	root	172	87
+node	v2Nodes	root	169.75	66
+node	v2NodesFallback	root	169.75	87
 edge	L_disk_v1Load_0	root	disk	v1Load
 label	edge	L_disk_v1Load_0	0		0	0
 option	edge-label	L_disk_v1Load_0	0	edgeLabels.inline	true
@@ -47,11 +47,11 @@ label	edge	L_uriResolve_hasV2_0	0		0	0
 option	edge-label	L_uriResolve_hasV2_0	0	edgeLabels.inline	true
 option	edge-label	L_uriResolve_hasV2_0	0	edgeLabels.placement	CENTER
 edge	L_hasV2_loadV2_0	root	hasV2	loadV2
-label	edge	L_hasV2_loadV2_0	0	Yes	23	21
+label	edge	L_hasV2_loadV2_0	0	Yes	22.84375	21
 option	edge-label	L_hasV2_loadV2_0	0	edgeLabels.inline	true
 option	edge-label	L_hasV2_loadV2_0	0	edgeLabels.placement	CENTER
 edge	L_hasV2_loadFallback_0	root	hasV2	loadFallback
-label	edge	L_hasV2_loadFallback_0	0	No	18	21
+label	edge	L_hasV2_loadFallback_0	0	No	17.90625	21
 option	edge-label	L_hasV2_loadFallback_0	0	edgeLabels.inline	true
 option	edge-label	L_hasV2_loadFallback_0	0	edgeLabels.placement	CENTER
 edge	L_loadV2_v2Nodes_0	root	loadV2	v2Nodes
@@ -63,37 +63,37 @@ label	edge	L_loadFallback_v2NodesFallback_0	0		0	0
 option	edge-label	L_loadFallback_v2NodesFallback_0	0	edgeLabels.inline	true
 option	edge-label	L_loadFallback_v2NodesFallback_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	524	827
-place	disk	root	133	12	152	87
-place	v1Load	root	22	149.5	152	87
-place	uriResolve	root	244	139	152	108
-place	v1Nodes	root	12	287	172	66
-place	hasV2	root	224	287	192	192
-place	loadV2	root	138	590.5	152	87
-place	loadFallback	root	350	580	152	108
-place	v2Nodes	root	128	728	172	66
-place	v2NodesFallback	root	340	728	172	87
+place	root		0	0	519.5	806
+place	disk	root	131.3125	12	152	66
+place	v1Load	root	20.875	128.5	152	87
+place	uriResolve	root	241.75	118	152	108
+place	v1Nodes	root	12	266	169.75	66
+place	hasV2	root	221.75	266	192	192
+place	loadV2	root	136.875	569.5	152	87
+place	loadFallback	root	346.625	559	152	108
+place	v2Nodes	root	128	707	169.75	66
+place	v2NodesFallback	root	337.75	707	169.75	87
 route	L_disk_v1Load_0	root	root
-section	L_disk_v1Load_0	L_disk_v1Load_0_s0	187,99	98,149.5	187,119 98,119	disk	v1Load
+section	L_disk_v1Load_0	L_disk_v1Load_0_s0	185.3125,78	96.875,128.5	185.3125,98 96.875,98	disk	v1Load
 place-label	edge	L_disk_v1Load_0	0	0	0	0	0
 route	L_disk_uriResolve_0	root	root
-section	L_disk_uriResolve_0	L_disk_uriResolve_0_s0	231,99	320,139	231,119 320,119	disk	uriResolve
+section	L_disk_uriResolve_0	L_disk_uriResolve_0_s0	229.3125,78	317.75,118	229.3125,98 317.75,98	disk	uriResolve
 place-label	edge	L_disk_uriResolve_0	0	0	0	0	0
 route	L_v1Load_v1Nodes_0	root	root
-section	L_v1Load_v1Nodes_0	L_v1Load_v1Nodes_0_s0	98,236.5	98,287		v1Load	v1Nodes
+section	L_v1Load_v1Nodes_0	L_v1Load_v1Nodes_0_s0	96.875,215.5	96.875,266		v1Load	v1Nodes
 place-label	edge	L_v1Load_v1Nodes_0	0	0	0	0	0
 route	L_uriResolve_hasV2_0	root	root
-section	L_uriResolve_hasV2_0	L_uriResolve_hasV2_0_s0	320,247	320,287		uriResolve	hasV2
+section	L_uriResolve_hasV2_0	L_uriResolve_hasV2_0_s0	317.75,226	317.75,266		uriResolve	hasV2
 place-label	edge	L_uriResolve_hasV2_0	0	0	0	0	0
 route	L_hasV2_loadV2_0	root	root
-section	L_hasV2_loadV2_0	L_hasV2_loadV2_0_s0	291.33333333333337,479	214,590.5	291.33333333333337,499 214.00000000000003,499	hasV2	loadV2
-place-label	edge	L_hasV2_loadV2_0	0	202.50000000000003	519	23	21
+section	L_hasV2_loadV2_0	L_hasV2_loadV2_0_s0	289.08333333333337,458	212.875,569.5	289.08333333333337,478 212.87500000000003,478	hasV2	loadV2
+place-label	edge	L_hasV2_loadV2_0	0	201.37500000000003	498	22.84375	21
 route	L_hasV2_loadFallback_0	root	root
-section	L_hasV2_loadFallback_0	L_hasV2_loadFallback_0_s0	348.6666666666667,479	426,580	348.6666666666667,499 426,499	hasV2	loadFallback
-place-label	edge	L_hasV2_loadFallback_0	0	417	519	18	21
+section	L_hasV2_loadFallback_0	L_hasV2_loadFallback_0_s0	346.4166666666667,458	422.625,559	346.4166666666667,478 422.625,478	hasV2	loadFallback
+place-label	edge	L_hasV2_loadFallback_0	0	413.625	498	17.90625	21
 route	L_loadV2_v2Nodes_0	root	root
-section	L_loadV2_v2Nodes_0	L_loadV2_v2Nodes_0_s0	214,677.5	214,728		loadV2	v2Nodes
+section	L_loadV2_v2Nodes_0	L_loadV2_v2Nodes_0_s0	212.875,656.5	212.875,707		loadV2	v2Nodes
 place-label	edge	L_loadV2_v2Nodes_0	0	0	0	0	0
 route	L_loadFallback_v2NodesFallback_0	root	root
-section	L_loadFallback_v2NodesFallback_0	L_loadFallback_v2NodesFallback_0_s0	426,688	426,728		loadFallback	v2NodesFallback
+section	L_loadFallback_v2NodesFallback_0	L_loadFallback_v2NodesFallback_0_s0	422.625,667	422.625,707		loadFallback	v2NodesFallback
 place-label	edge	L_loadFallback_v2NodesFallback_0	0	0	0	0	0

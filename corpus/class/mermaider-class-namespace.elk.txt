@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Domain	root
 option	node	Domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Domain		nodeSize.minimum	(65, 0)
+option	node	Domain		nodeSize.minimum	(64.25, 0)
 option	node	Domain		spacing.baseValue	24
 option	node	Domain		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Domain		elk.spacing.edgeEdge	20
@@ -37,14 +37,14 @@ option	node	Domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Domain		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Domain	0	Domain	49	19
-node	Order	Domain	133	135
+label	node	Domain	0	Domain	48.25	19
+node	Order	Domain	131.390625	135
 option	node	Order		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	Product	Domain	137	135
+node	Product	Domain	134.8984375	135
 option	node	Product		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Infrastructure	root
 option	node	Infrastructure		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Infrastructure		nodeSize.minimum	(101, 0)
+option	node	Infrastructure		nodeSize.minimum	(98.484375, 0)
 option	node	Infrastructure		spacing.baseValue	24
 option	node	Infrastructure		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Infrastructure		elk.spacing.edgeEdge	20
@@ -58,10 +58,10 @@ option	node	Infrastructure		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Infrastructure		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Infrastructure		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Infrastructure		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Infrastructure	0	Infrastructure	85	19
-node	OrderRepo	Infrastructure	184	120
+label	node	Infrastructure	0	Infrastructure	82.484375	19
+node	OrderRepo	Infrastructure	180.78125	120
 option	node	OrderRepo		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	ProductRepo	Infrastructure	159	120
+node	ProductRepo	Infrastructure	157.0390625	120
 option	node	ProductRepo		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_Order_Product_1	root	Order	Product
 label	edge	id_Order_Product_1	0		0	0
@@ -76,21 +76,21 @@ label	edge	id_ProductRepo_Product_3	0		0	0
 option	edge-label	id_ProductRepo_Product_3	0	edgeLabels.inline	true
 option	edge-label	id_ProductRepo_Product_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	465	678
-place	Domain	root	109	264	222.25	402
-place-label	node	Domain	0	86.625	5	49	19
-place	Order	Domain	24	48	133	135
-place	Product	Domain	61.25	243	137	135
-place	Infrastructure	root	12	12	441	192
-place-label	node	Infrastructure	0	178	5	85	19
-place	OrderRepo	Infrastructure	24	48	184	120
-place	ProductRepo	Infrastructure	258	48	159	120
+place	root		0	0	459.8203125	678
+place	Domain	root	107.302734375	264	219.9921875	402
+place-label	node	Domain	0	85.87109375	5	48.25	19
+place	Order	Domain	24	48	131.390625	135
+place	Product	Domain	61.09374999999999	243	134.8984375	135
+place	Infrastructure	root	12	12	435.8203125	192
+place-label	node	Infrastructure	0	176.66796875	5	82.484375	19
+place	OrderRepo	Infrastructure	24	48	180.78125	120
+place	ProductRepo	Infrastructure	254.78125	48	157.0390625	120
 route	id_Order_Product_1	root	Domain
-section	id_Order_Product_1	id_Order_Product_1_s0	90.5,183	110.51666666666665,243	90.5,213 110.51666666666665,213	Order	Product
+section	id_Order_Product_1	id_Order_Product_1_s0	89.6953125,183	109.65989583333334,243	89.6953125,213 109.65989583333334,213	Order	Product
 place-label	edge	id_Order_Product_1	0	0	0	0	0
 route	id_OrderRepo_Order_2	root	root
-section	id_OrderRepo_Order_2	id_OrderRepo_Order_2_s0	127.99999999999999,180	199.5,312	128,214 128,234 199.5,234 199.5,254	OrderRepo	Order
+section	id_OrderRepo_Order_2	id_OrderRepo_Order_2_s0	126.39062499999999,180	196.998046875,312	126.390625,214 126.390625,234 196.998046875,234 196.998046875,254	OrderRepo	Order
 place-label	edge	id_OrderRepo_Order_2	0	0	0	0	0
 route	id_ProductRepo_Product_3	root	root
-section	id_ProductRepo_Product_3	id_ProductRepo_Product_3_s0	349.5,180	257.98333333333335,507	349.5,214 349.5,234 278,234 278,254 278,477 257.98333333333335,477	ProductRepo	Product
+section	id_ProductRepo_Product_3	id_ProductRepo_Product_3_s0	345.30078125,180	254.72877604166666,507	345.30078125,214 345.30078125,234 274.693359375,234 274.693359375,254 274.693359375,477 254.72877604166666,477	ProductRepo	Product
 place-label	edge	id_ProductRepo_Product_3	0	0	0	0	0

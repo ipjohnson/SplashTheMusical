@@ -25,7 +25,7 @@ node	A	root	152	45
 node	B	root	152	45
 node	C	root	152	45
 node	E	root	171	171
-node	D	root	107.96051788330078	107.96051788330078
+node	D	root	107.94550323486328	107.94550323486328
 node	H1	root	204	91
 node	H2	root	204	91
 node	Q1	root	171	171
@@ -54,7 +54,7 @@ place	A	root	221.95	138	152	45
 place	B	root	12	243	152	45
 place	C	root	204	243	152	45
 place	E	root	396	243	171	171
-place	D	root	607	243	107.96051788330078	107.96051788330078
+place	D	root	607	243	107.94550323486328	107.94550323486328
 place	H1	root	413.95	52	204	91
 place	H2	root	657.95	52	204	91
 place	Q1	root	901.9499999999999	12	171	171
@@ -71,5 +71,5 @@ route	L_A_E_0	root	root
 section	L_A_E_0	L_A_E_0_s0	311.15,183	481.5,243	311.15,223 481.5,223	A	E
 place-label	edge	L_A_E_0	0	0	0	0	0
 route	L_A_D_0	root	root
-section	L_A_D_0	L_A_D_0_s0	337.55,183	660.9802589416504,243	337.55,203 660.9802589416504,203	A	D
+section	L_A_D_0	L_A_D_0_s0	337.55,183	660.9727516174316,243	337.55,203 660.9727516174316,203	A	D
 place-label	edge	L_A_D_0	0	0	0	0	0

@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	test_req	root	147.46250915527344	169.1205596923828
-node	test_entity	root	137.5294647216797	103.1974105834961
+node	test_req	root	142.2140350341797	169.1863250732422
+node	test_entity	root	133.59312438964844	103.15402221679688
 edge	test_entity-test_req-0	root	test_entity	test_req
-label	edge	test_entity-test_req-0	0	&lt;&lt;satisfies&gt;&gt;	87	19.999998092651367
+label	edge	test_entity-test_req-0	0	&lt;&lt;satisfies&gt;&gt;	87.28125	19.999998092651367
 option	edge-label	test_entity-test_req-0	0	edgeLabels.inline	true
 option	edge-label	test_entity-test_req-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	171.46250915527344	396.3179683685303
-place	test_req	root	12	215.19740867614746	147.46250915527344	169.1205596923828
-place	test_entity	root	16.966522216796875	12	137.5294647216797	103.1974105834961
+place	root		0	0	166.2140350341797	396.34034538269043
+place	test_req	root	12	215.15402030944824	142.2140350341797	169.1863250732422
+place	test_entity	root	16.310455322265625	12	133.59312438964844	103.15402221679688
 route	test_entity-test_req-0	root	root
-section	test_entity-test_req-0	test_entity-test_req-0_s0	85.73125457763672,115.1974105834961	85.73125457763672,215.19740867614746		test_entity	test_req
-place-label	edge	test_entity-test_req-0	0	42.23125457763672	155.1974105834961	87	19.999998092651367
+section	test_entity-test_req-0	test_entity-test_req-0_s0	83.10701751708984,115.15402221679688	83.10701751708984,215.15402030944824		test_entity	test_req
+place-label	edge	test_entity-test_req-0	0	39.107017517089844	155.15402221679688	87.28125	19.999998092651367

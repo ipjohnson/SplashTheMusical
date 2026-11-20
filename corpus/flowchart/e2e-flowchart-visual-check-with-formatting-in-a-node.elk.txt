@@ -28,27 +28,27 @@ node	d	root	150	51
 node	g	root	152	45
 node	h	root	152	45
 edge	L_a_b_0	root	a	b
-label	edge	L_a_b_0	0	1o	16	21
+label	edge	L_a_b_0	0	1o	15.578125	21
 option	edge-label	L_a_b_0	0	edgeLabels.inline	true
 option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
 edge	L_a_c_0	root	a	c
-label	edge	L_a_c_0	0	2o	16	21
+label	edge	L_a_c_0	0	2o	15.578125	21
 option	edge-label	L_a_c_0	0	edgeLabels.inline	true
 option	edge-label	L_a_c_0	0	edgeLabels.placement	CENTER
 edge	L_a_d_0	root	a	d
-label	edge	L_a_d_0	0	3o	16	21
+label	edge	L_a_d_0	0	3o	15.578125	21
 option	edge-label	L_a_d_0	0	edgeLabels.inline	true
 option	edge-label	L_a_d_0	0	edgeLabels.placement	CENTER
 edge	L_g_a_0	root	g	a
-label	edge	L_g_a_0	0	2i	11	21
+label	edge	L_g_a_0	0	2i	10.90625	21
 option	edge-label	L_g_a_0	0	edgeLabels.inline	true
 option	edge-label	L_g_a_0	0	edgeLabels.placement	CENTER
 edge	L_d_a_0	root	d	a
-label	edge	L_d_a_0	0	1i	11	21
+label	edge	L_d_a_0	0	1i	10.90625	21
 option	edge-label	L_d_a_0	0	edgeLabels.inline	true
 option	edge-label	L_d_a_0	0	edgeLabels.placement	CENTER
 edge	L_h_a_0	root	h	a
-label	edge	L_h_a_0	0	3i	11	21
+label	edge	L_h_a_0	0	3i	10.90625	21
 option	edge-label	L_h_a_0	0	edgeLabels.inline	true
 option	edge-label	L_h_a_0	0	edgeLabels.placement	CENTER
 edge	L_b_d_0	root	b	d
@@ -60,34 +60,34 @@ label	edge	L_c_d_0	0		0	0
 option	edge-label	L_c_d_0	0	edgeLabels.inline	true
 option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	896	238.25
-place	a	root	255	55.249999999999986	171	171
-place	b	root	522	12	152	45
-place	c	root	522	96.99999999999999	152	45
-place	d	root	734	118.2	150	51
+place	root		0	0	895.484375	238.25
+place	a	root	254.90625	55.249999999999986	171	171
+place	b	root	521.484375	12	152	45
+place	c	root	521.484375	96.99999999999999	152	45
+place	d	root	733.484375	118.2	150	51
 place	g	root	12	58.41666666666664	152	45
 place	h	root	12	143.41666666666663	152	45
 route	L_a_b_0	root	root
-section	L_a_b_0	L_a_b_0_s0	426,95.44999999999999	522,34.5	446,95.44999999999999 446,34.5	a	b
-place-label	edge	L_a_b_0	0	466	23.5	16	21
+section	L_a_b_0	L_a_b_0_s0	425.90625,95.44999999999999	521.484375,34.5	445.90625,95.44999999999999 445.90625,34.5	a	b
+place-label	edge	L_a_b_0	0	465.90625	23.5	15.578125	21
 route	L_a_c_0	root	root
-section	L_a_c_0	L_a_c_0_s0	426,125.64999999999999	522,119.49999999999999	446,125.64999999999999 446,119.49999999999999	a	c
-place-label	edge	L_a_c_0	0	466	108.49999999999999	16	21
+section	L_a_c_0	L_a_c_0_s0	425.90625,125.64999999999999	521.484375,119.49999999999999	445.90625,125.64999999999999 445.90625,119.49999999999999	a	c
+place-label	edge	L_a_c_0	0	465.90625	108.49999999999999	15.578125	21
 route	L_a_d_0	root	root
-section	L_a_d_0	L_a_d_0_s0	426,155.84999999999997	734,146.8	446,155.84999999999997 446,162 598,162 694,162 694,146.8	a	d
-place-label	edge	L_a_d_0	0	466	151	16	21
+section	L_a_d_0	L_a_d_0_s0	425.90625,155.84999999999997	733.484375,146.8	445.90625,155.84999999999997 445.90625,162 597.484375,162 693.484375,162 693.484375,146.8	a	d
+place-label	edge	L_a_d_0	0	465.90625	151	15.578125	21
 route	L_g_a_0	root	root
-section	L_g_a_0	L_g_a_0_s0	164,80.91666666666664	255,115.58333333333331	235,80.91666666666664 235,115.58333333333331	g	a
-place-label	edge	L_g_a_0	0	204	69.91666666666664	11	21
+section	L_g_a_0	L_g_a_0_s0	164,80.91666666666664	254.90625,115.58333333333331	234.90625,80.91666666666664 234.90625,115.58333333333331	g	a
+place-label	edge	L_g_a_0	0	204	69.91666666666664	10.90625	21
 route	L_d_a_0	root	root
-section	L_d_a_0	L_d_a_0_s0	734,153	426,186.05	714,153 714,204 598,204 446,204 446,186.05	d	a
-place-label	edge	L_d_a_0	0	468.5	193	11	21
+section	L_d_a_0	L_d_a_0_s0	733.484375,153	425.90625,186.05	713.484375,153 713.484375,204 597.484375,204 445.90625,204 445.90625,186.05	d	a
+place-label	edge	L_d_a_0	0	468.2421875	193	10.90625	21
 route	L_h_a_0	root	root
-section	L_h_a_0	L_h_a_0_s0	164,165.91666666666663	255,165.91666666666663		h	a
-place-label	edge	L_h_a_0	0	204	154.91666666666663	11	21
+section	L_h_a_0	L_h_a_0_s0	164,165.91666666666663	254.90625,165.91666666666663		h	a
+place-label	edge	L_h_a_0	0	204	154.91666666666663	10.90625	21
 route	L_b_d_0	root	root
-section	L_b_d_0	L_b_d_0_s0	674,34.5	734,134.4	714,34.5 714,134.4	b	d
+section	L_b_d_0	L_b_d_0_s0	673.484375,34.5	733.484375,134.4	713.484375,34.5 713.484375,134.4	b	d
 place-label	edge	L_b_d_0	0	0	0	0	0
 route	L_c_d_0	root	root
-section	L_c_d_0	L_c_d_0_s0	674,119.49999999999999	734,140.60000000000002	694,119.49999999999999 694,140.60000000000002	c	d
+section	L_c_d_0	L_c_d_0_s0	673.484375,119.49999999999999	733.484375,140.60000000000002	693.484375,119.49999999999999 693.484375,140.60000000000002	c	d
 place-label	edge	L_c_d_0	0	0	0	0	0

@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	styled_req	root	202	166
-node	styled_entity	root	130	103
+node	styled_req	root	197.140625	166
+node	styled_entity	root	127.40625	103
 edge	styled_entity-styled_req-0	root	styled_entity	styled_req
-label	edge	styled_entity-styled_req-0	0	&lt;&lt;satisfies&gt;&gt;	83	21
+label	edge	styled_entity-styled_req-0	0	&lt;&lt;satisfies&gt;&gt;	83.28125	21
 option	edge-label	styled_entity-styled_req-0	0	edgeLabels.inline	true
 option	edge-label	styled_entity-styled_req-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	226	394
-place	styled_req	root	12	216	202	166
-place	styled_entity	root	48	12	130	103
+place	root		0	0	221.140625	394
+place	styled_req	root	12	216	197.140625	166
+place	styled_entity	root	46.8671875	12	127.40625	103
 route	styled_entity-styled_req-0	root	root
-section	styled_entity-styled_req-0	styled_entity-styled_req-0_s0	113,115	113,216		styled_entity	styled_req
-place-label	edge	styled_entity-styled_req-0	0	71.5	155	83	21
+section	styled_entity-styled_req-0	styled_entity-styled_req-0_s0	110.5703125,115	110.5703125,216		styled_entity	styled_req
+place-label	edge	styled_entity-styled_req-0	0	68.5703125	155	83.28125	21

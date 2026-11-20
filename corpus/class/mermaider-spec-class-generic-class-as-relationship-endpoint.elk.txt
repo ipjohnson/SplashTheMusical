@@ -21,9 +21,9 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	List	root	131.5	120
-node	Duck	root	59	81
-node	ArrayList	root	86	81
+node	List	root	128.3984375	120
+node	Duck	root	58.234375	81
+node	ArrayList	root	85.46875	81
 edge	id_Duck_List_1	root	Duck	List
 label	edge	id_Duck_List_1	0		0	0
 option	edge-label	id_Duck_List_1	0	edgeLabels.inline	true
@@ -33,13 +33,13 @@ label	edge	id_List_ArrayList_2	0		0	0
 option	edge-label	id_List_ArrayList_2	0	edgeLabels.inline	true
 option	edge-label	id_List_ArrayList_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	155.5	386
-place	List	root	12	133	131.5	120
-place	Duck	root	48.25	12	59	81
-place	ArrayList	root	34.75	293	86	81
+place	root		0	0	152.3984375	386
+place	List	root	12	133	128.3984375	120
+place	Duck	root	47.08203125	12	58.234375	81
+place	ArrayList	root	33.46484375	293	85.46875	81
 route	id_Duck_List_1	root	root
-section	id_Duck_List_1	id_Duck_List_1_s0	77.75,93	77.75,133		Duck	List
+section	id_Duck_List_1	id_Duck_List_1_s0	76.19921875,93	76.19921875,133		Duck	List
 place-label	edge	id_Duck_List_1	0	0	0	0	0
 route	id_List_ArrayList_2	root	root
-section	id_List_ArrayList_2	id_List_ArrayList_2_s0	77.75,253	77.75,293		List	ArrayList
+section	id_List_ArrayList_2	id_List_ArrayList_2_s0	76.19921875,253	76.19921875,293		List	ArrayList
 place-label	edge	id_List_ArrayList_2	0	0	0	0	0

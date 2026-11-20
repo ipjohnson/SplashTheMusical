@@ -32,19 +32,19 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Draft	Review
-label	edge	edge1	0	submit	42	21
+label	edge	edge1	0	submit	41.234375	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Review	Published
-label	edge	edge2	0	approve	52	21
+label	edge	edge2	0	approve	50.59375	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Review	Draft
-label	edge	edge3	0	reject	35	21
+label	edge	edge3	0	reject	34.234375	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	Published	Archived
-label	edge	edge4	0	archive	46	21
+label	edge	edge4	0	archive	45.140625	21
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	Archived	root_end
@@ -63,17 +63,17 @@ route	edge0	root	root
 section	edge0	edge0_s0	80,26	80,66		root_start	Draft
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	60.66666666666667,103	60.66666666666667,204	60.66666666666667,123 50.75000000000001,123 50.75000000000001,184 60.66666666666667,184	Draft	Review
-place-label	edge	edge1	0	29.750000000000007	143	42	21
+section	edge1	edge1_s0	60.66666666666667,103	60.66666666666667,204	60.66666666666667,123 51.13281250000001,123 51.13281250000001,184 60.66666666666667,184	Draft	Review
+place-label	edge	edge1	0	30.132812500000007	143	41.234375	21
 route	edge2	root	root
 section	edge2	edge2_s0	80,241	80,342		Review	Published
-place-label	edge	edge2	0	54	281	52	21
+place-label	edge	edge2	0	54.5	281	50.59375	21
 route	edge3	root	root
-section	edge3	edge3_s0	99.33333333333334,204	99.33333333333334,103	99.33333333333334,184 109.25,184 109.25,123 99.33333333333334,123	Review	Draft
-place-label	edge	edge3	0	91.75	143	35	21
+section	edge3	edge3_s0	99.33333333333334,204	99.33333333333334,103	99.33333333333334,184 108.8671875,184 108.8671875,123 99.33333333333334,123	Review	Draft
+place-label	edge	edge3	0	91.3671875	143	34.234375	21
 route	edge4	root	root
 section	edge4	edge4_s0	80,379	80,480		Published	Archived
-place-label	edge	edge4	0	57	419	46	21
+place-label	edge	edge4	0	57	419	45.140625	21
 route	edge5	root	root
 section	edge5	edge5_s0	80,517	80,557		Archived	root_end
 place-label	edge	edge5	0	0	0	0	0

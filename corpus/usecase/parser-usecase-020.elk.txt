@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Developer	root	85	121
+node	Developer	root	83.828125	121
 node	LoginSystem	root	160	58
 option	node	LoginSystem		elk.portAlignment.default	CENTER
 node	Authentication	root	160	58
@@ -35,13 +35,13 @@ label	edge	edge-1	0		0	0
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	309	180
-place	Developer	root	12	29.500000000000004	85	121
-place	LoginSystem	root	137	12	160	58
-place	Authentication	root	137	109.99999999999999	160	58
+place	root		0	0	307.828125	180
+place	Developer	root	12	29.500000000000004	83.828125	121
+place	LoginSystem	root	135.828125	12	160	58
+place	Authentication	root	135.828125	109.99999999999999	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	97,73.16666666666667	137,41	117,73.16666666666667 117,41	Developer	LoginSystem
+section	edge-0	edge-0_s0	95.828125,73.16666666666667	135.828125,41	115.828125,73.16666666666667 115.828125,41	Developer	LoginSystem
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	97,106.83333333333333	137,139	117,106.83333333333333 117,139	Developer	Authentication
+section	edge-1	edge-1_s0	95.828125,106.83333333333333	135.828125,139	115.828125,106.83333333333333 115.828125,139	Developer	Authentication
 place-label	edge	edge-1	0	0	0	0	0

@@ -23,12 +23,12 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	navYml	root	152	45
 node	getToc	root	152	66
-node	perRepo	root	155	87
-node	docSetNav	root	216	66
-node	tocMappings	root	183	45
-node	tocNodes	root	172	45
+node	perRepo	root	152	87
+node	docSetNav	root	213.34375	66
+node	tocMappings	root	180.640625	45
+node	tocNodes	root	169.765625	45
 node	siteNav	root	152	108
-node	pathProvider	root	222	66
+node	pathProvider	root	219.5625	66
 node	sidebar	root	152	108
 edge	L_navYml_getToc_0	root	navYml	getToc
 label	edge	L_navYml_getToc_0	0		0	0
@@ -63,37 +63,37 @@ label	edge	L_siteNav_sidebar_0	0		0	0
 option	edge-label	L_siteNav_sidebar_0	0	edgeLabels.inline	true
 option	edge-label	L_siteNav_sidebar_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	468.5	598
-place	navYml	root	48.5	54	152	45
-place	getToc	root	48.5	139	152	66
-place	perRepo	root	271	12	155	87
-place	docSetNav	root	240.5	139	216	66
-place	tocMappings	root	33	245	183	45
-place	tocNodes	root	262.5	245	172	45
-place	siteNav	root	160.5	330	152	108
-place	pathProvider	root	12	478	222	66
-place	sidebar	root	274	478	152	108
+place	root		0	0	464.6796875	598
+place	navYml	root	47.3359375	54	152	45
+place	getToc	root	47.3359375	139	152	66
+place	perRepo	root	270.0078125	12	152	87
+place	docSetNav	root	239.3359375	139	213.34375	66
+place	tocMappings	root	33.015625	245	180.640625	45
+place	tocNodes	root	261.125	245	169.765625	45
+place	siteNav	root	158.671875	330	152	108
+place	pathProvider	root	12	478	219.5625	66
+place	sidebar	root	271.5625	478	152	108
 route	L_navYml_getToc_0	root	root
-section	L_navYml_getToc_0	L_navYml_getToc_0_s0	124.5,99	124.5,139		navYml	getToc
+section	L_navYml_getToc_0	L_navYml_getToc_0_s0	123.3359375,99	123.3359375,139		navYml	getToc
 place-label	edge	L_navYml_getToc_0	0	0	0	0	0
 route	L_perRepo_docSetNav_0	root	root
-section	L_perRepo_docSetNav_0	L_perRepo_docSetNav_0_s0	348.5,99	348.5,139		perRepo	docSetNav
+section	L_perRepo_docSetNav_0	L_perRepo_docSetNav_0_s0	346.0078125,99	346.0078125,139		perRepo	docSetNav
 place-label	edge	L_perRepo_docSetNav_0	0	0	0	0	0
 route	L_getToc_tocMappings_0	root	root
-section	L_getToc_tocMappings_0	L_getToc_tocMappings_0_s0	124.5,205	124.5,245		getToc	tocMappings
+section	L_getToc_tocMappings_0	L_getToc_tocMappings_0_s0	123.3359375,205	123.3359375,245		getToc	tocMappings
 place-label	edge	L_getToc_tocMappings_0	0	0	0	0	0
 route	L_docSetNav_tocNodes_0	root	root
-section	L_docSetNav_tocNodes_0	L_docSetNav_tocNodes_0_s0	348.5,205	348.5,245		docSetNav	tocNodes
+section	L_docSetNav_tocNodes_0	L_docSetNav_tocNodes_0_s0	346.0078125,205	346.0078125,245		docSetNav	tocNodes
 place-label	edge	L_docSetNav_tocNodes_0	0	0	0	0	0
 route	L_tocMappings_siteNav_0	root	root
-section	L_tocMappings_siteNav_0	L_tocMappings_siteNav_0_s0	124.5,290	214.5,330	124.5,310 214.5,310	tocMappings	siteNav
+section	L_tocMappings_siteNav_0	L_tocMappings_siteNav_0_s0	123.3359375,290	212.671875,330	123.3359375,310 212.671875,310	tocMappings	siteNav
 place-label	edge	L_tocMappings_siteNav_0	0	0	0	0	0
 route	L_tocNodes_siteNav_0	root	root
-section	L_tocNodes_siteNav_0	L_tocNodes_siteNav_0_s0	348.5,290	258.5,330	348.5,310 258.5,310	tocNodes	siteNav
+section	L_tocNodes_siteNav_0	L_tocNodes_siteNav_0_s0	346.0078125,290	256.671875,330	346.0078125,310 256.671875,310	tocNodes	siteNav
 place-label	edge	L_tocNodes_siteNav_0	0	0	0	0	0
 route	L_siteNav_pathProvider_0	root	root
-section	L_siteNav_pathProvider_0	L_siteNav_pathProvider_0_s0	214.5,438	123,478	214.5,458 123,458	siteNav	pathProvider
+section	L_siteNav_pathProvider_0	L_siteNav_pathProvider_0_s0	212.671875,438	121.78125,478	212.671875,458 121.78125,458	siteNav	pathProvider
 place-label	edge	L_siteNav_pathProvider_0	0	0	0	0	0
 route	L_siteNav_sidebar_0	root	root
-section	L_siteNav_sidebar_0	L_siteNav_sidebar_0_s0	258.5,438	350,478	258.5,458 350,458	siteNav	sidebar
+section	L_siteNav_sidebar_0	L_siteNav_sidebar_0_s0	256.671875,438	347.5625,478	256.671875,458 347.5625,458	siteNav	sidebar
 place-label	edge	L_siteNav_sidebar_0	0	0	0	0	0

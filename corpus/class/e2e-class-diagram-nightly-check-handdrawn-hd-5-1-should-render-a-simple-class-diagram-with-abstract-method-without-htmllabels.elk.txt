@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Class01	root	147.91400146484375	113.60820770263672
-node	AveryLongClass	root	140.66537475585938	79.41133117675781
+node	Class01	root	146.73033142089844	113.60820770263672
+node	AveryLongClass	root	138.40985107421875	79.20533752441406
 edge	id_Class01_AveryLongClass_1	root	Class01	AveryLongClass
-label	edge	id_Class01_AveryLongClass_1	0	Cool	33	19.999998092651367
+label	edge	id_Class01_AveryLongClass_1	0	Cool	32.796875	19.999998092651367
 option	edge-label	id_Class01_AveryLongClass_1	0	edgeLabels.inline	true
 option	edge-label	id_Class01_AveryLongClass_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	171.91400146484375	317.0195369720459
-place	Class01	root	12	12	147.91400146484375	113.60820770263672
-place	AveryLongClass	root	15.624313354492188	225.6082057952881	140.66537475585938	79.41133117675781
+place	root		0	0	170.73033142089844	316.81354331970215
+place	Class01	root	12	12	146.73033142089844	113.60820770263672
+place	AveryLongClass	root	16.160240173339844	225.6082057952881	138.40985107421875	79.20533752441406
 route	id_Class01_AveryLongClass_1	root	root
-section	id_Class01_AveryLongClass_1	id_Class01_AveryLongClass_1_s0	85.95700073242188,125.60820770263672	85.95700073242188,225.6082057952881		Class01	AveryLongClass
-place-label	edge	id_Class01_AveryLongClass_1	0	69.45700073242188	165.60820770263672	33	19.999998092651367
+section	id_Class01_AveryLongClass_1	id_Class01_AveryLongClass_1_s0	85.36516571044922,125.60820770263672	85.36516571044922,225.6082057952881		Class01	AveryLongClass
+place-label	edge	id_Class01_AveryLongClass_1	0	68.86516571044922	165.60820770263672	32.796875	19.999998092651367

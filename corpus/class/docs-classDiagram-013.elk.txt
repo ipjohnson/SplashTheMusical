@@ -21,93 +21,93 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	classA	root	70	81
-node	classB	root	70	81
-node	classC	root	70	81
-node	classD	root	70	81
-node	classE	root	69	81
-node	classF	root	69	81
-node	classG	root	71	81
-node	classH	root	70	81
-node	classI	root	64	81
-node	classJ	root	68	81
-node	classK	root	70	81
-node	classL	root	69	81
-node	classM	root	72	81
-node	classN	root	70	81
-node	classO	root	71	81
-node	classP	root	69	81
+node	classA	root	69.15625	81
+node	classB	root	69.15625	81
+node	classC	root	69.15625	81
+node	classD	root	69.15625	81
+node	classE	root	68.375	81
+node	classF	root	67.59375	81
+node	classG	root	69.9375	81
+node	classH	root	69.15625	81
+node	classI	root	62.9375	81
+node	classJ	root	66.828125	81
+node	classK	root	69.15625	81
+node	classL	root	67.59375	81
+node	classM	root	70.703125	81
+node	classN	root	69.15625	81
+node	classO	root	69.9375	81
+node	classP	root	68.375	81
 edge	id_classA_classB_1	root	classA	classB
-label	edge	id_classA_classB_1	0	Inheritance	71	21
+label	edge	id_classA_classB_1	0	Inheritance	69.28125	21
 option	edge-label	id_classA_classB_1	0	edgeLabels.inline	true
 option	edge-label	id_classA_classB_1	0	edgeLabels.placement	CENTER
 edge	id_classC_classD_2	root	classC	classD
-label	edge	id_classC_classD_2	0	Composition	79	21
+label	edge	id_classC_classD_2	0	Composition	77.828125	21
 option	edge-label	id_classC_classD_2	0	edgeLabels.inline	true
 option	edge-label	id_classC_classD_2	0	edgeLabels.placement	CENTER
 edge	id_classE_classF_3	root	classE	classF
-label	edge	id_classE_classF_3	0	Aggregation	77	21
+label	edge	id_classE_classF_3	0	Aggregation	75.515625	21
 option	edge-label	id_classE_classF_3	0	edgeLabels.inline	true
 option	edge-label	id_classE_classF_3	0	edgeLabels.placement	CENTER
 edge	id_classG_classH_4	root	classG	classH
-label	edge	id_classG_classH_4	0	Association	72	21
+label	edge	id_classG_classH_4	0	Association	71.59375	21
 option	edge-label	id_classG_classH_4	0	edgeLabels.inline	true
 option	edge-label	id_classG_classH_4	0	edgeLabels.placement	CENTER
 edge	id_classI_classJ_5	root	classI	classJ
-label	edge	id_classI_classJ_5	0	Link(Solid)	67	21
+label	edge	id_classI_classJ_5	0	Link(Solid)	66.140625	21
 option	edge-label	id_classI_classJ_5	0	edgeLabels.inline	true
 option	edge-label	id_classI_classJ_5	0	edgeLabels.placement	CENTER
 edge	id_classK_classL_6	root	classK	classL
-label	edge	id_classK_classL_6	0	Dependency	80	21
+label	edge	id_classK_classL_6	0	Dependency	78.625	21
 option	edge-label	id_classK_classL_6	0	edgeLabels.inline	true
 option	edge-label	id_classK_classL_6	0	edgeLabels.placement	CENTER
 edge	id_classM_classN_7	root	classM	classN
-label	edge	id_classM_classN_7	0	Realization	70	21
+label	edge	id_classM_classN_7	0	Realization	69.265625	21
 option	edge-label	id_classM_classN_7	0	edgeLabels.inline	true
 option	edge-label	id_classM_classN_7	0	edgeLabels.placement	CENTER
 edge	id_classO_classP_8	root	classO	classP
-label	edge	id_classO_classP_8	0	Link(Dashed)	85	21
+label	edge	id_classO_classP_8	0	Link(Dashed)	83.265625	21
 option	edge-label	id_classO_classP_8	0	edgeLabels.inline	true
 option	edge-label	id_classO_classP_8	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	871.5	287
-place	classA	root	12.5	12	70	81
-place	classB	root	12.5	194	70	81
-place	classC	root	122.5	12	70	81
-place	classD	root	122.5	194	70	81
-place	classE	root	232.5	12	69	81
-place	classF	root	232.5	194	69	81
-place	classG	root	341.5	12	71	81
-place	classH	root	342	194	70	81
-place	classI	root	454	12	64	81
-place	classJ	root	452	194	68	81
-place	classK	root	559.5	12	70	81
-place	classL	root	560	194	69	81
-place	classM	root	669.5	12	72	81
-place	classN	root	670.5	194	70	81
-place	classO	root	781.5	12	71	81
-place	classP	root	782.5	194	69	81
+place	root		0	0	862.796875	287
+place	classA	root	12.421875	12	69.15625	81
+place	classB	root	12.421875	194	69.15625	81
+place	classC	root	121.578125	12	69.15625	81
+place	classD	root	121.578125	194	69.15625	81
+place	classE	root	230.734375	12	68.375	81
+place	classF	root	231.125	194	67.59375	81
+place	classG	root	339.109375	12	69.9375	81
+place	classH	root	339.5	194	69.15625	81
+place	classI	root	450.6015625	12	62.9375	81
+place	classJ	root	448.65625	194	66.828125	81
+place	classK	root	554.703125	12	69.15625	81
+place	classL	root	555.484375	194	67.59375	81
+place	classM	root	663.859375	12	70.703125	81
+place	classN	root	664.6328125	194	69.15625	81
+place	classO	root	774.5625	12	69.9375	81
+place	classP	root	775.34375	194	68.375	81
 route	id_classA_classB_1	root	root
-section	id_classA_classB_1	id_classA_classB_1_s0	47.5,93	47.5,194		classA	classB
-place-label	edge	id_classA_classB_1	0	12	133	71	21
+section	id_classA_classB_1	id_classA_classB_1_s0	47,93	47,194		classA	classB
+place-label	edge	id_classA_classB_1	0	12	133	69.28125	21
 route	id_classC_classD_2	root	root
-section	id_classC_classD_2	id_classC_classD_2_s0	157.5,93	157.5,194		classC	classD
-place-label	edge	id_classC_classD_2	0	118	133	79	21
+section	id_classC_classD_2	id_classC_classD_2_s0	156.15625,93	156.15625,194		classC	classD
+place-label	edge	id_classC_classD_2	0	117.15625	133	77.828125	21
 route	id_classE_classF_3	root	root
-section	id_classE_classF_3	id_classE_classF_3_s0	267,93	267,194		classE	classF
-place-label	edge	id_classE_classF_3	0	228.5	133	77	21
+section	id_classE_classF_3	id_classE_classF_3_s0	264.921875,93	264.921875,194		classE	classF
+place-label	edge	id_classE_classF_3	0	226.921875	133	75.515625	21
 route	id_classG_classH_4	root	root
-section	id_classG_classH_4	id_classG_classH_4_s0	377,93	377,194		classG	classH
-place-label	edge	id_classG_classH_4	0	341	133	72	21
+section	id_classG_classH_4	id_classG_classH_4_s0	374.078125,93	374.078125,194		classG	classH
+place-label	edge	id_classG_classH_4	0	338.078125	133	71.59375	21
 route	id_classI_classJ_5	root	root
-section	id_classI_classJ_5	id_classI_classJ_5_s0	486,93	486,194		classI	classJ
-place-label	edge	id_classI_classJ_5	0	452.5	133	67	21
+section	id_classI_classJ_5	id_classI_classJ_5_s0	482.0703125,93	482.0703125,194		classI	classJ
+place-label	edge	id_classI_classJ_5	0	448.5703125	133	66.140625	21
 route	id_classK_classL_6	root	root
-section	id_classK_classL_6	id_classK_classL_6_s0	594.5,93	594.5,194		classK	classL
-place-label	edge	id_classK_classL_6	0	554.5	133	80	21
+section	id_classK_classL_6	id_classK_classL_6_s0	589.28125,93	589.28125,194		classK	classL
+place-label	edge	id_classK_classL_6	0	549.78125	133	78.625	21
 route	id_classM_classN_7	root	root
-section	id_classM_classN_7	id_classM_classN_7_s0	705.5,93	705.5,194		classM	classN
-place-label	edge	id_classM_classN_7	0	670.5	133	70	21
+section	id_classM_classN_7	id_classM_classN_7_s0	699.2109375,93	699.2109375,194		classM	classN
+place-label	edge	id_classM_classN_7	0	664.2109375	133	69.265625	21
 route	id_classO_classP_8	root	root
-section	id_classO_classP_8	id_classO_classP_8_s0	817,93	817,194		classO	classP
-place-label	edge	id_classO_classP_8	0	774.5	133	85	21
+section	id_classO_classP_8	id_classO_classP_8_s0	809.53125,93	809.53125,194		classO	classP
+place-label	edge	id_classO_classP_8	0	767.53125	133	83.265625	21

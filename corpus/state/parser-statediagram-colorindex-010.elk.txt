@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	14	14
 node	Loop	root
 option	node	Loop		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Loop		nodeSize.minimum	(40, 0)
+option	node	Loop		nodeSize.minimum	(39.15625, 0)
 option	node	Loop		spacing.baseValue	24
 option	node	Loop		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Loop		elk.spacing.edgeEdge	20
@@ -40,12 +40,12 @@ option	node	Loop		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 option	node	Loop		elk.algorithm	elk.layered
 option	node	Loop		elk.direction	DOWN
 option	node	Loop		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Loop	0	Loop	32	19
+label	node	Loop	0	Loop	31.15625	19
 node	Loop_start	Loop	14	14
 node	Spin	Loop	136	37
 node	Exit	root
 option	node	Exit		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Exit		nodeSize.minimum	(31, 0)
+option	node	Exit		nodeSize.minimum	(31.34375, 0)
 option	node	Exit		spacing.baseValue	24
 option	node	Exit		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Exit		elk.spacing.edgeEdge	20
@@ -61,7 +61,7 @@ option	node	Exit		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 option	node	Exit		elk.algorithm	elk.layered
 option	node	Exit		elk.direction	DOWN
 option	node	Exit		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Exit	0	Exit	23	19
+label	node	Exit	0	Exit	23.34375	19
 node	Exit_start	Exit	14	14
 node	Bye	Exit	136	37
 edge	edge0	root	root_start	Loop
@@ -88,11 +88,11 @@ result
 place	root		0	0	228	412
 place	root_start	root	114	12	14	14
 place	Loop	root	32	66	184	147
-place-label	node	Loop	0	76	5	32	19
+place-label	node	Loop	0	76.421875	5	31.15625	19
 place	Loop_start	Loop	81.2	48	14	14
 place	Spin	Loop	24	86	136	37
 place	Exit	root	32	253	184	147
-place-label	node	Exit	0	80.5	5	23	19
+place-label	node	Exit	0	80.328125	5	23.34375	19
 place	Exit_start	Exit	81.2	48	14	14
 place	Bye	Exit	24	86	136	37
 route	edge0	root	root

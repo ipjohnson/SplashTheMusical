@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	myFlow	root
 option	node	myFlow		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	myFlow		nodeSize.minimum	(61, 0)
+option	node	myFlow		nodeSize.minimum	(60.125, 0)
 option	node	myFlow		spacing.baseValue	24
 option	node	myFlow		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	myFlow		elk.spacing.edgeEdge	20
@@ -37,7 +37,7 @@ option	node	myFlow		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	myFlow		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	myFlow		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	myFlow		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	myFlow	0	My Flow	53	19
+label	node	myFlow	0	My Flow	52.125	19
 node	a	myFlow	150	51
 option	node	a		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	L_a_myFlow_0	root	a	myFlow
@@ -47,7 +47,7 @@ option	edge-label	L_a_myFlow_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	222	147
 place	myFlow	root	12	12	198	123
-place-label	node	myFlow	0	72.5	5	53	19
+place-label	node	myFlow	0	72.9375	5	52.125	19
 place	a	myFlow	24	48	150	51
 route	L_a_myFlow_0	root	myFlow
 section	L_a_myFlow_0	L_a_myFlow_0_s0	98.99999999999999,99	98.99999999999999,123		a	myFlow

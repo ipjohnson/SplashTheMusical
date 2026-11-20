@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-BOOK-0	root	196.89999389648438	142.86874389648438
-node	entity-STORE-1	root	189.0590057373047	142.83958435058594
+node	entity-BOOK-0	root	192.99073791503906	142.5482635498047
+node	entity-STORE-1	root	185.49586486816406	142.83958435058594
 edge	id_entity-BOOK-0_entity-STORE-1_0	root	entity-BOOK-0	entity-STORE-1
-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	soldBy	46	19.999998092651367
+label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	soldBy	46.03125	19.999998092651367
 option	edge-label	id_entity-BOOK-0_entity-STORE-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-BOOK-0_entity-STORE-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	220.89999389648438	409.7083263397217
-place	entity-BOOK-0	root	12	12	196.89999389648438	142.86874389648438
-place	entity-STORE-1	root	15.920494079589844	254.86874198913574	189.0590057373047	142.83958435058594
+place	root		0	0	216.99073791503906	409.387845993042
+place	entity-BOOK-0	root	12	12	192.99073791503906	142.5482635498047
+place	entity-STORE-1	root	15.7474365234375	254.54826164245605	185.49586486816406	142.83958435058594
 route	id_entity-BOOK-0_entity-STORE-1_0	root	root
-section	id_entity-BOOK-0_entity-STORE-1_0	id_entity-BOOK-0_entity-STORE-1_0_s0	110.44999694824219,154.86874389648438	110.44999694824219,254.86874198913574		entity-BOOK-0	entity-STORE-1
-place-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	87.44999694824219	194.86874389648438	46	19.999998092651367
+section	id_entity-BOOK-0_entity-STORE-1_0	id_entity-BOOK-0_entity-STORE-1_0_s0	108.49536895751953,154.5482635498047	108.49536895751953,254.54826164245605		entity-BOOK-0	entity-STORE-1
+place-label	edge	id_entity-BOOK-0_entity-STORE-1_0	0	84.99536895751953	194.5482635498047	46.03125	19.999998092651367

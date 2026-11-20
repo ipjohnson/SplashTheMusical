@@ -21,213 +21,213 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-Repository-0	root	108	81
-node	entity-ChangelogConfiguration-1	root	194	81
+node	entity-Repository-0	root	106.921875	81
+node	entity-ChangelogConfiguration-1	root	191	81
 node	entity-Pivot-2	root	100	81
 node	entity-Rules-3	root	100	81
-node	entity-BundleProfile-4	root	124	81
-node	entity-ReleaseTrigger-5	root	137	81
-node	entity-ProductDefaults-6	root	141	81
+node	entity-BundleProfile-4	root	123.28125	81
+node	entity-ReleaseTrigger-5	root	135.203125	81
+node	entity-ProductDefaults-6	root	139.609375	81
 node	entity-Product-7	root	100	81
-node	entity-EntryPool-8	root	101	81
-node	entity-ChangelogEntry-9	root	142	81
-node	entity-ChangelogNote-10	root	139	81
-node	entity-ProductRelease-11	root	141	81
-node	entity-ChangelogMarker-12	root	154	81
+node	entity-EntryPool-8	root	100.703125	81
+node	entity-ChangelogEntry-9	root	140.40625	81
+node	entity-ChangelogNote-10	root	137.296875	81
+node	entity-ProductRelease-11	root	139.625	81
+node	entity-ChangelogMarker-12	root	151.296875	81
 node	entity-Bundle-13	root	100	81
-node	entity-BundledProduct-14	root	141	81
-node	entity-BundledEntry-15	root	125	81
-node	entity-BundleAmend-16	root	129	81
-node	entity-BundleNotesAmend-17	root	166	81
-node	entity-BundleRegistry-18	root	136	81
-node	entity-NotesIndex-19	root	112	81
+node	entity-BundledProduct-14	root	139.640625	81
+node	entity-BundledEntry-15	root	124.0625	81
+node	entity-BundleAmend-16	root	127.953125	81
+node	entity-BundleNotesAmend-17	root	164.53125	81
+node	entity-BundleRegistry-18	root	134.9375	81
+node	entity-NotesIndex-19	root	110.828125	81
 edge	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	root	entity-Repository-0	entity-ChangelogConfiguration-1
-label	edge	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	changelog.yml	92	21
+label	edge	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	changelog.yml	90.28125	21
 option	edge-label	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	root	entity-ChangelogConfiguration-1	entity-Pivot-2
-label	edge	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	pivot	30	21
+label	edge	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	pivot	29.578125	21
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	root	entity-ChangelogConfiguration-1	entity-Rules-3
-label	edge	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	rules	31	21
+label	edge	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	rules	30.359375	21
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	root	entity-ChangelogConfiguration-1	entity-BundleProfile-4
-label	edge	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	bundle.profiles	93	21
+label	edge	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	bundle.profiles	91.0625	21
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	root	entity-ChangelogConfiguration-1	entity-ReleaseTrigger-5
-label	edge	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	bundle.releases	101	21
+label	edge	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	bundle.releases	98.859375	21
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	edgeLabels.placement	CENTER
 edge	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	root	entity-ReleaseTrigger-5	entity-BundleProfile-4
-label	edge	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	profile name	79	21
+label	edge	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	profile name	77.046875	21
 option	edge-label	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	edgeLabels.inline	true
 option	edge-label	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	root	entity-ChangelogConfiguration-1	entity-ProductDefaults-6
-label	edge	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	products	55	21
+label	edge	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	products	53.703125	21
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	edgeLabels.placement	CENTER
 edge	id_entity-ProductDefaults-6_entity-Product-7_7	root	entity-ProductDefaults-6	entity-Product-7
-label	edge	id_entity-ProductDefaults-6_entity-Product-7_7	0	available, default	107	21
+label	edge	id_entity-ProductDefaults-6_entity-Product-7_7	0	available, default	105.078125	21
 option	edge-label	id_entity-ProductDefaults-6_entity-Product-7_7	0	edgeLabels.inline	true
 option	edge-label	id_entity-ProductDefaults-6_entity-Product-7_7	0	edgeLabels.placement	CENTER
 edge	id_entity-BundleProfile-4_entity-Product-7_8	root	entity-BundleProfile-4	entity-Product-7
-label	edge	id_entity-BundleProfile-4_entity-Product-7_8	0	product	48	21
+label	edge	id_entity-BundleProfile-4_entity-Product-7_8	0	product	46.703125	21
 option	edge-label	id_entity-BundleProfile-4_entity-Product-7_8	0	edgeLabels.inline	true
 option	edge-label	id_entity-BundleProfile-4_entity-Product-7_8	0	edgeLabels.placement	CENTER
 edge	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	root	entity-EntryPool-8	entity-ChangelogEntry-9
-label	edge	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	changelog/{org}/{repo}/{branch}/	206	21
+label	edge	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	changelog/{org}/{repo}/{branch}/	199.296875	21
 option	edge-label	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	edgeLabels.inline	true
 option	edge-label	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	edgeLabels.placement	CENTER
 edge	id_entity-EntryPool-8_entity-ChangelogNote-10_10	root	entity-EntryPool-8	entity-ChangelogNote-10
-label	edge	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	note-*.yml	64	21
+label	edge	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	note-*.yml	63.03125	21
 option	edge-label	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	edgeLabels.inline	true
 option	edge-label	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	root	entity-ChangelogEntry-9	entity-ProductRelease-11
-label	edge	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	products	55	21
+label	edge	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	products	53.703125	21
 option	edge-label	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	root	entity-ChangelogNote-10	entity-ProductRelease-11
-label	edge	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	products (versions)	122	21
+label	edge	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	products (versions)	119.046875	21
 option	edge-label	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	edgeLabels.placement	CENTER
 edge	id_entity-ProductRelease-11_entity-Product-7_13	root	entity-ProductRelease-11	entity-Product-7
-label	edge	id_entity-ProductRelease-11_entity-Product-7_13	0	product	48	21
+label	edge	id_entity-ProductRelease-11_entity-Product-7_13	0	product	46.703125	21
 option	edge-label	id_entity-ProductRelease-11_entity-Product-7_13	0	edgeLabels.inline	true
 option	edge-label	id_entity-ProductRelease-11_entity-Product-7_13	0	edgeLabels.placement	CENTER
 edge	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	root	entity-ChangelogMarker-12	entity-ChangelogEntry-9
-label	edge	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	link	21	21
+label	edge	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	link	21.015625	21
 option	edge-label	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	edgeLabels.inline	true
 option	edge-label	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	edgeLabels.placement	CENTER
 edge	id_entity-Bundle-13_entity-BundledProduct-14_15	root	entity-Bundle-13	entity-BundledProduct-14
-label	edge	id_entity-Bundle-13_entity-BundledProduct-14_15	0	products	55	21
+label	edge	id_entity-Bundle-13_entity-BundledProduct-14_15	0	products	53.703125	21
 option	edge-label	id_entity-Bundle-13_entity-BundledProduct-14_15	0	edgeLabels.inline	true
 option	edge-label	id_entity-Bundle-13_entity-BundledProduct-14_15	0	edgeLabels.placement	CENTER
 edge	id_entity-BundledProduct-14_entity-Product-7_16	root	entity-BundledProduct-14	entity-Product-7
-label	edge	id_entity-BundledProduct-14_entity-Product-7_16	0	product	48	21
+label	edge	id_entity-BundledProduct-14_entity-Product-7_16	0	product	46.703125	21
 option	edge-label	id_entity-BundledProduct-14_entity-Product-7_16	0	edgeLabels.inline	true
 option	edge-label	id_entity-BundledProduct-14_entity-Product-7_16	0	edgeLabels.placement	CENTER
 edge	id_entity-Bundle-13_entity-BundledEntry-15_17	root	entity-Bundle-13	entity-BundledEntry-15
-label	edge	id_entity-Bundle-13_entity-BundledEntry-15_17	0	entries	43	21
+label	edge	id_entity-Bundle-13_entity-BundledEntry-15_17	0	entries	42.03125	21
 option	edge-label	id_entity-Bundle-13_entity-BundledEntry-15_17	0	edgeLabels.inline	true
 option	edge-label	id_entity-Bundle-13_entity-BundledEntry-15_17	0	edgeLabels.placement	CENTER
 edge	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	root	entity-BundledEntry-15	entity-ChangelogEntry-9
-label	edge	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	file.name + checksum	138	21
+label	edge	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	file.name + checksum	135.796875	21
 option	edge-label	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	edgeLabels.inline	true
 option	edge-label	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	edgeLabels.placement	CENTER
 edge	id_entity-Bundle-13_entity-BundleAmend-16_19	root	entity-Bundle-13	entity-BundleAmend-16
-label	edge	id_entity-Bundle-13_entity-BundleAmend-16_19	0	amend-N	59	21
+label	edge	id_entity-Bundle-13_entity-BundleAmend-16_19	0	amend-N	57.59375	21
 option	edge-label	id_entity-Bundle-13_entity-BundleAmend-16_19	0	edgeLabels.inline	true
 option	edge-label	id_entity-Bundle-13_entity-BundleAmend-16_19	0	edgeLabels.placement	CENTER
 edge	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	root	entity-Bundle-13	entity-BundleNotesAmend-17
-label	edge	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	amend-notes	84	21
+label	edge	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	amend-notes	81.71875	21
 option	edge-label	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	edgeLabels.inline	true
 option	edge-label	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	edgeLabels.placement	CENTER
 edge	id_entity-Product-7_entity-BundleRegistry-18_21	root	entity-Product-7	entity-BundleRegistry-18
-label	edge	id_entity-Product-7_entity-BundleRegistry-18_21	0	bundle/{product}/registry.json	185	21
+label	edge	id_entity-Product-7_entity-BundleRegistry-18_21	0	bundle/{product}/registry.json	180.3125	21
 option	edge-label	id_entity-Product-7_entity-BundleRegistry-18_21	0	edgeLabels.inline	true
 option	edge-label	id_entity-Product-7_entity-BundleRegistry-18_21	0	edgeLabels.placement	CENTER
 edge	id_entity-BundleRegistry-18_entity-Bundle-13_22	root	entity-BundleRegistry-18	entity-Bundle-13
-label	edge	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	bundles[]	58	21
+label	edge	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	bundles[]	56.828125	21
 option	edge-label	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	edgeLabels.inline	true
 option	edge-label	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	edgeLabels.placement	CENTER
 edge	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	root	entity-NotesIndex-19	entity-ChangelogNote-10
-label	edge	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	notes[]	43	21
+label	edge	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	notes[]	42.03125	21
 option	edge-label	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	edgeLabels.inline	true
 option	edge-label	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1345.5	1863
-place	entity-Repository-0	root	800.3333333333334	12	108	81
-place	entity-ChangelogConfiguration-1	root	757.3333333333334	194	194	81
-place	entity-Pivot-2	root	962.8333333333334	396	100	81
-place	entity-Rules-3	root	512.8333333333334	396	100	81
-place	entity-BundleProfile-4	root	714.8333333333334	638	124	81
-place	entity-ReleaseTrigger-5	root	785.8333333333334	396	137	81
-place	entity-ProductDefaults-6	root	1012.3333333333335	517	141	81
-place	entity-Product-7	root	849.75	820	100	81
-place	entity-EntryPool-8	root	343.625	1386	101	81
-place	entity-ChangelogEntry-9	root	278.45833333333326	1588	142	81
-place	entity-ChangelogNote-10	root	671.2916666666666	1588	139	81
-place	entity-ProductRelease-11	root	278.95833333333326	1770	141	81
-place	entity-ChangelogMarker-12	root	57	1386	154	81
-place	entity-Bundle-13	root	855.5416666666666	1184	100	81
-place	entity-BundledProduct-14	root	1192.5	1386	141	81
-place	entity-BundledEntry-15	root	500.5	1386	125	81
-place	entity-BundleAmend-16	root	665.5	1386	129	81
-place	entity-BundleNotesAmend-17	root	986.5	1386	166	81
-place	entity-BundleRegistry-18	root	837.5416666666666	1002	136	81
-place	entity-NotesIndex-19	root	834.5	1386	112	81
+place	root		0	0	1330.6940104166665	1863
+place	entity-Repository-0	root	788.7161458333333	12	106.921875	81
+place	entity-ChangelogConfiguration-1	root	746.6770833333333	194	191	81
+place	entity-Pivot-2	root	949.7786458333333	396	100	81
+place	entity-Rules-3	root	503.51302083333326	396	100	81
+place	entity-BundleProfile-4	root	704.2044270833333	638	123.28125	81
+place	entity-ReleaseTrigger-5	root	774.5755208333333	396	135.203125	81
+place	entity-ProductDefaults-6	root	999.9739583333333	517	139.609375	81
+place	entity-Product-7	root	838.2526041666666	820	100	81
+place	entity-EntryPool-8	root	334.8268229166665	1386	100.703125	81
+place	entity-ChangelogEntry-9	root	274.91927083333326	1588	140.40625	81
+place	entity-ChangelogNote-10	root	663.9388020833333	1588	137.296875	81
+place	entity-ProductRelease-11	root	275.30989583333326	1770	139.625	81
+place	entity-ChangelogMarker-12	root	56.5	1386	151.296875	81
+place	entity-Bundle-13	root	845.5716145833333	1184	100	81
+place	entity-BundledProduct-14	root	1179.0533854166665	1386	139.640625	81
+place	entity-BundledEntry-15	root	491.67838541666663	1386	124.0625	81
+place	entity-BundleAmend-16	root	655.7408854166666	1386	127.953125	81
+place	entity-BundleNotesAmend-17	root	974.5221354166666	1386	164.53125	81
+place	entity-BundleRegistry-18	root	828.1028645833333	1002	134.9375	81
+place	entity-NotesIndex-19	root	823.6940104166666	1386	110.828125	81
 route	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	root	root
-section	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	id_entity-Repository-0_entity-ChangelogConfiguration-1_0_s0	854.3333333333334,93	854.3333333333334,194		entity-Repository-0	entity-ChangelogConfiguration-1
-place-label	edge	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	808.3333333333334	133	92	21
+section	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	id_entity-Repository-0_entity-ChangelogConfiguration-1_0_s0	842.1770833333333,93	842.1770833333333,194		entity-Repository-0	entity-ChangelogConfiguration-1
+place-label	edge	id_entity-Repository-0_entity-ChangelogConfiguration-1_0	0	796.6770833333333	133	90.28125	21
 route	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	root	root
-section	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1_s0	883.3333333333334,275	1012.8333333333334,396	883.3333333333334,315 1012.8333333333334,315	entity-ChangelogConfiguration-1	entity-Pivot-2
-place-label	edge	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	997.8333333333334	335	30	21
+section	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1_s0	870.6770833333333,275	999.7786458333333,396	870.6770833333333,315 999.7786458333333,315	entity-ChangelogConfiguration-1	entity-Pivot-2
+place-label	edge	id_entity-ChangelogConfiguration-1_entity-Pivot-2_1	0	984.7786458333333	335	29.578125	21
 route	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	root	root
-section	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	id_entity-ChangelogConfiguration-1_entity-Rules-3_2_s0	796.3333333333334,275	562.8333333333334,396	796.3333333333334,295 562.8333333333334,295	entity-ChangelogConfiguration-1	entity-Rules-3
-place-label	edge	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	547.3333333333334	335	31	21
+section	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	id_entity-ChangelogConfiguration-1_entity-Rules-3_2_s0	785.1770833333333,275	553.5130208333333,396	785.1770833333333,295 553.5130208333333,295	entity-ChangelogConfiguration-1	entity-Rules-3
+place-label	edge	id_entity-ChangelogConfiguration-1_entity-Rules-3_2	0	538.0130208333333	335	30.359375	21
 route	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	root	root
-section	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3_s0	825.3333333333334,275	759.5,638	825.3333333333334,315 699.3333333333334,315 699.3333333333334,345.5 699.3333333333334,557.5 699.3333333333334,618 759.5,618	entity-ChangelogConfiguration-1	entity-BundleProfile-4
-place-label	edge	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	652.8333333333334	426	93	21
+section	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3_s0	813.6770833333333,275	748.6315104166665,638	813.6770833333333,315 689.5130208333333,315 689.5130208333333,345.5 689.5130208333333,557.5 689.5130208333333,618 748.6315104166665,618	entity-ChangelogConfiguration-1	entity-BundleProfile-4
+place-label	edge	id_entity-ChangelogConfiguration-1_entity-BundleProfile-4_3	0	643.5130208333333	426	91.0625	21
 route	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	root	root
-section	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4_s0	854.3333333333334,275	854.3333333333334,396		entity-ChangelogConfiguration-1	entity-ReleaseTrigger-5
-place-label	edge	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	803.8333333333334	335	101	21
+section	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4_s0	842.1770833333333,275	842.1770833333333,396		entity-ChangelogConfiguration-1	entity-ReleaseTrigger-5
+place-label	edge	id_entity-ChangelogConfiguration-1_entity-ReleaseTrigger-5_4	0	792.6770833333333	335	98.859375	21
 route	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	root	root
-section	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5_s0	854.3333333333334,477	794.1666666666667,638	854.3333333333334,618 794.1666666666667,618	entity-ReleaseTrigger-5	entity-BundleProfile-4
-place-label	edge	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	814.8333333333334	547	79	21
+section	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5_s0	842.1770833333333,477	783.05859375,638	842.1770833333333,618 783.05859375,618	entity-ReleaseTrigger-5	entity-BundleProfile-4
+place-label	edge	id_entity-ReleaseTrigger-5_entity-BundleProfile-4_5	0	803.1770833333333	547	77.046875	21
 route	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	root	root
-section	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6_s0	912.3333333333334,275	1082.8333333333335,517	912.3333333333334,295 1082.8333333333335,295 1082.8333333333335,436.5	entity-ChangelogConfiguration-1	entity-ProductDefaults-6
-place-label	edge	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	1055.3333333333335	335	55	21
+section	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6_s0	899.1770833333333,275	1069.7786458333333,517	899.1770833333333,295 1069.7786458333333,295 1069.7786458333333,436.5	entity-ChangelogConfiguration-1	entity-ProductDefaults-6
+place-label	edge	id_entity-ChangelogConfiguration-1_entity-ProductDefaults-6_6	0	1042.7786458333333	335	53.703125	21
 route	id_entity-ProductDefaults-6_entity-Product-7_7	root	root
-section	id_entity-ProductDefaults-6_entity-Product-7_7	id_entity-ProductDefaults-6_entity-Product-7_7_s0	1082.8333333333335,598	913.0833333333334,820	1082.8333333333335,769.5 1082.8333333333335,800 913.0833333333334,800	entity-ProductDefaults-6	entity-Product-7
-place-label	edge	id_entity-ProductDefaults-6_entity-Product-7_7	0	1029.3333333333335	668	107	21
+section	id_entity-ProductDefaults-6_entity-Product-7_7	id_entity-ProductDefaults-6_entity-Product-7_7_s0	1069.7786458333333,598	901.5859375,820	1069.7786458333333,769.5 1069.7786458333333,800 901.5859375,800	entity-ProductDefaults-6	entity-Product-7
+place-label	edge	id_entity-ProductDefaults-6_entity-Product-7_7	0	1016.7786458333333	668	105.078125	21
 route	id_entity-BundleProfile-4_entity-Product-7_8	root	root
-section	id_entity-BundleProfile-4_entity-Product-7_8	id_entity-BundleProfile-4_entity-Product-7_8_s0	776.8333333333334,719	886.4166666666667,820	776.8333333333334,800 886.4166666666667,800	entity-BundleProfile-4	entity-Product-7
-place-label	edge	id_entity-BundleProfile-4_entity-Product-7_8	0	752.8333333333334	759	48	21
+section	id_entity-BundleProfile-4_entity-Product-7_8	id_entity-BundleProfile-4_entity-Product-7_8_s0	765.8450520833333,719	874.9192708333333,820	765.8450520833333,800 874.9192708333333,800	entity-BundleProfile-4	entity-Product-7
+place-label	edge	id_entity-BundleProfile-4_entity-Product-7_8	0	742.3450520833333	759	46.703125	21
 route	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	root	root
-section	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	id_entity-EntryPool-8_entity-ChangelogEntry-9_9_s0	380.625,1467	349.45833333333326,1588	380.625,1487 277.75,1487 277.75,1548 349.45833333333326,1548	entity-EntryPool-8	entity-ChangelogEntry-9
-place-label	edge	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	174.75	1507	206	21
+section	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	id_entity-EntryPool-8_entity-ChangelogEntry-9_9_s0	371.72786458333314,1467	345.12239583333326,1588	371.72786458333314,1487 273.43098958333326,1487 273.43098958333326,1548 345.12239583333326,1548	entity-EntryPool-8	entity-ChangelogEntry-9
+place-label	edge	id_entity-EntryPool-8_entity-ChangelogEntry-9_9	0	173.43098958333326	1507	199.296875	21
 route	id_entity-EntryPool-8_entity-ChangelogNote-10_10	root	root
-section	id_entity-EntryPool-8_entity-ChangelogNote-10_10	id_entity-EntryPool-8_entity-ChangelogNote-10_10_s0	407.625,1467	720.9583333333333,1588	407.625,1487 432.75,1487 432.75,1568 720.9583333333333,1568	entity-EntryPool-8	entity-ChangelogNote-10
-place-label	edge	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	400.75	1507	64	21
+section	id_entity-EntryPool-8_entity-ChangelogNote-10_10	id_entity-EntryPool-8_entity-ChangelogNote-10_10_s0	398.6289062499999,1467	713.0377604166666,1588	398.6289062499999,1487 424.72786458333326,1487 424.72786458333326,1568 713.0377604166666,1568	entity-EntryPool-8	entity-ChangelogNote-10
+place-label	edge	id_entity-EntryPool-8_entity-ChangelogNote-10_10	0	392.72786458333326	1507	63.03125	21
 route	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	root	root
-section	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11_s0	349.45833333333326,1669	349.45833333333326,1770		entity-ChangelogEntry-9	entity-ProductRelease-11
-place-label	edge	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	321.95833333333326	1709	55	21
+section	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11_s0	345.12239583333326,1669	345.12239583333326,1770		entity-ChangelogEntry-9	entity-ProductRelease-11
+place-label	edge	id_entity-ChangelogEntry-9_entity-ProductRelease-11_11	0	318.12239583333326	1709	53.703125	21
 route	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	root	root
-section	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	id_entity-ChangelogNote-10_entity-ProductRelease-11_12_s0	740.7916666666666,1669	379.70833333333326,1770	740.7916666666666,1750 379.70833333333326,1750	entity-ChangelogNote-10	entity-ProductRelease-11
-place-label	edge	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	679.7916666666666	1709	122	21
+section	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	id_entity-ChangelogNote-10_entity-ProductRelease-11_12_s0	732.5872395833333,1669	375.02864583333326,1770	732.5872395833333,1750 375.02864583333326,1750	entity-ChangelogNote-10	entity-ProductRelease-11
+place-label	edge	id_entity-ChangelogNote-10_entity-ProductRelease-11_12	0	672.5872395833333	1709	119.046875	21
 route	id_entity-ProductRelease-11_entity-Product-7_13	root	root
-section	id_entity-ProductRelease-11_entity-Product-7_13	id_entity-ProductRelease-11_entity-Product-7_13_s0	319.20833333333326,1770	879.75,901	319.20833333333326,1750 36,1750 36,1719.5 36,1628.5 36,1517.5 36,1426.5 36,1224.5 36,1133.5 36,1042.5 36,951.5 36,921 879.75,921	entity-ProductRelease-11	entity-Product-7
-place-label	edge	id_entity-ProductRelease-11_entity-Product-7_13	0	12	1325	48	21
+section	id_entity-ProductRelease-11_entity-Product-7_13	id_entity-ProductRelease-11_entity-Product-7_13_s0	315.21614583333326,1770	868.2526041666666,901	315.21614583333326,1750 35.5,1750 35.5,1719.5 35.5,1628.5 35.5,1517.5 35.5,1426.5 35.5,1224.5 35.5,1133.5 35.5,1042.5 35.5,951.5 35.5,921 868.2526041666666,921	entity-ProductRelease-11	entity-Product-7
+place-label	edge	id_entity-ProductRelease-11_entity-Product-7_13	0	12	1325	46.703125	21
 route	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	root	root
-section	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14_s0	134,1467	318.95833333333326,1588	134,1568 318.95833333333326,1568	entity-ChangelogMarker-12	entity-ChangelogEntry-9
-place-label	edge	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	123.5	1507	21	21
+section	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14_s0	132.1484375,1467	315.02083333333326,1588	132.1484375,1568 315.02083333333326,1568	entity-ChangelogMarker-12	entity-ChangelogEntry-9
+place-label	edge	id_entity-ChangelogMarker-12_entity-ChangelogEntry-9_14	0	121.1484375	1507	21.015625	21
 route	id_entity-Bundle-13_entity-BundledProduct-14_15	root	root
-section	id_entity-Bundle-13_entity-BundledProduct-14_15	id_entity-Bundle-13_entity-BundledProduct-14_15_s0	929.5416666666666,1265	1242.8333333333333,1386	929.5416666666666,1285 1239.25,1285 1239.25,1366 1242.8333333333333,1366	entity-Bundle-13	entity-BundledProduct-14
-place-label	edge	id_entity-Bundle-13_entity-BundledProduct-14_15	0	1211.75	1325	55	21
+section	id_entity-Bundle-13_entity-BundledProduct-14_15	id_entity-Bundle-13_entity-BundledProduct-14_15_s0	919.5716145833333,1265	1228.93359375,1386	919.5716145833333,1285 1225.5221354166665,1285 1225.5221354166665,1366 1228.93359375,1366	entity-Bundle-13	entity-BundledProduct-14
+place-label	edge	id_entity-Bundle-13_entity-BundledProduct-14_15	0	1198.5221354166665	1325	53.703125	21
 route	id_entity-BundledProduct-14_entity-Product-7_16	root	root
-section	id_entity-BundledProduct-14_entity-Product-7_16	id_entity-BundledProduct-14_entity-Product-7_16_s0	1283.1666666666667,1386	919.75,901	1283.1666666666667,1366 1286.75,1366 1286.75,1335.5 1286.75,1224.5 1286.75,1042.5 1286.75,951.5 1286.75,921 919.75,921	entity-BundledProduct-14	entity-Product-7
-place-label	edge	id_entity-BundledProduct-14_entity-Product-7_16	0	1262.75	1123	48	21
+section	id_entity-BundledProduct-14_entity-Product-7_16	id_entity-BundledProduct-14_entity-Product-7_16_s0	1268.8138020833333,1386	908.2526041666666,901	1268.8138020833333,1366 1272.2252604166665,1366 1272.2252604166665,1335.5 1272.2252604166665,1224.5 1272.2252604166665,1042.5 1272.2252604166665,951.5 1272.2252604166665,921 908.2526041666666,921	entity-BundledProduct-14	entity-Product-7
+place-label	edge	id_entity-BundledProduct-14_entity-Product-7_16	0	1248.7252604166665	1123	46.703125	21
 route	id_entity-Bundle-13_entity-BundledEntry-15_17	root	root
-section	id_entity-Bundle-13_entity-BundledEntry-15_17	id_entity-Bundle-13_entity-BundledEntry-15_17_s0	881.5416666666666,1265	563,1386	881.5416666666666,1285 563,1285	entity-Bundle-13	entity-BundledEntry-15
-place-label	edge	id_entity-Bundle-13_entity-BundledEntry-15_17	0	541.5	1325	43	21
+section	id_entity-Bundle-13_entity-BundledEntry-15_17	id_entity-Bundle-13_entity-BundledEntry-15_17_s0	871.5716145833333,1265	553.7096354166666,1386	871.5716145833333,1285 553.7096354166666,1285	entity-Bundle-13	entity-BundledEntry-15
+place-label	edge	id_entity-Bundle-13_entity-BundledEntry-15_17	0	532.2096354166666	1325	42.03125	21
 route	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	root	root
-section	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18_s0	563,1467	379.95833333333326,1588	563,1548 379.95833333333326,1548	entity-BundledEntry-15	entity-ChangelogEntry-9
-place-label	edge	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	494	1507	138	21
+section	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18_s0	553.7096354166666,1467	375.22395833333326,1588	553.7096354166666,1548 375.22395833333326,1548	entity-BundledEntry-15	entity-ChangelogEntry-9
+place-label	edge	id_entity-BundledEntry-15_entity-ChangelogEntry-9_18	0	485.70963541666663	1507	135.796875	21
 route	id_entity-Bundle-13_entity-BundleAmend-16_19	root	root
-section	id_entity-Bundle-13_entity-BundleAmend-16_19	id_entity-Bundle-13_entity-BundleAmend-16_19_s0	897.5416666666666,1265	730,1386	897.5416666666666,1305 730,1305	entity-Bundle-13	entity-BundleAmend-16
-place-label	edge	id_entity-Bundle-13_entity-BundleAmend-16_19	0	700.5	1325	59	21
+section	id_entity-Bundle-13_entity-BundleAmend-16_19	id_entity-Bundle-13_entity-BundleAmend-16_19_s0	887.5716145833333,1265	719.7174479166666,1386	887.5716145833333,1305 719.7174479166666,1305	entity-Bundle-13	entity-BundleAmend-16
+place-label	edge	id_entity-Bundle-13_entity-BundleAmend-16_19	0	690.7174479166666	1325	57.59375	21
 route	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	root	root
-section	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	id_entity-Bundle-13_entity-BundleNotesAmend-17_20_s0	913.5416666666666,1265	1069.5,1386	913.5416666666666,1305 1069.5,1305	entity-Bundle-13	entity-BundleNotesAmend-17
-place-label	edge	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	1027.5	1325	84	21
+section	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	id_entity-Bundle-13_entity-BundleNotesAmend-17_20_s0	903.5716145833333,1265	1056.7877604166665,1386	903.5716145833333,1305 1056.7877604166665,1305	entity-Bundle-13	entity-BundleNotesAmend-17
+place-label	edge	id_entity-Bundle-13_entity-BundleNotesAmend-17_20	0	1015.7877604166666	1325	81.71875	21
 route	id_entity-Product-7_entity-BundleRegistry-18_21	root	root
-section	id_entity-Product-7_entity-BundleRegistry-18_21	id_entity-Product-7_entity-BundleRegistry-18_21_s0	899.75,901	905.5416666666666,1002	899.75,921 905.5416666666666,921	entity-Product-7	entity-BundleRegistry-18
-place-label	edge	id_entity-Product-7_entity-BundleRegistry-18_21	0	813.0416666666666	941	185	21
+section	id_entity-Product-7_entity-BundleRegistry-18_21	id_entity-Product-7_entity-BundleRegistry-18_21_s0	888.2526041666666,901	895.5716145833333,1002	888.2526041666666,921 895.5716145833333,921	entity-Product-7	entity-BundleRegistry-18
+place-label	edge	id_entity-Product-7_entity-BundleRegistry-18_21	0	805.0716145833333	941	180.3125	21
 route	id_entity-BundleRegistry-18_entity-Bundle-13_22	root	root
-section	id_entity-BundleRegistry-18_entity-Bundle-13_22	id_entity-BundleRegistry-18_entity-Bundle-13_22_s0	905.5416666666666,1083	905.5416666666666,1184		entity-BundleRegistry-18	entity-Bundle-13
-place-label	edge	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	876.5416666666666	1123	58	21
+section	id_entity-BundleRegistry-18_entity-Bundle-13_22	id_entity-BundleRegistry-18_entity-Bundle-13_22_s0	895.5716145833333,1083	895.5716145833333,1184		entity-BundleRegistry-18	entity-Bundle-13
+place-label	edge	id_entity-BundleRegistry-18_entity-Bundle-13_22	0	867.0716145833333	1123	56.828125	21
 route	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	root	root
-section	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	id_entity-NotesIndex-19_entity-ChangelogNote-10_23_s0	890.5,1467	760.625,1588	890.5,1548 760.625,1548	entity-NotesIndex-19	entity-ChangelogNote-10
-place-label	edge	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	869	1507	43	21
+section	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	id_entity-NotesIndex-19_entity-ChangelogNote-10_23_s0	879.1080729166666,1467	752.13671875,1588	879.1080729166666,1548 752.13671875,1548	entity-NotesIndex-19	entity-ChangelogNote-10
+place-label	edge	id_entity-NotesIndex-19_entity-ChangelogNote-10_23	0	857.6080729166666	1507	42.03125	21

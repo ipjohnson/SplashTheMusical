@@ -21,52 +21,52 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	90	81
-node	Order	root	62	81
-node	LineItem	root	83	81
-node	Address	root	81	81
+node	Customer	root	89.359375	81
+node	Order	root	62.125	81
+node	LineItem	root	81.578125	81
+node	Address	root	80.03125	81
 edge	id_Customer_Order_1	root	Customer	Order
-label	edge	id_Customer_Order_1	0	places	41	21
+label	edge	id_Customer_Order_1	0	places	40.46875	21
 option	edge-label	id_Customer_Order_1	0	edgeLabels.inline	true
 option	edge-label	id_Customer_Order_1	0	edgeLabels.placement	CENTER
-label	edge	id_Customer_Order_1	1	1	6	16.5
+label	edge	id_Customer_Order_1	1	1	6.125	16.5
 option	edge-label	id_Customer_Order_1	1	edgeLabels.placement	TAIL
-label	edge	id_Customer_Order_1	2	0..*	28	28.5
+label	edge	id_Customer_Order_1	2	0..*	28.515625	28.5
 option	edge-label	id_Customer_Order_1	2	edgeLabels.placement	HEAD
 edge	id_Order_LineItem_2	root	Order	LineItem
-label	edge	id_Order_LineItem_2	0	contains	53	21
+label	edge	id_Order_LineItem_2	0	contains	52.15625	21
 option	edge-label	id_Order_LineItem_2	0	edgeLabels.inline	true
 option	edge-label	id_Order_LineItem_2	0	edgeLabels.placement	CENTER
-label	edge	id_Order_LineItem_2	1	1	18	28.5
+label	edge	id_Order_LineItem_2	1	1	18.125	28.5
 option	edge-label	id_Order_LineItem_2	1	edgeLabels.placement	TAIL
-label	edge	id_Order_LineItem_2	2	1..*	16	16.5
+label	edge	id_Order_LineItem_2	2	1..*	16.515625	16.5
 option	edge-label	id_Order_LineItem_2	2	edgeLabels.placement	HEAD
 edge	id_Customer_Address_3	root	Customer	Address
 label	edge	id_Customer_Address_3	0		0	0
 option	edge-label	id_Customer_Address_3	0	edgeLabels.inline	true
 option	edge-label	id_Customer_Address_3	0	edgeLabels.placement	CENTER
-label	edge	id_Customer_Address_3	1	1	6	16.5
+label	edge	id_Customer_Address_3	1	1	6.125	16.5
 option	edge-label	id_Customer_Address_3	1	edgeLabels.placement	TAIL
-label	edge	id_Customer_Address_3	2	1	18	28.5
+label	edge	id_Customer_Address_3	2	1	18.125	28.5
 option	edge-label	id_Customer_Address_3	2	edgeLabels.placement	HEAD
 result
-place	root		0	0	659	196.5
-place	Customer	root	12	57.75000000000001	90	81
-place	Order	root	327	12	62	81
-place	LineItem	root	564	12	83	81
-place	Address	root	174	103.5	81	81
+place	root		0	0	656.65625	196.5
+place	Customer	root	12	57.75000000000001	89.359375	81
+place	Order	root	326.15625	12	62.125	81
+place	LineItem	root	563.078125	12	81.578125	81
+place	Address	root	173.609375	103.5	80.03125	81
 route	id_Customer_Order_1	root	root
-section	id_Customer_Order_1	id_Customer_Order_1_s0	102,88.08333333333334	327,52.5	132,88.08333333333334 132,52.5	Customer	Order
-place-label	edge	id_Customer_Order_1	0	183	41.5	41	21
-place-label	edge	id_Customer_Order_1	1	106	93.08333333333334	6	16.5
-place-label	edge	id_Customer_Order_1	2	295	57.5	28	28.5
+section	id_Customer_Order_1	id_Customer_Order_1_s0	101.359375,88.08333333333334	326.15625,52.5	131.484375,88.08333333333334 131.484375,52.5	Customer	Order
+place-label	edge	id_Customer_Order_1	0	182.328125	41.5	40.46875	21
+place-label	edge	id_Customer_Order_1	1	105.359375	93.08333333333334	6.125	16.5
+place-label	edge	id_Customer_Order_1	2	293.640625	57.5	28.515625	28.5
 route	id_Order_LineItem_2	root	root
-section	id_Order_LineItem_2	id_Order_LineItem_2_s0	389,52.5	564,52.5		Order	LineItem
-place-label	edge	id_Order_LineItem_2	0	451	41.5	53	21
-place-label	edge	id_Order_LineItem_2	1	393	57.5	18	28.5
-place-label	edge	id_Order_LineItem_2	2	544	57.5	16	16.5
+section	id_Order_LineItem_2	id_Order_LineItem_2_s0	388.28125,52.5	563.078125,52.5		Order	LineItem
+place-label	edge	id_Order_LineItem_2	0	450.40625	41.5	52.15625	21
+place-label	edge	id_Order_LineItem_2	1	392.28125	57.5	18.125	28.5
+place-label	edge	id_Order_LineItem_2	2	542.5625	57.5	16.515625	16.5
 route	id_Customer_Address_3	root	root
-section	id_Customer_Address_3	id_Customer_Address_3_s0	102,108.41666666666667	174,144	132,108.41666666666667 132,144	Customer	Address
+section	id_Customer_Address_3	id_Customer_Address_3_s0	101.359375,108.41666666666667	173.609375,144	131.484375,108.41666666666667 131.484375,144	Customer	Address
 place-label	edge	id_Customer_Address_3	0	0	0	0	0
-place-label	edge	id_Customer_Address_3	1	106	113.41666666666667	6	16.5
-place-label	edge	id_Customer_Address_3	2	152	149	18	28.5
+place-label	edge	id_Customer_Address_3	1	105.359375	113.41666666666667	6.125	16.5
+place-label	edge	id_Customer_Address_3	2	151.484375	149	18.125	28.5

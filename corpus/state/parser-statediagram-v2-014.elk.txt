@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Configuring	root
 option	node	Configuring		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Configuring		nodeSize.minimum	(81, 0)
+option	node	Configuring		nodeSize.minimum	(79.609375, 0)
 option	node	Configuring		spacing.baseValue	24
 option	node	Configuring		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Configuring		elk.spacing.edgeEdge	20
@@ -39,42 +39,42 @@ option	node	Configuring		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,
 option	node	Configuring		elk.algorithm	elk.layered
 option	node	Configuring		elk.direction	DOWN
 option	node	Configuring		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Configuring	0	Configuring	73	19
+label	node	Configuring	0	Configuring	71.609375	19
 node	Configuring_start	Configuring	14	14
-node	NewValueSelection	Configuring	137	37
+node	NewValueSelection	Configuring	136.375	37
 node	NewValuePreview	Configuring	136	37
 edge	edge0	root	Configuring_start	NewValueSelection
 label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	NewValueSelection	NewValuePreview
-label	edge	edge1	0	EvNewValue	79	21
+label	edge	edge1	0	EvNewValue	79.125	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	NewValuePreview	NewValueSelection
-label	edge	edge2	0	EvNewValueRejected	135	21
+label	edge	edge2	0	EvNewValueRejected	134.375	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	NewValuePreview	NewValueSelection
-label	edge	edge3	0	EvNewValueSaved1	127	21
+label	edge	edge3	0	EvNewValueSaved1	126.609375	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	453	349
-place	Configuring	root	12	12	429	325
-place-label	node	Configuring	0	178	5	73	19
-place	Configuring_start	Configuring	227.7	48	14	14
-place	NewValueSelection	Configuring	170	86	137	37
-place	NewValuePreview	Configuring	170.425	264	136	37
+place	root		0	0	452.109375	349
+place	Configuring	root	12	12	428.109375	325
+place-label	node	Configuring	0	178.25	5	71.609375	19
+place	Configuring_start	Configuring	227.309375	48	14	14
+place	NewValueSelection	Configuring	169.921875	86	136.375	37
+place	NewValuePreview	Configuring	170.0625	264	136	37
 route	edge0	root	Configuring
-section	edge0	edge0_s0	238.5,62	238.5,86		Configuring_start	NewValueSelection
+section	edge0	edge0_s0	238.109375,62	238.109375,86		Configuring_start	NewValueSelection
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	Configuring
-section	edge1	edge1_s0	267.35,123	267.025,264	267.35,153 365.5,153 365.5,234 267.025,234	NewValueSelection	NewValuePreview
-place-label	edge	edge1	0	326	183	79	21
+section	edge1	edge1_s0	266.803125,123	266.6625,264	266.803125,153 364.984375,153 364.984375,234 266.6625,234	NewValueSelection	NewValuePreview
+place-label	edge	edge1	0	324.984375	183	79.125	21
 route	edge2	root	Configuring
-section	edge2	edge2_s0	238.425,264	238.5,123	238.425,234 238.5,234	NewValuePreview	NewValueSelection
-place-label	edge	edge2	0	171	183	135	21
+section	edge2	edge2_s0	238.0625,264	238.109375,123	238.0625,234 238.109375,234	NewValuePreview	NewValueSelection
+place-label	edge	edge2	0	170.609375	183	134.375	21
 route	edge3	root	Configuring
-section	edge3	edge3_s0	209.82500000000002,264	209.65,123	209.82500000000002,234 87.5,234 87.5,153 209.65,153	NewValuePreview	NewValueSelection
-place-label	edge	edge3	0	24	183	127	21
+section	edge3	edge3_s0	209.4625,264	209.415625,123	209.46250000000003,234 87.5,234 87.5,153 209.41562500000003,153	NewValuePreview	NewValueSelection
+place-label	edge	edge3	0	24	183	126.609375	21

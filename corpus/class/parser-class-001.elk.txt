@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	A::B	root
 option	node	A::B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A::B		nodeSize.minimum	(42, 0)
+option	node	A::B		nodeSize.minimum	(42.46875, 0)
 option	node	A::B		spacing.baseValue	24
 option	node	A::B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A::B		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	A::B		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	A::B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A::B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A::B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	A::B	0	A::B	26	19
-node	IPC::Sender	A::B	105	81
+label	node	A::B	0	A::B	26.46875	19
+node	IPC::Sender	A::B	104.125	81
 result
-place	root		0	0	177	177
-place	A::B	root	12	12	153	153
-place-label	node	A::B	0	63.5	5	26	19
-place	IPC::Sender	A::B	24	48	105	81
+place	root		0	0	176.125	177
+place	A::B	root	12	12	152.125	153
+place-label	node	A::B	0	62.828125	5	26.46875	19
+place	IPC::Sender	A::B	24	48	104.125	81

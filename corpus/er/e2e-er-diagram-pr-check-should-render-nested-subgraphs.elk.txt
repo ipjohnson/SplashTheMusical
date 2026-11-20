@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	domain	root
 option	node	domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	domain		nodeSize.minimum	(55, 0)
+option	node	domain		nodeSize.minimum	(53.921875, 0)
 option	node	domain		spacing.baseValue	24
 option	node	domain		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	domain		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	domain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	domain	0	domain	47	19
+label	node	domain	0	domain	45.921875	19
 node	details	domain
 option	node	details		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	details		nodeSize.minimum	(49, 0)
+option	node	details		nodeSize.minimum	(48.46875, 0)
 option	node	details		spacing.baseValue	24
 option	node	details		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	details		elk.spacing.edgeEdge	20
@@ -52,14 +52,14 @@ option	node	details		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	details		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	details		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	details		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	details	0	details	41	19
+label	node	details	0	details	40.46875	19
 node	entity-ORDER-1	details	100	81
-node	entity-CUSTOMER-0	domain	120	81
+node	entity-CUSTOMER-0	domain	119.859375	81
 result
-place	root		0	0	390	249
-place	domain	root	12	12	366	225
-place-label	node	domain	0	159.5	5	47	19
+place	root		0	0	389.859375	249
+place	domain	root	12	12	365.859375	225
+place-label	node	domain	0	159.96875	5	45.921875	19
 place	details	domain	24	48	148	153
-place-label	node	details	0	53.5	5	41	19
+place-label	node	details	0	53.765625	5	40.46875	19
 place	entity-ORDER-1	details	24	48	100	81
-place	entity-CUSTOMER-0	domain	222	84	120	81
+place	entity-CUSTOMER-0	domain	222	84	119.859375	81

@@ -26,7 +26,7 @@ node	Namespace2	root
 node	Namespace3	root
 node	Namespace4	root
 option	node	Namespace4		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Namespace4		nodeSize.minimum	(100, 0)
+option	node	Namespace4		nodeSize.minimum	(98.5, 0)
 option	node	Namespace4		spacing.baseValue	24
 option	node	Namespace4		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Namespace4		elk.spacing.edgeEdge	20
@@ -39,15 +39,15 @@ option	node	Namespace4		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Namespace4		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Namespace4		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Namespace4		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Namespace4	0	Namespace4	84	19
-node	Class1	Namespace4	114	261
-node	Class2	Namespace4	114	177
+label	node	Namespace4	0	Namespace4	82.5	19
+node	Class1	Namespace4	111.953125	261
+node	Class2	Namespace4	111.953125	177
 result
-place	root		0	0	470	357
+place	root		0	0	465.90625	357
 place	Namespace1	root	12	178.5	0	0
 place	Namespace2	root	52	178.5	0	0
 place	Namespace3	root	92	178.5	0	0
-place	Namespace4	root	132	12	326	333
-place-label	node	Namespace4	0	121	5	84	19
-place	Class1	Namespace4	24	48	114	261
-place	Class2	Namespace4	188	90	114	177
+place	Namespace4	root	132	12	321.90625	333
+place-label	node	Namespace4	0	119.703125	5	82.5	19
+place	Class1	Namespace4	24	48	111.953125	261
+place	Class2	Namespace4	185.953125	90	111.953125	177

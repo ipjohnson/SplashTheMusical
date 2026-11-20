@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	S	root
 option	node	S		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	S		nodeSize.minimum	(75, 0)
+option	node	S		nodeSize.minimum	(74.15625, 0)
 option	node	S		spacing.baseValue	24
 option	node	S		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	S		elk.spacing.edgeEdge	20
@@ -37,7 +37,7 @@ option	node	S		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	S		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	S		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	S		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	S	0	fa:fa-cloud Cloud side	67	19
+label	node	S	0	fa:fa-cloud Cloud side	66.15625	19
 node	B	S	152	45
 option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	C	S	152	45
@@ -56,7 +56,7 @@ label	edge	L_B_D_0	0		0	0
 option	edge-label	L_B_D_0	0	edgeLabels.inline	true
 option	edge-label	L_B_D_0	0	edgeLabels.placement	CENTER
 edge	L_B_E_0	root	B	E
-label	edge	L_B_E_0	0	fas:fa-check ok	15	21
+label	edge	L_B_E_0	0	fas:fa-check ok	14.796875	21
 option	edge-label	L_B_E_0	0	edgeLabels.inline	true
 option	edge-label	L_B_E_0	0	edgeLabels.placement	CENTER
 edge	L_E_F_0	root	E	F
@@ -70,7 +70,7 @@ option	edge-label	L_E_G_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	448	544
 place	S	root	51	12	249	222
-place-label	node	S	0	91	5	67	19
+place-label	node	S	0	91.421875	5	66.15625	19
 place	B	S	49	48	152	45
 place	C	S	49	153	152	45
 place	D	root	12	284	150	30
@@ -85,7 +85,7 @@ section	L_B_D_0	L_B_D_0_s0	143.39999999999998,105	87,284	143.39999999999998,135 
 place-label	edge	L_B_D_0	0	0	0	0	0
 route	L_B_E_0	root	root
 section	L_B_E_0	L_B_E_0_s0	208.59999999999997,105	264,354	208.59999999999997,135 264,135 264,244	B	E
-place-label	edge	L_B_E_0	0	256.5	288.5	15	21
+place-label	edge	L_B_E_0	0	256.5	288.5	14.796875	21
 route	L_E_F_0	root	root
 section	L_E_F_0	L_E_F_0_s0	242.33333333333331,405	168,445	242.33333333333331,425 168,425	E	F
 place-label	edge	L_E_F_0	0	0	0	0	0

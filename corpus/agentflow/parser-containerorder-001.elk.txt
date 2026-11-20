@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	third	root
 option	node	third		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	third		nodeSize.minimum	(41, 0)
+option	node	third		nodeSize.minimum	(39.90625, 0)
 option	node	third		spacing.baseValue	24
 option	node	third		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	third		elk.spacing.edgeEdge	20
@@ -36,11 +36,11 @@ option	node	third		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	third		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	third		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	third		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	third	0	Third	33	19
+label	node	third	0	Third	31.90625	19
 node	c	third	150	51
 node	second	root
 option	node	second		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	second		nodeSize.minimum	(56, 0)
+option	node	second		nodeSize.minimum	(55.484375, 0)
 option	node	second		spacing.baseValue	24
 option	node	second		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	second		elk.spacing.edgeEdge	20
@@ -53,11 +53,11 @@ option	node	second		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	second		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	second		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	second		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	second	0	Second	48	19
+label	node	second	0	Second	47.484375	19
 node	b	second	150	51
 node	first	root
 option	node	first		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	first		nodeSize.minimum	(36, 0)
+option	node	first		nodeSize.minimum	(35.21875, 0)
 option	node	first		spacing.baseValue	24
 option	node	first		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	first		elk.spacing.edgeEdge	20
@@ -70,16 +70,16 @@ option	node	first		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	first		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	first		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	first		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	first	0	First	28	19
+label	node	first	0	First	27.21875	19
 node	a	first	150	51
 result
 place	root		0	0	698	147
 place	third	root	12	12	198	123
-place-label	node	third	0	82.5	5	33	19
+place-label	node	third	0	83.046875	5	31.90625	19
 place	c	third	24	48	150	51
 place	second	root	250	12	198	123
-place-label	node	second	0	75	5	48	19
+place-label	node	second	0	75.2578125	5	47.484375	19
 place	b	second	24	48	150	51
 place	first	root	488	12	198	123
-place-label	node	first	0	85	5	28	19
+place-label	node	first	0	85.390625	5	27.21875	19
 place	a	first	24	48	150	51

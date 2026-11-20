@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	title3	root
 option	node	title3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title3		nodeSize.minimum	(38, 0)
+option	node	title3		nodeSize.minimum	(37.578125, 0)
 option	node	title3		spacing.baseValue	24
 option	node	title3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title3		elk.spacing.edgeEdge	20
@@ -37,13 +37,13 @@ option	node	title3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	title3		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	title3	0	title3	30	19
+label	node	title3	0	title3	29.578125	19
 node	entity-C1-4	title3	100	81
 node	entity-C2-5	title3	100	81
 option	node	entity-C2-5		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	title2	root
 option	node	title2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title2		nodeSize.minimum	(38, 0)
+option	node	title2		nodeSize.minimum	(37.578125, 0)
 option	node	title2		spacing.baseValue	24
 option	node	title2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title2		elk.spacing.edgeEdge	20
@@ -57,12 +57,12 @@ option	node	title2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	title2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	title2	0	title2	30	19
+label	node	title2	0	title2	29.578125	19
 node	entity-B1-2	title2	100	81
 node	entity-B2-3	title2	100	81
 node	title1	root
 option	node	title1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	title1		nodeSize.minimum	(38, 0)
+option	node	title1		nodeSize.minimum	(37.578125, 0)
 option	node	title1		spacing.baseValue	24
 option	node	title1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	title1		elk.spacing.edgeEdge	20
@@ -75,62 +75,62 @@ option	node	title1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	title1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	title1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	title1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	title1	0	title1	30	19
+label	node	title1	0	title1	29.578125	19
 node	entity-A1-0	title1	100	81
 node	entity-A2-1	title1	100	81
 edge	id_entity-A1-0_entity-A2-1_0	root	entity-A1-0	entity-A2-1
-label	edge	id_entity-A1-0_entity-A2-1_0	0	links	28	21
+label	edge	id_entity-A1-0_entity-A2-1_0	0	links	28.015625	21
 option	edge-label	id_entity-A1-0_entity-A2-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-A1-0_entity-A2-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-B1-2_entity-B2-3_1	root	entity-B1-2	entity-B2-3
-label	edge	id_entity-B1-2_entity-B2-3_1	0	links	28	21
+label	edge	id_entity-B1-2_entity-B2-3_1	0	links	28.015625	21
 option	edge-label	id_entity-B1-2_entity-B2-3_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-B1-2_entity-B2-3_1	0	edgeLabels.placement	CENTER
 edge	id_entity-C1-4_entity-C2-5_2	root	entity-C1-4	entity-C2-5
-label	edge	id_entity-C1-4_entity-C2-5_2	0	links	28	21
+label	edge	id_entity-C1-4_entity-C2-5_2	0	links	28.015625	21
 option	edge-label	id_entity-C1-4_entity-C2-5_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-C1-4_entity-C2-5_2	0	edgeLabels.placement	CENTER
 edge	id_title1_title2_3	root	title1	title2
-label	edge	id_title1_title2_3	0	links	28	21
+label	edge	id_title1_title2_3	0	links	28.015625	21
 option	edge-label	id_title1_title2_3	0	edgeLabels.inline	true
 option	edge-label	id_title1_title2_3	0	edgeLabels.placement	CENTER
 edge	id_title2_entity-C2-5_5	root	title2	entity-C2-5
-label	edge	id_title2_entity-C2-5_5	0	links	28	21
+label	edge	id_title2_entity-C2-5_5	0	links	28.015625	21
 option	edge-label	id_title2_entity-C2-5_5	0	edgeLabels.inline	true
 option	edge-label	id_title2_entity-C2-5_5	0	edgeLabels.placement	CENTER
 edge	id_title2_title3_4	root	title2	title3
-label	edge	id_title2_title3_4	0	links	28	21
+label	edge	id_title2_title3_4	0	links	28.015625	21
 option	edge-label	id_title2_title3_4	0	edgeLabels.inline	true
 option	edge-label	id_title2_title3_4	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	240	1181
 place	title3	root	12	830	184	339
-place-label	node	title3	0	77	5	30	19
+place-label	node	title3	0	77.2109375	5	29.578125	19
 place	entity-C1-4	title3	24	48	100	81
 place	entity-C2-5	title3	55	234	100	81
 place	title2	root	80	416	148	303
-place-label	node	title2	0	59	5	30	19
+place-label	node	title2	0	59.2109375	5	29.578125	19
 place	entity-B1-2	title2	24	48	100	81
 place	entity-B2-3	title2	24	198	100	81
 place	title1	root	79.99999999999999	12	148	303
-place-label	node	title1	0	59	5	30	19
+place-label	node	title1	0	59.2109375	5	29.578125	19
 place	entity-A1-0	title1	24	48	100	81
 place	entity-A2-1	title1	24	198	100	81
 route	id_entity-A1-0_entity-A2-1_0	root	title1
 section	id_entity-A1-0_entity-A2-1_0	id_entity-A1-0_entity-A2-1_0_s0	74,129	74,198		entity-A1-0	entity-A2-1
-place-label	edge	id_entity-A1-0_entity-A2-1_0	0	60	153	28	21
+place-label	edge	id_entity-A1-0_entity-A2-1_0	0	59.5	153	28.015625	21
 route	id_entity-B1-2_entity-B2-3_1	root	title2
 section	id_entity-B1-2_entity-B2-3_1	id_entity-B1-2_entity-B2-3_1_s0	74,129	74,198		entity-B1-2	entity-B2-3
-place-label	edge	id_entity-B1-2_entity-B2-3_1	0	60	153	28	21
+place-label	edge	id_entity-B1-2_entity-B2-3_1	0	59.5	153	28.015625	21
 route	id_entity-C1-4_entity-C2-5_2	root	title3
 section	id_entity-C1-4_entity-C2-5_2	id_entity-C1-4_entity-C2-5_2_s0	74,129	91.93333333333334,234	74,204 91.93333333333334,204	entity-C1-4	entity-C2-5
-place-label	edge	id_entity-C1-4_entity-C2-5_2	0	60	153	28	21
+place-label	edge	id_entity-C1-4_entity-C2-5_2	0	59.5	153	28.015625	21
 route	id_title1_title2_3	root	root
 section	id_title1_title2_3	id_title1_title2_3_s0	154,315	154,416		title1	title2
-place-label	edge	id_title1_title2_3	0	140	355	28	21
+place-label	edge	id_title1_title2_3	0	139.5	355	28.015625	21
 route	id_title2_entity-C2-5_5	root	root
-section	id_title2_entity-C2-5_5	id_title2_entity-C2-5_5_s0	132.66666666666669,719	130.06666666666666,1064	132.66666666666669,739 130,739 130,800 148,800 148,820 148,1034 130.06666666666666,1034	title2	entity-C2-5
-place-label	edge	id_title2_entity-C2-5_5	0	116	759	28	21
+section	id_title2_entity-C2-5_5	id_title2_entity-C2-5_5_s0	132.66666666666669,719	130.06666666666666,1064	132.66666666666669,739 129.9921875,739 129.9921875,800 148,800 148,820 148,1034 130.06666666666666,1034	title2	entity-C2-5
+place-label	edge	id_title2_entity-C2-5_5	0	115.4921875	759	28.015625	21
 route	id_title2_title3_4	root	root
-section	id_title2_title3_4	id_title2_title3_4_s0	175.33333333333334,719	160,830	175.33333333333334,739 178,739 178,800 160,800	title2	title3
-place-label	edge	id_title2_title3_4	0	164	759	28	21
+section	id_title2_title3_4	id_title2_title3_4_s0	175.33333333333334,719	160,830	175.33333333333334,739 178.0078125,739 178.0078125,800 160,800	title2	title3
+place-label	edge	id_title2_title3_4	0	163.5078125	759	28.015625	21

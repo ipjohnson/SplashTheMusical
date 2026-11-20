@@ -23,15 +23,15 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Inspect	root	160	58
 option	node	Inspect		elk.portAlignment.default	CENTER
-node	Payload	root	234	352
+node	Payload	root	229.78125	352
 edge	edge-0	root	Inspect	Payload
 label	edge	edge-0	0		0	0
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	458	376
+place	root		0	0	453.78125	376
 place	Inspect	root	12	159	160	58
-place	Payload	root	212	12	234	352
+place	Payload	root	212	12	229.78125	352
 route	edge-0	root	root
 section	edge-0	edge-0_s0	172,188	212,188		Inspect	Payload
 place-label	edge	edge-0	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Outer	root
 option	node	Outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Outer		nodeSize.minimum	(44, 0)
+option	node	Outer		nodeSize.minimum	(43.015625, 0)
 option	node	Outer		spacing.baseValue	24
 option	node	Outer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Outer		elk.spacing.edgeEdge	20
@@ -39,12 +39,12 @@ option	node	Outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	Outer		elk.algorithm	elk.layered
 option	node	Outer		elk.direction	DOWN
 option	node	Outer		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Outer	0	Outer	36	19
+label	node	Outer	0	Outer	35.015625	19
 node	Outer_start	Outer	14	14
 node	Step	Outer	136	37
 node	Pinned	Outer
 option	node	Pinned		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Pinned		nodeSize.minimum	(52, 0)
+option	node	Pinned		nodeSize.minimum	(51.59375, 0)
 option	node	Pinned		spacing.baseValue	24
 option	node	Pinned		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Pinned		elk.spacing.edgeEdge	20
@@ -60,12 +60,12 @@ option	node	Pinned		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Pinned		elk.algorithm	elk.layered
 option	node	Pinned		elk.direction	DOWN
 option	node	Pinned		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Pinned	0	Pinned	44	19
+label	node	Pinned	0	Pinned	43.59375	19
 node	Pinned_start	Pinned	14	14
 node	Held	Pinned	136	37
 node	Plain	Outer
 option	node	Plain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Plain		nodeSize.minimum	(39, 0)
+option	node	Plain		nodeSize.minimum	(39.140625, 0)
 option	node	Plain		spacing.baseValue	24
 option	node	Plain		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Plain		elk.spacing.edgeEdge	20
@@ -81,7 +81,7 @@ option	node	Plain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	Plain		elk.algorithm	elk.layered
 option	node	Plain		elk.direction	DOWN
 option	node	Plain		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Plain	0	Plain	31	19
+label	node	Plain	0	Plain	31.140625	19
 node	Plain_start	Plain	14	14
 node	Free	Plain	136	37
 edge	edge0	root	Outer_start	Step
@@ -99,15 +99,15 @@ option	edge-label	edge2	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	416	414
 place	Outer	root	12	12	392	390
-place-label	node	Outer	0	178	5	36	19
+place-label	node	Outer	0	178.4921875	5	35.015625	19
 place	Outer_start	Outer	81.2	48	14	14
 place	Step	Outer	24	86	136	37
 place	Pinned	Outer	184	48	184	147
-place-label	node	Pinned	0	70	5	44	19
+place-label	node	Pinned	0	70.203125	5	43.59375	19
 place	Pinned_start	Pinned	81.2	48	14	14
 place	Held	Pinned	24	86	136	37
 place	Plain	Outer	24	219	184	147
-place-label	node	Plain	0	76.5	5	31	19
+place-label	node	Plain	0	76.4296875	5	31.140625	19
 place	Plain_start	Plain	81.2	48	14	14
 place	Free	Plain	24	86	136	37
 route	edge0	root	Outer

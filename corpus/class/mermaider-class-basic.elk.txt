@@ -21,9 +21,9 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Animal	root	147.5	198
-node	Dog	root	125	156
-node	Cat	root	137.5	156
+node	Animal	root	145.015625	198
+node	Dog	root	122.8125	156
+node	Cat	root	135.265625	156
 edge	id_Animal_Dog_1	root	Animal	Dog
 label	edge	id_Animal_Dog_1	0		0	0
 option	edge-label	id_Animal_Dog_1	0	edgeLabels.inline	true
@@ -33,13 +33,13 @@ label	edge	id_Animal_Cat_2	0		0	0
 option	edge-label	id_Animal_Cat_2	0	edgeLabels.inline	true
 option	edge-label	id_Animal_Cat_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	326.5	418
-place	Animal	root	86.375	12	147.5	198
-place	Dog	root	12	250	125	156
-place	Cat	root	177	250	137.5	156
+place	root		0	0	322.078125	418
+place	Animal	root	85.41796875	12	145.015625	198
+place	Dog	root	12	250	122.8125	156
+place	Cat	root	174.8125	250	135.265625	156
 route	id_Animal_Dog_1	root	root
-section	id_Animal_Dog_1	id_Animal_Dog_1_s0	138.875,210	74.5,250	138.875,230 74.5,230	Animal	Dog
+section	id_Animal_Dog_1	id_Animal_Dog_1_s0	137.08984375,210	73.40625,250	137.08984375,230 73.40625,230	Animal	Dog
 place-label	edge	id_Animal_Dog_1	0	0	0	0	0
 route	id_Animal_Cat_2	root	root
-section	id_Animal_Cat_2	id_Animal_Cat_2_s0	181.375,210	245.75,250	181.375,230 245.75,230	Animal	Cat
+section	id_Animal_Cat_2	id_Animal_Cat_2_s0	178.76171875,210	242.4453125,250	178.76171875,230 242.4453125,230	Animal	Cat
 place-label	edge	id_Animal_Cat_2	0	0	0	0	0

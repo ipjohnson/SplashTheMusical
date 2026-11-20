@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	Extra	root	76	121
 node	sb1	root
 option	node	sb1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	sb1		nodeSize.minimum	(125, 0)
+option	node	sb1		nodeSize.minimum	(123.484375, 0)
 option	node	sb1		spacing.baseValue	24
 option	node	sb1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	sb1		elk.spacing.edgeEdge	20
@@ -37,11 +37,11 @@ option	node	sb1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	sb1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	sb1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	sb1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	sb1	0	Payment service	105	19
+label	node	sb1	0	Payment service	103.484375	19
 node	Clerk	sb1	76	121
 node	sb2	root
 option	node	sb2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	sb2		nodeSize.minimum	(75, 0)
+option	node	sb2		nodeSize.minimum	(74.5, 0)
 option	node	sb2		spacing.baseValue	24
 option	node	sb2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	sb2		elk.spacing.edgeEdge	20
@@ -54,15 +54,15 @@ option	node	sb2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	sb2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	sb2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	sb2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	sb2	0	Shipping	55	19
+label	node	sb2	0	Shipping	54.5	19
 node	Dispatch	sb2	160	58
 option	node	Dispatch		elk.portAlignment.default	CENTER
 result
 place	root		0	0	232	548
 place	Extra	root	78	12	76	121
-place	sb1	root	53.5	173	125	193
-place-label	node	sb1	0	10	5	105	19
+place	sb1	root	54	173	124	193
+place-label	node	sb1	0	10.2578125	5	103.484375	19
 place	Clerk	sb1	24	48	76	121
 place	sb2	root	12	406	208	130
-place-label	node	sb2	0	76.5	5	55	19
+place-label	node	sb2	0	76.75	5	54.5	19
 place	Dispatch	sb2	24	48	160	58

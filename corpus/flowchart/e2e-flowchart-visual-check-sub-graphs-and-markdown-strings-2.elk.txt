@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	**Two**	root
 option	node	**Two**		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	**Two**		nodeSize.minimum	(36, 0)
+option	node	**Two**		nodeSize.minimum	(34.96875, 0)
 option	node	**Two**		spacing.baseValue	24
 option	node	**Two**		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	**Two**		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	**Two**		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	**Two**		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	**Two**		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	**Two**		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	**Two**	0	**Two**	28	19
+label	node	**Two**	0	**Two**	26.96875	19
 node	c	**Two**	150	72
 node	d	**Two**	150	51
 node	One	root
 option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	One		nodeSize.minimum	(35, 0)
+option	node	One		nodeSize.minimum	(34.46875, 0)
 option	node	One		spacing.baseValue	24
 option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	One		elk.spacing.edgeEdge	20
@@ -54,30 +54,30 @@ option	node	One		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	One	0	One	27	19
+label	node	One	0	One	26.46875	19
 node	a	One	150	72
-node	b	One	216	112
+node	b	One	204	91
 edge	L_a_b_0	root	a	b
-label	edge	L_a_b_0	0	1o	20	19.999998092651367
+label	edge	L_a_b_0	0	1o	19.578125	19.999998092651367
 option	edge-label	L_a_b_0	0	edgeLabels.inline	true
 option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
 edge	L_c_d_0	root	c	d
-label	edge	L_c_d_0	0	1o **ipa**	45	19.999998092651367
+label	edge	L_c_d_0	0	1o **ipa**	43.7841796875	19.999998092651367
 option	edge-label	L_c_d_0	0	edgeLabels.inline	true
 option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	506	392
-place	**Two**	root	32.5	12	441	144
-place-label	node	**Two**	0	206.5	5	28	19
+place	root		0	0	493.578125	371
+place	**Two**	root	26.89697265625	12	439.7841796875	144
+place-label	node	**Two**	0	206.40771484375	5	26.96875	19
 place	c	**Two**	24	48	150	72
-place	d	**Two**	267	58.5	150	51
-place	One	root	12	196	482	184
-place-label	node	One	0	227.5	5	27	19
-place	a	One	24	68	150	72
-place	b	One	242	48	216	112
+place	d	**Two**	265.7841796875	58.5	150	51
+place	One	root	12	196	469.578125	163
+place-label	node	One	0	221.5546875	5	26.46875	19
+place	a	One	24	57.5	150	72
+place	b	One	241.578125	48	204	91
 route	L_a_b_0	root	One
-section	L_a_b_0	L_a_b_0_s0	174,104	242,104		a	b
-place-label	edge	L_a_b_0	0	198	93.5	20	19.999998092651367
+section	L_a_b_0	L_a_b_0_s0	174,93.5	241.578125,93.5		a	b
+place-label	edge	L_a_b_0	0	198	83	19.578125	19.999998092651367
 route	L_c_d_0	root	**Two**
-section	L_c_d_0	L_c_d_0_s0	174,84	267,84		c	d
-place-label	edge	L_c_d_0	0	198	73.5	45	19.999998092651367
+section	L_c_d_0	L_c_d_0_s0	174,84	265.7841796875,84		c	d
+place-label	edge	L_c_d_0	0	198	73.5	43.7841796875	19.999998092651367

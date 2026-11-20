@@ -22,8 +22,8 @@ option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	entity-c-0	root	180.4312744140625	98.96698760986328
-node	entity-p-1	root	144.66378784179688	99.34982299804688
+node	entity-p-1	root	144.66380310058594	99.34982299804688
 result
-place	root		0	0	389.0950622558594	123.34982299804688
+place	root		0	0	389.09507751464844	123.34982299804688
 place	entity-c-0	root	12	12.191417694091797	180.4312744140625	98.96698760986328
-place	entity-p-1	root	232.4312744140625	12	144.66378784179688	99.34982299804688
+place	entity-p-1	root	232.4312744140625	12	144.66380310058594	99.34982299804688

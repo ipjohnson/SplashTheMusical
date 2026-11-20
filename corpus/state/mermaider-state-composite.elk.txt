@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	14	14
 node	First	root
 option	node	First		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	First		nodeSize.minimum	(36, 0)
+option	node	First		nodeSize.minimum	(35.21875, 0)
 option	node	First		spacing.baseValue	24
 option	node	First		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	First		elk.spacing.edgeEdge	20
@@ -40,7 +40,7 @@ option	node	First		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	First		elk.algorithm	elk.layered
 option	node	First		elk.direction	DOWN
 option	node	First		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	First	0	First	28	19
+label	node	First	0	First	27.21875	19
 node	First_start	First	14	14
 node	Inner1	First	136	37
 node	Inner2	First	136	37
@@ -48,7 +48,7 @@ node	Inner3	First	136	37
 node	First_end	First	14.013293266296387	14
 node	Second	root
 option	node	Second		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Second		nodeSize.minimum	(56, 0)
+option	node	Second		nodeSize.minimum	(55.484375, 0)
 option	node	Second		spacing.baseValue	24
 option	node	Second		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Second		elk.spacing.edgeEdge	20
@@ -64,7 +64,7 @@ option	node	Second		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Second		elk.algorithm	elk.layered
 option	node	Second		elk.direction	DOWN
 option	node	Second		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Second	0	Second	48	19
+label	node	Second	0	Second	47.484375	19
 node	Second_start	Second	14	14
 node	Inner4	Second	136	37
 node	Inner5	Second	136	37
@@ -79,11 +79,11 @@ label	edge	edge1	0		0	0
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Inner1	Inner2
-label	edge	edge2	0	next	27	21
+label	edge	edge2	0	next	26.46875	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Inner2	Inner3
-label	edge	edge3	0	next	27	21
+label	edge	edge3	0	next	26.46875	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	Inner3	First_end
@@ -99,7 +99,7 @@ label	edge	edge6	0		0	0
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	Inner4	Inner5
-label	edge	edge7	0	process	50	21
+label	edge	edge7	0	process	49.03125	21
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 edge	edge8	root	Inner5	Second_end
@@ -114,14 +114,14 @@ result
 place	root		0	0	208	860
 place	root_start	root	94	12	14	14
 place	First	root	12	66	184	397
-place-label	node	First	0	78	5	28	19
+place-label	node	First	0	78.390625	5	27.21875	19
 place	First_start	First	81.2	48	14	14
 place	Inner1	First	24	86	136	37
 place	Inner2	First	24	192	136	37
 place	Inner3	First	24	298	136	37
 place	First_end	First	81.2	359	14.013293266296387	14
 place	Second	root	12	503	184	291
-place-label	node	Second	0	68	5	48	19
+place-label	node	Second	0	68.2578125	5	47.484375	19
 place	Second_start	Second	81.2	48	14	14
 place	Inner4	Second	24	86	136	37
 place	Inner5	Second	24	192	136	37
@@ -135,10 +135,10 @@ section	edge1	edge1_s0	92,62	92,86		First_start	Inner1
 place-label	edge	edge1	0	0	0	0	0
 route	edge2	root	First
 section	edge2	edge2_s0	92,123	92,192		Inner1	Inner2
-place-label	edge	edge2	0	78.5	147	27	21
+place-label	edge	edge2	0	78.5	147	26.46875	21
 route	edge3	root	First
 section	edge3	edge3_s0	92,229	92,298		Inner2	Inner3
-place-label	edge	edge3	0	78.5	253	27	21
+place-label	edge	edge3	0	78.5	253	26.46875	21
 route	edge4	root	First
 section	edge4	edge4_s0	92,335	92,359		Inner3	First_end
 place-label	edge	edge4	0	0	0	0	0
@@ -150,7 +150,7 @@ section	edge6	edge6_s0	92,62	92,86		Second_start	Inner4
 place-label	edge	edge6	0	0	0	0	0
 route	edge7	root	Second
 section	edge7	edge7_s0	92,123	92,192		Inner4	Inner5
-place-label	edge	edge7	0	67	147	50	21
+place-label	edge	edge7	0	67	147	49.03125	21
 route	edge8	root	Second
 section	edge8	edge8_s0	92,229	92,253		Inner5	Second_end
 place-label	edge	edge8	0	0	0	0	0

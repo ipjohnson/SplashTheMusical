@@ -21,20 +21,20 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	SelfReferential	root	248	156
+node	SelfReferential	root	243.8515625	156
 edge	id_SelfReferential_SelfReferential_1	root	SelfReferential	SelfReferential
-label	edge	id_SelfReferential_SelfReferential_1	0	referenced	69	21
+label	edge	id_SelfReferential_SelfReferential_1	0	referenced	66.9375	21
 option	edge-label	id_SelfReferential_SelfReferential_1	0	edgeLabels.inline	true
 option	edge-label	id_SelfReferential_SelfReferential_1	0	edgeLabels.placement	CENTER
-label	edge	id_SelfReferential_SelfReferential_1	1	1	6	16.5
+label	edge	id_SelfReferential_SelfReferential_1	1	1	6.125	16.5
 option	edge-label	id_SelfReferential_SelfReferential_1	1	edgeLabels.placement	TAIL
-label	edge	id_SelfReferential_SelfReferential_1	2	0..1	30	28.5
+label	edge	id_SelfReferential_SelfReferential_1	2	0..1	30.359375	28.5
 option	edge-label	id_SelfReferential_SelfReferential_1	2	edgeLabels.placement	HEAD
 result
-place	root		0	0	365	180
-place	SelfReferential	root	105	12	248	156
+place	root		0	0	358.7890625	180
+place	SelfReferential	root	102.9375	12	243.8515625	156
 route	id_SelfReferential_SelfReferential_1	root	root
-section	id_SelfReferential_SelfReferential_1	id_SelfReferential_SelfReferential_1_s0	105,68	105,112	85,68 85,112	SelfReferential	SelfReferential
-place-label	edge	id_SelfReferential_SelfReferential_1	0	12	57	69	21
-place-label	edge	id_SelfReferential_SelfReferential_1	1	75	78	6	16.5
-place-label	edge	id_SelfReferential_SelfReferential_1	2	51	94.5	30	28.5
+section	id_SelfReferential_SelfReferential_1	id_SelfReferential_SelfReferential_1_s0	102.9375,68	102.9375,112	82.9375,68 82.9375,112	SelfReferential	SelfReferential
+place-label	edge	id_SelfReferential_SelfReferential_1	0	12	57	66.9375	21
+place-label	edge	id_SelfReferential_SelfReferential_1	1	72.8125	78	6.125	16.5
+place-label	edge	id_SelfReferential_SelfReferential_1	2	48.578125	94.5	30.359375	28.5

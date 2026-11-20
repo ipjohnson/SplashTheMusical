@@ -21,47 +21,47 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Class1	root	70	81
-node	Class02	root	78	81
-node	Class03	root	78	81
-node	Class04	root	78	81
-node	Class05	root	78	81
-node	Class06	root	78	81
+node	Class1	root	69.15625	81
+node	Class02	root	76.9375	81
+node	Class03	root	76.9375	81
+node	Class04	root	76.9375	81
+node	Class05	root	76.9375	81
+node	Class06	root	76.9375	81
 edge	id_Class1_Class02_1	root	Class1	Class02
-label	edge	id_Class1_Class02_1	0	contains	53	21
+label	edge	id_Class1_Class02_1	0	contains	52.15625	21
 option	edge-label	id_Class1_Class02_1	0	edgeLabels.inline	true
 option	edge-label	id_Class1_Class02_1	0	edgeLabels.placement	CENTER
-label	edge	id_Class1_Class02_1	1	1	18	28.5
+label	edge	id_Class1_Class02_1	1	1	18.125	28.5
 option	edge-label	id_Class1_Class02_1	1	edgeLabels.placement	TAIL
-label	edge	id_Class1_Class02_1	2	many	27	16.5
+label	edge	id_Class1_Class02_1	2	many	26.90625	16.5
 option	edge-label	id_Class1_Class02_1	2	edgeLabels.placement	HEAD
 edge	id_Class03_Class04_2	root	Class03	Class04
-label	edge	id_Class03_Class04_2	0	aggregation	76	21
+label	edge	id_Class03_Class04_2	0	aggregation	73.953125	21
 option	edge-label	id_Class03_Class04_2	0	edgeLabels.inline	true
 option	edge-label	id_Class03_Class04_2	0	edgeLabels.placement	CENTER
 edge	id_Class05_Class06_3	root	Class05	Class06
 label	edge	id_Class05_Class06_3	0		0	0
 option	edge-label	id_Class05_Class06_3	0	edgeLabels.inline	true
 option	edge-label	id_Class05_Class06_3	0	edgeLabels.placement	CENTER
-label	edge	id_Class05_Class06_3	1	1	18	28.5
+label	edge	id_Class05_Class06_3	1	1	18.125	28.5
 option	edge-label	id_Class05_Class06_3	1	edgeLabels.placement	HEAD
 result
-place	root		0	0	338	432.5
-place	Class1	root	16	12	70	81
-place	Class02	root	12	339.5	78	81
-place	Class03	root	130	12	78	81
-place	Class04	root	130	339.5	78	81
-place	Class05	root	248	12	78	81
-place	Class06	root	248	198	78	81
+place	root		0	0	334.8125	432.5
+place	Class1	root	15.890625	12	69.15625	81
+place	Class02	root	12	339.5	76.9375	81
+place	Class03	root	128.9375	12	76.9375	81
+place	Class04	root	128.9375	339.5	76.9375	81
+place	Class05	root	245.875	12	76.9375	81
+place	Class06	root	245.875	198	76.9375	81
 route	id_Class1_Class02_1	root	root
-section	id_Class1_Class02_1	id_Class1_Class02_1_s0	51,93	51,339.5		Class1	Class02
-place-label	edge	id_Class1_Class02_1	0	24.5	211.75	53	21
-place-label	edge	id_Class1_Class02_1	1	56	97	18	28.5
-place-label	edge	id_Class1_Class02_1	2	56	319	27	16.5
+section	id_Class1_Class02_1	id_Class1_Class02_1_s0	50.46875,93	50.46875,339.5		Class1	Class02
+place-label	edge	id_Class1_Class02_1	0	23.96875	211.75	52.15625	21
+place-label	edge	id_Class1_Class02_1	1	55.46875	97	18.125	28.5
+place-label	edge	id_Class1_Class02_1	2	55.46875	319	26.90625	16.5
 route	id_Class03_Class04_2	root	root
-section	id_Class03_Class04_2	id_Class03_Class04_2_s0	169,93	169,339.5		Class03	Class04
-place-label	edge	id_Class03_Class04_2	0	131	211.75	76	21
+section	id_Class03_Class04_2	id_Class03_Class04_2_s0	167.40625,93	167.40625,339.5		Class03	Class04
+place-label	edge	id_Class03_Class04_2	0	130.40625	211.75	73.953125	21
 route	id_Class05_Class06_3	root	root
-section	id_Class05_Class06_3	id_Class05_Class06_3_s0	287,93	287,198		Class05	Class06
+section	id_Class05_Class06_3	id_Class05_Class06_3_s0	284.34375,93	284.34375,198		Class05	Class06
 place-label	edge	id_Class05_Class06_3	0	0	0	0	0
-place-label	edge	id_Class05_Class06_3	1	292	165.5	18	28.5
+place-label	edge	id_Class05_Class06_3	1	289.34375	165.5	18.125	28.5

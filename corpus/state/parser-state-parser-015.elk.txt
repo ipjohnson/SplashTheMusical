@@ -37,7 +37,7 @@ option	node	State1----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	State1----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	State1----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	State1----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	State1----parent	0	this sentence contains end note as part of the note text	348	19
+label	node	State1----parent	0	this sentence contains end note as part of the note text	340.125	19
 node	State1----note-0	State1----parent	150	114
 option	node	State1----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	State2	root	136	37
@@ -50,15 +50,15 @@ label	edge	edge1	0		0	0
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	548	297
-place	State1	root	259	12	136	37
-place	State1----parent	root	87	99	198	186
-place-label	node	State1----parent	0	-75	5	348	19
+place	root		0	0	540.125	297
+place	State1	root	253.09374999999997	12	136	37
+place	State1----parent	root	83.0625	99	198	186
+place-label	node	State1----parent	0	-71.0625	5	340.125	19
 place	State1----note-0	State1----parent	24	48	150	114
-place	State2	root	400	99	136	37
+place	State2	root	392.125	99	136	37
 route	State1-State1----note-0	root	root
-section	State1-State1----note-0	State1-State1----note-0_s0	307.66666666666663,49	186,147	307.66666666666663,69 186,69 186,89	State1	State1----note-0
+section	State1-State1----note-0	State1-State1----note-0_s0	301.76041666666663,49	182.0625,147	301.76041666666663,69 182.0625,69 182.0625,89	State1	State1----note-0
 place-label	edge	State1-State1----note-0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	346.3333333333333,49	468,99	346.3333333333333,69 468,69	State1	State2
+section	edge1	edge1_s0	340.4270833333333,49	460.125,99	340.4270833333333,69 460.125,69	State1	State2
 place-label	edge	edge1	0	0	0	0	0

@@ -22,190 +22,190 @@ option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	entity-Catalog-0	root	100	81
-node	entity-DocumentationSet-1	root	157	81
-node	entity-ReleaseNotes-2	root	129	81
-node	entity-Repository-3	root	108	81
+node	entity-DocumentationSet-1	root	155.1875	81
+node	entity-ReleaseNotes-2	root	127.9375	81
+node	entity-Repository-3	root	106.921875	81
 node	entity-Content-4	root	100	81
-node	entity-Navigation-5	root	107	81
-node	entity-LinkManifest-6	root	120	81
-node	entity-LinkRegistry-7	root	118	81
+node	entity-Navigation-5	root	106.15625	81
+node	entity-LinkManifest-6	root	118.59375	81
+node	entity-LinkRegistry-7	root	117.03125	81
 node	entity-Registry-8	root	100	81
-node	entity-Assembly-9	root	101	81
-node	entity-SiteNavigation-10	root	131	81
-node	entity-CodexSite-11	root	105	81
-node	entity-OpenApiSpec-12	root	127	81
-node	entity-OpenApiRepository-13	root	163	81
-node	entity-ApiReference-14	root	126	81
-node	entity-SearchIndex-15	root	120	81
+node	entity-Assembly-9	root	100.6875	81
+node	entity-SiteNavigation-10	root	130.28125	81
+node	entity-CodexSite-11	root	104.59375	81
+node	entity-OpenApiSpec-12	root	126.40625	81
+node	entity-OpenApiRepository-13	root	161.40625	81
+node	entity-ApiReference-14	root	124.828125	81
+node	entity-SearchIndex-15	root	118.609375	81
 edge	id_entity-Catalog-0_entity-DocumentationSet-1_0	root	entity-Catalog-0	entity-DocumentationSet-1
-label	edge	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	products, versioning	128	21
+label	edge	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	products, versioning	125.296875	21
 option	edge-label	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-Catalog-0_entity-ReleaseNotes-2_1	root	entity-Catalog-0	entity-ReleaseNotes-2
-label	edge	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	products	55	21
+label	edge	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	products	53.703125	21
 option	edge-label	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-Repository-3_entity-DocumentationSet-1_2	root	entity-Repository-3	entity-DocumentationSet-1
-label	edge	id_entity-Repository-3_entity-DocumentationSet-1_2	0	≤1 per Registry	97	21
+label	edge	id_entity-Repository-3_entity-DocumentationSet-1_2	0	≤1 per Registry	94.828125	21
 option	edge-label	id_entity-Repository-3_entity-DocumentationSet-1_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-Repository-3_entity-DocumentationSet-1_2	0	edgeLabels.placement	CENTER
 edge	id_entity-Repository-3_entity-ReleaseNotes-2_3	root	entity-Repository-3	entity-ReleaseNotes-2
-label	edge	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	changelog.yml	92	21
+label	edge	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	changelog.yml	90.28125	21
 option	edge-label	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	edgeLabels.inline	true
 option	edge-label	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	edgeLabels.placement	CENTER
 edge	id_entity-DocumentationSet-1_entity-Content-4_4	root	entity-DocumentationSet-1	entity-Content-4
-label	edge	id_entity-DocumentationSet-1_entity-Content-4_4	0	contains	53	21
+label	edge	id_entity-DocumentationSet-1_entity-Content-4_4	0	contains	52.15625	21
 option	edge-label	id_entity-DocumentationSet-1_entity-Content-4_4	0	edgeLabels.inline	true
 option	edge-label	id_entity-DocumentationSet-1_entity-Content-4_4	0	edgeLabels.placement	CENTER
 edge	id_entity-DocumentationSet-1_entity-Navigation-5_5	root	entity-DocumentationSet-1	entity-Navigation-5
-label	edge	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	table of contents	105	21
+label	edge	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	table of contents	102.75	21
 option	edge-label	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	edgeLabels.inline	true
 option	edge-label	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	edgeLabels.placement	CENTER
 edge	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	root	entity-DocumentationSet-1	entity-LinkManifest-6
-label	edge	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	one per branch	97	21
+label	edge	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	one per branch	94.1875	21
 option	edge-label	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	edgeLabels.inline	true
 option	edge-label	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	edgeLabels.placement	CENTER
 edge	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	root	entity-LinkManifest-6	entity-LinkRegistry-7
-label	edge	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	indexed by	69	21
+label	edge	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	indexed by	67.71875	21
 option	edge-label	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	edgeLabels.inline	true
 option	edge-label	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	edgeLabels.placement	CENTER
 edge	id_entity-LinkRegistry-7_entity-Registry-8_8	root	entity-LinkRegistry-7	entity-Registry-8
-label	edge	id_entity-LinkRegistry-7_entity-Registry-8_8	0	one per registry	100	21
+label	edge	id_entity-LinkRegistry-7_entity-Registry-8_8	0	one per registry	97.28125	21
 option	edge-label	id_entity-LinkRegistry-7_entity-Registry-8_8	0	edgeLabels.inline	true
 option	edge-label	id_entity-LinkRegistry-7_entity-Registry-8_8	0	edgeLabels.placement	CENTER
 edge	id_entity-Assembly-9_entity-Repository-3_9	root	entity-Assembly-9	entity-Repository-3
-label	edge	id_entity-Assembly-9_entity-Repository-3_9	0	references	68	21
+label	edge	id_entity-Assembly-9_entity-Repository-3_9	0	references	66.15625	21
 option	edge-label	id_entity-Assembly-9_entity-Repository-3_9	0	edgeLabels.inline	true
 option	edge-label	id_entity-Assembly-9_entity-Repository-3_9	0	edgeLabels.placement	CENTER
 edge	id_entity-Assembly-9_entity-LinkRegistry-7_10	root	entity-Assembly-9	entity-LinkRegistry-7
-label	edge	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	pins commits from	116	21
+label	edge	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	pins commits from	113.578125	21
 option	edge-label	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	edgeLabels.inline	true
 option	edge-label	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	edgeLabels.placement	CENTER
 edge	id_entity-Assembly-9_entity-SiteNavigation-10_11	root	entity-Assembly-9	entity-SiteNavigation-10
-label	edge	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	navigation.yml	91	21
+label	edge	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	navigation.yml	89.5	21
 option	edge-label	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	edgeLabels.inline	true
 option	edge-label	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	edgeLabels.placement	CENTER
 edge	id_entity-SiteNavigation-10_entity-Navigation-5_12	root	entity-SiteNavigation-10	entity-Navigation-5
-label	edge	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	mounts	47	21
+label	edge	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	mounts	45.921875	21
 option	edge-label	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	edgeLabels.inline	true
 option	edge-label	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	edgeLabels.placement	CENTER
 edge	id_entity-CodexSite-11_entity-Registry-8_13	root	entity-CodexSite-11	entity-Registry-8
-label	edge	id_entity-CodexSite-11_entity-Registry-8_13	0	environment	79	21
+label	edge	id_entity-CodexSite-11_entity-Registry-8_13	0	environment	77.046875	21
 option	edge-label	id_entity-CodexSite-11_entity-Registry-8_13	0	edgeLabels.inline	true
 option	edge-label	id_entity-CodexSite-11_entity-Registry-8_13	0	edgeLabels.placement	CENTER
 edge	id_entity-CodexSite-11_entity-LinkRegistry-7_14	root	entity-CodexSite-11	entity-LinkRegistry-7
-label	edge	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	discovers members from	157	21
+label	edge	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	discovers members from	153.265625	21
 option	edge-label	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	edgeLabels.inline	true
 option	edge-label	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	edgeLabels.placement	CENTER
 edge	id_entity-Content-4_entity-LinkManifest-6_15	root	entity-Content-4	entity-LinkManifest-6
-label	edge	id_entity-Content-4_entity-LinkManifest-6_15	0	cross-links resolve through	170	21
+label	edge	id_entity-Content-4_entity-LinkManifest-6_15	0	cross-links resolve through	166.515625	21
 option	edge-label	id_entity-Content-4_entity-LinkManifest-6_15	0	edgeLabels.inline	true
 option	edge-label	id_entity-Content-4_entity-LinkManifest-6_15	0	edgeLabels.placement	CENTER
 edge	id_entity-Content-4_entity-ReleaseNotes-2_16	root	entity-Content-4	entity-ReleaseNotes-2
-label	edge	id_entity-Content-4_entity-ReleaseNotes-2_16	0	{changelog} directive	133	21
+label	edge	id_entity-Content-4_entity-ReleaseNotes-2_16	0	{changelog} directive	130	21
 option	edge-label	id_entity-Content-4_entity-ReleaseNotes-2_16	0	edgeLabels.inline	true
 option	edge-label	id_entity-Content-4_entity-ReleaseNotes-2_16	0	edgeLabels.placement	CENTER
 edge	id_entity-Repository-3_entity-OpenApiSpec-12_17	root	entity-Repository-3	entity-OpenApiSpec-12
-label	edge	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	publishes	60	21
+label	edge	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	publishes	59.15625	21
 option	edge-label	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	edgeLabels.inline	true
 option	edge-label	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	edgeLabels.placement	CENTER
 edge	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	root	entity-OpenApiSpec-12	entity-OpenApiRepository-13
-label	edge	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	published to	77	21
+label	edge	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	published to	75.515625	21
 option	edge-label	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	edgeLabels.inline	true
 option	edge-label	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	edgeLabels.placement	CENTER
 edge	id_entity-DocumentationSet-1_entity-ApiReference-14_19	root	entity-DocumentationSet-1	entity-ApiReference-14
-label	edge	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	api	19	21
+label	edge	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	api	18.6875	21
 option	edge-label	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	edgeLabels.inline	true
 option	edge-label	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	edgeLabels.placement	CENTER
 edge	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	root	entity-ApiReference-14	entity-OpenApiSpec-12
-label	edge	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	spec + repository	109	21
+label	edge	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	spec + repository	107	21
 option	edge-label	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	edgeLabels.inline	true
 option	edge-label	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	edgeLabels.placement	CENTER
 edge	id_entity-Assembly-9_entity-SearchIndex-15_21	root	entity-Assembly-9	entity-SearchIndex-15
-label	edge	id_entity-Assembly-9_entity-SearchIndex-15_21	0	per environment	104	21
+label	edge	id_entity-Assembly-9_entity-SearchIndex-15_21	0	per environment	101.171875	21
 option	edge-label	id_entity-Assembly-9_entity-SearchIndex-15_21	0	edgeLabels.inline	true
 option	edge-label	id_entity-Assembly-9_entity-SearchIndex-15_21	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1317.5	1277
-place	entity-Catalog-0	root	558.8583333333333	214	100	81
-place	entity-DocumentationSet-1	root	644.9583333333334	396	157	81
-place	entity-ReleaseNotes-2	root	227.2166666666667	800	129	81
-place	entity-Repository-3	root	106.63333333333321	214	108	81
-place	entity-Content-4	root	583.7583333333333	598	100	81
-place	entity-Navigation-5	root	924.8333333333334	598	107	81
-place	entity-LinkManifest-6	root	722.0916666666667	800	120	81
-place	entity-LinkRegistry-7	root	691.8	1002	118	81
-place	entity-Registry-8	root	565.6333333333332	1184	100	81
-place	entity-Assembly-9	root	1065.5416666666667	12	101	81
-place	entity-SiteNavigation-10	root	936.5	214	131	81
-place	entity-CodexSite-11	root	493.9666666666667	800	105	81
-place	entity-OpenApiSpec-12	root	30	800	127	81
-place	entity-OpenApiRepository-13	root	12	1002	163	81
-place	entity-ApiReference-14	root	313.8333333333335	598	126	81
-place	entity-SearchIndex-15	root	1107.5	214	120	81
+place	root		0	0	1302.2643229166667	1277
+place	entity-Catalog-0	root	553.6794270833333	214	100	81
+place	entity-DocumentationSet-1	root	639.4934895833333	396	155.1875	81
+place	entity-ReleaseNotes-2	root	225.20260416666656	800	127.9375	81
+place	entity-Repository-3	root	106.78268229166656	214	106.921875	81
+place	entity-Content-4	root	577.2585937499999	598	100	81
+place	entity-Navigation-5	root	916.3151041666666	598	106.15625	81
+place	entity-LinkManifest-6	root	714.2950520833333	800	118.59375	81
+place	entity-LinkRegistry-7	root	683.4434895833333	1002	117.03125	81
+place	entity-Registry-8	root	559.3289062499999	1184	100	81
+place	entity-Assembly-9	root	1053.4479166666665	12	100.6875	81
+place	entity-SiteNavigation-10	root	924.7955729166667	214	130.28125	81
+place	entity-CodexSite-11	root	488.28463541666656	800	104.59375	81
+place	entity-OpenApiSpec-12	root	29.5	800	126.40625	81
+place	entity-OpenApiRepository-13	root	12	1002	161.40625	81
+place	entity-ApiReference-14	root	310.17135416666656	598	124.828125	81
+place	entity-SearchIndex-15	root	1095.0768229166667	214	118.609375	81
 route	id_entity-Catalog-0_entity-DocumentationSet-1_0	root	root
-section	id_entity-Catalog-0_entity-DocumentationSet-1_0	id_entity-Catalog-0_entity-DocumentationSet-1_0_s0	622.1916666666667,295	746.2916666666667,396	622.1916666666667,315 746.2916666666667,315	entity-Catalog-0	entity-DocumentationSet-1
-place-label	edge	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	682.2916666666667	335	128	21
+section	id_entity-Catalog-0_entity-DocumentationSet-1_0	id_entity-Catalog-0_entity-DocumentationSet-1_0_s0	617.0127604166667,295	739.6184895833333,396	617.0127604166667,315 739.6184895833333,315	entity-Catalog-0	entity-DocumentationSet-1
+place-label	edge	id_entity-Catalog-0_entity-DocumentationSet-1_0	0	676.6184895833333	335	125.296875	21
 route	id_entity-Catalog-0_entity-ReleaseNotes-2_1	root	root
-section	id_entity-Catalog-0_entity-ReleaseNotes-2_1	id_entity-Catalog-0_entity-ReleaseNotes-2_1_s0	595.525,295	291.7166666666667,800	595.525,315 292.8333333333335,315 292.8333333333335,345.5 292.8333333333335,436.5 292.8333333333335,638.5 292.8333333333335,729.5 292.8333333333335,780 291.7166666666667,780	entity-Catalog-0	entity-ReleaseNotes-2
-place-label	edge	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	265.3333333333335	537	55	21
+section	id_entity-Catalog-0_entity-ReleaseNotes-2_1	id_entity-Catalog-0_entity-ReleaseNotes-2_1_s0	590.3460937499999,295	289.17135416666656,800	590.3460937499999,315 289.17135416666656,315 289.17135416666656,345.5 289.17135416666656,436.5 289.17135416666656,638.5 289.17135416666656,729.5	entity-Catalog-0	entity-ReleaseNotes-2
+place-label	edge	id_entity-Catalog-0_entity-ReleaseNotes-2_1	0	262.17135416666656	537	53.703125	21
 route	id_entity-Repository-3_entity-DocumentationSet-1_2	root	root
-section	id_entity-Repository-3_entity-DocumentationSet-1_2	id_entity-Repository-3_entity-DocumentationSet-1_2_s0	182.6333333333332,295	700.625,396	182.6333333333332,315 224.33333333333348,315 224.33333333333348,376 700.625,376	entity-Repository-3	entity-DocumentationSet-1
-place-label	edge	id_entity-Repository-3_entity-DocumentationSet-1_2	0	175.83333333333348	335	97	21
+section	id_entity-Repository-3_entity-DocumentationSet-1_2	id_entity-Repository-3_entity-DocumentationSet-1_2_s0	181.97408854166656,295	694.5559895833333,396	181.97408854166656,315 221.84322916666656,315 221.84322916666656,376 694.5559895833333,376	entity-Repository-3	entity-DocumentationSet-1
+place-label	edge	id_entity-Repository-3_entity-DocumentationSet-1_2	0	174.34322916666656	335	94.828125	21
 route	id_entity-Repository-3_entity-ReleaseNotes-2_3	root	root
-section	id_entity-Repository-3_entity-ReleaseNotes-2_3	id_entity-Repository-3_entity-ReleaseNotes-2_3_s0	160.6333333333332,295	264.4666666666667,800	160.6333333333332,315 154.83333333333337,315 154.83333333333337,345.5 154.83333333333337,436.5 154.83333333333337,638.5 154.83333333333337,729.5 154.83333333333337,780 264.4666666666667,780	entity-Repository-3	entity-ReleaseNotes-2
-place-label	edge	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	108.83333333333348	537	92	21
+section	id_entity-Repository-3_entity-ReleaseNotes-2_3	id_entity-Repository-3_entity-ReleaseNotes-2_3_s0	160.24361979166656,295	262.18697916666656,800	160.24361979166656,315 153.34322916666667,315 153.34322916666667,345.5 153.34322916666667,436.5 153.34322916666667,638.5 153.34322916666667,729.5 153.34322916666667,780 262.18697916666656,780	entity-Repository-3	entity-ReleaseNotes-2
+place-label	edge	id_entity-Repository-3_entity-ReleaseNotes-2_3	0	107.84322916666656	537	90.28125	21
 route	id_entity-DocumentationSet-1_entity-Content-4_4	root	root
-section	id_entity-DocumentationSet-1_entity-Content-4_4	id_entity-DocumentationSet-1_entity-Content-4_4_s0	709.7583333333334,477	633.7583333333333,598	709.7583333333334,517 633.7583333333333,517	entity-DocumentationSet-1	entity-Content-4
-place-label	edge	id_entity-DocumentationSet-1_entity-Content-4_4	0	607.2583333333333	537	53	21
+section	id_entity-DocumentationSet-1_entity-Content-4_4	id_entity-DocumentationSet-1_entity-Content-4_4_s0	703.5684895833333,477	627.2585937499999,598	703.5684895833333,517 627.2585937499999,517	entity-DocumentationSet-1	entity-Content-4
+place-label	edge	id_entity-DocumentationSet-1_entity-Content-4_4	0	600.7585937499999	537	52.15625	21
 route	id_entity-DocumentationSet-1_entity-Navigation-5_5	root	root
-section	id_entity-DocumentationSet-1_entity-Navigation-5_5	id_entity-DocumentationSet-1_entity-Navigation-5_5_s0	764.5583333333334,477	963.8333333333334,598	764.5583333333334,497 929.5,497 929.5,578 963.8333333333334,578	entity-DocumentationSet-1	entity-Navigation-5
-place-label	edge	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	877	537	105	21
+section	id_entity-DocumentationSet-1_entity-Navigation-5_5	id_entity-DocumentationSet-1_entity-Navigation-5_5_s0	757.6434895833332,477	955.0338541666666,598	757.6434895833332,497 918.6861979166667,497 918.6861979166667,578 955.0338541666666,578	entity-DocumentationSet-1	entity-Navigation-5
+place-label	edge	id_entity-DocumentationSet-1_entity-Navigation-5_5	0	867.1861979166667	537	102.75	21
 route	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	root	root
-section	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	id_entity-DocumentationSet-1_entity-LinkManifest-6_6_s0	737.1583333333333,477	798.7583333333333,800	737.1583333333333,517 823.75,517 823.75,547.5 823.75,729.5 823.75,760 798.7583333333333,760	entity-DocumentationSet-1	entity-LinkManifest-6
-place-label	edge	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	775.25	628	97	21
+section	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	id_entity-DocumentationSet-1_entity-LinkManifest-6_6_s0	730.6059895833332,477	790.0242187499999,800	730.6059895833332,517 814.5455729166667,517 814.5455729166667,547.5 814.5455729166667,729.5 814.5455729166667,760 790.0242187499999,760	entity-DocumentationSet-1	entity-LinkManifest-6
+place-label	edge	id_entity-DocumentationSet-1_entity-LinkManifest-6_6	0	767.0455729166667	628	94.1875	21
 route	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	root	root
-section	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	id_entity-LinkManifest-6_entity-LinkRegistry-7_7_s0	782.0916666666667,881	750.8,1002	782.0916666666667,962 750.8,962	entity-LinkManifest-6	entity-LinkRegistry-7
-place-label	edge	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	747.5916666666667	921	69	21
+section	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	id_entity-LinkManifest-6_entity-LinkRegistry-7_7_s0	773.5919270833333,881	741.9591145833333,1002	773.5919270833333,962 741.9591145833333,962	entity-LinkManifest-6	entity-LinkRegistry-7
+place-label	edge	id_entity-LinkManifest-6_entity-LinkRegistry-7_7	0	739.5919270833333	921	67.71875	21
 route	id_entity-LinkRegistry-7_entity-Registry-8_8	root	root
-section	id_entity-LinkRegistry-7_entity-Registry-8_8	id_entity-LinkRegistry-7_entity-Registry-8_8_s0	750.8,1083	628.9666666666666,1184	750.8,1164 628.9666666666666,1164	entity-LinkRegistry-7	entity-Registry-8
-place-label	edge	id_entity-LinkRegistry-7_entity-Registry-8_8	0	700.8	1123	100	21
+section	id_entity-LinkRegistry-7_entity-Registry-8_8	id_entity-LinkRegistry-7_entity-Registry-8_8_s0	741.9591145833333,1083	622.6622395833333,1184	741.9591145833333,1164 622.6622395833333,1164	entity-LinkRegistry-7	entity-Registry-8
+place-label	edge	id_entity-LinkRegistry-7_entity-Registry-8_8	0	692.9591145833333	1123	97.28125	21
 route	id_entity-Assembly-9_entity-Repository-3_9	root	root
-section	id_entity-Assembly-9_entity-Repository-3_9	id_entity-Assembly-9_entity-Repository-3_9_s0	1091.7416666666668,93	160.6333333333332,214	1091.7416666666668,113 160.63333333333333,113	entity-Assembly-9	entity-Repository-3
-place-label	edge	id_entity-Assembly-9_entity-Repository-3_9	0	126.63333333333333	153	68	21
+section	id_entity-Assembly-9_entity-Repository-3_9	id_entity-Assembly-9_entity-Repository-3_9_s0	1079.5854166666666,93	160.24361979166656,214	1079.5854166666666,113 160.24361979166656,113	entity-Assembly-9	entity-Repository-3
+place-label	edge	id_entity-Assembly-9_entity-Repository-3_9	0	126.74361979166656	153	66.15625	21
 route	id_entity-Assembly-9_entity-LinkRegistry-7_10	root	root
-section	id_entity-Assembly-9_entity-LinkRegistry-7_10	id_entity-Assembly-9_entity-LinkRegistry-7_10_s0	1140.3416666666667,93	775.3,1002	1140.3416666666667,113 1247.5,113 1247.5,163.5 1247.5,254.5 1247.5,345.5 1247.5,436.5 1247.5,638.5 1247.5,729.5 1247.5,840.5 1247.5,931.5 1247.5,982 775.3,982	entity-Assembly-9	entity-LinkRegistry-7
-place-label	edge	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	1189.5	537	116	21
+section	id_entity-Assembly-9_entity-LinkRegistry-7_10	id_entity-Assembly-9_entity-LinkRegistry-7_10_s0	1127.9979166666665,93	766.2169270833333,1002	1127.9979166666665,113 1233.6861979166667,113 1233.6861979166667,163.5 1233.6861979166667,254.5 1233.6861979166667,345.5 1233.6861979166667,436.5 1233.6861979166667,638.5 1233.6861979166667,729.5 1233.6861979166667,840.5 1233.6861979166667,931.5 1233.6861979166667,982 766.2169270833333,982	entity-Assembly-9	entity-LinkRegistry-7
+place-label	edge	id_entity-Assembly-9_entity-LinkRegistry-7_10	0	1176.6861979166667	537	113.578125	21
 route	id_entity-Assembly-9_entity-SiteNavigation-10_11	root	root
-section	id_entity-Assembly-9_entity-SiteNavigation-10_11	id_entity-Assembly-9_entity-SiteNavigation-10_11_s0	1107.9416666666666,93	1002,214	1107.9416666666666,133 1002,133	entity-Assembly-9	entity-SiteNavigation-10
-place-label	edge	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	956.5	153	91	21
+section	id_entity-Assembly-9_entity-SiteNavigation-10_11	id_entity-Assembly-9_entity-SiteNavigation-10_11_s0	1095.7229166666666,93	989.9361979166667,214	1095.7229166666666,133 989.9361979166667,133	entity-Assembly-9	entity-SiteNavigation-10
+place-label	edge	id_entity-Assembly-9_entity-SiteNavigation-10_11	0	944.9361979166667	153	89.5	21
 route	id_entity-SiteNavigation-10_entity-Navigation-5_12	root	root
-section	id_entity-SiteNavigation-10_entity-Navigation-5_12	id_entity-SiteNavigation-10_entity-Navigation-5_12_s0	1002,295	992.8333333333334,598	1002,345.5 1002,547.5 1002,578 992.8333333333334,578	entity-SiteNavigation-10	entity-Navigation-5
-place-label	edge	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	978.5	426	47	21
+section	id_entity-SiteNavigation-10_entity-Navigation-5_12	id_entity-SiteNavigation-10_entity-Navigation-5_12_s0	989.9361979166667,295	983.7526041666666,598	989.9361979166667,345.5 989.9361979166667,547.5 989.9361979166667,578 983.7526041666666,578	entity-SiteNavigation-10	entity-Navigation-5
+place-label	edge	id_entity-SiteNavigation-10_entity-Navigation-5_12	0	966.9361979166667	426	45.921875	21
 route	id_entity-CodexSite-11_entity-Registry-8_13	root	root
-section	id_entity-CodexSite-11_entity-Registry-8_13	id_entity-CodexSite-11_entity-Registry-8_13_s0	532.3000000000001,881	602.2999999999998,1184	532.3000000000001,901 496.7166666666667,901 496.7166666666667,931.5 496.7166666666667,1133.5 496.7166666666667,1164 602.2999999999998,1164	entity-CodexSite-11	entity-Registry-8
-place-label	edge	id_entity-CodexSite-11_entity-Registry-8_13	0	457.2166666666667	1032	79	21
+section	id_entity-CodexSite-11_entity-Registry-8_13	id_entity-CodexSite-11_entity-Registry-8_13_s0	526.4825520833332,881	595.9955729166666,1184	526.4825520833332,901 491.5815104166667,901 491.5815104166667,931.5 491.5815104166667,1133.5 491.5815104166667,1164 595.9955729166666,1164	entity-CodexSite-11	entity-Registry-8
+place-label	edge	id_entity-CodexSite-11_entity-Registry-8_13	0	452.5815104166667	1032	77.046875	21
 route	id_entity-CodexSite-11_entity-LinkRegistry-7_14	root	root
-section	id_entity-CodexSite-11_entity-LinkRegistry-7_14	id_entity-CodexSite-11_entity-LinkRegistry-7_14_s0	560.6333333333333,881	726.3,1002	560.6333333333333,901 596.2166666666667,901 596.2166666666667,962 726.3,962	entity-CodexSite-11	entity-LinkRegistry-7
-place-label	edge	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	517.7166666666667	921	157	21
+section	id_entity-CodexSite-11_entity-LinkRegistry-7_14	id_entity-CodexSite-11_entity-LinkRegistry-7_14_s0	554.6804687499999,881	717.7013020833333,1002	554.6804687499999,901 589.5815104166667,901 589.5815104166667,962 717.7013020833333,962	entity-CodexSite-11	entity-LinkRegistry-7
+place-label	edge	id_entity-CodexSite-11_entity-LinkRegistry-7_14	0	512.5815104166667	921	153.265625	21
 route	id_entity-Content-4_entity-LinkManifest-6_15	root	root
-section	id_entity-Content-4_entity-LinkManifest-6_15	id_entity-Content-4_entity-LinkManifest-6_15_s0	647.0916666666667,679	765.425,800	647.0916666666667,699 708.6666666666667,699 708.6666666666667,760 765.425,760	entity-Content-4	entity-LinkManifest-6
-place-label	edge	id_entity-Content-4_entity-LinkManifest-6_15	0	623.6666666666667	719	170	21
+section	id_entity-Content-4_entity-LinkManifest-6_15	id_entity-Content-4_entity-LinkManifest-6_15_s0	640.5919270833333,679	757.1596354166666,800	640.5919270833333,699 700.9544270833334,699 700.9544270833334,760 757.1596354166666,760	entity-Content-4	entity-LinkManifest-6
+place-label	edge	id_entity-Content-4_entity-LinkManifest-6_15	0	617.4544270833334	719	166.515625	21
 route	id_entity-Content-4_entity-ReleaseNotes-2_16	root	root
-section	id_entity-Content-4_entity-ReleaseNotes-2_16	id_entity-Content-4_entity-ReleaseNotes-2_16_s0	620.425,679	318.9666666666667,800	620.425,699 536.0416666666667,699 536.0416666666667,780 318.9666666666667,780	entity-Content-4	entity-ReleaseNotes-2
-place-label	edge	id_entity-Content-4_entity-ReleaseNotes-2_16	0	469.54166666666674	719	133	21
+section	id_entity-Content-4_entity-ReleaseNotes-2_16	id_entity-Content-4_entity-ReleaseNotes-2_16_s0	613.9252604166666,679	316.15572916666656,800	613.9252604166666,699 530.1341145833334,699 530.1341145833334,780 316.15572916666656,780	entity-Content-4	entity-ReleaseNotes-2
+place-label	edge	id_entity-Content-4_entity-ReleaseNotes-2_16	0	465.13411458333337	719	130	21
 route	id_entity-Repository-3_entity-OpenApiSpec-12_17	root	root
-section	id_entity-Repository-3_entity-OpenApiSpec-12_17	id_entity-Repository-3_entity-OpenApiSpec-12_17_s0	138.6333333333332,295	75.66666666666674,800	138.6333333333332,315 58.833333333333485,315 58.833333333333485,345.5 58.833333333333485,436.5 58.833333333333485,638.5 58.833333333333485,729.5 58.833333333333485,760 75.66666666666674,760	entity-Repository-3	entity-OpenApiSpec-12
-place-label	edge	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	28.833333333333485	537	60	21
+section	id_entity-Repository-3_entity-OpenApiSpec-12_17	id_entity-Repository-3_entity-OpenApiSpec-12_17_s0	138.51315104166656,295	74.96875,800	138.51315104166656,315 58.68697916666656,315 58.68697916666656,345.5 58.68697916666656,436.5 58.68697916666656,638.5 58.68697916666656,729.5 58.68697916666656,760 74.96875,760	entity-Repository-3	entity-OpenApiSpec-12
+place-label	edge	id_entity-Repository-3_entity-OpenApiSpec-12_17	0	28.68697916666656	537	59.15625	21
 route	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	root	root
-section	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18_s0	93.5,881	93.5,1002		entity-OpenApiSpec-12	entity-OpenApiRepository-13
-place-label	edge	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	55	921	77	21
+section	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18_s0	92.703125,881	92.703125,1002		entity-OpenApiSpec-12	entity-OpenApiRepository-13
+place-label	edge	id_entity-OpenApiSpec-12_entity-OpenApiRepository-13_18	0	54.703125	921	75.515625	21
 route	id_entity-DocumentationSet-1_entity-ApiReference-14_19	root	root
-section	id_entity-DocumentationSet-1_entity-ApiReference-14_19	id_entity-DocumentationSet-1_entity-ApiReference-14_19_s0	682.3583333333333,477	376.8333333333335,598	682.3583333333333,497 376.8333333333335,497	entity-DocumentationSet-1	entity-ApiReference-14
-place-label	edge	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	367.3333333333335	537	19	21
+section	id_entity-DocumentationSet-1_entity-ApiReference-14_19	id_entity-DocumentationSet-1_entity-ApiReference-14_19_s0	676.5309895833333,477	372.58541666666656,598	676.5309895833333,497 372.58541666666656,497	entity-DocumentationSet-1	entity-ApiReference-14
+place-label	edge	id_entity-DocumentationSet-1_entity-ApiReference-14_19	0	363.08541666666656	537	18.6875	21
 route	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	root	root
-section	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	id_entity-ApiReference-14_entity-OpenApiSpec-12_20_s0	376.8333333333335,679	111.33333333333326,800	376.8333333333335,760 111.33333333333326,760	entity-ApiReference-14	entity-OpenApiSpec-12
-place-label	edge	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	322.3333333333335	719	109	21
+section	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	id_entity-ApiReference-14_entity-OpenApiSpec-12_20_s0	372.58541666666656,679	110.4375,800	372.58541666666656,760 110.4375,760	entity-ApiReference-14	entity-OpenApiSpec-12
+place-label	edge	id_entity-ApiReference-14_entity-OpenApiSpec-12_20	0	319.08541666666656	719	107	21
 route	id_entity-Assembly-9_entity-SearchIndex-15_21	root	root
-section	id_entity-Assembly-9_entity-SearchIndex-15_21	id_entity-Assembly-9_entity-SearchIndex-15_21_s0	1124.1416666666667,93	1167.5,214	1124.1416666666667,133 1167.5,133	entity-Assembly-9	entity-SearchIndex-15
-place-label	edge	id_entity-Assembly-9_entity-SearchIndex-15_21	0	1115.5	153	104	21
+section	id_entity-Assembly-9_entity-SearchIndex-15_21	id_entity-Assembly-9_entity-SearchIndex-15_21_s0	1111.8604166666667,93	1154.3815104166667,214	1111.8604166666667,133 1154.3815104166667,133	entity-Assembly-9	entity-SearchIndex-15
+place-label	edge	id_entity-Assembly-9_entity-SearchIndex-15_21	0	1103.3815104166667	153	101.171875	21

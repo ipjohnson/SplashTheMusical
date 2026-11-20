@@ -25,11 +25,11 @@ node	A	root	152	45
 node	B	root	152	45
 node	C	root	152	45
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	text space	65	21
+label	edge	L_A_B_0	0	text space	63.828125	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_B_C_0	root	B	C
-label	edge	L_B_C_0	0	more text with space	131	21
+label	edge	L_B_C_0	0	more text with space	128.390625	21
 option	edge-label	L_B_C_0	0	edgeLabels.inline	true
 option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
 result
@@ -39,7 +39,7 @@ place	B	root	12	158	152	45
 place	C	root	12	304	152	45
 route	L_A_B_0	root	root
 section	L_A_B_0	L_A_B_0_s0	88,57	88,158		A	B
-place-label	edge	L_A_B_0	0	55.5	97	65	21
+place-label	edge	L_A_B_0	0	56	97	63.828125	21
 route	L_B_C_0	root	root
 section	L_B_C_0	L_B_C_0_s0	88,203	88,304		B	C
-place-label	edge	L_B_C_0	0	22.5	243	131	21
+place-label	edge	L_B_C_0	0	23.5	243	128.390625	21

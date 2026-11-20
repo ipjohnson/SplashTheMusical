@@ -21,36 +21,36 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-CUSTOMER-0	root	120	81
+node	entity-CUSTOMER-0	root	119.859375	81
 node	entity-1-1	root	100	81
-node	entity-u-2	root	135	119.25
+node	entity-u-2	root	133.28125	119.25
 node	entity-2.5-3	root	100	81
-node	entity-ORDER-4	root	126	119.25
+node	entity-ORDER-4	root	123.953125	119.25
 edge	id_entity-CUSTOMER-0_entity-1-1_0	root	entity-CUSTOMER-0	entity-1-1
-label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-1-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-1-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-1-1_entity-u-2_1	root	entity-1-1	entity-u-2
-label	edge	id_entity-1-1_entity-u-2_1	0	contains	53	21
+label	edge	id_entity-1-1_entity-u-2_1	0	contains	52.15625	21
 option	edge-label	id_entity-1-1_entity-u-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-1-1_entity-u-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-2.5-3_entity-ORDER-4_2	root	entity-2.5-3	entity-ORDER-4
-label	edge	id_entity-2.5-3_entity-ORDER-4_2	0	processes	65	21
+label	edge	id_entity-2.5-3_entity-ORDER-4_2	0	processes	63.8125	21
 option	edge-label	id_entity-2.5-3_entity-ORDER-4_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-2.5-3_entity-ORDER-4_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	307.5	545.5
-place	entity-CUSTOMER-0	root	19.5	12	120	81
-place	entity-1-1	root	29.5	213.125	100	81
-place	entity-u-2	root	12	414.25	135	119.25
-place	entity-2.5-3	root	182.5	12	100	81
-place	entity-ORDER-4	root	169.5	194	126	119.25
+place	root		0	0	304.59375	545.5
+place	entity-CUSTOMER-0	root	18.7109375	12	119.859375	81
+place	entity-1-1	root	28.640625	213.125	100	81
+place	entity-u-2	root	12	414.25	133.28125	119.25
+place	entity-2.5-3	root	180.6171875	12	100	81
+place	entity-ORDER-4	root	168.640625	194	123.953125	119.25
 route	id_entity-CUSTOMER-0_entity-1-1_0	root	root
-section	id_entity-CUSTOMER-0_entity-1-1_0	id_entity-CUSTOMER-0_entity-1-1_0_s0	79.5,93	79.5,213.125		entity-CUSTOMER-0	entity-1-1
-place-label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	59	133	41	21
+section	id_entity-CUSTOMER-0_entity-1-1_0	id_entity-CUSTOMER-0_entity-1-1_0_s0	78.640625,93	78.640625,213.125		entity-CUSTOMER-0	entity-1-1
+place-label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	58.140625	133	40.46875	21
 route	id_entity-1-1_entity-u-2_1	root	root
-section	id_entity-1-1_entity-u-2_1	id_entity-1-1_entity-u-2_1_s0	79.5,294.125	79.5,414.25		entity-1-1	entity-u-2
-place-label	edge	id_entity-1-1_entity-u-2_1	0	53	353.25	53	21
+section	id_entity-1-1_entity-u-2_1	id_entity-1-1_entity-u-2_1_s0	78.640625,294.125	78.640625,414.25		entity-1-1	entity-u-2
+place-label	edge	id_entity-1-1_entity-u-2_1	0	52.140625	353.25	52.15625	21
 route	id_entity-2.5-3_entity-ORDER-4_2	root	root
-section	id_entity-2.5-3_entity-ORDER-4_2	id_entity-2.5-3_entity-ORDER-4_2_s0	232.5,93	232.5,194		entity-2.5-3	entity-ORDER-4
-place-label	edge	id_entity-2.5-3_entity-ORDER-4_2	0	200	133	65	21
+section	id_entity-2.5-3_entity-ORDER-4_2	id_entity-2.5-3_entity-ORDER-4_2_s0	230.6171875,93	230.6171875,194		entity-2.5-3	entity-ORDER-4
+place-label	edge	id_entity-2.5-3_entity-ORDER-4_2	0	198.6171875	133	63.8125	21

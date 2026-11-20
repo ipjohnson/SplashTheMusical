@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	id3	root
 option	node	id3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	id3		nodeSize.minimum	(27, 0)
+option	node	id3		nodeSize.minimum	(26.6875, 0)
 option	node	id3		spacing.baseValue	24
 option	node	id3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	id3		elk.spacing.edgeEdge	20
@@ -37,13 +37,13 @@ option	node	id3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	id3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	id3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	id3		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	id3	0	id3	19	19
+label	node	id3	0	id3	18.6875	19
 node	C	id3	152	45
 option	node	C		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	D	id3	152	45
 node	id2	root
 option	node	id2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	id2		nodeSize.minimum	(30, 0)
+option	node	id2		nodeSize.minimum	(29.796875, 0)
 option	node	id2		spacing.baseValue	24
 option	node	id2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	id2		elk.spacing.edgeEdge	20
@@ -56,11 +56,11 @@ option	node	id2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	id2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	id2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	id2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	id2	0	title	22	19
+label	node	id2	0	title	21.796875	19
 node	E	id2	152	45
 node	id1	root
 option	node	id1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	id1		nodeSize.minimum	(67, 0)
+option	node	id1		nodeSize.minimum	(66.359375, 0)
 option	node	id1		spacing.baseValue	24
 option	node	id1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	id1		elk.spacing.edgeEdge	20
@@ -74,7 +74,7 @@ option	node	id1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	id1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	id1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	id1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	id1	0	title is set	59	19
+label	node	id1	0	title is set	58.359375	19
 node	A	id1	152	45
 node	B	id1	152	45
 option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -93,14 +93,14 @@ option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	836	298
 place	id3	root	448	169	376	117
-place-label	node	id3	0	178.5	5	19	19
+place-label	node	id3	0	178.65625	5	18.6875	19
 place	C	id3	24	48	152	45
 place	D	id3	200	48	152	45
 place	id2	root	105	12	200	117
-place-label	node	id2	0	89	5	22	19
+place-label	node	id2	0	89.1015625	5	21.796875	19
 place	E	id2	24	48	152	45
 place	id1	root	12	169	376	117
-place-label	node	id1	0	158.5	5	59	19
+place-label	node	id1	0	158.8203125	5	58.359375	19
 place	A	id1	24	48	152	45
 place	B	id1	200	48	152	45
 route	L_A_B_0	root	id1

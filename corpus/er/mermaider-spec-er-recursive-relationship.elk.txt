@@ -21,14 +21,14 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-EMPLOYEE-0	root	204	159
+node	entity-EMPLOYEE-0	root	201.859375	159
 edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	root	entity-EMPLOYEE-0	entity-EMPLOYEE-0
-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	manages	59	21
+label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	manages	57.59375	21
 option	edge-label	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	311	183
-place	entity-EMPLOYEE-0	root	95	12	204	159
+place	root		0	0	307.453125	183
+place	entity-EMPLOYEE-0	root	93.59375	12	201.859375	159
 route	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	root	root
-section	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0_s0	95,69	95,114	75,69 75,114	entity-EMPLOYEE-0	entity-EMPLOYEE-0
-place-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	12	81	59	21
+section	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0_s0	93.59375,69	93.59375,114	73.59375,69 73.59375,114	entity-EMPLOYEE-0	entity-EMPLOYEE-0
+place-label	edge	id_entity-EMPLOYEE-0_entity-EMPLOYEE-0_0	0	12	81	57.59375	21

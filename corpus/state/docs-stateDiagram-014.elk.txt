@@ -35,11 +35,11 @@ label	edge	edge1	0		0	0
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	if_state	False
-label	edge	edge2	0	if n &lt; 0	43	21
+label	edge	edge2	0	if n &lt; 0	42.421875	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	if_state	True
-label	edge	edge3	0	if n >= 0	51	21
+label	edge	edge3	0	if n >= 0	50.59375	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 result
@@ -57,7 +57,7 @@ section	edge1	edge1_s0	168,103	168,143		IsPositive	if_state
 place-label	edge	edge1	0	0	0	0	0
 route	edge2	root	root
 section	edge2	edge2_s0	166.66666666666666,171	80,272	166.66666666666666,191 80,191	if_state	False
-place-label	edge	edge2	0	58.5	211	43	21
+place-label	edge	edge2	0	58.5	211	42.421875	21
 route	edge3	root	root
 section	edge3	edge3_s0	169.33333333333334,171	256,272	169.33333333333334,191 256,191	if_state	True
-place-label	edge	edge3	0	230.5	211	51	21
+place-label	edge	edge3	0	230.5	211	50.59375	21

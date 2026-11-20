@@ -44,7 +44,7 @@ label	edge	L_brief_check_0	0		0	0
 option	edge-label	L_brief_check_0	0	edgeLabels.inline	true
 option	edge-label	L_brief_check_0	0	edgeLabels.placement	CENTER
 edge	L_check_post_0	root	check	post
-label	edge	L_check_post_0	0	yes	22	21
+label	edge	L_check_post_0	0	yes	21.796875	21
 option	edge-label	L_check_post_0	0	edgeLabels.inline	true
 option	edge-label	L_check_post_0	0	edgeLabels.placement	CENTER
 result
@@ -69,4 +69,4 @@ section	L_brief_check_0	L_brief_check_0_s0	114,220.2460060119629	114,268.4920120
 place-label	edge	L_brief_check_0	0	0	0	0	0
 route	L_check_post_0	root	root
 section	L_check_post_0	L_check_post_0_s0	114,439.4920120239258	114,540.4920120239258		check	post
-place-label	edge	L_check_post_0	0	103	479.4920120239258	22	21
+place-label	edge	L_check_post_0	0	103	479.4920120239258	21.796875	21

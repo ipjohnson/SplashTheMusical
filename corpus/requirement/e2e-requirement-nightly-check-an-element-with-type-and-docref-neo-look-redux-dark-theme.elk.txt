@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	perf_req	root	191	166
-node	test_suite	root	208	124
+node	perf_req	root	187.3125	166
+node	test_suite	root	204.421875	124
 edge	test_suite-perf_req-0	root	test_suite	perf_req
-label	edge	test_suite-perf_req-0	0	&lt;&lt;verifies&gt;&gt;	77	21
+label	edge	test_suite-perf_req-0	0	&lt;&lt;verifies&gt;&gt;	77.0625	21
 option	edge-label	test_suite-perf_req-0	0	edgeLabels.inline	true
 option	edge-label	test_suite-perf_req-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	232	415
-place	perf_req	root	20.5	237	191	166
-place	test_suite	root	12	12	208	124
+place	root		0	0	228.421875	415
+place	perf_req	root	20.5546875	237	187.3125	166
+place	test_suite	root	12	12	204.421875	124
 route	test_suite-perf_req-0	root	root
-section	test_suite-perf_req-0	test_suite-perf_req-0_s0	116,136	116,237		test_suite	perf_req
-place-label	edge	test_suite-perf_req-0	0	77.5	176	77	21
+section	test_suite-perf_req-0	test_suite-perf_req-0_s0	114.2109375,136	114.2109375,237		test_suite	perf_req
+place-label	edge	test_suite-perf_req-0	0	75.2109375	176	77.0625	21

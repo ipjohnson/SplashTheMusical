@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	C	root	182.6608123779297	54.49899673461914
 node	F	root	182.93463134765625	54.59537124633789
 edge	L_C_F_0	root	C	F
-label	edge	L_C_F_0	0	fa:fa-car Car	23	21
+label	edge	L_C_F_0	0	fa:fa-car Car	22.5625	21
 option	edge-label	L_C_F_0	0	edgeLabels.inline	true
 option	edge-label	L_C_F_0	0	edgeLabels.placement	CENTER
 result
@@ -33,4 +33,4 @@ place	C	root	12.136909484863281	12	182.6608123779297	54.49899673461914
 place	F	root	12	167.49899673461914	182.93463134765625	54.59537124633789
 route	L_C_F_0	root	root
 section	L_C_F_0	L_C_F_0_s0	103.46731567382812,66.49899673461914	103.46731567382812,167.49899673461914		C	F
-place-label	edge	L_C_F_0	0	91.96731567382812	106.49899673461914	23	21
+place-label	edge	L_C_F_0	0	91.96731567382812	106.49899673461914	22.5625	21

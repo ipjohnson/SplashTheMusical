@@ -84,15 +84,15 @@ label	edge	L_D_S_0	0		0	0
 option	edge-label	L_D_S_0	0	edgeLabels.inline	true
 option	edge-label	L_D_S_0	0	edgeLabels.placement	CENTER
 edge	L_S_T_0	root	S	T
-label	edge	L_S_T_0	0	add_step	59	21
+label	edge	L_S_T_0	0	add_step	57.609375	21
 option	edge-label	L_S_T_0	0	edgeLabels.inline	true
 option	edge-label	L_S_T_0	0	edgeLabels.placement	CENTER
 edge	L_Steward_T_0	root	Steward	T
-label	edge	L_Steward_T_0	0	add_step	59	21
+label	edge	L_Steward_T_0	0	add_step	57.609375	21
 option	edge-label	L_Steward_T_0	0	edgeLabels.inline	true
 option	edge-label	L_Steward_T_0	0	edgeLabels.placement	CENTER
 edge	L_You_T_0	root	You	T
-label	edge	L_You_T_0	0	Add step	56	21
+label	edge	L_You_T_0	0	Add step	55.265625	21
 option	edge-label	L_You_T_0	0	edgeLabels.inline	true
 option	edge-label	L_You_T_0	0	edgeLabels.placement	CENTER
 edge	L_T_P_0	root	T	P
@@ -100,7 +100,7 @@ label	edge	L_T_P_0	0		0	0
 option	edge-label	L_T_P_0	0	edgeLabels.inline	true
 option	edge-label	L_T_P_0	0	edgeLabels.placement	CENTER
 edge	L_P_Inbox_0	root	P	Inbox
-label	edge	L_P_Inbox_0	0	rule asks	57	21
+label	edge	L_P_Inbox_0	0	rule asks	56.03125	21
 option	edge-label	L_P_Inbox_0	0	edgeLabels.inline	true
 option	edge-label	L_P_Inbox_0	0	edgeLabels.placement	CENTER
 edge	L_T_M_0	root	T	M
@@ -199,19 +199,19 @@ section	L_D_S_0	L_D_S_0_s0	1284,167.29166666666669	1324,242.95833333333331	1304,
 place-label	edge	L_D_S_0	0	0	0	0	0
 route	L_S_T_0	root	root
 section	L_S_T_0	L_S_T_0_s0	1324,251.29166666666669	608,276.20833333333337	1208,251.29166666666669 784,251.29166666666669 668,251.29166666666669 668,276.20833333333337	S	T
-place-label	edge	L_S_T_0	0	966.5	240.29166666666669	59	21
+place-label	edge	L_S_T_0	0	967.1953125	240.29166666666669	57.609375	21
 route	L_Steward_T_0	root	root
 section	L_Steward_T_0	L_Steward_T_0_s0	164,34.5	456,266.83333333333337	436,34.5 436,266.83333333333337	Steward	T
-place-label	edge	L_Steward_T_0	0	250.5	23.5	59	21
+place-label	edge	L_Steward_T_0	0	251.1953125	23.5	57.609375	21
 route	L_You_T_0	root	root
 section	L_You_T_0	L_You_T_0_s0	164,119.5	456,269.95833333333337	416,119.5 416,269.95833333333337	You	T
-place-label	edge	L_You_T_0	0	252	108.5	56	21
+place-label	edge	L_You_T_0	0	252.3671875	108.5	55.265625	21
 route	L_T_P_0	root	root
 section	L_T_P_0	L_T_P_0_s0	608,280.375	708,305.2916666666667	688,280.375 688,305.2916666666667	T	P
 place-label	edge	L_T_P_0	0	0	0	0	0
 route	L_P_Inbox_0	root	root
 section	L_P_Inbox_0	L_P_Inbox_0_s0	860,305.2916666666667	1132,305.2916666666667		P	Inbox
-place-label	edge	L_P_Inbox_0	0	967.5	294.2916666666667	57	21
+place-label	edge	L_P_Inbox_0	0	967.984375	294.2916666666667	56.03125	21
 route	L_T_M_0	root	root
 section	L_T_M_0	L_T_M_0_s0	608,284.5416666666667	708,502.375	668,284.5416666666667 668,502.375	T	M
 place-label	edge	L_T_M_0	0	0	0	0	0

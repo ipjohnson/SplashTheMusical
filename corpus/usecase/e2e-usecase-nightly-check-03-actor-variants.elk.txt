@@ -21,10 +21,10 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Normal	root	102	121
-node	Hollow	root	98	121
-node	Awesome	root	118	121
-node	Icon	root	83	121
+node	Normal	root	100.140625	121
+node	Hollow	root	97.03125	121
+node	Awesome	root	116.234375	121
+node	Icon	root	81.484375	121
 node	Fallback	root	140	142
 node	Manage	root	160	58
 option	node	Manage		elk.portAlignment.default	CENTER
@@ -50,10 +50,10 @@ option	edge-label	edge-4	0	edgeLabels.inline	true
 option	edge-label	edge-4	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	384	810
-place	Normal	root	50	12	102	121
-place	Hollow	root	54	173	98	121
-place	Awesome	root	34	334	118	121
-place	Icon	root	69	495	83	121
+place	Normal	root	51.859375	12	100.140625	121
+place	Hollow	root	54.96875	173	97.03125	121
+place	Awesome	root	35.765625	334	116.234375	121
+place	Icon	root	70.515625	495	81.484375	121
 place	Fallback	root	12	656	140	142
 place	Manage	root	212	365.5	160	58
 route	edge-0	root	root

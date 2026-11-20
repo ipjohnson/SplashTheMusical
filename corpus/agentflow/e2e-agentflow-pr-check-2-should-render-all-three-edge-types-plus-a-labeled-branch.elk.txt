@@ -40,7 +40,7 @@ label	edge	L_B_D_0	0		0	0
 option	edge-label	L_B_D_0	0	edgeLabels.inline	true
 option	edge-label	L_B_D_0	0	edgeLabels.placement	CENTER
 edge	L_E_F_0	root	E	F
-label	edge	L_E_F_0	0	yes	22	21
+label	edge	L_E_F_0	0	yes	21.796875	21
 option	edge-label	L_E_F_0	0	edgeLabels.inline	true
 option	edge-label	L_E_F_0	0	edgeLabels.placement	CENTER
 result
@@ -62,4 +62,4 @@ section	L_B_D_0	L_B_D_0_s0	216.5666643778483,274	294.1999969482422,314	216.56666
 place-label	edge	L_B_D_0	0	0	0	0	0
 route	L_E_F_0	root	root
 section	L_E_F_0	L_E_F_0_s0	484.1999969482422,183	484.1999969482422,314		E	F
-place-label	edge	L_E_F_0	0	473.1999969482422	238	22	21
+place-label	edge	L_E_F_0	0	473.1999969482422	238	21.796875	21

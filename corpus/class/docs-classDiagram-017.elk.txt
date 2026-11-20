@@ -21,11 +21,11 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Class01	root	118	135
-node	Class02	root	78	81
-node	interface0	root	53	45
-node	interface1	root	53	45
-node	interface2	root	52	45
+node	Class01	root	115.84375	135
+node	Class02	root	76.9375	81
+node	interface0	root	52.234375	45
+node	interface1	root	52.234375	45
+node	interface2	root	51.46875	45
 edge	id_Class01_interface0_1	root	Class01	interface0
 label	edge	id_Class01_interface0_1	0		0	0
 option	edge-label	id_Class01_interface0_1	0	edgeLabels.inline	true
@@ -39,18 +39,18 @@ label	edge	id_interface2_Class01_3	0		0	0
 option	edge-label	id_interface2_Class01_3	0	edgeLabels.inline	true
 option	edge-label	id_interface2_Class01_3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	247.5	365
-place	Class01	root	117.5	133	118	135
-place	Class02	root	12	12	78	81
-place	interface0	root	150	308	53	45
-place	interface1	root	24.5	133	53	45
-place	interface2	root	150.5	48	52	45
+place	root		0	0	244.4296875	365
+place	Class01	root	116.5859375	133	115.84375	135
+place	Class02	root	12	12	76.9375	81
+place	interface0	root	148.390625	308	52.234375	45
+place	interface1	root	24.3515625	133	52.234375	45
+place	interface2	root	148.7734375	48	51.46875	45
 route	id_Class01_interface0_1	root	root
-section	id_Class01_interface0_1	id_Class01_interface0_1_s0	176.5,268	176.5,308		Class01	interface0
+section	id_Class01_interface0_1	id_Class01_interface0_1_s0	174.5078125,268	174.5078125,308		Class01	interface0
 place-label	edge	id_Class01_interface0_1	0	0	0	0	0
 route	id_Class02_interface1_2	root	root
-section	id_Class02_interface1_2	id_Class02_interface1_2_s0	51,93	51,133		Class02	interface1
+section	id_Class02_interface1_2	id_Class02_interface1_2_s0	50.46875,93	50.46875,133		Class02	interface1
 place-label	edge	id_Class02_interface1_2	0	0	0	0	0
 route	id_interface2_Class01_3	root	root
-section	id_interface2_Class01_3	id_interface2_Class01_3_s0	176.5,93	176.5,133		interface2	Class01
+section	id_interface2_Class01_3	id_interface2_Class01_3_s0	174.5078125,93	174.5078125,133		interface2	Class01
 place-label	edge	id_interface2_Class01_3	0	0	0	0	0

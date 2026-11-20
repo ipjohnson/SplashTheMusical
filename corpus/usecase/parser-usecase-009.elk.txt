@@ -21,17 +21,17 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Developer	root	85	121
+node	Developer	root	83.828125	121
 node	WriteCode	root	160	58
 option	node	WriteCode		elk.portAlignment.default	CENTER
 edge	edge-0	root	Developer	WriteCode
-label	edge	edge-0	0	important	47	15
+label	edge	edge-0	0	important	45.6875	15
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	396	145
-place	Developer	root	12	12	85	121
-place	WriteCode	root	224	43.5	160	58
+place	root		0	0	393.515625	145
+place	Developer	root	12	12	83.828125	121
+place	WriteCode	root	221.515625	43.5	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	97,72.5	224,72.5		Developer	WriteCode
-place-label	edge	edge-0	0	137	64.5	47	15
+section	edge-0	edge-0_s0	95.828125,72.5	221.515625,72.5		Developer	WriteCode
+place-label	edge	edge-0	0	135.828125	64.5	45.6875	15

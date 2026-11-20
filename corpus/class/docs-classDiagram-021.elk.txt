@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Platform	root
 option	node	Platform		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Platform		nodeSize.minimum	(69, 0)
+option	node	Platform		nodeSize.minimum	(68.125, 0)
 option	node	Platform		spacing.baseValue	24
 option	node	Platform		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Platform		elk.spacing.edgeEdge	20
@@ -37,10 +37,10 @@ option	node	Platform		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Platform		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Platform		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Platform		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Platform	0	Platform	53	19
+label	node	Platform	0	Platform	52.125	19
 node	Platform.Auth	Platform
 option	node	Platform.Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Platform.Auth		nodeSize.minimum	(45, 0)
+option	node	Platform.Auth		nodeSize.minimum	(44.8125, 0)
 option	node	Platform.Auth		spacing.baseValue	24
 option	node	Platform.Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Platform.Auth		elk.spacing.edgeEdge	20
@@ -54,12 +54,12 @@ option	node	Platform.Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Platform.Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Platform.Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Platform.Auth		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Platform.Auth	0	Auth	29	19
-node	UserService	Platform.Auth	121.5	141
+label	node	Platform.Auth	0	Auth	28.8125	19
+node	UserService	Platform.Auth	120.1328125	141
 option	node	UserService		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Platform.Data	Platform
 option	node	Platform.Data		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Platform.Data		nodeSize.minimum	(46, 0)
+option	node	Platform.Data		nodeSize.minimum	(45.578125, 0)
 option	node	Platform.Data		spacing.baseValue	24
 option	node	Platform.Data		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Platform.Data		elk.spacing.edgeEdge	20
@@ -73,33 +73,33 @@ option	node	Platform.Data		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Platform.Data		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Platform.Data		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Platform.Data		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Platform.Data	0	Data	30	19
-node	Repository	Platform.Data	109.5	141
+label	node	Platform.Data	0	Data	29.578125	19
+node	Repository	Platform.Data	107.640625	141
 option	node	Repository		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	Gateway	Platform	104.5	120
+node	Gateway	Platform	102.21875	120
 option	node	Gateway		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_Gateway_UserService_1	root	Gateway	UserService
-label	edge	id_Gateway_UserService_1	0	delegates	62	21
+label	edge	id_Gateway_UserService_1	0	delegates	60.71875	21
 option	edge-label	id_Gateway_UserService_1	0	edgeLabels.inline	true
 option	edge-label	id_Gateway_UserService_1	0	edgeLabels.placement	CENTER
 edge	id_Gateway_Repository_2	root	Gateway	Repository
-label	edge	id_Gateway_Repository_2	0	delegates	62	21
+label	edge	id_Gateway_Repository_2	0	delegates	60.71875	21
 option	edge-label	id_Gateway_Repository_2	0	edgeLabels.inline	true
 option	edge-label	id_Gateway_Repository_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	449	544
-place	Platform	root	12	12	425	520
-place-label	node	Platform	0	186	5	53	19
-place	Platform.Auth	Platform	24	283	169.5	213
-place-label	node	Platform.Auth	0	70.25	5	29	19
-place	UserService	Platform.Auth	24	48	121.5	141
-place	Platform.Data	Platform	243.5	283	157.5	213
-place-label	node	Platform.Data	0	63.75	5	30	19
-place	Repository	Platform.Data	24	48	109.5	141
-place	Gateway	Platform	163.25	48	104.5	120
+place	root		0	0	445.7734375	544
+place	Platform	root	12	12	421.7734375	520
+place-label	node	Platform	0	184.82421875	5	52.125	19
+place	Platform.Auth	Platform	24	283	168.1328125	213
+place-label	node	Platform.Auth	0	69.66015625	5	28.8125	19
+place	UserService	Platform.Auth	24	48	120.1328125	141
+place	Platform.Data	Platform	242.1328125	283	155.640625	213
+place-label	node	Platform.Data	0	63.03125	5	29.578125	19
+place	Repository	Platform.Data	24	48	107.640625	141
+place	Gateway	Platform	162.900390625	48	102.21875	120
 route	id_Gateway_UserService_1	root	Platform
-section	id_Gateway_UserService_1	id_Gateway_UserService_1_s0	201.68333333333334,168	108.75,331	201.68333333333334,198 108.75,198 108.75,273	Gateway	UserService
-place-label	edge	id_Gateway_UserService_1	0	77.25	228	62	21
+section	id_Gateway_UserService_1	id_Gateway_UserService_1_s0	200.57330729166665,168	108.06640625,331	200.57330729166665,198 108.06640625,198 108.06640625,273	Gateway	UserService
+place-label	edge	id_Gateway_UserService_1	0	77.56640625	228	60.71875	21
 route	id_Gateway_Repository_2	root	Platform
-section	id_Gateway_Repository_2	id_Gateway_Repository_2_s0	229.31666666666666,168	322.25,331	229.31666666666666,198 322.25,198 322.25,273	Gateway	Repository
-place-label	edge	id_Gateway_Repository_2	0	290.75	228	62	21
+section	id_Gateway_Repository_2	id_Gateway_Repository_2_s0	227.44622395833335,168	319.953125,331	227.44622395833335,198 319.953125,198 319.953125,273	Gateway	Repository
+place-label	edge	id_Gateway_Repository_2	0	289.453125	228	60.71875	21

@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	307	79.5
-node	entity-BOOK-1	root	255	159
+node	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	305.9375	79.5
+node	entity-BOOK-1	root	250.109375	159
 edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	root	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	entity-BOOK-1
-label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	writes	37	21
+label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	writes	36.5625	21
 option	edge-label	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	331	363.5
-place	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	12	12	307	79.5
-place	entity-BOOK-1	root	38	192.5	255	159
+place	root		0	0	329.9375	363.5
+place	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	12	12	305.9375	79.5
+place	entity-BOOK-1	root	39.9140625	192.5	250.109375	159
 route	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	root	root
-section	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0_s0	165.5,91.5	165.5,192.5		entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	entity-BOOK-1
-place-label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	147	131.5	37	21
+section	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0_s0	164.96875,91.5	164.96875,192.5		entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	entity-BOOK-1
+place-label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	146.46875	131.5	36.5625	21

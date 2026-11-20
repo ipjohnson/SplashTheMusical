@@ -24,11 +24,11 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	A	root	152	40
 node	B	root	152	40
 edge	L_A_A_0	root	A	A
-label	edge	L_A_A_0	0	retry	33	19.999998092651367
+label	edge	L_A_A_0	0	retry	32	19.999998092651367
 option	edge-label	L_A_A_0	0	edgeLabels.inline	true
 option	edge-label	L_A_A_0	0	edgeLabels.placement	CENTER
 edge	L_B_B_0	root	B	B
-label	edge	L_B_B_0	0	again	39	19.999998092651367
+label	edge	L_B_B_0	0	again	38.265625	19.999998092651367
 option	edge-label	L_B_B_0	0	edgeLabels.inline	true
 option	edge-label	L_B_B_0	0	edgeLabels.placement	CENTER
 edge	L_A_B_0	root	A	B
@@ -36,15 +36,15 @@ label	edge	L_A_B_0	0		0	0
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	239	144
-place	A	root	75	12	152	40
-place	B	root	75	92	152	40
+place	root		0	0	238.265625	144
+place	A	root	74.265625	12	152	40
+place	B	root	74.265625	92	152	40
 route	L_A_A_0	root	root
-section	L_A_A_0	L_A_A_0_s0	75,29.333333333333336	75,34.66666666666667	55,29.333333333333336 55,34.66666666666667	A	A
-place-label	edge	L_A_A_0	0	18	22.000000953674316	33	19.999998092651367
+section	L_A_A_0	L_A_A_0_s0	74.265625,29.333333333333336	74.265625,34.66666666666667	54.265625,29.333333333333336 54.265625,34.66666666666667	A	A
+place-label	edge	L_A_A_0	0	18.265625	22.000000953674316	32	19.999998092651367
 route	L_B_B_0	root	root
-section	L_B_B_0	L_B_B_0_s0	75,109.33333333333334	75,114.66666666666667	55,109.33333333333334 55,114.66666666666667	B	B
-place-label	edge	L_B_B_0	0	12	102.00000095367432	39	19.999998092651367
+section	L_B_B_0	L_B_B_0_s0	74.265625,109.33333333333334	74.265625,114.66666666666667	54.265625,109.33333333333334 54.265625,114.66666666666667	B	B
+place-label	edge	L_B_B_0	0	12	102.00000095367432	38.265625	19.999998092651367
 route	L_A_B_0	root	root
-section	L_A_B_0	L_A_B_0_s0	151,52	151,92		A	B
+section	L_A_B_0	L_A_B_0_s0	150.265625,52	150.265625,92		A	B
 place-label	edge	L_A_B_0	0	0	0	0	0

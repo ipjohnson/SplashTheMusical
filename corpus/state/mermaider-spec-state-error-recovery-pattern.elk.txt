@@ -33,27 +33,27 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Running	Error
-label	edge	edge1	0	exception	61	21
+label	edge	edge1	0	exception	59.9375	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Error	Recovering
-label	edge	edge2	0	auto_heal	63	21
+label	edge	edge2	0	auto_heal	61.515625	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Recovering	Running
-label	edge	edge3	0	recovered	64	21
+label	edge	edge3	0	recovered	62.265625	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	Recovering	Fatal
-label	edge	edge4	0	max_retries	75	21
+label	edge	edge4	0	max_retries	73.140625	21
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	Running	Stopped
-label	edge	edge5	0	shutdown	61	21
+label	edge	edge5	0	shutdown	59.9375	21
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	Fatal	Stopped
-label	edge	edge6	0	operator	54	21
+label	edge	edge6	0	operator	52.15625	21
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	Stopped	root_end
@@ -61,35 +61,35 @@ label	edge	edge7	0		0	0
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	348.08333333333337	721
-place	root_start	root	210	12	14	14
-place	Running	root	152	66	136	37
+place	root		0	0	346.15364583333337	721
+place	root_start	root	209.5	12	14	14
+place	Running	root	151.5	66	136	37
 place	Error	root	12	204	136	37
-place	Recovering	root	82	342	136	37
-place	Fatal	root	82	480	136	37
-place	Stopped	root	151.25	618	136	37
-place	root_end	root	209.24999999999997	695	14.013293266296387	14
+place	Recovering	root	81.75	342	136	37
+place	Fatal	root	81.75	480	136	37
+place	Stopped	root	150.75	618	136	37
+place	root_end	root	208.74999999999997	695	14.013293266296387	14
 route	edge0	root	root
-section	edge0	edge0_s0	220,26	220,66		root_start	Running
+section	edge0	edge0_s0	219.5,26	219.5,66		root_start	Running
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	191,103	80,204	191,123 80,123	Running	Error
-place-label	edge	edge1	0	49.5	143	61	21
+section	edge1	edge1_s0	190.5,103	80,204	190.5,123 80,123	Running	Error
+place-label	edge	edge1	0	50	143	59.9375	21
 route	edge2	root	root
-section	edge2	edge2_s0	80,241	130.66666666666666,342	80,322 130.66666666666666,322	Error	Recovering
-place-label	edge	edge2	0	48.5	281	63	21
+section	edge2	edge2_s0	80,241	130.41666666666666,342	80,322 130.41666666666666,322	Error	Recovering
+place-label	edge	edge2	0	49	281	61.515625	21
 route	edge3	root	root
-section	edge3	edge3_s0	169.33333333333334,342	220,103	169.33333333333334,322 220,322 220,291.5 220,153.5	Recovering	Running
-place-label	edge	edge3	0	188	212	64	21
+section	edge3	edge3_s0	169.08333333333334,342	219.5,103	169.08333333333334,322 219.5,322 219.5,291.5 219.5,153.5	Recovering	Running
+place-label	edge	edge3	0	188	212	62.265625	21
 route	edge4	root	root
-section	edge4	edge4_s0	150,379	150,480		Recovering	Fatal
-place-label	edge	edge4	0	112.5	419	75	21
+section	edge4	edge4_s0	149.75,379	149.75,480		Recovering	Fatal
+place-label	edge	edge4	0	112.75	419	73.140625	21
 route	edge5	root	root
-section	edge5	edge5_s0	249,103	238.58333333333334,618	249,123 305.58333333333337,123 305.58333333333337,153.5 305.58333333333337,222.5 305.58333333333337,291.5 305.58333333333337,429.5 305.58333333333337,498.5 305.58333333333337,567.5 305.58333333333337,598 238.58333333333334,598	Running	Stopped
-place-label	edge	edge5	0	275.08333333333337	350	61	21
+section	edge5	edge5_s0	248.5,103	238.08333333333334,618	248.5,123 304.21614583333337,123 304.21614583333337,153.5 304.21614583333337,222.5 304.21614583333337,291.5 304.21614583333337,429.5 304.21614583333337,498.5 304.21614583333337,567.5 304.21614583333337,598 238.08333333333334,598	Running	Stopped
+place-label	edge	edge5	0	274.21614583333337	350	59.9375	21
 route	edge6	root	root
-section	edge6	edge6_s0	150,517	199.91666666666666,618	150,598 199.91666666666666,598	Fatal	Stopped
-place-label	edge	edge6	0	123	557	54	21
+section	edge6	edge6_s0	149.75,517	199.41666666666666,618	149.75,598 199.41666666666666,598	Fatal	Stopped
+place-label	edge	edge6	0	123.25	557	52.15625	21
 route	edge7	root	root
-section	edge7	edge7_s0	219.24999999999997,655	219.24999999999997,695		Stopped	root_end
+section	edge7	edge7_s0	218.74999999999997,655	218.74999999999997,695		Stopped	root_end
 place-label	edge	edge7	0	0	0	0	0

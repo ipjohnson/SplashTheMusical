@@ -35,7 +35,7 @@ node	A	root	152	45
 node	B	root	152	45
 node	C	root	152	45
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	labelled	49	21
+label	edge	L_A_B_0	0	labelled	48.265625	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_B_C_0	root	B	C
@@ -52,7 +52,7 @@ place	A	root	15	15	152	45
 place	B	root	15	75	152	45
 place	C	root	15	135	152	45
 route	L_A_B_0	root	root
-place-label	edge	L_A_B_0	0	0	0	49	21
+place-label	edge	L_A_B_0	0	0	0	48.265625	21
 route	L_B_C_0	root	root
 place-label	edge	L_B_C_0	0	0	0	0	0
 route	L_A_C_0	root	root

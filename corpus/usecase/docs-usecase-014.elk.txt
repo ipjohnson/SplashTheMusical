@@ -34,11 +34,11 @@ label	edge	edge-0	0		0	0
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 edge	edge-1	root	Checkout	Payment
-label	edge	edge-1	0	«include»	49	15
+label	edge	edge-1	0	«include»	46.8125	15
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 edge	edge-2	root	ApplyCoupon	Checkout
-label	edge	edge-2	0	«extend»	48	15
+label	edge	edge-2	0	«extend»	45.15625	15
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 edge	edge-3	root	ApplyCoupon	Checkout
@@ -46,21 +46,21 @@ label	edge	edge-3	0		0	0
 option	edge-label	edge-3	0	edgeLabels.inline	true
 option	edge-label	edge-3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	789	243
+place	root		0	0	786.8125	243
 place	Admin	root	96	12	76	121
 place	Person	root	212	12	76	121
 place	Checkout	root	328	173	160	58
-place	Payment	root	617	173	160	58
+place	Payment	root	614.8125	173	160	58
 place	ApplyCoupon	root	12	173	160	58
 route	edge-0	root	root
 section	edge-0	edge-0_s0	172,72.5	212,72.5		Admin	Person
 place-label	edge	edge-0	0	0	0	0	0
 route	edge-1	root	root
-section	edge-1	edge-1_s0	488,202	617,202		Checkout	Payment
-place-label	edge	edge-1	0	528	194	49	15
+section	edge-1	edge-1_s0	488,202	614.8125,202		Checkout	Payment
+place-label	edge	edge-1	0	528	194	46.8125	15
 route	edge-2	root	root
 section	edge-2	edge-2_s0	172,192	328,192	192,192 192,188 308,188 308,192	ApplyCoupon	Checkout
-place-label	edge	edge-2	0	226	180	48	15
+place-label	edge	edge-2	0	227.421875	180	45.15625	15
 route	edge-3	root	root
 section	edge-3	edge-3_s0	172,212	328,212	192,212 192,216 250,216 308,216 308,212	ApplyCoupon	Checkout
 place-label	edge	edge-3	0	0	0	0	0

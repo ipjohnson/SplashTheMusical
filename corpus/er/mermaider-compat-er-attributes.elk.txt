@@ -21,16 +21,16 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	entity-CUSTOMER-0	root	167	159
-node	entity-ORDER-1	root	176	159
+node	entity-CUSTOMER-0	root	166.0625	159
+node	entity-ORDER-1	root	174.625	159
 edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	41	21
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	40.46875	21
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	200	443
-place	entity-CUSTOMER-0	root	16.5	12	167	159
-place	entity-ORDER-1	root	12	272	176	159
+place	root		0	0	198.625	443
+place	entity-CUSTOMER-0	root	16.28125	12	166.0625	159
+place	entity-ORDER-1	root	12	272	174.625	159
 route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	root
-section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	100,171	100,272		entity-CUSTOMER-0	entity-ORDER-1
-place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	79.5	211	41	21
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	99.3125,171	99.3125,272		entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	78.8125	211	40.46875	21

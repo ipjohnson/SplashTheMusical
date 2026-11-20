@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Namespace1	root
 option	node	Namespace1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Namespace1		nodeSize.minimum	(100, 0)
+option	node	Namespace1		nodeSize.minimum	(98.5, 0)
 option	node	Namespace1		spacing.baseValue	24
 option	node	Namespace1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Namespace1		elk.spacing.edgeEdge	20
@@ -36,23 +36,23 @@ option	node	Namespace1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Namespace1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Namespace1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Namespace1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Namespace1	0	Namespace1	84	19
-node	C1	Namespace1	46.98238754272461	83.93758392333984
-node	C2	Namespace1	46.94922637939453	83.70467376708984
+label	node	Namespace1	0	Namespace1	82.5	19
+node	C1	Namespace1	46.7457389831543	83.93756866455078
+node	C2	Namespace1	46.942928314208984	83.70467376708984
 node	C3	root	47.36968231201172	83.64069366455078
-node	C4	root	47.281124114990234	84.48316955566406
+node	C4	root	47.21449661254883	84.50637817382812
 edge	id_C1_C2_1	root	C1	C2
 label	edge	id_C1_C2_1	0		0	0
 option	edge-label	id_C1_C2_1	0	edgeLabels.inline	true
 option	edge-label	id_C1_C2_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	293.63319396972656	287.6422576904297
-place	Namespace1	root	12	12	94.98238754272461	263.6422576904297
-place-label	node	Namespace1	0	5.491193771362305	5	84	19
-place	C1	Namespace1	24	48	46.98238754272461	83.93758392333984
-place	C2	Namespace1	24.01658058166504	155.93758392333984	46.94922637939453	83.70467376708984
-place	C3	root	146.9823875427246	102.00078201293945	47.36968231201172	83.64069366455078
-place	C4	root	234.35206985473633	101.57954406738281	47.281124114990234	84.48316955566406
+place	root		0	0	293.52710723876953	287.6422424316406
+place	Namespace1	root	12	12	94.94292831420898	263.6422424316406
+place-label	node	Namespace1	0	6.221464157104492	5	82.5	19
+place	C1	Namespace1	24.098594665527344	48	46.7457389831543	83.93756866455078
+place	C2	Namespace1	24	155.93756866455078	46.942928314208984	83.70467376708984
+place	C3	root	146.94292831420898	102.00077438354492	47.36968231201172	83.64069366455078
+place	C4	root	234.3126106262207	101.56793212890625	47.21449661254883	84.50637817382812
 route	id_C1_C2_1	root	Namespace1
-section	id_C1_C2_1	id_C1_C2_1_s0	47.491193771362305,131.93758392333984	47.491193771362305,155.93758392333984		C1	C2
+section	id_C1_C2_1	id_C1_C2_1_s0	47.47146415710449,131.93756866455078	47.47146415710449,155.93756866455078		C1	C2
 place-label	edge	id_C1_C2_1	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Runner	root
 option	node	Runner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Runner		nodeSize.minimum	(118, 0)
+option	node	Runner		nodeSize.minimum	(115.40625, 0)
 option	node	Runner		spacing.baseValue	24
 option	node	Runner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Runner		elk.spacing.edgeEdge	20
@@ -37,17 +37,17 @@ option	node	Runner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Runner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Runner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Runner		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Runner	0	Runner container	110	19
+label	node	Runner	0	Runner container	107.40625	19
 node	daemon	Runner	152	87
 option	node	daemon		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	sshd	Runner	152	66
 option	node	sshd		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	claude	Runner	152	66
+node	claude	Runner	152	45
 option	node	claude		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	rhome	Runner	152	108
 node	Mac	root
 option	node	Mac		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Mac		nodeSize.minimum	(35, 0)
+option	node	Mac		nodeSize.minimum	(34.453125, 0)
 option	node	Mac		spacing.baseValue	24
 option	node	Mac		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Mac		elk.spacing.edgeEdge	20
@@ -61,7 +61,7 @@ option	node	Mac		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Mac		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Mac		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Mac		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Mac	0	Mac	27	19
+label	node	Mac	0	Mac	26.453125	19
 node	serve	Mac	152	87
 option	node	serve		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	ssh	Mac	152	87
@@ -84,19 +84,19 @@ label	edge	L_serve_github_0	0	push and API calls, with your token	200	42
 option	edge-label	L_serve_github_0	0	edgeLabels.inline	true
 option	edge-label	L_serve_github_0	0	edgeLabels.placement	CENTER
 edge	L_claude_anthropic_0	root	claude	anthropic
-label	edge	L_claude_anthropic_0	0	the runner's own login	140	21
+label	edge	L_claude_anthropic_0	0	the runner's own login	136.546875	21
 option	edge-label	L_claude_anthropic_0	0	edgeLabels.inline	true
 option	edge-label	L_claude_anthropic_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1166	573
-place	Runner	root	12	12	200	549
-place-label	node	Runner	0	45	5	110	19
+place	root		0	0	1166	552.5
+place	Runner	root	12	12	200	528
+place-label	node	Runner	0	46.296875	5	107.40625	19
 place	daemon	Runner	24	206	152	87
 place	sshd	Runner	24	343	152	66
-place	claude	Runner	24	459	152	66
+place	claude	Runner	24	459	152	45
 place	rhome	Runner	24	48	152	108
 place	Mac	root	512	22.5	200	433
-place-label	node	Mac	0	86.5	5	27	19
+place-label	node	Mac	0	86.7734375	5	26.453125	19
 place	serve	Mac	24	48	152	87
 place	ssh	Mac	24	322	152	87
 place	home	Mac	24	185	152	87
@@ -112,5 +112,5 @@ route	L_serve_github_0	root	root
 section	L_serve_github_0	L_serve_github_0_s0	688,114	1002,114	722,114	serve	github
 place-label	edge	L_serve_github_0	0	762	92.5	200	42
 route	L_claude_anthropic_0	root	root
-section	L_claude_anthropic_0	L_claude_anthropic_0_s0	188,504	512,518	222,504 242,504 242,518	claude	anthropic
-place-label	edge	L_claude_anthropic_0	0	292	507	140	21
+section	L_claude_anthropic_0	L_claude_anthropic_0_s0	188,493.5	512,518	222,493.5 242,493.5 242,518	claude	anthropic
+place-label	edge	L_claude_anthropic_0	0	293.7265625	507	136.546875	21

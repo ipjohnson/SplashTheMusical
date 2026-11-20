@@ -26,15 +26,15 @@ node	entity-ORDER-1	root	100	81
 node	entity-2-2	root	100	81
 node	entity-3.5-3	root	100	81
 edge	id_entity-1-0_entity-ORDER-1_0	root	entity-1-0	entity-ORDER-1
-label	edge	id_entity-1-0_entity-ORDER-1_0	0	places	41	21
+label	edge	id_entity-1-0_entity-ORDER-1_0	0	places	40.46875	21
 option	edge-label	id_entity-1-0_entity-ORDER-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-1-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
 edge	id_entity-ORDER-1_entity-2-2_1	root	entity-ORDER-1	entity-2-2
-label	edge	id_entity-ORDER-1_entity-2-2_1	0	contains	53	21
+label	edge	id_entity-ORDER-1_entity-2-2_1	0	contains	52.15625	21
 option	edge-label	id_entity-ORDER-1_entity-2-2_1	0	edgeLabels.inline	true
 option	edge-label	id_entity-ORDER-1_entity-2-2_1	0	edgeLabels.placement	CENTER
 edge	id_entity-2-2_entity-3.5-3_2	root	entity-2-2	entity-3.5-3
-label	edge	id_entity-2-2_entity-3.5-3_2	0	references	68	21
+label	edge	id_entity-2-2_entity-3.5-3_2	0	references	66.15625	21
 option	edge-label	id_entity-2-2_entity-3.5-3_2	0	edgeLabels.inline	true
 option	edge-label	id_entity-2-2_entity-3.5-3_2	0	edgeLabels.placement	CENTER
 result
@@ -45,10 +45,10 @@ place	entity-2-2	root	12	376	100	81
 place	entity-3.5-3	root	12	558	100	81
 route	id_entity-1-0_entity-ORDER-1_0	root	root
 section	id_entity-1-0_entity-ORDER-1_0	id_entity-1-0_entity-ORDER-1_0_s0	62,93	62,194		entity-1-0	entity-ORDER-1
-place-label	edge	id_entity-1-0_entity-ORDER-1_0	0	41.5	133	41	21
+place-label	edge	id_entity-1-0_entity-ORDER-1_0	0	41.5	133	40.46875	21
 route	id_entity-ORDER-1_entity-2-2_1	root	root
 section	id_entity-ORDER-1_entity-2-2_1	id_entity-ORDER-1_entity-2-2_1_s0	62,275	62,376		entity-ORDER-1	entity-2-2
-place-label	edge	id_entity-ORDER-1_entity-2-2_1	0	35.5	315	53	21
+place-label	edge	id_entity-ORDER-1_entity-2-2_1	0	35.5	315	52.15625	21
 route	id_entity-2-2_entity-3.5-3_2	root	root
 section	id_entity-2-2_entity-3.5-3_2	id_entity-2-2_entity-3.5-3_2_s0	62,457	62,558		entity-2-2	entity-3.5-3
-place-label	edge	id_entity-2-2_entity-3.5-3_2	0	28	497	68	21
+place-label	edge	id_entity-2-2_entity-3.5-3_2	0	28.5	497	66.15625	21

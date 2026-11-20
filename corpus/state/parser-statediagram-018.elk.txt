@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	NotShooting	root
 option	node	NotShooting		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	NotShooting		nodeSize.minimum	(127, 0)
+option	node	NotShooting		nodeSize.minimum	(125.53125, 0)
 option	node	NotShooting		spacing.baseValue	24
 option	node	NotShooting		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	NotShooting		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	NotShooting		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,
 option	node	NotShooting		elk.algorithm	elk.layered
 option	node	NotShooting		elk.direction	DOWN
 option	node	NotShooting		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	NotShooting	0	Not Shooting State	119	19
+label	node	NotShooting	0	Not Shooting State	117.53125	19
 node	Idle	NotShooting	136	37
 node	Configuring	NotShooting	136	37
 node	NotShooting_start	NotShooting	14	14
@@ -48,17 +48,17 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Idle	Configuring
-label	edge	edge1	0	EvConfig	57	21
+label	edge	edge1	0	EvConfig	56.8125	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	Configuring	Idle
-label	edge	edge2	0	EvConfig	57	21
+label	edge	edge2	0	EvConfig	56.8125	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	208	349
 place	NotShooting	root	12	12	184	325
-place-label	node	NotShooting	0	32.5	5	119	19
+place-label	node	NotShooting	0	33.234375	5	117.53125	19
 place	Idle	NotShooting	24	86	136	37
 place	Configuring	NotShooting	24	264	136	37
 place	NotShooting_start	NotShooting	81.2	48	14	14
@@ -66,8 +66,8 @@ route	edge0	root	NotShooting
 section	edge0	edge0_s0	92,62	92,86		NotShooting_start	Idle
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	NotShooting
-section	edge1	edge1_s0	111.06666666666668,123	111.06666666666668,264	111.06666666666668,153 130.5,153 130.5,234 111.06666666666668,234	Idle	Configuring
-place-label	edge	edge1	0	102	183	57	21
+section	edge1	edge1_s0	111.06666666666668,123	111.06666666666668,264	111.06666666666668,153 130.40625,153 130.40625,234 111.06666666666668,234	Idle	Configuring
+place-label	edge	edge1	0	101.90625	183	56.8125	21
 route	edge2	root	NotShooting
-section	edge2	edge2_s0	72.93333333333334,264	72.93333333333334,123	72.93333333333334,234 53.50000000000001,234 53.50000000000001,153 72.93333333333334,153	Configuring	Idle
-place-label	edge	edge2	0	25.000000000000007	183	57	21
+section	edge2	edge2_s0	72.93333333333334,264	72.93333333333334,123	72.93333333333334,234 53.59375000000001,234 53.59375000000001,153 72.93333333333334,153	Configuring	Idle
+place-label	edge	edge2	0	25.093750000000007	183	56.8125	21

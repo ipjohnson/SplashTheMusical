@@ -21,17 +21,17 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 option	node	Customer		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	Staff	root	99	144
+node	Staff	root	97.828125	144
 option	node	Staff		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	note-0	root	140	62
 option	node	note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	OrderData	root	189	147
+node	OrderData	root	185.765625	147
 option	node	OrderData		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	ordering	root
 option	node	ordering		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	ordering		nodeSize.minimum	(127, 0)
+option	node	ordering		nodeSize.minimum	(125.046875, 0)
 option	node	ordering		spacing.baseValue	24
 option	node	ordering		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	ordering		elk.spacing.edgeEdge	20
@@ -45,7 +45,7 @@ option	node	ordering		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	ordering		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	ordering		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	ordering		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	ordering	0	Ordering System	107	19
+label	node	ordering	0	Ordering System	105.046875	19
 node	Browse	ordering	160	58
 option	node	Browse		elk.portAlignment.default	CENTER
 option	node	Browse		elk.hierarchyHandling	INCLUDE_CHILDREN
@@ -57,7 +57,7 @@ option	node	Payment		elk.portAlignment.default	CENTER
 node	Review	ordering	152	42
 option	node	Review		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	starts	root	Customer	Checkout
-label	edge	starts	0	places order	61	15
+label	edge	starts	0	places order	59.03125	15
 option	edge-label	starts	0	edgeLabels.inline	true
 option	edge-label	starts	0	edgeLabels.placement	CENTER
 edge	edge-0	root	Customer	Browse
@@ -65,7 +65,7 @@ label	edge	edge-0	0		0	0
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 edge	pays	root	Checkout	Payment
-label	edge	pays	0	«include»	49	15
+label	edge	pays	0	«include»	46.8125	15
 option	edge-label	pays	0	edgeLabels.inline	true
 option	edge-label	pays	0	edgeLabels.placement	CENTER
 edge	edge-1	root	Staff	Review
@@ -81,32 +81,32 @@ label	edge	note-0-edge	0		0	0
 option	edge-label	note-0-edge	0	edgeLabels.inline	true
 option	edge-label	note-0-edge	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1040	453.25
-place	Customer	root	12	31.250000000000014	82	121
-place	Staff	root	175	297.25	99	144
-place	note-0	root	134	195.25	140	62
-place	OrderData	root	839	241.5	189	147
-place	ordering	root	324	12	465	348
-place-label	node	ordering	0	179	5	107	19
+place	root		0	0	1033.265625	453.25
+place	Customer	root	12	31.250000000000014	80.6875	121
+place	Staff	root	174.859375	297.25	97.828125	144
+place	note-0	root	132.6875	195.25	140	62
+place	OrderData	root	835.5	241.5	185.765625	147
+place	ordering	root	322.6875	12	462.8125	348
+place-label	node	ordering	0	178.8828125	5	105.046875	19
 place	Browse	ordering	24	48	160	58
 place	Checkout	ordering	24	156	160	76
-place	Payment	ordering	281	165	160	58
+place	Payment	ordering	278.8125	165	160	58
 place	Review	ordering	28	282	152	42
 route	starts	root	root
-section	starts	starts_s0	94,108.58333333333334	348,200	114,108.58333333333334 114,147.25 294,147.25 294,200 314,200	Customer	Checkout
-place-label	edge	starts	0	173.5	139.25	61	15
+section	starts	starts_s0	92.6875,108.58333333333334	346.6875,200	112.6875,108.58333333333334 112.6875,147.25 292.6875,147.25 292.6875,200 312.6875,200	Customer	Checkout
+place-label	edge	starts	0	173.171875	139.25	59.03125	15
 route	edge-0	root	root
-section	edge-0	edge-0_s0	94,74.91666666666669	348,89	114,74.91666666666669 114,76.5 204,76.5 294,76.5 294,89 314,89	Customer	Browse
+section	edge-0	edge-0_s0	92.6875,74.91666666666669	346.6875,89	112.6875,74.91666666666669 112.6875,76.5 202.6875,76.5 292.6875,76.5 292.6875,89 312.6875,89	Customer	Browse
 place-label	edge	edge-0	0	0	0	0	0
 route	pays	root	ordering
-section	pays	pays_s0	184,194	281,194		Checkout	Payment
-place-label	edge	pays	0	208	186	49	15
+section	pays	pays_s0	184,194	278.8125,194		Checkout	Payment
+place-label	edge	pays	0	208	186	46.8125	15
 route	edge-1	root	root
-section	edge-1	edge-1_s0	274,369.25	352,315	294,369.25 294,315 314,315	Staff	Review
+section	edge-1	edge-1_s0	272.6875,369.25	350.6875,315	292.6875,369.25 292.6875,315 312.6875,315	Staff	Review
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	504,315	839,315	799,315	Review	OrderData
+section	edge-2	edge-2_s0	502.6875,315	835.5,315	795.5,315	Review	OrderData
 place-label	edge	edge-2	0	0	0	0	0
 route	note-0-edge	root	root
-section	note-0-edge	note-0-edge_s0	274,226.25	348,212	294,226.25 294,212 314,212	note-0	Checkout
+section	note-0-edge	note-0-edge_s0	272.6875,226.25	346.6875,212	292.6875,226.25 292.6875,212 312.6875,212	note-0	Checkout
 place-label	edge	note-0-edge	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Auth	root
 option	node	Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Auth		nodeSize.minimum	(157, 0)
+option	node	Auth		nodeSize.minimum	(155.3125, 0)
 option	node	Auth		spacing.baseValue	24
 option	node	Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Auth		elk.spacing.edgeEdge	20
@@ -36,19 +36,19 @@ option	node	Auth		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Auth	0	Authentication Service	141	19
-node	UserService	Auth	121.5	141
-node	TokenManager	Auth	149.5	120
+label	node	Auth	0	Authentication Service	139.3125	19
+node	UserService	Auth	120.1328125	141
+node	TokenManager	Auth	145.6640625	120
 edge	id_UserService_TokenManager_1	root	UserService	TokenManager
-label	edge	id_UserService_TokenManager_1	0	uses	30	21
+label	edge	id_UserService_TokenManager_1	0	uses	29.578125	21
 option	edge-label	id_UserService_TokenManager_1	0	edgeLabels.inline	true
 option	edge-label	id_UserService_TokenManager_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	221.5	426
-place	Auth	root	12	12	197.5	402
-place-label	node	Auth	0	28.25	5	141	19
-place	UserService	Auth	38	48	121.5	141
-place	TokenManager	Auth	24	258	149.5	120
+place	root		0	0	217.6640625	426
+place	Auth	root	12	12	193.6640625	402
+place-label	node	Auth	0	27.17578125	5	139.3125	19
+place	UserService	Auth	36.765625	48	120.1328125	141
+place	TokenManager	Auth	24	258	145.6640625	120
 route	id_UserService_TokenManager_1	root	Auth
-section	id_UserService_TokenManager_1	id_UserService_TokenManager_1_s0	98.75,189	98.75,258		UserService	TokenManager
-place-label	edge	id_UserService_TokenManager_1	0	83.75	213	30	21
+section	id_UserService_TokenManager_1	id_UserService_TokenManager_1_s0	96.83203125,189	96.83203125,258		UserService	TokenManager
+place-label	edge	id_UserService_TokenManager_1	0	81.83203125	213	29.578125	21

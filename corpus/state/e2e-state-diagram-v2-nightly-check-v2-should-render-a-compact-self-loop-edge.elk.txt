@@ -28,16 +28,16 @@ label	edge	edge0	0		0	0
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	Node	Node
-label	edge	edge1	0	Self Edge	61	21
+label	edge	edge1	0	Self Edge	60.71875	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	245	115
-place	root_start	root	155	12	14	14
-place	Node	root	97	66	136	37
+place	root		0	0	244.71875	115
+place	root_start	root	154.71875	12	14	14
+place	Node	root	96.71875	66	136	37
 route	edge0	root	root
-section	edge0	edge0_s0	165,26	165,66		root_start	Node
+section	edge0	edge0_s0	164.71875,26	164.71875,66		root_start	Node
 place-label	edge	edge0	0	0	0	0	0
 route	edge1	root	root
-section	edge1	edge1_s0	97,82.33333333333334	97,86.66666666666667	77,82.33333333333334 77,86.66666666666667	Node	Node
-place-label	edge	edge1	0	12	74	61	21
+section	edge1	edge1_s0	96.71875,82.33333333333334	96.71875,86.66666666666667	76.71875,82.33333333333334 76.71875,86.66666666666667	Node	Node
+place-label	edge	edge1	0	12	74	60.71875	21

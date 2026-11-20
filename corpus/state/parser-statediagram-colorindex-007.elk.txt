@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	First	root
 option	node	First		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	First		nodeSize.minimum	(36, 0)
+option	node	First		nodeSize.minimum	(35.21875, 0)
 option	node	First		spacing.baseValue	24
 option	node	First		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	First		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	First		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	First		elk.algorithm	elk.layered
 option	node	First		elk.direction	DOWN
 option	node	First		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	First	0	First	28	19
+label	node	First	0	First	27.21875	19
 node	divider-id-1	First
 option	node	divider-id-1		spacing.baseValue	24
 option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -80,7 +80,7 @@ node	id-arq0002cp1e-143_start	id-arq0002cp1e-143	14	14
 node	B	id-arq0002cp1e-143	136	37
 node	Second	root
 option	node	Second		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Second		nodeSize.minimum	(56, 0)
+option	node	Second		nodeSize.minimum	(55.484375, 0)
 option	node	Second		spacing.baseValue	24
 option	node	Second		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Second		elk.spacing.edgeEdge	20
@@ -96,7 +96,7 @@ option	node	Second		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Second		elk.algorithm	elk.layered
 option	node	Second		elk.direction	DOWN
 option	node	Second		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Second	0	Second	48	19
+label	node	Second	0	Second	47.484375	19
 node	divider-id-2	Second
 option	node	divider-id-2		spacing.baseValue	24
 option	node	divider-id-2		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -154,7 +154,7 @@ option	edge-label	edge3	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	528	366
 place	First	root	12	12	232	342
-place-label	node	First	0	102	5	28	19
+place-label	node	First	0	102.390625	5	27.21875	19
 place	divider-id-1	First	24	48	184	123
 place-label	node	divider-id-1	0	0	0	0	0
 place	divider-id-1_start	divider-id-1	81.2	24	14	14
@@ -164,7 +164,7 @@ place-label	node	id-arq0002cp1e-143	0	0	0	0	0
 place	id-arq0002cp1e-143_start	id-arq0002cp1e-143	81.2	24	14	14
 place	B	id-arq0002cp1e-143	24	62	136	37
 place	Second	root	284	12	232	342
-place-label	node	Second	0	92	5	48	19
+place-label	node	Second	0	92.2578125	5	47.484375	19
 place	divider-id-2	Second	24	48	184	123
 place-label	node	divider-id-2	0	0	0	0	0
 place	divider-id-2_start	divider-id-2	81.2	24	14	14

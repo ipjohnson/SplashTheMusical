@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	project	root
 option	node	project		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	project		nodeSize.minimum	(51, 0)
+option	node	project		nodeSize.minimum	(50.03125, 0)
 option	node	project		spacing.baseValue	24
 option	node	project		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	project		elk.spacing.edgeEdge	20
@@ -37,10 +37,10 @@ option	node	project		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	project		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	project		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	project		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	project	0	project	43	19
+label	node	project	0	project	42.03125	19
 node	subnet2	project
 option	node	subnet2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subnet2		nodeSize.minimum	(59, 0)
+option	node	subnet2		nodeSize.minimum	(57.828125, 0)
 option	node	subnet2		spacing.baseValue	24
 option	node	subnet2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subnet2		elk.spacing.edgeEdge	20
@@ -53,12 +53,12 @@ option	node	subnet2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	subnet2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	subnet2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	subnet2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	subnet2	0	subnet2	51	19
+label	node	subnet2	0	subnet2	49.828125	19
 node	lb2	subnet2	152	45
 node	compute2	subnet2	152	45
 node	subnet1	project
 option	node	subnet1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subnet1		nodeSize.minimum	(59, 0)
+option	node	subnet1		nodeSize.minimum	(57.828125, 0)
 option	node	subnet1		spacing.baseValue	24
 option	node	subnet1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subnet1		elk.spacing.edgeEdge	20
@@ -71,7 +71,7 @@ option	node	subnet1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	subnet1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	subnet1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	subnet1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	subnet1	0	subnet1	51	19
+label	node	subnet1	0	subnet1	49.828125	19
 node	lb1	subnet1	152	45
 node	compute1	subnet1	152	45
 node	nat	project	152	45
@@ -107,13 +107,13 @@ option	edge-label	L_nat_internet_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	950	518
 place	project	root	12	107	926	399
-place-label	node	project	0	441.5	5	43	19
+place-label	node	project	0	441.984375	5	42.03125	19
 place	subnet2	project	476	153	402	117
-place-label	node	subnet2	0	175.5	5	51	19
+place-label	node	subnet2	0	176.0859375	5	49.828125	19
 place	lb2	subnet2	24	48	152	45
 place	compute2	subnet2	226	48	152	45
 place	subnet1	project	24	153	402	117
-place-label	node	subnet1	0	175.5	5	51	19
+place-label	node	subnet1	0	176.0859375	5	49.828125	19
 place	lb1	subnet1	24	48	152	45
 place	compute1	subnet1	226	48	152	45
 place	nat	project	601	330	152	45

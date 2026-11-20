@@ -34,7 +34,7 @@ label	edge	e2	0		0	0
 option	edge-label	e2	0	edgeLabels.inline	true
 option	edge-label	e2	0	edgeLabels.placement	CENTER
 edge	e3	root	Cache	DB
-label	edge	e3	0	miss	29	21
+label	edge	e3	0	miss	28.78125	21
 option	edge-label	e3	0	edgeLabels.inline	true
 option	edge-label	e3	0	edgeLabels.placement	CENTER
 edge	e4	root	DB	API
@@ -46,11 +46,11 @@ label	edge	e5	0		0	0
 option	edge-label	e5	0	edgeLabels.inline	true
 option	edge-label	e5	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	821	90.25
+place	root		0	0	820.78125	90.25
 place	Client	root	12	33.25	152	45
 place	API	root	204	33.25	152	45
 place	Cache	root	396	12	152	45
-place	DB	root	657	33.25	152	45
+place	DB	root	656.78125	33.25	152	45
 route	e1	root	root
 section	e1	e1_s0	164,51.58333333333333	204,51.58333333333333		Client	API
 place-label	edge	e1	0	0	0	0	0
@@ -58,10 +58,10 @@ route	e2	root	root
 section	e2	e2_s0	356,51.58333333333333	396,34.5	376,51.58333333333333 376,34.5	API	Cache
 place-label	edge	e2	0	0	0	0	0
 route	e3	root	root
-section	e3	e3_s0	548,34.5	657,51.58333333333333	637,34.5 637,51.58333333333333	Cache	DB
-place-label	edge	e3	0	588	23.5	29	21
+section	e3	e3_s0	548,34.5	656.78125,51.58333333333333	636.78125,34.5 636.78125,51.58333333333333	Cache	DB
+place-label	edge	e3	0	588	23.5	28.78125	21
 route	e4	root	root
-section	e4	e4_s0	657,59.916666666666664	356,59.916666666666664	637,59.916666666666664 637,77 602.5,77 472,77 376,77 376,59.916666666666664	DB	API
+section	e4	e4_s0	656.78125,59.916666666666664	356,59.916666666666664	636.78125,59.916666666666664 636.78125,77 602.390625,77 472,77 376,77 376,59.916666666666664	DB	API
 place-label	edge	e4	0	0	0	0	0
 route	e5	root	root
 section	e5	e5_s0	204,59.916666666666664	164,59.916666666666664		API	Client

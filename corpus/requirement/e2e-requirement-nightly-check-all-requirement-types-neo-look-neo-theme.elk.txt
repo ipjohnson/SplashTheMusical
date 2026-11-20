@@ -21,17 +21,17 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	req1	root	172	166
-node	req2	root	204	166
-node	req3	root	194	166
-node	req4	root	220	166
-node	req5	root	190	166
-node	req6	root	166	166
+node	req1	root	168.625	166
+node	req2	root	201.34375	166
+node	req3	root	191.234375	166
+node	req4	root	216.890625	166
+node	req5	root	188.875	166
+node	req6	root	163.984375	166
 result
-place	root		0	0	1370	190
-place	req1	root	12	12	172	166
-place	req2	root	224	12	204	166
-place	req3	root	468	12	194	166
-place	req4	root	702	12	220	166
-place	req5	root	962	12	190	166
-place	req6	root	1192	12	166	166
+place	root		0	0	1354.953125	190
+place	req1	root	12	12	168.625	166
+place	req2	root	220.625	12	201.34375	166
+place	req3	root	461.96875	12	191.234375	166
+place	req4	root	693.203125	12	216.890625	166
+place	req5	root	950.09375	12	188.875	166
+place	req6	root	1178.96875	12	163.984375	166

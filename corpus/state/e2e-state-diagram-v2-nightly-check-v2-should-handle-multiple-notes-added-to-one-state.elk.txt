@@ -37,7 +37,7 @@ option	node	MyState----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	MyState----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	MyState----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	MyState----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	MyState----parent	0	I am a righty	79	19
+label	node	MyState----parent	0	I am a righty	77.03125	19
 node	MyState----note-0	MyState----parent	150	51
 option	node	MyState----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	MyState----note-1	MyState----parent	150	51
@@ -54,7 +54,7 @@ result
 place	root		0	0	422	234
 place	MyState	root	143	185	136	37
 place	MyState----parent	root	12	12	398	123
-place-label	node	MyState----parent	0	159.5	5	79	19
+place-label	node	MyState----parent	0	160.484375	5	77.03125	19
 place	MyState----note-0	MyState----parent	24	48	150	51
 place	MyState----note-1	MyState----parent	224	48	150	51
 route	MyState----note-0-MyState	root	root

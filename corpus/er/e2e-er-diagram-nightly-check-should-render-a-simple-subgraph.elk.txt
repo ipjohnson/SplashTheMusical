@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	domain	root
 option	node	domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	domain		nodeSize.minimum	(55, 0)
+option	node	domain		nodeSize.minimum	(53.921875, 0)
 option	node	domain		spacing.baseValue	24
 option	node	domain		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	domain		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	domain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	domain	0	domain	47	19
-node	entity-CUSTOMER-0	domain	120	81
+label	node	domain	0	domain	45.921875	19
+node	entity-CUSTOMER-0	domain	119.859375	81
 node	entity-ORDER-1	domain	100	81
 result
-place	root		0	0	342	177
-place	domain	root	12	12	318	153
-place-label	node	domain	0	135.5	5	47	19
-place	entity-CUSTOMER-0	domain	24	48	120	81
-place	entity-ORDER-1	domain	194	48	100	81
+place	root		0	0	341.859375	177
+place	domain	root	12	12	317.859375	153
+place-label	node	domain	0	135.96875	5	45.921875	19
+place	entity-CUSTOMER-0	domain	24	48	119.859375	81
+place	entity-ORDER-1	domain	193.859375	48	100	81

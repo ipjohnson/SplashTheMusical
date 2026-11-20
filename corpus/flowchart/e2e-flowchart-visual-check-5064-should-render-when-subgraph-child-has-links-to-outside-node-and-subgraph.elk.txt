@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Sub	root
 option	node	Sub		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Sub		nodeSize.minimum	(33, 0)
+option	node	Sub		nodeSize.minimum	(32.921875, 0)
 option	node	Sub		spacing.baseValue	24
 option	node	Sub		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Sub		elk.spacing.edgeEdge	20
@@ -37,7 +37,7 @@ option	node	Sub		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Sub		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Sub		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Sub		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Sub	0	Sub	25	19
+label	node	Sub	0	Sub	24.921875	19
 node	In	Sub	152	45
 option	node	In		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Out	root	152	45
@@ -53,7 +53,7 @@ option	edge-label	L_Sub_In_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	236
 place	Sub	root	12	107	200	117
-place-label	node	Sub	0	87.5	5	25	19
+place-label	node	Sub	0	87.5390625	5	24.921875	19
 place	In	Sub	24	48	152	45
 place	Out	root	14.266666666666652	12	152	45
 route	L_Out_In_0	root	root

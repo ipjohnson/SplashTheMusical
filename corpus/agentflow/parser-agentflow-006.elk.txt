@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	outer	root
 option	node	outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	outer		nodeSize.minimum	(44, 0)
+option	node	outer		nodeSize.minimum	(43.015625, 0)
 option	node	outer		spacing.baseValue	24
 option	node	outer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	outer		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	outer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	outer	0	Outer	36	19
+label	node	outer	0	Outer	35.015625	19
 node	inner	outer
 option	node	inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	inner		nodeSize.minimum	(41, 0)
+option	node	inner		nodeSize.minimum	(39.921875, 0)
 option	node	inner		spacing.baseValue	24
 option	node	inner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	inner		elk.spacing.edgeEdge	20
@@ -52,7 +52,7 @@ option	node	inner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	inner	0	Inner	33	19
+label	node	inner	0	Inner	31.921875	19
 node	a	inner	150	51
 node	b	inner	150	51
 edge	L_a_b_0	root	a	b
@@ -62,9 +62,9 @@ option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	270	294
 place	outer	root	12	12	246	270
-place-label	node	outer	0	105	5	36	19
+place-label	node	outer	0	105.4921875	5	35.015625	19
 place	inner	outer	24	48	198	198
-place-label	node	inner	0	82.5	5	33	19
+place-label	node	inner	0	83.0390625	5	31.921875	19
 place	a	inner	24	48	150	51
 place	b	inner	24	123	150	51
 route	L_a_b_0	root	inner

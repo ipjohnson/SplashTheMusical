@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Reviewer	root	79	121
+node	Reviewer	root	78.359375	121
 node	Literal	root	160	58
 option	node	Literal		elk.portAlignment.default	CENTER
 node	Formatted	root	160	94
@@ -29,7 +29,7 @@ option	node	Formatted		elk.portAlignment.default	CENTER
 node	Quoted	root	160	58
 option	node	Quoted		elk.portAlignment.default	CENTER
 edge	edge-0	root	Reviewer	Formatted
-label	edge	edge-0	0	opens **form**	58	15
+label	edge	edge-0	0	opens **form**	56.265625	15
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 edge	edge-1	root	Reviewer	Literal
@@ -41,17 +41,17 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	503	275
-place	Reviewer	root	12	75.5	79	121
-place	Literal	root	131	107	160	58
-place	Formatted	root	331	12	160	94
-place	Quoted	root	131	205	160	58
+place	root		0	0	502.359375	275
+place	Reviewer	root	12	75.5	78.359375	121
+place	Literal	root	130.359375	107	160	58
+place	Formatted	root	330.359375	12	160	94
+place	Quoted	root	130.359375	205	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	91,110.75	331,59	111,110.75 111,59	Reviewer	Formatted
-place-label	edge	edge-0	0	182	51	58	15
+section	edge-0	edge-0_s0	90.359375,110.75	330.359375,59	110.359375,110.75 110.359375,59	Reviewer	Formatted
+place-label	edge	edge-0	0	182.2265625	51	56.265625	15
 route	edge-1	root	root
-section	edge-1	edge-1_s0	91,136	131,136		Reviewer	Literal
+section	edge-1	edge-1_s0	90.359375,136	130.359375,136		Reviewer	Literal
 place-label	edge	edge-1	0	0	0	0	0
 route	edge-2	root	root
-section	edge-2	edge-2_s0	91,161.25	131,234	111,161.25 111,234	Reviewer	Quoted
+section	edge-2	edge-2_s0	90.359375,161.25	130.359375,234	110.359375,161.25 110.359375,234	Reviewer	Quoted
 place-label	edge	edge-2	0	0	0	0	0

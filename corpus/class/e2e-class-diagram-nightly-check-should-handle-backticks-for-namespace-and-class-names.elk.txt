@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	A::B	root
 option	node	A::B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A::B		nodeSize.minimum	(42, 0)
+option	node	A::B		nodeSize.minimum	(42.46875, 0)
 option	node	A::B		spacing.baseValue	24
 option	node	A::B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A::B		elk.spacing.edgeEdge	20
@@ -37,21 +37,21 @@ option	node	A::B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A::B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A::B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	A::B		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	A::B	0	A::B	26	19
-node	IPC::Sender	A::B	105	81
+label	node	A::B	0	A::B	26.46875	19
+node	IPC::Sender	A::B	104.125	81
 option	node	IPC::Sender		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	RenderProcessHost	root	160	81
+node	RenderProcessHost	root	157.828125	81
 option	node	RenderProcessHost		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_RenderProcessHost_IPC::Sender_1	root	RenderProcessHost	IPC::Sender
 label	edge	id_RenderProcessHost_IPC::Sender_1	0		0	0
 option	edge-label	id_RenderProcessHost_IPC::Sender_1	0	edgeLabels.inline	true
 option	edge-label	id_RenderProcessHost_IPC::Sender_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	184	308
-place	A::B	root	15.5	143	153	153
-place-label	node	A::B	0	63.5	5	26	19
-place	IPC::Sender	A::B	24	48	105	81
-place	RenderProcessHost	root	12	12	160	81
+place	root		0	0	181.828125	308
+place	A::B	root	14.8515625	143	152.125	153
+place-label	node	A::B	0	62.828125	5	26.46875	19
+place	IPC::Sender	A::B	24	48	104.125	81
+place	RenderProcessHost	root	12	12	157.828125	81
 route	id_RenderProcessHost_IPC::Sender_1	root	root
-section	id_RenderProcessHost_IPC::Sender_1	id_RenderProcessHost_IPC::Sender_1_s0	92,93	92,191	92,133	RenderProcessHost	IPC::Sender
+section	id_RenderProcessHost_IPC::Sender_1	id_RenderProcessHost_IPC::Sender_1_s0	90.9140625,93	90.9140625,191	90.9140625,133	RenderProcessHost	IPC::Sender
 place-label	edge	id_RenderProcessHost_IPC::Sender_1	0	0	0	0	0

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	bar	root
 option	node	bar		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	bar		nodeSize.minimum	(99, 0)
+option	node	bar		nodeSize.minimum	(97.5, 0)
 option	node	bar		spacing.baseValue	24
 option	node	bar		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	bar		elk.spacing.edgeEdge	20
@@ -37,14 +37,14 @@ option	node	bar		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	bar		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	bar		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	bar		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	bar	0	Bar SubGraph	91	19
+label	node	bar	0	Bar SubGraph	89.5	19
 node	E	bar	182.74867248535156	54.71867752075195
 option	node	E		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	F	bar	182.72645568847656	54.48532485961914
 option	node	F		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	foo	root
 option	node	foo		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	foo		nodeSize.minimum	(102, 0)
+option	node	foo		nodeSize.minimum	(99.84375, 0)
 option	node	foo		spacing.baseValue	24
 option	node	foo		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	foo		elk.spacing.edgeEdge	20
@@ -58,7 +58,7 @@ option	node	foo		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	foo		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	foo		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	foo		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	foo	0	Foo SubGraph	94	19
+label	node	foo	0	Foo SubGraph	91.84375	19
 node	C	foo	182.71524047851562	54.6898307800293
 option	node	C		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	D	foo	182.39024353027344	54.648990631103516
@@ -116,11 +116,11 @@ option	edge-label	L_G_D_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	407.121301651001	870.2613487243652
 place	bar	root	12	512.509033203125	282.42473220825195	241.2040023803711
-place-label	node	bar	0	95.71236610412598	5	91	19
+place-label	node	bar	0	96.46236610412598	5	89.5	19
 place	E	bar	24	48	182.74867248535156	54.71867752075195
 place	F	bar	75.69827651977539	162.71867752075195	182.72645568847656	54.48532485961914
 place	foo	root	80.59319623311359	211.1702117919922	282.23155212402344	241.3388214111328
-place-label	node	foo	0	94.11577606201172	5	94	19
+place-label	node	foo	0	95.19390106201172	5	91.84375	19
 place	C	foo	24	48	182.71524047851562	54.6898307800293
 place	D	foo	75.84130859375	162.6898307800293	182.39024353027344	54.648990631103516
 place	A	root	100.04646123250328	12	182.8507843017578	54.55947494506836

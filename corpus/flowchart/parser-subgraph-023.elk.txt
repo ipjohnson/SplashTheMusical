@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	subGraph0	root
 option	node	subGraph0		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	subGraph0		nodeSize.minimum	(75, 0)
+option	node	subGraph0		nodeSize.minimum	(74.140625, 0)
 option	node	subGraph0		spacing.baseValue	24
 option	node	subGraph0		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	subGraph0		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	subGraph0		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	subGraph0		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	subGraph0		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	subGraph0		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	subGraph0	0	Some Title	67	19
+label	node	subGraph0	0	Some Title	66.140625	19
 node	a1	subGraph0	152	45
 node	a2	subGraph0	152	45
 edge	L_a1_a2_0	root	a1	a2
@@ -46,7 +46,7 @@ option	edge-label	L_a1_a2_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	210
 place	subGraph0	root	12	12	200	186
-place-label	node	subGraph0	0	66.5	5	67	19
+place-label	node	subGraph0	0	66.9296875	5	66.140625	19
 place	a1	subGraph0	24	48	152	45
 place	a2	subGraph0	24	117	152	45
 route	L_a1_a2_0	root	subGraph0

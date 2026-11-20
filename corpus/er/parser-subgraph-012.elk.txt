@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	G2	root
 option	node	G2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	G2		nodeSize.minimum	(27, 0)
+option	node	G2		nodeSize.minimum	(26.6875, 0)
 option	node	G2		spacing.baseValue	24
 option	node	G2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	G2		elk.spacing.edgeEdge	20
@@ -37,12 +37,12 @@ option	node	G2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	G2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	G2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	G2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	G2	0	G2	19	19
+label	node	G2	0	G2	18.6875	19
 node	entity-B-1	G2	100	81
 option	node	entity-B-1		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	G1	root
 option	node	G1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	G1		nodeSize.minimum	(27, 0)
+option	node	G1		nodeSize.minimum	(26.6875, 0)
 option	node	G1		spacing.baseValue	24
 option	node	G1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	G1		elk.spacing.edgeEdge	20
@@ -56,21 +56,21 @@ option	node	G1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	G1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	G1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	G1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	G1	0	G1	19	19
+label	node	G1	0	G1	18.6875	19
 node	entity-A-0	G1	100	81
 option	node	entity-A-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_entity-A-0_entity-B-1_0	root	entity-A-0	entity-B-1
-label	edge	id_entity-A-0_entity-B-1_0	0	relates to	59	21
+label	edge	id_entity-A-0_entity-B-1_0	0	relates to	57.59375	21
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	172	451
 place	G2	root	12	286	148	153
-place-label	node	G2	0	64.5	5	19	19
+place-label	node	G2	0	64.65625	5	18.6875	19
 place	entity-B-1	G2	24	48	100	81
 place	G1	root	12	12	148	153
-place-label	node	G1	0	64.5	5	19	19
+place-label	node	G1	0	64.65625	5	18.6875	19
 place	entity-A-0	G1	24	48	100	81
 route	id_entity-A-0_entity-B-1_0	root	root
 section	id_entity-A-0_entity-B-1_0	id_entity-A-0_entity-B-1_0_s0	86,141	86,334	86,175 86,276	entity-A-0	entity-B-1
-place-label	edge	id_entity-A-0_entity-B-1_0	0	56.5	215	59	21
+place-label	edge	id_entity-A-0_entity-B-1_0	0	57	215	57.59375	21

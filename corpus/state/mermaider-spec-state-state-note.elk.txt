@@ -39,7 +39,7 @@ option	node	Active----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Active----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Active----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Active----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Active----parent	0	Important state	96	19
+label	node	Active----parent	0	Important state	93.390625	19
 node	Active----note-2	Active----parent	150	51
 option	node	Active----note-2		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	edge0	root	root_start	Active
@@ -60,7 +60,7 @@ place	root_start	root	173.49999999999997	12	14	14
 place	Active	root	115.49999999999997	66	136	37
 place	Inactive	root	12	153	136	37
 place	Active----parent	root	188	153	198	123
-place-label	node	Active----parent	0	51	5	96	19
+place-label	node	Active----parent	0	52.3046875	5	93.390625	19
 place	Active----note-2	Active----parent	24	48	150	51
 route	edge0	root	root
 section	edge0	edge0_s0	183.49999999999997,26	183.49999999999997,66		root_start	Active

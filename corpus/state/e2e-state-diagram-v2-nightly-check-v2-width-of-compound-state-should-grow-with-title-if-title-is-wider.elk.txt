@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	NotShooting	root
 option	node	NotShooting		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	NotShooting		nodeSize.minimum	(127, 0)
+option	node	NotShooting		nodeSize.minimum	(123.984375, 0)
 option	node	NotShooting		spacing.baseValue	24
 option	node	NotShooting		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	NotShooting		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	NotShooting		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,
 option	node	NotShooting		elk.algorithm	elk.layered
 option	node	NotShooting		elk.direction	DOWN
 option	node	NotShooting		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	NotShooting	0	Long state name 2	119	19
+label	node	NotShooting	0	Long state name 2	115.984375	19
 node	a	NotShooting	136	37
 node	b	NotShooting	136	37
 edge	edge0	root	a	b
@@ -49,7 +49,7 @@ option	edge-label	edge0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	208	194
 place	NotShooting	root	12	12	184	170
-place-label	node	NotShooting	0	32.5	5	119	19
+place-label	node	NotShooting	0	34.0078125	5	115.984375	19
 place	a	NotShooting	24	48	136	37
 place	b	NotShooting	24	109	136	37
 route	edge0	root	NotShooting

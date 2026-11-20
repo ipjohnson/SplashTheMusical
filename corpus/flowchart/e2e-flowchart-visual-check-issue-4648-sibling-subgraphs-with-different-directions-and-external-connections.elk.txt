@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Group3	root
 option	node	Group3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Group3		nodeSize.minimum	(56, 0)
+option	node	Group3		nodeSize.minimum	(54.703125, 0)
 option	node	Group3		spacing.baseValue	24
 option	node	Group3		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Group3		elk.spacing.edgeEdge	20
@@ -39,14 +39,14 @@ option	node	Group3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Group3		elk.algorithm	elk.layered
 option	node	Group3		elk.direction	RIGHT
 option	node	Group3		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Group3	0	Group3	48	19
+label	node	Group3	0	Group3	46.703125	19
 node	C1	Group3	152	45
 option	node	C1		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	C2	Group3	152	45
 node	C3	Group3	152	45
 node	Group2	root
 option	node	Group2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Group2		nodeSize.minimum	(56, 0)
+option	node	Group2		nodeSize.minimum	(54.703125, 0)
 option	node	Group2		spacing.baseValue	24
 option	node	Group2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Group2		elk.spacing.edgeEdge	20
@@ -62,7 +62,7 @@ option	node	Group2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Group2		elk.algorithm	elk.layered
 option	node	Group2		elk.direction	RIGHT
 option	node	Group2		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Group2	0	Group2	48	19
+label	node	Group2	0	Group2	46.703125	19
 node	B1	Group2	152	45
 option	node	B1		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	B2	Group2	152	45
@@ -70,7 +70,7 @@ node	B3	Group2	152	45
 option	node	B3		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	Group1	root
 option	node	Group1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Group1		nodeSize.minimum	(56, 0)
+option	node	Group1		nodeSize.minimum	(54.703125, 0)
 option	node	Group1		spacing.baseValue	24
 option	node	Group1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Group1		elk.spacing.edgeEdge	20
@@ -86,7 +86,7 @@ option	node	Group1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Group1		elk.algorithm	elk.layered
 option	node	Group1		elk.direction	DOWN
 option	node	Group1		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Group1	0	Group1	48	19
+label	node	Group1	0	Group1	46.703125	19
 node	A1	Group1	152	45
 node	A2	Group1	152	45
 node	A3	Group1	152	45
@@ -126,17 +126,17 @@ option	edge-label	L_B3_C1_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	909
 place	Group3	root	12	642	200	255
-place-label	node	Group3	0	76	5	48	19
+place-label	node	Group3	0	76.6484375	5	46.703125	19
 place	C1	Group3	24	48	152	45
 place	C2	Group3	24	117	152	45
 place	C3	Group3	24	186	152	45
 place	Group2	root	12	327	200	255
-place-label	node	Group2	0	76	5	48	19
+place-label	node	Group2	0	76.6484375	5	46.703125	19
 place	B1	Group2	24	48	152	45
 place	B2	Group2	24	117	152	45
 place	B3	Group2	24	186	152	45
 place	Group1	root	12	12	200	255
-place-label	node	Group1	0	76	5	48	19
+place-label	node	Group1	0	76.6484375	5	46.703125	19
 place	A1	Group1	24	48	152	45
 place	A2	Group1	24	117	152	45
 place	A3	Group1	24	186	152	45

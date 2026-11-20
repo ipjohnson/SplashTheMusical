@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	B	root
 option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B		nodeSize.minimum	(19, 0)
+option	node	B		nodeSize.minimum	(18.671875, 0)
 option	node	B		spacing.baseValue	24
 option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	B		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	B	0	B	11	22
+label	node	B	0	B	10.671875	22
 node	i	B	152	48
 node	f	B	152	48
 node	A	root
 option	node	A		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A		nodeSize.minimum	(19, 0)
+option	node	A		nodeSize.minimum	(18.671875, 0)
 option	node	A		spacing.baseValue	24
 option	node	A		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A		elk.spacing.edgeEdge	20
@@ -54,7 +54,7 @@ option	node	A		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	A		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	A	0	A	11	22
+label	node	A	0	A	10.671875	22
 node	a	A	152	48
 node	b	A	152	48
 edge	L_a_b_0	root	a	b
@@ -72,11 +72,11 @@ option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	816	147
 place	B	root	428	12	376	123
-place-label	node	B	0	182.5	5	11	22
+place-label	node	B	0	182.6640625	5	10.671875	22
 place	i	B	24	51	152	48
 place	f	B	200	51	152	48
 place	A	root	12	12	376	123
-place-label	node	A	0	182.5	5	11	22
+place-label	node	A	0	182.6640625	5	10.671875	22
 place	a	A	24	51	152	48
 place	b	A	200	51	152	48
 route	L_a_b_0	root	A

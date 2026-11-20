@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	TOP	root
 option	node	TOP		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	TOP		nodeSize.minimum	(37, 0)
+option	node	TOP		nodeSize.minimum	(36.53125, 0)
 option	node	TOP		spacing.baseValue	24
 option	node	TOP		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	TOP		elk.spacing.edgeEdge	20
@@ -39,10 +39,10 @@ option	node	TOP		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12
 option	node	TOP		elk.algorithm	elk.layered
 option	node	TOP		elk.direction	RIGHT
 option	node	TOP		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	TOP	0	TOP	29	19
+label	node	TOP	0	TOP	28.53125	19
 node	B2	TOP
 option	node	B2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B2		nodeSize.minimum	(25, 0)
+option	node	B2		nodeSize.minimum	(25.125, 0)
 option	node	B2		spacing.baseValue	24
 option	node	B2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B2		elk.spacing.edgeEdge	20
@@ -58,12 +58,12 @@ option	node	B2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	B2		elk.algorithm	elk.layered
 option	node	B2		elk.direction	UP
 option	node	B2		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	B2	0	B2	17	19
+label	node	B2	0	B2	17.125	19
 node	i2	B2	152	45
 node	f2	B2	152	45
 node	B1	TOP
 option	node	B1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B1		nodeSize.minimum	(25, 0)
+option	node	B1		nodeSize.minimum	(25.125, 0)
 option	node	B1		spacing.baseValue	24
 option	node	B1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B1		elk.spacing.edgeEdge	20
@@ -79,7 +79,7 @@ option	node	B1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	B1		elk.algorithm	elk.layered
 option	node	B1		elk.direction	LEFT
 option	node	B1		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	B1	0	B1	17	19
+label	node	B1	0	B1	17.125	19
 node	i1	B1	152	45
 node	f1	B1	152	45
 node	A	root	152	45
@@ -107,13 +107,13 @@ option	edge-label	L_B1_B2_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	672	452
 place	TOP	root	12	97	648	258
-place-label	node	TOP	0	309.5	5	29	19
+place-label	node	TOP	0	309.734375	5	28.53125	19
 place	B2	TOP	424	48	200	186
-place-label	node	B2	0	91.5	5	17	19
+place-label	node	B2	0	91.4375	5	17.125	19
 place	i2	B2	24	117	152	45
 place	f2	B2	24	48	152	45
 place	B1	TOP	24	82.49999999999999	376	117
-place-label	node	B1	0	179.5	5	17	19
+place-label	node	B1	0	179.4375	5	17.125	19
 place	i1	B1	200	48	152	45
 place	f1	B1	24	48	152	45
 place	A	root	260	12	152	45

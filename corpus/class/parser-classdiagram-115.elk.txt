@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Namespace1	root
 option	node	Namespace1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Namespace1		nodeSize.minimum	(100, 0)
+option	node	Namespace1		nodeSize.minimum	(98.5, 0)
 option	node	Namespace1		spacing.baseValue	24
 option	node	Namespace1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Namespace1		elk.spacing.edgeEdge	20
@@ -36,12 +36,12 @@ option	node	Namespace1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Namespace1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Namespace1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Namespace1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Namespace1	0	Namespace1	84	19
-node	Class1	Namespace1	114	177
-node	Class2	Namespace1	70	81
+label	node	Namespace1	0	Namespace1	82.5	19
+node	Class1	Namespace1	111.953125	177
+node	Class2	Namespace1	69.15625	81
 result
-place	root		0	0	306	273
-place	Namespace1	root	12	12	282	249
-place-label	node	Namespace1	0	99	5	84	19
-place	Class1	Namespace1	24	48	114	177
-place	Class2	Namespace1	188	96	70	81
+place	root		0	0	303.109375	273
+place	Namespace1	root	12	12	279.109375	249
+place-label	node	Namespace1	0	98.3046875	5	82.5	19
+place	Class1	Namespace1	24	48	111.953125	177
+place	Class2	Namespace1	185.953125	96	69.15625	81

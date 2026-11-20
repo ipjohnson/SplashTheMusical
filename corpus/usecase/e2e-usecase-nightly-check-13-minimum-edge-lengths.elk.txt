@@ -43,16 +43,16 @@ label	edge	edge-2	0		0	0
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 edge	edge-3	root	C	D
-label	edge	edge-3	0	longer association	88	15
+label	edge	edge-3	0	longer association	84.609375	15
 option	edge-label	edge-3	0	edgeLabels.inline	true
 option	edge-label	edge-3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1028	145
+place	root		0	0	1024.609375	145
 place	User	root	12	12	76	121
 place	A	root	128	43.5	160	58
 place	B	root	328	43.5	160	58
 place	C	root	528	43.5	160	58
-place	D	root	856	43.5	160	58
+place	D	root	852.609375	43.5	160	58
 route	edge-0	root	root
 section	edge-0	edge-0_s0	88,72.5	128,72.5		User	A
 place-label	edge	edge-0	0	0	0	0	0
@@ -63,5 +63,5 @@ route	edge-2	root	root
 section	edge-2	edge-2_s0	488,72.5	528,72.5		B	C
 place-label	edge	edge-2	0	0	0	0	0
 route	edge-3	root	root
-section	edge-3	edge-3_s0	688,72.5	856,72.5		C	D
-place-label	edge	edge-3	0	728	64.5	88	15
+section	edge-3	edge-3_s0	688,72.5	852.609375,72.5		C	D
+place-label	edge	edge-3	0	728	64.5	84.609375	15

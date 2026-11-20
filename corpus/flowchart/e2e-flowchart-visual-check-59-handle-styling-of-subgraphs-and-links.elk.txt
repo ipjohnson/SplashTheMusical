@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	T	root
 option	node	T		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	T		nodeSize.minimum	(34, 0)
+option	node	T		nodeSize.minimum	(33.6875, 0)
 option	node	T		spacing.baseValue	24
 option	node	T		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	T		elk.spacing.edgeEdge	20
@@ -37,7 +37,7 @@ option	node	T		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	T		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	T		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	T		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	T	0	Test	26	19
+label	node	T	0	Test	25.6875	19
 node	A	T	152	45
 option	node	A		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	B	T	150	51
@@ -49,7 +49,7 @@ label	edge	L_A_D_0	0		0	0
 option	edge-label	L_A_D_0	0	edgeLabels.inline	true
 option	edge-label	L_A_D_0	0	edgeLabels.placement	CENTER
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	Get money	70	21
+label	edge	L_A_B_0	0	Get money	68.484375	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 edge	L_A_C_0	root	A	C
@@ -57,19 +57,19 @@ label	edge	L_A_C_0	0		0	0
 option	edge-label	L_A_C_0	0	edgeLabels.inline	true
 option	edge-label	L_A_C_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	448	416
-place	T	root	12	12	384	297
-place-label	node	T	0	179	5	26	19
-place	A	T	184	48	152	45
+place	root		0	0	446.984375	416
+place	T	root	12	12	382.984375	297
+place-label	node	T	0	178.6484375	5	25.6875	19
+place	A	T	182.984375	48	152	45
 place	B	T	24	222	150	51
-place	C	T	184	153	152	45
-place	D	root	284	359	152	45
+place	C	T	182.984375	153	152	45
+place	D	root	282.984375	359	152	45
 route	L_A_D_0	root	root
-section	L_A_D_0	L_A_D_0_s0	304.59999999999997,105	360,359	304.59999999999997,135 360,135 360,319	A	D
+section	L_A_D_0	L_A_D_0_s0	303.58437499999997,105	358.984375,359	303.58437499999997,135 358.984375,135 358.984375,319	A	D
 place-label	edge	L_A_D_0	0	0	0	0	0
 route	L_A_B_0	root	T
-section	L_A_B_0	L_A_B_0_s0	227.39999999999998,93	98.99999999999999,222	227.39999999999998,123 98.99999999999999,123	A	B
-place-label	edge	L_A_B_0	0	63.999999999999986	165	70	21
+section	L_A_B_0	L_A_B_0_s0	226.38437499999998,93	98.99999999999999,222	226.38437499999998,123 98.99999999999999,123	A	B
+place-label	edge	L_A_B_0	0	64.49999999999999	165	68.484375	21
 route	L_A_C_0	root	T
-section	L_A_C_0	L_A_C_0_s0	260,93	260,153		A	C
+section	L_A_C_0	L_A_C_0_s0	258.984375,93	258.984375,153		A	C
 place-label	edge	L_A_C_0	0	0	0	0	0

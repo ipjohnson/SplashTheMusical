@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	A	root
 option	node	A		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	A		nodeSize.minimum	(25, 0)
+option	node	A		nodeSize.minimum	(25.34375, 0)
 option	node	A		spacing.baseValue	24
 option	node	A		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	A		elk.spacing.edgeEdge	20
@@ -37,14 +37,14 @@ option	node	A		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	A		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	A		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	A		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	A	0	A	9	19
-node	A1	A	108	114
+label	node	A	0	A	9.34375	19
+node	A1	A	106.5	114
 option	node	A1		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	A2	A	89	114
+node	A2	A	87.828125	114
 option	node	A2		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	B	root
 option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B		nodeSize.minimum	(25, 0)
+option	node	B		nodeSize.minimum	(25.34375, 0)
 option	node	B		spacing.baseValue	24
 option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B		elk.spacing.edgeEdge	20
@@ -58,10 +58,10 @@ option	node	B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	B	0	B	9	19
-node	B1	B	100	114
+label	node	B	0	B	9.34375	19
+node	B1	B	98.734375	114
 option	node	B1		elk.hierarchyHandling	INCLUDE_CHILDREN
-node	B2	B	101	114
+node	B2	B	99.5	114
 option	node	B2		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	id_A1_B1_1	root	A1	B1
 label	edge	id_A1_B1_1	0		0	0
@@ -72,18 +72,18 @@ label	edge	id_A2_B2_2	0		0	0
 option	edge-label	id_A2_B2_2	0	edgeLabels.inline	true
 option	edge-label	id_A2_B2_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	325	456
-place	A	root	12	12	295	186
-place-label	node	A	0	143	5	9	19
-place	A1	A	24	48	108	114
-place	A2	A	182	48	89	114
-place	B	root	14	258	299	186
-place-label	node	B	0	145	5	9	19
-place	B1	B	24	48	100	114
-place	B2	B	174	48	101	114
+place	root		0	0	322.1640625	456
+place	A	root	12	12	292.328125	186
+place-label	node	A	0	141.4921875	5	9.34375	19
+place	A1	A	24	48	106.5	114
+place	A2	A	180.5	48	87.828125	114
+place	B	root	13.9296875	258	296.234375	186
+place-label	node	B	0	143.4453125	5	9.34375	19
+place	B1	B	24	48	98.734375	114
+place	B2	B	172.734375	48	99.5	114
 route	id_A1_B1_1	root	root
-section	id_A1_B1_1	id_A1_B1_1_s0	90,174	88,306	90,208 90,228 88,228 88,248	A1	B1
+section	id_A1_B1_1	id_A1_B1_1_s0	89.25,174	87.296875,306	89.25,208 89.25,228 87.296875,228 87.296875,248	A1	B1
 place-label	edge	id_A1_B1_1	0	0	0	0	0
 route	id_A2_B2_2	root	root
-section	id_A2_B2_2	id_A2_B2_2_s0	238.5,174	238.5,306	238.5,208 238.5,248	A2	B2
+section	id_A2_B2_2	id_A2_B2_2_s0	236.4140625,174	236.4140625,306	236.4140625,208 236.4140625,248	A2	B2
 place-label	edge	id_A2_B2_2	0	0	0	0	0

@@ -25,7 +25,7 @@ node	src	root	152	150
 node	v1	root	152	87
 node	v2	root	152	108
 node	v1out	root	152	87
-node	v2out	root	204	87
+node	v2out	root	200.09375	87
 edge	L_src_v1_0	root	src	v1
 label	edge	L_src_v1_0	0		0	0
 option	edge-label	L_src_v1_0	0	edgeLabels.inline	true
@@ -43,12 +43,12 @@ label	edge	L_v2_v2out_0	0		0	0
 option	edge-label	L_v2_v2out_0	0	edgeLabels.inline	true
 option	edge-label	L_v2_v2out_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	612	259
+place	root		0	0	608.09375	259
 place	src	root	12	49.250000000000014	152	150
 place	v1	root	204	12	152	87
 place	v2	root	204	139	152	108
 place	v1out	root	396	12	152	87
-place	v2out	root	396	149.5	204	87
+place	v2out	root	396	149.5	200.09375	87
 route	L_src_v1_0	root	root
 section	L_src_v1_0	L_src_v1_0_s0	164,102.58333333333334	204,55.5	184,102.58333333333334 184,55.5	src	v1
 place-label	edge	L_src_v1_0	0	0	0	0	0

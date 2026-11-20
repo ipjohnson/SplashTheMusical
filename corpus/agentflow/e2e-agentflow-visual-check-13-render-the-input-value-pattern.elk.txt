@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	runner	root
 option	node	runner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	runner		nodeSize.minimum	(55, 0)
+option	node	runner		nodeSize.minimum	(53.921875, 0)
 option	node	runner		spacing.baseValue	24
 option	node	runner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	runner		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	runner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	runner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	runner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	runner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	runner	0	Runner	47	19
+label	node	runner	0	Runner	45.921875	19
 node	file_path	runner	186	36
 node	read_file	runner	164	33
 edge	L_file_path_read_file_0	root	file_path	read_file
@@ -46,7 +46,7 @@ option	edge-label	L_file_path_read_file_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	258	189
 place	runner	root	12	12	234	165
-place-label	node	runner	0	93.5	5	47	19
+place-label	node	runner	0	94.0390625	5	45.921875	19
 place	file_path	runner	24	48	186	36
 place	read_file	runner	35	108	164	33
 route	L_file_path_read_file_0	root	runner

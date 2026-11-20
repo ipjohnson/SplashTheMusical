@@ -21,37 +21,37 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Student	root	158.07876586914062	117.09229278564453
-node	IdCard	root	139.48011779785156	138.3065185546875
-node	Bike	root	130.89207458496094	138.09254455566406
+node	Student	root	154.80474853515625	117.42046356201172
+node	IdCard	root	136.2621612548828	138.1923065185547
+node	Bike	root	128.95065307617188	138.09291076660156
 edge	id_Student_IdCard_1	root	Student	IdCard
-label	edge	id_Student_IdCard_1	0	carries	43	21
+label	edge	id_Student_IdCard_1	0	carries	42.015625	21
 option	edge-label	id_Student_IdCard_1	0	edgeLabels.inline	true
 option	edge-label	id_Student_IdCard_1	0	edgeLabels.placement	CENTER
-label	edge	id_Student_IdCard_1	1	1	6	16.5
+label	edge	id_Student_IdCard_1	1	1	6.125	16.5
 option	edge-label	id_Student_IdCard_1	1	edgeLabels.placement	TAIL
-label	edge	id_Student_IdCard_1	2	1	18	28.5
+label	edge	id_Student_IdCard_1	2	1	18.125	28.5
 option	edge-label	id_Student_IdCard_1	2	edgeLabels.placement	HEAD
 edge	id_Student_Bike_2	root	Student	Bike
-label	edge	id_Student_Bike_2	0	rides	31	21
+label	edge	id_Student_Bike_2	0	rides	30.359375	21
 option	edge-label	id_Student_Bike_2	0	edgeLabels.inline	true
 option	edge-label	id_Student_Bike_2	0	edgeLabels.placement	CENTER
-label	edge	id_Student_Bike_2	1	1	6	16.5
+label	edge	id_Student_Bike_2	1	1	6.125	16.5
 option	edge-label	id_Student_Bike_2	1	edgeLabels.placement	TAIL
-label	edge	id_Student_Bike_2	2	1	18	28.5
+label	edge	id_Student_Bike_2	2	1	18.125	28.5
 option	edge-label	id_Student_Bike_2	2	edgeLabels.placement	HEAD
 result
-place	root		0	0	334.3721923828125	433.39881134033203
-place	Student	root	90.2937240600586	12	158.07876586914062	117.09229278564453
-place	IdCard	root	12	283.09229278564453	139.48011779785156	138.3065185546875
-place	Bike	root	191.48011779785156	283.09229278564453	130.89207458496094	138.09254455566406
+place	root		0	0	329.2128143310547	433.6127700805664
+place	Student	root	89.03190994262695	12	154.80474853515625	117.42046356201172
+place	IdCard	root	12	283.4204635620117	136.2621612548828	138.1923065185547
+place	Bike	root	188.2621612548828	283.4204635620117	128.95065307617188	138.09291076660156
 route	id_Student_IdCard_1	root	root
-section	id_Student_IdCard_1	id_Student_IdCard_1_s0	146.31997934977215,129.09229278564453	81.74005889892578,283.09229278564453	146.31997934977215,169.59229278564453 81.74005889892578,169.59229278564453	Student	IdCard
-place-label	edge	id_Student_IdCard_1	0	60.24005889892578	189.59229278564453	43	21
-place-label	edge	id_Student_IdCard_1	1	151.31997934977215	133.09229278564453	6	16.5
-place-label	edge	id_Student_IdCard_1	2	86.74005889892578	250.59229278564453	18	28.5
+section	id_Student_IdCard_1	id_Student_IdCard_1_s0	143.9668261210124,129.42046356201172	80.1310806274414,283.4204635620117	143.9668261210124,169.92046356201172 80.1310806274414,169.92046356201172	Student	IdCard
+place-label	edge	id_Student_IdCard_1	0	58.631080627441406	189.92046356201172	42.015625	21
+place-label	edge	id_Student_IdCard_1	1	148.9668261210124	133.42046356201172	6.125	16.5
+place-label	edge	id_Student_IdCard_1	2	85.1310806274414	250.92046356201172	18.125	28.5
 route	id_Student_Bike_2	root	root
-section	id_Student_Bike_2	id_Student_Bike_2_s0	192.3462346394857,129.09229278564453	256.92615509033203,283.09229278564453	192.3462346394857,169.59229278564453 256.92615509033203,169.59229278564453	Student	Bike
-place-label	edge	id_Student_Bike_2	0	241.42615509033203	189.59229278564453	31	21
-place-label	edge	id_Student_Bike_2	1	197.3462346394857	133.09229278564453	6	16.5
-place-label	edge	id_Student_Bike_2	2	261.92615509033203	250.59229278564453	18	28.5
+section	id_Student_Bike_2	id_Student_Bike_2_s0	188.9017422993978,129.42046356201172	252.73748779296875,283.4204635620117	188.9017422993978,169.92046356201172 252.73748779296875,169.92046356201172	Student	Bike
+place-label	edge	id_Student_Bike_2	0	237.23748779296875	189.92046356201172	30.359375	21
+place-label	edge	id_Student_Bike_2	1	193.9017422993978	133.42046356201172	6.125	16.5
+place-label	edge	id_Student_Bike_2	2	257.73748779296875	250.92046356201172	18.125	28.5

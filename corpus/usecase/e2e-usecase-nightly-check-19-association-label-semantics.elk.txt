@@ -31,37 +31,37 @@ option	node	Payment		elk.portAlignment.default	CENTER
 node	Discount	root	160	58
 option	node	Discount		elk.portAlignment.default	CENTER
 edge	edge-0	root	User	Login
-label	edge	edge-0	0	include account details	110	15
+label	edge	edge-0	0	include account details	105.1875	15
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 edge	edge-1	root	Login	Checkout
-label	edge	edge-1	0	extend active session	104	15
+label	edge	edge-1	0	extend active session	99.625	15
 option	edge-label	edge-1	0	edgeLabels.inline	true
 option	edge-label	edge-1	0	edgeLabels.placement	CENTER
 edge	edge-2	root	Checkout	Payment
-label	edge	edge-2	0	«include»	49	15
+label	edge	edge-2	0	«include»	46.8125	15
 option	edge-label	edge-2	0	edgeLabels.inline	true
 option	edge-label	edge-2	0	edgeLabels.placement	CENTER
 edge	edge-3	root	Discount	Checkout
-label	edge	edge-3	0	«extend»	48	15
+label	edge	edge-3	0	«extend»	45.15625	15
 option	edge-label	edge-3	0	edgeLabels.inline	true
 option	edge-label	edge-3	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	1083	211.5
+place	root		0	0	1071.625	211.5
 place	User	root	12	12	76	121
-place	Login	root	278	43.5	160	58
-place	Checkout	root	622	92.5	160	58
-place	Payment	root	911	92.5	160	58
-place	Discount	root	278	141.5	160	58
+place	Login	root	273.1875	43.5	160	58
+place	Checkout	root	612.8125	92.5	160	58
+place	Payment	root	899.625	92.5	160	58
+place	Discount	root	273.1875	141.5	160	58
 route	edge-0	root	root
-section	edge-0	edge-0_s0	88,72.5	278,72.5		User	Login
-place-label	edge	edge-0	0	128	64.5	110	15
+section	edge-0	edge-0_s0	88,72.5	273.1875,72.5		User	Login
+place-label	edge	edge-0	0	128	64.5	105.1875	15
 route	edge-1	root	root
-section	edge-1	edge-1_s0	438,72.5	622,111.5	602,72.5 602,111.5	Login	Checkout
-place-label	edge	edge-1	0	478	64.5	104	15
+section	edge-1	edge-1_s0	433.1875,72.5	612.8125,111.5	592.8125,72.5 592.8125,111.5	Login	Checkout
+place-label	edge	edge-1	0	473.1875	64.5	99.625	15
 route	edge-2	root	root
-section	edge-2	edge-2_s0	782,121.5	911,121.5		Checkout	Payment
-place-label	edge	edge-2	0	822	113.5	49	15
+section	edge-2	edge-2_s0	772.8125,121.5	899.625,121.5		Checkout	Payment
+place-label	edge	edge-2	0	812.8125	113.5	46.8125	15
 route	edge-3	root	root
-section	edge-3	edge-3_s0	438,170.5	622,131.5	602,170.5 602,131.5	Discount	Checkout
-place-label	edge	edge-3	0	506	162.5	48	15
+section	edge-3	edge-3_s0	433.1875,170.5	612.8125,131.5	592.8125,170.5 592.8125,131.5	Discount	Checkout
+place-label	edge	edge-3	0	500.421875	162.5	45.15625	15

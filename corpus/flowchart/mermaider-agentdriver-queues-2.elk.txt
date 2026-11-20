@@ -29,7 +29,7 @@ node	gates	root	152	66
 node	held	root	152	87
 node	fg	root	192	192
 node	sfg	root	152	150
-node	bg	root	213	213
+node	bg	root	192	192
 node	sbg	root	152	150
 node	free	root	152	45
 edge	L_start_full_0	root	start	full
@@ -37,11 +37,11 @@ label	edge	L_start_full_0	0		0	0
 option	edge-label	L_start_full_0	0	edgeLabels.inline	true
 option	edge-label	L_start_full_0	0	edgeLabels.placement	CENTER
 edge	L_full_none_0	root	full	none
-label	edge	L_full_none_0	0	yes	22	21
+label	edge	L_full_none_0	0	yes	21.796875	21
 option	edge-label	L_full_none_0	0	edgeLabels.inline	true
 option	edge-label	L_full_none_0	0	edgeLabels.placement	CENTER
 edge	L_full_ready_0	root	full	ready
-label	edge	L_full_ready_0	0	no	16	21
+label	edge	L_full_ready_0	0	no	15.578125	21
 option	edge-label	L_full_ready_0	0	edgeLabels.inline	true
 option	edge-label	L_full_ready_0	0	edgeLabels.placement	CENTER
 edge	L_ready_gates_0	root	ready	gates
@@ -49,31 +49,31 @@ label	edge	L_ready_gates_0	0		0	0
 option	edge-label	L_ready_gates_0	0	edgeLabels.inline	true
 option	edge-label	L_ready_gates_0	0	edgeLabels.placement	CENTER
 edge	L_gates_held_0	root	gates	held
-label	edge	L_gates_held_0	0	hold	27	21
+label	edge	L_gates_held_0	0	hold	26.46875	21
 option	edge-label	L_gates_held_0	0	edgeLabels.inline	true
 option	edge-label	L_gates_held_0	0	edgeLabels.placement	CENTER
 edge	L_gates_fg_0	root	gates	fg
-label	edge	L_gates_fg_0	0	allowed	48	21
+label	edge	L_gates_fg_0	0	allowed	47.484375	21
 option	edge-label	L_gates_fg_0	0	edgeLabels.inline	true
 option	edge-label	L_gates_fg_0	0	edgeLabels.placement	CENTER
 edge	L_fg_sfg_0	root	fg	sfg
-label	edge	L_fg_sfg_0	0	yes	22	21
+label	edge	L_fg_sfg_0	0	yes	21.796875	21
 option	edge-label	L_fg_sfg_0	0	edgeLabels.inline	true
 option	edge-label	L_fg_sfg_0	0	edgeLabels.placement	CENTER
 edge	L_fg_bg_0	root	fg	bg
-label	edge	L_fg_bg_0	0	no	16	21
+label	edge	L_fg_bg_0	0	no	15.578125	21
 option	edge-label	L_fg_bg_0	0	edgeLabels.inline	true
 option	edge-label	L_fg_bg_0	0	edgeLabels.placement	CENTER
 edge	L_bg_sbg_0	root	bg	sbg
-label	edge	L_bg_sbg_0	0	yes	22	21
+label	edge	L_bg_sbg_0	0	yes	21.796875	21
 option	edge-label	L_bg_sbg_0	0	edgeLabels.inline	true
 option	edge-label	L_bg_sbg_0	0	edgeLabels.placement	CENTER
 edge	L_bg_free_0	root	bg	free
-label	edge	L_bg_free_0	0	no	16	21
+label	edge	L_bg_free_0	0	no	15.578125	21
 option	edge-label	L_bg_free_0	0	edgeLabels.inline	true
 option	edge-label	L_bg_free_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	681.25	1495
+place	root		0	0	676	1474
 place	start	root	108	12	152	66
 place	full	root	98.5	118	171	171
 place	none	root	12	390	152	66
@@ -81,37 +81,37 @@ place	ready	root	204	390	152	129
 place	gates	root	204	559	152	66
 place	held	root	98	726	152	87
 place	fg	root	290	726	192	192
-place	sfg	root	198.75000000000003	1019	152	150
-place	bg	root	390.75	1019	213	213
-place	sbg	root	325.25	1333	152	150
-place	free	root	517.25	1333	152	45
+place	sfg	root	204.00000000000003	1019	152	150
+place	bg	root	396	1019	192	192
+place	sbg	root	320	1312	152	150
+place	free	root	512	1312	152	45
 route	L_start_full_0	root	root
 section	L_start_full_0	L_start_full_0_s0	184,78	184,118		start	full
 place-label	edge	L_start_full_0	0	0	0	0	0
 route	L_full_none_0	root	root
 section	L_full_none_0	L_full_none_0_s0	158.83333333333331,289	88,390	158.83333333333331,309 88,309	full	none
-place-label	edge	L_full_none_0	0	77	329	22	21
+place-label	edge	L_full_none_0	0	77	329	21.796875	21
 route	L_full_ready_0	root	root
 section	L_full_ready_0	L_full_ready_0_s0	209.16666666666666,289	280,390	209.16666666666666,309 280,309	full	ready
-place-label	edge	L_full_ready_0	0	272	329	16	21
+place-label	edge	L_full_ready_0	0	272	329	15.578125	21
 route	L_ready_gates_0	root	root
 section	L_ready_gates_0	L_ready_gates_0_s0	280,519	280,559		ready	gates
 place-label	edge	L_ready_gates_0	0	0	0	0	0
 route	L_gates_held_0	root	root
 section	L_gates_held_0	L_gates_held_0_s0	258,625	174,726	258,645 174,645	gates	held
-place-label	edge	L_gates_held_0	0	160.5	665	27	21
+place-label	edge	L_gates_held_0	0	160.5	665	26.46875	21
 route	L_gates_fg_0	root	root
 section	L_gates_fg_0	L_gates_fg_0_s0	302,625	386,726	302,645 386,645	gates	fg
-place-label	edge	L_gates_fg_0	0	362	665	48	21
+place-label	edge	L_gates_fg_0	0	362	665	47.484375	21
 route	L_fg_sfg_0	root	root
-section	L_fg_sfg_0	L_fg_sfg_0_s0	357.33333333333337,918	274.75,1019	357.33333333333337,938 274.75,938	fg	sfg
-place-label	edge	L_fg_sfg_0	0	263.75	958	22	21
+section	L_fg_sfg_0	L_fg_sfg_0_s0	357.33333333333337,918	280,1019	357.33333333333337,938 280,938	fg	sfg
+place-label	edge	L_fg_sfg_0	0	269	958	21.796875	21
 route	L_fg_bg_0	root	root
-section	L_fg_bg_0	L_fg_bg_0_s0	414.6666666666667,918	497.25,1019	414.6666666666667,938 497.25,938	fg	bg
-place-label	edge	L_fg_bg_0	0	489.25	958	16	21
+section	L_fg_bg_0	L_fg_bg_0_s0	414.6666666666667,918	492,1019	414.6666666666667,938 492,938	fg	bg
+place-label	edge	L_fg_bg_0	0	484	958	15.578125	21
 route	L_bg_sbg_0	root	root
-section	L_bg_sbg_0	L_bg_sbg_0_s0	465.08333333333337,1232	401.25,1333	465.08333333333337,1252 401.25,1252	bg	sbg
-place-label	edge	L_bg_sbg_0	0	390.25	1272	22	21
+section	L_bg_sbg_0	L_bg_sbg_0_s0	463.33333333333337,1211	396,1312	463.33333333333337,1231 396,1231	bg	sbg
+place-label	edge	L_bg_sbg_0	0	385	1251	21.796875	21
 route	L_bg_free_0	root	root
-section	L_bg_free_0	L_bg_free_0_s0	529.4166666666667,1232	593.25,1333	529.4166666666667,1252 593.25,1252	bg	free
-place-label	edge	L_bg_free_0	0	585.25	1272	16	21
+section	L_bg_free_0	L_bg_free_0_s0	520.6666666666667,1211	588,1312	520.6666666666667,1231 588,1231	bg	free
+place-label	edge	L_bg_free_0	0	580	1251	15.578125	21

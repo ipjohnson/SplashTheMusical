@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	researcher	root
 option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	researcher		nodeSize.minimum	(82, 0)
+option	node	researcher		nodeSize.minimum	(80.375, 0)
 option	node	researcher		spacing.baseValue	24
 option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	researcher		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	researcher	0	Researcher	74	19
+label	node	researcher	0	Researcher	72.375	19
 node	a	researcher	150	51
 node	b	researcher	150	51
 edge	L_a_b_0	root	a	b
@@ -46,7 +46,7 @@ option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	222	222
 place	researcher	root	12	12	198	198
-place-label	node	researcher	0	62	5	74	19
+place-label	node	researcher	0	62.8125	5	72.375	19
 place	a	researcher	24	48	150	51
 place	b	researcher	24	123	150	51
 route	L_a_b_0	root	researcher

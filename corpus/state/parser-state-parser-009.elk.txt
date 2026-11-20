@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	bigState1	root
 option	node	bigState1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	bigState1		nodeSize.minimum	(77, 0)
+option	node	bigState1		nodeSize.minimum	(76.5, 0)
 option	node	bigState1		spacing.baseValue	24
 option	node	bigState1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	bigState1		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	bigState1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	bigState1		elk.algorithm	elk.layered
 option	node	bigState1		elk.direction	DOWN
 option	node	bigState1		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	bigState1	0	Big State 1	69	19
+label	node	bigState1	0	Big State 1	68.5	19
 node	inner1	bigState1	136	37
 node	inner2	bigState1	136	37
 edge	edge0	root	inner1	inner2
@@ -49,7 +49,7 @@ option	edge-label	edge0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	208	194
 place	bigState1	root	12	12	184	170
-place-label	node	bigState1	0	57.5	5	69	19
+place-label	node	bigState1	0	57.75	5	68.5	19
 place	inner1	bigState1	24	48	136	37
 place	inner2	bigState1	24	109	136	37
 route	edge0	root	bigState1

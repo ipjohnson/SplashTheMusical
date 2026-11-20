@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Split	root
 option	node	Split		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Split		nodeSize.minimum	(35, 0)
+option	node	Split		nodeSize.minimum	(35.234375, 0)
 option	node	Split		spacing.baseValue	24
 option	node	Split		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Split		elk.spacing.edgeEdge	20
@@ -39,7 +39,7 @@ option	node	Split		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	Split		elk.algorithm	elk.layered
 option	node	Split		elk.direction	DOWN
 option	node	Split		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Split	0	Split	27	19
+label	node	Split	0	Split	27.234375	19
 node	divider-id-1	Split
 option	node	divider-id-1		spacing.baseValue	24
 option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
@@ -80,7 +80,7 @@ node	id-rcg291h6nqq-106_start	id-rcg291h6nqq-106	14	14
 node	Right	id-rcg291h6nqq-106	136	37
 node	Neighbour	root
 option	node	Neighbour		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Neighbour		nodeSize.minimum	(74, 0)
+option	node	Neighbour		nodeSize.minimum	(72.609375, 0)
 option	node	Neighbour		spacing.baseValue	24
 option	node	Neighbour		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Neighbour		elk.spacing.edgeEdge	20
@@ -96,7 +96,7 @@ option	node	Neighbour		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,ri
 option	node	Neighbour		elk.algorithm	elk.layered
 option	node	Neighbour		elk.direction	DOWN
 option	node	Neighbour		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Neighbour	0	Neighbour	66	19
+label	node	Neighbour	0	Neighbour	64.609375	19
 node	Neighbour_start	Neighbour	14	14
 node	After	Neighbour	136	37
 edge	edge0	root	divider-id-1_start	Left
@@ -118,7 +118,7 @@ option	edge-label	edge3	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	256	553
 place	Split	root	12	12	232	342
-place-label	node	Split	0	102.5	5	27	19
+place-label	node	Split	0	102.3828125	5	27.234375	19
 place	divider-id-1	Split	24	48	184	123
 place-label	node	divider-id-1	0	0	0	0	0
 place	divider-id-1_start	divider-id-1	81.2	24	14	14
@@ -128,7 +128,7 @@ place-label	node	id-rcg291h6nqq-106	0	0	0	0	0
 place	id-rcg291h6nqq-106_start	id-rcg291h6nqq-106	81.2	24	14	14
 place	Right	id-rcg291h6nqq-106	24	62	136	37
 place	Neighbour	root	36	394	184	147
-place-label	node	Neighbour	0	59	5	66	19
+place-label	node	Neighbour	0	59.6953125	5	64.609375	19
 place	Neighbour_start	Neighbour	81.2	48	14	14
 place	After	Neighbour	24	86	136	37
 route	edge0	root	divider-id-1

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	team	root
 option	node	team		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	team		nodeSize.minimum	(97, 0)
+option	node	team		nodeSize.minimum	(94.90625, 0)
 option	node	team		spacing.baseValue	24
 option	node	team		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	team		elk.spacing.edgeEdge	20
@@ -36,10 +36,10 @@ option	node	team		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	team		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	team		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	team		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	team	0	Content Team	89	19
+label	node	team	0	Content Team	86.90625	19
 node	writer	team
 option	node	writer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	writer		nodeSize.minimum	(46, 0)
+option	node	writer		nodeSize.minimum	(45.078125, 0)
 option	node	writer		spacing.baseValue	24
 option	node	writer		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	writer		elk.spacing.edgeEdge	20
@@ -52,11 +52,11 @@ option	node	writer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	writer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	writer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	writer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	writer	0	Writer	38	19
+label	node	writer	0	Writer	37.078125	19
 node	compose	writer	150	51
 node	researcher	team
 option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	researcher		nodeSize.minimum	(82, 0)
+option	node	researcher		nodeSize.minimum	(80.375, 0)
 option	node	researcher		spacing.baseValue	24
 option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	researcher		elk.spacing.edgeEdge	20
@@ -69,7 +69,7 @@ option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	researcher	0	Researcher	74	19
+label	node	researcher	0	Researcher	72.375	19
 node	gather	researcher	150	51
 edge	L_researcher_writer_0	root	researcher	writer
 label	edge	L_researcher_writer_0	0		0	0
@@ -78,12 +78,12 @@ option	edge-label	L_researcher_writer_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	270	366
 place	team	root	12	12	246	342
-place-label	node	team	0	78.5	5	89	19
+place-label	node	team	0	79.546875	5	86.90625	19
 place	writer	team	24	195	198	123
-place-label	node	writer	0	80	5	38	19
+place-label	node	writer	0	80.4609375	5	37.078125	19
 place	compose	writer	24	48	150	51
 place	researcher	team	24	48	198	123
-place-label	node	researcher	0	62	5	74	19
+place-label	node	researcher	0	62.8125	5	72.375	19
 place	gather	researcher	24	48	150	51
 route	L_researcher_writer_0	root	team
 section	L_researcher_writer_0	L_researcher_writer_0_s0	122.99999999999999,171	122.99999999999999,195		researcher	writer

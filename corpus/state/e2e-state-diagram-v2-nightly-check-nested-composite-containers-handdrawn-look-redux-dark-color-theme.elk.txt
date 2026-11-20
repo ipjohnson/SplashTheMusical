@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	15.692322731018066	14.490283966064453
 node	Boot	root
 option	node	Boot		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Boot		nodeSize.minimum	(37, 0)
+option	node	Boot		nodeSize.minimum	(36.8125, 0)
 option	node	Boot		spacing.baseValue	24
 option	node	Boot		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Boot		elk.spacing.edgeEdge	20
@@ -40,12 +40,12 @@ option	node	Boot		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 option	node	Boot		elk.algorithm	elk.layered
 option	node	Boot		elk.direction	DOWN
 option	node	Boot		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Boot	0	Boot	29	19
+label	node	Boot	0	Boot	28.8125	19
 node	Boot_start	Boot	15.092954635620117	15.202645301818848
 node	Firmware	Boot	137.3749237060547	39.905086517333984
 node	Kernel	Boot
 option	node	Kernel		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Kernel		nodeSize.minimum	(49, 0)
+option	node	Kernel		nodeSize.minimum	(48.46875, 0)
 option	node	Kernel		spacing.baseValue	24
 option	node	Kernel		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Kernel		elk.spacing.edgeEdge	20
@@ -61,12 +61,12 @@ option	node	Kernel		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Kernel		elk.algorithm	elk.layered
 option	node	Kernel		elk.direction	DOWN
 option	node	Kernel		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Kernel	0	Kernel	41	19
+label	node	Kernel	0	Kernel	40.46875	19
 node	Kernel_start	Kernel	15.560726165771484	14.2194185256958
 node	Sched	Kernel	137.5336456298828	40.17575454711914
 node	Drivers	Kernel
 option	node	Drivers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Drivers		nodeSize.minimum	(53, 0)
+option	node	Drivers		nodeSize.minimum	(52.34375, 0)
 option	node	Drivers		spacing.baseValue	24
 option	node	Drivers		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Drivers		elk.spacing.edgeEdge	20
@@ -82,12 +82,12 @@ option	node	Drivers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	Drivers		elk.algorithm	elk.layered
 option	node	Drivers		elk.direction	DOWN
 option	node	Drivers		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Drivers	0	Drivers	45	19
+label	node	Drivers	0	Drivers	44.34375	19
 node	Drivers_start	Drivers	16.013460159301758	14.96823787689209
 node	Probe	Drivers	138.64649963378906	39.9289665222168
 node	Running	root
 option	node	Running		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Running		nodeSize.minimum	(61, 0)
+option	node	Running		nodeSize.minimum	(60.15625, 0)
 option	node	Running		spacing.baseValue	24
 option	node	Running		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Running		elk.spacing.edgeEdge	20
@@ -103,7 +103,7 @@ option	node	Running		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	Running		elk.algorithm	elk.layered
 option	node	Running		elk.direction	DOWN
 option	node	Running		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Running	0	Running	53	19
+label	node	Running	0	Running	52.15625	19
 node	Running_start	Running	14.596114158630371	14.700669288635254
 node	Serving	Running	137.55740356445312	40.026580810546875
 node	root_end	root	15.037680625915527	15.424410820007324
@@ -139,19 +139,19 @@ result
 place	root		0	0	468.02142333984375	721.9343223571777
 place	root_start	root	224.01071166992188	12	15.692322731018066	14.490283966064453
 place	Boot	root	12	66.49028396606445	444.02142333984375	397.2923774719238
-place-label	node	Boot	0	207.51071166992188	5	29	19
+place-label	node	Boot	0	207.60446166992188	5	28.8125	19
 place	Boot_start	Boot	81.88746185302735	48	15.092954635620117	15.202645301818848
 place	Firmware	Boot	24	87.20264530181885	137.3749237060547	39.905086517333984
 place	Kernel	Boot	185.3749237060547	48	234.64649963378906	325.2923774719238
-place-label	node	Kernel	0	96.82324981689453	5	41	19
+place-label	node	Kernel	0	97.08887481689453	5	40.46875	19
 place	Kernel_start	Kernel	81.96682281494141	48	15.560726165771484	14.2194185256958
 place	Sched	Kernel	24	86.2194185256958	137.5336456298828	40.17575454711914
 place	Drivers	Kernel	24	150.39517307281494	186.64649963378906	150.8972043991089
-place-label	node	Drivers	0	70.82324981689453	5	45	19
+place-label	node	Drivers	0	71.15137481689453	5	44.34375	19
 place	Drivers_start	Drivers	82.52324981689453	48	16.013460159301758	14.96823787689209
 place	Probe	Drivers	24	86.96823787689209	138.64649963378906	39.9289665222168
 place	Running	root	141.2320098876953	503.7826614379883	185.55740356445312	150.72725009918213
-place-label	node	Running	0	66.27870178222656	5	53	19
+place-label	node	Running	0	66.70057678222656	5	52.15625	19
 place	Running_start	Running	81.97870178222657	48	14.596114158630371	14.700669288635254
 place	Serving	Running	24	86.70066928863525	137.55740356445312	40.026580810546875
 place	root_end	root	224.01071166992188	694.5099115371704	15.037680625915527	15.424410820007324

@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Payment_service	root
 option	node	Payment_service		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Payment_service		nodeSize.minimum	(125, 0)
+option	node	Payment_service		nodeSize.minimum	(123.484375, 0)
 option	node	Payment_service		spacing.baseValue	24
 option	node	Payment_service		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Payment_service		elk.spacing.edgeEdge	20
@@ -36,8 +36,8 @@ option	node	Payment_service		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	Payment_service		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Payment_service		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Payment_service		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	Payment_service	0	Payment service	105	19
-node	Clerk	Payment_service	110	121
+label	node	Payment_service	0	Payment service	103.484375	19
+node	Clerk	Payment_service	108.703125	121
 node	Authorize	Payment_service	160	58
 option	node	Authorize		elk.portAlignment.default	CENTER
 edge	edge-0	root	Clerk	Authorize
@@ -45,11 +45,11 @@ label	edge	edge-0	0		0	0
 option	edge-label	edge-0	0	edgeLabels.inline	true
 option	edge-label	edge-0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	366	217
-place	Payment_service	root	12	12	342	193
-place-label	node	Payment_service	0	118.5	5	105	19
-place	Clerk	Payment_service	24	48	110	121
-place	Authorize	Payment_service	158	79.5	160	58
+place	root		0	0	364.703125	217
+place	Payment_service	root	12	12	340.703125	193
+place-label	node	Payment_service	0	118.609375	5	103.484375	19
+place	Clerk	Payment_service	24	48	108.703125	121
+place	Authorize	Payment_service	156.703125	79.5	160	58
 route	edge-0	root	Payment_service
-section	edge-0	edge-0_s0	134,108.5	158,108.5		Clerk	Authorize
+section	edge-0	edge-0_s0	132.703125,108.5	156.703125,108.5		Clerk	Authorize
 place-label	edge	edge-0	0	0	0	0	0

@@ -27,65 +27,65 @@ node	WaitingForInit	root	136	37
 node	Ready	root	136	37
 node	Stopped	root	136	37
 edge	edge0	root	root_start	WaitingForIP
-label	edge	edge0	0	Actor created	85	21
+label	edge	edge0	0	Actor created	83.265625	21
 option	edge-label	edge0	0	edgeLabels.inline	true
 option	edge-label	edge0	0	edgeLabels.placement	CENTER
 edge	edge1	root	WaitingForIP	WaitingForInit
-label	edge	edge1	0	InspectedData(ip)	113	21
+label	edge	edge1	0	InspectedData(ip)	110.515625	21
 option	edge-label	edge1	0	edgeLabels.inline	true
 option	edge-label	edge1	0	edgeLabels.placement	CENTER
 edge	edge2	root	WaitingForInit	Ready
-label	edge	edge2	0	ContainerInitialised	121	21
+label	edge	edge2	0	ContainerInitialised	119.078125	21
 option	edge-label	edge2	0	edgeLabels.inline	true
 option	edge-label	edge2	0	edgeLabels.placement	CENTER
 edge	edge3	root	Ready	Ready
-label	edge	edge3	0	ClusterEndpoints	108	21
+label	edge	edge3	0	ClusterEndpoints	106.625	21
 option	edge-label	edge3	0	edgeLabels.inline	true
 option	edge-label	edge3	0	edgeLabels.placement	CENTER
 edge	edge4	root	Ready	Ready
-label	edge	edge4	0	AclData	49	21
+label	edge	edge4	0	AclData	49.03125	21
 option	edge-label	edge4	0	edgeLabels.inline	true
 option	edge-label	edge4	0	edgeLabels.placement	CENTER
 edge	edge5	root	Ready	Ready
-label	edge	edge5	0	TreeCacheEvent	106	21
+label	edge	edge5	0	TreeCacheEvent	104.546875	21
 option	edge-label	edge5	0	edgeLabels.inline	true
 option	edge-label	edge5	0	edgeLabels.placement	CENTER
 edge	edge6	root	Ready	Ready
-label	edge	edge6	0	InspectedData	92	21
+label	edge	edge6	0	InspectedData	90.296875	21
 option	edge-label	edge6	0	edgeLabels.inline	true
 option	edge-label	edge6	0	edgeLabels.placement	CENTER
 edge	edge7	root	Ready	Stopped
-label	edge	edge7	0	RemoveRules	89	21
+label	edge	edge7	0	RemoveRules	87.9375	21
 option	edge-label	edge7	0	edgeLabels.inline	true
 option	edge-label	edge7	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	611	590
-place	root_start	root	521	12	14	14
-place	WaitingForIP	root	463	127	136	37
-place	WaitingForInit	root	463	265	136	37
-place	Ready	root	463	403	136	37
-place	Stopped	root	463	541	136	37
+place	root		0	0	606.5	590
+place	root_start	root	516.5	12	14	14
+place	WaitingForIP	root	458.5	127	136	37
+place	WaitingForInit	root	458.5	265	136	37
+place	Ready	root	458.5	403	136	37
+place	Stopped	root	458.5	541	136	37
 route	edge0	root	root
-section	edge0	edge0_s0	531,26	531,127		root_start	WaitingForIP
-place-label	edge	edge0	0	488.5	66	85	21
+section	edge0	edge0_s0	526.5,26	526.5,127		root_start	WaitingForIP
+place-label	edge	edge0	0	484.5	66	83.265625	21
 route	edge1	root	root
-section	edge1	edge1_s0	531,164	531,265		WaitingForIP	WaitingForInit
-place-label	edge	edge1	0	474.5	204	113	21
+section	edge1	edge1_s0	526.5,164	526.5,265		WaitingForIP	WaitingForInit
+place-label	edge	edge1	0	471	204	110.515625	21
 route	edge2	root	root
-section	edge2	edge2_s0	531,302	531,403		WaitingForInit	Ready
-place-label	edge	edge2	0	470.5	342	121	21
+section	edge2	edge2_s0	526.5,302	526.5,403		WaitingForInit	Ready
+place-label	edge	edge2	0	466.5	342	119.078125	21
 route	edge3	root	root
-section	edge3	edge3_s0	463,420.77777777777777	463,422.22222222222223	443,420.77777777777777 443,422.22222222222223	Ready	Ready
-place-label	edge	edge3	0	331	411	108	21
+section	edge3	edge3_s0	458.5,420.77777777777777	458.5,422.22222222222223	438.5,420.77777777777777 438.5,422.22222222222223	Ready	Ready
+place-label	edge	edge3	0	327.875	411	106.625	21
 route	edge4	root	root
-section	edge4	edge4_s0	463,419.3333333333333	463,423.66666666666663	311,419.3333333333333 311,423.66666666666663	Ready	Ready
-place-label	edge	edge4	0	258	411	49	21
+section	edge4	edge4_s0	458.5,419.3333333333333	458.5,423.66666666666663	307.875,419.3333333333333 307.875,423.66666666666663	Ready	Ready
+place-label	edge	edge4	0	254.84375	411	49.03125	21
 route	edge5	root	root
-section	edge5	edge5_s0	463,417.8888888888889	463,425.1111111111111	238,417.8888888888889 238,425.1111111111111	Ready	Ready
-place-label	edge	edge5	0	128	411	106	21
+section	edge5	edge5_s0	458.5,417.8888888888889	458.5,425.1111111111111	234.84375,417.8888888888889 234.84375,425.1111111111111	Ready	Ready
+place-label	edge	edge5	0	126.296875	411	104.546875	21
 route	edge6	root	root
-section	edge6	edge6_s0	463,416.44444444444446	463,426.55555555555554	108,416.44444444444446 108,426.55555555555554	Ready	Ready
-place-label	edge	edge6	0	12	411	92	21
+section	edge6	edge6_s0	458.5,416.44444444444446	458.5,426.55555555555554	106.296875,416.44444444444446 106.296875,426.55555555555554	Ready	Ready
+place-label	edge	edge6	0	12	411	90.296875	21
 route	edge7	root	root
-section	edge7	edge7_s0	531,440	531,541		Ready	Stopped
-place-label	edge	edge7	0	486.5	480	89	21
+section	edge7	edge7_s0	526.5,440	526.5,541		Ready	Stopped
+place-label	edge	edge7	0	482.5	480	87.9375	21

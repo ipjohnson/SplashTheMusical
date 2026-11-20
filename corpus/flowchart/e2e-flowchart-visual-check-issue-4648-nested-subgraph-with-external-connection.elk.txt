@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	Wrapper	root
 option	node	Wrapper		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Wrapper		nodeSize.minimum	(63, 0)
+option	node	Wrapper		nodeSize.minimum	(61.4375, 0)
 option	node	Wrapper		spacing.baseValue	24
 option	node	Wrapper		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Wrapper		elk.spacing.edgeEdge	20
@@ -39,10 +39,10 @@ option	node	Wrapper		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,righ
 option	node	Wrapper		elk.algorithm	elk.layered
 option	node	Wrapper		elk.direction	RIGHT
 option	node	Wrapper		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Wrapper	0	Wrapper	55	19
+label	node	Wrapper	0	Wrapper	53.4375	19
 node	Inner	Wrapper
 option	node	Inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Inner		nodeSize.minimum	(41, 0)
+option	node	Inner		nodeSize.minimum	(39.921875, 0)
 option	node	Inner		spacing.baseValue	24
 option	node	Inner		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Inner		elk.spacing.edgeEdge	20
@@ -56,7 +56,7 @@ option	node	Inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	Inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	Inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	Inner		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	Inner	0	Inner	33	19
+label	node	Inner	0	Inner	31.921875	19
 node	D1	Inner	152	45
 node	D2	Inner	152	45
 node	D3	Inner	152	45
@@ -78,9 +78,9 @@ option	edge-label	L_D3_E1_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	272	456
 place	Wrapper	root	12	12	248	337
-place-label	node	Wrapper	0	96.5	5	55	19
+place-label	node	Wrapper	0	97.28125	5	53.4375	19
 place	Inner	Wrapper	24	48	200	255
-place-label	node	Inner	0	83.5	5	33	19
+place-label	node	Inner	0	84.0390625	5	31.921875	19
 place	D1	Inner	24	48	152	45
 place	D2	Inner	24	117	152	45
 place	D3	Inner	24	186	152	45

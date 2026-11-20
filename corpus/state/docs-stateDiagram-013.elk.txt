@@ -24,7 +24,7 @@ option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=1
 node	root_start	root	14	14
 node	First	root
 option	node	First		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	First		nodeSize.minimum	(36, 0)
+option	node	First		nodeSize.minimum	(35.21875, 0)
 option	node	First		spacing.baseValue	24
 option	node	First		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	First		elk.spacing.edgeEdge	20
@@ -40,13 +40,13 @@ option	node	First		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	First		elk.algorithm	elk.layered
 option	node	First		elk.direction	DOWN
 option	node	First		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	First	0	First	28	19
+label	node	First	0	First	27.21875	19
 node	First_start	First	14	14
 node	fir	First	136	37
 node	First_end	First	14.013293266296387	14
 node	Second	root
 option	node	Second		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Second		nodeSize.minimum	(56, 0)
+option	node	Second		nodeSize.minimum	(55.484375, 0)
 option	node	Second		spacing.baseValue	24
 option	node	Second		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Second		elk.spacing.edgeEdge	20
@@ -62,13 +62,13 @@ option	node	Second		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right
 option	node	Second		elk.algorithm	elk.layered
 option	node	Second		elk.direction	DOWN
 option	node	Second		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Second	0	Second	48	19
+label	node	Second	0	Second	47.484375	19
 node	Second_start	Second	14	14
 node	sec	Second	136	37
 node	Second_end	Second	14.013293266296387	14
 node	Third	root
 option	node	Third		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	Third		nodeSize.minimum	(41, 0)
+option	node	Third		nodeSize.minimum	(39.90625, 0)
 option	node	Third		spacing.baseValue	24
 option	node	Third		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	Third		elk.spacing.edgeEdge	20
@@ -84,7 +84,7 @@ option	node	Third		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=
 option	node	Third		elk.algorithm	elk.layered
 option	node	Third		elk.direction	DOWN
 option	node	Third		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	Third	0	Third	33	19
+label	node	Third	0	Third	31.90625	19
 node	Third_start	Third	14	14
 node	thi	Third	136	37
 node	Third_end	Third	14.013293266296387	14
@@ -128,17 +128,17 @@ result
 place	root		0	0	432	488
 place	root_start	root	206	12	14	14
 place	First	root	124.00000000000001	66	184	185
-place-label	node	First	0	78	5	28	19
+place-label	node	First	0	78.390625	5	27.21875	19
 place	First_start	First	81.2	48	14	14
 place	fir	First	24	86	136	37
 place	First_end	First	81.2	147	14.013293266296387	14
 place	Second	root	12	291	184	185
-place-label	node	Second	0	68	5	48	19
+place-label	node	Second	0	68.2578125	5	47.484375	19
 place	Second_start	Second	81.2	48	14	14
 place	sec	Second	24	86	136	37
 place	Second_end	Second	81.2	147	14.013293266296387	14
 place	Third	root	236	291	184	185
-place-label	node	Third	0	75.5	5	33	19
+place-label	node	Third	0	76.046875	5	31.90625	19
 place	Third_start	Third	81.2	48	14	14
 place	thi	Third	24	86	136	37
 place	Third_end	Third	81.2	147	14.013293266296387	14

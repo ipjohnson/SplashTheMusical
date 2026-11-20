@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	one	root
 option	node	one		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	one		nodeSize.minimum	(32, 0)
+option	node	one		nodeSize.minimum	(31.359375, 0)
 option	node	one		spacing.baseValue	24
 option	node	one		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	one		elk.spacing.edgeEdge	20
@@ -36,26 +36,26 @@ option	node	one		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	one		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	one		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	one		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	one	0	one	24	19
+label	node	one	0	one	23.359375	19
 node	a1	one	152	45
 node	a2	one	152	45
 edge	L_a1_a2_0	root	a1	a2
-label	edge	L_a1_a2_0	0	l1	11	21
+label	edge	L_a1_a2_0	0	l1	10.90625	21
 option	edge-label	L_a1_a2_0	0	edgeLabels.inline	true
 option	edge-label	L_a1_a2_0	0	edgeLabels.placement	CENTER
 edge	L_a1_a2_2	root	a1	a2
-label	edge	L_a1_a2_2	0	l2	11	21
+label	edge	L_a1_a2_2	0	l2	10.90625	21
 option	edge-label	L_a1_a2_2	0	edgeLabels.inline	true
 option	edge-label	L_a1_a2_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	507	160
-place	one	root	12	12	483	136
-place-label	node	one	0	229.5	5	24	19
-place	a1	one	307	57.5	152	45
+place	root		0	0	506.90625	160
+place	one	root	12	12	482.90625	136
+place-label	node	one	0	229.7734375	5	23.359375	19
+place	a1	one	306.90625	57.5	152	45
 place	a2	one	24	57.5	152	45
 route	L_a1_a2_0	root	one
-section	L_a1_a2_0	L_a1_a2_0_s0	307,83.9	176,83.9	277,83.9 277,101 206,101 206,83.9	a1	a2
-place-label	edge	L_a1_a2_0	0	236	90	11	21
+section	L_a1_a2_0	L_a1_a2_0_s0	306.90625,83.9	176,83.9	276.90625,83.9 276.90625,101 206,101 206,83.9	a1	a2
+place-label	edge	L_a1_a2_0	0	236	90	10.90625	21
 route	L_a1_a2_2	root	one
-section	L_a1_a2_2	L_a1_a2_2_s0	307,76.1	176,76.1	277,76.1 277,59 206,59 206,76.1	a1	a2
-place-label	edge	L_a1_a2_2	0	236	48	11	21
+section	L_a1_a2_2	L_a1_a2_2_s0	306.90625,76.1	176,76.1	276.90625,76.1 276.90625,59 206,59 206,76.1	a1	a2
+place-label	edge	L_a1_a2_2	0	236	48	10.90625	21

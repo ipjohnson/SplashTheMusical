@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	sb1	root
 option	node	sb1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	sb1		nodeSize.minimum	(125, 0)
+option	node	sb1		nodeSize.minimum	(123.484375, 0)
 option	node	sb1		spacing.baseValue	24
 option	node	sb1		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	sb1		elk.spacing.edgeEdge	20
@@ -36,11 +36,11 @@ option	node	sb1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	sb1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	sb1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	sb1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	sb1	0	Payment service	105	19
+label	node	sb1	0	Payment service	103.484375	19
 node	Authorize	sb1	160	58
 option	node	Authorize		elk.portAlignment.default	CENTER
 result
 place	root		0	0	232	154
 place	sb1	root	12	12	208	130
-place-label	node	sb1	0	51.5	5	105	19
+place-label	node	sb1	0	52.2578125	5	103.484375	19
 place	Authorize	sb1	24	48	160	58

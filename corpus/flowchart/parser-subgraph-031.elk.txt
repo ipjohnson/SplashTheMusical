@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	uid2	root
 option	node	uid2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	uid2		nodeSize.minimum	(79, 0)
+option	node	uid2		nodeSize.minimum	(77.265625, 0)
 option	node	uid2		spacing.baseValue	24
 option	node	uid2		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	uid2		elk.spacing.edgeEdge	20
@@ -36,7 +36,7 @@ option	node	uid2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
 option	node	uid2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	uid2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	uid2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-label	node	uid2	0	textofdoom	71	19
+label	node	uid2	0	textofdoom	69.265625	19
 node	c	uid2	152	45
 node	d	uid2	152	45
 node	A	root	152	45
@@ -52,7 +52,7 @@ option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	416	295
 place	uid2	root	12	12	200	186
-place-label	node	uid2	0	64.5	5	71	19
+place-label	node	uid2	0	65.3671875	5	69.265625	19
 place	c	uid2	24	48	152	45
 place	d	uid2	24	117	152	45
 place	A	root	252	153	152	45

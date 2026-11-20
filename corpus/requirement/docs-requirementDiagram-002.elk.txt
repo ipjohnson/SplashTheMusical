@@ -21,25 +21,25 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	checkout_req	root	253	166
-node	payment_req	root	281	166
-node	checkout_service	root	141	103
+node	checkout_req	root	248.015625	166
+node	payment_req	root	275.234375	166
+node	checkout_service	root	137.53125	103
 edge	checkout_req-payment_req-0	root	checkout_req	payment_req
-label	edge	checkout_req-payment_req-0	0	&lt;&lt;contains&gt;&gt;	85	21
+label	edge	checkout_req-payment_req-0	0	&lt;&lt;contains&gt;&gt;	84.859375	21
 option	edge-label	checkout_req-payment_req-0	0	edgeLabels.inline	true
 option	edge-label	checkout_req-payment_req-0	0	edgeLabels.placement	CENTER
 edge	checkout_service-payment_req-1	root	checkout_service	payment_req
-label	edge	checkout_service-payment_req-1	0	&lt;&lt;satisfies&gt;&gt;	83	21
+label	edge	checkout_service-payment_req-1	0	&lt;&lt;satisfies&gt;&gt;	83.28125	21
 option	edge-label	checkout_service-payment_req-1	0	edgeLabels.inline	true
 option	edge-label	checkout_service-payment_req-1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	458	457
-place	checkout_req	root	12	12	253	166
-place	payment_req	root	116.5	279	281	166
-place	checkout_service	root	305	75	141	103
+place	root		0	0	449.546875	457
+place	checkout_req	root	12	12	248.015625	166
+place	payment_req	root	114.77734375	279	275.234375	166
+place	checkout_service	root	300.015625	75	137.53125	103
 route	checkout_req-payment_req-0	root	root
-section	checkout_req-payment_req-0	checkout_req-payment_req-0_s0	138.5,178	213.5,279	138.5,259 213.5,259	checkout_req	payment_req
-place-label	edge	checkout_req-payment_req-0	0	96	218	85	21
+section	checkout_req-payment_req-0	checkout_req-payment_req-0_s0	136.0078125,178	209.85546875,279	136.0078125,259 209.85546875,259	checkout_req	payment_req
+place-label	edge	checkout_req-payment_req-0	0	93.5078125	218	84.859375	21
 route	checkout_service-payment_req-1	root	root
-section	checkout_service-payment_req-1	checkout_service-payment_req-1_s0	375.5,178	300.5,279	375.5,259 300.5,259	checkout_service	payment_req
-place-label	edge	checkout_service-payment_req-1	0	334	218	83	21
+section	checkout_service-payment_req-1	checkout_service-payment_req-1_s0	368.78125,178	294.93359375,279	368.78125,259 294.93359375,259	checkout_service	payment_req
+place-label	edge	checkout_service-payment_req-1	0	326.78125	218	83.28125	21

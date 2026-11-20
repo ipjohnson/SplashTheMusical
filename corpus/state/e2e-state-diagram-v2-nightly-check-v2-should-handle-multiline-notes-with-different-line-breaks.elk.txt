@@ -37,7 +37,7 @@ option	node	State1----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	State1----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	State1----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	State1----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	State1----parent	0	Line1<br>Line2<br>Line3<br>Line4<br>Line5	35	103
+label	node	State1----parent	0	Line1<br>Line2<br>Line3<br>Line4<br>Line5	34.265625	103
 node	State1----note-0	State1----parent	150	135
 option	node	State1----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	State1-State1----note-0	root	State1	State1----note-0
@@ -48,7 +48,7 @@ result
 place	root		0	0	222	402
 place	State1	root	42.999999999999986	12	136	37
 place	State1----parent	root	12	99	198	291
-place-label	node	State1----parent	0	81.5	5	35	103
+place-label	node	State1----parent	0	81.8671875	5	34.265625	103
 place	State1----note-0	State1----parent	24	132	150	135
 route	State1-State1----note-0	root	root
 section	State1-State1----note-0	State1-State1----note-0_s0	110.99999999999999,49	110.99999999999999,231	110.99999999999999,89	State1	State1----note-0

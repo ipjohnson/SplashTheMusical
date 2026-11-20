@@ -21,27 +21,27 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Customer	root	82	121
+node	Customer	root	80.6875	121
 node	Checkout	root	160	58
 option	node	Checkout		elk.portAlignment.default	CENTER
 node	Payment	root	160	58
 option	node	Payment		elk.portAlignment.default	CENTER
 edge	opens	root	Customer	Checkout
-label	edge	opens	0	starts checkout	74	15
+label	edge	opens	0	starts checkout	71.265625	15
 option	edge-label	opens	0	edgeLabels.inline	true
 option	edge-label	opens	0	edgeLabels.placement	CENTER
 edge	payment	root	Checkout	Payment
-label	edge	payment	0	«include»	49	15
+label	edge	payment	0	«include»	46.8125	15
 option	edge-label	payment	0	edgeLabels.inline	true
 option	edge-label	payment	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	709	145
-place	Customer	root	12	12	82	121
-place	Checkout	root	248	43.5	160	58
-place	Payment	root	537	43.5	160	58
+place	root		0	0	702.765625	145
+place	Customer	root	12	12	80.6875	121
+place	Checkout	root	243.953125	43.5	160	58
+place	Payment	root	530.765625	43.5	160	58
 route	opens	root	root
-section	opens	opens_s0	94,72.5	248,72.5		Customer	Checkout
-place-label	edge	opens	0	134	64.5	74	15
+section	opens	opens_s0	92.6875,72.5	243.953125,72.5		Customer	Checkout
+place-label	edge	opens	0	132.6875	64.5	71.265625	15
 route	payment	root	root
-section	payment	payment_s0	408,72.5	537,72.5		Checkout	Payment
-place-label	edge	payment	0	448	64.5	49	15
+section	payment	payment_s0	403.953125,72.5	530.765625,72.5		Checkout	Payment
+place-label	edge	payment	0	443.953125	64.5	46.8125	15

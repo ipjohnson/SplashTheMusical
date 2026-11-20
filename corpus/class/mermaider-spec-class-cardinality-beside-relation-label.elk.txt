@@ -21,31 +21,31 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Pond	root	60	81
-node	Duck	root	59	81
-node	Wing	root	59	81
+node	Pond	root	59	81
+node	Duck	root	58.234375	81
+node	Wing	root	58.09375	81
 edge	id_Pond_Duck_1	root	Pond	Duck
-label	edge	id_Pond_Duck_1	0	holds	34	21
+label	edge	id_Pond_Duck_1	0	holds	33.46875	21
 option	edge-label	id_Pond_Duck_1	0	edgeLabels.inline	true
 option	edge-label	id_Pond_Duck_1	0	edgeLabels.placement	CENTER
-label	edge	id_Pond_Duck_1	1	many	27	16.5
+label	edge	id_Pond_Duck_1	1	many	26.90625	16.5
 option	edge-label	id_Pond_Duck_1	1	edgeLabels.placement	HEAD
 edge	id_Duck_Wing_2	root	Duck	Wing
-label	edge	id_Duck_Wing_2	0	has	23	21
+label	edge	id_Duck_Wing_2	0	has	22.578125	21
 option	edge-label	id_Duck_Wing_2	0	edgeLabels.inline	true
 option	edge-label	id_Duck_Wing_2	0	edgeLabels.placement	CENTER
-label	edge	id_Duck_Wing_2	1	2	6	16.5
+label	edge	id_Duck_Wing_2	1	2	6.125	16.5
 option	edge-label	id_Duck_Wing_2	1	edgeLabels.placement	HEAD
 result
-place	root		0	0	86	510
-place	Pond	root	12	12	60	81
-place	Duck	root	12.5	214.5	59	81
-place	Wing	root	12.5	417	59	81
+place	root		0	0	85.40625	510
+place	Pond	root	12	12	59	81
+place	Duck	root	12.3828125	214.5	58.234375	81
+place	Wing	root	12.453125	417	58.09375	81
 route	id_Pond_Duck_1	root	root
-section	id_Pond_Duck_1	id_Pond_Duck_1_s0	42,93	42,214.5		Pond	Duck
-place-label	edge	id_Pond_Duck_1	0	25	133	34	21
-place-label	edge	id_Pond_Duck_1	1	47	194	27	16.5
+section	id_Pond_Duck_1	id_Pond_Duck_1_s0	41.5,93	41.5,214.5		Pond	Duck
+place-label	edge	id_Pond_Duck_1	0	24.5	133	33.46875	21
+place-label	edge	id_Pond_Duck_1	1	46.5	194	26.90625	16.5
 route	id_Duck_Wing_2	root	root
-section	id_Duck_Wing_2	id_Duck_Wing_2_s0	42,295.5	42,417		Duck	Wing
-place-label	edge	id_Duck_Wing_2	0	30.5	335.5	23	21
-place-label	edge	id_Duck_Wing_2	1	47	396.5	6	16.5
+section	id_Duck_Wing_2	id_Duck_Wing_2_s0	41.5,295.5	41.5,417		Duck	Wing
+place-label	edge	id_Duck_Wing_2	0	30	335.5	22.578125	21
+place-label	edge	id_Duck_Wing_2	1	46.5	396.5	6.125	16.5

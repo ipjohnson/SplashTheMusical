@@ -23,12 +23,12 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	entity-NODE-0	root	100	81
 edge	id_entity-NODE-0_entity-NODE-0_0	root	entity-NODE-0	entity-NODE-0
-label	edge	id_entity-NODE-0_entity-NODE-0_0	0	leads to	50	21
+label	edge	id_entity-NODE-0_entity-NODE-0_0	0	leads to	49.046875	21
 option	edge-label	id_entity-NODE-0_entity-NODE-0_0	0	edgeLabels.inline	true
 option	edge-label	id_entity-NODE-0_entity-NODE-0_0	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	198	105
-place	entity-NODE-0	root	86	12	100	81
+place	root		0	0	197.046875	105
+place	entity-NODE-0	root	85.046875	12	100	81
 route	id_entity-NODE-0_entity-NODE-0_0	root	root
-section	id_entity-NODE-0_entity-NODE-0_0	id_entity-NODE-0_entity-NODE-0_0_s0	86,43	86,62	66,43 66,62	entity-NODE-0	entity-NODE-0
-place-label	edge	id_entity-NODE-0_entity-NODE-0_0	0	12	42	50	21
+section	id_entity-NODE-0_entity-NODE-0_0	id_entity-NODE-0_entity-NODE-0_0_s0	85.046875,43	85.046875,62	65.046875,43 65.046875,62	entity-NODE-0	entity-NODE-0
+place-label	edge	id_entity-NODE-0_entity-NODE-0_0	0	12	42	49.046875	21

@@ -21,29 +21,29 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	C1	root	88	81
-node	C2	root	114	81
-node	C3	root	129	81
-node	C4	root	129	81
-node	C5	root	129	81
-node	C7	root	123	81
-node	C8	root	123	81
-node	C9	root	102	81
-node	C10	root	149	81
-node	C11	root	152	81
-node	C12	root	189	81
-node	C13	root	212	81
+node	C1	root	86.75	81
+node	C2	root	113.328125	81
+node	C3	root	126.5625	81
+node	C4	root	126.5625	81
+node	C5	root	128.140625	81
+node	C7	root	121.109375	81
+node	C8	root	120.3125	81
+node	C9	root	99.3125	81
+node	C10	root	146.015625	81
+node	C11	root	147.765625	81
+node	C12	root	186.90625	81
+node	C13	root	205.875	81
 result
-place	root		0	0	2103	105
-place	C1	root	12	12	88	81
-place	C2	root	140	12	114	81
-place	C3	root	294	12	129	81
-place	C4	root	463	12	129	81
-place	C5	root	632	12	129	81
-place	C7	root	801	12	123	81
-place	C8	root	964	12	123	81
-place	C9	root	1127	12	102	81
-place	C10	root	1269	12	149	81
-place	C11	root	1458	12	152	81
-place	C12	root	1650	12	189	81
-place	C13	root	1879	12	212	81
+place	root		0	0	2072.640625	105
+place	C1	root	12	12	86.75	81
+place	C2	root	138.75	12	113.328125	81
+place	C3	root	292.078125	12	126.5625	81
+place	C4	root	458.640625	12	126.5625	81
+place	C5	root	625.203125	12	128.140625	81
+place	C7	root	793.34375	12	121.109375	81
+place	C8	root	954.453125	12	120.3125	81
+place	C9	root	1114.765625	12	99.3125	81
+place	C10	root	1254.078125	12	146.015625	81
+place	C11	root	1440.09375	12	147.765625	81
+place	C12	root	1627.859375	12	186.90625	81
+place	C13	root	1854.765625	12	205.875	81

@@ -21,7 +21,7 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	BankAccount	root	230.5	177
+node	BankAccount	root	225.9140625	177
 result
-place	root		0	0	254.5	201
-place	BankAccount	root	12	12	230.5	177
+place	root		0	0	249.9140625	201
+place	BankAccount	root	12	12	225.9140625	177

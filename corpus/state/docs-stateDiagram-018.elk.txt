@@ -25,7 +25,7 @@ node	root_start	root	14	14
 node	A	root	136	37
 node	B	root
 option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	B		nodeSize.minimum	(17, 0)
+option	node	B		nodeSize.minimum	(17.34375, 0)
 option	node	B		spacing.baseValue	24
 option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	B		elk.spacing.edgeEdge	20
@@ -41,7 +41,7 @@ option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	B		elk.algorithm	elk.layered
 option	node	B		elk.direction	RIGHT
 option	node	B		elk.hierarchyHandling	SEPARATE_CHILDREN
-label	node	B	0	B	9	19
+label	node	B	0	B	9.34375	19
 node	a	B	136	37
 node	b	B	136	37
 node	C	root	136	37
@@ -71,7 +71,7 @@ place	root		0	0	774	138
 place	root_start	root	12	59	14	14
 place	A	root	66	50.5	136	37
 place	B	root	242	14.500000000000004	344	109
-place-label	node	B	0	167.5	5	9	19
+place-label	node	B	0	167.328125	5	9.34375	19
 place	a	B	24	48	136	37
 place	b	B	184	48	136	37
 place	C	root	626	12	136	37

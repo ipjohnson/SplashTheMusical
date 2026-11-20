@@ -21,20 +21,20 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	Class01	root	120.5	156
-node	Class08	root	78	81
-node	C2	root	42	81
-node	Class10	root	140.5	156
+node	Class01	root	118.953125	156
+node	Class08	root	76.9375	81
+node	C2	root	41.90625	81
+node	Class10	root	139.984375	156
 edge	id_Class08_C2_1	root	Class08	C2
-label	edge	id_Class08_C2_1	0	Cool label	67	19.999998092651367
+label	edge	id_Class08_C2_1	0	Cool label	66.265625	19.999998092651367
 option	edge-label	id_Class08_C2_1	0	edgeLabels.inline	true
 option	edge-label	id_Class08_C2_1	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	443	360.99999809265137
-place	Class01	root	12	12	120.5	156
-place	Class08	root	172.5	87	78	81
-place	C2	root	190.5	267.99999809265137	42	81
-place	Class10	root	290.5	12	140.5	156
+place	root		0	0	439.875	360.99999809265137
+place	Class01	root	12	12	118.953125	156
+place	Class08	root	170.953125	87	76.9375	81
+place	C2	root	188.46875	267.99999809265137	41.90625	81
+place	Class10	root	287.890625	12	139.984375	156
 route	id_Class08_C2_1	root	root
-section	id_Class08_C2_1	id_Class08_C2_1_s0	211.5,168	211.5,267.99999809265137		Class08	C2
-place-label	edge	id_Class08_C2_1	0	178	208	67	19.999998092651367
+section	id_Class08_C2_1	id_Class08_C2_1_s0	209.421875,168	209.421875,267.99999809265137		Class08	C2
+place-label	edge	id_Class08_C2_1	0	175.921875	208	66.265625	19.999998092651367

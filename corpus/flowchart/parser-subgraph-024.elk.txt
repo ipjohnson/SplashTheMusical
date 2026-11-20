@@ -23,7 +23,7 @@ option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 node	1test	root
 option	node	1test		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
-option	node	1test		nodeSize.minimum	(39, 0)
+option	node	1test		nodeSize.minimum	(38.359375, 0)
 option	node	1test		spacing.baseValue	24
 option	node	1test		elk.layered.spacing.edgeNodeBetweenLayers	30
 option	node	1test		elk.spacing.edgeEdge	20
@@ -37,21 +37,21 @@ option	node	1test		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
 option	node	1test		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
 option	node	1test		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
 option	node	1test		elk.hierarchyHandling	INCLUDE_CHILDREN
-label	node	1test	0	1test	31	19
+label	node	1test	0	1test	30.359375	19
 node	A	1test	152	45
 option	node	A		elk.hierarchyHandling	INCLUDE_CHILDREN
 node	B	root	150	51
 option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
 edge	L_A_B_0	root	A	B
-label	edge	L_A_B_0	0	Get money	70	21
+label	edge	L_A_B_0	0	Get money	68.484375	21
 option	edge-label	L_A_B_0	0	edgeLabels.inline	true
 option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
 result
 place	root		0	0	224	303
 place	1test	root	12	12	200	117
-place-label	node	1test	0	84.5	5	31	19
+place-label	node	1test	0	84.8203125	5	30.359375	19
 place	A	1test	24	48	152	45
 place	B	root	36.999999999999986	240	150	51
 route	L_A_B_0	root	root
 section	L_A_B_0	L_A_B_0_s0	111.99999999999999,105	111.99999999999999,240	111.99999999999999,139	A	B
-place-label	edge	L_A_B_0	0	76.99999999999999	179	70	21
+place-label	edge	L_A_B_0	0	77.49999999999999	179	68.484375	21

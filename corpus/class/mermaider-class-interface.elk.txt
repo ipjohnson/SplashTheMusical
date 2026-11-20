@@ -21,9 +21,9 @@ option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
 option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
 option	node	root		elk.layered.mergeHierarchyEdges	true
 option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
-node	ILogger	root	252.5	162
-node	ConsoleLogger	root	270	156
-node	FileLogger	root	254	177
+node	ILogger	root	248.125	162
+node	ConsoleLogger	root	264.8203125	156
+node	FileLogger	root	249.265625	177
 edge	id_ILogger_ConsoleLogger_1	root	ILogger	ConsoleLogger
 label	edge	id_ILogger_ConsoleLogger_1	0		0	0
 option	edge-label	id_ILogger_ConsoleLogger_1	0	edgeLabels.inline	true
@@ -33,13 +33,13 @@ label	edge	id_ILogger_FileLogger_2	0		0	0
 option	edge-label	id_ILogger_FileLogger_2	0	edgeLabels.inline	true
 option	edge-label	id_ILogger_FileLogger_2	0	edgeLabels.placement	CENTER
 result
-place	root		0	0	588	403
-place	ILogger	root	171.75	12	252.5	162
-place	ConsoleLogger	root	12	214	270	156
-place	FileLogger	root	322	214	254	177
+place	root		0	0	578.0859375	403
+place	ILogger	root	168.869140625	12	248.125	162
+place	ConsoleLogger	root	12	214	264.8203125	156
+place	FileLogger	root	316.8203125	214	249.265625	177
 route	id_ILogger_ConsoleLogger_1	root	root
-section	id_ILogger_ConsoleLogger_1	id_ILogger_ConsoleLogger_1_s0	259.25,174	147,214	259.25,194 147,194	ILogger	ConsoleLogger
+section	id_ILogger_ConsoleLogger_1	id_ILogger_ConsoleLogger_1_s0	254.91080729166666,174	144.41015625,214	254.91080729166666,194 144.41015625,194	ILogger	ConsoleLogger
 place-label	edge	id_ILogger_ConsoleLogger_1	0	0	0	0	0
 route	id_ILogger_FileLogger_2	root	root
-section	id_ILogger_FileLogger_2	id_ILogger_FileLogger_2_s0	336.75,174	449,214	336.75,194 449,194	ILogger	FileLogger
+section	id_ILogger_FileLogger_2	id_ILogger_FileLogger_2_s0	330.9524739583333,174	441.453125,214	330.9524739583333,194 441.453125,194	ILogger	FileLogger
 place-label	edge	id_ILogger_FileLogger_2	0	0	0	0	0
