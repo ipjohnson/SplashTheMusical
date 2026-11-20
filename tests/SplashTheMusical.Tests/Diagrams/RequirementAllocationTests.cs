@@ -11,7 +11,7 @@ namespace SplashTheMusical.Tests.Diagrams;
 /// </summary>
 public class RequirementAllocationTests
 {
-	private const string Source = "requirementDiagram\n  requirement r {\n    id: 1\n    risk: high\n  }\n  e - satisfies -> r\n";
+	private const string Source = "requirementDiagram\n  requirement r {\n    id: 1\n    risk: high\n  }\n  element e {\n  }\n  e - satisfies -> r\n";
 
 	private static object? Sink;
 
@@ -34,11 +34,13 @@ public class RequirementAllocationTests
 	private static RequirementDocument Model()
 	{
 		var r = Copy("r");
+		var e = Copy("e");
 		var document = new RequirementDocument();
 		ReadOnlySpan<RequirementStatement> statements =
 		[
 			new RequirementDefinition(r) { Id = Copy("1"), Risk = RequirementRisk.High },
-			new RequirementRelationship(Copy("e"), r, RequirementRelationshipType.Satisfies),
+			new RequirementElement(e),
+			new RequirementRelationship(e, r, RequirementRelationshipType.Satisfies),
 		];
 		document.Statements.AddRange(statements);
 		return document;

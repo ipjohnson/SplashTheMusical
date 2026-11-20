@@ -96,8 +96,23 @@ public static class RequirementGenerator
 			{
 				AccessibilityTitle = accTitle,
 				AccessibilityDescription = accDescr,
-				Statements = statements,
+				Statements = WithDefinedEnds(statements),
 			});
+
+	/// <summary>The statements without the relationships to a name no requirement or element defines, which mermaid.js refuses.</summary>
+	private static List<RequirementStatement> WithDefinedEnds(List<RequirementStatement> statements)
+	{
+		var defined = statements
+			.Select(s => s switch
+			{
+				RequirementDefinition d => d.Name,
+				RequirementElement e => e.Name,
+				_ => null,
+			})
+			.OfType<string>()
+			.ToHashSet(StringComparer.Ordinal);
+		return [.. statements.Where(s => s is not RequirementRelationship r || (defined.Contains(r.Source) && defined.Contains(r.Target)))];
+	}
 
 	/// <summary>The list or <c>null</c>, one time in three.</summary>
 	private static Gen<List<T>?> OrNullList<T>(this Gen<List<T>> list) =>

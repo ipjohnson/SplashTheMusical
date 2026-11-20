@@ -39,6 +39,8 @@ public class RequirementWriterTests
 		var document = new RequirementBuilder()
 			.Requirement("test", text: "test entity", id: "REQ-1")
 			.Element("my element", type: "a: b")
+			.Element("Ünïcödé")
+			.Element("1.2")
 			.Relationship("Ünïcödé", RequirementRelationshipType.Traces, "1.2")
 			.Build();
 
@@ -52,6 +54,10 @@ public class RequirementWriterTests
 			  }
 			  element my element {
 			    type: "a: b"
+			  }
+			  element "Ünïcödé" {
+			  }
+			  element 1.2 {
 			  }
 			  "Ünïcödé" - traces -> 1.2
 

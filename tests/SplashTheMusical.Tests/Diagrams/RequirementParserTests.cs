@@ -20,6 +20,8 @@ public class RequirementParserTests
 			    type: service
 			    docRef: design/auth.md
 			  }
+			  element tests {
+			  }
 			  "auth service" - satisfies -> login
 			  login <- verifies - tests
 			""");
@@ -31,7 +33,7 @@ public class RequirementParserTests
 		login.Classes.Should().Equal("c1", "c2");
 		var element = (RequirementElement)document.Statements[1];
 		(element.Name, element.Type, element.DocRef).Should().Be(("auth service", "service", "design/auth.md"));
-		document.Statements.Skip(2).Cast<RequirementRelationship>().Select(r => (r.Source, r.Type, r.Target)).Should().Equal(
+		document.Statements.Skip(3).Cast<RequirementRelationship>().Select(r => (r.Source, r.Type, r.Target)).Should().Equal(
 			("auth service", RequirementRelationshipType.Satisfies, "login"),
 			("tests", RequirementRelationshipType.Verifies, "login"));
 	}
@@ -66,6 +68,10 @@ public class RequirementParserTests
 	[Arguments("requirementDiagram\nrequirement r {\nrisk: severe\n}\n")]
 	[Arguments("requirementDiagram\na - likes -> b\n")]
 	[Arguments("requirementDiagram\nelement e {\n")]
+	[Arguments("requirementDiagram\na - traces -> b\n")]
+	[Arguments("requirementDiagram\nelement a {\n}\na - traces -> b\n")]
+	[Arguments("requirementDiagram\nelement b {\n}\na - traces -> b\n")]
+	[Arguments("requirementDiagram\nelement a {\n}\nb:::c\na - traces -> b\n")]
 	public void RefusesWhatMermaidRefuses(string source)
 	{
 		var mermaid = new Mermaid();
@@ -73,6 +79,17 @@ public class RequirementParserTests
 		mermaid.TryParse(source, out var document, out var diagnostics).Should().BeFalse();
 		document.Should().BeNull();
 		diagnostics.Should().ContainSingle(d => d.Severity == DiagnosticSeverity.Error);
+	}
+
+	[Test]
+	[Arguments("requirementDiagram\na - traces -> b\nelement a {\n}\nrequirement b {\n}\n")]
+	[Arguments("requirementDiagram\nelement a {\n}\na - traces -> a\n")]
+	public void AcceptsARelationshipWhoseEndsAreDefinedAnywhere(string source)
+	{
+		var mermaid = new Mermaid();
+
+		mermaid.TryParse(source, out var document, out _).Should().BeTrue();
+		document.Should().NotBeNull();
 	}
 
 	[Test]

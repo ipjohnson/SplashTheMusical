@@ -79,6 +79,13 @@ internal ref struct RequirementParser
 					return null;
 				}
 
+				if (!parser.EveryRelationshipEndIsDefined())
+				{
+					var (bodyLine, _) = TextPosition.Of(source, context.BodyStart);
+					context.AddError(UndefinedEndMessage, bodyLine, 1);
+					return null;
+				}
+
 				document.Statements.AddRange(parser._statements.AsSpan());
 			}
 			finally
@@ -561,6 +568,40 @@ internal ref struct RequirementParser
 		_scratch.Truncate(0);
 		FlowchartText.Restore(text, ref _scratch);
 		return _scratch.AsSpan().ToString();
+	}
+
+	/// <summary>What mermaid.js throws when it lays out a relationship whose end is no requirement or element.</summary>
+	private const string UndefinedEndMessage = "org.eclipse.elk.graph.json.JsonImportException: Id must be a string or an integer: 'null'.";
+
+	/// <summary>
+	/// mermaid.js parses a relationship to a name that no requirement or element defines, anywhere in the diagram, and
+	/// then fails to draw it, because the edge it gives ELK has a null end.
+	/// </summary>
+	private readonly bool EveryRelationshipEndIsDefined()
+	{
+		var statements = _statements.AsSpan();
+		foreach (var statement in statements)
+		{
+			if (statement is RequirementRelationship relationship && (!IsDefined(statements, relationship.Source) || !IsDefined(statements, relationship.Target)))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private static bool IsDefined(ReadOnlySpan<RequirementStatement> statements, string name)
+	{
+		foreach (var statement in statements)
+		{
+			if ((statement is RequirementDefinition definition && definition.Name == name) || (statement is RequirementElement element && element.Name == name))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private bool Fail(string? expected)
