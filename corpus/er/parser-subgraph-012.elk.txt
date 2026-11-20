@@ -1,0 +1,76 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8d42c050bd822423
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	G2	root
+option	node	G2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	G2		nodeSize.minimum	(26.6875, 0)
+option	node	G2		spacing.baseValue	24
+option	node	G2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	G2		elk.spacing.edgeEdge	20
+option	node	G2		spacing.nodeNode	50
+option	node	G2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	G2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	G2		elk.layered.mergeEdges	false
+option	node	G2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	G2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	G2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	G2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	G2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	G2		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	G2	0	G2	18.6875	19
+node	entity-B-1	G2	100	81
+option	node	entity-B-1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	G1	root
+option	node	G1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	G1		nodeSize.minimum	(26.6875, 0)
+option	node	G1		spacing.baseValue	24
+option	node	G1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	G1		elk.spacing.edgeEdge	20
+option	node	G1		spacing.nodeNode	50
+option	node	G1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	G1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	G1		elk.layered.mergeEdges	false
+option	node	G1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	G1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	G1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	G1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	G1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	G1		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	G1	0	G1	18.6875	19
+node	entity-A-0	G1	100	81
+option	node	entity-A-0		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	id_entity-A-0_entity-B-1_0	root	entity-A-0	entity-B-1
+label	edge	id_entity-A-0_entity-B-1_0	0	relates to	57.59375	21
+option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	172	451
+place	G2	root	12	286	148	153
+place-label	node	G2	0	64.65625	5	18.6875	19
+place	entity-B-1	G2	24	48	100	81
+place	G1	root	12	12	148	153
+place-label	node	G1	0	64.65625	5	18.6875	19
+place	entity-A-0	G1	24	48	100	81
+route	id_entity-A-0_entity-B-1_0	root	root
+section	id_entity-A-0_entity-B-1_0	id_entity-A-0_entity-B-1_0_s0	86,141	86,334	86,175 86,276	entity-A-0	entity-B-1
+place-label	edge	id_entity-A-0_entity-B-1_0	0	57	215	57.59375	21

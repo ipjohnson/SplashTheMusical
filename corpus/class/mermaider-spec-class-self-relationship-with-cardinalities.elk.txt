@@ -1,0 +1,49 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f695eb25e59ae2a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Animal	root	70.6875	81
+node	Duck	root	58.234375	81
+edge	id_Animal_Animal_1	root	Animal	Animal
+label	edge	id_Animal_Animal_1	0	parent	39.703125	21
+option	edge-label	id_Animal_Animal_1	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Animal_1	0	edgeLabels.placement	CENTER
+label	edge	id_Animal_Animal_1	1	1	6.125	16.5
+option	edge-label	id_Animal_Animal_1	1	edgeLabels.placement	TAIL
+label	edge	id_Animal_Animal_1	2	0..*	28.515625	28.5
+option	edge-label	id_Animal_Animal_1	2	edgeLabels.placement	HEAD
+edge	id_Animal_Duck_2	root	Animal	Duck
+label	edge	id_Animal_Duck_2	0		0	0
+option	edge-label	id_Animal_Duck_2	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Duck_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	158.390625	226
+place	Animal	root	75.703125	12	70.6875	81
+place	Duck	root	81.9296875	133	58.234375	81
+route	id_Animal_Animal_1	root	root
+section	id_Animal_Animal_1	id_Animal_Animal_1_s0	75.703125,43	75.703125,62	55.703125,43 55.703125,62	Animal	Animal
+place-label	edge	id_Animal_Animal_1	0	12	19.5	39.703125	21
+place-label	edge	id_Animal_Animal_1	1	45.578125	40.5	6.125	16.5
+place-label	edge	id_Animal_Animal_1	2	23.1875	57	28.515625	28.5
+route	id_Animal_Duck_2	root	root
+section	id_Animal_Duck_2	id_Animal_Duck_2_s0	111.046875,93	111.046875,133		Animal	Duck
+place-label	edge	id_Animal_Duck_2	0	0	0	0	0

@@ -6,7 +6,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { checkPinned } from './pinned.mjs'
-import { hookAddDirective, hookDagre, hookPreprocess } from './dumps.mjs'
+import { hookAddDirective, hookDagre, hookElk, hookPreprocess } from './dumps.mjs'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 const cases = path.join(root, 'cases')
@@ -98,14 +98,17 @@ after(() => {
 
 // The cases whose types are rendered again with `layout: dagre`.
 const dagreCases = ['classDiagram', 'er', 'flowchart-v2', 'stateDiagram']
+// The cases mermaid.js lays out with ELK, its default layout at 12.3.0 for these types.
+const elkCases = ['agentflow', 'classDiagram', 'er', 'flowchart-elk', 'flowchart-v2', 'requirement', 'stateDiagram', 'usecase']
 const dumpFiles = ['config.txt', 'shapes.txt', 'styles.txt', 'themes.txt']
 
-test('two runs write a facts file per case, a boxes file per accepted case, the dagre and global dumps, cover every diagram type and write identical files', () => {
+test('two runs write a facts file per case, a boxes file per accepted case, the dagre, ELK and global dumps, cover every diagram type and write identical files', () => {
 	const names = fs.readdirSync(cases).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4) + '.facts.txt').sort()
 	const boxes = accepted(path.join(first, 'facts')).map(f => f.replace('.facts.txt', '.boxes.txt'))
 	assert.equal(boxes.length, names.length - 1)
 	const dagre = dagreCases.map(n => n + '.dagre.txt')
-	assert.deepEqual(fs.readdirSync(path.join(first, 'facts')).sort(), [...names, ...boxes, ...dagre, ...dumpFiles].sort())
+	const elk = elkCases.map(n => n + '.elk.txt')
+	assert.deepEqual(fs.readdirSync(path.join(first, 'facts')).sort(), [...names, ...boxes, ...dagre, ...elk, ...dumpFiles].sort())
 	for (const dir of ['facts', 'svg']) {
 		const files = fs.readdirSync(path.join(first, dir)).sort()
 		assert.deepEqual(fs.readdirSync(path.join(second, dir)).sort(), files)
@@ -235,6 +238,54 @@ test('the dagre hook wraps dagre\'s layout function once and refuses a bundle wi
 	assert.throws(() => hookDagre(code.replace('"  buildLayoutGraph"', '"buildLayoutGraph"')), /found 0 times in mermaid\.min\.js/)
 })
 
+test('each ELK dump has both sides of each call, every input node placed and every input edge routed', () => {
+	for (const name of elkCases) {
+		const rows = lines(path.join(first, 'facts', name + '.elk.txt')).filter(l => !l.startsWith('#')).map(l => l.split('\t'))
+		const calls = []
+		for (const r of rows) {
+			if (r[0] === 'layout') calls.push({ number: Number(r[1]), input: [], output: null })
+			else if (r[0] === 'result') calls.at(-1).output = []
+			else (calls.at(-1).output ?? calls.at(-1).input).push(r)
+		}
+		assert.ok(calls.length >= 1, name)
+		calls.forEach((c, i) => {
+			assert.equal(c.number, i + 1, name)
+			assert.ok(c.output, `${name}: layout ${c.number} has no result`)
+			const idAndParent = r => `${r[1]} in ${r[2] ?? ''}`
+			const nodes = c.input.filter(r => r[0] === 'node').map(idAndParent)
+			assert.deepEqual(c.output.filter(r => r[0] === 'place').map(idAndParent), nodes, name)
+			assert.ok(c.output.filter(r => r[0] === 'place').every(r => r.slice(3, 7).every(v => Number.isFinite(Number(v)))), name)
+			const edges = c.input.filter(r => r[0] === 'edge').map(r => r[1])
+			assert.ok(edges.length > 0, name)
+			assert.deepEqual(c.output.filter(r => r[0] === 'route').map(r => r[1]), edges, name)
+			assert.ok(c.output.filter(r => r[0] === 'section').length >= edges.length, name)
+		})
+	}
+})
+
+test('a case drawn with dagre has no ELK dump', () => {
+	const dir = temp()
+	try {
+		fs.writeFileSync(path.join(dir, 'dagre.mmd'), '---\nconfig:\n  layout: dagre\n---\nflowchart LR\n  a --> b\n')
+		fs.writeFileSync(path.join(dir, 'elk.mmd'), 'flowchart LR\n  a --> b\n')
+		const result = run(root, dir, dir)
+		assert.equal(result.status, 0, result.stderr)
+		assert.ok(fs.existsSync(path.join(dir, 'facts', 'elk.elk.txt')))
+		assert.ok(!fs.existsSync(path.join(dir, 'facts', 'dagre.elk.txt')))
+	} finally {
+		fs.rmSync(dir, { recursive: true, force: true })
+	}
+})
+
+test('the ELK hook wraps mermaid\'s elk.layout call once and refuses a bundle without it', () => {
+	const code = fs.readFileSync(path.join(root, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js'), 'utf8')
+	const hooked = hookElk(code)
+	assert.equal(hooked.split('globalThis.__oracleElk?.before(').length, 2)
+	assert.equal(hooked.split('globalThis.__oracleElk?.after(').length, 2)
+	assert.equal(hooked.length - code.length, 'globalThis.__oracleElk?.before(t);;globalThis.__oracleElk?.after(l)'.length)
+	assert.throws(() => hookElk(code.replace('"layoutCore"', '"core"')), /found 0 times in mermaid\.min\.js/)
+})
+
 test('the preprocess hook exposes preprocessDiagram once and refuses a bundle without it', () => {
 	const code = fs.readFileSync(path.join(root, 'node_modules', 'mermaid', 'dist', 'mermaid.min.js'), 'utf8')
 	assert.equal(hookPreprocess(code).split('globalThis.__oraclePreprocess=').length, 2)
@@ -291,8 +342,8 @@ test('a case in a subfolder gets its files beside it, with the output of the sam
 		assert.equal(result.status, 0, result.stderr)
 		assert.deepEqual(fs.readdirSync(path.join(dir, 'pie')).sort(), ['pie.boxes.txt', 'pie.facts.txt', 'pie.mmd'])
 		assert.deepEqual(fs.readdirSync(path.join(dir, 'flowchart')).sort(),
-			['flowchart-v2.boxes.txt', 'flowchart-v2.dagre.txt', 'flowchart-v2.facts.txt', 'flowchart-v2.mmd'])
-		for (const f of [...dumpFiles, 'pie/pie.facts.txt', 'pie/pie.boxes.txt', 'flowchart/flowchart-v2.dagre.txt'])
+			['flowchart-v2.boxes.txt', 'flowchart-v2.dagre.txt', 'flowchart-v2.elk.txt', 'flowchart-v2.facts.txt', 'flowchart-v2.mmd'])
+		for (const f of [...dumpFiles, 'pie/pie.facts.txt', 'pie/pie.boxes.txt', 'flowchart/flowchart-v2.dagre.txt', 'flowchart/flowchart-v2.elk.txt'])
 			assert.ok(fs.readFileSync(path.join(dir, f)).equals(fs.readFileSync(path.join(first, 'facts', path.basename(f)))), f)
 	} finally {
 		fs.rmSync(dir, { recursive: true, force: true })

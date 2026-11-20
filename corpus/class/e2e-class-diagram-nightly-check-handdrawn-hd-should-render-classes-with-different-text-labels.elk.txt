@@ -1,0 +1,49 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2b20e24b4d205113
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	C1	root	91.25057983398438	84.55370330810547
+node	C2	root	117.51193237304688	84.4459457397461
+node	C3	root	131.36016845703125	84.42682647705078
+node	C4	root	132.2352752685547	84.63754272460938
+node	C5	root	132.37875366210938	84.9195785522461
+node	C7	root	124.93761444091797	84.78382110595703
+node	C8	root	124.38127899169922	84.46357727050781
+node	C9	root	103.12747955322266	84.94430541992188
+node	C10	root	150.42027282714844	84.49290466308594
+node	C11	root	152.3358917236328	84.84471893310547
+node	C12	root	191.64739990234375	84.67433166503906
+node	C13	root	211.35794067382812	84.79586791992188
+result
+place	root		0	0	2126.9445877075195	108.94430541992188
+place	C1	root	12	12.195301055908203	91.25057983398438	84.55370330810547
+place	C2	root	143.25057983398438	12.24917984008789	117.51193237304688	84.4459457397461
+place	C3	root	300.76251220703125	12.258739471435547	131.36016845703125	84.42682647705078
+place	C4	root	472.1226806640625	12.15338134765625	132.2352752685547	84.63754272460938
+place	C5	root	644.3579559326172	12.01236343383789	132.37875366210938	84.9195785522461
+place	C7	root	816.7367095947266	12.080242156982422	124.93761444091797	84.78382110595703
+place	C8	root	981.6743240356445	12.240364074707031	124.38127899169922	84.46357727050781
+place	C9	root	1146.0556030273438	12	103.12747955322266	84.94430541992188
+place	C10	root	1289.1830825805664	12.225700378417969	150.42027282714844	84.49290466308594
+place	C11	root	1479.6033554077148	12.049793243408203	152.3358917236328	84.84471893310547
+place	C12	root	1671.9392471313477	12.134986877441406	191.64739990234375	84.67433166503906
+place	C13	root	1903.5866470336914	12.07421875	211.35794067382812	84.79586791992188

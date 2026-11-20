@@ -1,0 +1,118 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 680e05b204658ff7
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	TV	root
+option	node	TV		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	TV		nodeSize.minimum	(25.890625, 0)
+option	node	TV		spacing.baseValue	24
+option	node	TV		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	TV		elk.spacing.edgeEdge	20
+option	node	TV		spacing.nodeNode	50
+option	node	TV		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	TV		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	TV		elk.layered.mergeEdges	false
+option	node	TV		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	TV		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	TV		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	TV		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	TV		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	TV		elk.algorithm	elk.layered
+option	node	TV		elk.direction	DOWN
+option	node	TV		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	TV	0	TV	17.890625	19
+node	TV_start	TV	14	14
+node	fork_state	TV	136	37
+node	State2	TV	136	37
+node	State3	TV	136	37
+node	join_state	TV	136	37
+node	State4	TV	136	37
+node	TV_end	TV	14.013293266296387	14
+edge	edge0	root	root_start	TV
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	TV_start	fork_state
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	fork_state	State2
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	fork_state	State3
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	State2	join_state
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	State3	join_state
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	join_state	State4
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	State4	TV_end
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	394	518
+place	root_start	root	187	12	14	14
+place	TV	root	12	66	370	440
+place-label	node	TV	0	176.0546875	5	17.890625	19
+place	TV_start	TV	174.2	48	14	14
+place	fork_state	TV	117	86	136	37
+place	State2	TV	210	183	136	37
+place	State3	TV	24	183	136	37
+place	join_state	TV	117	280	136	37
+place	State4	TV	117	341	136	37
+place	TV_end	TV	174.2	402	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	197,26	197,66		root_start	TV
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	TV
+section	edge1	edge1_s0	185,62	185,86		TV_start	fork_state
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	TV
+section	edge2	edge2_s0	204.06666666666666,123	278,183	204.06666666666666,153 278,153	fork_state	State2
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	TV
+section	edge3	edge3_s0	165.93333333333334,123	92,183	165.93333333333334,153 92,153	fork_state	State3
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	TV
+section	edge4	edge4_s0	278,220	204.06666666666666,280	278,250 204.06666666666666,250	State2	join_state
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	TV
+section	edge5	edge5_s0	92,220	165.93333333333334,280	92,250 165.93333333333334,250	State3	join_state
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	TV
+section	edge6	edge6_s0	185,317	185,341		join_state	State4
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	TV
+section	edge7	edge7_s0	185,378	185,402		State4	TV_end
+place-label	edge	edge7	0	0	0	0	0

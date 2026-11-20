@@ -1,0 +1,59 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ae2ef126e59e75b9
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	160	58
+option	node	A		elk.portAlignment.default	CENTER
+node	B	root	160	58
+option	node	B		elk.portAlignment.default	CENTER
+edge	trueEdge	root	A	B
+label	edge	trueEdge	0		0	0
+option	edge-label	trueEdge	0	edgeLabels.inline	true
+option	edge-label	trueEdge	0	edgeLabels.placement	CENTER
+edge	fastEdge	root	A	B
+label	edge	fastEdge	0		0	0
+option	edge-label	fastEdge	0	edgeLabels.inline	true
+option	edge-label	fastEdge	0	edgeLabels.placement	CENTER
+edge	slowEdge	root	A	B
+label	edge	slowEdge	0		0	0
+option	edge-label	slowEdge	0	edgeLabels.inline	true
+option	edge-label	slowEdge	0	edgeLabels.placement	CENTER
+edge	offEdge	root	A	B
+label	edge	offEdge	0		0	0
+option	edge-label	offEdge	0	edgeLabels.inline	true
+option	edge-label	offEdge	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	384	82
+place	A	root	12	12	160	58
+place	B	root	212	12	160	58
+route	trueEdge	root	root
+section	trueEdge	trueEdge_s0	172,22	212,22		A	B
+place-label	edge	trueEdge	0	0	0	0	0
+route	fastEdge	root	root
+section	fastEdge	fastEdge_s0	172,34.66666666666667	212,34.66666666666667		A	B
+place-label	edge	fastEdge	0	0	0	0	0
+route	slowEdge	root	root
+section	slowEdge	slowEdge_s0	172,47.333333333333336	212,47.333333333333336		A	B
+place-label	edge	slowEdge	0	0	0	0	0
+route	offEdge	root	root
+section	offEdge	offEdge_s0	172,60	212,60		A	B
+place-label	edge	offEdge	0	0	0	0	0

@@ -1,0 +1,38 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 572c0929dce196d8
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Class10	root	88.63209533691406	138.65574645996094
+node	note0	root	132.67335510253906	57.29074478149414
+node	note1	root	168.1296844482422	57.467655181884766
+edge	edgeNote1	root	note1	Class10
+label	edge	edgeNote1	0		0	0
+option	edge-label	edgeNote1	0	edgeLabels.inline	true
+option	edge-label	edgeNote1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	364.80303955078125	260.1234016418457
+place	Class10	root	224.42214965820312	109.46765518188477	88.63209533691406	138.65574645996094
+place	note0	root	12	12.088455200195312	132.67335510253906	57.29074478149414
+place	note1	root	184.67335510253906	12	168.1296844482422	57.467655181884766
+route	edgeNote1	root	root
+section	edgeNote1	edgeNote1_s0	268.73819732666016,69.46765518188477	268.73819732666016,109.46765518188477		note1	Class10
+place-label	edge	edgeNote1	0	0	0	0	0

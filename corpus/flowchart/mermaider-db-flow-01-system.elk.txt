@@ -1,0 +1,306 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 02de9d75d0b69e25
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Outputs	root
+option	node	Outputs		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Outputs		nodeSize.minimum	(57.03125, 0)
+option	node	Outputs		spacing.baseValue	24
+option	node	Outputs		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Outputs		elk.spacing.edgeEdge	20
+option	node	Outputs		spacing.nodeNode	50
+option	node	Outputs		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Outputs		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Outputs		elk.layered.mergeEdges	false
+option	node	Outputs		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Outputs		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Outputs		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Outputs		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Outputs		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Outputs		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Outputs	0	Outputs	49.03125	19
+node	Site	Outputs	152	45
+option	node	Site		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Links	Outputs	152	45
+option	node	Links		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	SpecIndex	Outputs	152	66
+option	node	SpecIndex		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Search	Outputs	152	45
+option	node	Search		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Notes	Outputs	152	66
+option	node	Notes		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Build	root
+option	node	Build		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Build		nodeSize.minimum	(39.140625, 0)
+option	node	Build		spacing.baseValue	24
+option	node	Build		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Build		elk.spacing.edgeEdge	20
+option	node	Build		spacing.nodeNode	50
+option	node	Build		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Build		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Build		elk.layered.mergeEdges	false
+option	node	Build		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Build		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Build		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Build		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Build		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Build		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Build	0	Build	31.140625	19
+node	Isolated	Build	152	45
+option	node	Isolated		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Assembler	Build	152	45
+option	node	Assembler		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Codex	Build	152	45
+option	node	Codex		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Authoring	root
+option	node	Authoring		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Authoring		nodeSize.minimum	(191.65625, 0)
+option	node	Authoring		spacing.baseValue	24
+option	node	Authoring		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Authoring		elk.spacing.edgeEdge	20
+option	node	Authoring		spacing.nodeNode	50
+option	node	Authoring		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Authoring		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Authoring		elk.layered.mergeEdges	false
+option	node	Authoring		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Authoring		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Authoring		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Authoring		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Authoring		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Authoring		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Authoring	0	Authoring (in each repository)	183.65625	19
+node	DocSet	Authoring	152	66
+option	node	DocSet		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	OpenApi	Authoring	152	45
+option	node	OpenApi		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Changelog	Authoring	152	45
+option	node	Changelog		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Sources	root
+option	node	Sources		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Sources		nodeSize.minimum	(59.359375, 0)
+option	node	Sources		spacing.baseValue	24
+option	node	Sources		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Sources		elk.spacing.edgeEdge	20
+option	node	Sources		spacing.nodeNode	50
+option	node	Sources		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Sources		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Sources		elk.layered.mergeEdges	false
+option	node	Sources		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Sources		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Sources		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Sources		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Sources		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Sources		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Sources	0	Sources	51.359375	19
+node	Repo	Sources	152	45
+option	node	Repo		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Reference	root
+option	node	Reference		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Reference		nodeSize.minimum	(158.203125, 0)
+option	node	Reference		spacing.baseValue	24
+option	node	Reference		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Reference		elk.spacing.edgeEdge	20
+option	node	Reference		spacing.nodeNode	50
+option	node	Reference		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Reference		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Reference		elk.layered.mergeEdges	false
+option	node	Reference		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Reference		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Reference		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Reference		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Reference		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Reference		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Reference	0	Reference data (config/)	150.203125	19
+node	Catalog	Reference	152	66
+option	node	Catalog		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_Catalog_DocSet_0	root	Catalog	DocSet
+label	edge	L_Catalog_DocSet_0	0		0	0
+option	edge-label	L_Catalog_DocSet_0	0	edgeLabels.inline	true
+option	edge-label	L_Catalog_DocSet_0	0	edgeLabels.placement	CENTER
+edge	L_Repo_DocSet_0	root	Repo	DocSet
+label	edge	L_Repo_DocSet_0	0		0	0
+option	edge-label	L_Repo_DocSet_0	0	edgeLabels.inline	true
+option	edge-label	L_Repo_DocSet_0	0	edgeLabels.placement	CENTER
+edge	L_Repo_OpenApi_0	root	Repo	OpenApi
+label	edge	L_Repo_OpenApi_0	0		0	0
+option	edge-label	L_Repo_OpenApi_0	0	edgeLabels.inline	true
+option	edge-label	L_Repo_OpenApi_0	0	edgeLabels.placement	CENTER
+edge	L_Repo_Changelog_0	root	Repo	Changelog
+label	edge	L_Repo_Changelog_0	0		0	0
+option	edge-label	L_Repo_Changelog_0	0	edgeLabels.inline	true
+option	edge-label	L_Repo_Changelog_0	0	edgeLabels.placement	CENTER
+edge	L_OpenApi_SpecIndex_0	root	OpenApi	SpecIndex
+label	edge	L_OpenApi_SpecIndex_0	0	published per version	133.09375	21
+option	edge-label	L_OpenApi_SpecIndex_0	0	edgeLabels.inline	true
+option	edge-label	L_OpenApi_SpecIndex_0	0	edgeLabels.placement	CENTER
+edge	L_OpenApi_DocSet_0	root	OpenApi	DocSet
+label	edge	L_OpenApi_DocSet_0	0	api: local spec	88.71875	21
+option	edge-label	L_OpenApi_DocSet_0	0	edgeLabels.inline	true
+option	edge-label	L_OpenApi_DocSet_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_SpecIndex_0	root	DocSet	SpecIndex
+label	edge	L_DocSet_SpecIndex_0	0	api: spec + repository	133.46875	21
+option	edge-label	L_DocSet_SpecIndex_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_SpecIndex_0	0	edgeLabels.placement	CENTER
+edge	L_SpecIndex_Isolated_0	root	SpecIndex	Isolated
+label	edge	L_SpecIndex_Isolated_0	0		0	0
+option	edge-label	L_SpecIndex_Isolated_0	0	edgeLabels.inline	true
+option	edge-label	L_SpecIndex_Isolated_0	0	edgeLabels.placement	CENTER
+edge	L_SpecIndex_Assembler_0	root	SpecIndex	Assembler
+label	edge	L_SpecIndex_Assembler_0	0		0	0
+option	edge-label	L_SpecIndex_Assembler_0	0	edgeLabels.inline	true
+option	edge-label	L_SpecIndex_Assembler_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Isolated_0	root	DocSet	Isolated
+label	edge	L_DocSet_Isolated_0	0		0	0
+option	edge-label	L_DocSet_Isolated_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Isolated_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Assembler_0	root	DocSet	Assembler
+label	edge	L_DocSet_Assembler_0	0		0	0
+option	edge-label	L_DocSet_Assembler_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Assembler_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Codex_0	root	DocSet	Codex
+label	edge	L_DocSet_Codex_0	0		0	0
+option	edge-label	L_DocSet_Codex_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Codex_0	0	edgeLabels.placement	CENTER
+edge	L_Isolated_Links_0	root	Links	Isolated
+label	edge	L_Isolated_Links_0	0		0	0
+option	edge-label	L_Isolated_Links_0	0	edgeLabels.inline	true
+option	edge-label	L_Isolated_Links_0	0	edgeLabels.placement	CENTER
+edge	L_Links_Assembler_0	root	Links	Assembler
+label	edge	L_Links_Assembler_0	0		0	0
+option	edge-label	L_Links_Assembler_0	0	edgeLabels.inline	true
+option	edge-label	L_Links_Assembler_0	0	edgeLabels.placement	CENTER
+edge	L_Links_Codex_0	root	Links	Codex
+label	edge	L_Links_Codex_0	0		0	0
+option	edge-label	L_Links_Codex_0	0	edgeLabels.inline	true
+option	edge-label	L_Links_Codex_0	0	edgeLabels.placement	CENTER
+edge	L_Assembler_Site_0	root	Site	Assembler
+label	edge	L_Assembler_Site_0	0		0	0
+option	edge-label	L_Assembler_Site_0	0	edgeLabels.inline	true
+option	edge-label	L_Assembler_Site_0	0	edgeLabels.placement	CENTER
+edge	L_Codex_Site_0	root	Site	Codex
+label	edge	L_Codex_Site_0	0		0	0
+option	edge-label	L_Codex_Site_0	0	edgeLabels.inline	true
+option	edge-label	L_Codex_Site_0	0	edgeLabels.placement	CENTER
+edge	L_Isolated_Site_0	root	Site	Isolated
+label	edge	L_Isolated_Site_0	0		0	0
+option	edge-label	L_Isolated_Site_0	0	edgeLabels.inline	true
+option	edge-label	L_Isolated_Site_0	0	edgeLabels.placement	CENTER
+edge	L_Assembler_Search_0	root	Search	Assembler
+label	edge	L_Assembler_Search_0	0		0	0
+option	edge-label	L_Assembler_Search_0	0	edgeLabels.inline	true
+option	edge-label	L_Assembler_Search_0	0	edgeLabels.placement	CENTER
+edge	L_Changelog_Notes_0	root	Changelog	Notes
+label	edge	L_Changelog_Notes_0	0		0	0
+option	edge-label	L_Changelog_Notes_0	0	edgeLabels.inline	true
+option	edge-label	L_Changelog_Notes_0	0	edgeLabels.placement	CENTER
+edge	L_Notes_Site_0	root	Notes	Site
+label	edge	L_Notes_Site_0	0		0	0
+option	edge-label	L_Notes_Site_0	0	edgeLabels.inline	true
+option	edge-label	L_Notes_Site_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	2190.1875	505.2
+place	Outputs	root	1246.1875	75	472	317.5
+place-label	node	Outputs	0	211.484375	5	49.03125	19
+place	Site	Outputs	236	238	152	45
+place	Links	Outputs	236	73	152	45
+place	SpecIndex	Outputs	24	62	152	66
+place	Search	Outputs	236	143	152	45
+place	Notes	Outputs	24	227.5	152	66
+place	Build	root	1858.1875	67.75	320	328
+place-label	node	Build	0	144.4296875	5	31.140625	19
+place	Isolated	Build	144	55.5	152	45
+place	Assembler	Build	144	150.5	152	45
+place	Codex	Build	144	245.5	152	45
+place	Authoring	root	352	153.3	620.71875	226.3
+place-label	node	Authoring	0	218.53125	5	183.65625	19
+place	DocSet	Authoring	384.71875	77.3	152	66
+place	OpenApi	Authoring	24	49.5	152	45
+place	Changelog	Authoring	24	133.3	152	45
+place	Sources	root	12	195.2	260	120
+place-label	node	Sources	0	104.3203125	5	51.359375	19
+place	Repo	Sources	24	49.5	152	45
+place	Reference	root	72	355.2	200	138
+place-label	node	Reference	0	24.8984375	5	150.203125	19
+place	Catalog	Reference	24	48	152	66
+route	L_Catalog_DocSet_0	root	root
+section	L_Catalog_DocSet_0	L_Catalog_DocSet_0_s0	248,436.2	736.71875,274.70000000000005	282,436.2 302,436.2 302,343.6 342,343.6 706.71875,343.6 706.71875,274.70000000000005	Catalog	DocSet
+place-label	edge	L_Catalog_DocSet_0	0	0	0	0	0
+route	L_Repo_DocSet_0	root	root
+section	L_Repo_DocSet_0	L_Repo_DocSet_0_s0	188,267.2	736.71875,263.6	282,267.2 322,267.2 322,264.1 342,264.1 706.71875,264.1 706.71875,263.6	Repo	DocSet
+place-label	edge	L_Repo_DocSet_0	0	0	0	0	0
+route	L_Repo_OpenApi_0	root	root
+section	L_Repo_OpenApi_0	L_Repo_OpenApi_0_s0	188,261.34999999999997	376,225.3	218,261.34999999999997 218,255.2 282,255.2 302,255.2 302,225.3 342,225.3	Repo	OpenApi
+place-label	edge	L_Repo_OpenApi_0	0	0	0	0	0
+route	L_Repo_Changelog_0	root	root
+section	L_Repo_Changelog_0	L_Repo_Changelog_0_s0	188,273.05	376,309.1	218,273.05 218,279.2 282,279.2 302,279.2 302,309.1 342,309.1	Repo	Changelog
+place-label	edge	L_Repo_Changelog_0	0	0	0	0	0
+route	L_OpenApi_SpecIndex_0	root	root
+section	L_OpenApi_SpecIndex_0	L_OpenApi_SpecIndex_0_s0	528,221.4	1270.1875,162.60000000000002	558,221.4 558,213.3 982.71875,213.3 1002.71875,213.3 1002.71875,23 1216.1875,23 1216.1875,162.59999999999997 1236.1875,162.6	OpenApi	SpecIndex
+place-label	edge	L_OpenApi_SpecIndex_0	0	1062.90625	12	133.09375	21
+route	L_OpenApi_DocSet_0	root	Authoring
+section	L_OpenApi_DocSet_0	L_OpenApi_DocSet_0_s0	176,75.9	384.71875,99.2	206,75.9 206,84 354.71875,84 354.71875,99.2	OpenApi	DocSet
+place-label	edge	L_OpenApi_DocSet_0	0	236	73	88.71875	21
+route	L_DocSet_SpecIndex_0	root	root
+section	L_DocSet_SpecIndex_0	L_DocSet_SpecIndex_0_s0	888.71875,259.16	1270.1875,177.40000000000003	918.71875,259.16 918.71875,257.6 982.71875,257.6 1042.71875,257.6 1042.71875,177.39999999999998 1236.1875,177.4	DocSet	SpecIndex
+place-label	edge	L_DocSet_SpecIndex_0	0	1062.71875	166.39999999999998	133.46875	21
+route	L_SpecIndex_Isolated_0	root	root
+section	L_SpecIndex_Isolated_0	L_SpecIndex_Isolated_0_s0	1422.1875,162.6	2002.1875,143.41	1452.1875,162.6 1452.1875,135 1728.1875,135 1748.1875,135 1748.1875,139.75 1848.1875,139.75 1912.1875,139.75 1912.1875,143.41	SpecIndex	Isolated
+place-label	edge	L_SpecIndex_Isolated_0	0	0	0	0	0
+route	L_SpecIndex_Assembler_0	root	root
+section	L_SpecIndex_Assembler_0	L_SpecIndex_Assembler_0_s0	1422.1875,177.4	2002.1875,236.85	1452.1875,177.4 1452.1875,205 1728.1875,205 1748.1875,205 1748.1875,228.75 1848.1875,228.75 1924.1875,228.75 1924.1875,236.85	SpecIndex	Assembler
+place-label	edge	L_SpecIndex_Assembler_0	0	0	0	0	0
+route	L_DocSet_Isolated_0	root	root
+section	L_DocSet_Isolated_0	L_DocSet_Isolated_0_s0	888.71875,250.28	2002.1875,138.73000000000002	918.71875,250.28 918.71875,245.60000000000002 982.71875,245.6 1022.71875,245.6 1022.71875,54 1129.453125,54 1482.1875,54 1768.1875,54 1768.1875,127.75 1848.1875,127.75000000000003 1924.1875,127.75000000000003 1924.1875,138.73000000000002	DocSet	Isolated
+place-label	edge	L_DocSet_Isolated_0	0	0	0	0	0
+route	L_DocSet_Assembler_0	root	root
+section	L_DocSet_Assembler_0	L_DocSet_Assembler_0_s0	888.71875,268.04	2002.1875,248.55	918.71875,268.04 918.71875,269.6 982.71875,269.6 1042.71875,269.6 1042.71875,412.5 1129.453125,412.5 1482.1875,412.5 1808.1875,412.5 1808.1875,347.75 1848.1875,347.75 1960.1875,347.75 1960.1875,248.55	DocSet	Assembler
+place-label	edge	L_DocSet_Assembler_0	0	0	0	0	0
+route	L_DocSet_Codex_0	root	root
+section	L_DocSet_Codex_0	L_DocSet_Codex_0_s0	888.71875,276.92	2002.1875,341.6	918.71875,276.92 918.71875,281.6 982.71875,281.6 1022.71875,281.6 1022.71875,433.5 1129.453125,433.5 1482.1875,433.5 1828.1875,433.5 1828.1875,359.75 1848.1875,359.75 1972.1875,359.75 1972.1875,341.6	DocSet	Codex
+place-label	edge	L_DocSet_Codex_0	0	0	0	0	0
+route	L_Isolated_Links_0	root	root
+section	L_Isolated_Links_0	L_Isolated_Links_0_s0	1634.1875,164.65	2002.1875,148.09	1664.1875,164.65 1664.1875,158.5 1728.1875,158.5 1748.1875,158.5 1748.1875,151.75 1848.1875,151.75 1912.1875,151.75 1912.1875,148.09	Links	Isolated
+place-label	edge	L_Isolated_Links_0	0	0	0	0	0
+route	L_Links_Assembler_0	root	root
+section	L_Links_Assembler_0	L_Links_Assembler_0_s0	1634.1875,170.5	2002.1875,232.95	1728.1875,170.5 1788.1875,170.5 1788.1875,204.75 1848.1875,204.75 1948.1875,204.75 1948.1875,232.95	Links	Assembler
+place-label	edge	L_Links_Assembler_0	0	0	0	0	0
+route	L_Links_Codex_0	root	root
+section	L_Links_Codex_0	L_Links_Codex_0_s0	1634.1875,176.35000000000002	2002.1875,329.9	1664.1875,176.35000000000002 1664.1875,182.5 1728.1875,182.5 1768.1875,182.5 1768.1875,216.75 1848.1875,216.75 1912.1875,216.75 1912.1875,329.9	Links	Codex
+place-label	edge	L_Links_Codex_0	0	0	0	0	0
+route	L_Assembler_Site_0	root	root
+section	L_Assembler_Site_0	L_Assembler_Site_0_s0	1634.1875,335.5	2002.1875,244.65	1728.1875,335.5 1768.1875,335.5 1768.1875,264.75 1848.1875,264.75 1948.1875,264.75 1948.1875,244.65	Site	Assembler
+place-label	edge	L_Assembler_Site_0	0	0	0	0	0
+route	L_Codex_Site_0	root	root
+section	L_Codex_Site_0	L_Codex_Site_0_s0	1634.1875,341.35	2002.1875,335.75	1664.1875,341.35 1664.1875,347.5 1728.1875,347.5 1788.1875,347.5 1788.1875,335.75 1848.1875,335.75	Site	Codex
+place-label	edge	L_Codex_Site_0	0	0	0	0	0
+route	L_Isolated_Site_0	root	root
+section	L_Isolated_Site_0	L_Isolated_Site_0_s0	1634.1875,329.65	2002.1875,152.77	1664.1875,329.65 1664.1875,323.5 1728.1875,323.5 1748.1875,323.5 1748.1875,252.75 1848.1875,252.75 1936.1875,252.75 1936.1875,152.77	Site	Isolated
+place-label	edge	L_Isolated_Site_0	0	0	0	0	0
+route	L_Assembler_Search_0	root	root
+section	L_Assembler_Search_0	L_Assembler_Search_0_s0	1634.1875,240.5	2002.1875,240.75	1728.1875,240.5 1748.1875,240.5 1748.1875,240.75 1848.1875,240.75	Search	Assembler
+place-label	edge	L_Assembler_Search_0	0	0	0	0	0
+route	L_Changelog_Notes_0	root	root
+section	L_Changelog_Notes_0	L_Changelog_Notes_0_s0	528,309.1	1270.1875,335.5	982.71875,309.1 1002.71875,309.1 1002.71875,454.5 1129.453125,454.5 1216.1875,454.5 1216.1875,335.5 1236.1875,335.5	Changelog	Notes
+place-label	edge	L_Changelog_Notes_0	0	0	0	0	0
+route	L_Notes_Site_0	root	Outputs
+section	L_Notes_Site_0	L_Notes_Site_0_s0	176,260.5	236,260.5		Notes	Site
+place-label	edge	L_Notes_Site_0	0	0	0	0	0

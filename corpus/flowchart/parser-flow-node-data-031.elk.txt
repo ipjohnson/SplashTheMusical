@@ -1,0 +1,63 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8340c2ffd6d35435
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	152	45
+node	B	root	152	45
+node	C	root	152	45
+node	D	root	152	45
+node	E	root	152	45
+edge	e1	root	A	B
+label	edge	e1	0		0	0
+option	edge-label	e1	0	edgeLabels.inline	true
+option	edge-label	e1	0	edgeLabels.placement	CENTER
+edge	e2	root	B	C
+label	edge	e2	0		0	0
+option	edge-label	e2	0	edgeLabels.inline	true
+option	edge-label	e2	0	edgeLabels.placement	CENTER
+edge	e3	root	B	D
+label	edge	e3	0		0	0
+option	edge-label	e3	0	edgeLabels.inline	true
+option	edge-label	e3	0	edgeLabels.placement	CENTER
+edge	e4	root	C	E
+label	edge	e4	0		0	0
+option	edge-label	e4	0	edgeLabels.inline	true
+option	edge-label	e4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	752	154
+place	A	root	12	54.5	152	45
+place	B	root	204	54.5	152	45
+place	C	root	396	12	152	45
+place	D	root	396	97	152	45
+place	E	root	588	12	152	45
+route	e1	root	root
+section	e1	e1_s0	164,77	204,77		A	B
+place-label	edge	e1	0	0	0	0	0
+route	e2	root	root
+section	e2	e2_s0	356,72.83333333333334	396,34.5	376,72.83333333333334 376,34.5	B	C
+place-label	edge	e2	0	0	0	0	0
+route	e3	root	root
+section	e3	e3_s0	356,81.16666666666667	396,119.5	376,81.16666666666667 376,119.5	B	D
+place-label	edge	e3	0	0	0	0	0
+route	e4	root	root
+section	e4	e4_s0	548,34.5	588,34.5		C	E
+place-label	edge	e4	0	0	0	0	0

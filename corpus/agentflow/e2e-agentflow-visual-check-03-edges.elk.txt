@@ -1,0 +1,61 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source adfb6173879504f9
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	check	root	171	171
+node	ship	root	204	91
+node	fix	root	150	51
+node	logs	root	167.1999969482422	67.49201202392578
+edge	L_check_ship_0	root	check	ship
+label	edge	L_check_ship_0	0	yes	21.796875	21
+option	edge-label	L_check_ship_0	0	edgeLabels.inline	true
+option	edge-label	L_check_ship_0	0	edgeLabels.placement	CENTER
+edge	L_check_fix_0	root	check	fix
+label	edge	L_check_fix_0	0	no	15.578125	21
+option	edge-label	L_check_fix_0	0	edgeLabels.inline	true
+option	edge-label	L_check_fix_0	0	edgeLabels.placement	CENTER
+edge	L_fix_check_0	root	fix	check
+label	edge	L_fix_check_0	0		0	0
+option	edge-label	L_fix_check_0	0	edgeLabels.inline	true
+option	edge-label	L_fix_check_0	0	edgeLabels.placement	CENTER
+edge	L_fix_logs_0	root	fix	logs
+label	edge	L_fix_logs_0	0		0	0
+option	edge-label	L_fix_logs_0	0	edgeLabels.inline	true
+option	edge-label	L_fix_logs_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	426.5999984741211	494.4920120239258
+place	check	root	223.83333333333331	12	171	171
+place	ship	root	12	284	204	91
+place	fix	root	256	297.3333333333333	150	51
+place	logs	root	247.4000015258789	415	167.1999969482422	67.49201202392578
+route	L_check_ship_0	root	root
+section	L_check_ship_0	L_check_ship_0_s0	271.5833333333333,183	114,284	271.5833333333333,203 114,203	check	ship
+place-label	edge	L_check_ship_0	0	103	223	21.796875	21
+route	L_check_fix_0	root	root
+section	L_check_fix_0	L_check_fix_0_s0	309.3333333333333,183	309.3333333333333,297.3333333333333		check	fix
+place-label	edge	L_check_fix_0	0	301.3333333333333	223	15.578125	21
+route	L_fix_check_0	root	root
+section	L_fix_check_0	L_fix_check_0_s0	352.66666666666663,297.3333333333333	347.0833333333333,183	352.66666666666663,233.5 352.66666666666663,203 347.0833333333333,203	fix	check
+place-label	edge	L_fix_check_0	0	0	0	0	0
+route	L_fix_logs_0	root	root
+section	L_fix_logs_0	L_fix_logs_0_s0	331,348.3333333333333	331,415		fix	logs
+place-label	edge	L_fix_logs_0	0	0	0	0	0

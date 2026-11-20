@@ -1,0 +1,258 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ad319d041d947e8c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-DocumentationSet-0	root	155.1875	81
+node	entity-DocumentationFile-1	root	156.734375	81
+node	entity-Page-2	root	100	81
+node	entity-FrontMatter-3	root	112.359375	81
+node	entity-Applicability-4	root	113.9375	81
+node	entity-Product-5	root	100	81
+node	entity-Cta-6	root	100	81
+node	entity-PageSubstitution-7	root	145.859375	81
+node	entity-LegacyPage-8	root	117.84375	81
+node	entity-ListingGroup-9	root	119.390625	81
+node	entity-Heading-10	root	92.15625	81
+node	entity-Anchor-11	root	100	81
+node	entity-Directive-12	root	94.46875	81
+node	entity-Link-13	root	100	81
+node	entity-InternalLink-14	root	112.390625	81
+node	entity-CrossLink-15	root	102.25	81
+node	entity-CrossLinkUri-16	root	120.125	81
+node	entity-ImageLink-17	root	104.59375	81
+node	entity-Image-18	root	100	81
+node	entity-IncludeDirective-19	root	139.609375	81
+node	entity-Snippet-20	root	100	81
+node	entity-SettingsDirective-21	root	145.046875	81
+node	entity-SettingsReference-22	root	155.1875	81
+node	entity-ChangelogDirective-23	root	162.1875	81
+node	entity-RelatedLearningDirective-24	root	197.203125	81
+node	entity-RelatedLearningLink-25	root	168.4375	81
+node	entity-PageCardDirective-26	root	157.5	81
+node	entity-ApplicabilityEntry-27	root	146.609375	81
+node	entity-VersionSpec-28	root	118.609375	81
+edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	root	entity-DocumentationSet-0	entity-DocumentationFile-1
+label	edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	files	24.90625	21
+option	edge-label	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-FrontMatter-3_1	root	entity-Page-2	entity-FrontMatter-3
+label	edge	id_entity-Page-2_entity-FrontMatter-3_1	0	--- yaml ---	65.3125	21
+option	edge-label	id_entity-Page-2_entity-FrontMatter-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-FrontMatter-3_1	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-Applicability-4_2	root	entity-FrontMatter-3	entity-Applicability-4
+label	edge	id_entity-FrontMatter-3_entity-Applicability-4_2	0	applies_to	63.828125	21
+option	edge-label	id_entity-FrontMatter-3_entity-Applicability-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-Applicability-4_2	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-Product-5_3	root	entity-FrontMatter-3	entity-Product-5
+label	edge	id_entity-FrontMatter-3_entity-Product-5_3	0	products	53.703125	21
+option	edge-label	id_entity-FrontMatter-3_entity-Product-5_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-Product-5_3	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-Cta-6_4	root	entity-FrontMatter-3	entity-Cta-6
+label	edge	id_entity-FrontMatter-3_entity-Cta-6_4	0	cta.id	33.46875	21
+option	edge-label	id_entity-FrontMatter-3_entity-Cta-6_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-Cta-6_4	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	root	entity-FrontMatter-3	entity-PageSubstitution-7
+label	edge	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	0	sub	22.578125	21
+option	edge-label	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-LegacyPage-8_6	root	entity-FrontMatter-3	entity-LegacyPage-8
+label	edge	id_entity-FrontMatter-3_entity-LegacyPage-8_6	0	mapped_pages	96.53125	21
+option	edge-label	id_entity-FrontMatter-3_entity-LegacyPage-8_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-LegacyPage-8_6	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-ListingGroup-9_7	root	entity-FrontMatter-3	entity-ListingGroup-9
+label	edge	id_entity-FrontMatter-3_entity-ListingGroup-9_7	0	listing.group	75.5	21
+option	edge-label	id_entity-FrontMatter-3_entity-ListingGroup-9_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-ListingGroup-9_7	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Heading-10_8	root	entity-Page-2	entity-Heading-10
+label	edge	id_entity-Page-2_entity-Heading-10_8	0	## text	42.03125	21
+option	edge-label	id_entity-Page-2_entity-Heading-10_8	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Heading-10_8	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Anchor-11_9	root	entity-Page-2	entity-Anchor-11
+label	edge	id_entity-Page-2_entity-Anchor-11_9	0	collected	55.265625	21
+option	edge-label	id_entity-Page-2_entity-Anchor-11_9	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Anchor-11_9	0	edgeLabels.placement	CENTER
+edge	id_entity-Heading-10_entity-Anchor-11_10	root	entity-Heading-10	entity-Anchor-11
+label	edge	id_entity-Heading-10_entity-Anchor-11_10	0	slug	25.6875	21
+option	edge-label	id_entity-Heading-10_entity-Anchor-11_10	0	edgeLabels.inline	true
+option	edge-label	id_entity-Heading-10_entity-Anchor-11_10	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Directive-12_11	root	entity-Page-2	entity-Directive-12
+label	edge	id_entity-Page-2_entity-Directive-12_11	0	contains	52.15625	21
+option	edge-label	id_entity-Page-2_entity-Directive-12_11	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Directive-12_11	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Link-13_12	root	entity-Page-2	entity-Link-13
+label	edge	id_entity-Page-2_entity-Link-13_12	0	contains	52.15625	21
+option	edge-label	id_entity-Page-2_entity-Link-13_12	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Link-13_12	0	edgeLabels.placement	CENTER
+edge	id_entity-InternalLink-14_entity-Page-2_13	root	entity-InternalLink-14	entity-Page-2
+label	edge	id_entity-InternalLink-14_entity-Page-2_13	0	path	27.25	21
+option	edge-label	id_entity-InternalLink-14_entity-Page-2_13	0	edgeLabels.inline	true
+option	edge-label	id_entity-InternalLink-14_entity-Page-2_13	0	edgeLabels.placement	CENTER
+edge	id_entity-InternalLink-14_entity-Anchor-11_14	root	entity-InternalLink-14	entity-Anchor-11
+label	edge	id_entity-InternalLink-14_entity-Anchor-11_14	0	#anchor	50.59375	21
+option	edge-label	id_entity-InternalLink-14_entity-Anchor-11_14	0	edgeLabels.inline	true
+option	edge-label	id_entity-InternalLink-14_entity-Anchor-11_14	0	edgeLabels.placement	CENTER
+edge	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	root	entity-CrossLink-15	entity-CrossLinkUri-16
+label	edge	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	0	repo://path	66.9375	21
+option	edge-label	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	0	edgeLabels.inline	true
+option	edge-label	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	0	edgeLabels.placement	CENTER
+edge	id_entity-ImageLink-17_entity-Image-18_16	root	entity-ImageLink-17	entity-Image-18
+label	edge	id_entity-ImageLink-17_entity-Image-18_16	0	src	18.671875	21
+option	edge-label	id_entity-ImageLink-17_entity-Image-18_16	0	edgeLabels.inline	true
+option	edge-label	id_entity-ImageLink-17_entity-Image-18_16	0	edgeLabels.placement	CENTER
+edge	id_entity-IncludeDirective-19_entity-Snippet-20_17	root	entity-IncludeDirective-19	entity-Snippet-20
+label	edge	id_entity-IncludeDirective-19_entity-Snippet-20_17	0	path	27.25	21
+option	edge-label	id_entity-IncludeDirective-19_entity-Snippet-20_17	0	edgeLabels.inline	true
+option	edge-label	id_entity-IncludeDirective-19_entity-Snippet-20_17	0	edgeLabels.placement	CENTER
+edge	id_entity-Snippet-20_entity-Anchor-11_18	root	entity-Snippet-20	entity-Anchor-11
+label	edge	id_entity-Snippet-20_entity-Anchor-11_18	0	contributes	68.484375	21
+option	edge-label	id_entity-Snippet-20_entity-Anchor-11_18	0	edgeLabels.inline	true
+option	edge-label	id_entity-Snippet-20_entity-Anchor-11_18	0	edgeLabels.placement	CENTER
+edge	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	root	entity-SettingsDirective-21	entity-SettingsReference-22
+label	edge	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	0	path	27.25	21
+option	edge-label	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	0	edgeLabels.inline	true
+option	edge-label	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	0	edgeLabels.placement	CENTER
+edge	id_entity-ChangelogDirective-23_entity-Product-5_20	root	entity-ChangelogDirective-23	entity-Product-5
+label	edge	id_entity-ChangelogDirective-23_entity-Product-5_20	0	argument	59.15625	21
+option	edge-label	id_entity-ChangelogDirective-23_entity-Product-5_20	0	edgeLabels.inline	true
+option	edge-label	id_entity-ChangelogDirective-23_entity-Product-5_20	0	edgeLabels.placement	CENTER
+edge	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	root	entity-RelatedLearningDirective-24	entity-RelatedLearningLink-25
+label	edge	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	0	ids	17.90625	21
+option	edge-label	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	0	edgeLabels.inline	true
+option	edge-label	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	0	edgeLabels.placement	CENTER
+edge	id_entity-PageCardDirective-26_entity-Page-2_22	root	entity-PageCardDirective-26	entity-Page-2
+label	edge	id_entity-PageCardDirective-26_entity-Page-2_22	0	local link	53.703125	21
+option	edge-label	id_entity-PageCardDirective-26_entity-Page-2_22	0	edgeLabels.inline	true
+option	edge-label	id_entity-PageCardDirective-26_entity-Page-2_22	0	edgeLabels.placement	CENTER
+edge	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	root	entity-Applicability-4	entity-ApplicabilityEntry-27
+label	edge	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	0	per key	45.921875	21
+option	edge-label	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	0	edgeLabels.inline	true
+option	edge-label	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	0	edgeLabels.placement	CENTER
+edge	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	root	entity-ApplicabilityEntry-27	entity-VersionSpec-28
+label	edge	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	0	version	45.140625	21
+option	edge-label	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1733.234375	1135
+place	entity-DocumentationSet-0	root	93.07198660714295	12	155.1875	81
+place	entity-DocumentationFile-1	root	92.29854910714295	194	156.734375	81
+place	entity-Page-2	root	729.1579241071429	194	100	81
+place	entity-FrontMatter-3	root	513.9123883928571	416	112.359375	81
+place	entity-Applicability-4	root	361.171875	678	113.9375	81
+place	entity-Product-5	root	81.17187500000003	678	100	81
+place	entity-Cta-6	root	221.17187500000003	678	100	81
+place	entity-PageSubstitution-7	root	672.953125	678	145.859375	81
+place	entity-LegacyPage-8	root	515.109375	678	117.84375	81
+place	entity-ListingGroup-9	root	858.8125	678	119.390625	81
+place	entity-Heading-10	root	970.52734375	416	92.15625	81
+place	entity-Anchor-11	root	1295.8513764880952	678	100	81
+place	entity-Directive-12	root	668.6953125	416	94.46875	81
+place	entity-Link-13	root	803.1640625	416	100	81
+place	entity-InternalLink-14	root	944.7803199404761	12	112.390625	81
+place	entity-CrossLink-15	root	1430.4375	12	102.25	81
+place	entity-CrossLinkUri-16	root	1421.5	194	120.125	81
+place	entity-ImageLink-17	root	525.4626116071429	12	104.59375	81
+place	entity-Image-18	root	527.7594866071429	194	100	81
+place	entity-IncludeDirective-19	root	1581.625	194	139.609375	81
+place	entity-Snippet-20	root	1601.4296875	416	100	81
+place	entity-SettingsDirective-21	root	1231.3828125	12	145.046875	81
+place	entity-SettingsReference-22	root	1226.3125	194	155.1875	81
+place	entity-ChangelogDirective-23	root	12	416	162.1875	81
+place	entity-RelatedLearningDirective-24	root	288.25948660714295	12	197.203125	81
+place	entity-RelatedLearningLink-25	root	302.64229910714295	194	168.4375	81
+place	entity-PageCardDirective-26	root	670.0563616071429	12	157.5	81
+place	entity-ApplicabilityEntry-27	root	344.8359375	860	146.609375	81
+place	entity-VersionSpec-28	root	358.8359375	1042	118.609375	81
+route	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	root	root
+section	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0_s0	170.66573660714295,93	170.66573660714295,194		entity-DocumentationSet-0	entity-DocumentationFile-1
+place-label	edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	158.16573660714295	133	24.90625	21
+route	id_entity-Page-2_entity-FrontMatter-3_1	root	root
+section	id_entity-Page-2_entity-FrontMatter-3_1	id_entity-Page-2_entity-FrontMatter-3_1_s0	752.4912574404763,275	570.0920758928571,416	752.4912574404763,295 570.0920758928571,295	entity-Page-2	entity-FrontMatter-3
+place-label	edge	id_entity-Page-2_entity-FrontMatter-3_1	0	537.0920758928571	355	65.3125	21
+route	id_entity-FrontMatter-3_entity-Applicability-4_2	root	root
+section	id_entity-FrontMatter-3_entity-Applicability-4_2	id_entity-FrontMatter-3_entity-Applicability-4_2_s0	563.4949776785714,497	418.140625,678	563.4949776785714,557 418.140625,557	entity-FrontMatter-3	entity-Applicability-4
+place-label	edge	id_entity-FrontMatter-3_entity-Applicability-4_2	0	386.140625	577	63.828125	21
+route	id_entity-FrontMatter-3_entity-Product-5_3	root	root
+section	id_entity-FrontMatter-3_entity-Product-5_3	id_entity-FrontMatter-3_entity-Product-5_3_s0	537.1065848214286,497	144.50520833333337,678	537.1065848214286,517 169.25,517 169.25,618 144.50520833333337,618	entity-FrontMatter-3	entity-Product-5
+place-label	edge	id_entity-FrontMatter-3_entity-Product-5_3	0	142.25	577	53.703125	21
+route	id_entity-FrontMatter-3_entity-Cta-6_4	root	root
+section	id_entity-FrontMatter-3_entity-Cta-6_4	id_entity-FrontMatter-3_entity-Cta-6_4_s0	550.30078125,497	271.171875,678	550.30078125,537 271.171875,537	entity-FrontMatter-3	entity-Cta-6
+place-label	edge	id_entity-FrontMatter-3_entity-Cta-6_4	0	254.17187500000003	577	33.46875	21
+route	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	root	root
+section	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	id_entity-FrontMatter-3_entity-PageSubstitution-7_5_s0	589.8833705357142,497	745.8828125,678	589.8833705357142,537 745.8828125,537	entity-FrontMatter-3	entity-PageSubstitution-7
+place-label	edge	id_entity-FrontMatter-3_entity-PageSubstitution-7_5	0	734.3828125	577	22.578125	21
+route	id_entity-FrontMatter-3_entity-LegacyPage-8_6	root	root
+section	id_entity-FrontMatter-3_entity-LegacyPage-8_6	id_entity-FrontMatter-3_entity-LegacyPage-8_6_s0	576.6891741071429,497	574.03125,678	576.6891741071429,517 574.03125,517	entity-FrontMatter-3	entity-LegacyPage-8
+place-label	edge	id_entity-FrontMatter-3_entity-LegacyPage-8_6	0	525.53125	577	96.53125	21
+route	id_entity-FrontMatter-3_entity-ListingGroup-9_7	root	root
+section	id_entity-FrontMatter-3_entity-ListingGroup-9_7	id_entity-FrontMatter-3_entity-ListingGroup-9_7_s0	603.0775669642857,497	918.5078125,678	603.0775669642857,517 918.5078125,517	entity-FrontMatter-3	entity-ListingGroup-9
+place-label	edge	id_entity-FrontMatter-3_entity-ListingGroup-9_7	0	880.5078125	577	75.5	21
+route	id_entity-Page-2_entity-Heading-10_8	root	root
+section	id_entity-Page-2_entity-Heading-10_8	id_entity-Page-2_entity-Heading-10_8_s0	792.4912574404763,275	1016.60546875,416	792.4912574404763,315 1016.60546875,315	entity-Page-2	entity-Heading-10
+place-label	edge	id_entity-Page-2_entity-Heading-10_8	0	995.10546875	355	42.03125	21
+route	id_entity-Page-2_entity-Anchor-11_9	root	root
+section	id_entity-Page-2_entity-Anchor-11_9	id_entity-Page-2_entity-Anchor-11_9_s0	805.8245907738095,275	1337.8513764880952,678	805.8245907738095,295 1130.68359375,295 1130.68359375,365.5 1130.68359375,587.5 1130.68359375,638 1337.8513764880952,638	entity-Page-2	entity-Anchor-11
+place-label	edge	id_entity-Page-2_entity-Anchor-11_9	0	1102.68359375	446	55.265625	21
+route	id_entity-Heading-10_entity-Anchor-11_10	root	root
+section	id_entity-Heading-10_entity-Anchor-11_10	id_entity-Heading-10_entity-Anchor-11_10_s0	1016.60546875,497	1321.8513764880952,678	1016.60546875,658 1321.8513764880952,658	entity-Heading-10	entity-Anchor-11
+place-label	edge	id_entity-Heading-10_entity-Anchor-11_10	0	1003.60546875	577	25.6875	21
+route	id_entity-Page-2_entity-Directive-12_11	root	root
+section	id_entity-Page-2_entity-Directive-12_11	id_entity-Page-2_entity-Directive-12_11_s0	765.8245907738095,275	715.9296875,416	765.8245907738095,315 715.9296875,315	entity-Page-2	entity-Directive-12
+place-label	edge	id_entity-Page-2_entity-Directive-12_11	0	689.4296875	355	52.15625	21
+route	id_entity-Page-2_entity-Link-13_12	root	root
+section	id_entity-Page-2_entity-Link-13_12	id_entity-Page-2_entity-Link-13_12_s0	779.1579241071429,275	853.1640625,416	779.1579241071429,335 853.1640625,335	entity-Page-2	entity-Link-13
+place-label	edge	id_entity-Page-2_entity-Link-13_12	0	826.6640625	355	52.15625	21
+route	id_entity-InternalLink-14_entity-Page-2_13	root	root
+section	id_entity-InternalLink-14_entity-Page-2_13	id_entity-InternalLink-14_entity-Page-2_13_s0	985.5771949404761,93	792.4912574404763,194	985.5771949404761,113 858.9313616071429,113 858.9313616071429,174 792.4912574404763,174	entity-InternalLink-14	entity-Page-2
+place-label	edge	id_entity-InternalLink-14_entity-Page-2_13	0	844.9313616071429	133	27.25	21
+route	id_entity-InternalLink-14_entity-Anchor-11_14	root	root
+section	id_entity-InternalLink-14_entity-Anchor-11_14	id_entity-InternalLink-14_entity-Anchor-11_14_s0	1016.3740699404761,93	1353.8513764880952,678	1016.3740699404761,113 1177.94921875,113 1177.94921875,143.5 1177.94921875,234.5 1177.94921875,456.5 1177.94921875,587.5 1177.94921875,618 1353.8513764880952,618	entity-InternalLink-14	entity-Anchor-11
+place-label	edge	id_entity-InternalLink-14_entity-Anchor-11_14	0	1152.44921875	355	50.59375	21
+route	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	root	root
+section	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	id_entity-CrossLink-15_entity-CrossLinkUri-16_15_s0	1481.5625,93	1481.5625,194		entity-CrossLink-15	entity-CrossLinkUri-16
+place-label	edge	id_entity-CrossLink-15_entity-CrossLinkUri-16_15	0	1448.0625	133	66.9375	21
+route	id_entity-ImageLink-17_entity-Image-18_16	root	root
+section	id_entity-ImageLink-17_entity-Image-18_16	id_entity-ImageLink-17_entity-Image-18_16_s0	577.7594866071429,93	577.7594866071429,194		entity-ImageLink-17	entity-Image-18
+place-label	edge	id_entity-ImageLink-17_entity-Image-18_16	0	568.2594866071429	133	18.671875	21
+route	id_entity-IncludeDirective-19_entity-Snippet-20_17	root	root
+section	id_entity-IncludeDirective-19_entity-Snippet-20_17	id_entity-IncludeDirective-19_entity-Snippet-20_17_s0	1651.4296875,275	1651.4296875,416		entity-IncludeDirective-19	entity-Snippet-20
+place-label	edge	id_entity-IncludeDirective-19_entity-Snippet-20_17	0	1637.4296875	355	27.25	21
+route	id_entity-Snippet-20_entity-Anchor-11_18	root	root
+section	id_entity-Snippet-20_entity-Anchor-11_18	id_entity-Snippet-20_entity-Anchor-11_18_s0	1651.4296875,497	1369.8513764880952,678	1651.4296875,618 1369.8513764880952,618	entity-Snippet-20	entity-Anchor-11
+place-label	edge	id_entity-Snippet-20_entity-Anchor-11_18	0	1616.9296875	577	68.484375	21
+route	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	root	root
+section	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	id_entity-SettingsDirective-21_entity-SettingsReference-22_19_s0	1303.90625,93	1303.90625,194		entity-SettingsDirective-21	entity-SettingsReference-22
+place-label	edge	id_entity-SettingsDirective-21_entity-SettingsReference-22_19	0	1289.90625	133	27.25	21
+route	id_entity-ChangelogDirective-23_entity-Product-5_20	root	root
+section	id_entity-ChangelogDirective-23_entity-Product-5_20	id_entity-ChangelogDirective-23_entity-Product-5_20_s0	93.09375,497	117.83854166666671,678	93.09375,618 117.83854166666671,618	entity-ChangelogDirective-23	entity-Product-5
+place-label	edge	id_entity-ChangelogDirective-23_entity-Product-5_20	0	63.09375	577	59.15625	21
+route	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	root	root
+section	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21_s0	386.86104910714295,93	386.86104910714295,194		entity-RelatedLearningDirective-24	entity-RelatedLearningLink-25
+place-label	edge	id_entity-RelatedLearningDirective-24_entity-RelatedLearningLink-25_21	0	377.86104910714295	133	17.90625	21
+route	id_entity-PageCardDirective-26_entity-Page-2_22	root	root
+section	id_entity-PageCardDirective-26_entity-Page-2_22	id_entity-PageCardDirective-26_entity-Page-2_22_s0	748.8063616071429,93	765.8245907738095,194	748.8063616071429,174 765.8245907738095,174	entity-PageCardDirective-26	entity-Page-2
+place-label	edge	id_entity-PageCardDirective-26_entity-Page-2_22	0	721.8063616071429	133	53.703125	21
+route	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	root	root
+section	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23_s0	418.140625,759	418.140625,860		entity-Applicability-4	entity-ApplicabilityEntry-27
+place-label	edge	id_entity-Applicability-4_entity-ApplicabilityEntry-27_23	0	395.140625	799	45.921875	21
+route	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	root	root
+section	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24_s0	418.140625,941	418.140625,1042		entity-ApplicabilityEntry-27	entity-VersionSpec-28
+place-label	edge	id_entity-ApplicabilityEntry-27_entity-VersionSpec-28_24	0	395.140625	981	45.140625	21

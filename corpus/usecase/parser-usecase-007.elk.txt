@@ -1,0 +1,49 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 96f4255597e145f2
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer_Service	root	131.265625	121
+node	System_Administrator	root	140	142
+node	Handle_Tickets	root	160	58
+option	node	Handle_Tickets		elk.portAlignment.default	CENTER
+node	Manage_System	root	160	58
+option	node	Manage_System		elk.portAlignment.default	CENTER
+edge	edge-0	root	Customer_Service	Handle_Tickets
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	System_Administrator	Manage_System
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	364	327
+place	Customer_Service	root	20.734375	12	131.265625	121
+place	System_Administrator	root	12	173	140	142
+place	Handle_Tickets	root	192	43.5	160	58
+place	Manage_System	root	192	215	160	58
+route	edge-0	root	root
+section	edge-0	edge-0_s0	152,72.5	192,72.5		Customer_Service	Handle_Tickets
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	152,244	192,244		System_Administrator	Manage_System
+place-label	edge	edge-1	0	0	0	0	0

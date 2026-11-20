@@ -1,0 +1,68 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a9cfb4a66b883b35
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Client	root	152	45
+node	API	root	152	45
+node	Cache	root	152	45
+node	DB	root	152	45
+edge	e1	root	Client	API
+label	edge	e1	0		0	0
+option	edge-label	e1	0	edgeLabels.inline	true
+option	edge-label	e1	0	edgeLabels.placement	CENTER
+edge	e2	root	API	Cache
+label	edge	e2	0		0	0
+option	edge-label	e2	0	edgeLabels.inline	true
+option	edge-label	e2	0	edgeLabels.placement	CENTER
+edge	e3	root	Cache	DB
+label	edge	e3	0	miss	28.78125	21
+option	edge-label	e3	0	edgeLabels.inline	true
+option	edge-label	e3	0	edgeLabels.placement	CENTER
+edge	e4	root	DB	API
+label	edge	e4	0		0	0
+option	edge-label	e4	0	edgeLabels.inline	true
+option	edge-label	e4	0	edgeLabels.placement	CENTER
+edge	e5	root	API	Client
+label	edge	e5	0		0	0
+option	edge-label	e5	0	edgeLabels.inline	true
+option	edge-label	e5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	820.78125	90.25
+place	Client	root	12	33.25	152	45
+place	API	root	204	33.25	152	45
+place	Cache	root	396	12	152	45
+place	DB	root	656.78125	33.25	152	45
+route	e1	root	root
+section	e1	e1_s0	164,51.58333333333333	204,51.58333333333333		Client	API
+place-label	edge	e1	0	0	0	0	0
+route	e2	root	root
+section	e2	e2_s0	356,51.58333333333333	396,34.5	376,51.58333333333333 376,34.5	API	Cache
+place-label	edge	e2	0	0	0	0	0
+route	e3	root	root
+section	e3	e3_s0	548,34.5	656.78125,51.58333333333333	636.78125,34.5 636.78125,51.58333333333333	Cache	DB
+place-label	edge	e3	0	588	23.5	28.78125	21
+route	e4	root	root
+section	e4	e4_s0	656.78125,59.916666666666664	356,59.916666666666664	636.78125,59.916666666666664 636.78125,77 602.390625,77 472,77 376,77 376,59.916666666666664	DB	API
+place-label	edge	e4	0	0	0	0	0
+route	e5	root	root
+section	e5	e5_s0	204,59.916666666666664	164,59.916666666666664		API	Client
+place-label	edge	e5	0	0	0	0	0

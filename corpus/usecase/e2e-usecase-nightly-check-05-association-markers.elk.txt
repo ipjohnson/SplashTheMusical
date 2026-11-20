@@ -1,0 +1,84 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 863c6ad95744b6f6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	User	root	76	121
+node	Support	root	76	121
+node	Start	root	160	58
+option	node	Start		elk.portAlignment.default	CENTER
+node	Finish	root	160	58
+option	node	Finish		elk.portAlignment.default	CENTER
+edge	edge-0	root	User	Start
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Start	Support
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Start	Finish
+label	edge	edge-2	0		0	0
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+edge	edge-3	root	User	Finish
+label	edge	edge-3	0		0	0
+option	edge-label	edge-3	0	edgeLabels.inline	true
+option	edge-label	edge-3	0	edgeLabels.placement	CENTER
+edge	edge-4	root	Start	Support
+label	edge	edge-4	0		0	0
+option	edge-label	edge-4	0	edgeLabels.inline	true
+option	edge-label	edge-4	0	edgeLabels.placement	CENTER
+edge	edge-5	root	User	Finish
+label	edge	edge-5	0		0	0
+option	edge-label	edge-5	0	edgeLabels.inline	true
+option	edge-label	edge-5	0	edgeLabels.placement	CENTER
+edge	edge-6	root	Finish	Support
+label	edge	edge-6	0		0	0
+option	edge-label	edge-6	0	edgeLabels.inline	true
+option	edge-label	edge-6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	616	168.25
+place	User	root	12	35.25	76	121
+place	Support	root	528	12	76	121
+place	Start	root	128	29.625	160	58
+place	Finish	root	328	81.125	160	58
+route	edge-0	root	root
+section	edge-0	edge-0_s0	88,70.5	128,58.625	108,70.5 108,58.625	User	Start
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	288,39.625	528,47.25	308,39.625 308,36.5 408,36.5 508,36.5 508,47.25	Start	Support
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	288,77.625	328,91.125	308,77.625 308,91.125	Start	Finish
+place-label	edge	edge-2	0	0	0	0	0
+route	edge-3	root	root
+section	edge-3	edge-3_s0	88,95.75	328,110.125	108,95.75 108,109.125 208,109.125 308,109.125 308,110.125	User	Finish
+place-label	edge	edge-3	0	0	0	0	0
+route	edge-4	root	root
+section	edge-4	edge-4_s0	288,58.625	528,72.5	308,58.625 308,59.625 408,59.625 508,59.625 508,72.5	Start	Support
+place-label	edge	edge-4	0	0	0	0	0
+route	edge-5	root	root
+section	edge-5	edge-5_s0	88,121	328,129.125	108,121 108,132.25 208,132.25 308,132.25 308,129.125	User	Finish
+place-label	edge	edge-5	0	0	0	0	0
+route	edge-6	root	root
+section	edge-6	edge-6_s0	488,110.125	528,97.75	508,110.125 508,97.75	Finish	Support
+place-label	edge	edge-6	0	0	0	0	0

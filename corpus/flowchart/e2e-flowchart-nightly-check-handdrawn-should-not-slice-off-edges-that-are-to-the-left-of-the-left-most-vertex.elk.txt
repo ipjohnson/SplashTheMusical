@@ -1,0 +1,59 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a2c7b77c44f921c4
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	work	root	182.78880310058594	54.50341033935547
+node	sleep	root	182.43905639648438	54.52715301513672
+node	eat	root	182.62229919433594	54.535945892333984
+edge	L_work_sleep_0	root	work	sleep
+label	edge	L_work_sleep_0	0		0	0
+option	edge-label	L_work_sleep_0	0	edgeLabels.inline	true
+option	edge-label	L_work_sleep_0	0	edgeLabels.placement	CENTER
+edge	L_sleep_work_0	root	sleep	work
+label	edge	L_sleep_work_0	0		0	0
+option	edge-label	L_sleep_work_0	0	edgeLabels.inline	true
+option	edge-label	L_sleep_work_0	0	edgeLabels.placement	CENTER
+edge	L_eat_sleep_0	root	eat	sleep
+label	edge	L_eat_sleep_0	0		0	0
+option	edge-label	L_eat_sleep_0	0	edgeLabels.inline	true
+option	edge-label	L_eat_sleep_0	0	edgeLabels.placement	CENTER
+edge	L_work_eat_0	root	work	eat
+label	edge	L_work_eat_0	0		0	0
+option	edge-label	L_work_eat_0	0	edgeLabels.inline	true
+option	edge-label	L_work_eat_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	318.9292640686035	267.5665092468262
+place	work	root	12	12	182.78880310058594	54.50341033935547
+place	sleep	root	12.174873352050781	201.03935623168945	182.43905639648438	54.52715301513672
+place	eat	root	124.30696487426758	106.50341033935547	182.62229919433594	54.535945892333984
+route	L_work_sleep_0	root	root
+section	L_work_sleep_0	L_work_sleep_0_s0	62.697200775146484,66.50341033935547	62.784637451171875,201.03935623168945	62.697200775146484,86.50341033935547 72.50208282470703,86.50341033935547 72.50208282470703,133.77138328552246 72.50208282470703,181.03935623168945 62.784637451171875,181.03935623168945	work	sleep
+place-label	edge	L_work_sleep_0	0	0	0	0	0
+route	L_sleep_work_0	root	root
+section	L_sleep_work_0	L_sleep_work_0_s0	103.39440155029297,201.03935623168945	103.39440155029297,66.50341033935547	103.39440155029297,181.03935623168945 103.30696487426758,181.03935623168945 103.30696487426758,133.77138328552246 103.30696487426758,86.50341033935547 103.39440155029297,86.50341033935547	sleep	work
+place-label	edge	L_sleep_work_0	0	0	0	0	0
+route	L_eat_sleep_0	root	root
+section	L_eat_sleep_0	L_eat_sleep_0_s0	215.61811447143555,161.03935623168945	144.00416564941406,201.03935623168945	215.61811447143555,181.03935623168945 144.00416564941406,181.03935623168945	eat	sleep
+place-label	edge	L_eat_sleep_0	0	0	0	0	0
+route	L_work_eat_0	root	root
+section	L_work_eat_0	L_work_eat_0_s0	144.09160232543945,66.50341033935547	215.61811447143555,106.50341033935547	144.09160232543945,86.50341033935547 215.61811447143555,86.50341033935547	work	eat
+place-label	edge	L_work_eat_0	0	0	0	0	0

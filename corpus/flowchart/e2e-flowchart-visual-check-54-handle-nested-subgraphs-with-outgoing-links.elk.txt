@@ -1,0 +1,76 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 59396cbd58119770
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	main	root
+option	node	main		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	main		nodeSize.minimum	(38.359375, 0)
+option	node	main		spacing.baseValue	24
+option	node	main		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	main		elk.spacing.edgeEdge	20
+option	node	main		spacing.nodeNode	50
+option	node	main		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	main		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	main		elk.layered.mergeEdges	false
+option	node	main		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	main		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	main		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	main		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	main		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	main		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	main	0	main	30.359375	19
+node	subcontainer	main
+option	node	subcontainer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subcontainer		nodeSize.minimum	(88.171875, 0)
+option	node	subcontainer		spacing.baseValue	24
+option	node	subcontainer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subcontainer		elk.spacing.edgeEdge	20
+option	node	subcontainer		spacing.nodeNode	50
+option	node	subcontainer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subcontainer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subcontainer		elk.layered.mergeEdges	false
+option	node	subcontainer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subcontainer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subcontainer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subcontainer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subcontainer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	subcontainer		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	subcontainer	0	subcontainer	80.171875	19
+node	subcontainer-child	subcontainer	152	45
+option	node	subcontainer-child		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	subcontainer-sibling	main	152	66
+option	node	subcontainer-sibling		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_subcontainer-child_subcontainer-sibling_0	root	subcontainer-child	subcontainer-sibling
+label	edge	L_subcontainer-child_subcontainer-sibling_0	0		0	0
+option	edge-label	L_subcontainer-child_subcontainer-sibling_0	0	edgeLabels.inline	true
+option	edge-label	L_subcontainer-child_subcontainer-sibling_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	272	313
+place	main	root	12	12	248	289
+place-label	node	main	0	108.8203125	5	30.359375	19
+place	subcontainer	main	24	48	200	117
+place-label	node	subcontainer	0	59.9140625	5	80.171875	19
+place	subcontainer-child	subcontainer	24	48	152	45
+place	subcontainer-sibling	main	48	199	152	66
+route	L_subcontainer-child_subcontainer-sibling_0	root	main
+section	L_subcontainer-child_subcontainer-sibling_0	L_subcontainer-child_subcontainer-sibling_0_s0	123.99999999999999,141	123.99999999999999,199	123.99999999999999,175	subcontainer-child	subcontainer-sibling
+place-label	edge	L_subcontainer-child_subcontainer-sibling_0	0	0	0	0	0

@@ -1,0 +1,99 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 53f432c62cc59c84
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	navYml	root	152	45
+node	v1Map	root	180.640625	66
+node	navV2Yml	root	152	45
+node	v2Map	root	180.640625	66
+node	valV1	root	186	36
+node	valV2	root	186	36
+node	flag	root	171	171
+node	provV1	root	219.5625	87
+node	provV2	root	219.5625	87
+edge	L_navYml_v1Map_0	root	navYml	v1Map
+label	edge	L_navYml_v1Map_0	0	GetTocMappings	105.0625	21
+option	edge-label	L_navYml_v1Map_0	0	edgeLabels.inline	true
+option	edge-label	L_navYml_v1Map_0	0	edgeLabels.placement	CENTER
+edge	L_navV2Yml_v2Map_0	root	navV2Yml	v2Map
+label	edge	L_navV2Yml_v2Map_0	0	GetV2TocMappings	122.1875	21
+option	edge-label	L_navV2Yml_v2Map_0	0	edgeLabels.inline	true
+option	edge-label	L_navV2Yml_v2Map_0	0	edgeLabels.placement	CENTER
+edge	L_v1Map_valV1_0	root	v1Map	valV1
+label	edge	L_v1Map_valV1_0	0		0	0
+option	edge-label	L_v1Map_valV1_0	0	edgeLabels.inline	true
+option	edge-label	L_v1Map_valV1_0	0	edgeLabels.placement	CENTER
+edge	L_v2Map_valV2_0	root	v2Map	valV2
+label	edge	L_v2Map_valV2_0	0		0	0
+option	edge-label	L_v2Map_valV2_0	0	edgeLabels.inline	true
+option	edge-label	L_v2Map_valV2_0	0	edgeLabels.placement	CENTER
+edge	L_v1Map_flag_0	root	v1Map	flag
+label	edge	L_v1Map_flag_0	0		0	0
+option	edge-label	L_v1Map_flag_0	0	edgeLabels.inline	true
+option	edge-label	L_v1Map_flag_0	0	edgeLabels.placement	CENTER
+edge	L_v2Map_flag_0	root	v2Map	flag
+label	edge	L_v2Map_flag_0	0		0	0
+option	edge-label	L_v2Map_flag_0	0	edgeLabels.inline	true
+option	edge-label	L_v2Map_flag_0	0	edgeLabels.placement	CENTER
+edge	L_flag_provV1_0	root	flag	provV1
+label	edge	L_flag_provV1_0	0	false	29.578125	21
+option	edge-label	L_flag_provV1_0	0	edgeLabels.inline	true
+option	edge-label	L_flag_provV1_0	0	edgeLabels.placement	CENTER
+edge	L_flag_provV2_0	root	flag	provV2
+label	edge	L_flag_provV2_0	0	true	24.125	21
+option	edge-label	L_flag_provV2_0	0	edgeLabels.inline	true
+option	edge-label	L_flag_provV2_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	647	635
+place	navYml	root	125.66666666666666	12	152	45
+place	v1Map	root	111.34635416666666	158	180.640625	66
+place	navV2Yml	root	369.3333333333333	12	152	45
+place	v2Map	root	355.0130208333333	158	180.640625	66
+place	valV1	root	12	264	186	36
+place	valV2	root	449	264	186	36
+place	flag	root	238	264	171	171
+place	provV1	root	83.93749999999997	536	219.5625	87
+place	provV2	root	343.5	536	219.5625	87
+route	L_navYml_v1Map_0	root	root
+section	L_navYml_v1Map_0	L_navYml_v1Map_0_s0	201.66666666666666,57	201.66666666666666,158		navYml	v1Map
+place-label	edge	L_navYml_v1Map_0	0	148.66666666666666	97	105.0625	21
+route	L_navV2Yml_v2Map_0	root	root
+section	L_navV2Yml_v2Map_0	L_navV2Yml_v2Map_0_s0	445.3333333333333,57	445.3333333333333,158		navV2Yml	v2Map
+place-label	edge	L_navV2Yml_v2Map_0	0	383.8333333333333	97	122.1875	21
+route	L_v1Map_valV1_0	root	root
+section	L_v1Map_valV1_0	L_v1Map_valV1_0_s0	174.89322916666666,224	105,264	174.89322916666666,244 105,244	v1Map	valV1
+place-label	edge	L_v1Map_valV1_0	0	0	0	0	0
+route	L_v2Map_valV2_0	root	root
+section	L_v2Map_valV2_0	L_v2Map_valV2_0_s0	472.1067708333333,224	542,264	472.1067708333333,244 542,244	v2Map	valV2
+place-label	edge	L_v2Map_valV2_0	0	0	0	0	0
+route	L_v1Map_flag_0	root	root
+section	L_v1Map_flag_0	L_v1Map_flag_0_s0	228.44010416666666,224	298.3333333333333,264	228.44010416666666,244 298.3333333333333,244	v1Map	flag
+place-label	edge	L_v1Map_flag_0	0	0	0	0	0
+route	L_v2Map_flag_0	root	root
+section	L_v2Map_flag_0	L_v2Map_flag_0_s0	418.5598958333333,224	348.66666666666663,264	418.5598958333333,244 348.66666666666663,244	v2Map	flag
+place-label	edge	L_v2Map_flag_0	0	0	0	0	0
+route	L_flag_provV1_0	root	root
+section	L_flag_provV1_0	L_flag_provV1_0_s0	298.3333333333333,435	193.71874999999997,536	298.3333333333333,455 193.71874999999997,455	flag	provV1
+place-label	edge	L_flag_provV1_0	0	178.71874999999997	475	29.578125	21
+route	L_flag_provV2_0	root	root
+section	L_flag_provV2_0	L_flag_provV2_0_s0	348.66666666666663,435	453.28125,536	348.66666666666663,455 453.28124999999994,455	flag	provV2
+place-label	edge	L_flag_provV2_0	0	440.78124999999994	475	24.125	21

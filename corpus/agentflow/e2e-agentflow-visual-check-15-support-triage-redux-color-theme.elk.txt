@@ -1,0 +1,179 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 68ac3978398457a0
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	audit	root	80	65
+node	escalate	root
+option	node	escalate		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	escalate		nodeSize.minimum	(112.296875, 0)
+option	node	escalate		spacing.baseValue	24
+option	node	escalate		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	escalate		elk.spacing.edgeEdge	20
+option	node	escalate		spacing.nodeNode	50
+option	node	escalate		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	escalate		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	escalate		elk.layered.mergeEdges	false
+option	node	escalate		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	escalate		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	escalate		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	escalate		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	escalate		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	escalate		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	escalate	0	Escalation Agent	104.296875	19
+node	page	escalate	164	33
+node	handoff	escalate	167.1999969482422	67.49201202392578
+node	resolve	root
+option	node	resolve		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	resolve		nodeSize.minimum	(113.859375, 0)
+option	node	resolve		spacing.baseValue	24
+option	node	resolve		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	resolve		elk.spacing.edgeEdge	20
+option	node	resolve		spacing.nodeNode	50
+option	node	resolve		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	resolve		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	resolve		elk.layered.mergeEdges	false
+option	node	resolve		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	resolve		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	resolve		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	resolve		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	resolve		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	resolve		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	resolve	0	Resolution Agent	105.859375	19
+node	lookup	resolve	164	33
+node	draft	resolve	150	51
+node	send	resolve	164	33
+node	triage	root
+option	node	triage		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	triage		nodeSize.minimum	(86.875, 0)
+option	node	triage		spacing.baseValue	24
+option	node	triage		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	triage		elk.spacing.edgeEdge	20
+option	node	triage		spacing.nodeNode	50
+option	node	triage		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	triage		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	triage		elk.layered.mergeEdges	false
+option	node	triage		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	triage		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	triage		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	triage		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	triage		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	triage		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	triage	0	Triage Agent	78.875	19
+node	ticket	triage	186	36
+node	classify	triage	164	33
+option	node	classify		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	severity	triage	171	171
+option	node	severity		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	llm	root	150	51
+node	crm	root	150	51
+node	policy	root	167.1999969482422	67.49201202392578
+option	node	policy		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_ticket_classify_0	root	ticket	classify
+label	edge	L_ticket_classify_0	0		0	0
+option	edge-label	L_ticket_classify_0	0	edgeLabels.inline	true
+option	edge-label	L_ticket_classify_0	0	edgeLabels.placement	CENTER
+edge	L_classify_severity_0	root	classify	severity
+label	edge	L_classify_severity_0	0		0	0
+option	edge-label	L_classify_severity_0	0	edgeLabels.inline	true
+option	edge-label	L_classify_severity_0	0	edgeLabels.placement	CENTER
+edge	L_lookup_draft_0	root	lookup	draft
+label	edge	L_lookup_draft_0	0		0	0
+option	edge-label	L_lookup_draft_0	0	edgeLabels.inline	true
+option	edge-label	L_lookup_draft_0	0	edgeLabels.placement	CENTER
+edge	L_draft_send_0	root	draft	send
+label	edge	L_draft_send_0	0		0	0
+option	edge-label	L_draft_send_0	0	edgeLabels.inline	true
+option	edge-label	L_draft_send_0	0	edgeLabels.placement	CENTER
+edge	L_page_handoff_0	root	page	handoff
+label	edge	L_page_handoff_0	0		0	0
+option	edge-label	L_page_handoff_0	0	edgeLabels.inline	true
+option	edge-label	L_page_handoff_0	0	edgeLabels.placement	CENTER
+edge	L_severity_resolve_0	root	severity	resolve
+label	edge	L_severity_resolve_0	0	low	21.015625	21
+option	edge-label	L_severity_resolve_0	0	edgeLabels.inline	true
+option	edge-label	L_severity_resolve_0	0	edgeLabels.placement	CENTER
+edge	L_severity_escalate_0	root	severity	escalate
+label	edge	L_severity_escalate_0	0	high	26.46875	21
+option	edge-label	L_severity_escalate_0	0	edgeLabels.inline	true
+option	edge-label	L_severity_escalate_0	0	edgeLabels.placement	CENTER
+edge	L_classify_policy_0	root	classify	policy
+label	edge	L_classify_policy_0	0		0	0
+option	edge-label	L_classify_policy_0	0	edgeLabels.inline	true
+option	edge-label	L_classify_policy_0	0	edgeLabels.placement	CENTER
+edge	L_resolve_audit_0	root	resolve	audit
+label	edge	L_resolve_audit_0	0		0	0
+option	edge-label	L_resolve_audit_0	0	edgeLabels.inline	true
+option	edge-label	L_resolve_audit_0	0	edgeLabels.placement	CENTER
+edge	L_escalate_audit_0	root	escalate	audit
+label	edge	L_escalate_audit_0	0		0	0
+option	edge-label	L_escalate_audit_0	0	edgeLabels.inline	true
+option	edge-label	L_escalate_audit_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	726.0999977111817	919.4920120239258
+place	audit	root	230.69999618530272	842.4920120239258	80	65
+place	escalate	root	376.1999969482422	585.7460060119629	215.1999969482422	196.49201202392578
+place-label	node	escalate	0	55.451560974121094	5	104.296875	19
+place	page	escalate	25.599998474121094	48	164	33
+place	handoff	escalate	24	105	167.1999969482422	67.49201202392578
+place	resolve	root	124.19999694824219	565.4920120239258	212	237
+place-label	node	resolve	0	53.0703125	5	105.859375	19
+place	lookup	resolve	24	48	164	33
+place	draft	resolve	31	105	150	51
+place	send	resolve	24	180	164	33
+place	triage	root	58.34999771118163	12	275.75	396
+place-label	node	triage	0	98.4375	5	78.875	19
+place	ticket	triage	24	48	186	36
+place	classify	triage	35	108	164	33
+place	severity	triage	80.75	201	171	171
+place	llm	root	374.09999771118163	189.5	150	51
+place	crm	root	564.0999977111817	189.5	150	51
+place	policy	root	12	458	167.1999969482422	67.49201202392578
+route	L_ticket_classify_0	root	triage
+section	L_ticket_classify_0	L_ticket_classify_0_s0	116.99999999999999,84	116.99999999999999,108		ticket	classify
+place-label	edge	L_ticket_classify_0	0	0	0	0	0
+route	L_classify_severity_0	root	triage
+section	L_classify_severity_0	L_classify_severity_0_s0	140.73333333333332,141	166.25,201	140.73333333333332,171 166.25,171	classify	severity
+place-label	edge	L_classify_severity_0	0	0	0	0	0
+route	L_lookup_draft_0	root	resolve
+section	L_lookup_draft_0	L_lookup_draft_0_s0	105.99999999999999,81	105.99999999999999,105		lookup	draft
+place-label	edge	L_lookup_draft_0	0	0	0	0	0
+route	L_draft_send_0	root	resolve
+section	L_draft_send_0	L_draft_send_0_s0	105.99999999999999,156	105.99999999999999,180		draft	send
+place-label	edge	L_draft_send_0	0	0	0	0	0
+route	L_page_handoff_0	root	escalate
+section	L_page_handoff_0	L_page_handoff_0_s0	107.59999847412108,81	107.59999847412108,105		page	handoff
+place-label	edge	L_page_handoff_0	0	0	0	0	0
+route	L_severity_resolve_0	root	root
+section	L_severity_resolve_0	L_severity_resolve_0_s0	199.69999771118162,384	230.1999969482422,565.4920120239258	199.69999771118165,418 199.69999771118165,438 230.1999969482422,438	severity	resolve
+place-label	edge	L_severity_resolve_0	0	219.1999969482422	481.2460060119629	21.015625	21
+route	L_severity_escalate_0	root	root
+section	L_severity_escalate_0	L_severity_escalate_0_s0	249.4999977111816,384	483.7999954223633,585.7460060119629	249.4999977111816,418 249.4999977111816,438 483.7999954223633,438	severity	escalate
+place-label	edge	L_severity_escalate_0	0	470.2999954223633	481.2460060119629	26.46875	21
+route	L_classify_policy_0	root	root
+section	L_classify_policy_0	L_classify_policy_0_s0	151.61666437784828,153	95.5999984741211,458	151.61666437784828,183 126.09999771118163,183 126.09999771118163,418 126.09999771118163,438 95.5999984741211,438	classify	policy
+place-label	edge	L_classify_policy_0	0	0	0	0	0
+route	L_resolve_audit_0	root	root
+section	L_resolve_audit_0	L_resolve_audit_0_s0	230.1999969482422,802.4920120239258	260.6999961853027,842.4920120239258	230.1999969482422,822.4920120239258 260.6999961853027,822.4920120239258	resolve	audit
+place-label	edge	L_resolve_audit_0	0	0	0	0	0
+route	L_escalate_audit_0	root	root
+section	L_escalate_audit_0	L_escalate_audit_0_s0	483.7999954223633,782.2380180358887	280.6999961853027,842.4920120239258	483.7999954223633,822.4920120239258 280.6999961853027,822.4920120239258	escalate	audit
+place-label	edge	L_escalate_audit_0	0	0	0	0	0

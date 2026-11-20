@@ -1,0 +1,38 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 002ef73c2b6c692e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	github	root	150	51
+node	query	root	186	36
+node	fetch_issues	root	164	33
+edge	L_query_fetch_issues_0	root	query	fetch_issues
+label	edge	L_query_fetch_issues_0	0		0	0
+option	edge-label	L_query_fetch_issues_0	0	edgeLabels.inline	true
+option	edge-label	L_query_fetch_issues_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	414	151
+place	github	root	30	12	150	51
+place	query	root	12	103	186	36
+place	fetch_issues	root	238	104.5	164	33
+route	L_query_fetch_issues_0	root	root
+section	L_query_fetch_issues_0	L_query_fetch_issues_0_s0	198,121	238,121		query	fetch_issues
+place-label	edge	L_query_fetch_issues_0	0	0	0	0	0

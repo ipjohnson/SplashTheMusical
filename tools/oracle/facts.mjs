@@ -1,6 +1,7 @@
 // Renders every .mmd in a folder and its subfolders with the mermaid.js that package-lock.json pins, in one headless
-// page, and writes <name>.facts.txt per case, <name>.boxes.txt per accepted case and <name>.dagre.txt per accepted
-// flowchart, state, class and ER case, in the case's subfolder. It also writes themes.txt, config.txt and shapes.txt to
+// page, and writes <name>.facts.txt per case, <name>.boxes.txt per accepted case, <name>.dagre.txt per accepted
+// flowchart, state, class and ER case and <name>.elk.txt per accepted case mermaid.js lays out with ELK, in the case's
+// subfolder. It also writes themes.txt, config.txt and shapes.txt to
 // the top of the facts folder. tools/oracle/README.md describes the
 // formats. extract.mjs says which facts come from mermaid's parsed model and which from its rendered DOM.
 //
@@ -49,6 +50,7 @@ fs.writeFileSync(path.join(factsDir, 'shapes.txt'), [...dumpHeader('shape table'
 const names = filesUnder(casesDir).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4))
 let accepted = 0
 const dagreNames = new Set()
+const elkNames = new Set()
 for (const name of names) {
 	const source = fs.readFileSync(path.join(casesDir, name + '.mmd'), 'utf8')
 	fs.mkdirSync(path.dirname(path.join(factsDir, name)), { recursive: true })
@@ -68,6 +70,11 @@ for (const name of names) {
 		fs.writeFileSync(dagreFile, result.dagre)
 		dagreNames.add(name + '.dagre.txt')
 	} else if (fs.existsSync(dagreFile)) fs.unlinkSync(dagreFile)
+	const elkFile = path.join(factsDir, name + '.elk.txt')
+	if (result.elk) {
+		fs.writeFileSync(elkFile, result.elk)
+		elkNames.add(name + '.elk.txt')
+	} else if (fs.existsSync(elkFile)) fs.unlinkSync(elkFile)
 	if (svgDir && result.svg) {
 		fs.mkdirSync(path.dirname(path.join(svgDir, name)), { recursive: true })
 		fs.writeFileSync(path.join(svgDir, name + '.svg'), result.svg)
@@ -76,12 +83,12 @@ for (const name of names) {
 	console.log(`${result.error === undefined ? 'ok ' : 'err'}  ${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
 }
 
-const keep = new Set([...names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']), ...dagreNames])
-const perCase = f => f.endsWith('.facts.txt') || f.endsWith('.boxes.txt') || f.endsWith('.dagre.txt')
+const keep = new Set([...names.flatMap(n => [n + '.facts.txt', n + '.boxes.txt']), ...dagreNames, ...elkNames])
+const perCase = f => f.endsWith('.facts.txt') || f.endsWith('.boxes.txt') || f.endsWith('.dagre.txt') || f.endsWith('.elk.txt')
 for (const f of filesUnder(factsDir).filter(f => perCase(f) && !keep.has(f))) {
 	fs.unlinkSync(path.join(factsDir, f))
 	console.log(`del  ${f}`)
 }
 
 await oracle.close()
-console.log(`mermaid ${version}: ${names.length} cases, ${accepted} accepted, ${dagreNames.size} dagre dumps, ${themeNames.length} themes`)
+console.log(`mermaid ${version}: ${names.length} cases, ${accepted} accepted, ${dagreNames.size} dagre dumps, ${elkNames.size} ELK dumps, ${themeNames.length} themes`)

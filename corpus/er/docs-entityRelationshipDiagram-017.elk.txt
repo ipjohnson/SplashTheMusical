@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 13b0f9ca3d8532da
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer Domain	root
+option	node	Customer Domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Customer Domain		nodeSize.minimum	(120.828125, 0)
+option	node	Customer Domain		spacing.baseValue	24
+option	node	Customer Domain		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Customer Domain		elk.spacing.edgeEdge	20
+option	node	Customer Domain		spacing.nodeNode	50
+option	node	Customer Domain		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Customer Domain		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Customer Domain		elk.layered.mergeEdges	false
+option	node	Customer Domain		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Customer Domain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Customer Domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Customer Domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Customer Domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Customer Domain	0	Customer Domain	112.828125	19
+node	entity-CUSTOMER-0	Customer Domain	119.859375	81
+result
+place	root		0	0	191.859375	177
+place	Customer Domain	root	12	12	167.859375	153
+place-label	node	Customer Domain	0	27.515625	5	112.828125	19
+place	entity-CUSTOMER-0	Customer Domain	24	48	119.859375	81

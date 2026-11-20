@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 48300e6a4165512d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	LEFT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CAR-0	root	103.17363739013672	84.71408081054688
+node	entity-NAMED-DRIVER-1	root	150.93626403808594	84.80101776123047
+node	entity-PERSON-2	root	101.89611053466797	84.25907135009766
+edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	root	entity-CAR-0	entity-NAMED-DRIVER-1
+label	edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	allows	38.90625	21
+option	edge-label	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	root	entity-PERSON-2	entity-NAMED-DRIVER-1
+label	edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	is	10.125	21
+option	edge-label	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	397.01615142822266	232.97315216064453
+place	entity-CAR-0	root	281.84251403808594	12	103.17363739013672	84.71408081054688
+place	entity-NAMED-DRIVER-1	root	12	74.19981956481934	150.93626403808594	84.80101776123047
+place	entity-PERSON-2	root	281.84251403808594	136.71408081054688	101.89611053466797	84.25907135009766
+route	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	root	root
+section	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	id_entity-CAR-0_entity-NAMED-DRIVER-1_0_s0	281.84251403808594,54.35704040527344	162.93626403808594,105.80015881856283	182.93626403808594,54.35704040527344 182.93626403808594,105.80015881856283	entity-CAR-0	entity-NAMED-DRIVER-1
+place-label	edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	202.93626403808594	43.35704040527344	38.90625	21
+route	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	root	root
+section	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1_s0	281.84251403808594,178.8436164855957	162.93626403808594,127.40049807230632	182.93626403808594,178.8436164855957 182.93626403808594,127.40049807230632	entity-PERSON-2	entity-NAMED-DRIVER-1
+place-label	edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	217.32688903808594	167.8436164855957	10.125	21

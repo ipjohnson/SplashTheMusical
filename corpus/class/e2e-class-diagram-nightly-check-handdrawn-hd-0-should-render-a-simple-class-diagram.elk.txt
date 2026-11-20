@@ -1,0 +1,61 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a94be14e2892724
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	classA	root	74.6684341430664	84.3803939819336
+node	classB	root	73.96154022216797	84.45600128173828
+node	classC	root	73.1782455444336	84.4313735961914
+node	classD	root	73.45096588134766	84.5587387084961
+edge	id_classA_classB_1	root	classA	classB
+label	edge	id_classA_classB_1	0	Inheritance	69.28125	21
+option	edge-label	id_classA_classB_1	0	edgeLabels.inline	true
+option	edge-label	id_classA_classB_1	0	edgeLabels.placement	CENTER
+edge	id_classA_classC_2	root	classA	classC
+label	edge	id_classA_classC_2	0	link	21.015625	21
+option	edge-label	id_classA_classC_2	0	edgeLabels.inline	true
+option	edge-label	id_classA_classC_2	0	edgeLabels.placement	CENTER
+edge	id_classC_classD_3	root	classC	classD
+label	edge	id_classC_classD_3	0	link	21.015625	21
+option	edge-label	id_classC_classD_3	0	edgeLabels.inline	true
+option	edge-label	id_classC_classD_3	0	edgeLabels.placement	CENTER
+edge	id_classB_classD_4	root	classB	classD
+label	edge	id_classB_classD_4	0		0	0
+option	edge-label	id_classB_classD_4	0	edgeLabels.inline	true
+option	edge-label	id_classB_classD_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	185.55066299438477	542.8265075683594
+place	classA	root	55.636938095092766	12	74.6684341430664	84.3803939819336
+place	classB	root	12	321.811767578125	73.96154022216797	84.45600128173828
+place	classC	root	100.37241744995117	197.3803939819336	73.1782455444336	84.4313735961914
+place	classD	root	56.24567222595214	446.2677688598633	73.45096588134766	84.5587387084961
+route	id_classA_classB_1	root	root
+section	id_classA_classB_1	id_classA_classB_1_s0	83.8597494761149,96.3803939819336	48.980770111083984,321.811767578125	83.8597494761149,116.3803939819336 48.980770111083984,116.3803939819336 48.980770111083984,239.5960807800293	classA	classB
+place-label	edge	id_classA_classB_1	0	13.980770111083984	136.3803939819336	69.28125	21
+route	id_classA_classC_2	root	root
+section	id_classA_classC_2	id_classA_classC_2_s0	102.08256085713704,96.3803939819336	136.96154022216797,197.3803939819336	102.08256085713704,116.3803939819336 136.96154022216797,116.3803939819336	classA	classC
+place-label	edge	id_classA_classC_2	0	125.96154022216797	136.3803939819336	21.015625	21
+route	id_classC_classD_3	root	root
+section	id_classC_classD_3	id_classC_classD_3_s0	136.96154022216797,281.811767578125	101.87964948018391,446.2677688598633	136.96154022216797,426.2677688598633 101.87964948018391,426.2677688598633	classC	classD
+place-label	edge	id_classC_classD_3	0	125.96154022216797	353.53976821899414	21.015625	21
+route	id_classB_classD_4	root	root
+section	id_classB_classD_4	id_classB_classD_4_s0	48.980770111083984,406.2677688598633	84.06266085306802,446.2677688598633	48.980770111083984,426.2677688598633 84.06266085306802,426.2677688598633	classB	classD
+place-label	edge	id_classB_classD_4	0	0	0	0	0

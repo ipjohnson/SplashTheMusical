@@ -1,0 +1,79 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3c4477ee60d32eeb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Idle	root	136	37
+node	Processing	root	136	37
+node	Success	root	136	37
+node	Failed	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Idle
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Idle	Processing
+label	edge	edge1	0	submit	41.234375	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Processing	Success
+label	edge	edge2	0	ok	14.796875	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Processing	Failed
+label	edge	edge3	0	error	29.5625	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Success	root_end
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Failed	Idle
+label	edge	edge5	0	retry	28	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	336	445
+place	root_start	root	177.33333333333331	12	14	14
+place	Idle	root	119.33333333333333	66	136	37
+place	Processing	root	58.333333333333336	204	136	37
+place	Success	root	12	342	136	37
+place	Failed	root	188	342	136	37
+place	root_end	root	70	419	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	187.33333333333331,26	187.33333333333331,66		root_start	Idle
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	168,103	126.33333333333334,204	168,123 126.33333333333334,123	Idle	Processing
+place-label	edge	edge1	0	105.33333333333334	143	41.234375	21
+route	edge2	root	root
+section	edge2	edge2_s0	107,241	80,342	107,261 80,261	Processing	Success
+place-label	edge	edge2	0	72.5	281	14.796875	21
+route	edge3	root	root
+section	edge3	edge3_s0	145.66666666666669,241	236.66666666666669,342	145.66666666666669,261 204.66666666666669,261 204.66666666666669,322 236.66666666666669,322	Processing	Failed
+place-label	edge	edge3	0	189.66666666666669	281	29.5625	21
+route	edge4	root	root
+section	edge4	edge4_s0	80,379	80,419		Success	root_end
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	275.33333333333337,342	206.66666666666669,103	275.33333333333337,291.5 275.33333333333337,153.5 275.33333333333337,123 206.66666666666669,123	Failed	Idle
+place-label	edge	edge5	0	261.33333333333337	212	28	21

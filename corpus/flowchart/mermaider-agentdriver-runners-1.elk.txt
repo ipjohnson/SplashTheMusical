@@ -1,0 +1,116 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 19c559f6868d629f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Runner	root
+option	node	Runner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Runner		nodeSize.minimum	(115.40625, 0)
+option	node	Runner		spacing.baseValue	24
+option	node	Runner		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Runner		elk.spacing.edgeEdge	20
+option	node	Runner		spacing.nodeNode	50
+option	node	Runner		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Runner		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Runner		elk.layered.mergeEdges	false
+option	node	Runner		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Runner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Runner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Runner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Runner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Runner		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Runner	0	Runner container	107.40625	19
+node	daemon	Runner	152	87
+option	node	daemon		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	sshd	Runner	152	66
+option	node	sshd		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	claude	Runner	152	45
+option	node	claude		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	rhome	Runner	152	108
+node	Mac	root
+option	node	Mac		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Mac		nodeSize.minimum	(34.453125, 0)
+option	node	Mac		spacing.baseValue	24
+option	node	Mac		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Mac		elk.spacing.edgeEdge	20
+option	node	Mac		spacing.nodeNode	50
+option	node	Mac		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Mac		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Mac		elk.layered.mergeEdges	false
+option	node	Mac		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Mac		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Mac		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Mac		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Mac		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Mac		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Mac	0	Mac	26.453125	19
+node	serve	Mac	152	87
+option	node	serve		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	ssh	Mac	152	87
+option	node	ssh		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	home	Mac	152	87
+node	github	root	152	45
+option	node	github		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	anthropic	root	152	45
+option	node	anthropic		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_daemon_serve_0	root	daemon	serve
+label	edge	L_daemon_serve_0	0	mDNS: _agent-driver._tcp, one subnet	200	42
+option	edge-label	L_daemon_serve_0	0	edgeLabels.inline	true
+option	edge-label	L_daemon_serve_0	0	edgeLabels.placement	CENTER
+edge	L_ssh_sshd_0	root	sshd	ssh
+label	edge	L_ssh_sshd_0	0	one SSH connection: control, git, reverse forward	200	42
+option	edge-label	L_ssh_sshd_0	0	edgeLabels.inline	true
+option	edge-label	L_ssh_sshd_0	0	edgeLabels.placement	CENTER
+edge	L_serve_github_0	root	serve	github
+label	edge	L_serve_github_0	0	push and API calls, with your token	200	42
+option	edge-label	L_serve_github_0	0	edgeLabels.inline	true
+option	edge-label	L_serve_github_0	0	edgeLabels.placement	CENTER
+edge	L_claude_anthropic_0	root	claude	anthropic
+label	edge	L_claude_anthropic_0	0	the runner's own login	136.546875	21
+option	edge-label	L_claude_anthropic_0	0	edgeLabels.inline	true
+option	edge-label	L_claude_anthropic_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1166	552.5
+place	Runner	root	12	12	200	528
+place-label	node	Runner	0	46.296875	5	107.40625	19
+place	daemon	Runner	24	206	152	87
+place	sshd	Runner	24	343	152	66
+place	claude	Runner	24	459	152	45
+place	rhome	Runner	24	48	152	108
+place	Mac	root	512	22.5	200	433
+place-label	node	Mac	0	86.7734375	5	26.453125	19
+place	serve	Mac	24	48	152	87
+place	ssh	Mac	24	322	152	87
+place	home	Mac	24	185	152	87
+place	github	root	1002	91.5	152	45
+place	anthropic	root	512	495.5	152	45
+route	L_daemon_serve_0	root	root
+section	L_daemon_serve_0	L_daemon_serve_0_s0	188,261.5	536,114	222,261.5 242,261.5 242,187.75 482,187.75 482,114 502,114	daemon	serve
+place-label	edge	L_daemon_serve_0	0	262	166.25	200	42
+route	L_ssh_sshd_0	root	root
+section	L_ssh_sshd_0	L_ssh_sshd_0_s0	188,388	536,388	222,388 502,388	sshd	ssh
+place-label	edge	L_ssh_sshd_0	0	262	366.5	200	42
+route	L_serve_github_0	root	root
+section	L_serve_github_0	L_serve_github_0_s0	688,114	1002,114	722,114	serve	github
+place-label	edge	L_serve_github_0	0	762	92.5	200	42
+route	L_claude_anthropic_0	root	root
+section	L_claude_anthropic_0	L_claude_anthropic_0_s0	188,493.5	512,518	222,493.5 242,493.5 242,518	claude	anthropic
+place-label	edge	L_claude_anthropic_0	0	293.7265625	507	136.546875	21

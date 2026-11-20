@@ -1,0 +1,38 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d07a9ce83dc351cc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	119.859375	81
+node	entity-DELIVERY-ADDRESS-1	root	160	102
+node	entity-1.5-2	root	100	81
+edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	root	entity-CUSTOMER-0	entity-DELIVERY-ADDRESS-1
+label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	has	22.578125	21
+option	edge-label	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	303.9296875	308
+place	entity-CUSTOMER-0	root	32.0703125	12	119.859375	81
+place	entity-DELIVERY-ADDRESS-1	root	12	194	160	102
+place	entity-1.5-2	root	191.9296875	12	100	81
+route	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0_s0	92,93	92,194		entity-CUSTOMER-0	entity-DELIVERY-ADDRESS-1
+place-label	edge	id_entity-CUSTOMER-0_entity-DELIVERY-ADDRESS-1_0	0	80.5	133	22.578125	21

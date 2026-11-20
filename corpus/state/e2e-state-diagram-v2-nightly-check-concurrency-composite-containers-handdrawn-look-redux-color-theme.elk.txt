@@ -1,0 +1,181 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8dd9b20bb5d0ea38
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14.743719100952148	14.857039451599121
+node	Active	root
+option	node	Active		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Active		nodeSize.minimum	(46.125, 0)
+option	node	Active		spacing.baseValue	24
+option	node	Active		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Active		elk.spacing.edgeEdge	20
+option	node	Active		spacing.nodeNode	50
+option	node	Active		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Active		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Active		elk.layered.mergeEdges	false
+option	node	Active		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Active		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Active		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Active		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Active		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Active		elk.algorithm	elk.layered
+option	node	Active		elk.direction	DOWN
+option	node	Active		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Active	0	Active	38.125	19
+node	divider-id-1	Active
+option	node	divider-id-1		spacing.baseValue	24
+option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	divider-id-1		elk.spacing.edgeEdge	20
+option	node	divider-id-1		spacing.nodeNode	50
+option	node	divider-id-1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	divider-id-1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	divider-id-1		elk.layered.mergeEdges	false
+option	node	divider-id-1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	divider-id-1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	divider-id-1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	divider-id-1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	divider-id-1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	divider-id-1		elk.algorithm	elk.layered
+option	node	divider-id-1		elk.direction	DOWN
+option	node	divider-id-1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	divider-id-1	0		0	0
+node	divider-id-1_start	divider-id-1	14.893749237060547	14.497143745422363
+node	NumOff	divider-id-1	138.0911102294922	39.87714767456055
+node	NumOn	divider-id-1	137.37457275390625	39.759552001953125
+node	divider-id-2	Active
+option	node	divider-id-2		spacing.baseValue	24
+option	node	divider-id-2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	divider-id-2		elk.spacing.edgeEdge	20
+option	node	divider-id-2		spacing.nodeNode	50
+option	node	divider-id-2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	divider-id-2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	divider-id-2		elk.layered.mergeEdges	false
+option	node	divider-id-2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	divider-id-2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	divider-id-2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	divider-id-2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	divider-id-2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	divider-id-2		elk.algorithm	elk.layered
+option	node	divider-id-2		elk.direction	DOWN
+option	node	divider-id-2		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	divider-id-2	0		0	0
+node	divider-id-2_start	divider-id-2	14.65711498260498	15.129510879516602
+node	CapsOff	divider-id-2	138.47508239746094	39.49361801147461
+node	CapsOn	divider-id-2	138.36317443847656	40.045230865478516
+node	id-ld9jkwt503r-26	Active
+option	node	id-ld9jkwt503r-26		spacing.baseValue	24
+option	node	id-ld9jkwt503r-26		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id-ld9jkwt503r-26		elk.spacing.edgeEdge	20
+option	node	id-ld9jkwt503r-26		spacing.nodeNode	50
+option	node	id-ld9jkwt503r-26		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id-ld9jkwt503r-26		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id-ld9jkwt503r-26		elk.layered.mergeEdges	false
+option	node	id-ld9jkwt503r-26		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id-ld9jkwt503r-26		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id-ld9jkwt503r-26		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id-ld9jkwt503r-26		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id-ld9jkwt503r-26		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	id-ld9jkwt503r-26		elk.algorithm	elk.layered
+option	node	id-ld9jkwt503r-26		elk.direction	DOWN
+option	node	id-ld9jkwt503r-26		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	id-ld9jkwt503r-26	0		0	0
+node	id-ld9jkwt503r-26_start	id-ld9jkwt503r-26	14.84874153137207	14.813332557678223
+node	ScrollOff	id-ld9jkwt503r-26	138.3077850341797	40.01001739501953
+node	ScrollOn	id-ld9jkwt503r-26	138.3659210205078	39.74345779418945
+node	root_end	root	14.362987518310547	15.064037322998047
+edge	edge0	root	root_start	Active
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	divider-id-1_start	NumOff
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	NumOff	NumOn
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	divider-id-2_start	CapsOff
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	CapsOff	CapsOn
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	id-ld9jkwt503r-26_start	ScrollOff
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	ScrollOff	ScrollOn
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Active	root_end
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	468.45703125	611.1562442779541
+place	root_start	root	224.228515625	12	14.743719100952148	14.857039451599121
+place	Active	root	12	66.85703945159912	444.45703125	477.23516750335693
+place-label	node	Active	0	203.166015625	5	38.125	19
+place	divider-id-1	Active	24	48	186.0911102294922	190.13384342193604
+place-label	node	divider-id-1	0	0	0	0	0
+place	divider-id-1_start	divider-id-1	82.2455551147461	24	14.893749237060547	14.497143745422363
+place	NumOff	divider-id-1	24	62.49714374542236	138.0911102294922	39.87714767456055
+place	NumOn	divider-id-1	24.35826873779297	126.37429141998291	137.37457275390625	39.759552001953125
+place	divider-id-2	Active	24	262.5668077468872	186.47508239746094	190.66835975646973
+place-label	node	divider-id-2	0	0	0	0	0
+place	divider-id-2_start	divider-id-2	82.43754119873047	24	14.65711498260498	15.129510879516602
+place	CapsOff	divider-id-2	24	63.1295108795166	138.47508239746094	39.49361801147461
+place	CapsOn	divider-id-2	24.055953979492188	126.62312889099121	138.36317443847656	40.045230865478516
+place	id-ld9jkwt503r-26	Active	234.0911102294922	48	186.3659210205078	190.5668077468872
+place-label	node	id-ld9jkwt503r-26	0	0	0	0	0
+place	id-ld9jkwt503r-26_start	id-ld9jkwt503r-26	82.38296051025391	24	14.84874153137207	14.813332557678223
+place	ScrollOff	id-ld9jkwt503r-26	24.029067993164062	62.81333255767822	138.3077850341797	40.01001739501953
+place	ScrollOn	id-ld9jkwt503r-26	24	126.82334995269775	138.3659210205078	39.74345779418945
+place	root_end	root	224.228515625	584.092206954956	14.362987518310547	15.064037322998047
+route	edge0	root	root
+section	edge0	edge0_s0	234.228515625,26.85703945159912	234.228515625,66.85703945159912		root_start	Active
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	divider-id-1
+section	edge1	edge1_s0	93.0455551147461,38.49714374542236	93.0455551147461,62.49714374542236		divider-id-1_start	NumOff
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	divider-id-1
+section	edge2	edge2_s0	93.0455551147461,102.37429141998291	93.0455551147461,126.37429141998291		NumOff	NumOn
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	divider-id-2
+section	edge3	edge3_s0	93.23754119873047,39.1295108795166	93.23754119873047,63.1295108795166		divider-id-2_start	CapsOff
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	divider-id-2
+section	edge4	edge4_s0	93.23754119873047,102.62312889099121	93.23754119873047,126.62312889099121		CapsOff	CapsOn
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	id-ld9jkwt503r-26
+section	edge5	edge5_s0	93.1829605102539,38.81333255767822	93.1829605102539,62.81333255767822		id-ld9jkwt503r-26_start	ScrollOff
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	id-ld9jkwt503r-26
+section	edge6	edge6_s0	93.1829605102539,102.82334995269775	93.1829605102539,126.82334995269775		ScrollOff	ScrollOn
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	root
+section	edge7	edge7_s0	234.228515625,544.092206954956	234.228515625,584.092206954956		Active	root_end
+place-label	edge	edge7	0	0	0	0	0

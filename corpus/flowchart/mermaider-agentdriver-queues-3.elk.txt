@@ -1,0 +1,104 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 28e88699a5978f9b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	events	root	152	108
+node	code	root	152	150
+node	steward	root	152	129
+node	inputs	root	152	129
+node	policy	root	152	129
+node	tools	root	152	108
+node	suggestion	root	152	66
+node	you	root	152	87
+edge	L_events_code_0	root	events	code
+label	edge	L_events_code_0	0		0	0
+option	edge-label	L_events_code_0	0	edgeLabels.inline	true
+option	edge-label	L_events_code_0	0	edgeLabels.placement	CENTER
+edge	L_code_steward_0	root	code	steward
+label	edge	L_code_steward_0	0	needs judgment	99.640625	21
+option	edge-label	L_code_steward_0	0	edgeLabels.inline	true
+option	edge-label	L_code_steward_0	0	edgeLabels.placement	CENTER
+edge	L_inputs_steward_0	root	inputs	steward
+label	edge	L_inputs_steward_0	0		0	0
+option	edge-label	L_inputs_steward_0	0	edgeLabels.inline	true
+option	edge-label	L_inputs_steward_0	0	edgeLabels.placement	CENTER
+edge	L_steward_policy_0	root	steward	policy
+label	edge	L_steward_policy_0	0	tool calls	54.46875	21
+option	edge-label	L_steward_policy_0	0	edgeLabels.inline	true
+option	edge-label	L_steward_policy_0	0	edgeLabels.placement	CENTER
+edge	L_policy_tools_0	root	policy	tools
+label	edge	L_policy_tools_0	0	allowed	47.484375	21
+option	edge-label	L_policy_tools_0	0	edgeLabels.inline	true
+option	edge-label	L_policy_tools_0	0	edgeLabels.placement	CENTER
+edge	L_tools_code_0	root	tools	code
+label	edge	L_tools_code_0	0	changes the queue	119.109375	21
+option	edge-label	L_tools_code_0	0	edgeLabels.inline	true
+option	edge-label	L_tools_code_0	0	edgeLabels.placement	CENTER
+edge	L_policy_suggestion_0	root	policy	suggestion
+label	edge	L_policy_suggestion_0	0	outside its level	95.71875	21
+option	edge-label	L_policy_suggestion_0	0	edgeLabels.inline	true
+option	edge-label	L_policy_suggestion_0	0	edgeLabels.placement	CENTER
+edge	L_suggestion_you_0	root	suggestion	you
+label	edge	L_suggestion_you_0	0		0	0
+option	edge-label	L_suggestion_you_0	0	edgeLabels.inline	true
+option	edge-label	L_suggestion_you_0	0	edgeLabels.placement	CENTER
+edge	L_you_events_0	root	you	events
+label	edge	L_you_events_0	0	your input	61.484375	21
+option	edge-label	L_you_events_0	0	edgeLabels.inline	true
+option	edge-label	L_you_events_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1717.296875	321
+place	events	root	1361.296875	201	152	108
+place	code	root	1553.296875	53	152	150
+place	steward	root	204	65.41666666666669	152	129
+place	inputs	root	12	65.41666666666669	152	129
+place	policy	root	490.46875	127.00000000000001	152	129
+place	tools	root	818.1875	74	152	108
+place	suggestion	root	818.1875	222	152	66
+place	you	root	1010.1875	211.5	152	87
+route	L_events_code_0	root	root
+section	L_events_code_0	L_events_code_0_s0	1513.296875,255	1553.296875,160.5	1533.296875,255 1533.296875,160.5	events	code
+place-label	edge	L_events_code_0	0	0	0	0	0
+route	L_code_steward_0	root	root
+section	L_code_steward_0	L_code_steward_0_s0	1553.296875,95.5	356,111.75000000000001	1533.296875,95.5 1533.296875,23 1437.296875,23 1261.7421875,23 1086.1875,23 730.328125,23 566.46875,23 423.234375,23 376,23 376,111.75000000000001	code	steward
+place-label	edge	L_code_steward_0	0	844.3671875	12	99.640625	21
+route	L_inputs_steward_0	root	root
+section	L_inputs_steward_0	L_inputs_steward_0_s0	164,129.91666666666669	204,129.91666666666669		inputs	steward
+place-label	edge	L_inputs_steward_0	0	0	0	0	0
+route	L_steward_policy_0	root	root
+section	L_steward_policy_0	L_steward_policy_0_s0	356,148.08333333333334	490.46875,191.5	376,148.08333333333334 376,191.5	steward	policy
+place-label	edge	L_steward_policy_0	0	396	180.5	54.46875	21
+route	L_policy_tools_0	root	root
+section	L_policy_tools_0	L_policy_tools_0_s0	642.46875,173.33333333333334	818.1875,128	662.46875,173.33333333333334 662.46875,128	policy	tools
+place-label	edge	L_policy_tools_0	0	706.5859375	117	47.484375	21
+route	L_tools_code_0	root	root
+section	L_tools_code_0	L_tools_code_0_s0	970.1875,128	1553.296875,128	1086.1875,128 1437.296875,128	tools	code
+place-label	edge	L_tools_code_0	0	1202.1875	117	119.109375	21
+route	L_policy_suggestion_0	root	root
+section	L_policy_suggestion_0	L_policy_suggestion_0_s0	642.46875,209.66666666666669	818.1875,255	662.46875,209.66666666666669 662.46875,255	policy	suggestion
+place-label	edge	L_policy_suggestion_0	0	682.46875	244	95.71875	21
+route	L_suggestion_you_0	root	root
+section	L_suggestion_you_0	L_suggestion_you_0_s0	970.1875,255	1010.1875,255		suggestion	you
+place-label	edge	L_suggestion_you_0	0	0	0	0	0
+route	L_you_events_0	root	root
+section	L_you_events_0	L_you_events_0_s0	1162.1875,255	1361.296875,255		you	events
+place-label	edge	L_you_events_0	0	1231	244	61.484375	21

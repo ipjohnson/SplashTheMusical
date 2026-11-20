@@ -1,0 +1,59 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 41d05da46b57190f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.rectpacking
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	15
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	root		spacing.nodeNode	15
+option	node	root		elk.aspectRatio	1.6
+option	node	root		elk.expandNodes	true
+option	node	root		elk.rectpacking.trybox	true
+option	node	root		elk.rectpacking.packing.compaction.rowHeightReevaluation	true
+option	node	root		elk.rectpacking.packing.compaction.iterations	10
+option	node	root		elk.rectpacking.whiteSpaceElimination.strategy	EQUAL_BETWEEN_STRUCTURES
+option	node	root		elk.rectpacking.widthApproximation.strategy	SCANLINE
+option	node	root		elk.contentAlignment	H_CENTER V_TOP
+option	node	root		elk.padding	[top=15,left=15,bottom=15,right=15]
+node	A	root	152	45
+node	B	root	152	45
+node	C	root	152	45
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0	labelled	48.265625	21
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_A_C_0	root	A	C
+label	edge	L_A_C_0	0		0	0
+option	edge-label	L_A_C_0	0	edgeLabels.inline	true
+option	edge-label	L_A_C_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	182	195
+place	A	root	15	15	152	45
+place	B	root	15	75	152	45
+place	C	root	15	135	152	45
+route	L_A_B_0	root	root
+place-label	edge	L_A_B_0	0	0	0	48.265625	21
+route	L_B_C_0	root	root
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_A_C_0	root	root
+place-label	edge	L_A_C_0	0	0	0	0	0

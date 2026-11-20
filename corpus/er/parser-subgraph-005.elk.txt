@@ -1,0 +1,47 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 049c3ffe51d03e00
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Group	root
+option	node	Group		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Group		nodeSize.minimum	(46.921875, 0)
+option	node	Group		spacing.baseValue	24
+option	node	Group		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Group		elk.spacing.edgeEdge	20
+option	node	Group		spacing.nodeNode	50
+option	node	Group		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Group		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Group		elk.layered.mergeEdges	false
+option	node	Group		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Group		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Group		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Group		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Group		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Group	0	Group	38.921875	19
+node	entity-A-0	Group	100	81
+node	entity-B-1	Group	100	81
+result
+place	root		0	0	322	177
+place	Group	root	12	12	298	153
+place-label	node	Group	0	129.5390625	5	38.921875	19
+place	entity-A-0	Group	24	48	100	81
+place	entity-B-1	Group	174	48	100	81

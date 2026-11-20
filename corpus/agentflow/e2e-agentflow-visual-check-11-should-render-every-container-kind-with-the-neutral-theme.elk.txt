@@ -1,0 +1,121 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fd8d4f41bf76416f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	archive	root	80	68
+option	node	archive		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	workers	root
+option	node	workers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	workers		nodeSize.minimum	(67.265625, 0)
+option	node	workers		spacing.baseValue	24
+option	node	workers		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	workers		elk.spacing.edgeEdge	20
+option	node	workers		spacing.nodeNode	50
+option	node	workers		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	workers		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	workers		elk.layered.mergeEdges	false
+option	node	workers		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	workers		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	workers		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	workers		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	workers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	workers		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	workers	0	Workers	59.265625	22
+node	search	workers	164	36
+option	node	search		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	notes	workers	167.1999969482422	71.9914779663086
+option	node	notes		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	orchestrator	root
+option	node	orchestrator		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	orchestrator		nodeSize.minimum	(96.921875, 0)
+option	node	orchestrator		spacing.baseValue	24
+option	node	orchestrator		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	orchestrator		elk.spacing.edgeEdge	20
+option	node	orchestrator		spacing.nodeNode	50
+option	node	orchestrator		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	orchestrator		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	orchestrator		elk.layered.mergeEdges	false
+option	node	orchestrator		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	orchestrator		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	orchestrator		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	orchestrator		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	orchestrator		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	orchestrator		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	orchestrator	0	Orchestrator	88.921875	22
+node	gather	orchestrator	189	39
+node	plan	orchestrator	150	54
+node	decide	orchestrator	174	174
+option	node	decide		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_gather_plan_0	root	gather	plan
+label	edge	L_gather_plan_0	0		0	0
+option	edge-label	L_gather_plan_0	0	edgeLabels.inline	true
+option	edge-label	L_gather_plan_0	0	edgeLabels.placement	CENTER
+edge	L_plan_decide_0	root	plan	decide
+label	edge	L_plan_decide_0	0		0	0
+option	edge-label	L_plan_decide_0	0	edgeLabels.inline	true
+option	edge-label	L_plan_decide_0	0	edgeLabels.placement	CENTER
+edge	L_search_notes_0	root	search	notes
+label	edge	L_search_notes_0	0		0	0
+option	edge-label	L_search_notes_0	0	edgeLabels.inline	true
+option	edge-label	L_search_notes_0	0	edgeLabels.placement	CENTER
+edge	L_decide_search_0	root	decide	search
+label	edge	L_decide_search_0	0		0	0
+option	edge-label	L_decide_search_0	0	edgeLabels.inline	true
+option	edge-label	L_decide_search_0	0	edgeLabels.placement	CENTER
+edge	L_notes_archive_0	root	notes	archive
+label	edge	L_notes_archive_0	0		0	0
+option	edge-label	L_notes_archive_0	0	edgeLabels.inline	true
+option	edge-label	L_notes_archive_0	0	edgeLabels.placement	CENTER
+edge	L_decide_archive_0	root	decide	archive
+label	edge	L_decide_archive_0	0		0	0
+option	edge-label	L_decide_archive_0	0	edgeLabels.inline	true
+option	edge-label	L_decide_archive_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	313.89999771118164	798.9914779663086
+place	archive	root	143.39999771118164	718.9914779663086	80	68
+place	workers	root	12	462	215.1999969482422	206.9914779663086
+place-label	node	workers	0	77.9671859741211	5	59.265625	22
+place	search	workers	25.599998474121094	51	164	36
+place	notes	workers	24	111	167.1999969482422	71.9914779663086
+place	orchestrator	root	64.89999771118164	12	237	390
+place-label	node	orchestrator	0	74.0390625	5	88.921875	22
+place	gather	orchestrator	24	51	189	39
+place	plan	orchestrator	43.5	114	150	54
+place	decide	orchestrator	31.5	192	174	174
+route	L_gather_plan_0	root	orchestrator
+section	L_gather_plan_0	L_gather_plan_0_s0	118.49999999999999,90	118.49999999999999,114		gather	plan
+place-label	edge	L_gather_plan_0	0	0	0	0	0
+route	L_plan_decide_0	root	orchestrator
+section	L_plan_decide_0	L_plan_decide_0_s0	118.49999999999999,168	118.49999999999999,192		plan	decide
+place-label	edge	L_plan_decide_0	0	0	0	0	0
+route	L_search_notes_0	root	workers
+section	L_search_notes_0	L_search_notes_0_s0	107.59999847412108,87	107.59999847412108,111		search	notes
+place-label	edge	L_search_notes_0	0	0	0	0	0
+route	L_decide_search_0	root	root
+section	L_decide_search_0	L_decide_search_0_s0	157.99999771118163,378	119.59999847412107,513	157.99999771118163,412 157.99999771118163,432 119.59999847412107,432 119.59999847412107,452	decide	search
+place-label	edge	L_decide_search_0	0	0	0	0	0
+route	L_notes_archive_0	root	root
+section	L_notes_archive_0	L_notes_archive_0_s0	119.59999847412108,644.9914779663086	173.39999771118164,718.9914779663086	119.59999847412108,678.9914779663086 119.59999847412108,698.9914779663086 173.39999771118164,698.9914779663086	notes	archive
+place-label	edge	L_notes_archive_0	0	0	0	0	0
+route	L_decide_archive_0	root	root
+section	L_decide_archive_0	L_decide_archive_0_s0	208.79999771118162,378	193.39999771118164,718.9914779663086	208.79999771118162,412 208.79999771118162,432 247.1999969482422,432 247.1999969482422,565.4957389831543 247.1999969482422,698.9914779663086 193.39999771118164,698.9914779663086	decide	archive
+place-label	edge	L_decide_archive_0	0	0	0	0	0

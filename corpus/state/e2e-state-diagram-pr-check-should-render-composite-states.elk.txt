@@ -1,0 +1,109 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c512386e92a656dc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	NotShooting	root
+option	node	NotShooting		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	NotShooting		nodeSize.minimum	(85.0625, 0)
+option	node	NotShooting		spacing.baseValue	24
+option	node	NotShooting		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	NotShooting		elk.spacing.edgeEdge	20
+option	node	NotShooting		spacing.nodeNode	50
+option	node	NotShooting		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	NotShooting		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	NotShooting		elk.layered.mergeEdges	false
+option	node	NotShooting		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	NotShooting		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	NotShooting		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	NotShooting		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	NotShooting		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	NotShooting		elk.algorithm	elk.layered
+option	node	NotShooting		elk.direction	DOWN
+option	node	NotShooting		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	NotShooting	0	NotShooting	77.0625	19
+node	NotShooting_start	NotShooting	14	14
+node	Idle	NotShooting	136	37
+node	Configuring	NotShooting	136	37
+node	A	root	136	37
+node	B	root	136	37
+node	C	root	136	37
+edge	edge0	root	root_start	NotShooting
+label	edge	edge0	0	Pacifist	45.125	21
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	NotShooting	A
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	NotShooting	B
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	NotShooting	C
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	NotShooting_start	Idle
+label	edge	edge4	0	Yet another long long öong öong öong label	200	42
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Idle	Configuring
+label	edge	edge5	0	EvConfig	56.8125	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Configuring	Idle
+label	edge	edge6	0	EvConfig  EvConfig EvConfig  EvConfig EvConfig	200	42
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	512	628
+place	root_start	root	246	12	14	14
+place	NotShooting	root	93.59375	127	324.8125	412
+place-label	node	NotShooting	0	123.875	5	77.0625	19
+place	NotShooting_start	NotShooting	187.45	48	14	14
+place	Idle	NotShooting	130.25	152	136	37
+place	Configuring	NotShooting	130.25	351	136	37
+place	A	root	12	579	136	37
+place	B	root	188	579	136	37
+place	C	root	364	579	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	256,26	256,127		root_start	NotShooting
+place-label	edge	edge0	0	233	66	45.125	21
+route	edge1	root	root
+section	edge1	edge1_s0	179.796875,539	80,579	179.796875,559 80,559	NotShooting	A
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	256,539	256,579		NotShooting	B
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	332.203125,539	432,579	332.203125,559 432,559	NotShooting	C
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	NotShooting
+section	edge4	edge4_s0	198.25,62	198.25,152		NotShooting_start	Idle
+place-label	edge	edge4	0	98.25	86	200	42
+route	edge5	root	NotShooting
+section	edge5	edge5_s0	217.31666666666666,189	217.31666666666666,351	217.3166666666667,219 272.5,219 272.5,321 217.3166666666667,321	Idle	Configuring
+place-label	edge	edge5	0	244	259.5	56.8125	21
+route	edge6	root	NotShooting
+section	edge6	edge6_s0	179.18333333333334,351	179.18333333333334,189	179.18333333333334,321 124,321 124,219 179.18333333333334,219	Configuring	Idle
+place-label	edge	edge6	0	24	249	200	42

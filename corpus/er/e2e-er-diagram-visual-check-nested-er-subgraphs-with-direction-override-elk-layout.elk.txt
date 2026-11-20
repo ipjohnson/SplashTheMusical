@@ -1,0 +1,87 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 80539748fd037b42
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	domain	root
+option	node	domain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	domain		nodeSize.minimum	(53.921875, 0)
+option	node	domain		spacing.baseValue	24
+option	node	domain		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	domain		elk.spacing.edgeEdge	20
+option	node	domain		spacing.nodeNode	50
+option	node	domain		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	domain		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	domain		elk.layered.mergeEdges	false
+option	node	domain		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	domain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	domain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	domain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	domain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	domain		elk.algorithm	elk.layered
+option	node	domain		elk.direction	DOWN
+option	node	domain		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	domain	0	domain	45.921875	19
+node	details	domain
+option	node	details		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	details		nodeSize.minimum	(48.46875, 0)
+option	node	details		spacing.baseValue	24
+option	node	details		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	details		elk.spacing.edgeEdge	20
+option	node	details		spacing.nodeNode	50
+option	node	details		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	details		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	details		elk.layered.mergeEdges	false
+option	node	details		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	details		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	details		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	details		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	details		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	details		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	details	0	details	40.46875	19
+node	entity-ORDER-1	details	100	81
+option	node	entity-ORDER-1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	entity-CUSTOMER-0	domain	119.859375	81
+option	node	entity-CUSTOMER-0		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	entity-PRODUCT-2	root	109.234375	81
+edge	id_entity-PRODUCT-2_domain_0	root	entity-PRODUCT-2	domain
+label	edge	id_entity-PRODUCT-2_domain_0	0	links	28.015625	21
+option	edge-label	id_entity-PRODUCT-2_domain_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-PRODUCT-2_domain_0	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	root	entity-CUSTOMER-0	entity-ORDER-1
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	places	40.46875	21
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	655.578125	249
+place	domain	root	229.25	12	414.328125	225
+place-label	node	domain	0	184.203125	5	45.921875	19
+place	details	domain	242.328125	48	148	153
+place-label	node	details	0	53.765625	5	40.46875	19
+place	entity-ORDER-1	details	24	48	100	81
+place	entity-CUSTOMER-0	domain	24	96	119.859375	81
+place	entity-PRODUCT-2	root	12	84	109.234375	81
+route	id_entity-PRODUCT-2_domain_0	root	root
+section	id_entity-PRODUCT-2_domain_0	id_entity-PRODUCT-2_domain_0_s0	121.234375,124.5	229.25,124.5		entity-PRODUCT-2	domain
+place-label	edge	id_entity-PRODUCT-2_domain_0	0	161.234375	113.5	28.015625	21
+route	id_entity-CUSTOMER-0_entity-ORDER-1_1	root	domain
+section	id_entity-CUSTOMER-0_entity-ORDER-1_1	id_entity-CUSTOMER-0_entity-ORDER-1_1_s0	143.859375,136.5	266.328125,136.5	232.328125,136.5	entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_1	0	167.859375	125.5	40.46875	21

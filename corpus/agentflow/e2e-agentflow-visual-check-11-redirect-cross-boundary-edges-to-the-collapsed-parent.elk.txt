@@ -1,0 +1,86 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 27adb24ddb800d63
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	reporter	root
+option	node	reporter		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	reporter		nodeSize.minimum	(89.734375, 0)
+option	node	reporter		spacing.baseValue	24
+option	node	reporter		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	reporter		elk.spacing.edgeEdge	20
+option	node	reporter		spacing.nodeNode	50
+option	node	reporter		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	reporter		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	reporter		elk.layered.mergeEdges	false
+option	node	reporter		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	reporter		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	reporter		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	reporter		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	reporter		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	reporter		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	reporter	0	Report Agent	81.734375	19
+node	compile	reporter	164	33
+option	node	compile		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	reviewer	root	101.609375	65
+option	node	reviewer		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	researcher	root
+option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	researcher		nodeSize.minimum	(107.625, 0)
+option	node	researcher		spacing.baseValue	24
+option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	researcher		elk.spacing.edgeEdge	20
+option	node	researcher		spacing.nodeNode	50
+option	node	researcher		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	researcher		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	researcher		elk.layered.mergeEdges	false
+option	node	researcher		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	researcher		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	researcher	0	Research Agent	99.625	19
+node	patterns	researcher	167.1999969482422	67.49201202392578
+option	node	patterns		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_patterns_validate_0	root	patterns	reviewer
+label	edge	L_patterns_validate_0	0		0	0
+option	edge-label	L_patterns_validate_0	0	edgeLabels.inline	true
+option	edge-label	L_patterns_validate_0	0	edgeLabels.placement	CENTER
+edge	L_reviewed_compile_0	root	reviewer	compile
+label	edge	L_reviewed_compile_0	0		0	0
+option	edge-label	L_reviewed_compile_0	0	edgeLabels.inline	true
+option	edge-label	L_reviewed_compile_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	239.1999969482422	433.4920120239258
+place	reporter	root	13.599998474121094	316.4920120239258	212	105
+place-label	node	reporter	0	65.1328125	5	81.734375	19
+place	compile	reporter	24	48	164	33
+place	reviewer	root	68.79531097412108	201.49201202392578	101.609375	65
+place	researcher	root	12	12	215.1999969482422	139.49201202392578
+place-label	node	researcher	0	57.787498474121094	5	99.625	19
+place	patterns	researcher	24	48	167.1999969482422	67.49201202392578
+route	L_patterns_validate_0	root	root
+section	L_patterns_validate_0	L_patterns_validate_0_s0	119.59999847412108,127.49201202392578	119.59999847412108,201.49201202392578	119.59999847412108,161.49201202392578	patterns	reviewer
+place-label	edge	L_patterns_validate_0	0	0	0	0	0
+route	L_reviewed_compile_0	root	root
+section	L_reviewed_compile_0	L_reviewed_compile_0_s0	119.59999847412108,266.4920120239258	119.59999847412108,364.4920120239258	119.59999847412108,306.4920120239258	reviewer	compile
+place-label	edge	L_reviewed_compile_0	0	0	0	0	0

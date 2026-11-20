@@ -1,0 +1,59 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f3cca3338e0a2485
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	work	root	152	45
+node	sleep	root	152	45
+node	eat	root	152	45
+edge	L_work_sleep_0	root	work	sleep
+label	edge	L_work_sleep_0	0		0	0
+option	edge-label	L_work_sleep_0	0	edgeLabels.inline	true
+option	edge-label	L_work_sleep_0	0	edgeLabels.placement	CENTER
+edge	L_sleep_work_0	root	sleep	work
+label	edge	L_sleep_work_0	0		0	0
+option	edge-label	L_sleep_work_0	0	edgeLabels.inline	true
+option	edge-label	L_sleep_work_0	0	edgeLabels.placement	CENTER
+edge	L_eat_sleep_0	root	eat	sleep
+label	edge	L_eat_sleep_0	0		0	0
+option	edge-label	L_eat_sleep_0	0	edgeLabels.inline	true
+option	edge-label	L_eat_sleep_0	0	edgeLabels.placement	CENTER
+edge	L_work_eat_0	root	work	eat
+label	edge	L_work_eat_0	0		0	0
+option	edge-label	L_work_eat_0	0	edgeLabels.inline	true
+option	edge-label	L_work_eat_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	273	239
+place	work	root	12	12	152	45
+place	sleep	root	12	182	152	45
+place	eat	root	109	97	152	45
+route	L_work_sleep_0	root	root
+section	L_work_sleep_0	L_work_sleep_0_s0	55,57	55,182	55,77 61,77 61,119.5 61,162 55,162	work	sleep
+place-label	edge	L_work_sleep_0	0	0	0	0	0
+route	L_sleep_work_0	root	root
+section	L_sleep_work_0	L_sleep_work_0_s0	88,182	88,57	88,119.5	sleep	work
+place-label	edge	L_sleep_work_0	0	0	0	0	0
+route	L_eat_sleep_0	root	root
+section	L_eat_sleep_0	L_eat_sleep_0_s0	185,142	121,182	185,162 121,162	eat	sleep
+place-label	edge	L_eat_sleep_0	0	0	0	0	0
+route	L_work_eat_0	root	root
+section	L_work_eat_0	L_work_eat_0_s0	121,57	185,97	121,77 185,77	work	eat
+place-label	edge	L_work_eat_0	0	0	0	0	0

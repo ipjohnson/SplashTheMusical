@@ -1,0 +1,139 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7047a4ca2f537f46
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	project	root
+option	node	project		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	project		nodeSize.minimum	(50.03125, 0)
+option	node	project		spacing.baseValue	24
+option	node	project		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	project		elk.spacing.edgeEdge	20
+option	node	project		spacing.nodeNode	50
+option	node	project		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	project		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	project		elk.layered.mergeEdges	false
+option	node	project		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	project		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	project		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	project		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	project		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	project		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	project	0	project	42.03125	19
+node	subnet2	project
+option	node	subnet2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subnet2		nodeSize.minimum	(57.828125, 0)
+option	node	subnet2		spacing.baseValue	24
+option	node	subnet2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subnet2		elk.spacing.edgeEdge	20
+option	node	subnet2		spacing.nodeNode	50
+option	node	subnet2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subnet2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subnet2		elk.layered.mergeEdges	false
+option	node	subnet2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subnet2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subnet2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subnet2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subnet2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	subnet2	0	subnet2	49.828125	19
+node	lb2	subnet2	152	45
+node	compute2	subnet2	152	45
+node	subnet1	project
+option	node	subnet1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subnet1		nodeSize.minimum	(57.828125, 0)
+option	node	subnet1		spacing.baseValue	24
+option	node	subnet1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subnet1		elk.spacing.edgeEdge	20
+option	node	subnet1		spacing.nodeNode	50
+option	node	subnet1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subnet1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subnet1		elk.layered.mergeEdges	false
+option	node	subnet1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subnet1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subnet1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subnet1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subnet1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	subnet1	0	subnet1	49.828125	19
+node	lb1	subnet1	152	45
+node	compute1	subnet1	152	45
+node	nat	project	152	45
+option	node	nat		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	router	project	152	45
+option	node	router		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	internet	root	152	45
+option	node	internet		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_internet_router_0	root	internet	router
+label	edge	L_internet_router_0	0		0	0
+option	edge-label	L_internet_router_0	0	edgeLabels.inline	true
+option	edge-label	L_internet_router_0	0	edgeLabels.placement	CENTER
+edge	L_router_subnet1_0	root	router	subnet1
+label	edge	L_router_subnet1_0	0		0	0
+option	edge-label	L_router_subnet1_0	0	edgeLabels.inline	true
+option	edge-label	L_router_subnet1_0	0	edgeLabels.placement	CENTER
+edge	L_router_subnet2_0	root	router	subnet2
+label	edge	L_router_subnet2_0	0		0	0
+option	edge-label	L_router_subnet2_0	0	edgeLabels.inline	true
+option	edge-label	L_router_subnet2_0	0	edgeLabels.placement	CENTER
+edge	L_subnet1_nat_0	root	subnet1	nat
+label	edge	L_subnet1_nat_0	0		0	0
+option	edge-label	L_subnet1_nat_0	0	edgeLabels.inline	true
+option	edge-label	L_subnet1_nat_0	0	edgeLabels.placement	CENTER
+edge	L_subnet2_nat_0	root	subnet2	nat
+label	edge	L_subnet2_nat_0	0		0	0
+option	edge-label	L_subnet2_nat_0	0	edgeLabels.inline	true
+option	edge-label	L_subnet2_nat_0	0	edgeLabels.placement	CENTER
+edge	L_nat_internet_0	root	internet	nat
+label	edge	L_nat_internet_0	0		0	0
+option	edge-label	L_nat_internet_0	0	edgeLabels.inline	true
+option	edge-label	L_nat_internet_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	950	518
+place	project	root	12	107	926	399
+place-label	node	project	0	441.984375	5	42.03125	19
+place	subnet2	project	476	153	402	117
+place-label	node	subnet2	0	176.0859375	5	49.828125	19
+place	lb2	subnet2	24	48	152	45
+place	compute2	subnet2	226	48	152	45
+place	subnet1	project	24	153	402	117
+place-label	node	subnet1	0	176.0859375	5	49.828125	19
+place	lb1	subnet1	24	48	152	45
+place	compute1	subnet1	226	48	152	45
+place	nat	project	601	330	152	45
+place	router	project	353.8	48	152	45
+place	internet	root	586.9	12	152	45
+route	L_internet_router_0	root	root
+section	L_internet_router_0	L_internet_router_0_s0	640.9,57	441.8,155	640.9,77 441.8,77 441.8,97	internet	router
+place-label	edge	L_internet_router_0	0	0	0	0	0
+route	L_router_subnet1_0	root	project
+section	L_router_subnet1_0	L_router_subnet1_0_s0	408.06666666666666,93	225,153	408.06666666666666,123 225,123	router	subnet1
+place-label	edge	L_router_subnet1_0	0	0	0	0	0
+route	L_router_subnet2_0	root	project
+section	L_router_subnet2_0	L_router_subnet2_0_s0	451.5333333333333,93	677,153	451.5333333333333,123 677,123	router	subnet2
+place-label	edge	L_router_subnet2_0	0	0	0	0	0
+route	L_subnet1_nat_0	root	project
+section	L_subnet1_nat_0	L_subnet1_nat_0_s0	225,270	644.4,330	225,300 644.4,300	subnet1	nat
+place-label	edge	L_subnet1_nat_0	0	0	0	0	0
+route	L_subnet2_nat_0	root	project
+section	L_subnet2_nat_0	L_subnet2_nat_0_s0	677,270	677,330		subnet2	nat
+place-label	edge	L_subnet2_nat_0	0	0	0	0	0
+route	L_nat_internet_0	root	root
+section	L_nat_internet_0	L_nat_internet_0_s0	684.9,57	721.6,437	684.9,77 902,77 902,97 902,407 721.6,407	internet	nat
+place-label	edge	L_nat_internet_0	0	0	0	0	0

@@ -1,0 +1,95 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1f85b4f21297cc84
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Admin	root	76	121
+option	node	Admin		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	User	root	76	121
+option	node	User		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Account	root
+option	node	Account		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Account		nodeSize.minimum	(70.59375, 0)
+option	node	Account		spacing.baseValue	24
+option	node	Account		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Account		elk.spacing.edgeEdge	20
+option	node	Account		spacing.nodeNode	50
+option	node	Account		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Account		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Account		elk.layered.mergeEdges	false
+option	node	Account		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Account		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Account		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Account		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Account		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Account		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Account	0	Account	50.59375	19
+node	Login	Account	160	58
+option	node	Login		elk.portAlignment.default	CENTER
+option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Reset	Account	160	58
+option	node	Reset		elk.portAlignment.default	CENTER
+node	Audit	Account	152	42
+option	node	Audit		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge-0	root	Admin	User
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	User	Login
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Reset	Login
+label	edge	edge-2	0	«extend»	45.15625	15
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+edge	edge-3	root	Login	Audit
+label	edge	edge-3	0	«include»	46.8125	15
+option	edge-label	edge-3	0	edgeLabels.inline	true
+option	edge-label	edge-3	0	edgeLabels.placement	CENTER
+edge	edge-4	root	Admin	Audit
+label	edge	edge-4	0		0	0
+option	edge-label	edge-4	0	edgeLabels.inline	true
+option	edge-label	edge-4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	320	784
+place	Admin	root	196.75	12	76	121
+place	User	root	167.75	173	76	121
+place	Account	root	12	344	296	428
+place-label	node	Account	0	122.703125	5	50.59375	19
+place	Login	Account	70	205	160	58
+place	Reset	Account	24	48	160	58
+place	Audit	Account	120.00000000000003	362	152	42
+route	edge-0	root	root
+section	edge-0	edge-0_s0	225.41666666666666,133	205.75,173	225.41666666666666,153 205.75,153	Admin	User
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	205.75,294	168,549	205.75,314 208,314 208,334 208,519 168,519	User	Login
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	Account
+section	edge-2	edge-2_s0	103.99999999999999,106	144,205	103.99999999999999,175 144,175	Reset	Login
+place-label	edge	edge-2	0	80.99999999999999	130	45.15625	15
+route	edge-3	root	Account
+section	edge-3	edge-3_s0	150,263	174.26666666666668,362	150,332 174.26666666666668,332	Login	Audit
+place-label	edge	edge-3	0	126.5	287	46.8125	15
+route	edge-4	root	root
+section	edge-4	edge-4_s0	244.08333333333334,133	229.73333333333332,706	244.08333333333334,153 263.75,153 263.75,233.5 263.75,314 261.5,314 261.5,334 261.5,676 229.73333333333332,676	Admin	Audit
+place-label	edge	edge-4	0	0	0	0	0

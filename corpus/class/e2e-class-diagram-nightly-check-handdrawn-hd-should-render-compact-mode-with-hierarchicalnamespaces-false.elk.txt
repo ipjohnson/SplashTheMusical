@@ -1,0 +1,105 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3215060eb0e79c6c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Company	root
+option	node	Company		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company		nodeSize.minimum	(75.921875, 0)
+option	node	Company		spacing.baseValue	24
+option	node	Company		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company		elk.spacing.edgeEdge	20
+option	node	Company		spacing.nodeNode	50
+option	node	Company		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company		elk.layered.mergeEdges	false
+option	node	Company		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Company		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Company	0	Company	59.921875	19
+node	CEO	Company	151.609375	120
+option	node	CEO		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Company.Engineering.Backend	root
+option	node	Company.Engineering.Backend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company.Engineering.Backend		nodeSize.minimum	(211.875, 0)
+option	node	Company.Engineering.Backend		spacing.baseValue	24
+option	node	Company.Engineering.Backend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company.Engineering.Backend		elk.spacing.edgeEdge	20
+option	node	Company.Engineering.Backend		spacing.nodeNode	50
+option	node	Company.Engineering.Backend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company.Engineering.Backend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company.Engineering.Backend		elk.layered.mergeEdges	false
+option	node	Company.Engineering.Backend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company.Engineering.Backend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company.Engineering.Backend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company.Engineering.Backend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company.Engineering.Backend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Company.Engineering.Backend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Company.Engineering.Backend	0	Company.Engineering.Backend	195.875	19
+node	Developer	Company.Engineering.Backend	138.3828125	120
+option	node	Developer		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Company.Engineering.Frontend	root
+option	node	Company.Engineering.Frontend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company.Engineering.Frontend		nodeSize.minimum	(213.421875, 0)
+option	node	Company.Engineering.Frontend		spacing.baseValue	24
+option	node	Company.Engineering.Frontend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company.Engineering.Frontend		elk.spacing.edgeEdge	20
+option	node	Company.Engineering.Frontend		spacing.nodeNode	50
+option	node	Company.Engineering.Frontend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company.Engineering.Frontend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company.Engineering.Frontend		elk.layered.mergeEdges	false
+option	node	Company.Engineering.Frontend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company.Engineering.Frontend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company.Engineering.Frontend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company.Engineering.Frontend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company.Engineering.Frontend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Company.Engineering.Frontend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Company.Engineering.Frontend	0	Company.Engineering.Frontend	197.421875	19
+node	Designer	Company.Engineering.Frontend	159.3984375	120
+option	node	Designer		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	id_CEO_Developer_1	root	CEO	Developer
+label	edge	id_CEO_Developer_1	0	oversees	56.8125	21
+option	edge-label	id_CEO_Developer_1	0	edgeLabels.inline	true
+option	edge-label	id_CEO_Developer_1	0	edgeLabels.placement	CENTER
+edge	id_CEO_Designer_2	root	CEO	Designer
+label	edge	id_CEO_Designer_2	0	oversees	56.8125	21
+option	edge-label	id_CEO_Designer_2	0	edgeLabels.inline	true
+option	edge-label	id_CEO_Designer_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	467.2734375	550.421875
+place	Company	root	130.951171875	12	199.609375	192
+place-label	node	Company	0	69.84375	5	59.921875	19
+place	CEO	Company	24	48	151.609375	120
+place	Company.Engineering.Backend	root	16.74609375	325	186.3828125	211.875
+place-label	node	Company.Engineering.Backend	0	-4.74609375	5	195.875	19
+place	Developer	Company.Engineering.Backend	24	48	138.3828125	120
+place	Company.Engineering.Frontend	root	247.875	325	207.3984375	213.421875
+place-label	node	Company.Engineering.Frontend	0	4.98828125	5	197.421875	19
+place	Designer	Company.Engineering.Frontend	24	48	159.3984375	120
+route	id_CEO_Developer_1	root	root
+section	id_CEO_Developer_1	id_CEO_Developer_1_s0	209.08763020833334,180	109.9375,373	209.08763020833334,214 209.08763020833334,234 109.9375,234 109.9375,315	CEO	Developer
+place-label	edge	id_CEO_Developer_1	0	81.4375	254	56.8125	21
+route	id_CEO_Designer_2	root	root
+section	id_CEO_Designer_2	id_CEO_Designer_2_s0	252.42408854166666,180	351.57421875,373	252.42408854166666,214 252.42408854166666,234 351.57421875,234 351.57421875,315	CEO	Designer
+place-label	edge	id_CEO_Designer_2	0	323.07421875	254	56.8125	21

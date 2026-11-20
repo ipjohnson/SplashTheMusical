@@ -1,0 +1,54 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 280cf016c773f874
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Auth	root
+option	node	Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Auth		nodeSize.minimum	(155.3125, 0)
+option	node	Auth		spacing.baseValue	24
+option	node	Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Auth		elk.spacing.edgeEdge	20
+option	node	Auth		spacing.nodeNode	50
+option	node	Auth		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Auth		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Auth		elk.layered.mergeEdges	false
+option	node	Auth		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Auth		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Auth	0	Authentication Service	139.3125	19
+node	UserService	Auth	120.1328125	141
+node	TokenManager	Auth	145.6640625	120
+edge	id_UserService_TokenManager_1	root	UserService	TokenManager
+label	edge	id_UserService_TokenManager_1	0	uses	29.578125	21
+option	edge-label	id_UserService_TokenManager_1	0	edgeLabels.inline	true
+option	edge-label	id_UserService_TokenManager_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	217.6640625	426
+place	Auth	root	12	12	193.6640625	402
+place-label	node	Auth	0	27.17578125	5	139.3125	19
+place	UserService	Auth	36.765625	48	120.1328125	141
+place	TokenManager	Auth	24	258	145.6640625	120
+route	id_UserService_TokenManager_1	root	Auth
+section	id_UserService_TokenManager_1	id_UserService_TokenManager_1_s0	96.83203125,189	96.83203125,258		UserService	TokenManager
+place-label	edge	id_UserService_TokenManager_1	0	81.83203125	213	29.578125	21

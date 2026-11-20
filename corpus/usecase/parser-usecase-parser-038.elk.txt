@@ -1,0 +1,55 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 428bfbe0fc019dca
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	sb1	root
+option	node	sb1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	sb1		nodeSize.minimum	(123.484375, 0)
+option	node	sb1		spacing.baseValue	24
+option	node	sb1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	sb1		elk.spacing.edgeEdge	20
+option	node	sb1		spacing.nodeNode	50
+option	node	sb1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	sb1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	sb1		elk.layered.mergeEdges	false
+option	node	sb1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	sb1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	sb1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	sb1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	sb1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	sb1	0	Payment service	103.484375	19
+node	Clerk	sb1	108.703125	121
+node	Authorize	sb1	160	58
+option	node	Authorize		elk.portAlignment.default	CENTER
+edge	edge-0	root	Clerk	Authorize
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	364.703125	217
+place	sb1	root	12	12	340.703125	193
+place-label	node	sb1	0	118.609375	5	103.484375	19
+place	Clerk	sb1	24	48	108.703125	121
+place	Authorize	sb1	156.703125	79.5	160	58
+route	edge-0	root	sb1
+section	edge-0	edge-0_s0	132.703125,108.5	156.703125,108.5		Clerk	Authorize
+place-label	edge	edge-0	0	0	0	0	0

@@ -1,0 +1,63 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 72ddb9fc72ab937a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	brief	root	186	36
+node	draft	root	150	51
+node	spellcheck	root	164	33
+node	guide	root	167.1999969482422	67.49201202392578
+node	publish	root	204	91
+edge	L_brief_draft_0	root	brief	draft
+label	edge	L_brief_draft_0	0		0	0
+option	edge-label	L_brief_draft_0	0	edgeLabels.inline	true
+option	edge-label	L_brief_draft_0	0	edgeLabels.placement	CENTER
+edge	L_draft_spellcheck_0	root	draft	spellcheck
+label	edge	L_draft_spellcheck_0	0		0	0
+option	edge-label	L_draft_spellcheck_0	0	edgeLabels.inline	true
+option	edge-label	L_draft_spellcheck_0	0	edgeLabels.placement	CENTER
+edge	L_spellcheck_publish_0	root	spellcheck	publish
+label	edge	L_spellcheck_publish_0	0		0	0
+option	edge-label	L_spellcheck_publish_0	0	edgeLabels.inline	true
+option	edge-label	L_spellcheck_publish_0	0	edgeLabels.placement	CENTER
+edge	L_draft_guide_0	root	draft	guide
+label	edge	L_draft_guide_0	0		0	0
+option	edge-label	L_draft_guide_0	0	edgeLabels.inline	true
+option	edge-label	L_draft_guide_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	851.1999969482422	193.49201202392578
+place	brief	root	12	84.62300300598145	186	36
+place	draft	root	238	77.12300300598145	150	51
+place	spellcheck	root	429.5999984741211	41	164	33
+place	guide	root	428	114	167.1999969482422	67.49201202392578
+place	publish	root	635.1999969482422	12	204	91
+route	L_brief_draft_0	root	root
+section	L_brief_draft_0	L_brief_draft_0_s0	198,102.62300300598145	238,102.62300300598145		brief	draft
+place-label	edge	L_brief_draft_0	0	0	0	0	0
+route	L_draft_spellcheck_0	root	root
+section	L_draft_spellcheck_0	L_draft_spellcheck_0_s0	388,97.45633633931479	429.5999984741211,57.5	408,97.45633633931479 408,57.5	draft	spellcheck
+place-label	edge	L_draft_spellcheck_0	0	0	0	0	0
+route	L_spellcheck_publish_0	root	root
+section	L_spellcheck_publish_0	L_spellcheck_publish_0_s0	593.5999984741211,57.5	635.1999969482422,57.5		spellcheck	publish
+place-label	edge	L_spellcheck_publish_0	0	0	0	0	0
+route	L_draft_guide_0	root	root
+section	L_draft_guide_0	L_draft_guide_0_s0	388,107.78966967264812	428,147.7460060119629	408,107.78966967264812 408,147.7460060119629	draft	guide
+place-label	edge	L_draft_guide_0	0	0	0	0	0

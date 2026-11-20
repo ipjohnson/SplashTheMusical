@@ -1,0 +1,93 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 802d9c8c96d1cb95
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-T1-0	root	100	81
+node	entity-T2-1	root	100	81
+node	entity-T3-2	root	100	81
+node	entity-T4-3	root	100	81
+node	entity-T5-4	root	100	81
+node	entity-T6-5	root	100	81
+edge	id_entity-T1-0_entity-T2-1_0	root	entity-T1-0	entity-T2-1
+label	edge	id_entity-T1-0_entity-T2-1_0	0	test	22.578125	21
+option	edge-label	id_entity-T1-0_entity-T2-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-T1-0_entity-T2-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-T2-1_entity-T3-2_1	root	entity-T2-1	entity-T3-2
+label	edge	id_entity-T2-1_entity-T3-2_1	0	test	22.578125	21
+option	edge-label	id_entity-T2-1_entity-T3-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-T2-1_entity-T3-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-T3-2_entity-T4-3_2	root	entity-T3-2	entity-T4-3
+label	edge	id_entity-T3-2_entity-T4-3_2	0	test	22.578125	21
+option	edge-label	id_entity-T3-2_entity-T4-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-T3-2_entity-T4-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-T4-3_entity-T5-4_3	root	entity-T4-3	entity-T5-4
+label	edge	id_entity-T4-3_entity-T5-4_3	0	test	22.578125	21
+option	edge-label	id_entity-T4-3_entity-T5-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-T4-3_entity-T5-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-T5-4_entity-T6-5_4	root	entity-T5-4	entity-T6-5
+label	edge	id_entity-T5-4_entity-T6-5_4	0	test	22.578125	21
+option	edge-label	id_entity-T5-4_entity-T6-5_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-T5-4_entity-T6-5_4	0	edgeLabels.placement	CENTER
+edge	id_entity-T6-5_entity-T1-0_5	root	entity-T6-5	entity-T1-0
+label	edge	id_entity-T6-5_entity-T1-0_5	0	test	22.578125	21
+option	edge-label	id_entity-T6-5_entity-T1-0_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-T6-5_entity-T1-0_5	0	edgeLabels.placement	CENTER
+edge	id_entity-T4-3_entity-T6-5_6	root	entity-T4-3	entity-T6-5
+label	edge	id_entity-T4-3_entity-T6-5_6	0	test	22.578125	21
+option	edge-label	id_entity-T4-3_entity-T6-5_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-T4-3_entity-T6-5_6	0	edgeLabels.placement	CENTER
+edge	id_entity-T1-0_entity-T3-2_7	root	entity-T1-0	entity-T3-2
+label	edge	id_entity-T1-0_entity-T3-2_7	0	test	22.578125	21
+option	edge-label	id_entity-T1-0_entity-T3-2_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-T1-0_entity-T3-2_7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	219.078125	1015
+place	entity-T1-0	root	44.5	12	100	81
+place	entity-T2-1	root	44.5	194	100	81
+place	entity-T3-2	root	95.24999999999999	376	100	81
+place	entity-T4-3	root	95.24999999999999	558	100	81
+place	entity-T5-4	root	44.5	740	100	81
+place	entity-T6-5	root	44.5	922	100	81
+route	id_entity-T1-0_entity-T2-1_0	root	root
+section	id_entity-T1-0_entity-T2-1_0	id_entity-T1-0_entity-T2-1_0_s0	94.5,93	94.5,194		entity-T1-0	entity-T2-1
+place-label	edge	id_entity-T1-0_entity-T2-1_0	0	83	133	22.578125	21
+route	id_entity-T2-1_entity-T3-2_1	root	root
+section	id_entity-T2-1_entity-T3-2_1	id_entity-T2-1_entity-T3-2_1_s0	94.5,275	131.91666666666666,376	94.5,356 131.91666666666666,356	entity-T2-1	entity-T3-2
+place-label	edge	id_entity-T2-1_entity-T3-2_1	0	83	315	22.578125	21
+route	id_entity-T3-2_entity-T4-3_2	root	root
+section	id_entity-T3-2_entity-T4-3_2	id_entity-T3-2_entity-T4-3_2_s0	145.25,457	145.25,558		entity-T3-2	entity-T4-3
+place-label	edge	id_entity-T3-2_entity-T4-3_2	0	133.75	497	22.578125	21
+route	id_entity-T4-3_entity-T5-4_3	root	root
+section	id_entity-T4-3_entity-T5-4_3	id_entity-T4-3_entity-T5-4_3_s0	131.91666666666666,639	94.5,740	131.91666666666666,659 94.5,659	entity-T4-3	entity-T5-4
+place-label	edge	id_entity-T4-3_entity-T5-4_3	0	83	679	22.578125	21
+route	id_entity-T5-4_entity-T6-5_4	root	root
+section	id_entity-T5-4_entity-T6-5_4	id_entity-T5-4_entity-T6-5_4_s0	94.5,821	94.5,922		entity-T5-4	entity-T6-5
+place-label	edge	id_entity-T5-4_entity-T6-5_4	0	83	861	22.578125	21
+route	id_entity-T6-5_entity-T1-0_5	root	root
+section	id_entity-T6-5_entity-T1-0_5	id_entity-T6-5_entity-T1-0_5_s0	74.5,922	74.5,93	74.5,902 23.5,902 23.5,871.5 23.5,780.5 23.5,689.5 23.5,598.5 23.5,416.5 23.5,325.5 23.5,234.5 23.5,143.5 23.5,113 74.5,113	entity-T6-5	entity-T1-0
+place-label	edge	id_entity-T6-5_entity-T1-0_5	0	12	497	22.578125	21
+route	id_entity-T4-3_entity-T6-5_6	root	root
+section	id_entity-T4-3_entity-T6-5_6	id_entity-T4-3_entity-T6-5_6_s0	158.58333333333331,639	114.5,922	158.58333333333331,659 196,659 196,689.5 196,871.5 196,902 114.5,902	entity-T4-3	entity-T6-5
+place-label	edge	id_entity-T4-3_entity-T6-5_6	0	184.5	770	22.578125	21
+route	id_entity-T1-0_entity-T3-2_7	root	root
+section	id_entity-T1-0_entity-T3-2_7	id_entity-T1-0_entity-T3-2_7_s0	114.5,93	158.58333333333331,376	114.5,113 196,113 196,143.5 196,325.5 196,356 158.58333333333331,356	entity-T1-0	entity-T3-2
+place-label	edge	id_entity-T1-0_entity-T3-2_7	0	184.5	224	22.578125	21

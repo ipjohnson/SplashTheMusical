@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 87a0449855a6b1f0
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	subGraph0	root
+option	node	subGraph0		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subGraph0		nodeSize.minimum	(114.625, 0)
+option	node	subGraph0		spacing.baseValue	24
+option	node	subGraph0		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subGraph0		elk.spacing.edgeEdge	20
+option	node	subGraph0		spacing.nodeNode	50
+option	node	subGraph0		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subGraph0		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subGraph0		elk.layered.mergeEdges	false
+option	node	subGraph0		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subGraph0		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subGraph0		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subGraph0		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subGraph0		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	subGraph0	0	number as labels	106.625	19
+node	1	subGraph0	152	45
+result
+place	root		0	0	224	141
+place	subGraph0	root	12	12	200	117
+place-label	node	subGraph0	0	46.6875	5	106.625	19
+place	1	subGraph0	24	48	152	45

@@ -1,0 +1,40 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7caa927a6c83c582
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-ACTIVE_ENTITY-0	root	148.140625	81
+node	entity-ISOLATED_ENTITY-1	root	175.78125	119.25
+node	entity-CONNECTED_A-2	root	145.796875	81
+node	entity-CONNECTED_B-3	root	145.796875	81
+edge	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	root	entity-CONNECTED_A-2	entity-CONNECTED_B-3
+label	edge	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	0	relates	42.03125	21
+option	edge-label	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	573.71875	325.25
+place	entity-ACTIVE_ENTITY-0	root	12	31.125	148.140625	81
+place	entity-ISOLATED_ENTITY-1	root	200.140625	12	175.78125	119.25
+place	entity-CONNECTED_A-2	root	415.921875	50.25	145.796875	81
+place	entity-CONNECTED_B-3	root	415.921875	232.25	145.796875	81
+route	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	root	root
+section	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0_s0	488.8203125,131.25	488.8203125,232.25		entity-CONNECTED_A-2	entity-CONNECTED_B-3
+place-label	edge	id_entity-CONNECTED_A-2_entity-CONNECTED_B-3_0	0	467.3203125	171.25	42.03125	21

@@ -1,0 +1,88 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7bbff52b691148bf
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	NotStarted	root	136	37
+node	ShadowNav	root	136	58
+node	VirtualRemap	root	136	58
+node	PhysicalRestructure	root	136	58
+node	Cutover	root	136	37
+node	root_start	root	14	14
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	NotStarted
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	NotStarted	ShadowNav
+label	edge	edge1	0	add docset-v2.yml + toc-v2.yml to main	200	42
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	ShadowNav	VirtualRemap
+label	edge	edge2	0	assign new path_prefix in navigation-v2.yml	200	42
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	VirtualRemap	PhysicalRestructure
+label	edge	edge3	0	run apply-nav-restructure\\n(only if content moves)	200	63
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	VirtualRemap	Cutover
+label	edge	edge4	0	no URL changes needed	154.390625	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	PhysicalRestructure	Cutover
+label	edge	edge5	0	merge feature branch	133.859375	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Cutover	root_end
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	386.390625	868
+place	NotStarted	root	136.75	66	136	37
+place	ShadowNav	root	136.75	225	136	58
+place	VirtualRemap	root	136.75	405	136	58
+place	PhysicalRestructure	root	44	606	136	58
+place	Cutover	root	136.75	765	136	37
+place	root_start	root	194.75	12	14	14
+place	root_end	root	194.75	842	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	204.75,26	204.75,66		root_start	NotStarted
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	204.75,103	204.75,225		NotStarted	ShadowNav
+place-label	edge	edge1	0	104.74999999999999	143	200	42
+route	edge2	root	root
+section	edge2	edge2_s0	204.75,283	204.75,405		ShadowNav	VirtualRemap
+place-label	edge	edge2	0	104.74999999999999	323	200	42
+route	edge3	root	root
+section	edge3	edge3_s0	185.41666666666663,463	112,606	185.41666666666663,483 112,483	VirtualRemap	PhysicalRestructure
+place-label	edge	edge3	0	12	503	200	63
+route	edge4	root	root
+section	edge4	edge4_s0	224.08333333333331,463	224.08333333333331,765	224.08333333333331,483 297.5,483 297.5,534.5 297.5,714.5 297.5,745 224.08333333333331,745	VirtualRemap	Cutover
+place-label	edge	edge4	0	220	624.5	154.390625	21
+route	edge5	root	root
+section	edge5	edge5_s0	112,664	185.41666666666663,765	112,745 185.41666666666663,745	PhysicalRestructure	Cutover
+place-label	edge	edge5	0	45	704	133.859375	21
+route	edge6	root	root
+section	edge6	edge6_s0	204.75,802	204.75,842		Cutover	root_end
+place-label	edge	edge6	0	0	0	0	0

@@ -1,0 +1,65 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 01f53b9e79db0fe3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Animal	root	139.578125	177
+node	Duck	root	153.5703125	156
+node	Fish	root	126.328125	135
+node	Zebra	root	123.625	135
+node	note0	root	138.03125	33
+node	note1	root	149.015625	96
+edge	edgeNote1	root	note1	Duck
+label	edge	edgeNote1	0		0	0
+option	edge-label	edgeNote1	0	edgeLabels.inline	true
+option	edge-label	edgeNote1	0	edgeLabels.placement	CENTER
+edge	id_Animal_Duck_1	root	Animal	Duck
+label	edge	id_Animal_Duck_1	0		0	0
+option	edge-label	id_Animal_Duck_1	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Duck_1	0	edgeLabels.placement	CENTER
+edge	id_Animal_Fish_2	root	Animal	Fish
+label	edge	id_Animal_Fish_2	0		0	0
+option	edge-label	id_Animal_Fish_2	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Fish_2	0	edgeLabels.placement	CENTER
+edge	id_Animal_Zebra_3	root	Animal	Zebra
+label	edge	id_Animal_Zebra_3	0		0	0
+option	edge-label	id_Animal_Zebra_3	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Zebra_3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	621.435546875	417
+place	Animal	root	102.810546875	12	139.578125	177
+place	Duck	root	435.880859375	249	153.5703125	156
+place	Fish	root	12	249	126.328125	135
+place	Zebra	root	178.328125	249	123.625	135
+place	note0	root	282.388671875	84	138.03125	33
+place	note1	root	460.419921875	93	149.015625	96
+route	edgeNote1	root	root
+section	edgeNote1	edgeNote1_s0	534.927734375,189	534.927734375,249		note1	Duck
+place-label	edge	edgeNote1	0	0	0	0	0
+route	id_Animal_Duck_1	root	root
+section	id_Animal_Duck_1	id_Animal_Duck_1_s0	202.494140625,189	490.404296875,249	202.494140625,209 490.404296875,209	Animal	Duck
+place-label	edge	id_Animal_Duck_1	0	0	0	0	0
+route	id_Animal_Fish_2	root	root
+section	id_Animal_Fish_2	id_Animal_Fish_2_s0	142.705078125,189	75.1640625,249	142.705078125,209 75.1640625,209	Animal	Fish
+place-label	edge	id_Animal_Fish_2	0	0	0	0	0
+route	id_Animal_Zebra_3	root	root
+section	id_Animal_Zebra_3	id_Animal_Zebra_3_s0	172.599609375,189	240.140625,249	172.599609375,229 240.140625,229	Animal	Zebra
+place-label	edge	id_Animal_Zebra_3	0	0	0	0	0

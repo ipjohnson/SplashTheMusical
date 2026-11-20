@@ -1,0 +1,198 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2eecbc1b1f96ea0f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Machine	root
+option	node	Machine		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Machine		nodeSize.minimum	(60.921875, 0)
+option	node	Machine		spacing.baseValue	24
+option	node	Machine		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Machine		elk.spacing.edgeEdge	20
+option	node	Machine		spacing.nodeNode	50
+option	node	Machine		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Machine		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Machine		elk.layered.mergeEdges	false
+option	node	Machine		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Machine		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Machine		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Machine		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Machine		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Machine		elk.algorithm	elk.layered
+option	node	Machine		elk.direction	DOWN
+option	node	Machine		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Machine	0	Machine	52.921875	19
+node	Concurrent	Machine
+option	node	Concurrent		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Concurrent		nodeSize.minimum	(77.265625, 0)
+option	node	Concurrent		spacing.baseValue	24
+option	node	Concurrent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Concurrent		elk.spacing.edgeEdge	20
+option	node	Concurrent		spacing.nodeNode	50
+option	node	Concurrent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Concurrent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Concurrent		elk.layered.mergeEdges	false
+option	node	Concurrent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Concurrent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Concurrent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Concurrent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Concurrent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Concurrent		elk.algorithm	elk.layered
+option	node	Concurrent		elk.direction	DOWN
+option	node	Concurrent		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Concurrent	0	Concurrent	69.265625	19
+node	divider-id-1	Concurrent
+option	node	divider-id-1		spacing.baseValue	24
+option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	divider-id-1		elk.spacing.edgeEdge	20
+option	node	divider-id-1		spacing.nodeNode	50
+option	node	divider-id-1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	divider-id-1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	divider-id-1		elk.layered.mergeEdges	false
+option	node	divider-id-1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	divider-id-1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	divider-id-1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	divider-id-1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	divider-id-1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	divider-id-1		elk.algorithm	elk.layered
+option	node	divider-id-1		elk.direction	DOWN
+option	node	divider-id-1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	divider-id-1	0		0	0
+node	divider-id-1_start	divider-id-1	14	14
+node	Left	divider-id-1	136	37
+node	id-176og2aqm55-94	Concurrent
+option	node	id-176og2aqm55-94		spacing.baseValue	24
+option	node	id-176og2aqm55-94		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id-176og2aqm55-94		elk.spacing.edgeEdge	20
+option	node	id-176og2aqm55-94		spacing.nodeNode	50
+option	node	id-176og2aqm55-94		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id-176og2aqm55-94		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id-176og2aqm55-94		elk.layered.mergeEdges	false
+option	node	id-176og2aqm55-94		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id-176og2aqm55-94		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id-176og2aqm55-94		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id-176og2aqm55-94		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id-176og2aqm55-94		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	id-176og2aqm55-94		elk.algorithm	elk.layered
+option	node	id-176og2aqm55-94		elk.direction	DOWN
+option	node	id-176og2aqm55-94		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	id-176og2aqm55-94	0		0	0
+node	id-176og2aqm55-94_start	id-176og2aqm55-94	14	14
+node	Right	id-176og2aqm55-94	136	37
+node	Finish	Machine
+option	node	Finish		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Finish		nodeSize.minimum	(45.359375, 0)
+option	node	Finish		spacing.baseValue	24
+option	node	Finish		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Finish		elk.spacing.edgeEdge	20
+option	node	Finish		spacing.nodeNode	50
+option	node	Finish		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Finish		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Finish		elk.layered.mergeEdges	false
+option	node	Finish		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Finish		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Finish		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Finish		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Finish		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Finish		elk.algorithm	elk.layered
+option	node	Finish		elk.direction	DOWN
+option	node	Finish		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Finish	0	Finish	37.359375	19
+node	Finish_start	Finish	14	14
+node	Flush	Finish	136	37
+node	Deep	Finish
+option	node	Deep		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Deep		nodeSize.minimum	(41.46875, 0)
+option	node	Deep		spacing.baseValue	24
+option	node	Deep		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Deep		elk.spacing.edgeEdge	20
+option	node	Deep		spacing.nodeNode	50
+option	node	Deep		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Deep		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Deep		elk.layered.mergeEdges	false
+option	node	Deep		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Deep		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Deep		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Deep		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Deep		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Deep		elk.algorithm	elk.layered
+option	node	Deep		elk.direction	DOWN
+option	node	Deep		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Deep	0	Deep	33.46875	19
+node	Deep_start	Deep	14	14
+node	Done	Deep	136	37
+edge	edge0	root	divider-id-1_start	Left
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	id-176og2aqm55-94_start	Right
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Concurrent	Finish
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Finish_start	Flush
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Deep_start	Done
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	304	780
+place	Machine	root	12	12	280	756
+place-label	node	Machine	0	113.5390625	5	52.921875	19
+place	Concurrent	Machine	24	48	232	342
+place-label	node	Concurrent	0	81.3671875	5	69.265625	19
+place	divider-id-1	Concurrent	24	48	184	123
+place-label	node	divider-id-1	0	0	0	0	0
+place	divider-id-1_start	divider-id-1	81.2	24	14	14
+place	Left	divider-id-1	24	62	136	37
+place	id-176og2aqm55-94	Concurrent	24	195	184	123
+place-label	node	id-176og2aqm55-94	0	0	0	0	0
+place	id-176og2aqm55-94_start	id-176og2aqm55-94	81.2	24	14	14
+place	Right	id-176og2aqm55-94	24	62	136	37
+place	Finish	Machine	24	414	232	318
+place-label	node	Finish	0	97.3203125	5	37.359375	19
+place	Finish_start	Finish	81.2	48	14	14
+place	Flush	Finish	24	86	136	37
+place	Deep	Finish	24	147	184	147
+place-label	node	Deep	0	75.265625	5	33.46875	19
+place	Deep_start	Deep	81.2	48	14	14
+place	Done	Deep	24	86	136	37
+route	edge0	root	divider-id-1
+section	edge0	edge0_s0	92,38	92,62		divider-id-1_start	Left
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	id-176og2aqm55-94
+section	edge1	edge1_s0	92,38	92,62		id-176og2aqm55-94_start	Right
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	Machine
+section	edge2	edge2_s0	140,390	140,414		Concurrent	Finish
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	Finish
+section	edge3	edge3_s0	92,62	92,86		Finish_start	Flush
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	Deep
+section	edge4	edge4_s0	92,62	92,86		Deep_start	Done
+place-label	edge	edge4	0	0	0	0	0

@@ -1,0 +1,96 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 403c54cf5f29cc7d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Wrapper	root
+option	node	Wrapper		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Wrapper		nodeSize.minimum	(61.4375, 0)
+option	node	Wrapper		spacing.baseValue	24
+option	node	Wrapper		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Wrapper		elk.spacing.edgeEdge	20
+option	node	Wrapper		spacing.nodeNode	50
+option	node	Wrapper		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Wrapper		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Wrapper		elk.layered.mergeEdges	false
+option	node	Wrapper		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Wrapper		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Wrapper		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Wrapper		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Wrapper		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Wrapper		elk.algorithm	elk.layered
+option	node	Wrapper		elk.direction	RIGHT
+option	node	Wrapper		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Wrapper	0	Wrapper	53.4375	19
+node	Inner	Wrapper
+option	node	Inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Inner		nodeSize.minimum	(39.921875, 0)
+option	node	Inner		spacing.baseValue	24
+option	node	Inner		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Inner		elk.spacing.edgeEdge	20
+option	node	Inner		spacing.nodeNode	50
+option	node	Inner		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Inner		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Inner		elk.layered.mergeEdges	false
+option	node	Inner		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Inner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Inner		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Inner	0	Inner	31.921875	19
+node	D1	Inner	152	45
+node	D2	Inner	152	45
+node	D3	Inner	152	45
+option	node	D3		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	E1	root	152	45
+option	node	E1		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_D1_D2_0	root	D1	D2
+label	edge	L_D1_D2_0	0		0	0
+option	edge-label	L_D1_D2_0	0	edgeLabels.inline	true
+option	edge-label	L_D1_D2_0	0	edgeLabels.placement	CENTER
+edge	L_D2_D3_0	root	D2	D3
+label	edge	L_D2_D3_0	0		0	0
+option	edge-label	L_D2_D3_0	0	edgeLabels.inline	true
+option	edge-label	L_D2_D3_0	0	edgeLabels.placement	CENTER
+edge	L_D3_E1_0	root	D3	E1
+label	edge	L_D3_E1_0	0		0	0
+option	edge-label	L_D3_E1_0	0	edgeLabels.inline	true
+option	edge-label	L_D3_E1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	272	456
+place	Wrapper	root	12	12	248	337
+place-label	node	Wrapper	0	97.28125	5	53.4375	19
+place	Inner	Wrapper	24	48	200	255
+place-label	node	Inner	0	84.0390625	5	31.921875	19
+place	D1	Inner	24	48	152	45
+place	D2	Inner	24	117	152	45
+place	D3	Inner	24	186	152	45
+place	E1	root	59.999999999999986	399	152	45
+route	L_D1_D2_0	root	Inner
+section	L_D1_D2_0	L_D1_D2_0_s0	99.99999999999999,93	99.99999999999999,117		D1	D2
+place-label	edge	L_D1_D2_0	0	0	0	0	0
+route	L_D2_D3_0	root	Inner
+section	L_D2_D3_0	L_D2_D3_0_s0	99.99999999999999,162	99.99999999999999,186		D2	D3
+place-label	edge	L_D2_D3_0	0	0	0	0	0
+route	L_D3_E1_0	root	root
+section	L_D3_E1_0	L_D3_E1_0_s0	136,291	136,399	136,325 136,359	D3	E1
+place-label	edge	L_D3_E1_0	0	0	0	0	0

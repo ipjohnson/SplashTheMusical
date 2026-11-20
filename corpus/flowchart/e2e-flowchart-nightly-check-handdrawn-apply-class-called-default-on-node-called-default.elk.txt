@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a3f3266414342f7
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	hello	root	182.8534393310547	54.549346923828125
+node	default	root	182.3114471435547	54.32814407348633
+edge	L_hello_default_0	root	hello	default
+label	edge	L_hello_default_0	0		0	0
+option	edge-label	L_hello_default_0	0	edgeLabels.inline	true
+option	edge-label	L_hello_default_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	206.8534393310547	172.87749099731445
+place	hello	root	12	12	182.8534393310547	54.549346923828125
+place	default	root	12.27099609375	106.54934692382812	182.3114471435547	54.32814407348633
+route	L_hello_default_0	root	root
+section	L_hello_default_0	L_hello_default_0_s0	103.42671966552734,66.54934692382812	103.42671966552734,106.54934692382812		hello	default
+place-label	edge	L_hello_default_0	0	0	0	0	0

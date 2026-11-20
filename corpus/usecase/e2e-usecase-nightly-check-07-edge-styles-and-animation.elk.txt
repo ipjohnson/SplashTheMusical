@@ -1,0 +1,47 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b74e71835e7f1bf6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer	root	80.6875	121
+node	Checkout	root	160	58
+option	node	Checkout		elk.portAlignment.default	CENTER
+node	Payment	root	160	58
+option	node	Payment		elk.portAlignment.default	CENTER
+edge	opens	root	Customer	Checkout
+label	edge	opens	0	starts checkout	71.265625	15
+option	edge-label	opens	0	edgeLabels.inline	true
+option	edge-label	opens	0	edgeLabels.placement	CENTER
+edge	payment	root	Checkout	Payment
+label	edge	payment	0	«include»	46.8125	15
+option	edge-label	payment	0	edgeLabels.inline	true
+option	edge-label	payment	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	702.765625	145
+place	Customer	root	12	12	80.6875	121
+place	Checkout	root	243.953125	43.5	160	58
+place	Payment	root	530.765625	43.5	160	58
+route	opens	root	root
+section	opens	opens_s0	92.6875,72.5	243.953125,72.5		Customer	Checkout
+place-label	edge	opens	0	132.6875	64.5	71.265625	15
+route	payment	root	root
+section	payment	payment_s0	403.953125,72.5	530.765625,72.5		Checkout	Payment
+place-label	edge	payment	0	443.953125	64.5	46.8125	15

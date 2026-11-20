@@ -1,0 +1,123 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2bb60eb3ca3ce3fd
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	State1	root	136	37
+node	State2	root	136	37
+node	State3	root	136	37
+node	State4	root	136	37
+node	State5	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	State1
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	State1	State2
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	State1	State3
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	State1	State4
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	State1	State5
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	State2	State3
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	State2	State4
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	State2	State5
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	State3	State4
+label	edge	edge8	0		0	0
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+edge	edge9	root	State3	State5
+label	edge	edge9	0		0	0
+option	edge-label	edge9	0	edgeLabels.inline	true
+option	edge-label	edge9	0	edgeLabels.placement	CENTER
+edge	edge10	root	State4	State5
+label	edge	edge10	0		0	0
+option	edge-label	edge10	0	edgeLabels.inline	true
+option	edge-label	edge10	0	edgeLabels.placement	CENTER
+edge	edge11	root	State5	root_end
+label	edge	edge11	0		0	0
+option	edge-label	edge11	0	edgeLabels.inline	true
+option	edge-label	edge11	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	292.1	537
+place	root_start	root	159	12	14	14
+place	State1	root	101	66	136	37
+place	State2	root	83.6	163	136	37
+place	State3	root	101	260	136	37
+place	State4	root	12	337	136	37
+place	State5	root	130.7	434	136	37
+place	root_end	root	188.7	511	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	169,26	169,66		root_start	State1
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	157.4,103	151.6,163	157.4,123 151.6,123	State1	State2
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	180.60000000000002,103	188.33333333333334,260	180.60000000000002,143 239.6,143 239.6,181.5 239.6,240 188.33333333333334,240	State1	State3
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	134.2,103	51,337	134.2,123 28.26666666666666,123 28.26666666666666,181.5 28.26666666666666,278.5 28.26666666666666,317 51,317	State1	State4
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	root
+section	edge4	edge4_s0	203.8,103	233.5,434	203.8,123 279.1,123 279.1,181.5 279.1,278.5 279.1,355.5 279.1,414 233.5,414	State1	State5
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	151.6,200	149.66666666666669,260	151.6,220 149.66666666666669,220	State2	State3
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	root
+section	edge6	edge6_s0	122.6,200	80,337	122.6,220 80,220 80,278.5	State2	State4
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	root
+section	edge7	edge7_s0	180.6,200	210.3,434	180.6,220 257,220 257,278.5 257,355.5 257,394 210.3,394	State2	State5
+place-label	edge	edge7	0	0	0	0	0
+route	edge8	root	root
+section	edge8	edge8_s0	149.66666666666669,297	109,337	149.66666666666669,317 109,317	State3	State4
+place-label	edge	edge8	0	0	0	0	0
+route	edge9	root	root
+section	edge9	edge9_s0	188.33333333333334,297	187.1,434	188.33333333333331,355.5 188.33333333333331,394 187.1,394	State3	State5
+place-label	edge	edge9	0	0	0	0	0
+route	edge10	root	root
+section	edge10	edge10_s0	80,374	163.89999999999998,434	80,394 163.89999999999998,394	State4	State5
+place-label	edge	edge10	0	0	0	0	0
+route	edge11	root	root
+section	edge11	edge11_s0	198.7,471	198.7,511		State5	root_end
+place-label	edge	edge11	0	0	0	0	0

@@ -1,0 +1,77 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f5d27d07be8c9f1c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	User	root	76	121
+node	Login	root	160	58
+option	node	Login		elk.portAlignment.default	CENTER
+option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Session	root	138	60
+option	node	Session		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Account	root
+option	node	Account		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Account		nodeSize.minimum	(70.59375, 0)
+option	node	Account		spacing.baseValue	24
+option	node	Account		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Account		elk.spacing.edgeEdge	20
+option	node	Account		spacing.nodeNode	50
+option	node	Account		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Account		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Account		elk.layered.mergeEdges	false
+option	node	Account		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Account		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Account		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Account		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Account		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Account		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Account	0	Account	50.59375	19
+node	Profile	Account	152	42
+option	node	Profile		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge-0	root	User	Login
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Login	Profile
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Profile	Session
+label	edge	edge-2	0		0	0
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	738	153.5
+place	User	root	12	20.5	76	121
+place	Login	root	128	52	160	58
+place	Session	root	588	51	138	60
+place	Account	root	338	12	200	114
+place-label	node	Account	0	74.703125	5	50.59375	19
+place	Profile	Account	24	48	152	42
+route	edge-0	root	root
+section	edge-0	edge-0_s0	88,81	128,81		User	Login
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	288,81	362,81	328,81	Login	Profile
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	514,81	588,81	548,81	Profile	Session
+place-label	edge	edge-2	0	0	0	0	0

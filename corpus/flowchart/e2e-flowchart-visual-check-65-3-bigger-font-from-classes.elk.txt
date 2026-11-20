@@ -1,0 +1,54 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4378d3391b97bed4
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Node1	root	152	45
+node	Node2	root	152	45
+node	Node3	root	152	45
+node	Node4	root	182	182
+edge	L_Node1_Node2_0	root	Node1	Node2
+label	edge	L_Node1_Node2_0	0		0	0
+option	edge-label	L_Node1_Node2_0	0	edgeLabels.inline	true
+option	edge-label	L_Node1_Node2_0	0	edgeLabels.placement	CENTER
+edge	L_Node1_Node3_0	root	Node1	Node3
+label	edge	L_Node1_Node3_0	0		0	0
+option	edge-label	L_Node1_Node3_0	0	edgeLabels.inline	true
+option	edge-label	L_Node1_Node3_0	0	edgeLabels.placement	CENTER
+edge	L_Node3_Node4_0	root	Node3	Node4
+label	edge	L_Node3_Node4_0	0		0	0
+option	edge-label	L_Node3_Node4_0	0	edgeLabels.inline	true
+option	edge-label	L_Node3_Node4_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	383	376
+place	Node1	root	108	12	152	45
+place	Node2	root	12	97	152	45
+place	Node3	root	204	97	152	45
+place	Node4	root	189	182	182	182
+route	L_Node1_Node2_0	root	root
+section	L_Node1_Node2_0	L_Node1_Node2_0_s0	162,57	88,97	162,77 88,77	Node1	Node2
+place-label	edge	L_Node1_Node2_0	0	0	0	0	0
+route	L_Node1_Node3_0	root	root
+section	L_Node1_Node3_0	L_Node1_Node3_0_s0	206,57	280,97	206,77 280,77	Node1	Node3
+place-label	edge	L_Node1_Node3_0	0	0	0	0	0
+route	L_Node3_Node4_0	root	root
+section	L_Node3_Node4_0	L_Node3_Node4_0_s0	280,142	280,182		Node3	Node4
+place-label	edge	L_Node3_Node4_0	0	0	0	0	0
