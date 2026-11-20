@@ -38,6 +38,19 @@ public class FlowchartHtmlLabelTests
 	}
 
 	[Test]
+	public void AnUnderscoreBetweenLettersIsText()
+	{
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("officer_of_firm"), ("officer_of_firm", false, false));
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("a _b_ c"), ("a ", false, false), ("b", false, true), (" c", false, false));
+	}
+
+	[Test]
+	public void StrongInsideEmphasisIsBoldAndItalic()
+	{
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("_**last**Name_"), ("last", true, true), ("Name", false, true));
+	}
+
+	[Test]
 	public void AMarkdownBlankLineTakesNoLine()
 	{
 		var lines = FlowchartLabelText.Lines("one\n\n  two", FlowchartLabelType.Markdown, true);

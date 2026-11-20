@@ -44,7 +44,6 @@ public class ErRenderTests
 	public void TheEntityBoxIsAsLargeAsMermaidJsMakesIt()
 	{
 		// The node sizes of corpus/er/e2e-er-diagram-visual-check-entities-with-keys-and-comments-without-htmllabels-default.dagre.txt.
-		// The boxes with HTML labels still differ at L3, as corpus/ledger/er.txt lists under #176.
 		var inputs = Layout("""
 			---
 			config:
@@ -70,11 +69,68 @@ public class ErRenderTests
 		Verify(() => Math.Abs(book.Width - 312.453125) <= 0.01);
 		Verify(() => Math.Abs(book.Height - 173.75) <= 0.01);
 
-		// mermaid.js makes AUTHOR 305.9375 wide. Its name is wider than its columns, and STM's box is 15.5625 narrower,
-		// inside L3's tolerance. Closing that is #176's work.
+		// The underscores between letters are text, so they count in the name's width.
+		Verify(() => Math.Abs(author.Width - 305.9375) <= 0.01);
 		Verify(() => Math.Abs(author.Height - 69.5) <= 0.01);
 
 		SequenceAssert.Equal(inputs[0].Edges.Select(edge => (edge.V, edge.W)), ("entity-AUTHOR_WITH_LONG_ENTITY_NAME-0", "entity-BOOK-1"));
+	}
+
+	[Test]
+	public void AnUnsetHtmlLabelsScalesThePaddingOfHtmlLabels()
+	{
+		// corpus/er/docs-entityRelationshipDiagram-003: the root htmlLabels is unset, so erBox multiplies er.diagramPadding
+		// and er.entityPadding by 1.25 while its labels are still HTML, as the case's .dagre.txt records.
+		var inputs = Layout("""
+			erDiagram
+			  CUSTOMER {
+			    string name
+			    string email
+			  }
+			""").DagreInputs;
+		var customer = inputs[0].Nodes.Single();
+
+		Verify(() => Math.Abs(customer.Width - 129.859375) <= 0.01);
+		Verify(() => Math.Abs(customer.Height - 119.25) <= 0.01);
+	}
+
+	[Test]
+	public void AnEntityWithoutAttributesTakesTheMinimumWidthByTheConfigFont()
+	{
+		// The node sizes of corpus/er/docs-entityRelationshipDiagram-001.dagre.txt and docs-entityRelationshipDiagram-007.dagre.txt.
+		// calculateTextWidth measures PERSON at the root fontSize of 16, which reaches er.minEntityWidth, so the box fits
+		// the 14px label. DELIVERY-ADDRESS wraps at flowchart.wrappingWidth, 120.
+		var inputs = Layout("""
+			erDiagram
+			  ORDER ||--o{ PERSON : has
+			  ORDER ||--o{ DELIVERY-ADDRESS : uses
+			""").DagreInputs;
+		var nodes = inputs[0].Nodes.ToDictionary(node => node.Id);
+
+		Verify(() => Math.Abs(nodes["entity-ORDER-0"].Width - 100) <= 0.01);
+		Verify(() => Math.Abs(nodes["entity-PERSON-1"].Width - 99.125) <= 0.01);
+		Verify(() => Math.Abs(nodes["entity-DELIVERY-ADDRESS-2"].Width - 160) <= 0.01);
+		Verify(() => Math.Abs(nodes["entity-DELIVERY-ADDRESS-2"].Height - 102) <= 0.01);
+	}
+
+	[Test]
+	public void EdgeLabelsAreMeasuredAtTheStylesheetsFontSize()
+	{
+		// corpus/er/docs-entityRelationshipDiagram-004: the default theme's font is 16px, and .edgeLabel .label sets 14px.
+		var inputs = Layout("""
+			---
+			config:
+			  theme: default
+			  look: classic
+			  layout: dagre
+			---
+			erDiagram
+			  CUSTOMER ||--o{ ORDER : places
+			""").DagreInputs;
+		var edge = inputs[0].Edges.Single();
+
+		Verify(() => Math.Abs(edge.Width - 40.46875) <= 0.01);
+		Verify(() => Math.Abs(edge.Height - 21) <= 0.01);
 	}
 
 	[Test]

@@ -115,7 +115,9 @@ accepts a subset of what `XmlReader` accepts, so the sanitizer's fuzz tests can 
 `StmBenchmarks.Stages` measures parse, layout, render and write on the benchmark cases of the types in
 `StmBenchmarks.Measured`, and `mise run bench` writes them. `docs/benchmarks/stm.md` holds the committed run.
 `BudgetTests` fails when a committed `parse` row is slower or allocates more than Mermaider's row in
-`docs/benchmarks/mermaider-baseline.md`.
+`docs/benchmarks/mermaider-baseline.md`. CI's `benchmarks` job runs both on one macOS runner, fails when STM's parse rows
+are over that run's Mermaider rows, and uploads the two files as its `benchmarks` artifact. The committed files come
+from that artifact, because a local machine runs other work while it measures.
 
 `src/SplashTheMusical.Layout/Dagre` ports dagre-d3-es 7.0.14, the dagre mermaid 12.3.0 uses. Its `Graph` iterates
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as

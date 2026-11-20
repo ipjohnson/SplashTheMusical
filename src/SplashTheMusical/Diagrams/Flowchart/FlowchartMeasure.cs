@@ -91,6 +91,12 @@ internal sealed class FlowchartMeasure
 
 	public FlowchartFont Font { get; }
 
+	/// <summary>The width a node label without its own width wraps at: the configured wrapping width, or 200 when it is unset or 0.</summary>
+	public double WrappingWidth => _wrappingWidth;
+
+	/// <summary>The font size a diagram's stylesheet gives its edge labels, or <c>null</c> for the theme's.</summary>
+	public double? EdgeLabelFontSize { get; init; }
+
 	/// <summary><c>markdownAutoWrap</c>, which is on unless the config sets it false.</summary>
 	public bool MarkdownAutoWrap => _markdownAutoWrap;
 
@@ -235,9 +241,10 @@ internal sealed class FlowchartMeasure
 	/// <summary>Sizes the edge's label, which dagre makes room for. An SVG label has a background 2 wider on each side.</summary>
 	public void Edge(FlowEdge edge)
 	{
+		var font = EdgeLabelFontSize is { } size ? new FlowchartFont(Font.Measurer, Font.Family, size) : Font;
 		var box = EdgeHtmlLabels
-			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true, _markdownAutoWrap), Font, DefaultWrapWidth, 0, true)
-			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), Font, DefaultWrapWidth, 0, edge.Label.Length > 0);
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true, _markdownAutoWrap), font, DefaultWrapWidth, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), font, DefaultWrapWidth, 0, edge.Label.Length > 0);
 		edge.LabelBox = box;
 		edge.Width = box.Width;
 		edge.Height = box.Height;
