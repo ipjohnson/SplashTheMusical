@@ -3275,7 +3275,7 @@ requirement/mermaider-requirement-relations	n/a
 requirement/mermaider-requirement-sysml	n/a
 requirement/mermaider-requirement-two-systems	n/a
 requirement/parser-palettecssgeneration-001	n/a
-requirement/parser-requirementdiagram-001	fail
+requirement/parser-requirementdiagram-001	pass
 sankey/docs-sankey-001	fail
 sankey/docs-sankey-002	fail
 sankey/docs-sankey-003	fail
