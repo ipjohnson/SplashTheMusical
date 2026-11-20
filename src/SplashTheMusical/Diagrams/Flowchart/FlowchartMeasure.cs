@@ -148,6 +148,7 @@ internal sealed class FlowchartMeasure
 			Inset = NodeHtmlLabels && pictured && lines.Count > 0 ? PicturedLabelPadding : 0,
 			Images = NodeHtmlLabels ? FlowchartLabels.Images(node.Label) : default,
 			HasMinWidth = !node.IsSubgraph && !node.IsGroup,
+			NoWrap = NodeHtmlLabels && NoWrap(node),
 		};
 		var vertex = node.Vertex;
 		var imageSide = vertex?.AssetHeight ?? vertex?.AssetWidth ?? DefaultImageSide;
@@ -322,6 +323,25 @@ internal sealed class FlowchartMeasure
 		return end > 0 && double.TryParse(span[..end], NumberStyles.Float, CultureInfo.InvariantCulture, out var value) ? value : null;
 	}
 
+	/// <summary>
+	/// Whether the node's styles end with <c>white-space: nowrap</c>, which <c>styles2String</c> gives the label's
+	/// <c>span</c>. A class diagram's note has it.
+	/// </summary>
+	private static bool NoWrap(FlowNode node)
+	{
+		string? value = null;
+		foreach (var style in node.CssCompiledStyles.Concat(node.CssStyles))
+		{
+			var parts = style.Split(':');
+			if (parts[0].Trim() == "white-space")
+			{
+				value = parts.Length > 1 ? parts[1].Trim().TrimEnd(';').Trim() : null;
+			}
+		}
+
+		return value == "nowrap";
+	}
+
 	/// <summary><c>labelHelper</c>'s measurement of a node's label at the width the shape sets.</summary>
 	private sealed class LabelMeasurer(FlowchartMeasure measure, List<List<LabelRun>> lines, bool hasLabel) : IShapeLabelMeasurer
 	{
@@ -339,6 +359,12 @@ internal sealed class FlowchartMeasure
 		/// <summary>The padding of each side of the label's <c>p</c>.</summary>
 		public double Inset { get; init; }
 
+		/// <summary>
+		/// Whether the HTML label's <c>span</c> has <c>white-space: nowrap</c>. Its lines then do not wrap: when the
+		/// <c>div</c> reaches the wrapping width, <c>addHtmlSpan</c> makes it a table, which widens to the unbroken lines.
+		/// </summary>
+		public bool NoWrap { get; init; }
+
 		/// <summary>The label's <c>img</c> tags.</summary>
 		public (int WithSource, int WithoutSource) Images { get; init; }
 
@@ -347,7 +373,7 @@ internal sealed class FlowchartMeasure
 			var width = Truthy(nodeWidth) ? nodeWidth!.Value : measure._wrappingWidth;
 			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth && HasMinWidth ? measure._minNodeWidth : 0;
 			Box = measure.NodeHtmlLabels
-				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true, Inset)
+				? FlowchartLabelText.Measure(lines, measure.Font, NoWrap ? double.PositiveInfinity : width, minWidth, true, Inset)
 				: FlowchartLabelText.MeasureSvg(lines, measure.Font, width, minWidth, false);
 			if (ExtraLines > 0)
 			{

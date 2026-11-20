@@ -1,0 +1,10 @@
+# The class cases whose dagre graphs differ from the ones mermaid.js handed dagre, in corpus/class/*.dagre.txt.
+# ClassDagreInputTests fails when another case differs and when a listed case no longer does. A line without a
+# leading '#' and without a space is a case under the issue line above it. Hand-drawn cases are not compared.
+# Chromium's getBBox of the SVG edge label "link" is 25.027 wide, where STM's advance widths give 25.016.
+bug #152
+e2e-class-diagram-nightly-check-0-should-render-a-simple-class-diagram
+# STM measures the member "__ private data __" as bold "private data", where marked keeps it as text, because the
+# opening __ is followed by a space.
+bug #187
+parser-classdiagram-016

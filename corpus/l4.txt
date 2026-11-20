@@ -585,7 +585,7 @@ class/e2e-class-diagram-nightly-check-dagre-dagre-16b-should-handle-the-directio
 class/e2e-class-diagram-nightly-check-dagre-dagre-17a-should-handle-the-direction-statement-with-bt	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-17b-should-handle-the-direction-statement-with-rl	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-18a-should-handle-the-direction-statement-with-lr	pass
-class/e2e-class-diagram-nightly-check-dagre-dagre-18b-should-render-a-simple-class-diagram-with-notes	fail
+class/e2e-class-diagram-nightly-check-dagre-dagre-18b-should-render-a-simple-class-diagram-with-notes	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-2-1-should-render-a-simple-class-diagrams-with-cardinality-without-htmllabels	n/a
 class/e2e-class-diagram-nightly-check-dagre-dagre-2-2-should-render-a-simple-class-diagram-with-different-visibilities	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-2-3-should-render-a-simple-class-diagram-with-different-visibilities-without-htmllabels	fail
@@ -595,14 +595,14 @@ class/e2e-class-diagram-nightly-check-dagre-dagre-5-1-should-render-a-simple-cla
 class/e2e-class-diagram-nightly-check-dagre-dagre-5-should-render-a-simple-class-diagram-with-abstract-method	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-6-1-should-render-a-simple-class-diagram-with-static-method-without-htmllabels	fail
 class/e2e-class-diagram-nightly-check-dagre-dagre-6-should-render-a-simple-class-diagram-with-static-method	pass
-class/e2e-class-diagram-nightly-check-dagre-dagre-7-1-should-render-a-simple-class-diagram-with-generic-class-without-htmllabels	fail
+class/e2e-class-diagram-nightly-check-dagre-dagre-7-1-should-render-a-simple-class-diagram-with-generic-class-without-htmllabels	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-7-should-render-a-simple-class-diagram-with-generic-class	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-8-should-render-a-simple-class-diagram-with-generic-class-and-relations	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-9-should-render-a-simple-class-diagram-with-clickable-link	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-add-classes-namespaces	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-class-with-a-text-label-members-and-annotation	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-class-with-text-label	pass
-class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-full-class-diagram-using-dagre	fail
+class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-full-class-diagram-using-dagre	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-namespace-with-a-custom-label	pass
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-simple-class-diagram-with-classdef-definitions	fail
 class/e2e-class-diagram-nightly-check-dagre-dagre-should-render-a-simple-class-diagram-with-classdefs-being-applied-without-htmllabels	pass
@@ -734,7 +734,7 @@ class/e2e-class-diagram-pr-check-17b-should-handle-the-direction-statement-with-
 class/e2e-class-diagram-pr-check-2-should-render-a-simple-class-diagrams-with-cardinality-3	fail
 class/e2e-class-diagram-pr-check-5-1-should-render-a-simple-class-diagram-with-abstract-method-without-htmllabels	fail
 class/e2e-class-diagram-pr-check-6-should-render-a-simple-class-diagram-with-static-method	fail
-class/e2e-class-diagram-pr-check-dagre-1-1-should-render-a-simple-class-diagram-without-htmllabels	fail
+class/e2e-class-diagram-pr-check-dagre-1-1-should-render-a-simple-class-diagram-without-htmllabels	pass
 class/e2e-class-diagram-pr-check-dagre-1-should-render-a-simple-class-diagram	pass
 class/e2e-class-diagram-pr-check-hd-8-should-render-a-simple-class-diagram-with-generic-class-and-relations	fail
 class/e2e-class-diagram-visual-check-all-relationships-classic-look-neo-dark-theme	n/a

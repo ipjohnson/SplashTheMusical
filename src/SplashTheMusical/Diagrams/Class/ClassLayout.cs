@@ -224,6 +224,9 @@ internal static class ClassLayoutStep
 					Classes = "relation",
 					Styles = ["fill: none"],
 					Pattern = "dotted",
+
+					// getData gives a note's edge no labelpos.
+					LabelPos = "r",
 				});
 			}
 		}

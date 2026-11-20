@@ -233,9 +233,9 @@ internal static class ClassBox
 			Texts.Add((box, y));
 			if (box.Width > 0 || box.Height > 0)
 			{
-				var x = box.Html ? 0 : box.X;
+				// addText calls createText as a node's text, so an SVG label is not centred: its text starts at x 0.
 				var top = y + (box.Html ? 0 : box.Y);
-				Bounds = Bounds.Union(new ShapeBounds(x, top, x + box.Width, top + box.Height));
+				Bounds = Bounds.Union(new ShapeBounds(0, top, box.Width, top + box.Height));
 			}
 
 			return box.Height;
