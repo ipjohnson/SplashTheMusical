@@ -145,6 +145,46 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+  # STM's stages and the Mermaider baseline, measured on the same runner. docs/benchmarks/stm.md and
+  # docs/benchmarks/mermaider-baseline.md are committed from this job's artifact, because a developer's machine runs other
+  # work while it measures. The budget step holds STM's parse rows to Mermaider's rows of this run.
+  benchmarks:
+    name: benchmarks
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - name: Run STM's stages under JIT and native AOT
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- bench --out .artifacts/bench/stm.md
+
+      - name: Run the Mermaider baseline under JIT and native AOT
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- mermaider --out .artifacts/bench/mermaider-baseline.md
+
+      - name: Fail when STM's parse rows are over this run's Mermaider rows
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release --no-build -- budget .artifacts/bench/mermaider-baseline.md .artifacts/bench/stm.md
+
+      - name: Show how this run differs from the committed numbers
+        continue-on-error: true
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release --no-build -- compare docs/benchmarks/stm.md .artifacts/bench/stm.md
+
+      - name: Upload the result files
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: benchmarks
+          path: |
+            .artifacts/bench/stm.md
+            .artifacts/bench/mermaider-baseline.md
+          if-no-files-found: ignore
+          retention-days: 30
+
   # L4 of the parity plan, the check that the committed oracle output is what the pinned mermaid.js writes, and the
   # oracle round trip. It runs on macOS because the committed boxes files name the macOS fonts Chromium falls back to
   # for emoji and CJK text.

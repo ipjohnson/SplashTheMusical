@@ -495,7 +495,8 @@ Excluded, because the gain does not justify the cost:
   supported type. It reports nanoseconds and bytes allocated per source character, on JIT and on native AOT, and
   `docs/benchmarks/stm.md` holds the committed run.
 - `mise run bench-compare` compares a run with the committed numbers and fails on a regression above 10% in time or
-  allocation. It runs locally. Pull request CI does not run the benchmarks.
+  allocation. CI's `benchmarks` job runs STM and Mermaider on one macOS runner, checks the budget on that run and
+  uploads both result files. The committed files come from that artifact.
 - Allocation tests assert the exact bytes allocated for small diagrams, which catches accidental allocations at once.
 - A fuzz job feeds mutated corpus cases to the parser under the resource limits and fails on a crash or a missed
   deadline.

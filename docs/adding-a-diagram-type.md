@@ -187,8 +187,10 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
   against the oracle's `type` fact of every accepted case.
 - **Public API.** `mise run api` rewrites `docs/api/SplashTheMusical.txt` after the type adds public types.
 - **Benchmarks.** `corpus/benchmarks/cases.txt` already names a small, a medium and a large case of every type. Add
-  the type's corpus folder to `StmBenchmarks.Measured` in `tests/SplashTheMusical.Benchmarks/StmBenchmarks.cs`, run
-  `mise run bench`, and commit `docs/benchmarks/stm.md`. `BudgetTests` fails when a parse row is slower or allocates
+  the type's corpus folder to `StmBenchmarks.Measured` in `tests/SplashTheMusical.Benchmarks/StmBenchmarks.cs`, and
+  commit `docs/benchmarks/stm.md` and `docs/benchmarks/mermaider-baseline.md` from the `benchmarks` artifact of the pull
+  request's CI run. A developer's machine runs other work while it measures, so `mise run bench` is only for a local
+  look. `BudgetTests` fails when a parse row is slower or allocates
   more than the type's row in `docs/benchmarks/mermaider-baseline.md`. Layout, render and write are measured but not
   gated. Flowchart's render is over Mermaider's (#158).
 - **Size.** Code in the core grows `SplashTheMusical.dll`. `mise run size -- --accept` rewrites
@@ -265,7 +267,7 @@ after rebasing instead of merging them by hand.
 | `docs/parity-report.md` | Generated | `mise run parity` after rebasing |
 | `corpus/l4.txt` | Generated | `mise run raster` after rebasing |
 | `docs/api/SplashTheMusical.txt` | Generated | `mise run api` after rebasing |
-| `docs/benchmarks/stm.md` | Generated, the whole file per run | `mise run bench` after rebasing, on the machine the file names |
+| `docs/benchmarks/stm.md` | Generated, the whole file per run | The `benchmarks` artifact of CI's run after rebasing, with `mermaider-baseline.md` of the same run |
 | `docs/benchmarks/sizes.md` | Generated | `mise run size -- --accept` after rebasing |
 | `AGENTS.md` | Only a rule other work must follow | One paragraph |
 
