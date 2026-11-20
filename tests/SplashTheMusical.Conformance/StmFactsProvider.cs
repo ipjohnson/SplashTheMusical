@@ -6,6 +6,7 @@ using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
+using SplashTheMusical.Diagrams.Requirement;
 using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Text;
@@ -98,6 +99,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			ErFacts.Add(facts, er, svg);
 			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
 			canvas = ErFacts.Boxes(boxes, er, new ErModule().Layout(er, context));
+		}
+		else if (document is RequirementDocument requirement)
+		{
+			RequirementFacts.Add(facts, requirement);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
