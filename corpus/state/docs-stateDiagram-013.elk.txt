@@ -1,0 +1,171 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d637094dd39ae470
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	First	root
+option	node	First		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	First		nodeSize.minimum	(36, 0)
+option	node	First		spacing.baseValue	24
+option	node	First		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	First		elk.spacing.edgeEdge	20
+option	node	First		spacing.nodeNode	50
+option	node	First		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	First		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	First		elk.layered.mergeEdges	false
+option	node	First		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	First		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	First		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	First		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	First		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	First		elk.algorithm	elk.layered
+option	node	First		elk.direction	DOWN
+option	node	First		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	First	0	First	28	19
+node	First_start	First	14	14
+node	fir	First	136	37
+node	First_end	First	14.013293266296387	14
+node	Second	root
+option	node	Second		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Second		nodeSize.minimum	(56, 0)
+option	node	Second		spacing.baseValue	24
+option	node	Second		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Second		elk.spacing.edgeEdge	20
+option	node	Second		spacing.nodeNode	50
+option	node	Second		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Second		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Second		elk.layered.mergeEdges	false
+option	node	Second		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Second		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Second		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Second		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Second		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Second		elk.algorithm	elk.layered
+option	node	Second		elk.direction	DOWN
+option	node	Second		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Second	0	Second	48	19
+node	Second_start	Second	14	14
+node	sec	Second	136	37
+node	Second_end	Second	14.013293266296387	14
+node	Third	root
+option	node	Third		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Third		nodeSize.minimum	(41, 0)
+option	node	Third		spacing.baseValue	24
+option	node	Third		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Third		elk.spacing.edgeEdge	20
+option	node	Third		spacing.nodeNode	50
+option	node	Third		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Third		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Third		elk.layered.mergeEdges	false
+option	node	Third		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Third		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Third		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Third		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Third		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Third		elk.algorithm	elk.layered
+option	node	Third		elk.direction	DOWN
+option	node	Third		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Third	0	Third	33	19
+node	Third_start	Third	14	14
+node	thi	Third	136	37
+node	Third_end	Third	14.013293266296387	14
+edge	edge0	root	root_start	First
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	First	Second
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	First	Third
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	First_start	fir
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	fir	First_end
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Second_start	sec
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	sec	Second_end
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Third_start	thi
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	thi	Third_end
+label	edge	edge8	0		0	0
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	432	488
+place	root_start	root	206	12	14	14
+place	First	root	124.00000000000001	66	184	185
+place-label	node	First	0	78	5	28	19
+place	First_start	First	81.2	48	14	14
+place	fir	First	24	86	136	37
+place	First_end	First	81.2	147	14.013293266296387	14
+place	Second	root	12	291	184	185
+place-label	node	Second	0	68	5	48	19
+place	Second_start	Second	81.2	48	14	14
+place	sec	Second	24	86	136	37
+place	Second_end	Second	81.2	147	14.013293266296387	14
+place	Third	root	236	291	184	185
+place-label	node	Third	0	75.5	5	33	19
+place	Third_start	Third	81.2	48	14	14
+place	thi	Third	24	86	136	37
+place	Third_end	Third	81.2	147	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	216,26	216,66		root_start	First
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	188.66666666666669,251	104,291	188.66666666666669,271 104,271	First	Second
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	243.33333333333331,251	328,291	243.33333333333331,271 328,271	First	Third
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	First
+section	edge3	edge3_s0	92,62	92,86		First_start	fir
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	First
+section	edge4	edge4_s0	92,123	92,147		fir	First_end
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	Second
+section	edge5	edge5_s0	92,62	92,86		Second_start	sec
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	Second
+section	edge6	edge6_s0	92,123	92,147		sec	Second_end
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	Third
+section	edge7	edge7_s0	92,62	92,86		Third_start	thi
+place-label	edge	edge7	0	0	0	0	0
+route	edge8	root	Third
+section	edge8	edge8_s0	92,123	92,147		thi	Third_end
+place-label	edge	edge8	0	0	0	0	0

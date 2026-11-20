@@ -1,0 +1,150 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e75871cb288fa639
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	doubles	root
+option	node	doubles		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	doubles		nodeSize.minimum	(54, 0)
+option	node	doubles		spacing.baseValue	24
+option	node	doubles		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	doubles		elk.spacing.edgeEdge	20
+option	node	doubles		spacing.nodeNode	50
+option	node	doubles		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	doubles		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	doubles		elk.layered.mergeEdges	false
+option	node	doubles		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	doubles		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	doubles		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	doubles		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	doubles		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	doubles		elk.algorithm	elk.layered
+option	node	doubles		elk.direction	DOWN
+option	node	doubles		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	doubles	0	dbl-circ	46	19
+node	dt	doubles	152	45
+node	d1	doubles	78.47220611572266	78.47220611572266
+node	d2	doubles	97.67733001708984	97.67733001708984
+node	d3	doubles	191.53228759765625	191.53228759765625
+node	db	doubles	150	51
+node	circles	root
+option	node	circles		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	circles		nodeSize.minimum	(41, 0)
+option	node	circles		spacing.baseValue	24
+option	node	circles		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	circles		elk.spacing.edgeEdge	20
+option	node	circles		spacing.nodeNode	50
+option	node	circles		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	circles		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	circles		elk.layered.mergeEdges	false
+option	node	circles		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	circles		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	circles		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	circles		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	circles		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	circles		elk.algorithm	elk.layered
+option	node	circles		elk.direction	DOWN
+option	node	circles		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	circles	0	circle	33	19
+node	ct	circles	152	45
+node	c1	circles	54.472206115722656	54.472206115722656
+node	c2	circles	73.67733001708984	73.67733001708984
+node	c3	circles	167.53228759765625	167.53228759765625
+node	cb	circles	150	51
+edge	L_ct_c1_0	root	ct	c1
+label	edge	L_ct_c1_0	0		0	0
+option	edge-label	L_ct_c1_0	0	edgeLabels.inline	true
+option	edge-label	L_ct_c1_0	0	edgeLabels.placement	CENTER
+edge	L_c1_c2_0	root	c1	c2
+label	edge	L_c1_c2_0	0		0	0
+option	edge-label	L_c1_c2_0	0	edgeLabels.inline	true
+option	edge-label	L_c1_c2_0	0	edgeLabels.placement	CENTER
+edge	L_c2_c3_0	root	c2	c3
+label	edge	L_c2_c3_0	0		0	0
+option	edge-label	L_c2_c3_0	0	edgeLabels.inline	true
+option	edge-label	L_c2_c3_0	0	edgeLabels.placement	CENTER
+edge	L_c3_cb_0	root	c3	cb
+label	edge	L_c3_cb_0	0		0	0
+option	edge-label	L_c3_cb_0	0	edgeLabels.inline	true
+option	edge-label	L_c3_cb_0	0	edgeLabels.placement	CENTER
+edge	L_dt_d1_0	root	dt	d1
+label	edge	L_dt_d1_0	0		0	0
+option	edge-label	L_dt_d1_0	0	edgeLabels.inline	true
+option	edge-label	L_dt_d1_0	0	edgeLabels.placement	CENTER
+edge	L_d1_d2_0	root	d1	d2
+label	edge	L_d1_d2_0	0		0	0
+option	edge-label	L_d1_d2_0	0	edgeLabels.inline	true
+option	edge-label	L_d1_d2_0	0	edgeLabels.placement	CENTER
+edge	L_d2_d3_0	root	d2	d3
+label	edge	L_d2_d3_0	0		0	0
+option	edge-label	L_d2_d3_0	0	edgeLabels.inline	true
+option	edge-label	L_d2_d3_0	0	edgeLabels.placement	CENTER
+edge	L_d3_db_0	root	d3	db
+label	edge	L_d3_db_0	0		0	0
+option	edge-label	L_d3_db_0	0	edgeLabels.inline	true
+option	edge-label	L_d3_db_0	0	edgeLabels.placement	CENTER
+edge	L_circles_doubles_0	root	circles	doubles
+label	edge	L_circles_doubles_0	0		0	0
+option	edge-label	L_circles_doubles_0	0	edgeLabels.inline	true
+option	edge-label	L_circles_doubles_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	519.0645751953125	655.6818237304688
+place	doubles	root	267.53228759765625	12	239.53228759765625	631.6818237304688
+place-label	node	doubles	0	96.76614379882812	5	46	19
+place	dt	doubles	43.766143798828125	48	152	45
+place	d1	doubles	80.53004074096678	117	78.47220611572266	78.47220611572266
+place	d2	doubles	70.92747879028319	219.47220611572266	97.67733001708984	97.67733001708984
+place	d3	doubles	24	341.1495361328125	191.53228759765625	191.53228759765625
+place	db	doubles	44.766143798828125	556.6818237304688	150	51
+place	circles	root	12	48	215.53228759765625	559.6818237304688
+place-label	node	circles	0	91.26614379882812	5	33	19
+place	ct	circles	31.766143798828125	48	152	45
+place	c1	circles	80.53004074096678	117	54.472206115722656	54.472206115722656
+place	c2	circles	70.92747879028319	195.47220611572266	73.67733001708984	73.67733001708984
+place	c3	circles	24	293.1495361328125	167.53228759765625	167.53228759765625
+place	cb	circles	32.766143798828125	484.68182373046875	150	51
+route	L_ct_c1_0	root	circles
+section	L_ct_c1_0	L_ct_c1_0_s0	107.76614379882811,93	107.76614379882811,117		ct	c1
+place-label	edge	L_ct_c1_0	0	0	0	0	0
+route	L_c1_c2_0	root	circles
+section	L_c1_c2_0	L_c1_c2_0_s0	107.76614379882811,171.47220611572266	107.76614379882811,195.47220611572266		c1	c2
+place-label	edge	L_c1_c2_0	0	0	0	0	0
+route	L_c2_c3_0	root	circles
+section	L_c2_c3_0	L_c2_c3_0_s0	107.76614379882811,269.1495361328125	107.76614379882811,293.1495361328125		c2	c3
+place-label	edge	L_c2_c3_0	0	0	0	0	0
+route	L_c3_cb_0	root	circles
+section	L_c3_cb_0	L_c3_cb_0_s0	107.76614379882811,460.68182373046875	107.76614379882811,484.68182373046875		c3	cb
+place-label	edge	L_c3_cb_0	0	0	0	0	0
+route	L_dt_d1_0	root	doubles
+section	L_dt_d1_0	L_dt_d1_0_s0	119.76614379882811,93	119.76614379882811,117		dt	d1
+place-label	edge	L_dt_d1_0	0	0	0	0	0
+route	L_d1_d2_0	root	doubles
+section	L_d1_d2_0	L_d1_d2_0_s0	119.76614379882811,195.47220611572266	119.76614379882811,219.47220611572266		d1	d2
+place-label	edge	L_d1_d2_0	0	0	0	0	0
+route	L_d2_d3_0	root	doubles
+section	L_d2_d3_0	L_d2_d3_0_s0	119.76614379882811,317.1495361328125	119.76614379882811,341.1495361328125		d2	d3
+place-label	edge	L_d2_d3_0	0	0	0	0	0
+route	L_d3_db_0	root	doubles
+section	L_d3_db_0	L_d3_db_0_s0	119.76614379882811,532.6818237304688	119.76614379882811,556.6818237304688		d3	db
+place-label	edge	L_d3_db_0	0	0	0	0	0
+route	L_circles_doubles_0	root	root
+section	L_circles_doubles_0	L_circles_doubles_0_s0	227.53228759765625,327.8409118652344	267.53228759765625,327.8409118652344		circles	doubles
+place-label	edge	L_circles_doubles_0	0	0	0	0	0

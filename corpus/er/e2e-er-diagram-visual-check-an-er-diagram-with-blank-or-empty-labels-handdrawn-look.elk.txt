@@ -1,0 +1,52 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b49ea493738d6c8b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-BOOK-0	root	103.6290512084961	84.25971221923828
+node	entity-AUTHOR-1	root	101.87860870361328	84.0110855102539
+node	entity-GENRE-2	root	102.71527099609375	84.42174530029297
+edge	id_entity-BOOK-0_entity-AUTHOR-1_0	root	entity-BOOK-0	entity-AUTHOR-1
+label	edge	id_entity-BOOK-0_entity-AUTHOR-1_0	0		0	0
+option	edge-label	id_entity-BOOK-0_entity-AUTHOR-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-BOOK-0_entity-AUTHOR-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-BOOK-0_entity-GENRE-2_1	root	entity-BOOK-0	entity-GENRE-2
+label	edge	id_entity-BOOK-0_entity-GENRE-2_1	0	 	0	0
+option	edge-label	id_entity-BOOK-0_entity-GENRE-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-BOOK-0_entity-GENRE-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-AUTHOR-1_entity-GENRE-2_2	root	entity-AUTHOR-1	entity-GENRE-2
+label	edge	id_entity-AUTHOR-1_entity-GENRE-2_2	0	  	0	0
+option	edge-label	id_entity-AUTHOR-1_entity-GENRE-2_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-AUTHOR-1_entity-GENRE-2_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	172.473482131958	396.69254302978516
+place	entity-BOOK-0	root	56.844430923461914	12	103.6290512084961	84.25971221923828
+place	entity-AUTHOR-1	root	12	136.25971221923828	101.87860870361328	84.0110855102539
+place	entity-GENRE-2	root	57.30132102966308	300.2707977294922	102.71527099609375	84.42174530029297
+route	id_entity-BOOK-0_entity-AUTHOR-1_0	root	root
+section	id_entity-BOOK-0_entity-AUTHOR-1_0	id_entity-BOOK-0_entity-AUTHOR-1_0_s0	94.72078132629395,96.25971221923828	62.93930435180664,136.25971221923828	94.72078132629395,116.25971221923828 62.93930435180664,116.25971221923828	entity-BOOK-0	entity-AUTHOR-1
+place-label	edge	id_entity-BOOK-0_entity-AUTHOR-1_0	0	0	0	0	0
+route	id_entity-BOOK-0_entity-GENRE-2_1	root	root
+section	id_entity-BOOK-0_entity-GENRE-2_1	id_entity-BOOK-0_entity-GENRE-2_1_s0	122.59713172912598,96.25971221923828	122.44483502705893,300.2707977294922	122.59713172912598,116.25971221923828 154.37860870361328,116.25971221923828 154.37860870361328,260.2707977294922 154.37860870361328,280.2707977294922 122.44483502705893,280.2707977294922	entity-BOOK-0	entity-GENRE-2
+place-label	edge	id_entity-BOOK-0_entity-GENRE-2_1	0	154.37860870361328	178.26525497436523	0	0
+route	id_entity-AUTHOR-1_entity-GENRE-2_2	root	root
+section	id_entity-AUTHOR-1_entity-GENRE-2_2	id_entity-AUTHOR-1_entity-GENRE-2_2_s0	62.93930435180664,220.2707977294922	94.873078028361,300.2707977294922	62.93930435180664,280.2707977294922 94.873078028361,280.2707977294922	entity-AUTHOR-1	entity-GENRE-2
+place-label	edge	id_entity-AUTHOR-1_entity-GENRE-2_2	0	62.93930435180664	260.2707977294922	0	0

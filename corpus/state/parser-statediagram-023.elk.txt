@@ -1,0 +1,101 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8050f65c59e3aa81
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Active	root	136	37
+option	node	Active		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Inactive	root	136	37
+option	node	Inactive		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Active----parent	root
+option	node	Active----parent		spacing.baseValue	24
+option	node	Active----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Active----parent		elk.spacing.edgeEdge	20
+option	node	Active----parent		spacing.nodeNode	50
+option	node	Active----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Active----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Active----parent		elk.layered.mergeEdges	false
+option	node	Active----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Active----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Active----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Active----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Active----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Active----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Active----parent	0	this is a short<br>note	84	40
+node	Active----note-2	Active----parent	150	72
+option	node	Active----note-2		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Inactive----parent	root
+option	node	Inactive----parent		spacing.baseValue	24
+option	node	Inactive----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Inactive----parent		elk.spacing.edgeEdge	20
+option	node	Inactive----parent		spacing.nodeNode	50
+option	node	Inactive----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Inactive----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Inactive----parent		elk.layered.mergeEdges	false
+option	node	Inactive----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Inactive----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Inactive----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Inactive----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Inactive----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Inactive----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Inactive----parent	0	A note can also\n          be defined on\n          several lines	97	61
+node	Inactive----note-3	Inactive----parent	150	93
+option	node	Inactive----note-3		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge0	root	root_start	Active
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Active	Inactive
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	Active----note-2-Active	root	Active----note-2	Active
+label	edge	Active----note-2-Active	0		0	0
+option	edge-label	Active----note-2-Active	0	edgeLabels.inline	true
+option	edge-label	Active----note-2-Active	0	edgeLabels.placement	CENTER
+edge	Inactive-Inactive----note-3	root	Inactive	Inactive----note-3
+label	edge	Inactive-Inactive----note-3	0		0	0
+option	edge-label	Inactive-Inactive----note-3	0	edgeLabels.inline	true
+option	edge-label	Inactive-Inactive----note-3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	293.5	610
+place	root_start	root	29.5	163	14	14
+place	Active	root	42.999999999999986	227	136	37
+place	Inactive	root	42.999999999999986	304	136	37
+place	Active----parent	root	83.5	12	198	165
+place-label	node	Active----parent	0	57	5	84	40
+place	Active----note-2	Active----parent	24	69	150	72
+place	Inactive----parent	root	12	391	198	207
+place-label	node	Inactive----parent	0	50.5	5	97	61
+place	Inactive----note-3	Inactive----parent	24	90	150	93
+route	edge0	root	root
+section	edge0	edge0_s0	39.5,177	91.66666666666666,227	39.5,207 91.66666666666666,207	root_start	Active
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	110.99999999999999,264	110.99999999999999,304		Active	Inactive
+place-label	edge	edge1	0	0	0	0	0
+route	Active----note-2-Active	root	root
+section	Active----note-2-Active	Active----note-2-Active_s0	182.5,153	130.33333333333331,227	182.5,187 182.5,207 130.33333333333331,207	Active----note-2	Active
+place-label	edge	Active----note-2-Active	0	0	0	0	0
+route	Inactive-Inactive----note-3	root	root
+section	Inactive-Inactive----note-3	Inactive-Inactive----note-3_s0	110.99999999999999,341	110.99999999999999,481	110.99999999999999,381	Inactive	Inactive----note-3
+place-label	edge	Inactive-Inactive----note-3	0	0	0	0	0

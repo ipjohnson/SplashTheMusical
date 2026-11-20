@@ -1,0 +1,46 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e30205185984ab8a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Analyst	root	76	121
+node	Literal	root	160	58
+option	node	Literal		elk.portAlignment.default	CENTER
+node	Priced	root	152	60
+edge	edge-0	root	Analyst	Literal
+label	edge	edge-0	0	files R&amp;D report	76	15
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Analyst	Priced
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	492	161
+place	Analyst	root	12	19.500000000000007	76	121
+place	Literal	root	320	12.000000000000004	160	58
+place	Priced	root	128	89	152	60
+route	edge-0	root	root
+section	edge-0	edge-0_s0	88,63.16666666666667	320,41	108,63.16666666666667 108,41	Analyst	Literal
+place-label	edge	edge-0	0	166	33	76	15
+route	edge-1	root	root
+section	edge-1	edge-1_s0	88,96.83333333333334	128,119	108,96.83333333333334 108,119	Analyst	Priced
+place-label	edge	edge-1	0	0	0	0	0

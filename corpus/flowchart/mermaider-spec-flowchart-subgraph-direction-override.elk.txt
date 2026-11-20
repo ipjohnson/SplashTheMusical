@@ -1,0 +1,111 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 64d0cd5cf9eb6a0b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Horizontal	root
+option	node	Horizontal		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Horizontal		nodeSize.minimum	(72, 0)
+option	node	Horizontal		spacing.baseValue	24
+option	node	Horizontal		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Horizontal		elk.spacing.edgeEdge	20
+option	node	Horizontal		spacing.nodeNode	50
+option	node	Horizontal		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Horizontal		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Horizontal		elk.layered.mergeEdges	false
+option	node	Horizontal		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Horizontal		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Horizontal		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Horizontal		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Horizontal		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Horizontal	0	Horizontal	64	19
+node	H1	Horizontal	152	45
+node	H2	Horizontal	152	45
+node	H3	Horizontal	152	45
+node	Vertical	root
+option	node	Vertical		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Vertical		nodeSize.minimum	(54, 0)
+option	node	Vertical		spacing.baseValue	24
+option	node	Vertical		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Vertical		elk.spacing.edgeEdge	20
+option	node	Vertical		spacing.nodeNode	50
+option	node	Vertical		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Vertical		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Vertical		elk.layered.mergeEdges	false
+option	node	Vertical		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Vertical		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Vertical		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Vertical		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Vertical		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Vertical		elk.algorithm	elk.layered
+option	node	Vertical		elk.direction	DOWN
+option	node	Vertical		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Vertical	0	Vertical	46	19
+node	V1	Vertical	152	45
+node	V2	Vertical	152	45
+node	V3	Vertical	152	45
+edge	L_V1_V2_0	root	V1	V2
+label	edge	L_V1_V2_0	0		0	0
+option	edge-label	L_V1_V2_0	0	edgeLabels.inline	true
+option	edge-label	L_V1_V2_0	0	edgeLabels.placement	CENTER
+edge	L_V2_V3_0	root	V2	V3
+label	edge	L_V2_V3_0	0		0	0
+option	edge-label	L_V2_V3_0	0	edgeLabels.inline	true
+option	edge-label	L_V2_V3_0	0	edgeLabels.placement	CENTER
+edge	L_H1_H2_0	root	H1	H2
+label	edge	L_H1_H2_0	0		0	0
+option	edge-label	L_H1_H2_0	0	edgeLabels.inline	true
+option	edge-label	L_H1_H2_0	0	edgeLabels.placement	CENTER
+edge	L_H2_H3_0	root	H2	H3
+label	edge	L_H2_H3_0	0		0	0
+option	edge-label	L_H2_H3_0	0	edgeLabels.inline	true
+option	edge-label	L_H2_H3_0	0	edgeLabels.placement	CENTER
+edge	L_Vertical_Horizontal_0	root	Vertical	Horizontal
+label	edge	L_Vertical_Horizontal_0	0		0	0
+option	edge-label	L_Vertical_Horizontal_0	0	edgeLabels.inline	true
+option	edge-label	L_Vertical_Horizontal_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	816	279
+place	Horizontal	root	252	81	552	117
+place-label	node	Horizontal	0	244	5	64	19
+place	H1	Horizontal	24	48	152	45
+place	H2	Horizontal	200	48	152	45
+place	H3	Horizontal	376	48	152	45
+place	Vertical	root	12	12	200	255
+place-label	node	Vertical	0	77	5	46	19
+place	V1	Vertical	24	48	152	45
+place	V2	Vertical	24	117	152	45
+place	V3	Vertical	24	186	152	45
+route	L_V1_V2_0	root	Vertical
+section	L_V1_V2_0	L_V1_V2_0_s0	99.99999999999999,93	99.99999999999999,117		V1	V2
+place-label	edge	L_V1_V2_0	0	0	0	0	0
+route	L_V2_V3_0	root	Vertical
+section	L_V2_V3_0	L_V2_V3_0_s0	99.99999999999999,162	99.99999999999999,186		V2	V3
+place-label	edge	L_V2_V3_0	0	0	0	0	0
+route	L_H1_H2_0	root	Horizontal
+section	L_H1_H2_0	L_H1_H2_0_s0	176,70.5	200,70.5		H1	H2
+place-label	edge	L_H1_H2_0	0	0	0	0	0
+route	L_H2_H3_0	root	Horizontal
+section	L_H2_H3_0	L_H2_H3_0_s0	352,70.5	376,70.5		H2	H3
+place-label	edge	L_H2_H3_0	0	0	0	0	0
+route	L_Vertical_Horizontal_0	root	root
+section	L_Vertical_Horizontal_0	L_Vertical_Horizontal_0_s0	212,139.5	252,139.5		Vertical	Horizontal
+place-label	edge	L_Vertical_Horizontal_0	0	0	0	0	0

@@ -1,0 +1,113 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 982f0e4d525246b6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Frontend	root
+option	node	Frontend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Frontend		nodeSize.minimum	(66, 0)
+option	node	Frontend		spacing.baseValue	24
+option	node	Frontend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Frontend		elk.spacing.edgeEdge	20
+option	node	Frontend		spacing.nodeNode	50
+option	node	Frontend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Frontend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Frontend		elk.layered.mergeEdges	false
+option	node	Frontend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Frontend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Frontend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Frontend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Frontend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Frontend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Frontend	0	Frontend	58	19
+node	UI	Frontend	152	45
+option	node	UI		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	State	Frontend	152	45
+option	node	State		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Backend	root
+option	node	Backend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Backend		nodeSize.minimum	(63, 0)
+option	node	Backend		spacing.baseValue	24
+option	node	Backend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Backend		elk.spacing.edgeEdge	20
+option	node	Backend		spacing.nodeNode	50
+option	node	Backend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Backend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Backend		elk.layered.mergeEdges	false
+option	node	Backend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Backend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Backend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Backend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Backend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Backend		elk.algorithm	elk.layered
+option	node	Backend		elk.direction	RIGHT
+option	node	Backend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Backend	0	Backend	55	19
+node	API	Backend	152	45
+option	node	API		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	DB	Backend	144	85.14869689941406
+node	Cache	Backend	144	85.14869689941406
+edge	L_API_DB_0	root	API	DB
+label	edge	L_API_DB_0	0		0	0
+option	edge-label	L_API_DB_0	0	edgeLabels.inline	true
+option	edge-label	L_API_DB_0	0	edgeLabels.placement	CENTER
+edge	L_API_Cache_0	root	API	Cache
+label	edge	L_API_Cache_0	0		0	0
+option	edge-label	L_API_Cache_0	0	edgeLabels.inline	true
+option	edge-label	L_API_Cache_0	0	edgeLabels.placement	CENTER
+edge	L_UI_State_0	root	UI	State
+label	edge	L_UI_State_0	0		0	0
+option	edge-label	L_UI_State_0	0	edgeLabels.inline	true
+option	edge-label	L_UI_State_0	0	edgeLabels.placement	CENTER
+edge	L_UI_API_0	root	UI	API
+label	edge	L_UI_API_0	0		0	0
+option	edge-label	L_UI_API_0	0	edgeLabels.inline	true
+option	edge-label	L_UI_API_0	0	edgeLabels.placement	CENTER
+edge	L_State_API_0	root	State	API
+label	edge	L_State_API_0	0		0	0
+option	edge-label	L_State_API_0	0	edgeLabels.inline	true
+option	edge-label	L_State_API_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	410	568.1486968994141
+place	Frontend	root	105.00000000000003	12	244.5	222
+place-label	node	Frontend	0	93.25	5	58	19
+place	UI	Frontend	24	48	152	45
+place	State	Frontend	68.49999999999999	153	152	45
+place	Backend	root	12	294	386	262.14869689941406
+place-label	node	Backend	0	165.5	5	55	19
+place	API	Backend	117.00000000000003	48	152	45
+place	DB	Backend	24	153	144	85.14869689941406
+place	Cache	Backend	218	153	144	85.14869689941406
+route	L_API_DB_0	root	Backend
+section	L_API_DB_0	L_API_DB_0_s0	171.26666666666668,93	96,153	171.26666666666668,123 96,123	API	DB
+place-label	edge	L_API_DB_0	0	0	0	0	0
+route	L_API_Cache_0	root	Backend
+section	L_API_Cache_0	L_API_Cache_0_s0	214.73333333333335,93	290,153	214.73333333333335,123 290,123	API	Cache
+place-label	edge	L_API_Cache_0	0	0	0	0	0
+route	L_UI_State_0	root	Frontend
+section	L_UI_State_0	L_UI_State_0_s0	121.7333333333333,93	144.49999999999997,153	121.7333333333333,123 144.49999999999997,123	UI	State
+place-label	edge	L_UI_State_0	0	0	0	0	0
+route	L_UI_API_0	root	root
+section	L_UI_API_0	L_UI_API_0_s0	183.26666666666668,105	183.26666666666668,342	183.26666666666668,135 160.5,135 160.5,244 160.5,264 183.26666666666668,264 183.26666666666668,284	UI	API
+place-label	edge	L_UI_API_0	0	0	0	0	0
+route	L_State_API_0	root	root
+section	L_State_API_0	L_State_API_0_s0	249.5,210	226.73333333333335,342	249.5,244 249.5,264 226.73333333333332,264 226.73333333333332,284	State	API
+place-label	edge	L_State_API_0	0	0	0	0	0

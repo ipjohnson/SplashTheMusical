@@ -1,0 +1,86 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fa9cccf5ec2377fe
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	sb1	root
+option	node	sb1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	sb1		nodeSize.minimum	(125, 0)
+option	node	sb1		spacing.baseValue	24
+option	node	sb1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	sb1		elk.spacing.edgeEdge	20
+option	node	sb1		spacing.nodeNode	50
+option	node	sb1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	sb1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	sb1		elk.layered.mergeEdges	false
+option	node	sb1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	sb1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	sb1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	sb1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	sb1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	sb1	0	Payment service	105	19
+node	Authorize	sb1	160	58
+option	node	Authorize		elk.portAlignment.default	CENTER
+node	sb2	root
+option	node	sb2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	sb2		nodeSize.minimum	(57, 0)
+option	node	sb2		spacing.baseValue	24
+option	node	sb2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	sb2		elk.spacing.edgeEdge	20
+option	node	sb2		spacing.nodeNode	50
+option	node	sb2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	sb2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	sb2		elk.layered.mergeEdges	false
+option	node	sb2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	sb2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	sb2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	sb2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	sb2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	sb2	0	Billing	37	19
+node	Invoice	sb2	152	42
+node	sb3	root
+option	node	sb3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	sb3		nodeSize.minimum	(75, 0)
+option	node	sb3		spacing.baseValue	24
+option	node	sb3		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	sb3		elk.spacing.edgeEdge	20
+option	node	sb3		spacing.nodeNode	50
+option	node	sb3		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	sb3		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	sb3		elk.layered.mergeEdges	false
+option	node	sb3		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	sb3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	sb3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	sb3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	sb3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	sb3	0	**Support**	55	19
+node	Refund	sb3	152	42
+result
+place	root		0	0	232	462
+place	sb1	root	12	12	208	130
+place-label	node	sb1	0	51.5	5	105	19
+place	Authorize	sb1	24	48	160	58
+place	sb2	root	16	182	200	114
+place-label	node	sb2	0	81.5	5	37	19
+place	Invoice	sb2	24	48	152	42
+place	sb3	root	16	336	200	114
+place-label	node	sb3	0	72.5	5	55	19
+place	Refund	sb3	24	48	152	42

@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 496e8bcb48f79794
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	309.9173278808594	83.3719253540039
+node	entity-BOOK-1	root	258.04412841796875	162.5552215576172
+edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	root	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	entity-BOOK-1
+label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	writes	37	21
+option	edge-label	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	333.9173278808594	370.9271469116211
+place	entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	root	12	12	309.9173278808594	83.3719253540039
+place	entity-BOOK-1	root	37.93659973144531	196.3719253540039	258.04412841796875	162.5552215576172
+route	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	root	root
+section	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0_s0	166.9586639404297,95.3719253540039	166.9586639404297,196.3719253540039		entity-AUTHOR_WITH_LONG_ENTITY_NAME-0	entity-BOOK-1
+place-label	edge	id_entity-AUTHOR_WITH_LONG_ENTITY_NAME-0_entity-BOOK-1_0	0	148.4586639404297	135.3719253540039	37	21

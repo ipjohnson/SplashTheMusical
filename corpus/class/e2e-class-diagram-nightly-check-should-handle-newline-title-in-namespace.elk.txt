@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 805cb0b9ab39bd66
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	testingNamespace	root
+option	node	testingNamespace		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	testingNamespace		nodeSize.minimum	(134, 0)
+option	node	testingNamespace		spacing.baseValue	24
+option	node	testingNamespace		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	testingNamespace		elk.spacing.edgeEdge	20
+option	node	testingNamespace		spacing.nodeNode	50
+option	node	testingNamespace		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	testingNamespace		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	testingNamespace		elk.layered.mergeEdges	false
+option	node	testingNamespace		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	testingNamespace		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	testingNamespace		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	testingNamespace		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	testingNamespace		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	testingNamespace	0	testingNamespace	118	19
+node	This\n  Title\n  Has\n  Many\n  Newlines	testingNamespace	142	303
+result
+place	root		0	0	214	399
+place	testingNamespace	root	12	12	190	375
+place-label	node	testingNamespace	0	36	5	118	19
+place	This\n  Title\n  Has\n  Many\n  Newlines	testingNamespace	24	48	142	303

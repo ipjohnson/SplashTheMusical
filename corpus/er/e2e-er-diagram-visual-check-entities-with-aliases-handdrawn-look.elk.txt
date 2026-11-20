@@ -1,0 +1,93 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a6e3612acba8b3b1
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-T1-0	root	103.15897369384766	84.48345184326172
+node	entity-T2-1	root	103.17886352539062	84.4219741821289
+node	entity-T3-2	root	103.41809844970703	84.26232147216797
+node	entity-T4-3	root	103.36707305908203	84.69197845458984
+node	entity-T5-4	root	103.44601440429688	84.45650482177734
+node	entity-T6-5	root	103.35643768310547	84.8637924194336
+edge	id_entity-T1-0_entity-T2-1_0	root	entity-T1-0	entity-T2-1
+label	edge	id_entity-T1-0_entity-T2-1_0	0	test	23	21
+option	edge-label	id_entity-T1-0_entity-T2-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-T1-0_entity-T2-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-T2-1_entity-T3-2_1	root	entity-T2-1	entity-T3-2
+label	edge	id_entity-T2-1_entity-T3-2_1	0	test	23	21
+option	edge-label	id_entity-T2-1_entity-T3-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-T2-1_entity-T3-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-T3-2_entity-T4-3_2	root	entity-T3-2	entity-T4-3
+label	edge	id_entity-T3-2_entity-T4-3_2	0	test	23	21
+option	edge-label	id_entity-T3-2_entity-T4-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-T3-2_entity-T4-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-T4-3_entity-T5-4_3	root	entity-T4-3	entity-T5-4
+label	edge	id_entity-T4-3_entity-T5-4_3	0	test	23	21
+option	edge-label	id_entity-T4-3_entity-T5-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-T4-3_entity-T5-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-T5-4_entity-T6-5_4	root	entity-T5-4	entity-T6-5
+label	edge	id_entity-T5-4_entity-T6-5_4	0	test	23	21
+option	edge-label	id_entity-T5-4_entity-T6-5_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-T5-4_entity-T6-5_4	0	edgeLabels.placement	CENTER
+edge	id_entity-T6-5_entity-T1-0_5	root	entity-T6-5	entity-T1-0
+label	edge	id_entity-T6-5_entity-T1-0_5	0	test	23	21
+option	edge-label	id_entity-T6-5_entity-T1-0_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-T6-5_entity-T1-0_5	0	edgeLabels.placement	CENTER
+edge	id_entity-T4-3_entity-T6-5_6	root	entity-T4-3	entity-T6-5
+label	edge	id_entity-T4-3_entity-T6-5_6	0	test	23	21
+option	edge-label	id_entity-T4-3_entity-T6-5_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-T4-3_entity-T6-5_6	0	edgeLabels.placement	CENTER
+edge	id_entity-T1-0_entity-T3-2_7	root	entity-T1-0	entity-T3-2
+label	edge	id_entity-T1-0_entity-T3-2_7	0	test	23	21
+option	edge-label	id_entity-T1-0_entity-T3-2_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-T1-0_entity-T3-2_7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	222.94601440429688	1036.1800231933594
+place	entity-T1-0	root	44.734991073608406	12	103.15897369384766	84.48345184326172
+place	entity-T2-1	root	44.700363159179695	197.48345184326172	103.17886352539062	84.4219741821289
+place	entity-T3-2	root	96.15014457702637	382.9054260253906	103.41809844970703	84.26232147216797
+place	entity-T4-3	root	96.17565727233887	568.1677474975586	103.36707305908203	84.69197845458984
+place	entity-T5-4	root	44.5	753.8597259521484	103.44601440429688	84.45650482177734
+place	entity-T6-5	root	44.5447883605957	939.3162307739258	103.35643768310547	84.8637924194336
+route	id_entity-T1-0_entity-T2-1_0	root	root
+section	id_entity-T1-0_entity-T2-1_0	id_entity-T1-0_entity-T2-1_0_s0	96.31447792053223,96.48345184326172	96.289794921875,197.48345184326172	96.31447792053223,116.48345184326172 96.289794921875,116.48345184326172	entity-T1-0	entity-T2-1
+place-label	edge	id_entity-T1-0_entity-T2-1_0	0	84.789794921875	136.48345184326172	23	21
+route	id_entity-T2-1_entity-T3-2_1	root	root
+section	id_entity-T2-1_entity-T3-2_1	id_entity-T2-1_entity-T3-2_1_s0	96.289794921875,281.9054260253906	133.9561773935954,382.9054260253906	96.289794921875,362.9054260253906 133.9561773935954,362.9054260253906	entity-T2-1	entity-T3-2
+place-label	edge	id_entity-T2-1_entity-T3-2_1	0	84.789794921875	321.9054260253906	23	21
+route	id_entity-T3-2_entity-T4-3_2	root	root
+section	id_entity-T3-2_entity-T4-3_2	id_entity-T3-2_entity-T4-3_2_s0	147.85919380187988,467.1677474975586	147.85919380187988,568.1677474975586		entity-T3-2	entity-T4-3
+place-label	edge	id_entity-T3-2_entity-T4-3_2	0	136.35919380187988	507.1677474975586	23	21
+route	id_entity-T4-3_entity-T5-4_3	root	root
+section	id_entity-T4-3_entity-T5-4_3	id_entity-T4-3_entity-T5-4_3_s0	133.9646816253662,652.8597259521484	96.22300720214844,753.8597259521484	133.9646816253662,672.8597259521484 96.22300720214844,672.8597259521484	entity-T4-3	entity-T5-4
+place-label	edge	id_entity-T4-3_entity-T5-4_3	0	84.72300720214844	692.8597259521484	23	21
+route	id_entity-T5-4_entity-T6-5_4	root	root
+section	id_entity-T5-4_entity-T6-5_4	id_entity-T5-4_entity-T6-5_4_s0	96.22300720214844,838.3162307739258	96.22300720214844,939.3162307739258		entity-T5-4	entity-T6-5
+place-label	edge	id_entity-T5-4_entity-T6-5_4	0	84.72300720214844	878.3162307739258	23	21
+route	id_entity-T6-5_entity-T1-0_5	root	root
+section	id_entity-T6-5_entity-T1-0_5	id_entity-T6-5_entity-T1-0_5_s0	75.38389778137207,939.3162307739258	75.52473449707031,96.48345184326172	75.38389778137207,919.3162307739258 23.5,919.3162307739258 23.5,888.8162307739258 23.5,796.0879783630371 23.5,703.3597259521484 23.5,610.5137367248535 23.5,425.0365867614746 23.5,332.4054260253906 23.5,239.69443893432617 23.5,146.98345184326172 23.5,116.48345184326172 75.52473449707031,116.48345184326172	entity-T6-5	entity-T1-0
+place-label	edge	id_entity-T6-5_entity-T1-0_5	0	12	507.1677474975586	23	21
+route	id_entity-T4-3_entity-T6-5_6	root	root
+section	id_entity-T4-3_entity-T6-5_6	id_entity-T4-3_entity-T6-5_6_s0	161.75370597839355,652.8597259521484	117.0621166229248,939.3162307739258	161.75370597839355,672.8597259521484 199.44601440429688,672.8597259521484 199.44601440429688,703.3597259521484 199.44601440429688,888.8162307739258 199.44601440429688,919.3162307739258 117.0621166229248,919.3162307739258	entity-T4-3	entity-T6-5
+place-label	edge	id_entity-T4-3_entity-T6-5_6	0	187.94601440429688	785.5879783630371	23	21
+route	id_entity-T1-0_entity-T3-2_7	root	root
+section	id_entity-T1-0_entity-T3-2_7	id_entity-T1-0_entity-T3-2_7_s0	117.10422134399414,96.48345184326172	161.7622102101644,382.9054260253906	117.10422134399414,116.48345184326172 199.3792266845703,116.48345184326172 199.3792266845703,146.98345184326172 199.3792266845703,332.4054260253906 199.3792266845703,362.9054260253906 161.7622102101644,362.9054260253906	entity-T1-0	entity-T3-2
+place-label	edge	id_entity-T1-0_entity-T3-2_7	0	187.8792266845703	229.19443893432617	23	21

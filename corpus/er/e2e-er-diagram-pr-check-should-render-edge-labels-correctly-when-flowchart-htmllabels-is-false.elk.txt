@@ -1,0 +1,70 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 546ee739aaacd089
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	120	81
+node	entity-ORDER-1	root	100	81
+node	entity-LINE-ITEM-2	root	110	81
+node	entity-ADDRESS-3	root	106	81
+node	entity-INVOICE-4	root	97	81
+edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	45	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	entity-ORDER-1	entity-LINE-ITEM-2
+label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	contains	57	19.999998092651367
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	root	entity-CUSTOMER-0	entity-ADDRESS-3
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	invoiced at	72	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	root	entity-CUSTOMER-0	entity-ADDRESS-3
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	receives goods at	116	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-1_entity-INVOICE-4_4	root	entity-ORDER-1	entity-INVOICE-4
+label	edge	id_entity-ORDER-1_entity-INVOICE-4_4	0	liable for	58	19.999998092651367
+option	edge-label	id_entity-ORDER-1_entity-INVOICE-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-1_entity-INVOICE-4_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	426.3333333333333	466.99999618530273
+place	entity-CUSTOMER-0	root	182.33333333333331	12	120	81
+place	entity-ORDER-1	root	88.74999999999997	192.99999809265137	100	81
+place	entity-LINE-ITEM-2	root	12	373.99999618530273	110	81
+place	entity-ADDRESS-3	root	246.33333333333331	192.99999809265137	106	81
+place	entity-INVOICE-4	root	162	373.99999618530273	97	81
+route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	217.33333333333331,93	138.74999999999997,192.99999809265137	217.33333333333331,113 138.74999999999997,113	entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	116.24999999999997	133	45	19.999998092651367
+route	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	root
+section	id_entity-ORDER-1_entity-LINE-ITEM-2_1	id_entity-ORDER-1_entity-LINE-ITEM-2_1_s0	125.41666666666666,273.99999809265137	67,373.99999618530273	125.41666666666666,293.99999809265137 67,293.99999809265137	entity-ORDER-1	entity-LINE-ITEM-2
+place-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	38.5	313.99999809265137	57	19.999998092651367
+route	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	id_entity-CUSTOMER-0_entity-ADDRESS-3_2_s0	242.33333333333331,93	285,192.99999809265137	242.33333333333331,172.99999809265137 285,172.99999809265137	entity-CUSTOMER-0	entity-ADDRESS-3
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	206.33333333333331	133	72	19.999998092651367
+route	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	id_entity-CUSTOMER-0_entity-ADDRESS-3_3_s0	267.3333333333333,93	313.66666666666663,192.99999809265137	267.3333333333333,113 356.3333333333333,113 356.3333333333333,172.99999809265137 313.66666666666663,172.99999809265137	entity-CUSTOMER-0	entity-ADDRESS-3
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	298.3333333333333	133	116	19.999998092651367
+route	id_entity-ORDER-1_entity-INVOICE-4_4	root	root
+section	id_entity-ORDER-1_entity-INVOICE-4_4	id_entity-ORDER-1_entity-INVOICE-4_4_s0	152.08333333333331,273.99999809265137	210.5,373.99999618530273	152.08333333333331,293.99999809265137 210.5,293.99999809265137	entity-ORDER-1	entity-INVOICE-4
+place-label	edge	id_entity-ORDER-1_entity-INVOICE-4_4	0	181.5	313.99999809265137	58	19.999998092651367

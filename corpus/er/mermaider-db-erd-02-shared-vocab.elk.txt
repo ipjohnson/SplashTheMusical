@@ -1,0 +1,122 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fa6b266201b56ece
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-VersioningSystem-0	root	153	81
+node	entity-SemVersion-1	root	116	81
+node	entity-Product-2	root	100	81
+node	entity-Repository-3	root	108	81
+node	entity-Applicability-4	root	114	81
+node	entity-ApplicabilityEntry-5	root	147	81
+node	entity-ProductLifecycle-6	root	144	81
+node	entity-VersionSpec-7	root	119	81
+node	entity-ProductRelease-8	root	141	81
+node	entity-ChangelogLifecycle-9	root	164	81
+edge	id_entity-VersioningSystem-0_entity-SemVersion-1_0	root	entity-VersioningSystem-0	entity-SemVersion-1
+label	edge	id_entity-VersioningSystem-0_entity-SemVersion-1_0	0	base	31	21
+option	edge-label	id_entity-VersioningSystem-0_entity-SemVersion-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-VersioningSystem-0_entity-SemVersion-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-VersioningSystem-0_entity-SemVersion-1_1	root	entity-VersioningSystem-0	entity-SemVersion-1
+label	edge	id_entity-VersioningSystem-0_entity-SemVersion-1_1	0	current	45	21
+option	edge-label	id_entity-VersioningSystem-0_entity-SemVersion-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-VersioningSystem-0_entity-SemVersion-1_1	0	edgeLabels.placement	CENTER
+edge	id_entity-Product-2_entity-VersioningSystem-0_2	root	entity-Product-2	entity-VersioningSystem-0
+label	edge	id_entity-Product-2_entity-VersioningSystem-0_2	0	versioning	65	21
+option	edge-label	id_entity-Product-2_entity-VersioningSystem-0_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-Product-2_entity-VersioningSystem-0_2	0	edgeLabels.placement	CENTER
+edge	id_entity-Product-2_entity-Repository-3_3	root	entity-Product-2	entity-Repository-3
+label	edge	id_entity-Product-2_entity-Repository-3_3	0	repository	63	21
+option	edge-label	id_entity-Product-2_entity-Repository-3_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-Product-2_entity-Repository-3_3	0	edgeLabels.placement	CENTER
+edge	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	root	entity-Applicability-4	entity-ApplicabilityEntry-5
+label	edge	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	0	per key	47	21
+option	edge-label	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	0	edgeLabels.placement	CENTER
+edge	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	root	entity-ApplicabilityEntry-5	entity-ProductLifecycle-6
+label	edge	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	0	lifecycle	50	21
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	0	edgeLabels.placement	CENTER
+edge	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	root	entity-ApplicabilityEntry-5	entity-VersionSpec-7
+label	edge	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	0	version	46	21
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	0	edgeLabels.placement	CENTER
+edge	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	root	entity-ApplicabilityEntry-5	entity-VersioningSystem-0
+label	edge	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	0	key resolves to	95	21
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	0	edgeLabels.placement	CENTER
+edge	id_entity-ProductRelease-8_entity-Product-2_8	root	entity-ProductRelease-8	entity-Product-2
+label	edge	id_entity-ProductRelease-8_entity-Product-2_8	0	product	48	21
+option	edge-label	id_entity-ProductRelease-8_entity-Product-2_8	0	edgeLabels.inline	true
+option	edge-label	id_entity-ProductRelease-8_entity-Product-2_8	0	edgeLabels.placement	CENTER
+edge	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	root	entity-ProductRelease-8	entity-ChangelogLifecycle-9
+label	edge	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	0	lifecycle	50	21
+option	edge-label	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	0	edgeLabels.inline	true
+option	edge-label	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	0	edgeLabels.placement	CENTER
+edge	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	root	entity-ChangelogLifecycle-9	entity-ProductLifecycle-6
+label	edge	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	0	maps to	51	21
+option	edge-label	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	0	edgeLabels.inline	true
+option	edge-label	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	705.1666666666667	671
+place	entity-VersioningSystem-0	root	392.1666666666667	396	153	81
+place	entity-SemVersion-1	root	416.8333333333333	578	116	81
+place	entity-Product-2	root	575.8333333333333	194	100	81
+place	entity-Repository-3	root	585.1666666666667	396	108	81
+place	entity-Applicability-4	root	142.375	12	114	81
+place	entity-ApplicabilityEntry-5	root	125.875	194	147	81
+place	entity-ProductLifecycle-6	root	206.66666666666669	396	144	81
+place	entity-VersionSpec-7	root	12	396	119	81
+place	entity-ProductRelease-8	root	469.9166666666667	12	141	81
+place	entity-ChangelogLifecycle-9	root	312.875	194	164	81
+route	id_entity-VersioningSystem-0_entity-SemVersion-1_0	root	root
+section	id_entity-VersioningSystem-0_entity-SemVersion-1_0	id_entity-VersioningSystem-0_entity-SemVersion-1_0_s0	446.5,477	458.8333333333333,578	446.5,497 439.6666666666667,497 439.6666666666667,558 458.8333333333333,558	entity-VersioningSystem-0	entity-SemVersion-1
+place-label	edge	id_entity-VersioningSystem-0_entity-SemVersion-1_0	0	424.1666666666667	517	31	21
+route	id_entity-VersioningSystem-0_entity-SemVersion-1_1	root	root
+section	id_entity-VersioningSystem-0_entity-SemVersion-1_1	id_entity-VersioningSystem-0_entity-SemVersion-1_1_s0	490.8333333333333,477	490.8333333333333,578	490.8333333333333,497 497.6666666666667,497 497.6666666666667,558 490.8333333333333,558	entity-VersioningSystem-0	entity-SemVersion-1
+place-label	edge	id_entity-VersioningSystem-0_entity-SemVersion-1_1	0	475.1666666666667	517	45	21
+route	id_entity-Product-2_entity-VersioningSystem-0_2	root	root
+section	id_entity-Product-2_entity-VersioningSystem-0_2	id_entity-Product-2_entity-VersioningSystem-0_2_s0	612.5,275	490.8333333333333,396	612.5,295 518.6666666666667,295 518.6666666666667,376 490.8333333333333,376	entity-Product-2	entity-VersioningSystem-0
+place-label	edge	id_entity-Product-2_entity-VersioningSystem-0_2	0	486.1666666666667	335	65	21
+route	id_entity-Product-2_entity-Repository-3_3	root	root
+section	id_entity-Product-2_entity-Repository-3_3	id_entity-Product-2_entity-Repository-3_3_s0	639.1666666666667,275	639.1666666666667,396		entity-Product-2	entity-Repository-3
+place-label	edge	id_entity-Product-2_entity-Repository-3_3	0	607.6666666666667	335	63	21
+route	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	root	root
+section	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4_s0	199.375,93	199.375,194		entity-Applicability-4	entity-ApplicabilityEntry-5
+place-label	edge	id_entity-Applicability-4_entity-ApplicabilityEntry-5_4	0	175.875	133	47	21
+route	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	root	root
+section	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5_s0	199.375,275	258,396	199.375,295 193.04166666666666,295 193.04166666666666,376 258,376	entity-ApplicabilityEntry-5	entity-ProductLifecycle-6
+place-label	edge	id_entity-ApplicabilityEntry-5_entity-ProductLifecycle-6_5	0	168.04166666666666	335	50	21
+route	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	root	root
+section	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6_s0	167.625,275	71.5,396	167.625,295 71.5,295	entity-ApplicabilityEntry-5	entity-VersionSpec-7
+place-label	edge	id_entity-ApplicabilityEntry-5_entity-VersionSpec-7_6	0	48.5	335	46	21
+route	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	root	root
+section	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7_s0	231.125,275	446.5,396	231.125,315 418.6666666666667,315 418.6666666666667,376 446.5,376	entity-ApplicabilityEntry-5	entity-VersioningSystem-0
+place-label	edge	id_entity-ApplicabilityEntry-5_entity-VersioningSystem-0_7	0	371.1666666666667	335	95	21
+route	id_entity-ProductRelease-8_entity-Product-2_8	root	root
+section	id_entity-ProductRelease-8_entity-Product-2_8	id_entity-ProductRelease-8_entity-Product-2_8_s0	560.5833333333333,93	625.8333333333333,194	560.5833333333333,113 625.8333333333333,113	entity-ProductRelease-8	entity-Product-2
+place-label	edge	id_entity-ProductRelease-8_entity-Product-2_8	0	601.8333333333333	133	48	21
+route	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	root	root
+section	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9_s0	520.25,93	394.875,194	520.25,113 394.875,113	entity-ProductRelease-8	entity-ChangelogLifecycle-9
+place-label	edge	id_entity-ProductRelease-8_entity-ChangelogLifecycle-9_9	0	369.875	133	50	21
+route	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	root	root
+section	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10_s0	394.875,275	299.33333333333337,396	394.875,295 316.875,295 316.875,376 299.33333333333337,376	entity-ChangelogLifecycle-9	entity-ProductLifecycle-6
+place-label	edge	id_entity-ChangelogLifecycle-9_entity-ProductLifecycle-6_10	0	291.375	335	51	21

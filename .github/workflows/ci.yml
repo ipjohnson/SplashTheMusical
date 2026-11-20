@@ -249,16 +249,37 @@ jobs:
           ORACLE_RASTER_DIR: ${{ github.event_name != 'schedule' && '.artifacts/corpus/raster' || '' }}
         run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
 
-      # On a cache hit facts.mjs did not run, so this checks only corpus/l4.txt.
+      # The oracle output is every facts, boxes, dagre and ELK file of corpus/, so a committed .elk.txt that differs from
+      # what the pinned mermaid.js writes, a missing one and a stale one all fail here. On a cache hit facts.mjs did not
+      # run, so this checks only corpus/l4.txt; the cache key holds every input of facts.mjs.
       - name: Fail when the committed oracle output or corpus/l4.txt is stale
         run: |
           changed=$(git status --porcelain -- corpus)
           if [ -n "$changed" ]; then
             echo "$changed" | head -50
             git diff --stat -- corpus | tail -1
-            echo "::error::The committed corpus output differs from what the pinned mermaid.js and STM write. Run mise run raster and commit corpus/."
+            echo "::error::The committed corpus output differs from what the pinned mermaid.js and STM write. Run mise run raster and commit corpus/, or take the files of this run's oracle-corpus artifact."
             exit 1
           fi
+
+      # The oracle output depends on the runner's fonts, so a machine other than macOS cannot write the committed files.
+      # When the check above fails, this run's rewritten and new corpus files, such as the .elk.txt files, are uploaded
+      # to be committed as they are.
+      - name: Upload the corpus files this run rewrote
+        if: failure()
+        continue-on-error: true
+        run: |
+          mkdir -p .artifacts/oracle-corpus
+          git ls-files -m -o --exclude-standard -- corpus | tar -cf - -T - | tar -xf - -C .artifacts/oracle-corpus
+      - name: Upload the oracle-corpus artifact
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: oracle-corpus
+          path: .artifacts/oracle-corpus
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Save mermaid.js's SVGs and rasters
         if: github.event_name != 'schedule' && steps.oracle-cache.outputs.cache-hit != 'true'

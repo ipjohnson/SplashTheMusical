@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1a1c65163ec96b5c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	152	117
+node	B	root	152	132.39999389648438
+node	C	root	152	40
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0	Plain text **labels** in flowcharts will autowrap,like node labels. \\n Newline characters work too.	187	66.19999694824219
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0	**Markdown** edge labels will autowrap, unless markdownAutoWrap: false is set	185	66.19999694824219
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	211	605.7999877929688
+place	A	root	29.5	12	152	117
+place	B	root	29.5	275.1999969482422	152	132.39999389648438
+place	C	root	29.5	553.7999877929688	152	40
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	105.5,129	105.5,275.1999969482422		A	B
+place-label	edge	L_A_B_0	0	12	169	187	66.19999694824219
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	105.5,407.59999084472656	105.5,553.7999877929688		B	C
+place-label	edge	L_B_C_0	0	13	447.59999084472656	185	66.19999694824219

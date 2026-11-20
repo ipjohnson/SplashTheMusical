@@ -1,0 +1,74 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6eec90030571cfd1
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer	root	90	81
+node	Order	root	62	81
+node	LineItem	root	83	81
+node	Student	root	78	81
+node	Course	root	73	81
+edge	id_Customer_Order_1	root	Customer	Order
+label	edge	id_Customer_Order_1	0	places	41	21
+option	edge-label	id_Customer_Order_1	0	edgeLabels.inline	true
+option	edge-label	id_Customer_Order_1	0	edgeLabels.placement	CENTER
+label	edge	id_Customer_Order_1	1	1	6	16.5
+option	edge-label	id_Customer_Order_1	1	edgeLabels.placement	TAIL
+label	edge	id_Customer_Order_1	2	*	16	28.5
+option	edge-label	id_Customer_Order_1	2	edgeLabels.placement	HEAD
+edge	id_Order_LineItem_2	root	Order	LineItem
+label	edge	id_Order_LineItem_2	0	contains	53	21
+option	edge-label	id_Order_LineItem_2	0	edgeLabels.inline	true
+option	edge-label	id_Order_LineItem_2	0	edgeLabels.placement	CENTER
+label	edge	id_Order_LineItem_2	1	1	18	28.5
+option	edge-label	id_Order_LineItem_2	1	edgeLabels.placement	TAIL
+label	edge	id_Order_LineItem_2	2	1..*	16	16.5
+option	edge-label	id_Order_LineItem_2	2	edgeLabels.placement	HEAD
+edge	id_Student_Course_3	root	Student	Course
+label	edge	id_Student_Course_3	0	enrolls	42	21
+option	edge-label	id_Student_Course_3	0	edgeLabels.inline	true
+option	edge-label	id_Student_Course_3	0	edgeLabels.placement	CENTER
+label	edge	id_Student_Course_3	1	0..*	16	16.5
+option	edge-label	id_Student_Course_3	1	edgeLabels.placement	TAIL
+label	edge	id_Student_Course_3	2	1..*	28	28.5
+option	edge-label	id_Student_Course_3	2	edgeLabels.placement	HEAD
+result
+place	root		0	0	232	575
+place	Customer	root	12	12	90	81
+place	Order	root	26	247	62	81
+place	LineItem	root	15.5	482	83	81
+place	Student	root	142	12	78	81
+place	Course	root	144.5	247	73	81
+route	id_Customer_Order_1	root	root
+section	id_Customer_Order_1	id_Customer_Order_1_s0	57,93	57,247		Customer	Order
+place-label	edge	id_Customer_Order_1	0	36.5	153.5	41	21
+place-label	edge	id_Customer_Order_1	1	62	97	6	16.5
+place-label	edge	id_Customer_Order_1	2	62	214.5	16	28.5
+route	id_Order_LineItem_2	root	root
+section	id_Order_LineItem_2	id_Order_LineItem_2_s0	57,328	57,482		Order	LineItem
+place-label	edge	id_Order_LineItem_2	0	30.5	400.5	53	21
+place-label	edge	id_Order_LineItem_2	1	62	332	18	28.5
+place-label	edge	id_Order_LineItem_2	2	62	461.5	16	16.5
+route	id_Student_Course_3	root	root
+section	id_Student_Course_3	id_Student_Course_3_s0	181,93	181,247		Student	Course
+place-label	edge	id_Student_Course_3	0	160	153.5	42	21
+place-label	edge	id_Student_Course_3	1	186	97	16	16.5
+place-label	edge	id_Student_Course_3	2	186	214.5	28	28.5

@@ -1,0 +1,49 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0a6808a279b1fb38
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Shape	root	159.5	141
+node	Drawable	root	146.5	141
+node	Color	root	121	177
+node	EventBus	root	193	141
+node	Circle	root	63	81
+edge	id_Shape_Circle_1	root	Shape	Circle
+label	edge	id_Shape_Circle_1	0		0	0
+option	edge-label	id_Shape_Circle_1	0	edgeLabels.inline	true
+option	edge-label	id_Shape_Circle_1	0	edgeLabels.placement	CENTER
+edge	id_Drawable_Circle_2	root	Drawable	Circle
+label	edge	id_Drawable_Circle_2	0		0	0
+option	edge-label	id_Drawable_Circle_2	0	edgeLabels.inline	true
+option	edge-label	id_Drawable_Circle_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	764	322
+place	Shape	root	12	48	159.5	141
+place	Drawable	root	211.5	48	146.5	141
+place	Color	root	398	12	121	177
+place	EventBus	root	559	30	193	141
+place	Circle	root	156.75	229	63	81
+route	id_Shape_Circle_1	root	root
+section	id_Shape_Circle_1	id_Shape_Circle_1_s0	91.75,189	181.08333333333334,229	91.75,209 181.08333333333334,209	Shape	Circle
+place-label	edge	id_Shape_Circle_1	0	0	0	0	0
+route	id_Drawable_Circle_2	root	root
+section	id_Drawable_Circle_2	id_Drawable_Circle_2_s0	284.75,189	195.41666666666666,229	284.75,209 195.41666666666666,209	Drawable	Circle
+place-label	edge	id_Drawable_Circle_2	0	0	0	0	0

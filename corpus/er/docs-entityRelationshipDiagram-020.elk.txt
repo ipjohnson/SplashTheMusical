@@ -1,0 +1,135 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3bffcd114da1c5a6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	TOP	root
+option	node	TOP		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	TOP		nodeSize.minimum	(37, 0)
+option	node	TOP		spacing.baseValue	24
+option	node	TOP		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	TOP		elk.spacing.edgeEdge	20
+option	node	TOP		spacing.nodeNode	50
+option	node	TOP		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	TOP		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	TOP		elk.layered.mergeEdges	false
+option	node	TOP		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	TOP		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	TOP		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	TOP		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	TOP		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	TOP		elk.algorithm	elk.layered
+option	node	TOP		elk.direction	DOWN
+option	node	TOP		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	TOP	0	TOP	29	19
+node	B2	TOP
+option	node	B2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	B2		nodeSize.minimum	(25, 0)
+option	node	B2		spacing.baseValue	24
+option	node	B2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	B2		elk.spacing.edgeEdge	20
+option	node	B2		spacing.nodeNode	50
+option	node	B2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	B2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	B2		elk.layered.mergeEdges	false
+option	node	B2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	B2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	B2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	B2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	B2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	B2		elk.algorithm	elk.layered
+option	node	B2		elk.direction	UP
+option	node	B2		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	B2	0	B2	17	19
+node	entity-I2-2	B2	100	81
+node	entity-F2-3	B2	100	81
+node	B1	TOP
+option	node	B1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	B1		nodeSize.minimum	(25, 0)
+option	node	B1		spacing.baseValue	24
+option	node	B1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	B1		elk.spacing.edgeEdge	20
+option	node	B1		spacing.nodeNode	50
+option	node	B1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	B1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	B1		elk.layered.mergeEdges	false
+option	node	B1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	B1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	B1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	B1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	B1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	B1		elk.algorithm	elk.layered
+option	node	B1		elk.direction	LEFT
+option	node	B1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	B1	0	B1	17	19
+node	entity-I1-0	B1	100	81
+node	entity-F1-1	B1	100	81
+node	entity-A-4	root	100	81
+node	entity-B-6	root	100	81
+edge	id_entity-I1-0_entity-F1-1_0	root	entity-I1-0	entity-F1-1
+label	edge	id_entity-I1-0_entity-F1-1_0	0	links	28	21
+option	edge-label	id_entity-I1-0_entity-F1-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-I1-0_entity-F1-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-I2-2_entity-F2-3_1	root	entity-I2-2	entity-F2-3
+label	edge	id_entity-I2-2_entity-F2-3_1	0	links	28	21
+option	edge-label	id_entity-I2-2_entity-F2-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-I2-2_entity-F2-3_1	0	edgeLabels.placement	CENTER
+edge	id_entity-A-4_TOP_2	root	entity-A-4	TOP
+label	edge	id_entity-A-4_TOP_2	0	links	28	21
+option	edge-label	id_entity-A-4_TOP_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-A-4_TOP_2	0	edgeLabels.placement	CENTER
+edge	id_TOP_entity-B-6_3	root	TOP	entity-B-6
+label	edge	id_TOP_entity-B-6_3	0	links	28	21
+option	edge-label	id_TOP_entity-B-6_3	0	edgeLabels.inline	true
+option	edge-label	id_TOP_entity-B-6_3	0	edgeLabels.placement	CENTER
+edge	id_B1_B2_4	root	B1	B2
+label	edge	id_B1_B2_4	0	links	28	21
+option	edge-label	id_B1_B2_4	0	edgeLabels.inline	true
+option	edge-label	id_B1_B2_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	812	621
+place	TOP	root	220	12	372	597
+place-label	node	TOP	0	171.5	5	29	19
+place	B2	TOP	112	270	148	303
+place-label	node	B2	0	65.5	5	17	19
+place	entity-I2-2	B2	24	198	100	81
+place	entity-F2-3	B2	24	48	100	81
+place	B1	TOP	24	48	324	153
+place-label	node	B1	0	153.5	5	17	19
+place	entity-I1-0	B1	200	48	100	81
+place	entity-F1-1	B1	24	48	100	81
+place	entity-A-4	root	12	270	100	81
+place	entity-B-6	root	700	270	100	81
+route	id_entity-I1-0_entity-F1-1_0	root	B1
+section	id_entity-I1-0_entity-F1-1_0	id_entity-I1-0_entity-F1-1_0_s0	200,88.5	124,88.5		entity-I1-0	entity-F1-1
+place-label	edge	id_entity-I1-0_entity-F1-1_0	0	148	77.5	28	21
+route	id_entity-I2-2_entity-F2-3_1	root	B2
+section	id_entity-I2-2_entity-F2-3_1	id_entity-I2-2_entity-F2-3_1_s0	74,198	74,129		entity-I2-2	entity-F2-3
+place-label	edge	id_entity-I2-2_entity-F2-3_1	0	60	153	28	21
+route	id_entity-A-4_TOP_2	root	root
+section	id_entity-A-4_TOP_2	id_entity-A-4_TOP_2_s0	112,310.5	220,310.5		entity-A-4	TOP
+place-label	edge	id_entity-A-4_TOP_2	0	152	299.5	28	21
+route	id_TOP_entity-B-6_3	root	root
+section	id_TOP_entity-B-6_3	id_TOP_entity-B-6_3_s0	592,310.5	700,310.5		TOP	entity-B-6
+place-label	edge	id_TOP_entity-B-6_3	0	632	299.5	28	21
+route	id_B1_B2_4	root	TOP
+section	id_B1_B2_4	id_B1_B2_4_s0	186,201	186,270		B1	B2
+place-label	edge	id_B1_B2_4	0	172	225	28	21

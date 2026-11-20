@@ -1,0 +1,124 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d4f0d635a88286d9
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	you	root	152	87
+node	runner	root	152	87
+node	clock	root	152	87
+node	watcher	root	152	87
+node	peer	root	152	87
+node	scheduler	root	152	87
+node	ledger	root	156	108
+node	db	root	148	127.65934753417969
+node	effects	root	152	87
+node	targets	root	152	66
+node	readers	root	152	66
+edge	L_you_ledger_0	root	you	ledger
+label	edge	L_you_ledger_0	0		0	0
+option	edge-label	L_you_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_you_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_runner_ledger_0	root	runner	ledger
+label	edge	L_runner_ledger_0	0		0	0
+option	edge-label	L_runner_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_runner_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_clock_ledger_0	root	clock	ledger
+label	edge	L_clock_ledger_0	0		0	0
+option	edge-label	L_clock_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_clock_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_watcher_ledger_0	root	watcher	ledger
+label	edge	L_watcher_ledger_0	0		0	0
+option	edge-label	L_watcher_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_watcher_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_peer_ledger_0	root	peer	ledger
+label	edge	L_peer_ledger_0	0		0	0
+option	edge-label	L_peer_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_peer_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_scheduler_ledger_0	root	scheduler	ledger
+label	edge	L_scheduler_ledger_0	0	start	28	21
+option	edge-label	L_scheduler_ledger_0	0	edgeLabels.inline	true
+option	edge-label	L_scheduler_ledger_0	0	edgeLabels.placement	CENTER
+edge	L_ledger_db_0	root	ledger	db
+label	edge	L_ledger_db_0	0	commit	46	21
+option	edge-label	L_ledger_db_0	0	edgeLabels.inline	true
+option	edge-label	L_ledger_db_0	0	edgeLabels.placement	CENTER
+edge	L_db_scheduler_0	root	db	scheduler
+label	edge	L_db_scheduler_0	0	ready items, live sessions	162	21
+option	edge-label	L_db_scheduler_0	0	edgeLabels.inline	true
+option	edge-label	L_db_scheduler_0	0	edgeLabels.placement	CENTER
+edge	L_db_effects_0	root	db	effects
+label	edge	L_db_effects_0	0	committed effects	112	21
+option	edge-label	L_db_effects_0	0	edgeLabels.inline	true
+option	edge-label	L_db_effects_0	0	edgeLabels.placement	CENTER
+edge	L_effects_targets_0	root	effects	targets
+label	edge	L_effects_targets_0	0		0	0
+option	edge-label	L_effects_targets_0	0	edgeLabels.inline	true
+option	edge-label	L_effects_targets_0	0	edgeLabels.placement	CENTER
+edge	L_db_readers_0	root	db	readers
+label	edge	L_db_readers_0	0		0	0
+option	edge-label	L_db_readers_0	0	edgeLabels.inline	true
+option	edge-label	L_db_readers_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	944	846.6593475341797
+place	you	root	12	12	152	87
+place	runner	root	204	12	152	87
+place	clock	root	396	12	152	87
+place	watcher	root	588	12	152	87
+place	peer	root	780	12	152	87
+place	scheduler	root	241	641.6593475341797	152	87
+place	ledger	root	394	159	156	108
+place	db	root	465	368	148	127.65934753417969
+place	effects	root	450.8333333333333	641.6593475341797	152	87
+place	targets	root	450.8333333333333	768.6593475341797	152	66
+place	readers	root	622.8333333333333	535.6593475341797	152	66
+route	L_you_ledger_0	root	root
+section	L_you_ledger_0	L_you_ledger_0_s0	88,99	426.6666666666667,159	88,139 426.6666666666667,139	you	ledger
+place-label	edge	L_you_ledger_0	0	0	0	0	0
+route	L_runner_ledger_0	root	root
+section	L_runner_ledger_0	L_runner_ledger_0_s0	280,99	449.33333333333337,159	280,119 449.33333333333337,119	runner	ledger
+place-label	edge	L_runner_ledger_0	0	0	0	0	0
+route	L_clock_ledger_0	root	root
+section	L_clock_ledger_0	L_clock_ledger_0_s0	472,99	472,159		clock	ledger
+place-label	edge	L_clock_ledger_0	0	0	0	0	0
+route	L_watcher_ledger_0	root	root
+section	L_watcher_ledger_0	L_watcher_ledger_0_s0	664,99	494.6666666666667,159	664,119 494.6666666666667,119	watcher	ledger
+place-label	edge	L_watcher_ledger_0	0	0	0	0	0
+route	L_peer_ledger_0	root	root
+section	L_peer_ledger_0	L_peer_ledger_0_s0	856,99	517.3333333333334,159	856,139 517.3333333333334,139	peer	ledger
+place-label	edge	L_peer_ledger_0	0	0	0	0	0
+route	L_scheduler_ledger_0	root	root
+section	L_scheduler_ledger_0	L_scheduler_ledger_0_s0	295,641.6593475341797	449.3333333333333,267	295,621.6593475341797 261.33333333333326,621.6593475341797 261.33333333333326,568.6593475341797 261.33333333333326,317.5 261.33333333333326,287 449.3333333333333,287	scheduler	ledger
+place-label	edge	L_scheduler_ledger_0	0	247.33333333333326	421.32967376708984	28	21
+route	L_ledger_db_0	root	root
+section	L_ledger_db_0	L_ledger_db_0_s0	494.66666666666663,267	539,368	494.66666666666663,287 539,287	ledger	db
+place-label	edge	L_ledger_db_0	0	516	307	46	21
+route	L_db_scheduler_0	root	root
+section	L_db_scheduler_0	L_db_scheduler_0_s0	507,495.6593475341797	339,641.6593475341797	507,515.6593475341797 363.3333333333333,515.6593475341797 363.3333333333333,621.6593475341797 339,621.6593475341797	db	scheduler
+place-label	edge	L_db_scheduler_0	0	282.3333333333333	558.1593475341797	162	21
+route	L_db_effects_0	root	root
+section	L_db_effects_0	L_db_effects_0_s0	539,495.6593475341797	526.8333333333333,641.6593475341797	539,515.6593475341797 526.8333333333333,515.6593475341797	db	effects
+place-label	edge	L_db_effects_0	0	470.8333333333333	558.1593475341797	112	21
+route	L_effects_targets_0	root	root
+section	L_effects_targets_0	L_effects_targets_0_s0	526.8333333333333,728.6593475341797	526.8333333333333,768.6593475341797		effects	targets
+place-label	edge	L_effects_targets_0	0	0	0	0	0
+route	L_db_readers_0	root	root
+section	L_db_readers_0	L_db_readers_0_s0	571,495.6593475341797	698.8333333333333,535.6593475341797	571,515.6593475341797 698.8333333333333,515.6593475341797	db	readers
+place-label	edge	L_db_readers_0	0	0	0	0	0

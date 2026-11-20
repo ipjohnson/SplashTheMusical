@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a84daa4327d03e98
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	UP
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	test_req	root	137.6056365966797	169.17575073242188
+node	test_entity	root	125.84341430664062	106.04041290283203
+edge	test_entity-test_req-0	root	test_entity	test_req
+label	edge	test_entity-test_req-0	0	&lt;&lt;satisfies&gt;&gt;	83	21
+option	edge-label	test_entity-test_req-0	0	edgeLabels.inline	true
+option	edge-label	test_entity-test_req-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	161.6056365966797	400.2161636352539
+place	test_req	root	12	12	137.6056365966797	169.17575073242188
+place	test_entity	root	17.88111114501953	282.1757507324219	125.84341430664062	106.04041290283203
+route	test_entity-test_req-0	root	root
+section	test_entity-test_req-0	test_entity-test_req-0_s0	80.80281829833984,282.1757507324219	80.80281829833984,181.17575073242188		test_entity	test_req
+place-label	edge	test_entity-test_req-0	0	39.302818298339844	221.17575073242188	83	21

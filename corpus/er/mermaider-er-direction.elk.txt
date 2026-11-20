@@ -1,0 +1,49 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ed1ab01a133907c4
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-direction-0	root	94	81
+node	entity-TD-1	root	100	81
+node	entity-CUSTOMER-2	root	164	119.25
+node	entity-ORDER-3	root	169	119.25
+node	entity-LINE_ITEM-4	root	158	119.25
+edge	id_entity-CUSTOMER-2_entity-ORDER-3_0	root	entity-CUSTOMER-2	entity-ORDER-3
+label	edge	id_entity-CUSTOMER-2_entity-ORDER-3_0	0	places	41	21
+option	edge-label	id_entity-CUSTOMER-2_entity-ORDER-3_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-2_entity-ORDER-3_0	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-3_entity-LINE_ITEM-4_1	root	entity-ORDER-3	entity-LINE_ITEM-4
+label	edge	id_entity-ORDER-3_entity-LINE_ITEM-4_1	0	contains	53	21
+option	edge-label	id_entity-ORDER-3_entity-LINE_ITEM-4_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-3_entity-LINE_ITEM-4_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	464.5	583.75
+place	entity-direction-0	root	12	31.125	94	81
+place	entity-TD-1	root	146	31.125	100	81
+place	entity-CUSTOMER-2	root	286	12	164	119.25
+place	entity-ORDER-3	root	283.5	232.25	169	119.25
+place	entity-LINE_ITEM-4	root	289	452.5	158	119.25
+route	id_entity-CUSTOMER-2_entity-ORDER-3_0	root	root
+section	id_entity-CUSTOMER-2_entity-ORDER-3_0	id_entity-CUSTOMER-2_entity-ORDER-3_0_s0	368,131.25	368,232.25		entity-CUSTOMER-2	entity-ORDER-3
+place-label	edge	id_entity-CUSTOMER-2_entity-ORDER-3_0	0	347.5	171.25	41	21
+route	id_entity-ORDER-3_entity-LINE_ITEM-4_1	root	root
+section	id_entity-ORDER-3_entity-LINE_ITEM-4_1	id_entity-ORDER-3_entity-LINE_ITEM-4_1_s0	368,351.5	368,452.5		entity-ORDER-3	entity-LINE_ITEM-4
+place-label	edge	id_entity-ORDER-3_entity-LINE_ITEM-4_1	0	341.5	391.5	53	21

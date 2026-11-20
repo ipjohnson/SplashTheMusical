@@ -1,0 +1,79 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 29e2c0e60c5ef032
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	fork_state	root	70	10
+node	join_state	root	70	10
+node	root_start	root	14	14
+node	A	root	136	37
+node	B	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	fork_state
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	fork_state	A
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	fork_state	B
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	A	join_state
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	B	join_state
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	join_state	root_end
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	336	269
+place	fork_state	root	133	66	70	10
+place	join_state	root	133	193	70	10
+place	root_start	root	158	12	14	14
+place	A	root	12	116	136	37
+place	B	root	188	116	136	37
+place	root_end	root	158	243	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	168,26	168,66		root_start	fork_state
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	159.66666666666666,76	80,116	159.66666666666666,96 80,96	fork_state	A
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	176.33333333333334,76	256,116	176.33333333333334,96 256,96	fork_state	B
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	80,153	159.66666666666666,193	80,173 159.66666666666666,173	A	join_state
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	root
+section	edge4	edge4_s0	256,153	176.33333333333334,193	256,173 176.33333333333334,173	B	join_state
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	168,203	168,243		join_state	root_end
+place-label	edge	edge5	0	0	0	0	0

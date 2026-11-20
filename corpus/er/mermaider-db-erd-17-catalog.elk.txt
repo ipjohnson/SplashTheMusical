@@ -1,0 +1,99 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ecd9cdf38ec9a5a7
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-Product-0	root	100	81
+node	entity-VersioningSystem-1	root	153	81
+node	entity-Repository-2	root	108	81
+node	entity-ProductFeatures-3	root	146	81
+node	entity-LegacyUrlMapping-4	root	159	81
+node	entity-LegacyPage-5	root	119	81
+node	entity-SemVersion-6	root	116	81
+node	entity-QueryRule-7	root	108	81
+node	entity-SearchDocument-8	root	150	81
+edge	id_entity-Product-0_entity-VersioningSystem-1_0	root	entity-Product-0	entity-VersioningSystem-1
+label	edge	id_entity-Product-0_entity-VersioningSystem-1_0	0	versioning (defaults to id)	160	21
+option	edge-label	id_entity-Product-0_entity-VersioningSystem-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-Product-0_entity-VersioningSystem-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-Product-0_entity-Repository-2_1	root	entity-Product-0	entity-Repository-2
+label	edge	id_entity-Product-0_entity-Repository-2_1	0	repository (defaults to id)	158	21
+option	edge-label	id_entity-Product-0_entity-Repository-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-Product-0_entity-Repository-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-Product-0_entity-ProductFeatures-3_2	root	entity-Product-0	entity-ProductFeatures-3
+label	edge	id_entity-Product-0_entity-ProductFeatures-3_2	0	features	52	21
+option	edge-label	id_entity-Product-0_entity-ProductFeatures-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-Product-0_entity-ProductFeatures-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-LegacyUrlMapping-4_entity-Product-0_3	root	entity-LegacyUrlMapping-4	entity-Product-0
+label	edge	id_entity-LegacyUrlMapping-4_entity-Product-0_3	0	product	48	21
+option	edge-label	id_entity-LegacyUrlMapping-4_entity-Product-0_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-LegacyUrlMapping-4_entity-Product-0_3	0	edgeLabels.placement	CENTER
+edge	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	root	entity-LegacyPage-5	entity-LegacyUrlMapping-4
+label	edge	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	0	matched by base URL	141	21
+option	edge-label	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	0	edgeLabels.placement	CENTER
+edge	id_entity-VersioningSystem-1_entity-SemVersion-6_5	root	entity-VersioningSystem-1	entity-SemVersion-6
+label	edge	id_entity-VersioningSystem-1_entity-SemVersion-6_5	0	base	31	21
+option	edge-label	id_entity-VersioningSystem-1_entity-SemVersion-6_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-VersioningSystem-1_entity-SemVersion-6_5	0	edgeLabels.placement	CENTER
+edge	id_entity-VersioningSystem-1_entity-SemVersion-6_6	root	entity-VersioningSystem-1	entity-SemVersion-6
+label	edge	id_entity-VersioningSystem-1_entity-SemVersion-6_6	0	current	45	21
+option	edge-label	id_entity-VersioningSystem-1_entity-SemVersion-6_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-VersioningSystem-1_entity-SemVersion-6_6	0	edgeLabels.placement	CENTER
+edge	id_entity-QueryRule-7_entity-SearchDocument-8_7	root	entity-QueryRule-7	entity-SearchDocument-8
+label	edge	id_entity-QueryRule-7_entity-SearchDocument-8_7	0	actions.ids = path	111	21
+option	edge-label	id_entity-QueryRule-7_entity-SearchDocument-8_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-QueryRule-7_entity-SearchDocument-8_7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	537.75	853
+place	entity-Product-0	root	206.25	376	100	81
+place	entity-VersioningSystem-1	root	15.5	578	153	81
+place	entity-Repository-2	root	217	578	108	81
+place	entity-ProductFeatures-3	root	365	578	146	81
+place	entity-LegacyUrlMapping-4	root	176.75	194	159	81
+place	entity-LegacyPage-5	root	196.75	12	119	81
+place	entity-SemVersion-6	root	33.99999999999998	760	116	81
+place	entity-QueryRule-7	root	396.75	12	108	81
+place	entity-SearchDocument-8	root	375.75	194	150	81
+route	id_entity-Product-0_entity-VersioningSystem-1_0	root	root
+section	id_entity-Product-0_entity-VersioningSystem-1_0	id_entity-Product-0_entity-VersioningSystem-1_0_s0	236.25,457	92,578	236.25,477 92,477	entity-Product-0	entity-VersioningSystem-1
+place-label	edge	id_entity-Product-0_entity-VersioningSystem-1_0	0	12	517	160	21
+route	id_entity-Product-0_entity-Repository-2_1	root	root
+section	id_entity-Product-0_entity-Repository-2_1	id_entity-Product-0_entity-Repository-2_1_s0	256.25,457	271,578	256.25,497 271,497	entity-Product-0	entity-Repository-2
+place-label	edge	id_entity-Product-0_entity-Repository-2_1	0	192	517	158	21
+route	id_entity-Product-0_entity-ProductFeatures-3_2	root	root
+section	id_entity-Product-0_entity-ProductFeatures-3_2	id_entity-Product-0_entity-ProductFeatures-3_2_s0	276.25,457	438,578	276.25,477 438,477	entity-Product-0	entity-ProductFeatures-3
+place-label	edge	id_entity-Product-0_entity-ProductFeatures-3_2	0	412	517	52	21
+route	id_entity-LegacyUrlMapping-4_entity-Product-0_3	root	root
+section	id_entity-LegacyUrlMapping-4_entity-Product-0_3	id_entity-LegacyUrlMapping-4_entity-Product-0_3_s0	256.25,275	256.25,376		entity-LegacyUrlMapping-4	entity-Product-0
+place-label	edge	id_entity-LegacyUrlMapping-4_entity-Product-0_3	0	232.25	315	48	21
+route	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	root	root
+section	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4_s0	256.25,93	256.25,194		entity-LegacyPage-5	entity-LegacyUrlMapping-4
+place-label	edge	id_entity-LegacyPage-5_entity-LegacyUrlMapping-4_4	0	185.75	133	141	21
+route	id_entity-VersioningSystem-1_entity-SemVersion-6_5	root	root
+section	id_entity-VersioningSystem-1_entity-SemVersion-6_5	id_entity-VersioningSystem-1_entity-SemVersion-6_5_s0	69.83333333333333,659	75.99999999999997,760	69.83333333333333,679 62.99999999999998,679 62.99999999999998,740 75.99999999999997,740	entity-VersioningSystem-1	entity-SemVersion-6
+place-label	edge	id_entity-VersioningSystem-1_entity-SemVersion-6_5	0	47.49999999999998	699	31	21
+route	id_entity-VersioningSystem-1_entity-SemVersion-6_6	root	root
+section	id_entity-VersioningSystem-1_entity-SemVersion-6_6	id_entity-VersioningSystem-1_entity-SemVersion-6_6_s0	114.16666666666666,659	107.99999999999997,760	114.16666666666666,679 120.99999999999997,679 120.99999999999997,740 107.99999999999997,740	entity-VersioningSystem-1	entity-SemVersion-6
+place-label	edge	id_entity-VersioningSystem-1_entity-SemVersion-6_6	0	98.49999999999997	699	45	21
+route	id_entity-QueryRule-7_entity-SearchDocument-8_7	root	root
+section	id_entity-QueryRule-7_entity-SearchDocument-8_7	id_entity-QueryRule-7_entity-SearchDocument-8_7_s0	450.75,93	450.75,194		entity-QueryRule-7	entity-SearchDocument-8
+place-label	edge	id_entity-QueryRule-7_entity-SearchDocument-8_7	0	395.25	133	111	21

@@ -1,0 +1,77 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1cf905e48d7fbae5
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Active	root	136	37
+node	Inactive	root	136	37
+node	Closed	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Active
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Active	Inactive
+label	edge	edge1	0	disable	45	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Active	Closed
+label	edge	edge2	0	close	33	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Inactive	Active
+label	edge	edge3	0	reactivate	62	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Inactive	Closed
+label	edge	edge4	0	close	33	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Closed	root_end
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	233	445
+place	root_start	root	118	12	14	14
+place	Active	root	60	66	136	37
+place	Inactive	root	12	204	136	37
+place	Closed	root	74.25	342	136	37
+place	root_end	root	132.25	419	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	128,26	128,66		root_start	Active
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	99,103	60.66666666666667,204	99,123 43.25000000000001,123 43.25000000000001,184 60.66666666666667,184	Active	Inactive
+place-label	edge	edge1	0	20.750000000000007	143	45	21
+route	edge2	root	root
+section	edge2	edge2_s0	157,103	161.58333333333331,342	157,123 204.5,123 204.5,153.5 204.5,291.5 204.5,322 161.58333333333331,322	Active	Closed
+place-label	edge	edge2	0	188	212	33	21
+route	edge3	root	root
+section	edge3	edge3_s0	99.33333333333334,204	128,103	99.33333333333334,184 116.75000000000001,184 116.75000000000001,123 128,123	Inactive	Active
+place-label	edge	edge3	0	85.75	143	62	21
+route	edge4	root	root
+section	edge4	edge4_s0	80,241	122.91666666666667,342	80,322 122.91666666666667,322	Inactive	Closed
+place-label	edge	edge4	0	63.5	281	33	21
+route	edge5	root	root
+section	edge5	edge5_s0	142.25,379	142.25,419		Closed	root_end
+place-label	edge	edge5	0	0	0	0	0

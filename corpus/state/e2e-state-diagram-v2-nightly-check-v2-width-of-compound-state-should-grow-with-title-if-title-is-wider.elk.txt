@@ -1,0 +1,57 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6afd11481ca16c98
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	NotShooting	root
+option	node	NotShooting		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	NotShooting		nodeSize.minimum	(127, 0)
+option	node	NotShooting		spacing.baseValue	24
+option	node	NotShooting		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	NotShooting		elk.spacing.edgeEdge	20
+option	node	NotShooting		spacing.nodeNode	50
+option	node	NotShooting		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	NotShooting		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	NotShooting		elk.layered.mergeEdges	false
+option	node	NotShooting		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	NotShooting		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	NotShooting		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	NotShooting		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	NotShooting		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	NotShooting		elk.algorithm	elk.layered
+option	node	NotShooting		elk.direction	DOWN
+option	node	NotShooting		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	NotShooting	0	Long state name 2	119	19
+node	a	NotShooting	136	37
+node	b	NotShooting	136	37
+edge	edge0	root	a	b
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	208	194
+place	NotShooting	root	12	12	184	170
+place-label	node	NotShooting	0	32.5	5	119	19
+place	a	NotShooting	24	48	136	37
+place	b	NotShooting	24	109	136	37
+route	edge0	root	NotShooting
+section	edge0	edge0_s0	92,85	92,109		a	b
+place-label	edge	edge0	0	0	0	0	0

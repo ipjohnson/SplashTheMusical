@@ -1,0 +1,99 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b9c32bc8814f7211
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	typed	root	152	87
+node	parser	root	152	45
+node	body	root	152	87
+node	resolver	root	152	108
+node	id	root	152	66
+node	stored	root	152	108
+node	agent	root	152	87
+node	host	root	152	129
+node	app	root	152	87
+edge	L_typed_parser_0	root	typed	parser
+label	edge	L_typed_parser_0	0		0	0
+option	edge-label	L_typed_parser_0	0	edgeLabels.inline	true
+option	edge-label	L_typed_parser_0	0	edgeLabels.placement	CENTER
+edge	L_body_parser_0	root	body	parser
+label	edge	L_body_parser_0	0		0	0
+option	edge-label	L_body_parser_0	0	edgeLabels.inline	true
+option	edge-label	L_body_parser_0	0	edgeLabels.placement	CENTER
+edge	L_parser_resolver_0	root	parser	resolver
+label	edge	L_parser_resolver_0	0		0	0
+option	edge-label	L_parser_resolver_0	0	edgeLabels.inline	true
+option	edge-label	L_parser_resolver_0	0	edgeLabels.placement	CENTER
+edge	L_resolver_id_0	root	resolver	id
+label	edge	L_resolver_id_0	0		0	0
+option	edge-label	L_resolver_id_0	0	edgeLabels.inline	true
+option	edge-label	L_resolver_id_0	0	edgeLabels.placement	CENTER
+edge	L_id_stored_0	root	id	stored
+label	edge	L_id_stored_0	0		0	0
+option	edge-label	L_id_stored_0	0	edgeLabels.inline	true
+option	edge-label	L_id_stored_0	0	edgeLabels.placement	CENTER
+edge	L_id_agent_0	root	id	agent
+label	edge	L_id_agent_0	0		0	0
+option	edge-label	L_id_agent_0	0	edgeLabels.inline	true
+option	edge-label	L_id_agent_0	0	edgeLabels.placement	CENTER
+edge	L_id_host_0	root	id	host
+label	edge	L_id_host_0	0		0	0
+option	edge-label	L_id_host_0	0	edgeLabels.inline	true
+option	edge-label	L_id_host_0	0	edgeLabels.placement	CENTER
+edge	L_id_app_0	root	id	app
+label	edge	L_id_app_0	0		0	0
+option	edge-label	L_id_app_0	0	edgeLabels.inline	true
+option	edge-label	L_id_app_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	964	555
+place	typed	root	12	170.5	152	87
+place	parser	root	204	255	152	45
+place	body	root	12	297.5	152	87
+place	resolver	root	396	223.5	152	108
+place	id	root	588	244.5	152	66
+place	stored	root	800	12	152	108
+place	agent	root	800	160	152	87
+place	host	root	800	287	152	129
+place	app	root	800	456	152	87
+route	L_typed_parser_0	root	root
+section	L_typed_parser_0	L_typed_parser_0_s0	164,214	204,273.3333333333333	184,214 184,273.3333333333333	typed	parser
+place-label	edge	L_typed_parser_0	0	0	0	0	0
+route	L_body_parser_0	root	root
+section	L_body_parser_0	L_body_parser_0_s0	164,341	204,281.6666666666667	184,341 184,281.6666666666667	body	parser
+place-label	edge	L_body_parser_0	0	0	0	0	0
+route	L_parser_resolver_0	root	root
+section	L_parser_resolver_0	L_parser_resolver_0_s0	356,277.5	396,277.5		parser	resolver
+place-label	edge	L_parser_resolver_0	0	0	0	0	0
+route	L_resolver_id_0	root	root
+section	L_resolver_id_0	L_resolver_id_0_s0	548,277.5	588,277.5		resolver	id
+place-label	edge	L_resolver_id_0	0	0	0	0	0
+route	L_id_stored_0	root	root
+section	L_id_stored_0	L_id_stored_0_s0	740,263.7	800,66	760,263.7 760,66	id	stored
+place-label	edge	L_id_stored_0	0	0	0	0	0
+route	L_id_agent_0	root	root
+section	L_id_agent_0	L_id_agent_0_s0	740,272.9	800,203.5	780,272.9 780,203.5	id	agent
+place-label	edge	L_id_agent_0	0	0	0	0	0
+route	L_id_host_0	root	root
+section	L_id_host_0	L_id_host_0_s0	740,282.1	800,351.5	780,282.1 780,351.5	id	host
+place-label	edge	L_id_host_0	0	0	0	0	0
+route	L_id_app_0	root	root
+section	L_id_app_0	L_id_app_0_s0	740,291.3	800,499.5	760,291.3 760,499.5	id	app
+place-label	edge	L_id_app_0	0	0	0	0	0

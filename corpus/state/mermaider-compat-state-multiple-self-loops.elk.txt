@@ -1,0 +1,91 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source aeab6a8baaa88ac6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	WaitingForIP	root	136	37
+node	WaitingForInit	root	136	37
+node	Ready	root	136	37
+node	Stopped	root	136	37
+edge	edge0	root	root_start	WaitingForIP
+label	edge	edge0	0	Actor created	85	21
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	WaitingForIP	WaitingForInit
+label	edge	edge1	0	InspectedData(ip)	113	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	WaitingForInit	Ready
+label	edge	edge2	0	ContainerInitialised	121	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Ready	Ready
+label	edge	edge3	0	ClusterEndpoints	108	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Ready	Ready
+label	edge	edge4	0	AclData	49	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Ready	Ready
+label	edge	edge5	0	TreeCacheEvent	106	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Ready	Ready
+label	edge	edge6	0	InspectedData	92	21
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Ready	Stopped
+label	edge	edge7	0	RemoveRules	89	21
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	611	590
+place	root_start	root	521	12	14	14
+place	WaitingForIP	root	463	127	136	37
+place	WaitingForInit	root	463	265	136	37
+place	Ready	root	463	403	136	37
+place	Stopped	root	463	541	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	531,26	531,127		root_start	WaitingForIP
+place-label	edge	edge0	0	488.5	66	85	21
+route	edge1	root	root
+section	edge1	edge1_s0	531,164	531,265		WaitingForIP	WaitingForInit
+place-label	edge	edge1	0	474.5	204	113	21
+route	edge2	root	root
+section	edge2	edge2_s0	531,302	531,403		WaitingForInit	Ready
+place-label	edge	edge2	0	470.5	342	121	21
+route	edge3	root	root
+section	edge3	edge3_s0	463,420.77777777777777	463,422.22222222222223	443,420.77777777777777 443,422.22222222222223	Ready	Ready
+place-label	edge	edge3	0	331	411	108	21
+route	edge4	root	root
+section	edge4	edge4_s0	463,419.3333333333333	463,423.66666666666663	311,419.3333333333333 311,423.66666666666663	Ready	Ready
+place-label	edge	edge4	0	258	411	49	21
+route	edge5	root	root
+section	edge5	edge5_s0	463,417.8888888888889	463,425.1111111111111	238,417.8888888888889 238,425.1111111111111	Ready	Ready
+place-label	edge	edge5	0	128	411	106	21
+route	edge6	root	root
+section	edge6	edge6_s0	463,416.44444444444446	463,426.55555555555554	108,416.44444444444446 108,426.55555555555554	Ready	Ready
+place-label	edge	edge6	0	12	411	92	21
+route	edge7	root	root
+section	edge7	edge7_s0	531,440	531,541		Ready	Stopped
+place-label	edge	edge7	0	486.5	480	89	21

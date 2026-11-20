@@ -1,0 +1,70 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3899b975b7b0bfac
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	sys_req	root	280	166
+node	func_req	root	303	166
+node	perf_req	root	382	166
+node	hw_element	root	200	124
+node	sw_element	root	207	124
+edge	hw_element-sys_req-0	root	hw_element	sys_req
+label	edge	hw_element-sys_req-0	0	&lt;&lt;satisfies&gt;&gt;	83	21
+option	edge-label	hw_element-sys_req-0	0	edgeLabels.inline	true
+option	edge-label	hw_element-sys_req-0	0	edgeLabels.placement	CENTER
+edge	sw_element-func_req-1	root	sw_element	func_req
+label	edge	sw_element-func_req-1	0	&lt;&lt;verifies&gt;&gt;	77	21
+option	edge-label	sw_element-func_req-1	0	edgeLabels.inline	true
+option	edge-label	sw_element-func_req-1	0	edgeLabels.placement	CENTER
+edge	sys_req-func_req-2	root	sys_req	func_req
+label	edge	sys_req-func_req-2	0	&lt;&lt;contains&gt;&gt;	85	21
+option	edge-label	sys_req-func_req-2	0	edgeLabels.inline	true
+option	edge-label	sys_req-func_req-2	0	edgeLabels.placement	CENTER
+edge	sys_req-perf_req-3	root	sys_req	perf_req
+label	edge	sys_req-perf_req-3	0	&lt;&lt;contains&gt;&gt;	85	21
+option	edge-label	sys_req-perf_req-3	0	edgeLabels.inline	true
+option	edge-label	sys_req-perf_req-3	0	edgeLabels.placement	CENTER
+edge	func_req-perf_req-4	root	func_req	perf_req
+label	edge	func_req-perf_req-4	0	&lt;&lt;traces&gt;&gt;	71	21
+option	edge-label	func_req-perf_req-4	0	edgeLabels.inline	true
+option	edge-label	func_req-perf_req-4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	551	949
+place	sys_req	root	259	237	280	166
+place	func_req	root	34.00000000000001	504	303	166
+place	perf_req	root	111.49999999999997	771	382	166
+place	hw_element	root	299	12	200	124
+place	sw_element	root	12	279	207	124
+route	hw_element-sys_req-0	root	root
+section	hw_element-sys_req-0	hw_element-sys_req-0_s0	399,136	399,237		hw_element	sys_req
+place-label	edge	hw_element-sys_req-0	0	357.49999999999994	176	83	21
+route	sw_element-func_req-1	root	root
+section	sw_element-func_req-1	sw_element-func_req-1_s0	115.5,403	138.33333333333334,504	115.5,484 138.33333333333334,484	sw_element	func_req
+place-label	edge	sw_element-func_req-1	0	77	443	77	21
+route	sys_req-func_req-2	root	root
+section	sys_req-func_req-2	sys_req-func_req-2_s0	355.6666666666667,403	232.66666666666666,504	355.6666666666667,423 305.5833333333333,423 305.5833333333333,484 232.66666666666666,484	sys_req	func_req
+place-label	edge	sys_req-func_req-2	0	263.0833333333333	443	85	21
+route	sys_req-perf_req-3	root	root
+section	sys_req-perf_req-3	sys_req-perf_req-3_s0	442.3333333333333,403	362.8333333333333,771	442.3333333333333,423 430.25,423 430.25,453.5 430.25,720.5 430.25,751 362.8333333333333,751	sys_req	perf_req
+place-label	edge	sys_req-perf_req-3	0	387.75	576.5	85	21
+route	func_req-perf_req-4	root	root
+section	func_req-perf_req-4	func_req-perf_req-4_s0	185.5,670	242.16666666666666,771	185.5,751 242.16666666666666,751	func_req	perf_req
+place-label	edge	func_req-perf_req-4	0	150	710	71	21

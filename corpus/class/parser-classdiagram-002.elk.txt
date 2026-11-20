@@ -1,0 +1,81 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 32faa1e840606d5d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Company	root
+option	node	Company		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company		nodeSize.minimum	(77, 0)
+option	node	Company		spacing.baseValue	24
+option	node	Company		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company		elk.spacing.edgeEdge	20
+option	node	Company		spacing.nodeNode	50
+option	node	Company		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company		elk.layered.mergeEdges	false
+option	node	Company		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Company	0	Company	61	19
+node	Company.Project	Company
+option	node	Company.Project		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company.Project		nodeSize.minimum	(60, 0)
+option	node	Company.Project		spacing.baseValue	24
+option	node	Company.Project		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company.Project		elk.spacing.edgeEdge	20
+option	node	Company.Project		spacing.nodeNode	50
+option	node	Company.Project		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company.Project		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company.Project		elk.layered.mergeEdges	false
+option	node	Company.Project		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company.Project		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company.Project		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company.Project		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company.Project		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Company.Project	0	Project	44	19
+node	Company.Project.Module	Company.Project
+option	node	Company.Project.Module		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Company.Project.Module		nodeSize.minimum	(63, 0)
+option	node	Company.Project.Module		spacing.baseValue	24
+option	node	Company.Project.Module		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Company.Project.Module		elk.spacing.edgeEdge	20
+option	node	Company.Project.Module		spacing.nodeNode	50
+option	node	Company.Project.Module		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Company.Project.Module		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Company.Project.Module		elk.layered.mergeEdges	false
+option	node	Company.Project.Module		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Company.Project.Module		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Company.Project.Module		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Company.Project.Module		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Company.Project.Module		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Company.Project.Module	0	Module	47	19
+node	GenericClass	Company.Project.Module	196	141
+result
+place	root		0	0	364	381
+place	Company	root	12	12	340	357
+place-label	node	Company	0	139.5	5	61	19
+place	Company.Project	Company	24	48	292	285
+place-label	node	Company.Project	0	124	5	44	19
+place	Company.Project.Module	Company.Project	24	48	244	213
+place-label	node	Company.Project.Module	0	98.5	5	47	19
+place	GenericClass	Company.Project.Module	24	48	196	141

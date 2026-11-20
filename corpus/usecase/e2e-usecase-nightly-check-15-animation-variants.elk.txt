@@ -1,0 +1,67 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0738f637a9677281
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Operator	root	77	121
+node	A	root	160	58
+option	node	A		elk.portAlignment.default	CENTER
+node	B	root	160	58
+option	node	B		elk.portAlignment.default	CENTER
+node	C	root	160	58
+option	node	C		elk.portAlignment.default	CENTER
+node	D	root	160	58
+option	node	D		elk.portAlignment.default	CENTER
+edge	trueEdge	root	Operator	A
+label	edge	trueEdge	0		0	0
+option	edge-label	trueEdge	0	edgeLabels.inline	true
+option	edge-label	trueEdge	0	edgeLabels.placement	CENTER
+edge	fastEdge	root	Operator	B
+label	edge	fastEdge	0		0	0
+option	edge-label	fastEdge	0	edgeLabels.inline	true
+option	edge-label	fastEdge	0	edgeLabels.placement	CENTER
+edge	slowEdge	root	Operator	C
+label	edge	slowEdge	0		0	0
+option	edge-label	slowEdge	0	edgeLabels.inline	true
+option	edge-label	slowEdge	0	edgeLabels.placement	CENTER
+edge	offEdge	root	Operator	D
+label	edge	offEdge	0		0	0
+option	edge-label	offEdge	0	edgeLabels.inline	true
+option	edge-label	offEdge	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	321	376
+place	Operator	root	12	127.5	77	121
+place	A	root	149	12	160	58
+place	B	root	149	110	160	58
+place	C	root	149	208	160	58
+place	D	root	149	306	160	58
+route	trueEdge	root	root
+section	trueEdge	trueEdge_s0	89,157.7	149,41	109,157.7 109,41	Operator	A
+place-label	edge	trueEdge	0	0	0	0	0
+route	fastEdge	root	root
+section	fastEdge	fastEdge_s0	89,177.9	149,139	129,177.9 129,139	Operator	B
+place-label	edge	fastEdge	0	0	0	0	0
+route	slowEdge	root	root
+section	slowEdge	slowEdge_s0	89,198.1	149,237	129,198.1 129,237	Operator	C
+place-label	edge	slowEdge	0	0	0	0	0
+route	offEdge	root	root
+section	offEdge	offEdge_s0	89,218.3	149,335	109,218.3 109,335	Operator	D
+place-label	edge	offEdge	0	0	0	0	0

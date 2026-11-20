@@ -1,0 +1,43 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f42212af13b38d85
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	123.14144134521484	84.41653442382812
+node	entity-ADDRESS-1	root	108.41119384765625	84.45612335205078
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	root	entity-CUSTOMER-0	entity-ADDRESS-1
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	0	invoiced at	68	21
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	root	entity-CUSTOMER-0	entity-ADDRESS-1
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	0	receives goods at	112	21
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	224	293.8726577758789
+place	entity-CUSTOMER-0	root	39.429279327392585	12	123.14144134521484	84.41653442382812
+place	entity-ADDRESS-1	root	46.794403076171875	197.41653442382812	108.41119384765625	84.45612335205078
+route	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	id_entity-CUSTOMER-0_entity-ADDRESS-1_0_s0	83.80975977579753,96.41653442382812	86.26480102539062,197.41653442382812	83.80975977579753,116.41653442382812 46,116.41653442382812 46,177.41653442382812 86.26480102539062,177.41653442382812	entity-CUSTOMER-0	entity-ADDRESS-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_0	0	12	136.41653442382812	68	21
+route	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	id_entity-CUSTOMER-0_entity-ADDRESS-1_1_s0	118.19024022420248,96.41653442382812	115.73519897460938,197.41653442382812	118.19024022420248,116.41653442382812 156,116.41653442382812 156,177.41653442382812 115.73519897460938,177.41653442382812	entity-CUSTOMER-0	entity-ADDRESS-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-1_1	0	100	136.41653442382812	112	21

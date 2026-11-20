@@ -1,0 +1,86 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8a8f68dd9af81e2b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Idle	root	136	37
+node	Processing	root	136	37
+node	Success	root	136	37
+node	Failed	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Idle
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Idle	Processing
+label	edge	edge1	0	submit	42	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Processing	Success
+label	edge	edge2	0	ok	15	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Processing	Failed
+label	edge	edge3	0	error	31	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Success	root_end
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Failed	Idle
+label	edge	edge5	0	retry	29	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Failed	root_end
+label	edge	edge6	0	abort	33	21
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	285.66666666666663	542
+place	root_start	root	152.74999999999997	12	14	14
+place	Idle	root	94.74999999999999	66	136	37
+place	Processing	root	33.49999999999999	204	136	37
+place	Success	root	12	419	136	37
+place	Failed	root	137.66666666666666	342	136	37
+place	root_end	root	136.41002003351846	516	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	162.74999999999997,26	162.74999999999997,66		root_start	Idle
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	143.41666666666666,103	101.5,204	143.41666666666666,123 101.5,123	Idle	Processing
+place-label	edge	edge1	0	80.5	143	42	21
+route	edge2	root	root
+section	edge2	edge2_s0	82.16666666666666,241	80,419	82.16666666666666,261 80,261 80,360.5	Processing	Success
+place-label	edge	edge2	0	72.5	281	15	21
+route	edge3	root	root
+section	edge3	edge3_s0	120.83333333333334,241	186.33333333333334,342	120.83333333333334,261 154.08333333333334,261 154.08333333333334,322 186.33333333333334,322	Processing	Failed
+place-label	edge	edge3	0	138.58333333333334	281	31	21
+route	edge4	root	root
+section	edge4	edge4_s0	80,456	144.41445112228394,516	80,496 144.41445112228394,496	Success	root_end
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	225,342	182.08333333333334,103	225,291.5 225,153.5 225,123 182.08333333333334,123	Failed	Idle
+place-label	edge	edge5	0	210.5	212	29	21
+route	edge6	root	root
+section	edge6	edge6_s0	205.66666666666666,379	142.41888221104938,516	205.66666666666666,476 142.41888221104938,476	Failed	root_end
+place-label	edge	edge6	0	189.16666666666666	427	33	21

@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source a0725e07cecd9a98
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	C	root	182.6608123779297	54.49899673461914
+node	F	root	182.93463134765625	54.59537124633789
+edge	L_C_F_0	root	C	F
+label	edge	L_C_F_0	0	fa:fa-car Car	23	21
+option	edge-label	L_C_F_0	0	edgeLabels.inline	true
+option	edge-label	L_C_F_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	206.93463134765625	234.09436798095703
+place	C	root	12.136909484863281	12	182.6608123779297	54.49899673461914
+place	F	root	12	167.49899673461914	182.93463134765625	54.59537124633789
+route	L_C_F_0	root	root
+section	L_C_F_0	L_C_F_0_s0	103.46731567382812,66.49899673461914	103.46731567382812,167.49899673461914		C	F
+place-label	edge	L_C_F_0	0	91.96731567382812	106.49899673461914	23	21

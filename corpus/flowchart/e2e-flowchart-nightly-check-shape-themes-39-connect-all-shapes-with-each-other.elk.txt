@@ -1,0 +1,105 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d7391be1f56db0a8
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	n00	root	164	54
+node	n11	root	144	106.14868927001953
+node	n22	root	159.13772583007812	159.13772583007812
+node	n33	root	183.13772583007812	183.13772583007812
+node	n44	root	178.5	66
+edge	L_n00_n11_0	root	n00	n11
+label	edge	L_n00_n11_0	0		0	0
+option	edge-label	L_n00_n11_0	0	edgeLabels.inline	true
+option	edge-label	L_n00_n11_0	0	edgeLabels.placement	CENTER
+edge	L_n00_n22_0	root	n00	n22
+label	edge	L_n00_n22_0	0		0	0
+option	edge-label	L_n00_n22_0	0	edgeLabels.inline	true
+option	edge-label	L_n00_n22_0	0	edgeLabels.placement	CENTER
+edge	L_n00_n33_0	root	n00	n33
+label	edge	L_n00_n33_0	0		0	0
+option	edge-label	L_n00_n33_0	0	edgeLabels.inline	true
+option	edge-label	L_n00_n33_0	0	edgeLabels.placement	CENTER
+edge	L_n00_n44_0	root	n00	n44
+label	edge	L_n00_n44_0	0		0	0
+option	edge-label	L_n00_n44_0	0	edgeLabels.inline	true
+option	edge-label	L_n00_n44_0	0	edgeLabels.placement	CENTER
+edge	L_n11_n22_0	root	n11	n22
+label	edge	L_n11_n22_0	0		0	0
+option	edge-label	L_n11_n22_0	0	edgeLabels.inline	true
+option	edge-label	L_n11_n22_0	0	edgeLabels.placement	CENTER
+edge	L_n11_n33_0	root	n11	n33
+label	edge	L_n11_n33_0	0		0	0
+option	edge-label	L_n11_n33_0	0	edgeLabels.inline	true
+option	edge-label	L_n11_n33_0	0	edgeLabels.placement	CENTER
+edge	L_n11_n44_0	root	n11	n44
+label	edge	L_n11_n44_0	0		0	0
+option	edge-label	L_n11_n44_0	0	edgeLabels.inline	true
+option	edge-label	L_n11_n44_0	0	edgeLabels.placement	CENTER
+edge	L_n22_n33_0	root	n22	n33
+label	edge	L_n22_n33_0	0		0	0
+option	edge-label	L_n22_n33_0	0	edgeLabels.inline	true
+option	edge-label	L_n22_n33_0	0	edgeLabels.placement	CENTER
+edge	L_n22_n44_0	root	n22	n44
+label	edge	L_n22_n44_0	0		0	0
+option	edge-label	L_n22_n44_0	0	edgeLabels.inline	true
+option	edge-label	L_n22_n44_0	0	edgeLabels.placement	CENTER
+edge	L_n33_n44_0	root	n33	n44
+label	edge	L_n33_n44_0	0		0	0
+option	edge-label	L_n33_n44_0	0	edgeLabels.inline	true
+option	edge-label	L_n33_n44_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	389.1377258300781	792.4241409301758
+place	n00	root	175.17145767211915	12	164	54
+place	n11	root	12	126	144	106.14868927001953
+place	n22	root	197	272.14868927001953	159.13772583007812	159.13772583007812
+place	n33	root	79.56556854248046	471.28641510009766	183.13772583007812	183.13772583007812
+place	n44	root	148.62924194335938	714.4241409301758	178.5	66
+route	L_n00_n11_0	root	root
+section	L_n00_n11_0	L_n00_n11_0_s0	213.97145767211916,66	84,126	213.97145767211916,86 84,86	n00	n11
+place-label	edge	L_n00_n11_0	0	0	0	0	0
+route	L_n00_n22_0	root	root
+section	L_n00_n22_0	L_n00_n22_0_s0	271.5714576721191,66	299.75848388671875,272.14868927001953	271.5714576721191,106 299.75848388671875,106 299.75848388671875,179.07434463500977	n00	n22
+place-label	edge	L_n00_n22_0	0	0	0	0	0
+route	L_n00_n33_0	root	root
+section	L_n00_n33_0	L_n00_n33_0_s0	242.77145767211914,66	171.13443145751953,471.28641510009766	242.77145767211914,106 176,106 176,179.07434463500977 176,351.7175521850586 176,451.28641510009766 171.13443145751953,451.28641510009766	n00	n33
+place-label	edge	L_n00_n33_0	0	0	0	0	0
+route	L_n00_n44_0	root	root
+section	L_n00_n44_0	L_n00_n44_0_s0	300.37145767211916,66	285.42924194335933,714.4241409301758	300.37145767211916,86 376.1377258300781,86 376.1377258300781,179.07434463500977 376.1377258300781,351.7175521850586 376.1377258300781,562.8552780151367 376.1377258300781,694.4241409301758 285.42924194335933,694.4241409301758	n00	n44
+place-label	edge	L_n00_n44_0	0	0	0	0	0
+route	L_n11_n22_0	root	root
+section	L_n11_n22_0	L_n11_n22_0_s0	115,232.14868927001953	253.37924194335938,272.14868927001953	115,252.14868927001953 253.37924194335938,252.14868927001953	n11	n22
+place-label	edge	L_n11_n22_0	0	0	0	0	0
+route	L_n11_n33_0	root	root
+section	L_n11_n33_0	L_n11_n33_0_s0	84,232.14868927001953	130.35,471.28641510009766	84,351.7175521850586 84,451.28641510009766 130.35,451.28641510009766	n11	n33
+place-label	edge	L_n11_n33_0	0	0	0	0	0
+route	L_n11_n44_0	root	root
+section	L_n11_n44_0	L_n11_n44_0_s0	53,232.14868927001953	190.32924194335936,714.4241409301758	53,252.14868927001953 56.55000000000001,252.14868927001953 56.55000000000001,351.7175521850586 56.55000000000001,562.8552780151367 56.55000000000001,694.4241409301758 190.32924194335936,694.4241409301758	n11	n44
+place-label	edge	L_n11_n44_0	0	0	0	0	0
+route	L_n22_n33_0	root	root
+section	L_n22_n33_0	L_n22_n33_0_s0	253.37924194335938,431.28641510009766	211.91886291503906,471.28641510009766	253.37924194335938,451.28641510009766 211.91886291503906,451.28641510009766	n22	n33
+place-label	edge	L_n22_n33_0	0	0	0	0	0
+route	L_n22_n44_0	root	root
+section	L_n22_n44_0	L_n22_n44_0_s0	299.75848388671875,431.28641510009766	253.72924194335937,714.4241409301758	299.75848388671875,562.8552780151367 299.75848388671875,674.4241409301758 253.72924194335937,674.4241409301758	n22	n44
+place-label	edge	L_n22_n44_0	0	0	0	0	0
+route	L_n33_n44_0	root	root
+section	L_n33_n44_0	L_n33_n44_0_s0	171.13443145751953,654.4241409301758	222.02924194335938,714.4241409301758	171.13443145751953,674.4241409301758 222.02924194335938,674.4241409301758	n33	n44
+place-label	edge	L_n33_n44_0	0	0	0	0	0

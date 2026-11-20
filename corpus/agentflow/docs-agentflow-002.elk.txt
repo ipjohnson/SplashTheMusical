@@ -1,0 +1,120 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c01cb465b4b372eb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	reviewer	root
+option	node	reviewer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	reviewer		nodeSize.minimum	(94, 0)
+option	node	reviewer		spacing.baseValue	24
+option	node	reviewer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	reviewer		elk.spacing.edgeEdge	20
+option	node	reviewer		spacing.nodeNode	50
+option	node	reviewer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	reviewer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	reviewer		elk.layered.mergeEdges	false
+option	node	reviewer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	reviewer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	reviewer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	reviewer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	reviewer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	reviewer		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	reviewer	0	Review Agent	86	19
+node	check	reviewer	150	51
+node	ok	reviewer	171	171
+option	node	ok		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	writer	root
+option	node	writer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	writer		nodeSize.minimum	(98, 0)
+option	node	writer		spacing.baseValue	24
+option	node	writer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	writer		elk.spacing.edgeEdge	20
+option	node	writer		spacing.nodeNode	50
+option	node	writer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	writer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	writer		elk.layered.mergeEdges	false
+option	node	writer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	writer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	writer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	writer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	writer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	writer	0	Drafting Agent	90	19
+node	draft	writer	150	51
+node	lookup	writer	164	33
+node	guide	writer	167.1999969482422	67.49201202392578
+node	brief	root	186	36
+node	publish	root	204	91
+option	node	publish		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_draft_lookup_0	root	draft	lookup
+label	edge	L_draft_lookup_0	0		0	0
+option	edge-label	L_draft_lookup_0	0	edgeLabels.inline	true
+option	edge-label	L_draft_lookup_0	0	edgeLabels.placement	CENTER
+edge	L_draft_guide_0	root	draft	guide
+label	edge	L_draft_guide_0	0		0	0
+option	edge-label	L_draft_guide_0	0	edgeLabels.inline	true
+option	edge-label	L_draft_guide_0	0	edgeLabels.placement	CENTER
+edge	L_check_ok_0	root	check	ok
+label	edge	L_check_ok_0	0		0	0
+option	edge-label	L_check_ok_0	0	edgeLabels.inline	true
+option	edge-label	L_check_ok_0	0	edgeLabels.placement	CENTER
+edge	L_brief_writer_0	root	brief	writer
+label	edge	L_brief_writer_0	0		0	0
+option	edge-label	L_brief_writer_0	0	edgeLabels.inline	true
+option	edge-label	L_brief_writer_0	0	edgeLabels.placement	CENTER
+edge	L_writer_reviewer_0	root	writer	reviewer
+label	edge	L_writer_reviewer_0	0		0	0
+option	edge-label	L_writer_reviewer_0	0	edgeLabels.inline	true
+option	edge-label	L_writer_reviewer_0	0	edgeLabels.placement	CENTER
+edge	L_ok_publish_0	root	ok	publish
+label	edge	L_ok_publish_0	0		0	0
+option	edge-label	L_ok_publish_0	0	edgeLabels.inline	true
+option	edge-label	L_ok_publish_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	453.1999969482422	849.4920120239258
+place	reviewer	root	190.5999984741211	378.4920120239258	231	318
+place-label	node	reviewer	0	72.5	5	86	19
+place	check	reviewer	46.5	48	150	51
+place	ok	reviewer	36	123	171	171
+place	writer	root	12	88	429.1999969482422	250.49201202392578
+place-label	node	writer	0	169.5999984741211	5	90	19
+place	draft	writer	138.79999923706055	48	150	51
+place	lookup	writer	24	159	164	33
+place	guide	writer	238	159	167.1999969482422	67.49201202392578
+place	brief	root	133.5999984741211	12	186	36
+place	publish	root	210.0999984741211	746.4920120239258	204	91
+route	L_draft_lookup_0	root	writer
+section	L_draft_lookup_0	L_draft_lookup_0_s0	192.39999923706054,99	105.99999999999999,159	192.39999923706054,129 105.99999999999999,129	draft	lookup
+place-label	edge	L_draft_lookup_0	0	0	0	0	0
+route	L_draft_guide_0	root	writer
+section	L_draft_guide_0	L_draft_guide_0_s0	235.19999923706052,99	321.5999984741211,159	235.19999923706052,129 321.5999984741211,129	draft	guide
+place-label	edge	L_draft_guide_0	0	0	0	0	0
+route	L_check_ok_0	root	reviewer
+section	L_check_ok_0	L_check_ok_0_s0	121.49999999999999,99	121.49999999999999,123		check	ok
+place-label	edge	L_check_ok_0	0	0	0	0	0
+route	L_brief_writer_0	root	root
+section	L_brief_writer_0	L_brief_writer_0_s0	226.5999984741211,48	226.5999984741211,88		brief	writer
+place-label	edge	L_brief_writer_0	0	0	0	0	0
+route	L_writer_reviewer_0	root	root
+section	L_writer_reviewer_0	L_writer_reviewer_0_s0	226.5999984741211,338.4920120239258	226.5999984741211,378.4920120239258		writer	reviewer
+place-label	edge	L_writer_reviewer_0	0	0	0	0	0
+route	L_ok_publish_0	root	root
+section	L_ok_publish_0	L_ok_publish_0_s0	312.0999984741211,672.4920120239258	312.0999984741211,746.4920120239258	312.0999984741211,706.4920120239258	ok	publish
+place-label	edge	L_ok_publish_0	0	0	0	0	0

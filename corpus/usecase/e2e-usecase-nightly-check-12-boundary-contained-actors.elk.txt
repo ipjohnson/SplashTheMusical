@@ -1,0 +1,77 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9c6319d0034b6ae3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Guest	root	129	121
+option	node	Guest		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Professional_Services	root
+option	node	Professional_Services		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Professional_Services		nodeSize.minimum	(156, 0)
+option	node	Professional_Services		spacing.baseValue	24
+option	node	Professional_Services		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Professional_Services		elk.spacing.edgeEdge	20
+option	node	Professional_Services		spacing.nodeNode	50
+option	node	Professional_Services		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Professional_Services		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Professional_Services		elk.layered.mergeEdges	false
+option	node	Professional_Services		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Professional_Services		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Professional_Services		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Professional_Services		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Professional_Services		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Professional_Services		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Professional_Services	0	Professional Services	136	19
+node	Chef	Professional_Services	76	121
+node	ReviewMeal	Professional_Services	160	58
+option	node	ReviewMeal		elk.portAlignment.default	CENTER
+option	node	ReviewMeal		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	PrepareMeal	Professional_Services	160	58
+option	node	PrepareMeal		elk.portAlignment.default	CENTER
+edge	edge-0	root	Chef	PrepareMeal
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Chef	ReviewMeal
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Guest	ReviewMeal
+label	edge	edge-2	0		0	0
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	547	290.43333333333334
+place	Guest	root	12	157.43333333333334	129	121
+place	Professional_Services	root	191	12	344	252.93333333333334
+place-label	node	Professional_Services	0	104	5	136	19
+place	Chef	Professional_Services	24	48	76	121
+place	ReviewMeal	Professional_Services	160	170.93333333333334	160	58
+place	PrepareMeal	Professional_Services	160	62.93333333333334	160	58
+route	edge-0	root	Professional_Services
+section	edge-0	edge-0_s0	100,91.93333333333334	160,91.93333333333334		Chef	PrepareMeal
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	Professional_Services
+section	edge-1	edge-1_s0	100,125.06666666666668	160,193.93333333333334	130,125.06666666666668 130,193.93333333333334	Chef	ReviewMeal
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	141,217.93333333333334	351,217.93333333333334	181,217.93333333333334	Guest	ReviewMeal
+place-label	edge	edge-2	0	0	0	0	0

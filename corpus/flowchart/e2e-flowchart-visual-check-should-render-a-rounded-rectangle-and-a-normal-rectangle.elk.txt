@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1384844adca4511a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	UP
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	n2	root	152	45
+node	n1	root	150	72
+node	n3	root	152	45
+edge	L_n2_n1_0	root	n2	n1
+label	edge	L_n2_n1_0	0		0	0
+option	edge-label	L_n2_n1_0	0	edgeLabels.inline	true
+option	edge-label	L_n2_n1_0	0	edgeLabels.placement	CENTER
+edge	L_n3_n1_0	root	n3	n1
+label	edge	L_n3_n1_0	0		0	0
+option	edge-label	L_n3_n1_0	0	edgeLabels.inline	true
+option	edge-label	L_n3_n1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	368	181
+place	n2	root	12	124	152	45
+place	n1	root	109	12	150	72
+place	n3	root	204	124	152	45
+route	L_n2_n1_0	root	root
+section	L_n2_n1_0	L_n2_n1_0_s0	88,124	162.33333333333331,84	88,104 162.33333333333331,104	n2	n1
+place-label	edge	L_n2_n1_0	0	0	0	0	0
+route	L_n3_n1_0	root	root
+section	L_n3_n1_0	L_n3_n1_0_s0	280,124	205.66666666666666,84	280,104 205.66666666666666,104	n3	n1
+place-label	edge	L_n3_n1_0	0	0	0	0	0

@@ -1,0 +1,114 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source fd962546a0763cb9
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	id3	root
+option	node	id3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	id3		nodeSize.minimum	(27, 0)
+option	node	id3		spacing.baseValue	24
+option	node	id3		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id3		elk.spacing.edgeEdge	20
+option	node	id3		spacing.nodeNode	50
+option	node	id3		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id3		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id3		elk.layered.mergeEdges	false
+option	node	id3		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	id3		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	id3	0	id3	19	19
+node	C	id3	152	45
+option	node	C		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	D	id3	152	45
+node	id2	root
+option	node	id2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	id2		nodeSize.minimum	(30, 0)
+option	node	id2		spacing.baseValue	24
+option	node	id2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id2		elk.spacing.edgeEdge	20
+option	node	id2		spacing.nodeNode	50
+option	node	id2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id2		elk.layered.mergeEdges	false
+option	node	id2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	id2	0	title	22	19
+node	E	id2	152	45
+node	id1	root
+option	node	id1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	id1		nodeSize.minimum	(67, 0)
+option	node	id1		spacing.baseValue	24
+option	node	id1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id1		elk.spacing.edgeEdge	20
+option	node	id1		spacing.nodeNode	50
+option	node	id1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id1		elk.layered.mergeEdges	false
+option	node	id1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	id1		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	id1	0	title is set	59	19
+node	A	id1	152	45
+node	B	id1	152	45
+option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_C_D_0	root	C	D
+label	edge	L_C_D_0	0		0	0
+option	edge-label	L_C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	836	298
+place	id3	root	448	169	376	117
+place-label	node	id3	0	178.5	5	19	19
+place	C	id3	24	48	152	45
+place	D	id3	200	48	152	45
+place	id2	root	105	12	200	117
+place-label	node	id2	0	89	5	22	19
+place	E	id2	24	48	152	45
+place	id1	root	12	169	376	117
+place-label	node	id1	0	158.5	5	59	19
+place	A	id1	24	48	152	45
+place	B	id1	200	48	152	45
+route	L_A_B_0	root	id1
+section	L_A_B_0	L_A_B_0_s0	176,70.5	200,70.5		A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	364,239.5	472,239.5	398,239.5 438,239.5	B	C
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_C_D_0	root	id3
+section	L_C_D_0	L_C_D_0_s0	176,70.5	200,70.5		C	D
+place-label	edge	L_C_D_0	0	0	0	0	0

@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source dee566e5253b79ad
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-person-0	root	165.9997100830078	107.841796875
+node	entity-a-1	root	180.7916717529297	73.04373168945312
+edge	id_entity-person-0_entity-a-1_0	root	entity-person-0	entity-a-1
+label	edge	id_entity-person-0_entity-a-1_0	0	__hẽ😀__	36	19.999998092651367
+option	edge-label	id_entity-person-0_entity-a-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-person-0_entity-a-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	204.7916717529297	304.8855266571045
+place	entity-person-0	root	19.395980834960938	12	165.9997100830078	107.841796875
+place	entity-a-1	root	12	219.84179496765137	180.7916717529297	73.04373168945312
+route	id_entity-person-0_entity-a-1_0	root	root
+section	id_entity-person-0_entity-a-1_0	id_entity-person-0_entity-a-1_0_s0	102.39583587646484,119.841796875	102.39583587646484,219.84179496765137		entity-person-0	entity-a-1
+place-label	edge	id_entity-person-0_entity-a-1_0	0	84.39583587646484	159.841796875	36	19.999998092651367

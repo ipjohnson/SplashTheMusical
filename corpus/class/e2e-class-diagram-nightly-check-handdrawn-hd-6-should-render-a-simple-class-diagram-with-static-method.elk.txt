@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ab4322b52edf7eaa
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Class01	root	148.15756225585938	123.40215301513672
+node	AveryLongClass	root	140.4705047607422	84.7188491821289
+edge	id_Class01_AveryLongClass_1	root	Class01	AveryLongClass
+label	edge	id_Class01_AveryLongClass_1	0	Cool	29	21
+option	edge-label	id_Class01_AveryLongClass_1	0	edgeLabels.inline	true
+option	edge-label	id_Class01_AveryLongClass_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	172.15756225585938	333.1210021972656
+place	Class01	root	12	12	148.15756225585938	123.40215301513672
+place	AveryLongClass	root	15.843528747558594	236.40215301513672	140.4705047607422	84.7188491821289
+route	id_Class01_AveryLongClass_1	root	root
+section	id_Class01_AveryLongClass_1	id_Class01_AveryLongClass_1_s0	86.07878112792969,135.40215301513672	86.07878112792969,236.40215301513672		Class01	AveryLongClass
+place-label	edge	id_Class01_AveryLongClass_1	0	71.57878112792969	175.40215301513672	29	21

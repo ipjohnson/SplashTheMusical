@@ -1,0 +1,57 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c7689014be64aa9e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Student	root	158.07876586914062	117.09229278564453
+node	IdCard	root	139.48011779785156	138.3065185546875
+node	Bike	root	130.89207458496094	138.09254455566406
+edge	id_Student_IdCard_1	root	Student	IdCard
+label	edge	id_Student_IdCard_1	0	carries	43	21
+option	edge-label	id_Student_IdCard_1	0	edgeLabels.inline	true
+option	edge-label	id_Student_IdCard_1	0	edgeLabels.placement	CENTER
+label	edge	id_Student_IdCard_1	1	1	6	16.5
+option	edge-label	id_Student_IdCard_1	1	edgeLabels.placement	TAIL
+label	edge	id_Student_IdCard_1	2	1	18	28.5
+option	edge-label	id_Student_IdCard_1	2	edgeLabels.placement	HEAD
+edge	id_Student_Bike_2	root	Student	Bike
+label	edge	id_Student_Bike_2	0	rides	31	21
+option	edge-label	id_Student_Bike_2	0	edgeLabels.inline	true
+option	edge-label	id_Student_Bike_2	0	edgeLabels.placement	CENTER
+label	edge	id_Student_Bike_2	1	1	6	16.5
+option	edge-label	id_Student_Bike_2	1	edgeLabels.placement	TAIL
+label	edge	id_Student_Bike_2	2	1	18	28.5
+option	edge-label	id_Student_Bike_2	2	edgeLabels.placement	HEAD
+result
+place	root		0	0	334.3721923828125	433.39881134033203
+place	Student	root	90.2937240600586	12	158.07876586914062	117.09229278564453
+place	IdCard	root	12	283.09229278564453	139.48011779785156	138.3065185546875
+place	Bike	root	191.48011779785156	283.09229278564453	130.89207458496094	138.09254455566406
+route	id_Student_IdCard_1	root	root
+section	id_Student_IdCard_1	id_Student_IdCard_1_s0	146.31997934977215,129.09229278564453	81.74005889892578,283.09229278564453	146.31997934977215,169.59229278564453 81.74005889892578,169.59229278564453	Student	IdCard
+place-label	edge	id_Student_IdCard_1	0	60.24005889892578	189.59229278564453	43	21
+place-label	edge	id_Student_IdCard_1	1	151.31997934977215	133.09229278564453	6	16.5
+place-label	edge	id_Student_IdCard_1	2	86.74005889892578	250.59229278564453	18	28.5
+route	id_Student_Bike_2	root	root
+section	id_Student_Bike_2	id_Student_Bike_2_s0	192.3462346394857,129.09229278564453	256.92615509033203,283.09229278564453	192.3462346394857,169.59229278564453 256.92615509033203,169.59229278564453	Student	Bike
+place-label	edge	id_Student_Bike_2	0	241.42615509033203	189.59229278564453	31	21
+place-label	edge	id_Student_Bike_2	1	197.3462346394857	133.09229278564453	6	16.5
+place-label	edge	id_Student_Bike_2	2	261.92615509033203	250.59229278564453	18	28.5

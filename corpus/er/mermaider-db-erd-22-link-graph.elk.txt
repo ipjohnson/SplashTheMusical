@@ -1,0 +1,119 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e748adb9976fd17f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-DocumentationSet-0	root	157	81
+node	entity-LinkManifest-1	root	120	81
+node	entity-GitOrigin-2	root	96	81
+node	entity-LinkManifestPage-3	root	153	81
+node	entity-Anchor-4	root	100	81
+node	entity-Redirect-5	root	93	81
+node	entity-CrossLinkUri-6	root	121	81
+node	entity-Registry-7	root	100	81
+node	entity-LinkRegistry-8	root	118	81
+node	entity-LinkRegistryEntry-9	root	151	81
+node	entity-Checkout-10	root	100	81
+node	entity-LinkRegistrySnapshot-11	root	178	81
+edge	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	root	entity-DocumentationSet-0	entity-LinkManifest-1
+label	edge	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	0	per branch	69	21
+option	edge-label	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkManifest-1_entity-GitOrigin-2_1	root	entity-LinkManifest-1	entity-GitOrigin-2
+label	edge	id_entity-LinkManifest-1_entity-GitOrigin-2_1	0	origin	35	21
+option	edge-label	id_entity-LinkManifest-1_entity-GitOrigin-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkManifest-1_entity-GitOrigin-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	root	entity-LinkManifest-1	entity-LinkManifestPage-3
+label	edge	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	0	links	28	21
+option	edge-label	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkManifestPage-3_entity-Anchor-4_3	root	entity-LinkManifestPage-3	entity-Anchor-4
+label	edge	id_entity-LinkManifestPage-3_entity-Anchor-4_3	0	anchors	51	21
+option	edge-label	id_entity-LinkManifestPage-3_entity-Anchor-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkManifestPage-3_entity-Anchor-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkManifest-1_entity-Redirect-5_4	root	entity-LinkManifest-1	entity-Redirect-5
+label	edge	id_entity-LinkManifest-1_entity-Redirect-5_4	0	redirects	55	21
+option	edge-label	id_entity-LinkManifest-1_entity-Redirect-5_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkManifest-1_entity-Redirect-5_4	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	root	entity-LinkManifest-1	entity-CrossLinkUri-6
+label	edge	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	0	cross_links (outbound)	144	21
+option	edge-label	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	0	edgeLabels.placement	CENTER
+edge	id_entity-Registry-7_entity-LinkRegistry-8_6	root	entity-Registry-7	entity-LinkRegistry-8
+label	edge	id_entity-Registry-7_entity-LinkRegistry-8_6	0	link-index.json	90	21
+option	edge-label	id_entity-Registry-7_entity-LinkRegistry-8_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-Registry-7_entity-LinkRegistry-8_6	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	root	entity-LinkRegistry-8	entity-LinkRegistryEntry-9
+label	edge	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	0	repository, branch	114	21
+option	edge-label	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	0	edgeLabels.placement	CENTER
+edge	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	root	entity-LinkRegistryEntry-9	entity-LinkManifest-1
+label	edge	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	0	path	28	21
+option	edge-label	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	0	edgeLabels.inline	true
+option	edge-label	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	0	edgeLabels.placement	CENTER
+edge	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	root	entity-Checkout-10	entity-LinkRegistrySnapshot-11
+label	edge	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	0	link-index.snapshot.json	152	21
+option	edge-label	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	0	edgeLabels.inline	true
+option	edge-label	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	659.4166666666666	1035
+place	entity-DocumentationSet-0	root	97.91666666666666	376	157	81
+place	entity-LinkManifest-1	root	246	558	120	81
+place	entity-GitOrigin-2	root	12	760	96	81
+place	entity-LinkManifestPage-3	root	148	760	153	81
+place	entity-Anchor-4	root	174.5	942	100	81
+place	entity-Redirect-5	root	341	760	93	81
+place	entity-CrossLinkUri-6	root	474	760	121	81
+place	entity-Registry-7	root	320.41666666666663	12	100	81
+place	entity-LinkRegistry-8	root	311.41666666666663	194	118	81
+place	entity-LinkRegistryEntry-9	root	294.91666666666663	376	151	81
+place	entity-Checkout-10	root	508.41666666666663	12	100	81
+place	entity-LinkRegistrySnapshot-11	root	469.41666666666663	194	178	81
+route	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	root	root
+section	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	id_entity-DocumentationSet-0_entity-LinkManifest-1_0_s0	176.41666666666666,457	289.33333333333337,558	176.41666666666666,538 289.33333333333337,538	entity-DocumentationSet-0	entity-LinkManifest-1
+place-label	edge	id_entity-DocumentationSet-0_entity-LinkManifest-1_0	0	141.91666666666666	497	69	21
+route	id_entity-LinkManifest-1_entity-GitOrigin-2_1	root	root
+section	id_entity-LinkManifest-1_entity-GitOrigin-2_1	id_entity-LinkManifest-1_entity-GitOrigin-2_1_s0	276,639	60,760	276,659 60,659	entity-LinkManifest-1	entity-GitOrigin-2
+place-label	edge	id_entity-LinkManifest-1_entity-GitOrigin-2_1	0	42.5	699	35	21
+route	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	root	root
+section	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2_s0	296,639	224.5,760	296,679 224.5,679	entity-LinkManifest-1	entity-LinkManifestPage-3
+place-label	edge	id_entity-LinkManifest-1_entity-LinkManifestPage-3_2	0	210.5	699	28	21
+route	id_entity-LinkManifestPage-3_entity-Anchor-4_3	root	root
+section	id_entity-LinkManifestPage-3_entity-Anchor-4_3	id_entity-LinkManifestPage-3_entity-Anchor-4_3_s0	224.5,841	224.5,942		entity-LinkManifestPage-3	entity-Anchor-4
+place-label	edge	id_entity-LinkManifestPage-3_entity-Anchor-4_3	0	199	881	51	21
+route	id_entity-LinkManifest-1_entity-Redirect-5_4	root	root
+section	id_entity-LinkManifest-1_entity-Redirect-5_4	id_entity-LinkManifest-1_entity-Redirect-5_4_s0	316,639	387.5,760	316,679 387.5,679	entity-LinkManifest-1	entity-Redirect-5
+place-label	edge	id_entity-LinkManifest-1_entity-Redirect-5_4	0	360	699	55	21
+route	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	root	root
+section	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5_s0	336,639	534.5,760	336,659 534.5,659	entity-LinkManifest-1	entity-CrossLinkUri-6
+place-label	edge	id_entity-LinkManifest-1_entity-CrossLinkUri-6_5	0	462.5	699	144	21
+route	id_entity-Registry-7_entity-LinkRegistry-8_6	root	root
+section	id_entity-Registry-7_entity-LinkRegistry-8_6	id_entity-Registry-7_entity-LinkRegistry-8_6_s0	370.41666666666663,93	370.41666666666663,194		entity-Registry-7	entity-LinkRegistry-8
+place-label	edge	id_entity-Registry-7_entity-LinkRegistry-8_6	0	325.41666666666663	133	90	21
+route	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	root	root
+section	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7_s0	370.41666666666663,275	370.41666666666663,376		entity-LinkRegistry-8	entity-LinkRegistryEntry-9
+place-label	edge	id_entity-LinkRegistry-8_entity-LinkRegistryEntry-9_7	0	313.41666666666663	315	114	21
+route	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	root	root
+section	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8_s0	370.41666666666663,457	322.66666666666663,558	370.41666666666663,538 322.66666666666663,538	entity-LinkRegistryEntry-9	entity-LinkManifest-1
+place-label	edge	id_entity-LinkRegistryEntry-9_entity-LinkManifest-1_8	0	356.41666666666663	497	28	21
+route	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	root	root
+section	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9_s0	558.4166666666666,93	558.4166666666666,194		entity-Checkout-10	entity-LinkRegistrySnapshot-11
+place-label	edge	id_entity-Checkout-10_entity-LinkRegistrySnapshot-11_9	0	482.41666666666663	133	152	21

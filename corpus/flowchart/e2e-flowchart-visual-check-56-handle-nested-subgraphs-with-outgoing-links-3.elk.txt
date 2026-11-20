@@ -1,0 +1,102 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source df9e6ae462d480cb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	container_Alpha	root
+option	node	container_Alpha		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	container_Alpha		nodeSize.minimum	(111, 0)
+option	node	container_Alpha		spacing.baseValue	24
+option	node	container_Alpha		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	container_Alpha		elk.spacing.edgeEdge	20
+option	node	container_Alpha		spacing.nodeNode	50
+option	node	container_Alpha		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	container_Alpha		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	container_Alpha		elk.layered.mergeEdges	false
+option	node	container_Alpha		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	container_Alpha		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	container_Alpha		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	container_Alpha		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	container_Alpha		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	container_Alpha		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	container_Alpha	0	container_Alpha	103	19
+node	process_A	container_Alpha	152	45
+option	node	process_A		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	process_B	container_Alpha	152	45
+option	node	process_B		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	container_Beta	root
+option	node	container_Beta		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	container_Beta		nodeSize.minimum	(104, 0)
+option	node	container_Beta		spacing.baseValue	24
+option	node	container_Beta		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	container_Beta		elk.spacing.edgeEdge	20
+option	node	container_Beta		spacing.nodeNode	50
+option	node	container_Beta		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	container_Beta		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	container_Beta		elk.layered.mergeEdges	false
+option	node	container_Beta		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	container_Beta		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	container_Beta		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	container_Beta		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	container_Beta		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	container_Beta		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	container_Beta	0	container_Beta	96	19
+node	process_C	container_Beta	152	45
+option	node	process_C		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Process_D	container_Beta	152	45
+edge	L_process_C_Process_D_0	root	process_C	Process_D
+label	edge	L_process_C_Process_D_0	0		0	0
+option	edge-label	L_process_C_Process_D_0	0	edgeLabels.inline	true
+option	edge-label	L_process_C_Process_D_0	0	edgeLabels.placement	CENTER
+edge	L_process_A_process_B_0	root	process_A	process_B
+label	edge	L_process_A_process_B_0	0		0	0
+option	edge-label	L_process_A_process_B_0	0	edgeLabels.inline	true
+option	edge-label	L_process_A_process_B_0	0	edgeLabels.placement	CENTER
+edge	L_process_A_process_C_0	root	process_A	process_C
+label	edge	L_process_A_process_C_0	0	messages	65	21
+option	edge-label	L_process_A_process_C_0	0	edgeLabels.inline	true
+option	edge-label	L_process_A_process_C_0	0	edgeLabels.placement	CENTER
+edge	L_process_B_container_Beta_0	root	process_B	container_Beta
+label	edge	L_process_B_container_Beta_0	0	via_AWSBatch	92	21
+option	edge-label	L_process_B_container_Beta_0	0	edgeLabels.inline	true
+option	edge-label	L_process_B_container_Beta_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	274.5	553
+place	container_Alpha	root	18.000000000000007	12	244.5	222
+place-label	node	container_Alpha	0	70.75	5	103	19
+place	process_A	container_Alpha	24	48	152	45
+place	process_B	container_Alpha	68.49999999999999	153	152	45
+place	container_Beta	root	12	355	200	186
+place-label	node	container_Beta	0	52	5	96	19
+place	process_C	container_Beta	24	48	152	45
+place	Process_D	container_Beta	24	117	152	45
+route	L_process_C_Process_D_0	root	container_Beta
+section	L_process_C_Process_D_0	L_process_C_Process_D_0_s0	99.99999999999999,93	99.99999999999999,117		process_C	Process_D
+place-label	edge	L_process_C_Process_D_0	0	0	0	0	0
+route	L_process_A_process_B_0	root	container_Alpha
+section	L_process_A_process_B_0	L_process_A_process_B_0_s0	121.7333333333333,93	144.49999999999997,153	121.7333333333333,123 144.49999999999997,123	process_A	process_B
+place-label	edge	L_process_A_process_B_0	0	0	0	0	0
+route	L_process_A_process_C_0	root	root
+section	L_process_A_process_C_0	L_process_A_process_C_0_s0	96.26666666666665,105	111.99999999999997,403	96.26666666666665,135 73.5,135 73.5,244 73.5,264 68.74999999999997,264 68.74999999999997,325 111.99999999999997,325 111.99999999999997,345	process_A	process_C
+place-label	edge	L_process_A_process_C_0	0	36.249999999999986	284	65	21
+route	L_process_B_container_Beta_0	root	root
+section	L_process_B_container_Beta_0	L_process_B_container_Beta_0_s0	162.49999999999997,210	123.99999999999997,355	162.49999999999997,244 162.49999999999997,264 167.25,264 167.25,325 123.99999999999997,325	process_B	container_Beta
+place-label	edge	L_process_B_container_Beta_0	0	121.25	284	92	21

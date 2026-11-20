@@ -1,0 +1,137 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source bde7f8455839bc22
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	State1	root	136	37
+node	State2	root	136	37
+node	root_end	root	14.013293266296387	14
+node	State3	root
+option	node	State3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	State3		nodeSize.minimum	(49, 0)
+option	node	State3		spacing.baseValue	24
+option	node	State3		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	State3		elk.spacing.edgeEdge	20
+option	node	State3		spacing.nodeNode	50
+option	node	State3		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	State3		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	State3		elk.layered.mergeEdges	false
+option	node	State3		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	State3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	State3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	State3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	State3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	State3		elk.algorithm	elk.layered
+option	node	State3		elk.direction	DOWN
+option	node	State3		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	State3	0	State3	41	19
+node	long1	State3	169	80
+node	State3_start	State3	14	14
+node	ProcessData	State3	136	37
+edge	edge0	root	root_start	State1
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	State1	State2
+label	edge	edge1	0	Succeeded	71	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	State1	root_end
+label	edge	edge2	0	Aborted	50	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	State2	State3
+label	edge	edge3	0	Succeeded	71	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	State2	root_end
+label	edge	edge4	0	Aborted	50	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	State3_start	long1
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	long1	long1
+label	edge	edge6	0	New Data	62	21
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	long1	ProcessData
+label	edge	edge7	0	Enough Data	83	21
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	State3	State3
+label	edge	edge8	0	Failed	39	21
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+edge	edge9	root	State3	root_end
+label	edge	edge9	0	Succeeded / Save Result	159	21
+option	edge-label	edge9	0	edgeLabels.inline	true
+option	edge-label	edge9	0	edgeLabels.placement	CENTER
+edge	edge10	root	State3	root_end
+label	edge	edge10	0	Aborted	50	21
+option	edge-label	edge10	0	edgeLabels.inline	true
+option	edge-label	edge10	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	527.7333333333333	825
+place	root_start	root	361.54999999999995	12	14	14
+place	State1	root	303.54999999999995	66	136	37
+place	State2	root	259.54999999999995	204	136	37
+place	root_end	root	360.01002003351846	799	14.013293266296387	14
+place	State3	root	75	342	293.4	296
+place-label	node	State3	0	126.19999999999999	5	41	19
+place	long1	State3	100.4	86	169	80
+place	State3_start	State3	174.1	48	14	14
+place	ProcessData	State3	116.89999999999999	235	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	371.54999999999995,26	371.54999999999995,66		root_start	State1
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	352.2166666666667,103	327.54999999999995,204	352.2166666666667,123 327.54999999999995,123	State1	State2
+place-label	edge	edge1	0	292.04999999999995	143	71	21
+route	edge2	root	root
+section	edge2	edge2_s0	390.8833333333333,103	365.22065464655554,799	390.8833333333333,123 490.73333333333335,123 490.73333333333335,153.5 490.73333333333335,222.5 490.73333333333335,490 490.73333333333335,688.5 490.73333333333335,719 365.22065464655554,719	State1	root_end
+place-label	edge	edge2	0	465.73333333333335	281	50	21
+route	edge3	root	root
+section	edge3	edge3_s0	308.2166666666667,241	221.7,342	308.2166666666667,261 221.7,261	State2	State3
+place-label	edge	edge3	0	186.2	281	71	21
+route	edge4	root	root
+section	edge4	edge4_s0	346.8833333333333,241	366.41799599329636,799	346.8833333333333,261 433.4,261 433.4,291.5 433.4,688.5 433.4,739 366.41799599329636,739	State2	root_end
+place-label	edge	edge4	0	408.4	479.5	50	21
+route	edge5	root	State3
+section	edge5	edge5_s0	184.9,62	184.89999999999998,86		State3_start	long1
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	State3
+section	edge6	edge6_s0	100.4,116.66666666666667	100.4,135.33333333333334	88.4,116.66666666666667 88.4,135.33333333333334	long1	long1
+place-label	edge	edge6	0	24	115.5	62	21
+route	edge7	root	State3
+section	edge7	edge7_s0	184.89999999999998,166	184.89999999999998,235		long1	ProcessData
+place-label	edge	edge7	0	143.39999999999998	190	83	21
+route	edge8	root	root
+section	edge8	edge8_s0	75,444.6666666666667	75,535.3333333333334	55,444.6666666666667 55,535.3333333333334	State3	State3
+place-label	edge	edge8	0	12	479.5	39	21
+route	edge9	root	root
+section	edge9	edge9_s0	176.13333333333333,638	368.81267868677776,799	176.13333333333333,658 159.45,658 159.45,779 368.81267868677776,779	State3	root_end
+place-label	edge	edge9	0	79.94999999999999	678	159	21
+route	edge10	root	root
+section	edge10	edge10_s0	267.26666666666665,638	367.61533734003706,799	267.26666666666665,658 283.95,658 283.95,759 367.61533734003706,759	State3	root_end
+place-label	edge	edge10	0	258.95	678	50	21

@@ -1,0 +1,61 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8b95002bb1dc137e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	classA	root	70	81
+node	classB	root	70	81
+node	classC	root	70	81
+node	classD	root	70	81
+edge	id_classA_classB_1	root	classA	classB
+label	edge	id_classA_classB_1	0	Inheritance	75	19.999998092651367
+option	edge-label	id_classA_classB_1	0	edgeLabels.inline	true
+option	edge-label	id_classA_classB_1	0	edgeLabels.placement	CENTER
+edge	id_classA_classC_2	root	classA	classC
+label	edge	id_classA_classC_2	0	link	26	19.999998092651367
+option	edge-label	id_classA_classC_2	0	edgeLabels.inline	true
+option	edge-label	id_classA_classC_2	0	edgeLabels.placement	CENTER
+edge	id_classC_classD_3	root	classC	classD
+label	edge	id_classC_classD_3	0	link	26	19.999998092651367
+option	edge-label	id_classC_classD_3	0	edgeLabels.inline	true
+option	edge-label	id_classC_classD_3	0	edgeLabels.placement	CENTER
+edge	id_classB_classD_4	root	classB	classD
+label	edge	id_classB_classD_4	0		0	0
+option	edge-label	id_classB_classD_4	0	edgeLabels.inline	true
+option	edge-label	id_classB_classD_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	184.5	527.9999980926514
+place	classA	root	58.49999999999999	12	70	81
+place	classB	root	14.5	313.99999809265137	70	81
+place	classC	root	102.5	192.99999809265137	70	81
+place	classD	root	58.49999999999999	434.99999809265137	70	81
+route	id_classA_classB_1	root	root
+section	id_classA_classB_1	id_classA_classB_1_s0	85.16666666666666,93	49.5,313.99999809265137	85.16666666666666,113 49.5,113 49.5,233.49999809265137	classA	classB
+place-label	edge	id_classA_classB_1	0	12	133	75	19.999998092651367
+route	id_classA_classC_2	root	root
+section	id_classA_classC_2	id_classA_classC_2_s0	101.83333333333333,93	137.5,192.99999809265137	101.83333333333333,113 137.5,113	classA	classC
+place-label	edge	id_classA_classC_2	0	124.5	133	26	19.999998092651367
+route	id_classC_classD_3	root	root
+section	id_classC_classD_3	id_classC_classD_3_s0	137.5,273.99999809265137	101.83333333333333,434.99999809265137	137.5,414.99999809265137 101.83333333333333,414.99999809265137	classC	classD
+place-label	edge	id_classC_classD_3	0	124.5	344.4999990463257	26	19.999998092651367
+route	id_classB_classD_4	root	root
+section	id_classB_classD_4	id_classB_classD_4_s0	49.5,394.99999809265137	85.16666666666666,434.99999809265137	49.5,414.99999809265137 85.16666666666666,414.99999809265137	classB	classD
+place-label	edge	id_classB_classD_4	0	0	0	0	0

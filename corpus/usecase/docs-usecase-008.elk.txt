@@ -1,0 +1,57 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source cc7884f2722a0260
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Reviewer	root	79	121
+node	Literal	root	160	58
+option	node	Literal		elk.portAlignment.default	CENTER
+node	Formatted	root	160	94
+option	node	Formatted		elk.portAlignment.default	CENTER
+node	Quoted	root	160	58
+option	node	Quoted		elk.portAlignment.default	CENTER
+edge	edge-0	root	Reviewer	Formatted
+label	edge	edge-0	0	opens **form**	58	15
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Reviewer	Literal
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Reviewer	Quoted
+label	edge	edge-2	0		0	0
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	503	275
+place	Reviewer	root	12	75.5	79	121
+place	Literal	root	131	107	160	58
+place	Formatted	root	331	12	160	94
+place	Quoted	root	131	205	160	58
+route	edge-0	root	root
+section	edge-0	edge-0_s0	91,110.75	331,59	111,110.75 111,59	Reviewer	Formatted
+place-label	edge	edge-0	0	182	51	58	15
+route	edge-1	root	root
+section	edge-1	edge-1_s0	91,136	131,136		Reviewer	Literal
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	91,161.25	131,234	111,161.25 111,234	Reviewer	Quoted
+place-label	edge	edge-2	0	0	0	0	0

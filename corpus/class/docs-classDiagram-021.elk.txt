@@ -1,0 +1,105 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f609930d3f256adb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Platform	root
+option	node	Platform		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Platform		nodeSize.minimum	(69, 0)
+option	node	Platform		spacing.baseValue	24
+option	node	Platform		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Platform		elk.spacing.edgeEdge	20
+option	node	Platform		spacing.nodeNode	50
+option	node	Platform		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Platform		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Platform		elk.layered.mergeEdges	false
+option	node	Platform		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Platform		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Platform		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Platform		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Platform		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Platform		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Platform	0	Platform	53	19
+node	Platform.Auth	Platform
+option	node	Platform.Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Platform.Auth		nodeSize.minimum	(45, 0)
+option	node	Platform.Auth		spacing.baseValue	24
+option	node	Platform.Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Platform.Auth		elk.spacing.edgeEdge	20
+option	node	Platform.Auth		spacing.nodeNode	50
+option	node	Platform.Auth		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Platform.Auth		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Platform.Auth		elk.layered.mergeEdges	false
+option	node	Platform.Auth		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Platform.Auth		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Platform.Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Platform.Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Platform.Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Platform.Auth		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Platform.Auth	0	Auth	29	19
+node	UserService	Platform.Auth	121.5	141
+option	node	UserService		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Platform.Data	Platform
+option	node	Platform.Data		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Platform.Data		nodeSize.minimum	(46, 0)
+option	node	Platform.Data		spacing.baseValue	24
+option	node	Platform.Data		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Platform.Data		elk.spacing.edgeEdge	20
+option	node	Platform.Data		spacing.nodeNode	50
+option	node	Platform.Data		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Platform.Data		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Platform.Data		elk.layered.mergeEdges	false
+option	node	Platform.Data		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Platform.Data		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Platform.Data		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Platform.Data		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Platform.Data		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Platform.Data		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Platform.Data	0	Data	30	19
+node	Repository	Platform.Data	109.5	141
+option	node	Repository		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Gateway	Platform	104.5	120
+option	node	Gateway		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	id_Gateway_UserService_1	root	Gateway	UserService
+label	edge	id_Gateway_UserService_1	0	delegates	62	21
+option	edge-label	id_Gateway_UserService_1	0	edgeLabels.inline	true
+option	edge-label	id_Gateway_UserService_1	0	edgeLabels.placement	CENTER
+edge	id_Gateway_Repository_2	root	Gateway	Repository
+label	edge	id_Gateway_Repository_2	0	delegates	62	21
+option	edge-label	id_Gateway_Repository_2	0	edgeLabels.inline	true
+option	edge-label	id_Gateway_Repository_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	449	544
+place	Platform	root	12	12	425	520
+place-label	node	Platform	0	186	5	53	19
+place	Platform.Auth	Platform	24	283	169.5	213
+place-label	node	Platform.Auth	0	70.25	5	29	19
+place	UserService	Platform.Auth	24	48	121.5	141
+place	Platform.Data	Platform	243.5	283	157.5	213
+place-label	node	Platform.Data	0	63.75	5	30	19
+place	Repository	Platform.Data	24	48	109.5	141
+place	Gateway	Platform	163.25	48	104.5	120
+route	id_Gateway_UserService_1	root	Platform
+section	id_Gateway_UserService_1	id_Gateway_UserService_1_s0	201.68333333333334,168	108.75,331	201.68333333333334,198 108.75,198 108.75,273	Gateway	UserService
+place-label	edge	id_Gateway_UserService_1	0	77.25	228	62	21
+route	id_Gateway_Repository_2	root	Platform
+section	id_Gateway_Repository_2	id_Gateway_Repository_2_s0	229.31666666666666,168	322.25,331	229.31666666666666,198 322.25,198 322.25,273	Gateway	Repository
+place-label	edge	id_Gateway_Repository_2	0	290.75	228	62	21

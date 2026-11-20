@@ -1,0 +1,40 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d79097a41a9e5396
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Class01	root	125.72298431396484	142.593994140625
+node	Class08	root	82.93486785888672	78.58795928955078
+node	C2	root	46.651100158691406	78.79798126220703
+node	Class10	root	145.91859436035156	142.50306701660156
+edge	id_Class08_C2_1	root	Class08	C2
+label	edge	id_Class08_C2_1	0	Cool label	67	19.999998092651367
+option	edge-label	id_Class08_C2_1	0	edgeLabels.inline	true
+option	edge-label	id_Class08_C2_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	458.5764465332031	345.3919734954834
+place	Class01	root	12	12	125.72298431396484	142.593994140625
+place	Class08	root	177.72298431396484	76.00603485107422	82.93486785888672	78.58795928955078
+place	C2	root	195.8648681640625	254.59399223327637	46.651100158691406	78.79798126220703
+place	Class10	root	300.65785217285156	12.045463562011719	145.91859436035156	142.50306701660156
+route	id_Class08_C2_1	root	root
+section	id_Class08_C2_1	id_Class08_C2_1_s0	219.1904182434082,154.593994140625	219.1904182434082,254.59399223327637		Class08	C2
+place-label	edge	id_Class08_C2_1	0	185.6904182434082	194.593994140625	67	19.999998092651367

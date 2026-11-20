@@ -1,0 +1,86 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d0feca50d6211e21
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	output	root
+option	node	output		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	output		nodeSize.minimum	(51, 0)
+option	node	output		spacing.baseValue	24
+option	node	output		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	output		elk.spacing.edgeEdge	20
+option	node	output		spacing.nodeNode	50
+option	node	output		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	output		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	output		elk.layered.mergeEdges	false
+option	node	output		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	output		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	output		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	output		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	output		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	output		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	output	0	Output	43	19
+node	publish	output	204	91
+option	node	publish		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	processing	root	86	65
+option	node	processing		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	intake	root
+option	node	intake		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	intake		nodeSize.minimum	(47, 0)
+option	node	intake		spacing.baseValue	24
+option	node	intake		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	intake		elk.spacing.edgeEdge	20
+option	node	intake		spacing.nodeNode	50
+option	node	intake		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	intake		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	intake		elk.layered.mergeEdges	false
+option	node	intake		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	intake		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	intake		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	intake		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	intake		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	intake		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	intake	0	Intake	39	19
+node	receive	intake	186	36
+option	node	receive		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_receive_validate_0	root	receive	processing
+label	edge	L_receive_validate_0	0		0	0
+option	edge-label	L_receive_validate_0	0	edgeLabels.inline	true
+option	edge-label	L_receive_validate_0	0	edgeLabels.placement	CENTER
+edge	L_enrich_publish_0	root	processing	publish
+label	edge	L_enrich_publish_0	0		0	0
+option	edge-label	L_enrich_publish_0	0	edgeLabels.inline	true
+option	edge-label	L_enrich_publish_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	276	460
+place	output	root	12	285	252	163
+place-label	node	output	0	104.5	5	43	19
+place	publish	output	24	48	204	91
+place	processing	root	94.99999999999999	170	86	65
+place	intake	root	21	12	234	108
+place-label	node	intake	0	97.5	5	39	19
+place	receive	intake	24	48	186	36
+route	L_receive_validate_0	root	root
+section	L_receive_validate_0	L_receive_validate_0_s0	138,96	138,170	138,130	receive	processing
+place-label	edge	L_receive_validate_0	0	0	0	0	0
+route	L_enrich_publish_0	root	root
+section	L_enrich_publish_0	L_enrich_publish_0_s0	138,235	138,333	138,275	processing	publish
+place-label	edge	L_enrich_publish_0	0	0	0	0	0

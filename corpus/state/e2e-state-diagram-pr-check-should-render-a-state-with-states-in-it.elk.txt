@@ -1,0 +1,69 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6e0d7464684146bc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	PilotCockpit	root
+option	node	PilotCockpit		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	PilotCockpit		nodeSize.minimum	(82, 0)
+option	node	PilotCockpit		spacing.baseValue	24
+option	node	PilotCockpit		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	PilotCockpit		elk.spacing.edgeEdge	20
+option	node	PilotCockpit		spacing.nodeNode	50
+option	node	PilotCockpit		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	PilotCockpit		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	PilotCockpit		elk.layered.mergeEdges	false
+option	node	PilotCockpit		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	PilotCockpit		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	PilotCockpit		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	PilotCockpit		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	PilotCockpit		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	PilotCockpit		elk.algorithm	elk.layered
+option	node	PilotCockpit		elk.direction	DOWN
+option	node	PilotCockpit		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	PilotCockpit	0	PilotCockpit	74	19
+node	Parent	PilotCockpit
+option	node	Parent		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Parent		nodeSize.minimum	(50, 0)
+option	node	Parent		spacing.baseValue	24
+option	node	Parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Parent		elk.spacing.edgeEdge	20
+option	node	Parent		spacing.nodeNode	50
+option	node	Parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Parent		elk.layered.mergeEdges	false
+option	node	Parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Parent		elk.algorithm	elk.layered
+option	node	Parent		elk.direction	DOWN
+option	node	Parent		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Parent	0	Parent	42	19
+node	C	Parent	136	37
+result
+place	root		0	0	256	205
+place	PilotCockpit	root	12	12	232	181
+place-label	node	PilotCockpit	0	79	5	74	19
+place	Parent	PilotCockpit	24	48	184	109
+place-label	node	Parent	0	71	5	42	19
+place	C	Parent	24	48	136	37

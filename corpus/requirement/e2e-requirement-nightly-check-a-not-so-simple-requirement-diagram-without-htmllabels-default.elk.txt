@@ -1,0 +1,99 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7de4d8c4ac502c20
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	test_req	root	134	166
+node	test_req2	root	204	166
+node	test_req3	root	220	166
+node	test_req4	root	194	166
+node	test_req5	root	190	166
+node	test_req6	root	165	166
+node	test_entity	root	123	100
+node	test_entity2	root	176	122
+node	test_entity3	root	233	122
+edge	test_entity-test_req2-0	root	test_entity	test_req2
+label	edge	test_entity-test_req2-0	0	&lt;&lt;satisfies&gt;&gt;	87	19.999998092651367
+option	edge-label	test_entity-test_req2-0	0	edgeLabels.inline	true
+option	edge-label	test_entity-test_req2-0	0	edgeLabels.placement	CENTER
+edge	test_req-test_req2-1	root	test_req	test_req2
+label	edge	test_req-test_req2-1	0	&lt;&lt;traces&gt;&gt;	75	19.999998092651367
+option	edge-label	test_req-test_req2-1	0	edgeLabels.inline	true
+option	edge-label	test_req-test_req2-1	0	edgeLabels.placement	CENTER
+edge	test_req-test_req3-2	root	test_req	test_req3
+label	edge	test_req-test_req3-2	0	&lt;&lt;contains&gt;&gt;	89	19.999998092651367
+option	edge-label	test_req-test_req3-2	0	edgeLabels.inline	true
+option	edge-label	test_req-test_req3-2	0	edgeLabels.placement	CENTER
+edge	test_req3-test_req4-3	root	test_req3	test_req4
+label	edge	test_req3-test_req4-3	0	&lt;&lt;contains&gt;&gt;	89	19.999998092651367
+option	edge-label	test_req3-test_req4-3	0	edgeLabels.inline	true
+option	edge-label	test_req3-test_req4-3	0	edgeLabels.placement	CENTER
+edge	test_req4-test_req5-4	root	test_req4	test_req5
+label	edge	test_req4-test_req5-4	0	&lt;&lt;derives&gt;&gt;	82	19.999998092651367
+option	edge-label	test_req4-test_req5-4	0	edgeLabels.inline	true
+option	edge-label	test_req4-test_req5-4	0	edgeLabels.placement	CENTER
+edge	test_req5-test_req6-5	root	test_req5	test_req6
+label	edge	test_req5-test_req6-5	0	&lt;&lt;refines&gt;&gt;	79	19.999998092651367
+option	edge-label	test_req5-test_req6-5	0	edgeLabels.inline	true
+option	edge-label	test_req5-test_req6-5	0	edgeLabels.placement	CENTER
+edge	test_entity3-test_req5-6	root	test_entity3	test_req5
+label	edge	test_entity3-test_req5-6	0	&lt;&lt;verifies&gt;&gt;	81	19.999998092651367
+option	edge-label	test_entity3-test_req5-6	0	edgeLabels.inline	true
+option	edge-label	test_entity3-test_req5-6	0	edgeLabels.placement	CENTER
+edge	test_entity2-test_req-7	root	test_entity2	test_req
+label	edge	test_entity2-test_req-7	0	&lt;&lt;copies&gt;&gt;	77	19.999998092651367
+option	edge-label	test_entity2-test_req-7	0	edgeLabels.inline	true
+option	edge-label	test_entity2-test_req-7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	504	1475.9999904632568
+place	test_req	root	121.58333333333334	233.99999809265137	134	166
+place	test_req2	root	272	499.99999618530273	204	166
+place	test_req3	root	12	499.99999618530273	220	166
+place	test_req4	root	25	765.9999942779541	194	166
+place	test_req5	root	153.75	1031.9999923706055	190	166
+place	test_req6	root	166.25	1297.9999904632568	165	166
+place	test_entity	root	363	299.99999809265137	123	100
+place	test_entity2	root	100.58333333333334	12	176	122
+place	test_entity3	root	259	809.9999942779541	233	122
+route	test_entity-test_req2-0	root	root
+section	test_entity-test_req2-0	test_entity-test_req2-0_s0	424.5,399.99999809265137	404.6666666666667,499.99999618530273	424.5,479.99999618530273 404.6666666666667,479.99999618530273	test_entity	test_req2
+place-label	edge	test_entity-test_req2-0	0	381	439.99999809265137	87	19.999998092651367
+route	test_req-test_req2-1	root	root
+section	test_req-test_req2-1	test_req-test_req2-1_s0	207.58333333333334,399.99999809265137	343.33333333333337,499.99999618530273	207.58333333333334,419.99999809265137 299.25,419.99999809265137 299.25,479.99999618530273 343.33333333333337,479.99999618530273	test_req	test_req2
+place-label	edge	test_req-test_req2-1	0	261.75	439.99999809265137	75	19.999998092651367
+route	test_req-test_req3-2	root	root
+section	test_req-test_req3-2	test_req-test_req3-2_s0	169.58333333333334,399.99999809265137	122,499.99999618530273	169.58333333333334,419.99999809265137 122,419.99999809265137	test_req	test_req3
+place-label	edge	test_req-test_req3-2	0	77.5	439.99999809265137	89	19.999998092651367
+route	test_req3-test_req4-3	root	root
+section	test_req3-test_req4-3	test_req3-test_req4-3_s0	122,665.9999961853027	122,765.9999942779541		test_req3	test_req4
+place-label	edge	test_req3-test_req4-3	0	77.5	705.9999961853027	89	19.999998092651367
+route	test_req4-test_req5-4	root	root
+section	test_req4-test_req5-4	test_req4-test_req5-4_s0	122,931.9999942779541	220.41666666666669,1031.9999923706055	122,1011.9999923706055 220.41666666666669,1011.9999923706055	test_req4	test_req5
+place-label	edge	test_req4-test_req5-4	0	81	971.9999942779541	82	19.999998092651367
+route	test_req5-test_req6-5	root	root
+section	test_req5-test_req6-5	test_req5-test_req6-5_s0	248.75,1197.9999923706055	248.75,1297.9999904632568		test_req5	test_req6
+place-label	edge	test_req5-test_req6-5	0	209.25	1237.9999923706055	79	19.999998092651367
+route	test_entity3-test_req5-6	root	root
+section	test_entity3-test_req5-6	test_entity3-test_req5-6_s0	375.5,931.9999942779541	277.0833333333333,1031.9999923706055	375.5,1011.9999923706055 277.0833333333333,1011.9999923706055	test_entity3	test_req5
+place-label	edge	test_entity3-test_req5-6	0	335	971.9999942779541	81	19.999998092651367
+route	test_entity2-test_req-7	root	root
+section	test_entity2-test_req-7	test_entity2-test_req-7_s0	188.58333333333334,134	188.58333333333334,233.99999809265137		test_entity2	test_req
+place-label	edge	test_entity2-test_req-7	0	150.08333333333334	174	77	19.999998092651367

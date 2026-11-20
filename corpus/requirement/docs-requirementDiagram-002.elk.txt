@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 344e64eb9718eff0
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	checkout_req	root	253	166
+node	payment_req	root	281	166
+node	checkout_service	root	141	103
+edge	checkout_req-payment_req-0	root	checkout_req	payment_req
+label	edge	checkout_req-payment_req-0	0	&lt;&lt;contains&gt;&gt;	85	21
+option	edge-label	checkout_req-payment_req-0	0	edgeLabels.inline	true
+option	edge-label	checkout_req-payment_req-0	0	edgeLabels.placement	CENTER
+edge	checkout_service-payment_req-1	root	checkout_service	payment_req
+label	edge	checkout_service-payment_req-1	0	&lt;&lt;satisfies&gt;&gt;	83	21
+option	edge-label	checkout_service-payment_req-1	0	edgeLabels.inline	true
+option	edge-label	checkout_service-payment_req-1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	458	457
+place	checkout_req	root	12	12	253	166
+place	payment_req	root	116.5	279	281	166
+place	checkout_service	root	305	75	141	103
+route	checkout_req-payment_req-0	root	root
+section	checkout_req-payment_req-0	checkout_req-payment_req-0_s0	138.5,178	213.5,279	138.5,259 213.5,259	checkout_req	payment_req
+place-label	edge	checkout_req-payment_req-0	0	96	218	85	21
+route	checkout_service-payment_req-1	root	root
+section	checkout_service-payment_req-1	checkout_service-payment_req-1_s0	375.5,178	300.5,279	375.5,259 300.5,259	checkout_service	payment_req
+place-label	edge	checkout_service-payment_req-1	0	334	218	83	21

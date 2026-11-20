@@ -1,0 +1,136 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 26b6ea69f8de7127
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Session	root
+option	node	Session		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Session		nodeSize.minimum	(143, 0)
+option	node	Session		spacing.baseValue	24
+option	node	Session		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Session		elk.spacing.edgeEdge	20
+option	node	Session		spacing.nodeNode	50
+option	node	Session		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Session		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Session		elk.layered.mergeEdges	false
+option	node	Session		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Session		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Session		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Session		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Session		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Session		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Session	0	A session on the Mac	135	19
+node	claude	Session	152	66
+option	node	claude		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	proxy	Session	152	66
+option	node	proxy		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	srt	Session	152	108
+node	local	Session	152	66
+node	serve	root
+option	node	serve		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	serve		nodeSize.minimum	(43, 0)
+option	node	serve		spacing.baseValue	24
+option	node	serve		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	serve		elk.spacing.edgeEdge	20
+option	node	serve		spacing.nodeNode	50
+option	node	serve		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	serve		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	serve		elk.layered.mergeEdges	false
+option	node	serve		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	serve		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	serve		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	serve		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	serve		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	serve		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	serve	0	serve	35	19
+node	library	serve	152	66
+node	resolver	serve	152	108
+option	node	resolver		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	relay	serve	152	108
+option	node	relay		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	remote	root	152	45
+option	node	remote		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	connector	root	152	66
+option	node	connector		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_resolver_claude_0	root	resolver	claude
+label	edge	L_resolver_claude_0	0	mcp.json and settings at launch, control requests while it runs	200	63
+option	edge-label	L_resolver_claude_0	0	edgeLabels.inline	true
+option	edge-label	L_resolver_claude_0	0	edgeLabels.placement	CENTER
+edge	L_claude_proxy_0	root	claude	proxy
+label	edge	L_claude_proxy_0	0	stdio	30	21
+option	edge-label	L_claude_proxy_0	0	edgeLabels.inline	true
+option	edge-label	L_claude_proxy_0	0	edgeLabels.placement	CENTER
+edge	L_proxy_srt_0	root	proxy	srt
+label	edge	L_proxy_srt_0	0		0	0
+option	edge-label	L_proxy_srt_0	0	edgeLabels.inline	true
+option	edge-label	L_proxy_srt_0	0	edgeLabels.placement	CENTER
+edge	L_srt_local_0	root	srt	local
+label	edge	L_srt_local_0	0		0	0
+option	edge-label	L_srt_local_0	0	edgeLabels.inline	true
+option	edge-label	L_srt_local_0	0	edgeLabels.placement	CENTER
+edge	L_proxy_relay_0	root	relay	proxy
+label	edge	L_proxy_relay_0	0	serve.sock	68	21
+option	edge-label	L_proxy_relay_0	0	edgeLabels.inline	true
+option	edge-label	L_proxy_relay_0	0	edgeLabels.placement	CENTER
+edge	L_relay_remote_0	root	relay	remote
+label	edge	L_relay_remote_0	0	with the token	88	21
+option	edge-label	L_relay_remote_0	0	edgeLabels.inline	true
+option	edge-label	L_relay_remote_0	0	edgeLabels.placement	CENTER
+edge	L_claude_connector_0	root	claude	connector
+label	edge	L_claude_connector_0	0	your claude.ai login	123	21
+option	edge-label	L_claude_connector_0	0	edgeLabels.inline	true
+option	edge-label	L_claude_connector_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1743	478
+place	Session	root	512	129.55	854	207.6
+place-label	node	Session	0	359.5	5	135	19
+place	claude	Session	24	117.6	152	66
+place	proxy	Session	326	69	152	66
+place	srt	Session	502	48	152	108
+place	local	Session	678	69	152	66
+place	serve	root	12	12	200	454
+place-label	node	serve	0	82.5	5	35	19
+place	library	serve	24	206	152	66
+place	resolver	serve	24	322	152	108
+place	relay	serve	24	48	152	108
+place	remote	root	512	37.95	152	45
+place	connector	root	1579	264.55	152	66
+route	L_resolver_claude_0	root	root
+section	L_resolver_claude_0	L_resolver_claude_0_s0	188,388	536,280.15	222,388 242,388 242,319 482,319 482,280.15 502,280.15	resolver	claude
+place-label	edge	L_resolver_claude_0	0	262	287	200	63
+route	L_claude_proxy_0	root	Session
+section	L_claude_proxy_0	L_claude_proxy_0_s0	176,143.2	326,109.4	206,143.2 206,121.30000000000001 296,121.30000000000001 296,109.4	claude	proxy
+place-label	edge	L_claude_proxy_0	0	236	110.30000000000001	30	21
+route	L_proxy_srt_0	root	Session
+section	L_proxy_srt_0	L_proxy_srt_0_s0	478,102	502,102		proxy	srt
+place-label	edge	L_proxy_srt_0	0	0	0	0	0
+route	L_srt_local_0	root	Session
+section	L_srt_local_0	L_srt_local_0_s0	654,102	678,102		srt	local
+place-label	edge	L_srt_local_0	0	0	0	0	0
+route	L_proxy_relay_0	root	root
+section	L_proxy_relay_0	L_proxy_relay_0_s0	188,128.4	838,224.15	222,128.4 242,128.4 242,157.7 482,157.7 482,219.55 502,219.55 808,219.55 808,224.15	relay	proxy
+place-label	edge	L_proxy_relay_0	0	328	146.7	68	21
+route	L_relay_remote_0	root	root
+section	L_relay_remote_0	L_relay_remote_0_s0	188,99.6	512,60.45	222,99.6 242,99.6 242,60.45	relay	remote
+place-label	edge	L_relay_remote_0	0	318	49.45	88	21
+route	L_claude_connector_0	root	root
+section	L_claude_connector_0	L_claude_connector_0_s0	688,287.55	1579,297.55	718,287.55 718,297.55 1376,297.55	claude	connector
+place-label	edge	L_claude_connector_0	0	1416	286.55	123	21

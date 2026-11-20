@@ -1,0 +1,54 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 124f31422216c97a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	UserService	root	200.5	141
+node	User	root	124.5	135
+node	note0	root	158	33
+node	note1	root	132	33
+edge	edgeNote0	root	note0	UserService
+label	edge	edgeNote0	0		0	0
+option	edge-label	edgeNote0	0	edgeLabels.inline	true
+option	edge-label	edgeNote0	0	edgeLabels.placement	CENTER
+edge	edgeNote1	root	note1	User
+label	edge	edgeNote1	0		0	0
+option	edge-label	edgeNote1	0	edgeLabels.inline	true
+option	edge-label	edgeNote1	0	edgeLabels.placement	CENTER
+edge	id_UserService_User_1	root	UserService	User
+label	edge	id_UserService_User_1	0		0	0
+option	edge-label	id_UserService_User_1	0	edgeLabels.inline	true
+option	edge-label	id_UserService_User_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	396.5	413
+place	UserService	root	12	85	200.5	141
+place	User	root	153.125	266	124.5	135
+place	note0	root	33.25	12	158	33
+place	note1	root	252.5	193	132	33
+route	edgeNote0	root	root
+section	edgeNote0	edgeNote0_s0	112.25,45	112.25,85		note0	UserService
+place-label	edge	edgeNote0	0	0	0	0	0
+route	edgeNote1	root	root
+section	edgeNote1	edgeNote1_s0	318.5,226	232.79166666666669,266	318.5,246 232.79166666666669,246	note1	User
+place-label	edge	edgeNote1	0	0	0	0	0
+route	id_UserService_User_1	root	root
+section	id_UserService_User_1	id_UserService_User_1_s0	112.25,226	197.95833333333334,266	112.25,246 197.95833333333334,246	UserService	User
+place-label	edge	id_UserService_User_1	0	0	0	0	0

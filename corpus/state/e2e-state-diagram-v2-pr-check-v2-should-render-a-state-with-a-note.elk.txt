@@ -1,0 +1,55 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 18a12aefce24bebf
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	State1	root	136	58
+option	node	State1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	State1----parent	root
+option	node	State1----parent		spacing.baseValue	24
+option	node	State1----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	State1----parent		elk.spacing.edgeEdge	20
+option	node	State1----parent		spacing.nodeNode	50
+option	node	State1----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	State1----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	State1----parent		elk.layered.mergeEdges	false
+option	node	State1----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	State1----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	State1----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	State1----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	State1----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	State1----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	State1----parent	0	Important information! You can write\n  notes.	229	40
+node	State1----note-0	State1----parent	150	114
+option	node	State1----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	State1-State1----note-0	root	State1	State1----note-0
+label	edge	State1-State1----note-0	0		0	0
+option	edge-label	State1-State1----note-0	0	edgeLabels.inline	true
+option	edge-label	State1-State1----note-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	253	339
+place	State1	root	58.499999999999986	12	136	58
+place	State1----parent	root	27.5	120	198	207
+place-label	node	State1----parent	0	-15.5	5	229	40
+place	State1----note-0	State1----parent	24	69	150	114
+route	State1-State1----note-0	root	root
+section	State1-State1----note-0	State1-State1----note-0_s0	126.49999999999999,70	126.49999999999999,189	126.49999999999999,110	State1	State1----note-0
+place-label	edge	State1-State1----note-0	0	0	0	0	0

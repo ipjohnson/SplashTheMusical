@@ -1,0 +1,83 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 76777a6c5a2b7352
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	**Two**	root
+option	node	**Two**		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	**Two**		nodeSize.minimum	(36, 0)
+option	node	**Two**		spacing.baseValue	24
+option	node	**Two**		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	**Two**		elk.spacing.edgeEdge	20
+option	node	**Two**		spacing.nodeNode	50
+option	node	**Two**		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	**Two**		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	**Two**		elk.layered.mergeEdges	false
+option	node	**Two**		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	**Two**		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	**Two**		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	**Two**		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	**Two**		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	**Two**	0	**Two**	28	19
+node	c	**Two**	150	72
+node	d	**Two**	150	51
+node	One	root
+option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	One		nodeSize.minimum	(35, 0)
+option	node	One		spacing.baseValue	24
+option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	One		elk.spacing.edgeEdge	20
+option	node	One		spacing.nodeNode	50
+option	node	One		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	One		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	One		elk.layered.mergeEdges	false
+option	node	One		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	One		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	One	0	One	27	19
+node	a	One	150	72
+node	b	One	216	112
+edge	L_a_b_0	root	a	b
+label	edge	L_a_b_0	0	1o	16	21
+option	edge-label	L_a_b_0	0	edgeLabels.inline	true
+option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
+edge	L_c_d_0	root	c	d
+label	edge	L_c_d_0	0	1o **ipa**	41	21
+option	edge-label	L_c_d_0	0	edgeLabels.inline	true
+option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	502	392
+place	**Two**	root	32.5	12	437	144
+place-label	node	**Two**	0	204.5	5	28	19
+place	c	**Two**	24	48	150	72
+place	d	**Two**	263	58.5	150	51
+place	One	root	12	196	478	184
+place-label	node	One	0	225.5	5	27	19
+place	a	One	24	68	150	72
+place	b	One	238	48	216	112
+route	L_a_b_0	root	One
+section	L_a_b_0	L_a_b_0_s0	174,104	238,104		a	b
+place-label	edge	L_a_b_0	0	198	93	16	21
+route	L_c_d_0	root	**Two**
+section	L_c_d_0	L_c_d_0_s0	174,84	263,84		c	d
+place-label	edge	L_c_d_0	0	198	73	41	21

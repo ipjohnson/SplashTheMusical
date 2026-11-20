@@ -1,0 +1,110 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4f3b3a07904c950c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Normal	root	100	121
+option	node	Normal		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Hollow	root	76	121
+option	node	Hollow		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Business	root	77	121
+node	Checkout	root	160	58
+option	node	Checkout		elk.portAlignment.default	CENTER
+option	node	Checkout		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	note-0	root	140	62
+option	node	note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Payload	root	138	118
+node	Authentication_System	root
+option	node	Authentication_System		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Authentication_System		nodeSize.minimum	(161, 0)
+option	node	Authentication_System		spacing.baseValue	24
+option	node	Authentication_System		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Authentication_System		elk.spacing.edgeEdge	20
+option	node	Authentication_System		spacing.nodeNode	50
+option	node	Authentication_System		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Authentication_System		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Authentication_System		elk.layered.mergeEdges	false
+option	node	Authentication_System		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Authentication_System		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Authentication_System		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Authentication_System		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Authentication_System		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Authentication_System		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Authentication_System	0	Authentication System	141	19
+node	Login	Authentication_System	160	58
+option	node	Login		elk.portAlignment.default	CENTER
+option	node	Login		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Reset	Authentication_System	152	42
+option	node	Reset		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge-0	root	Normal	Login
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Hollow	Reset
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Business	Checkout
+label	edge	edge-2	0		0	0
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+edge	edge-3	root	Login	Checkout
+label	edge	edge-3	0	«include»	49	15
+option	edge-label	edge-3	0	edgeLabels.inline	true
+option	edge-label	edge-3	0	edgeLabels.placement	CENTER
+edge	edge-4	root	Checkout	Payload
+label	edge	edge-4	0		0	0
+option	edge-label	edge-4	0	edgeLabels.inline	true
+option	edge-label	edge-4	0	edgeLabels.placement	CENTER
+edge	note-0-edge	root	note-0	Login
+label	edge	note-0-edge	0		0	0
+option	edge-label	note-0-edge	0	edgeLabels.inline	true
+option	edge-label	note-0-edge	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	927	408
+place	Normal	root	52	12	100	121
+place	Hollow	root	76	275	76	121
+place	Business	root	460	246	77	121
+place	Checkout	root	577	223.25	160	58
+place	note-0	root	12	173	140	62
+place	Payload	root	777	193.25	138	118
+place	Authentication_System	root	202	121	208	222
+place-label	node	Authentication_System	0	33.5	5	141	19
+place	Login	Authentication_System	24	48	160	58
+place	Reset	Authentication_System	24	156	152	42
+route	edge-0	root	root
+section	edge-0	edge-0_s0	152,72.5	226,192	172,72.5 172,192 192,192	Normal	Login
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	152,335.5	226,298	172,335.5 172,298 192,298	Hollow	Reset
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	537,306.5	577,262.25	557,306.5 557,262.25	Business	Checkout
+place-label	edge	edge-2	0	0	0	0	0
+route	edge-3	root	root
+section	edge-3	edge-3_s0	386,198	577,242.25	420,198 557,198 557,242.25	Login	Checkout
+place-label	edge	edge-3	0	474	190	49	15
+route	edge-4	root	root
+section	edge-4	edge-4_s0	737,252.25	777,252.25		Checkout	Payload
+place-label	edge	edge-4	0	0	0	0	0
+route	note-0-edge	root	root
+section	note-0-edge	note-0-edge_s0	152,204	226,204	192,204	note-0	Login
+place-label	edge	note-0-edge	0	0	0	0	0

@@ -1,0 +1,122 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1963f81099b1d706
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	card	root	152	66
+node	fg	root	152	108
+node	bg	root	152	87
+node	intake	root	152	66
+node	cont	root	152	87
+node	d	root	152	87
+node	you	root	152	108
+node	pool	root	152	66
+node	snap	root	152	87
+node	gates	root	152	87
+edge	L_card_fg_0	root	card	fg
+label	edge	L_card_fg_0	0		0	0
+option	edge-label	L_card_fg_0	0	edgeLabels.inline	true
+option	edge-label	L_card_fg_0	0	edgeLabels.placement	CENTER
+edge	L_card_bg_0	root	card	bg
+label	edge	L_card_bg_0	0		0	0
+option	edge-label	L_card_bg_0	0	edgeLabels.inline	true
+option	edge-label	L_card_bg_0	0	edgeLabels.placement	CENTER
+edge	L_intake_fg_0	root	intake	fg
+label	edge	L_intake_fg_0	0		0	0
+option	edge-label	L_intake_fg_0	0	edgeLabels.inline	true
+option	edge-label	L_intake_fg_0	0	edgeLabels.placement	CENTER
+edge	L_intake_bg_0	root	intake	bg
+label	edge	L_intake_bg_0	0		0	0
+option	edge-label	L_intake_bg_0	0	edgeLabels.inline	true
+option	edge-label	L_intake_bg_0	0	edgeLabels.placement	CENTER
+edge	L_cont_d_0	root	cont	d
+label	edge	L_cont_d_0	0		0	0
+option	edge-label	L_cont_d_0	0	edgeLabels.inline	true
+option	edge-label	L_cont_d_0	0	edgeLabels.placement	CENTER
+edge	L_you_d_0	root	you	d
+label	edge	L_you_d_0	0		0	0
+option	edge-label	L_you_d_0	0	edgeLabels.inline	true
+option	edge-label	L_you_d_0	0	edgeLabels.placement	CENTER
+edge	L_fg_d_0	root	fg	d
+label	edge	L_fg_d_0	0		0	0
+option	edge-label	L_fg_d_0	0	edgeLabels.inline	true
+option	edge-label	L_fg_d_0	0	edgeLabels.placement	CENTER
+edge	L_bg_d_0	root	bg	d
+label	edge	L_bg_d_0	0		0	0
+option	edge-label	L_bg_d_0	0	edgeLabels.inline	true
+option	edge-label	L_bg_d_0	0	edgeLabels.placement	CENTER
+edge	L_d_pool_0	root	d	pool
+label	edge	L_d_pool_0	0		0	0
+option	edge-label	L_d_pool_0	0	edgeLabels.inline	true
+option	edge-label	L_d_pool_0	0	edgeLabels.placement	CENTER
+edge	L_snap_gates_0	root	snap	gates
+label	edge	L_snap_gates_0	0		0	0
+option	edge-label	L_snap_gates_0	0	edgeLabels.inline	true
+option	edge-label	L_snap_gates_0	0	edgeLabels.placement	CENTER
+edge	L_gates_d_0	root	gates	d
+label	edge	L_gates_d_0	0	allow or hold	80	21
+option	edge-label	L_gates_d_0	0	edgeLabels.inline	true
+option	edge-label	L_gates_d_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	984	621.5
+place	card	root	204	26	152	66
+place	fg	root	416	12	152	108
+place	bg	root	416	160	152	87
+place	intake	root	204	174	152	66
+place	cont	root	416	374.5	152	87
+place	d	root	628	280	152	87
+place	you	root	416	501.5	152	108
+place	pool	root	820	290.5	152	66
+place	snap	root	12	280	152	87
+place	gates	root	204	280	152	87
+route	L_card_fg_0	root	root
+section	L_card_fg_0	L_card_fg_0_s0	356,51.333333333333336	416,51.333333333333336		card	fg
+place-label	edge	L_card_fg_0	0	0	0	0	0
+route	L_card_bg_0	root	root
+section	L_card_bg_0	L_card_bg_0_s0	356,66.66666666666666	416,192.33333333333331	396,66.66666666666666 396,192.33333333333331	card	bg
+place-label	edge	L_card_bg_0	0	0	0	0	0
+route	L_intake_fg_0	root	root
+section	L_intake_fg_0	L_intake_fg_0_s0	356,199.33333333333334	416,80.66666666666667	376,199.33333333333334 376,80.66666666666667	intake	fg
+place-label	edge	L_intake_fg_0	0	0	0	0	0
+route	L_intake_bg_0	root	root
+section	L_intake_bg_0	L_intake_bg_0_s0	356,214.66666666666666	416,214.66666666666666		intake	bg
+place-label	edge	L_intake_bg_0	0	0	0	0	0
+route	L_cont_d_0	root	root
+section	L_cont_d_0	L_cont_d_0_s0	568,418	628,334.66666666666663	588,418 588,334.66666666666663	cont	d
+place-label	edge	L_cont_d_0	0	0	0	0	0
+route	L_you_d_0	root	root
+section	L_you_d_0	L_you_d_0_s0	568,555.5	628,345.8333333333333	608,555.5 608,345.8333333333333	you	d
+place-label	edge	L_you_d_0	0	0	0	0	0
+route	L_fg_d_0	root	root
+section	L_fg_d_0	L_fg_d_0_s0	568,66	628,301.1666666666667	608,66 608,301.1666666666667	fg	d
+place-label	edge	L_fg_d_0	0	0	0	0	0
+route	L_bg_d_0	root	root
+section	L_bg_d_0	L_bg_d_0_s0	568,203.5	628,312.3333333333333	588,203.5 588,312.3333333333333	bg	d
+place-label	edge	L_bg_d_0	0	0	0	0	0
+route	L_d_pool_0	root	root
+section	L_d_pool_0	L_d_pool_0_s0	780,323.5	820,323.5		d	pool
+place-label	edge	L_d_pool_0	0	0	0	0	0
+route	L_snap_gates_0	root	root
+section	L_snap_gates_0	L_snap_gates_0_s0	164,323.5	204,323.5		snap	gates
+place-label	edge	L_snap_gates_0	0	0	0	0	0
+route	L_gates_d_0	root	root
+section	L_gates_d_0	L_gates_d_0_s0	356,323.5	628,323.5		gates	d
+place-label	edge	L_gates_d_0	0	452	312.5	80	21

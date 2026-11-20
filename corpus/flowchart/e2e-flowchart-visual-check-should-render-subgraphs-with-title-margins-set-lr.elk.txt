@@ -1,0 +1,135 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 411db16b3b0fe0b8
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	TOP	root
+option	node	TOP		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	TOP		nodeSize.minimum	(37, 0)
+option	node	TOP		spacing.baseValue	24
+option	node	TOP		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	TOP		elk.spacing.edgeEdge	20
+option	node	TOP		spacing.nodeNode	50
+option	node	TOP		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	TOP		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	TOP		elk.layered.mergeEdges	false
+option	node	TOP		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	TOP		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	TOP		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	TOP		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	TOP		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	TOP		elk.algorithm	elk.layered
+option	node	TOP		elk.direction	DOWN
+option	node	TOP		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	TOP	0	TOP	29	19
+node	B2	TOP
+option	node	B2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	B2		nodeSize.minimum	(25, 0)
+option	node	B2		spacing.baseValue	24
+option	node	B2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	B2		elk.spacing.edgeEdge	20
+option	node	B2		spacing.nodeNode	50
+option	node	B2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	B2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	B2		elk.layered.mergeEdges	false
+option	node	B2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	B2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	B2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	B2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	B2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	B2		elk.algorithm	elk.layered
+option	node	B2		elk.direction	UP
+option	node	B2		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	B2	0	B2	17	19
+node	i2	B2	152	45
+node	f2	B2	152	45
+node	B1	TOP
+option	node	B1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	B1		nodeSize.minimum	(25, 0)
+option	node	B1		spacing.baseValue	24
+option	node	B1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	B1		elk.spacing.edgeEdge	20
+option	node	B1		spacing.nodeNode	50
+option	node	B1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	B1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	B1		elk.layered.mergeEdges	false
+option	node	B1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	B1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	B1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	B1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	B1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	B1		elk.algorithm	elk.layered
+option	node	B1		elk.direction	LEFT
+option	node	B1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	B1	0	B1	17	19
+node	i1	B1	152	45
+node	f1	B1	152	45
+node	A	root	152	45
+node	B	root	152	45
+edge	L_i1_f1_0	root	i1	f1
+label	edge	L_i1_f1_0	0		0	0
+option	edge-label	L_i1_f1_0	0	edgeLabels.inline	true
+option	edge-label	L_i1_f1_0	0	edgeLabels.placement	CENTER
+edge	L_i2_f2_0	root	i2	f2
+label	edge	L_i2_f2_0	0		0	0
+option	edge-label	L_i2_f2_0	0	edgeLabels.inline	true
+option	edge-label	L_i2_f2_0	0	edgeLabels.placement	CENTER
+edge	L_A_TOP_0	root	A	TOP
+label	edge	L_A_TOP_0	0		0	0
+option	edge-label	L_A_TOP_0	0	edgeLabels.inline	true
+option	edge-label	L_A_TOP_0	0	edgeLabels.placement	CENTER
+edge	L_TOP_B_0	root	TOP	B
+label	edge	L_TOP_B_0	0		0	0
+option	edge-label	L_TOP_B_0	0	edgeLabels.inline	true
+option	edge-label	L_TOP_B_0	0	edgeLabels.placement	CENTER
+edge	L_B1_B2_0	root	B1	B2
+label	edge	L_B1_B2_0	0		0	0
+option	edge-label	L_B1_B2_0	0	edgeLabels.inline	true
+option	edge-label	L_B1_B2_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	832	423
+place	TOP	root	204	12	424	399
+place-label	node	TOP	0	197.5	5	29	19
+place	B2	TOP	112.00000000000001	189	200	186
+place-label	node	B2	0	91.5	5	17	19
+place	i2	B2	24	117	152	45
+place	f2	B2	24	48	152	45
+place	B1	TOP	24	48	376	117
+place-label	node	B1	0	179.5	5	17	19
+place	i1	B1	200	48	152	45
+place	f1	B1	24	48	152	45
+place	A	root	12	189	152	45
+place	B	root	668	189	152	45
+route	L_i1_f1_0	root	B1
+section	L_i1_f1_0	L_i1_f1_0_s0	200,70.5	176,70.5		i1	f1
+place-label	edge	L_i1_f1_0	0	0	0	0	0
+route	L_i2_f2_0	root	B2
+section	L_i2_f2_0	L_i2_f2_0_s0	99.99999999999999,117	99.99999999999999,93		i2	f2
+place-label	edge	L_i2_f2_0	0	0	0	0	0
+route	L_A_TOP_0	root	root
+section	L_A_TOP_0	L_A_TOP_0_s0	164,211.5	204,211.5		A	TOP
+place-label	edge	L_A_TOP_0	0	0	0	0	0
+route	L_TOP_B_0	root	root
+section	L_TOP_B_0	L_TOP_B_0_s0	628,211.5	668,211.5		TOP	B
+place-label	edge	L_TOP_B_0	0	0	0	0	0
+route	L_B1_B2_0	root	TOP
+section	L_B1_B2_0	L_B1_B2_0_s0	212,165	212,189		B1	B2
+place-label	edge	L_B1_B2_0	0	0	0	0	0

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 import { extractFacts } from './extract.mjs'
-import { dagreLayouts, hookAddDirective, hookDagre, hookPreprocess, readShapes, readThemeNames } from './dumps.mjs'
+import { dagreLayouts, hookAddDirective, hookDagre, hookElk, hookPreprocess, readShapes, readThemeNames, recordElkLayouts } from './dumps.mjs'
 
 export const root = path.dirname(fileURLToPath(import.meta.url))
 
@@ -128,7 +128,7 @@ export async function openOracle() {
 		style.textContent = `* { font-family: "${family}" !important; }`
 		document.head.append(style)
 	}, fontFamily, ['Helvetica', 'Verdana'], fontFaces)
-	await page.addScriptTag({ content: hookAddDirective(hookPreprocess(hookDagre(fs.readFileSync(path.join(mermaidDir, 'dist', 'mermaid.min.js'), 'utf8')))) })
+	await page.addScriptTag({ content: hookAddDirective(hookPreprocess(hookElk(hookDagre(fs.readFileSync(path.join(mermaidDir, 'dist', 'mermaid.min.js'), 'utf8'))))) })
 	// ZenUML is an external diagram, as it is for mermaid-cli and the mermaid live editor.
 	await page.addScriptTag({ path: path.join(root, 'node_modules', '@mermaid-js', 'mermaid-zenuml', 'dist', 'mermaid-zenuml.min.js') })
 	await page.addScriptTag({
@@ -159,13 +159,21 @@ export async function openOracle() {
 		return [...glyphs].map(([family, count]) => `font\t${family}\t${count}`)
 	}
 
-	// The files of one case: facts, and boxes when mermaid.js accepts it, and with `dagre` the dagre layouts of an accepted
-	// case of a type in dagreTypes, each as its text, or null when the case has none. unknownType names a type extract.mjs
-	// has no extractor for, and then nothing else is set. `name` is the case's file name without .mmd, which seeds the
-	// page's Math.random and names the SVG.
+	// The files of one case: facts, and boxes when mermaid.js accepts it, the ELK layouts of an accepted case that mermaid.js
+	// lays out with ELK, and with `dagre` the dagre layouts of an accepted case of a type in dagreTypes, each as its text,
+	// or null when the case has none. unknownType names a type extract.mjs has no extractor for, and then nothing else is
+	// set. `name` is the case's file name without .mmd, which seeds the page's Math.random and names the SVG.
 	async function run(source, name, { dagre = true } = {}) {
 		await page.evaluate(seed => globalThis.__oracleSeed(seed), seedOf(name))
-		const result = await page.evaluate(extractFacts, source, name, shapes)
+		// The ELK recorder is set for the case's own render only, which lays it out as its config says. The dagre render
+		// below sets `layout: dagre`, so it calls ELK only for a case whose config asks for an ELK algorithm itself.
+		await page.evaluate(recordElkLayouts)
+		let result, elkLayouts
+		try {
+			result = await page.evaluate(extractFacts, source, name, shapes)
+		} finally {
+			elkLayouts = await page.evaluate(() => globalThis.__oracleElk.take())
+		}
 		if (result.unknownType) return { unknownType: result.unknownType }
 		const header = [`# mermaid ${version}`, `# source ${sourceHash(source)}`]
 		const body = result.error === undefined
@@ -189,7 +197,10 @@ export async function openOracle() {
 			}
 		}
 		const dagreText = layouts ? ['# mermaid.js dagre layouts. Refresh with: mise run oracle', ...header, ...layouts].join('\n') + '\n' : null
-		return { error: result.error, facts, boxes, dagre: dagreText, dagreError, svg: result.svg }
+		const elkText = result.error === undefined && elkLayouts.length
+			? ['# mermaid.js ELK layouts. Refresh with: mise run oracle', ...header, ...elkLayouts].join('\n') + '\n'
+			: null
+		return { error: result.error, facts, boxes, dagre: dagreText, dagreError, elk: elkText, svg: result.svg }
 	}
 
 	return { version, page, shapeTable, themeNames, run, close: () => browser.close() }

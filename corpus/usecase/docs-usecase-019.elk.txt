@@ -1,0 +1,95 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9f28c6340d44d92b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer	root	82	121
+option	node	Customer		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Catalogue	root
+option	node	Catalogue		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Catalogue		nodeSize.minimum	(85, 0)
+option	node	Catalogue		spacing.baseValue	24
+option	node	Catalogue		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Catalogue		elk.spacing.edgeEdge	20
+option	node	Catalogue		spacing.nodeNode	50
+option	node	Catalogue		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Catalogue		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Catalogue		elk.layered.mergeEdges	false
+option	node	Catalogue		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Catalogue		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Catalogue		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Catalogue		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Catalogue		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Catalogue		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Catalogue	0	Catalogue	65	19
+node	Browse	Catalogue	160	58
+option	node	Browse		elk.portAlignment.default	CENTER
+option	node	Browse		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Payment	root
+option	node	Payment		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Payment		nodeSize.minimum	(76, 0)
+option	node	Payment		spacing.baseValue	24
+option	node	Payment		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Payment		elk.spacing.edgeEdge	20
+option	node	Payment		spacing.nodeNode	50
+option	node	Payment		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Payment		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Payment		elk.layered.mergeEdges	false
+option	node	Payment		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Payment		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Payment		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Payment		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Payment		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Payment		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Payment	0	Payment	56	19
+node	Checkout	Payment	160	58
+option	node	Checkout		elk.portAlignment.default	CENTER
+option	node	Checkout		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge-0	root	Customer	Browse
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Browse	Checkout
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+edge	edge-2	root	Browse	Checkout
+label	edge	edge-2	0	«include»	49	15
+option	edge-label	edge-2	0	edgeLabels.inline	true
+option	edge-label	edge-2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	721	161.5
+place	Customer	root	12	28.5	82	121
+place	Catalogue	root	144	12	208	130
+place-label	node	Catalogue	0	71.5	5	65	19
+place	Browse	Catalogue	24	48	160	58
+place	Payment	root	501	12	208	130
+place-label	node	Payment	0	76	5	56	19
+place	Checkout	Payment	24	48	160	58
+route	edge-0	root	root
+section	edge-0	edge-0_s0	94,89	168,89	134,89	Customer	Browse
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	328,83	525,83	362,83 382,83 382,74.5 426.5,74.5 471,74.5 471,83 491,83	Browse	Checkout
+place-label	edge	edge-1	0	0	0	0	0
+route	edge-2	root	root
+section	edge-2	edge-2_s0	328,95	525,95	362,95 382,95 382,103.5 471,103.5 471,95 491,95	Browse	Checkout
+place-label	edge	edge-2	0	402	95.5	49	15

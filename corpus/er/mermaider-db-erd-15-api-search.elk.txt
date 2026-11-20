@@ -1,0 +1,142 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 472a02b3ca9ece10
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-Repository-0	root	108	81
+node	entity-OpenApiSpec-1	root	127	81
+node	entity-OpenApiRepository-2	root	163	81
+node	entity-ApiVersionIndex-3	root	142	81
+node	entity-ApiSpecVersion-4	root	139	81
+node	entity-ApiDeclaration-5	root	132	81
+node	entity-Product-6	root	100	81
+node	entity-ApiTag-7	root	100	81
+node	entity-ApiOperation-8	root	123	81
+node	entity-ApiSupplementalDoc-9	root	172	81
+node	entity-Page-10	root	100	81
+node	entity-SearchDocument-11	root	150	81
+node	entity-SearchIndex-12	root	120	81
+edge	id_entity-Repository-0_entity-OpenApiSpec-1_0	root	entity-Repository-0	entity-OpenApiSpec-1
+label	edge	id_entity-Repository-0_entity-OpenApiSpec-1_0	0	publishes	60	21
+option	edge-label	id_entity-Repository-0_entity-OpenApiSpec-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-Repository-0_entity-OpenApiSpec-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	root	entity-OpenApiRepository-2	entity-OpenApiSpec-1
+label	edge	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	0	org/repo/branch/spec	136	21
+option	edge-label	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	0	edgeLabels.placement	CENTER
+edge	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	root	entity-OpenApiRepository-2	entity-ApiVersionIndex-3
+label	edge	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	0	index.json	64	21
+option	edge-label	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	root	entity-OpenApiSpec-1	entity-ApiSpecVersion-4
+label	edge	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	0	per version	71	21
+option	edge-label	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	root	entity-ApiVersionIndex-3	entity-ApiSpecVersion-4
+label	edge	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	0	lists	24	21
+option	edge-label	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	root	entity-ApiDeclaration-5	entity-OpenApiSpec-1
+label	edge	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	0	spec + repository	109	21
+option	edge-label	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiDeclaration-5_entity-Product-6_6	root	entity-ApiDeclaration-5	entity-Product-6
+label	edge	id_entity-ApiDeclaration-5_entity-Product-6_6	0	product	48	21
+option	edge-label	id_entity-ApiDeclaration-5_entity-Product-6_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiDeclaration-5_entity-Product-6_6	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	root	entity-ApiDeclaration-5	entity-ApiSpecVersion-4
+label	edge	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	0	renders	49	21
+option	edge-label	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	root	entity-ApiSpecVersion-4	entity-ApiTag-7
+label	edge	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	0	tags	27	21
+option	edge-label	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiTag-7_entity-ApiOperation-8_9	root	entity-ApiTag-7	entity-ApiOperation-8
+label	edge	id_entity-ApiTag-7_entity-ApiOperation-8_9	0	operations	67	21
+option	edge-label	id_entity-ApiTag-7_entity-ApiOperation-8_9	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiTag-7_entity-ApiOperation-8_9	0	edgeLabels.placement	CENTER
+edge	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	root	entity-ApiSupplementalDoc-9	entity-ApiOperation-8
+label	edge	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	0	op-{id}	42	21
+option	edge-label	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	0	edgeLabels.inline	true
+option	edge-label	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-10_entity-SearchDocument-11_11	root	entity-Page-10	entity-SearchDocument-11
+label	edge	id_entity-Page-10_entity-SearchDocument-11_11	0	exported	56	21
+option	edge-label	id_entity-Page-10_entity-SearchDocument-11_11	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-10_entity-SearchDocument-11_11	0	edgeLabels.placement	CENTER
+edge	id_entity-SearchIndex-12_entity-SearchDocument-11_12	root	entity-SearchIndex-12	entity-SearchDocument-11
+label	edge	id_entity-SearchIndex-12_entity-SearchDocument-11_12	0	contains	53	21
+option	edge-label	id_entity-SearchIndex-12_entity-SearchDocument-11_12	0	edgeLabels.inline	true
+option	edge-label	id_entity-SearchIndex-12_entity-SearchDocument-11_12	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1012.5	853
+place	entity-Repository-0	root	12	12	108	81
+place	entity-OpenApiSpec-1	root	137.33333333333334	214	127	81
+place	entity-OpenApiRepository-2	root	175.49999999999994	12	163	81
+place	entity-ApiVersionIndex-3	root	309.41666666666663	214	142	81
+place	entity-ApiSpecVersion-4	root	305.8333333333333	396	139	81
+place	entity-ApiDeclaration-5	root	516.5833333333333	12	132	81
+place	entity-Product-6	root	532.5833333333333	214	100	81
+place	entity-ApiTag-7	root	325.3333333333333	578	100	81
+place	entity-ApiOperation-8	root	401.8333333333333	760	123	81
+place	entity-ApiSupplementalDoc-9	root	465.3333333333333	578	172	81
+place	entity-Page-10	root	740.5	12	100	81
+place	entity-SearchDocument-11	root	817.75	214	150	81
+place	entity-SearchIndex-12	root	880.5	12	120	81
+route	id_entity-Repository-0_entity-OpenApiSpec-1_0	root	root
+section	id_entity-Repository-0_entity-OpenApiSpec-1_0	id_entity-Repository-0_entity-OpenApiSpec-1_0_s0	66,93	174.08333333333334,214	66,174 174.08333333333334,174	entity-Repository-0	entity-OpenApiSpec-1
+place-label	edge	id_entity-Repository-0_entity-OpenApiSpec-1_0	0	36	133	60	21
+route	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	root	root
+section	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1_s0	233.16666666666663,93	200.83333333333334,214	233.16666666666663,113 200.83333333333334,113	entity-OpenApiRepository-2	entity-OpenApiSpec-1
+place-label	edge	id_entity-OpenApiRepository-2_entity-OpenApiSpec-1_1	0	132.83333333333334	133	136	21
+route	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	root	root
+section	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2_s0	280.83333333333326,93	380.41666666666663,214	280.83333333333326,113 348.0833333333333,113 348.0833333333333,194 380.41666666666663,194	entity-OpenApiRepository-2	entity-ApiVersionIndex-3
+place-label	edge	id_entity-OpenApiRepository-2_entity-ApiVersionIndex-3_2	0	316.0833333333333	133	64	21
+route	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	root	root
+section	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3_s0	200.83333333333334,295	345.5833333333333,396	200.83333333333334,376 345.5833333333333,376	entity-OpenApiSpec-1	entity-ApiSpecVersion-4
+place-label	edge	id_entity-OpenApiSpec-1_entity-ApiSpecVersion-4_3	0	165.33333333333334	335	71	21
+route	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	root	root
+section	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4_s0	380.41666666666663,295	375.3333333333333,396	380.41666666666663,376 375.3333333333333,376	entity-ApiVersionIndex-3	entity-ApiSpecVersion-4
+place-label	edge	id_entity-ApiVersionIndex-3_entity-ApiSpecVersion-4_4	0	368.41666666666663	335	24	21
+route	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	root	root
+section	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5_s0	554.5833333333333,93	227.58333333333334,214	554.5833333333333,113 454.5833333333333,113 454.5833333333333,174 227.58333333333334,174	entity-ApiDeclaration-5	entity-OpenApiSpec-1
+place-label	edge	id_entity-ApiDeclaration-5_entity-OpenApiSpec-1_5	0	400.0833333333333	133	109	21
+route	id_entity-ApiDeclaration-5_entity-Product-6_6	root	root
+section	id_entity-ApiDeclaration-5_entity-Product-6_6	id_entity-ApiDeclaration-5_entity-Product-6_6_s0	582.5833333333333,93	582.5833333333333,214		entity-ApiDeclaration-5	entity-Product-6
+place-label	edge	id_entity-ApiDeclaration-5_entity-Product-6_6	0	558.5833333333333	133	48	21
+route	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	root	root
+section	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7_s0	610.5833333333333,93	405.0833333333333,396	610.5833333333333,113 697.0833333333335,113 697.0833333333335,143.5 697.0833333333335,345.5 697.0833333333335,376 405.0833333333333,376	entity-ApiDeclaration-5	entity-ApiSpecVersion-4
+place-label	edge	id_entity-ApiDeclaration-5_entity-ApiSpecVersion-4_7	0	672.5833333333335	244	49	21
+route	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	root	root
+section	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8_s0	375.3333333333333,477	375.3333333333333,578		entity-ApiSpecVersion-4	entity-ApiTag-7
+place-label	edge	id_entity-ApiSpecVersion-4_entity-ApiTag-7_8	0	361.8333333333333	517	27	21
+route	id_entity-ApiTag-7_entity-ApiOperation-8_9	root	root
+section	id_entity-ApiTag-7_entity-ApiOperation-8_9	id_entity-ApiTag-7_entity-ApiOperation-8_9_s0	375.3333333333333,659	446.16666666666663,760	375.3333333333333,740 446.16666666666663,740	entity-ApiTag-7	entity-ApiOperation-8
+place-label	edge	id_entity-ApiTag-7_entity-ApiOperation-8_9	0	341.8333333333333	699	67	21
+route	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	root	root
+section	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10_s0	551.3333333333333,659	480.5,760	551.3333333333335,740 480.5,740	entity-ApiSupplementalDoc-9	entity-ApiOperation-8
+place-label	edge	id_entity-ApiSupplementalDoc-9_entity-ApiOperation-8_10	0	530.3333333333334	699	42	21
+route	id_entity-Page-10_entity-SearchDocument-11_11	root	root
+section	id_entity-Page-10_entity-SearchDocument-11_11	id_entity-Page-10_entity-SearchDocument-11_11_s0	790.5,93	871.0833333333335,214	790.5,174 871.0833333333335,174	entity-Page-10	entity-SearchDocument-11
+place-label	edge	id_entity-Page-10_entity-SearchDocument-11_11	0	762.5	133	56	21
+route	id_entity-SearchIndex-12_entity-SearchDocument-11_12	root	root
+section	id_entity-SearchIndex-12_entity-SearchDocument-11_12	id_entity-SearchIndex-12_entity-SearchDocument-11_12_s0	940.5,93	914.4166666666667,214	940.5,174 914.4166666666667,174	entity-SearchIndex-12	entity-SearchDocument-11
+place-label	edge	id_entity-SearchIndex-12_entity-SearchDocument-11_12	0	914	133	53	21

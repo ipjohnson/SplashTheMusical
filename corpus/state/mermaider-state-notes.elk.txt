@@ -1,0 +1,126 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0977316da5c45d0f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Active	root	136	37
+option	node	Active		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Paused	root	136	37
+option	node	Paused		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Done	root	136	37
+node	Active----parent	root
+option	node	Active----parent		spacing.baseValue	24
+option	node	Active----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Active----parent		elk.spacing.edgeEdge	20
+option	node	Active----parent		spacing.nodeNode	50
+option	node	Active----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Active----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Active----parent		elk.layered.mergeEdges	false
+option	node	Active----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Active----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Active----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Active----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Active----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Active----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Active----parent	0	This is the main working state	188	19
+node	Active----note-4	Active----parent	150	72
+option	node	Active----note-4		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Paused----parent	root
+option	node	Paused----parent		spacing.baseValue	24
+option	node	Paused----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Paused----parent		elk.spacing.edgeEdge	20
+option	node	Paused----parent		spacing.nodeNode	50
+option	node	Paused----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Paused----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Paused----parent		elk.layered.mergeEdges	false
+option	node	Paused----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Paused----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Paused----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Paused----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Paused----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Paused----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Paused----parent	0	Temporarily suspended	148	19
+node	Paused----note-5	Paused----parent	150	72
+option	node	Paused----note-5		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Active
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Active	Paused
+label	edge	edge1	0	pause	39	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Paused	Active
+label	edge	edge2	0	resume	48	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Active	Done
+label	edge	edge3	0	finish	33	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	Active-Active----note-4	root	Active	Active----note-4
+label	edge	Active-Active----note-4	0		0	0
+option	edge-label	Active-Active----note-4	0	edgeLabels.inline	true
+option	edge-label	Active-Active----note-4	0	edgeLabels.placement	CENTER
+edge	Paused----note-5-Paused	root	Paused----note-5	Paused
+label	edge	Paused----note-5-Paused	0		0	0
+option	edge-label	Paused----note-5-Paused	0	edgeLabels.inline	true
+option	edge-label	Paused----note-5-Paused	0	edgeLabels.placement	CENTER
+edge	edge6	root	Done	root_end
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	731.5	460
+place	root_start	root	288.4	12	14	14
+place	Active	root	230.39999999999998	66	136	37
+place	Paused	root	27	357	136	37
+place	Done	root	583.5	357	136	37
+place	Active----parent	root	397	173	198	144
+place-label	node	Active----parent	0	5	5	188	19
+place	Active----note-4	Active----parent	24	48	150	72
+place	Paused----parent	root	159	163	198	144
+place-label	node	Paused----parent	0	25	5	148	19
+place	Paused----note-5	Paused----parent	24	48	150	72
+place	root_end	root	641.5	434	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	298.4,26	298.4,66		root_start	Active
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	263.59999999999997,103	66,357	263.59999999999997,123 31.5,123 31.5,337 66,337	Active	Paused
+place-label	edge	edge1	0	12	229.5	39	21
+route	edge2	root	root
+section	edge2	edge2_s0	95,357	286.79999999999995,103	95,143 286.79999999999995,143	Paused	Active
+place-label	edge	edge2	0	71	229.5	48	21
+route	edge3	root	root
+section	edge3	edge3_s0	333.2,103	651.5,357	333.2,123 651.5,123	Active	Done
+place-label	edge	edge3	0	635	229.5	33	21
+route	Active-Active----note-4	root	root
+section	Active-Active----note-4	Active-Active----note-4_s0	310,103	496,221	310,143 496,143 496,163	Active	Active----note-4
+place-label	edge	Active-Active----note-4	0	0	0	0	0
+route	Paused----note-5-Paused	root	root
+section	Paused----note-5-Paused	Paused----note-5-Paused_s0	258,283	124,357	258,317 258,337 124,337	Paused----note-5	Paused
+place-label	edge	Paused----note-5-Paused	0	0	0	0	0
+route	edge6	root	root
+section	edge6	edge6_s0	651.5,394	651.5,434		Done	root_end
+place-label	edge	edge6	0	0	0	0	0

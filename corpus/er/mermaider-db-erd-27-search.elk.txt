@@ -1,0 +1,90 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 49d5c4dfe55711ec
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-SearchIndex-0	root	120	81
+node	entity-SearchDocument-1	root	150	81
+node	entity-Page-2	root	100	81
+node	entity-DocumentationDocument-3	root	201	81
+node	entity-Product-4	root	100	81
+node	entity-ParentDocument-5	root	147	81
+node	entity-AppliesToEntry-6	root	134	81
+node	entity-DocumentInference-7	root	165	81
+edge	id_entity-SearchIndex-0_entity-SearchDocument-1_0	root	entity-SearchIndex-0	entity-SearchDocument-1
+label	edge	id_entity-SearchIndex-0_entity-SearchDocument-1_0	0	contains	53	21
+option	edge-label	id_entity-SearchIndex-0_entity-SearchDocument-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-SearchIndex-0_entity-SearchDocument-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-DocumentationDocument-3_1	root	entity-Page-2	entity-DocumentationDocument-3
+label	edge	id_entity-Page-2_entity-DocumentationDocument-3_1	0	exported	56	21
+option	edge-label	id_entity-Page-2_entity-DocumentationDocument-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-DocumentationDocument-3_1	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationDocument-3_entity-Product-4_2	root	entity-DocumentationDocument-3	entity-Product-4
+label	edge	id_entity-DocumentationDocument-3_entity-Product-4_2	0	product	48	21
+option	edge-label	id_entity-DocumentationDocument-3_entity-Product-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationDocument-3_entity-Product-4_2	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationDocument-3_entity-Product-4_3	root	entity-DocumentationDocument-3	entity-Product-4
+label	edge	id_entity-DocumentationDocument-3_entity-Product-4_3	0	related_products	107	21
+option	edge-label	id_entity-DocumentationDocument-3_entity-Product-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationDocument-3_entity-Product-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	root	entity-DocumentationDocument-3	entity-ParentDocument-5
+label	edge	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	0	parents (breadcrumbs)	146	21
+option	edge-label	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	root	entity-DocumentationDocument-3	entity-AppliesToEntry-6
+label	edge	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	0	applies_to	65	21
+option	edge-label	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	root	entity-DocumentInference-7	entity-DocumentationDocument-3
+label	edge	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	0	decides product	101	21
+option	edge-label	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	616.7833333333333	489
+place	entity-SearchIndex-0	root	27	12	120	81
+place	entity-SearchDocument-1	root	12	194	150	81
+place	entity-Page-2	root	219.93333333333334	12	100	81
+place	entity-DocumentationDocument-3	root	202	194	201	81
+place	entity-Product-4	root	110.20000000000002	396	100	81
+place	entity-ParentDocument-5	root	283.78333333333336	396	147	81
+place	entity-AppliesToEntry-6	root	470.78333333333336	396	134	81
+place	entity-DocumentInference-7	root	359.9333333333334	12	165	81
+route	id_entity-SearchIndex-0_entity-SearchDocument-1_0	root	root
+section	id_entity-SearchIndex-0_entity-SearchDocument-1_0	id_entity-SearchIndex-0_entity-SearchDocument-1_0_s0	87,93	87,194		entity-SearchIndex-0	entity-SearchDocument-1
+place-label	edge	id_entity-SearchIndex-0_entity-SearchDocument-1_0	0	60.5	133	53	21
+route	id_entity-Page-2_entity-DocumentationDocument-3_1	root	root
+section	id_entity-Page-2_entity-DocumentationDocument-3_1	id_entity-Page-2_entity-DocumentationDocument-3_1_s0	269.93333333333334,93	272.33333333333337,194	269.93333333333334,174 272.33333333333337,174	entity-Page-2	entity-DocumentationDocument-3
+place-label	edge	id_entity-Page-2_entity-DocumentationDocument-3_1	0	241.93333333333334	133	56	21
+route	id_entity-DocumentationDocument-3_entity-Product-4_2	root	root
+section	id_entity-DocumentationDocument-3_entity-Product-4_2	id_entity-DocumentationDocument-3_entity-Product-4_2_s0	248.2,275	146.86666666666667,396	248.2,295 111.45000000000005,295 111.45000000000005,376 146.86666666666667,376	entity-DocumentationDocument-3	entity-Product-4
+place-label	edge	id_entity-DocumentationDocument-3_entity-Product-4_2	0	87.45000000000005	335	48	21
+route	id_entity-DocumentationDocument-3_entity-Product-4_3	root	root
+section	id_entity-DocumentationDocument-3_entity-Product-4_3	id_entity-DocumentationDocument-3_entity-Product-4_3_s0	284.4,275	173.53333333333336,396	284.4,315 208.95000000000005,315 208.95000000000005,376 173.53333333333336,376	entity-DocumentationDocument-3	entity-Product-4
+place-label	edge	id_entity-DocumentationDocument-3_entity-Product-4_3	0	155.45000000000005	335	107	21
+route	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	root	root
+section	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4_s0	320.6,275	357.28333333333336,396	320.6,315 357.28333333333336,315	entity-DocumentationDocument-3	entity-ParentDocument-5
+place-label	edge	id_entity-DocumentationDocument-3_entity-ParentDocument-5_4	0	284.28333333333336	335	146	21
+route	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	root	root
+section	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5_s0	356.8,275	537.7833333333333,396	356.8,295 537.7833333333333,295	entity-DocumentationDocument-3	entity-AppliesToEntry-6
+place-label	edge	id_entity-DocumentationDocument-3_entity-AppliesToEntry-6_5	0	505.28333333333336	335	65	21
+route	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	root	root
+section	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6_s0	442.4333333333334,93	332.6666666666667,194	442.4333333333334,174 332.6666666666667,174	entity-DocumentInference-7	entity-DocumentationDocument-3
+place-label	edge	id_entity-DocumentInference-7_entity-DocumentationDocument-3_6	0	391.9333333333334	133	101	21

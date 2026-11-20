@@ -1,0 +1,42 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8c6efc27547fc975
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Admin	root	138	144
+node	System_Administrator	root	140	142
+node	__Automation__	root	100	121
+node	Login	root	160	76
+option	node	Login		elk.portAlignment.default	CENTER
+node	Report	root	152	42
+node	Reset_password	root	160	58
+option	node	Reset_password		elk.portAlignment.default	CENTER
+node	__Markdown___use_case	root	160	58
+option	node	__Markdown___use_case		elk.portAlignment.default	CENTER
+result
+place	root		0	0	184	905
+place	Admin	root	23	12	138	144
+place	System_Administrator	root	22	196	140	142
+place	__Automation__	root	42	378	100	121
+place	Login	root	12	539	160	76
+place	Report	root	16	655	152	42
+place	Reset_password	root	12	737	160	58
+place	__Markdown___use_case	root	12	835	160	58

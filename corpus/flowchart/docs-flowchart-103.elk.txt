@@ -1,0 +1,107 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4b7f53d8caa034dd
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	subgraph2	root
+option	node	subgraph2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subgraph2		nodeSize.minimum	(76, 0)
+option	node	subgraph2		spacing.baseValue	24
+option	node	subgraph2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subgraph2		elk.spacing.edgeEdge	20
+option	node	subgraph2		spacing.nodeNode	50
+option	node	subgraph2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subgraph2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subgraph2		elk.layered.mergeEdges	false
+option	node	subgraph2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subgraph2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subgraph2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subgraph2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subgraph2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	subgraph2		elk.algorithm	elk.layered
+option	node	subgraph2		elk.direction	DOWN
+option	node	subgraph2		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	subgraph2	0	subgraph2	68	19
+node	top2	subgraph2	152	45
+option	node	top2		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	bottom2	subgraph2	152	45
+node	subgraph1	root
+option	node	subgraph1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subgraph1		nodeSize.minimum	(76, 0)
+option	node	subgraph1		spacing.baseValue	24
+option	node	subgraph1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subgraph1		elk.spacing.edgeEdge	20
+option	node	subgraph1		spacing.nodeNode	50
+option	node	subgraph1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subgraph1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subgraph1		elk.layered.mergeEdges	false
+option	node	subgraph1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subgraph1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subgraph1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subgraph1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subgraph1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	subgraph1		elk.algorithm	elk.layered
+option	node	subgraph1		elk.direction	DOWN
+option	node	subgraph1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	subgraph1	0	subgraph1	68	19
+node	top1	subgraph1	152	45
+node	bottom1	subgraph1	152	45
+node	outside	root	152	45
+option	node	outside		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_top1_bottom1_0	root	top1	bottom1
+label	edge	L_top1_bottom1_0	0		0	0
+option	edge-label	L_top1_bottom1_0	0	edgeLabels.inline	true
+option	edge-label	L_top1_bottom1_0	0	edgeLabels.placement	CENTER
+edge	L_top2_bottom2_0	root	top2	bottom2
+label	edge	L_top2_bottom2_0	0		0	0
+option	edge-label	L_top2_bottom2_0	0	edgeLabels.inline	true
+option	edge-label	L_top2_bottom2_0	0	edgeLabels.placement	CENTER
+edge	L_outside_subgraph1_0	root	outside	subgraph1
+label	edge	L_outside_subgraph1_0	0		0	0
+option	edge-label	L_outside_subgraph1_0	0	edgeLabels.inline	true
+option	edge-label	L_outside_subgraph1_0	0	edgeLabels.placement	CENTER
+edge	L_outside_top2_0	root	outside	top2
+label	edge	L_outside_top2_0	0		0	0
+option	edge-label	L_outside_top2_0	0	edgeLabels.inline	true
+option	edge-label	L_outside_top2_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	602	367
+place	subgraph2	root	214	238	376	117
+place-label	node	subgraph2	0	154	5	68	19
+place	top2	subgraph2	24	48	152	45
+place	bottom2	subgraph2	200	48	152	45
+place	subgraph1	root	214	12	200	186
+place-label	node	subgraph1	0	66	5	68	19
+place	top1	subgraph1	24	48	152	45
+place	bottom1	subgraph1	24	117	152	45
+place	outside	root	12	184.25	152	45
+route	L_top1_bottom1_0	root	subgraph1
+section	L_top1_bottom1_0	L_top1_bottom1_0_s0	99.99999999999999,93	99.99999999999999,117		top1	bottom1
+place-label	edge	L_top1_bottom1_0	0	0	0	0	0
+route	L_top2_bottom2_0	root	subgraph2
+section	L_top2_bottom2_0	L_top2_bottom2_0_s0	176,70.5	200,70.5		top2	bottom2
+place-label	edge	L_top2_bottom2_0	0	0	0	0	0
+route	L_outside_subgraph1_0	root	root
+section	L_outside_subgraph1_0	L_outside_subgraph1_0_s0	164,202.58333333333334	214,105	184,202.58333333333334 184,105	outside	subgraph1
+place-label	edge	L_outside_subgraph1_0	0	0	0	0	0
+route	L_outside_top2_0	root	root
+section	L_outside_top2_0	L_outside_top2_0_s0	164,210.91666666666669	238,308.5	184,210.91666666666669 184,308.5 204,308.5	outside	top2
+place-label	edge	L_outside_top2_0	0	0	0	0	0

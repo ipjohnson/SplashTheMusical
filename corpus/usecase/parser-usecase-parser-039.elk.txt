@@ -1,0 +1,66 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8c848c98d0e2e3bf
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Payment_service	root
+option	node	Payment_service		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Payment_service		nodeSize.minimum	(125, 0)
+option	node	Payment_service		spacing.baseValue	24
+option	node	Payment_service		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Payment_service		elk.spacing.edgeEdge	20
+option	node	Payment_service		spacing.nodeNode	50
+option	node	Payment_service		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Payment_service		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Payment_service		elk.layered.mergeEdges	false
+option	node	Payment_service		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Payment_service		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Payment_service		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Payment_service		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Payment_service		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Payment_service	0	Payment service	105	19
+node	Authorize	Payment_service	160	58
+option	node	Authorize		elk.portAlignment.default	CENTER
+node	Billing	root
+option	node	Billing		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Billing		nodeSize.minimum	(57, 0)
+option	node	Billing		spacing.baseValue	24
+option	node	Billing		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Billing		elk.spacing.edgeEdge	20
+option	node	Billing		spacing.nodeNode	50
+option	node	Billing		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Billing		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Billing		elk.layered.mergeEdges	false
+option	node	Billing		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Billing		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Billing		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Billing		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Billing		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	Billing	0	Billing	37	19
+node	Invoice	Billing	152	42
+result
+place	root		0	0	232	308
+place	Payment_service	root	12	12	208	130
+place-label	node	Payment_service	0	51.5	5	105	19
+place	Authorize	Payment_service	24	48	160	58
+place	Billing	root	16	182	200	114
+place-label	node	Billing	0	81.5	5	37	19
+place	Invoice	Billing	24	48	152	42

@@ -1,0 +1,79 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f00e45290e6cf71d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CodexSite-0	root	105	81
+node	entity-Registry-1	root	100	81
+node	entity-CodexGroup-2	root	121	81
+node	entity-CodexDocumentationSet-3	root	198	81
+node	entity-DocumentationSet-4	root	157	81
+node	entity-LinkRegistry-5	root	118	81
+edge	id_entity-CodexSite-0_entity-Registry-1_0	root	entity-CodexSite-0	entity-Registry-1
+label	edge	id_entity-CodexSite-0_entity-Registry-1_0	0	environment = registry	142	21
+option	edge-label	id_entity-CodexSite-0_entity-Registry-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CodexSite-0_entity-Registry-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-CodexSite-0_entity-CodexGroup-2_1	root	entity-CodexSite-0	entity-CodexGroup-2
+label	edge	id_entity-CodexSite-0_entity-CodexGroup-2_1	0	groups	44	21
+option	edge-label	id_entity-CodexSite-0_entity-CodexGroup-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-CodexSite-0_entity-CodexGroup-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	root	entity-CodexSite-0	entity-CodexDocumentationSet-3
+label	edge	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	0	from LinkRegistry	111	21
+option	edge-label	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	root	entity-CodexDocumentationSet-3	entity-DocumentationSet-4
+label	edge	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	0	docset	42	21
+option	edge-label	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	0	edgeLabels.placement	CENTER
+edge	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	root	entity-CodexDocumentationSet-3	entity-CodexGroup-2
+label	edge	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	0	codex.group	79	21
+option	edge-label	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	0	edgeLabels.placement	CENTER
+edge	id_entity-Registry-1_entity-LinkRegistry-5_5	root	entity-Registry-1	entity-LinkRegistry-5
+label	edge	id_entity-Registry-1_entity-LinkRegistry-5_5	0	git: elastic/codex-link-index/{registry}	200	42
+option	edge-label	id_entity-Registry-1_entity-LinkRegistry-5_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-Registry-1_entity-LinkRegistry-5_5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	551.0833333333334	490
+place	entity-CodexSite-0	root	190.83333333333331	12	105	81
+place	entity-Registry-1	root	62	194	100	81
+place	entity-CodexGroup-2	root	213.08333333333334	397	121	81
+place	entity-CodexDocumentationSet-3	root	321.3333333333333	194	198	81
+place	entity-DocumentationSet-4	root	382.08333333333337	397	157	81
+place	entity-LinkRegistry-5	root	53	397	118	81
+route	id_entity-CodexSite-0_entity-Registry-1_0	root	root
+section	id_entity-CodexSite-0_entity-Registry-1_0	id_entity-CodexSite-0_entity-Registry-1_0_s0	222.08333333333331,93	112,194	222.08333333333331,113 112,113	entity-CodexSite-0	entity-Registry-1
+place-label	edge	id_entity-CodexSite-0_entity-Registry-1_0	0	41	133	142	21
+route	id_entity-CodexSite-0_entity-CodexGroup-2_1	root	root
+section	id_entity-CodexSite-0_entity-CodexGroup-2_1	id_entity-CodexSite-0_entity-CodexGroup-2_1_s0	243.33333333333331,93	256.75,397	243.33333333333334,143.5 243.33333333333334,336 243.33333333333334,377 256.75,377	entity-CodexSite-0	entity-CodexGroup-2
+place-label	edge	id_entity-CodexSite-0_entity-CodexGroup-2_1	0	221.33333333333334	224	44	21
+route	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	root	root
+section	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2_s0	264.5833333333333,93	420.3333333333333,194	264.5833333333333,113 420.3333333333333,113	entity-CodexSite-0	entity-CodexDocumentationSet-3
+place-label	edge	id_entity-CodexSite-0_entity-CodexDocumentationSet-3_2	0	364.8333333333333	133	111	21
+route	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	root	root
+section	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3_s0	450,275	460.58333333333337,397	450,295 460.58333333333337,295	entity-CodexDocumentationSet-3	entity-DocumentationSet-4
+place-label	edge	id_entity-CodexDocumentationSet-3_entity-DocumentationSet-4_3	0	439.58333333333337	325.5	42	21
+route	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	root	root
+section	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4_s0	390.66666666666663,275	290.4166666666667,397	390.66666666666663,295 339.25,295 339.25,377 290.4166666666667,377	entity-CodexDocumentationSet-3	entity-CodexGroup-2
+place-label	edge	id_entity-CodexDocumentationSet-3_entity-CodexGroup-2_4	0	299.75	325.5	79	21
+route	id_entity-Registry-1_entity-LinkRegistry-5_5	root	root
+section	id_entity-Registry-1_entity-LinkRegistry-5_5	id_entity-Registry-1_entity-LinkRegistry-5_5_s0	112,275	112,397		entity-Registry-1	entity-LinkRegistry-5
+place-label	edge	id_entity-Registry-1_entity-LinkRegistry-5_5	0	12	315	200	42

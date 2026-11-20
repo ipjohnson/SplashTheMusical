@@ -1,0 +1,155 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f425377f1bb1d019
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	cloud	root
+option	node	cloud		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	cloud		nodeSize.minimum	(77, 0)
+option	node	cloud		spacing.baseValue	24
+option	node	cloud		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	cloud		elk.spacing.edgeEdge	20
+option	node	cloud		spacing.nodeNode	50
+option	node	cloud		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	cloud		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	cloud		elk.layered.mergeEdges	false
+option	node	cloud		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	cloud		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	cloud		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	cloud		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	cloud		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	cloud		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	cloud	0	Cloud VPC	69	19
+node	priv	cloud
+option	node	priv		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	priv		nodeSize.minimum	(101, 0)
+option	node	priv		spacing.baseValue	24
+option	node	priv		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	priv		elk.spacing.edgeEdge	20
+option	node	priv		spacing.nodeNode	50
+option	node	priv		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	priv		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	priv		elk.layered.mergeEdges	false
+option	node	priv		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	priv		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	priv		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	priv		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	priv		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	priv		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	priv	0	Private Subnet	93	19
+node	app1	priv	152	45
+option	node	app1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	app2	priv	152	45
+option	node	app2		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	db	priv	144	85.14869689941406
+node	pub	cloud
+option	node	pub		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	pub		nodeSize.minimum	(95, 0)
+option	node	pub		spacing.baseValue	24
+option	node	pub		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	pub		elk.spacing.edgeEdge	20
+option	node	pub		spacing.nodeNode	50
+option	node	pub		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	pub		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	pub		elk.layered.mergeEdges	false
+option	node	pub		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	pub		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	pub		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	pub		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	pub		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	pub		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	pub	0	Public Subnet	87	19
+node	lb	pub	171.2268829345703	45
+option	node	lb		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	nat	pub	171.2268829345703	45
+option	node	nat		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	internet	root	85.31040954589844	85.31040954589844
+option	node	internet		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_internet_lb_0	root	internet	lb
+label	edge	L_internet_lb_0	0		0	0
+option	edge-label	L_internet_lb_0	0	edgeLabels.inline	true
+option	edge-label	L_internet_lb_0	0	edgeLabels.placement	CENTER
+edge	L_lb_app1_0	root	lb	app1
+label	edge	L_lb_app1_0	0		0	0
+option	edge-label	L_lb_app1_0	0	edgeLabels.inline	true
+option	edge-label	L_lb_app1_0	0	edgeLabels.placement	CENTER
+edge	L_lb_app2_0	root	lb	app2
+label	edge	L_lb_app2_0	0		0	0
+option	edge-label	L_lb_app2_0	0	edgeLabels.inline	true
+option	edge-label	L_lb_app2_0	0	edgeLabels.placement	CENTER
+edge	L_app1_db_0	root	app1	db
+label	edge	L_app1_db_0	0		0	0
+option	edge-label	L_app1_db_0	0	edgeLabels.inline	true
+option	edge-label	L_app1_db_0	0	edgeLabels.placement	CENTER
+edge	L_app2_db_0	root	app2	db
+label	edge	L_app2_db_0	0		0	0
+option	edge-label	L_app2_db_0	0	edgeLabels.inline	true
+option	edge-label	L_app2_db_0	0	edgeLabels.placement	CENTER
+edge	L_app1_nat_0	root	nat	app1
+label	edge	L_app1_nat_0	0		0	0
+option	edge-label	L_app1_nat_0	0	edgeLabels.inline	true
+option	edge-label	L_app1_nat_0	0	edgeLabels.placement	CENTER
+edge	L_app2_nat_0	root	nat	app2
+label	edge	L_app2_nat_0	0		0	0
+option	edge-label	L_app2_nat_0	0	edgeLabels.inline	true
+option	edge-label	L_app2_nat_0	0	edgeLabels.placement	CENTER
+edge	L_nat_internet_0	root	internet	nat
+label	edge	L_nat_internet_0	0		0	0
+option	edge-label	L_nat_internet_0	0	edgeLabels.inline	true
+option	edge-label	L_nat_internet_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	512.4537658691406	772.4591064453125
+place	cloud	root	12	147.31040954589844	488.4537658691406	613.1486968994141
+place-label	node	cloud	0	209.7268829345703	5	69	19
+place	priv	cloud	43.22688293457034	255	402	334.14869689941406
+place-label	node	priv	0	154.5	5	93	19
+place	app1	priv	24	120	152	45
+place	app2	priv	226	120	152	45
+place	db	priv	129	225	144	85.14869689941406
+place	pub	cloud	24	58	440.4537658691406	117
+place-label	node	pub	0	176.7268829345703	5	87	19
+place	lb	pub	24	48	171.2268829345703	45
+place	nat	pub	245.2268829345703	48	171.2268829345703	45
+place	internet	root	213.5716781616211	12	85.31040954589844	85.31040954589844
+route	L_internet_lb_0	root	root
+section	L_internet_lb_0	L_internet_lb_0_s0	245.34181467692056,97.31040954589844	145.61344146728516,253.31040954589844	245.34181467692056,117.31040954589844 145.61344146728516,117.31040954589844 145.61344146728516,137.31040954589844 145.61344146728516,195.31040954589844	internet	lb
+place-label	edge	L_internet_lb_0	0	0	0	0	0
+route	L_lb_app1_0	root	cloud
+section	L_lb_app1_0	L_lb_app1_0_s0	108.67562764485676,151	121.49354960123699,375	108.67562764485677,185 108.67562764485677,215 121.49354960123699,215 121.49354960123699,245	lb	app1
+place-label	edge	L_lb_app1_0	0	0	0	0	0
+route	L_lb_app2_0	root	cloud
+section	L_lb_app2_0	L_lb_app2_0_s0	158.55125528971354,151	323.49354960123696,375	158.55125528971354,185 158.55125528971354,215 238.2268829345703,215 238.2268829345703,245 238.2268829345703,345 323.49354960123696,345	lb	app2
+place-label	edge	L_lb_app2_0	0	0	0	0	0
+route	L_app1_db_0	root	priv
+section	L_app1_db_0	L_app1_db_0_s0	99.99999999999999,165	180.6,225	99.99999999999999,195 180.6,195	app1	db
+place-label	edge	L_app1_db_0	0	0	0	0	0
+route	L_app2_db_0	root	priv
+section	L_app2_db_0	L_app2_db_0_s0	302,165	221.39999999999998,225	302,195 221.39999999999998,195	app2	db
+place-label	edge	L_app2_db_0	0	0	0	0	0
+route	L_app1_nat_0	root	cloud
+section	L_app1_nat_0	L_app1_nat_0_s0	329.9025105794271,151	164.96021626790366,375	329.9025105794271,185 329.9025105794271,215 250.2268829345703,215 250.2268829345703,245 250.2268829345703,333 164.96021626790366,333	nat	app1
+place-label	edge	L_app1_nat_0	0	0	0	0	0
+route	L_app2_nat_0	root	cloud
+section	L_app2_nat_0	L_app2_nat_0_s0	379.77813822428385,151	366.96021626790366,375	379.77813822428385,185 379.77813822428385,215 366.96021626790366,215 366.96021626790366,245	nat	app2
+place-label	edge	L_app2_nat_0	0	0	0	0	0
+route	L_nat_internet_0	root	root
+section	L_nat_internet_0	L_nat_internet_0_s0	267.1119511922201,97.31040954589844	366.84032440185547,253.31040954589844	267.1119511922201,117.31040954589844 366.84032440185547,117.31040954589844 366.84032440185547,137.31040954589844 366.84032440185547,195.31040954589844	internet	nat
+place-label	edge	L_nat_internet_0	0	0	0	0	0

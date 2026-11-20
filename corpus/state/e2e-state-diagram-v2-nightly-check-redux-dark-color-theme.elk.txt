@@ -1,0 +1,125 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9efb47054a07c08a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Idle	root	136	37
+node	Working	root
+option	node	Working		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Working		nodeSize.minimum	(60, 0)
+option	node	Working		spacing.baseValue	24
+option	node	Working		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Working		elk.spacing.edgeEdge	20
+option	node	Working		spacing.nodeNode	50
+option	node	Working		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Working		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Working		elk.layered.mergeEdges	false
+option	node	Working		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Working		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Working		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Working		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Working		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Working		elk.algorithm	elk.layered
+option	node	Working		elk.direction	DOWN
+option	node	Working		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Working	0	Working	52	19
+node	Working_start	Working	14	14
+node	Fetching	Working	136	37
+node	Parsing	Working	136	37
+node	Working_end	Working	14.013293266296387	14
+node	Failed	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Idle
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Idle	Working
+label	edge	edge1	0	start	28	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Working_start	Fetching
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Fetching	Parsing
+label	edge	edge3	0	bytes ready	74	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Parsing	Working_end
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Working	Idle
+label	edge	edge5	0	done	32	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Working	Failed
+label	edge	edge6	0	error	31	21
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Failed	Idle
+label	edge	edge7	0	retry	29	21
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	Failed	root_end
+label	edge	edge8	0		0	0
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	277	699
+place	root_start	root	125.58333333333331	12	14	14
+place	Idle	root	67.58333333333331	66	136	37
+place	Working	root	12	204	184	291
+place-label	node	Working	0	66	5	52	19
+place	Working_start	Working	81.2	48	14	14
+place	Fetching	Working	24	86	136	37
+place	Parsing	Working	24	192	136	37
+place	Working_end	Working	81.2	253	14.013293266296387	14
+place	Failed	root	109.24999999999999	596	136	37
+place	root_end	root	167.25	673	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	135.58333333333331,26	135.58333333333331,66		root_start	Idle
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	106.58333333333331,103	76.66666666666666,204	106.58333333333331,123 78.99999999999999,123 78.99999999999999,184 76.66666666666666,184	Idle	Working
+place-label	edge	edge1	0	64.99999999999999	143	28	21
+route	edge2	root	Working
+section	edge2	edge2_s0	92,62	92,86		Working_start	Fetching
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	Working
+section	edge3	edge3_s0	92,123	92,192		Fetching	Parsing
+place-label	edge	edge3	0	55	147	74	21
+route	edge4	root	Working
+section	edge4	edge4_s0	92,229	92,253		Parsing	Working_end
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	131.33333333333331,204	135.58333333333331,103	131.33333333333331,184 129,184 129,123 135.58333333333331,123	Working	Idle
+place-label	edge	edge5	0	112.99999999999999	143	32	21
+route	edge6	root	root
+section	edge6	edge6_s0	104,495	157.91666666666663,596	104,576 157.91666666666663,576	Working	Failed
+place-label	edge	edge6	0	88.5	535	31	21
+route	edge7	root	root
+section	edge7	edge7_s0	196.58333333333331,596	164.58333333333331,103	196.58333333333331,576 250.5,576 250.5,545.5 250.5,153.5 250.5,123 164.58333333333331,123	Failed	Idle
+place-label	edge	edge7	0	236	339	29	21
+route	edge8	root	root
+section	edge8	edge8_s0	177.25,633	177.25,673		Failed	root_end
+place-label	edge	edge8	0	0	0	0	0

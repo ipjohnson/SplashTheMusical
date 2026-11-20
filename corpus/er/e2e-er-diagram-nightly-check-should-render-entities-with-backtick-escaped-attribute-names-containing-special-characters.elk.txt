@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 87e0bba1f640bdc8
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-HOTEL-0	root	298	159
+node	entity-ROOM-1	root	171	119.25
+edge	id_entity-HOTEL-0_entity-ROOM-1_0	root	entity-HOTEL-0	entity-ROOM-1
+label	edge	id_entity-HOTEL-0_entity-ROOM-1_0	0	has	23	21
+option	edge-label	id_entity-HOTEL-0_entity-ROOM-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-HOTEL-0_entity-ROOM-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	322	403.25
+place	entity-HOTEL-0	root	12	12	298	159
+place	entity-ROOM-1	root	75.5	272	171	119.25
+route	id_entity-HOTEL-0_entity-ROOM-1_0	root	root
+section	id_entity-HOTEL-0_entity-ROOM-1_0	id_entity-HOTEL-0_entity-ROOM-1_0_s0	161,171	161,272		entity-HOTEL-0	entity-ROOM-1
+place-label	edge	id_entity-HOTEL-0_entity-ROOM-1_0	0	149.5	211	23	21

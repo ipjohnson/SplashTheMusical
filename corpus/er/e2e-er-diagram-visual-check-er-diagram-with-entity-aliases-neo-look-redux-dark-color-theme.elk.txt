@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3c756f51c9624f36
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-p-0	root	185	119.25
+node	entity-c-1	root	166	79.5
+node	entity-o-2	root	150	79.5
+edge	id_entity-p-0_entity-c-1_0	root	entity-p-0	entity-c-1
+label	edge	id_entity-p-0_entity-c-1_0	0	has	23	21
+option	edge-label	id_entity-p-0_entity-c-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-p-0_entity-c-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-c-1_entity-o-2_1	root	entity-c-1	entity-o-2
+label	edge	id_entity-c-1_entity-o-2_1	0	places	41	21
+option	edge-label	id_entity-c-1_entity-o-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-c-1_entity-o-2_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	209	504.25
+place	entity-p-0	root	12	12	185	119.25
+place	entity-c-1	root	21.5	232.25	166	79.5
+place	entity-o-2	root	29.5	412.75	150	79.5
+route	id_entity-p-0_entity-c-1_0	root	root
+section	id_entity-p-0_entity-c-1_0	id_entity-p-0_entity-c-1_0_s0	104.5,131.25	104.5,232.25		entity-p-0	entity-c-1
+place-label	edge	id_entity-p-0_entity-c-1_0	0	93	171.25	23	21
+route	id_entity-c-1_entity-o-2_1	root	root
+section	id_entity-c-1_entity-o-2_1	id_entity-c-1_entity-o-2_1_s0	104.5,311.75	104.5,412.75		entity-c-1	entity-o-2
+place-label	edge	id_entity-c-1_entity-o-2_1	0	84	351.75	41	21

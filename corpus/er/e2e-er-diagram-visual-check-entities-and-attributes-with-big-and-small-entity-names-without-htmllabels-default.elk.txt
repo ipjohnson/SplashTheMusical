@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 095421796cc2d9dc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-PRIVATE_FINANCIAL_INSTITUTION-0	root	297.5	104.25
+node	entity-EMPLOYEE-1	root	180.5	69.5
+edge	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	root	entity-PRIVATE_FINANCIAL_INSTITUTION-0	entity-EMPLOYEE-1
+label	edge	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	0	employs	57	19.999998092651367
+option	edge-label	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	321.5	297.74999809265137
+place	entity-PRIVATE_FINANCIAL_INSTITUTION-0	root	12	12	297.5	104.25
+place	entity-EMPLOYEE-1	root	70.5	216.24999809265137	180.5	69.5
+route	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	root	root
+section	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0_s0	160.75,116.25	160.75,216.24999809265137		entity-PRIVATE_FINANCIAL_INSTITUTION-0	entity-EMPLOYEE-1
+place-label	edge	id_entity-PRIVATE_FINANCIAL_INSTITUTION-0_entity-EMPLOYEE-1_0	0	132.25	156.25	57	19.999998092651367

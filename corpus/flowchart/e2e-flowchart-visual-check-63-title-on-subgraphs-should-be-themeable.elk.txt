@@ -1,0 +1,90 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 12162f7d67aa7c08
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	B	root
+option	node	B		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	B		nodeSize.minimum	(19, 0)
+option	node	B		spacing.baseValue	24
+option	node	B		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	B		elk.spacing.edgeEdge	20
+option	node	B		spacing.nodeNode	50
+option	node	B		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	B		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	B		elk.layered.mergeEdges	false
+option	node	B		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	B		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	B		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	B		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	B		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	B	0	B	11	22
+node	i	B	152	48
+node	f	B	152	48
+node	A	root
+option	node	A		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	A		nodeSize.minimum	(19, 0)
+option	node	A		spacing.baseValue	24
+option	node	A		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	A		elk.spacing.edgeEdge	20
+option	node	A		spacing.nodeNode	50
+option	node	A		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	A		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	A		elk.layered.mergeEdges	false
+option	node	A		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	A		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	A		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	A		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	A		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	A	0	A	11	22
+node	a	A	152	48
+node	b	A	152	48
+edge	L_a_b_0	root	a	b
+label	edge	L_a_b_0	0		0	0
+option	edge-label	L_a_b_0	0	edgeLabels.inline	true
+option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
+edge	L_i_f_0	root	i	f
+label	edge	L_i_f_0	0		0	0
+option	edge-label	L_i_f_0	0	edgeLabels.inline	true
+option	edge-label	L_i_f_0	0	edgeLabels.placement	CENTER
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	816	147
+place	B	root	428	12	376	123
+place-label	node	B	0	182.5	5	11	22
+place	i	B	24	51	152	48
+place	f	B	200	51	152	48
+place	A	root	12	12	376	123
+place-label	node	A	0	182.5	5	11	22
+place	a	A	24	51	152	48
+place	b	A	200	51	152	48
+route	L_a_b_0	root	A
+section	L_a_b_0	L_a_b_0_s0	176,75	200,75		a	b
+place-label	edge	L_a_b_0	0	0	0	0	0
+route	L_i_f_0	root	B
+section	L_i_f_0	L_i_f_0_s0	176,75	200,75		i	f
+place-label	edge	L_i_f_0	0	0	0	0	0
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	388,73.5	428,73.5		A	B
+place-label	edge	L_A_B_0	0	0	0	0	0

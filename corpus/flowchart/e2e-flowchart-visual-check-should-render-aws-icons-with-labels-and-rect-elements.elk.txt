@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3d5cc6e9ec4f588a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Cloudwatch	root	80	81
+node	Route53	root	62	81
+node	EKS	root	72	81
+edge	L_Cloudwatch_Route53_0	root	Cloudwatch	Route53
+label	edge	L_Cloudwatch_Route53_0	0		0	0
+option	edge-label	L_Cloudwatch_Route53_0	0	edgeLabels.inline	true
+option	edge-label	L_Cloudwatch_Route53_0	0	edgeLabels.placement	CENTER
+edge	L_Route53_EKS_0	root	Route53	EKS
+label	edge	L_Route53_EKS_0	0		0	0
+option	edge-label	L_Route53_EKS_0	0	edgeLabels.inline	true
+option	edge-label	L_Route53_EKS_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	104	347
+place	Cloudwatch	root	12	12	80	81
+place	Route53	root	21	133	62	81
+place	EKS	root	16	254	72	81
+route	L_Cloudwatch_Route53_0	root	root
+section	L_Cloudwatch_Route53_0	L_Cloudwatch_Route53_0_s0	52,93	52,133		Cloudwatch	Route53
+place-label	edge	L_Cloudwatch_Route53_0	0	0	0	0	0
+route	L_Route53_EKS_0	root	root
+section	L_Route53_EKS_0	L_Route53_EKS_0_s0	52,214	52,254		Route53	EKS
+place-label	edge	L_Route53_EKS_0	0	0	0	0	0

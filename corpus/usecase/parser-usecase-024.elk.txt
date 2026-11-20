@@ -1,0 +1,68 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 77df0b037f497b61
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	160	58
+option	node	A		elk.portAlignment.default	CENTER
+node	B	root	160	58
+option	node	B		elk.portAlignment.default	CENTER
+node	C	root	160	58
+option	node	C		elk.portAlignment.default	CENTER
+node	D	root	160	58
+option	node	D		elk.portAlignment.default	CENTER
+node	E	root	160	58
+option	node	E		elk.portAlignment.default	CENTER
+edge	base	root	A	B
+label	edge	base	0		0	0
+option	edge-label	base	0	edgeLabels.inline	true
+option	edge-label	base	0	edgeLabels.placement	CENTER
+edge	two	root	B	C
+label	edge	two	0		0	0
+option	edge-label	two	0	edgeLabels.inline	true
+option	edge-label	two	0	edgeLabels.placement	CENTER
+edge	many	root	C	D
+label	edge	many	0		0	0
+option	edge-label	many	0	edgeLabels.inline	true
+option	edge-label	many	0	edgeLabels.placement	CENTER
+edge	labelled	root	D	E
+label	edge	labelled	0	long	24	15
+option	edge-label	labelled	0	edgeLabels.inline	true
+option	edge-label	labelled	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1048	82
+place	A	root	12	12	160	58
+place	B	root	212	12	160	58
+place	C	root	412	12	160	58
+place	D	root	612	12	160	58
+place	E	root	876	12	160	58
+route	base	root	root
+section	base	base_s0	172,41	212,41		A	B
+place-label	edge	base	0	0	0	0	0
+route	two	root	root
+section	two	two_s0	372,41	412,41		B	C
+place-label	edge	two	0	0	0	0	0
+route	many	root	root
+section	many	many_s0	572,41	612,41		C	D
+place-label	edge	many	0	0	0	0	0
+route	labelled	root	root
+section	labelled	labelled_s0	772,41	876,41		D	E
+place-label	edge	labelled	0	812	33	24	15

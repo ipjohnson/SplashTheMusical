@@ -1,0 +1,52 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 7ad998bc93723765
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	63	40
+node	B	root	93	93
+node	C	root	94	40
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0	approved	64	19.999998092651367
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_B_A_0	root	B	A
+label	edge	L_B_A_0	0	changes	58	19.999998092651367
+option	edge-label	L_B_A_0	0	edgeLabels.inline	true
+option	edge-label	L_B_A_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	556	117
+place	A	root	12	38.5	63	40
+place	B	root	213	12	93	93
+place	C	root	450	38.5	94	40
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	75,55.16666666666666	213,46.33333333333333	95,55.16666666666666 95,42.74999999999999 144,42.74999999999999 193,42.74999999999999 193,46.33333333333333	A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	306,58.5	450,58.5		B	C
+place-label	edge	L_B_C_0	0	346	48	64	19.999998092651367
+route	L_B_A_0	root	root
+section	L_B_A_0	L_B_A_0_s0	213,70.66666666666666	75,61.83333333333333	193,70.66666666666666 193,74.25 95,74.25 95,61.83333333333333	B	A
+place-label	edge	L_B_A_0	0	115	63.74999999999999	58	19.999998092651367

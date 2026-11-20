@@ -1,0 +1,230 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5b6681ba3005a8ea
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	CodexB	root
+option	node	CodexB		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	CodexB		nodeSize.minimum	(49, 0)
+option	node	CodexB		spacing.baseValue	24
+option	node	CodexB		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	CodexB		elk.spacing.edgeEdge	20
+option	node	CodexB		spacing.nodeNode	50
+option	node	CodexB		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	CodexB		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	CodexB		elk.layered.mergeEdges	false
+option	node	CodexB		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	CodexB		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	CodexB		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	CodexB		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	CodexB		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	CodexB		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	CodexB	0	Codex	41	19
+node	CdxCfg	CodexB	152	66
+node	CdxClone	CodexB	152	108
+option	node	CdxClone		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	CdxBuild	CodexB	152	66
+node	CdxOut	CodexB	152	66
+node	Assembler	root
+option	node	Assembler		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Assembler		nodeSize.minimum	(75, 0)
+option	node	Assembler		spacing.baseValue	24
+option	node	Assembler		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Assembler		elk.spacing.edgeEdge	20
+option	node	Assembler		spacing.nodeNode	50
+option	node	Assembler		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Assembler		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Assembler		elk.layered.mergeEdges	false
+option	node	Assembler		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Assembler		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Assembler		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Assembler		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Assembler		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Assembler		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Assembler	0	Assembler	67	19
+node	AsmCfg	Assembler	152	66
+node	Env	Assembler	166	87
+node	AsmClone	Assembler	152	66
+option	node	AsmClone		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	AsmBuild	Assembler	152	87
+node	AsmOut	Assembler	152	108
+node	Registries	root
+option	node	Registries		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Registries		nodeSize.minimum	(96, 0)
+option	node	Registries		spacing.baseValue	24
+option	node	Registries		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Registries		elk.spacing.edgeEdge	20
+option	node	Registries		spacing.nodeNode	50
+option	node	Registries		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Registries		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Registries		elk.layered.mergeEdges	false
+option	node	Registries		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Registries		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Registries		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Registries		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Registries		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Registries		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Registries	0	Link registries	88	19
+node	S3Reg	Registries	152	66
+option	node	S3Reg		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	CodexReg	Registries	152	87
+option	node	CodexReg		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Repos	root
+option	node	Repos		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Repos		nodeSize.minimum	(296, 0)
+option	node	Repos		spacing.baseValue	24
+option	node	Repos		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Repos		elk.spacing.edgeEdge	20
+option	node	Repos		spacing.nodeNode	50
+option	node	Repos		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Repos		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Repos		elk.layered.mergeEdges	false
+option	node	Repos		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Repos		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Repos		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Repos		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Repos		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Repos		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Repos	0	Repositories (each with its own isolated build)	288	19
+node	R1	Repos	152	45
+option	node	R1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	R2	Repos	152	45
+option	node	R2		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	R3	Repos	152	45
+option	node	R3		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	R4	Repos	152	45
+option	node	R4		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_R1_S3Reg_0	root	R1	S3Reg
+label	edge	L_R1_S3Reg_0	0	links.json	58	21
+option	edge-label	L_R1_S3Reg_0	0	edgeLabels.inline	true
+option	edge-label	L_R1_S3Reg_0	0	edgeLabels.placement	CENTER
+edge	L_R2_S3Reg_0	root	R2	S3Reg
+label	edge	L_R2_S3Reg_0	0	links.json	58	21
+option	edge-label	L_R2_S3Reg_0	0	edgeLabels.inline	true
+option	edge-label	L_R2_S3Reg_0	0	edgeLabels.placement	CENTER
+edge	L_R3_S3Reg_0	root	R3	S3Reg
+label	edge	L_R3_S3Reg_0	0	links.json	58	21
+option	edge-label	L_R3_S3Reg_0	0	edgeLabels.inline	true
+option	edge-label	L_R3_S3Reg_0	0	edgeLabels.placement	CENTER
+edge	L_R4_CodexReg_0	root	R4	CodexReg
+label	edge	L_R4_CodexReg_0	0	links.json	58	21
+option	edge-label	L_R4_CodexReg_0	0	edgeLabels.inline	true
+option	edge-label	L_R4_CodexReg_0	0	edgeLabels.placement	CENTER
+edge	L_S3Reg_AsmClone_0	root	S3Reg	AsmClone
+label	edge	L_S3Reg_AsmClone_0	0		0	0
+option	edge-label	L_S3Reg_AsmClone_0	0	edgeLabels.inline	true
+option	edge-label	L_S3Reg_AsmClone_0	0	edgeLabels.placement	CENTER
+edge	L_AsmCfg_Env_0	root	AsmCfg	Env
+label	edge	L_AsmCfg_Env_0	0		0	0
+option	edge-label	L_AsmCfg_Env_0	0	edgeLabels.inline	true
+option	edge-label	L_AsmCfg_Env_0	0	edgeLabels.placement	CENTER
+edge	L_Env_AsmClone_0	root	Env	AsmClone
+label	edge	L_Env_AsmClone_0	0		0	0
+option	edge-label	L_Env_AsmClone_0	0	edgeLabels.inline	true
+option	edge-label	L_Env_AsmClone_0	0	edgeLabels.placement	CENTER
+edge	L_AsmClone_AsmBuild_0	root	AsmClone	AsmBuild
+label	edge	L_AsmClone_AsmBuild_0	0		0	0
+option	edge-label	L_AsmClone_AsmBuild_0	0	edgeLabels.inline	true
+option	edge-label	L_AsmClone_AsmBuild_0	0	edgeLabels.placement	CENTER
+edge	L_AsmBuild_AsmOut_0	root	AsmBuild	AsmOut
+label	edge	L_AsmBuild_AsmOut_0	0		0	0
+option	edge-label	L_AsmBuild_AsmOut_0	0	edgeLabels.inline	true
+option	edge-label	L_AsmBuild_AsmOut_0	0	edgeLabels.placement	CENTER
+edge	L_CodexReg_CdxClone_0	root	CodexReg	CdxClone
+label	edge	L_CodexReg_CdxClone_0	0		0	0
+option	edge-label	L_CodexReg_CdxClone_0	0	edgeLabels.inline	true
+option	edge-label	L_CodexReg_CdxClone_0	0	edgeLabels.placement	CENTER
+edge	L_CdxCfg_CdxClone_0	root	CdxCfg	CdxClone
+label	edge	L_CdxCfg_CdxClone_0	0		0	0
+option	edge-label	L_CdxCfg_CdxClone_0	0	edgeLabels.inline	true
+option	edge-label	L_CdxCfg_CdxClone_0	0	edgeLabels.placement	CENTER
+edge	L_CdxClone_CdxBuild_0	root	CdxClone	CdxBuild
+label	edge	L_CdxClone_CdxBuild_0	0		0	0
+option	edge-label	L_CdxClone_CdxBuild_0	0	edgeLabels.inline	true
+option	edge-label	L_CdxClone_CdxBuild_0	0	edgeLabels.placement	CENTER
+edge	L_CdxBuild_CdxOut_0	root	CdxBuild	CdxOut
+label	edge	L_CdxBuild_CdxOut_0	0		0	0
+option	edge-label	L_CdxBuild_CdxOut_0	0	edgeLabels.inline	true
+option	edge-label	L_CdxBuild_CdxOut_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	830	1300
+place	CodexB	root	451.95	670	244.00000000000003	486
+place-label	node	CodexB	0	101.50000000000001	5	41	19
+place	CdxCfg	CodexB	24	48	152	66
+place	CdxClone	CodexB	68.00000000000001	174	152	108
+place	CdxBuild	CodexB	68.00000000000001	306	152	66
+place	CdxOut	CodexB	68.00000000000001	396	152	66
+place	Assembler	root	157.45	670	254.50000000000003	618
+place-label	node	Assembler	0	93.75000000000001	5	67	19
+place	AsmCfg	Assembler	31	48	152	66
+place	Env	Assembler	24	138	166	87
+place	AsmClone	Assembler	78.50000000000001	285	152	66
+place	AsmBuild	Assembler	78.50000000000001	375	152	87
+place	AsmOut	Assembler	78.50000000000001	486	152	108
+place	Registries	root	298.7	451	402	159
+place-label	node	Registries	0	157	5	88	19
+place	S3Reg	Registries	24.000000000000007	53.25	152	66
+place	CodexReg	Registries	226	48	152	87
+place	Repos	root	12	12	806	298
+place-label	node	Repos	0	259	5	288	19
+place	R1	Repos	226	48	152	45
+place	R2	Repos	428	48	152	45
+place	R3	Repos	24	48	152	45
+place	R4	Repos	630	48	152	45
+route	L_R1_S3Reg_0	root	root
+section	L_R1_S3Reg_0	L_R1_S3Reg_0_s0	314,105	398.7,504.25	314,320 314,401 398.7,401 398.7,441	R1	S3Reg
+place-label	edge	L_R1_S3Reg_0	0	285	360	58	21
+route	L_R2_S3Reg_0	root	root
+section	L_R2_S3Reg_0	L_R2_S3Reg_0_s0	516,105	431.29999999999995,504.25	516,320 516,401 431.29999999999995,401 431.29999999999995,441	R2	S3Reg
+place-label	edge	L_R2_S3Reg_0	0	487	360	58	21
+route	L_R3_S3Reg_0	root	root
+section	L_R3_S3Reg_0	L_R3_S3Reg_0_s0	111.99999999999999,105	366.09999999999997,504.25	112,320 112,340 174,340 174,421 366.09999999999997,421 366.09999999999997,441	R3	S3Reg
+place-label	edge	L_R3_S3Reg_0	0	145	360	58	21
+route	L_R4_CodexReg_0	root	root
+section	L_R4_CodexReg_0	L_R4_CodexReg_0_s0	718,105	600.7,499	718,320 718,340 701.7,340 701.7,401 600.7,401 600.7,441	R4	CodexReg
+place-label	edge	L_R4_CodexReg_0	0	672.7	360	58	21
+route	L_S3Reg_AsmClone_0	root	root
+section	L_S3Reg_AsmClone_0	L_S3Reg_AsmClone_0_s0	398.7,570.25	333.6833333333333,955	398.7,620 398.7,640 359.45,640 359.45,660 359.45,925 333.6833333333333,925	S3Reg	AsmClone
+place-label	edge	L_S3Reg_AsmClone_0	0	0	0	0	0
+route	L_AsmCfg_Env_0	root	Assembler
+section	L_AsmCfg_Env_0	L_AsmCfg_Env_0_s0	106.99999999999999,114	106.99999999999999,138		AsmCfg	Env
+place-label	edge	L_AsmCfg_Env_0	0	0	0	0	0
+route	L_Env_AsmClone_0	root	Assembler
+section	L_Env_AsmClone_0	L_Env_AsmClone_0_s0	106.99999999999999,225	132.76666666666668,285	106.99999999999999,255 132.76666666666668,255	Env	AsmClone
+place-label	edge	L_Env_AsmClone_0	0	0	0	0	0
+route	L_AsmClone_AsmBuild_0	root	Assembler
+section	L_AsmClone_AsmBuild_0	L_AsmClone_AsmBuild_0_s0	154.5,351	154.5,375		AsmClone	AsmBuild
+place-label	edge	L_AsmClone_AsmBuild_0	0	0	0	0	0
+route	L_AsmBuild_AsmOut_0	root	Assembler
+section	L_AsmBuild_AsmOut_0	L_AsmBuild_AsmOut_0_s0	154.5,462	154.5,486		AsmBuild	AsmOut
+place-label	edge	L_AsmBuild_AsmOut_0	0	0	0	0	0
+route	L_CodexReg_CdxClone_0	root	root
+section	L_CodexReg_CdxClone_0	L_CodexReg_CdxClone_0_s0	600.7,586	617.6833333333333,844	600.7,620 600.7,640 639.95,640 639.9499999999999,660 639.9499999999999,814 617.6833333333333,814	CodexReg	CdxClone
+place-label	edge	L_CodexReg_CdxClone_0	0	0	0	0	0
+route	L_CdxCfg_CdxClone_0	root	CodexB
+section	L_CdxCfg_CdxClone_0	L_CdxCfg_CdxClone_0_s0	99.99999999999999,114	122.26666666666668,174	99.99999999999999,144 122.26666666666668,144	CdxCfg	CdxClone
+place-label	edge	L_CdxCfg_CdxClone_0	0	0	0	0	0
+route	L_CdxClone_CdxBuild_0	root	CodexB
+section	L_CdxClone_CdxBuild_0	L_CdxClone_CdxBuild_0_s0	144,282	144,306		CdxClone	CdxBuild
+place-label	edge	L_CdxClone_CdxBuild_0	0	0	0	0	0
+route	L_CdxBuild_CdxOut_0	root	CodexB
+section	L_CdxBuild_CdxOut_0	L_CdxBuild_CdxOut_0_s0	144,372	144,396		CdxBuild	CdxOut
+place-label	edge	L_CdxBuild_CdxOut_0	0	0	0	0	0

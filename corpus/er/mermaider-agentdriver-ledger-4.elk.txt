@@ -1,0 +1,142 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9c086c3ec1b2ef7f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-QUEUES-0	root	98	81
+node	entity-ENTRIES-1	root	100	81
+node	entity-TASKS-2	root	100	81
+node	entity-ITEMS-3	root	100	81
+node	entity-ITEM_DEPS-4	root	119	81
+node	entity-SESSIONS-5	root	110	81
+node	entity-TRANSITIONS-6	root	134	81
+node	entity-EFFECTS-7	root	104	81
+node	entity-COMMANDS-8	root	123	81
+node	entity-INBOX-9	root	100	81
+node	entity-ATTACHMENTS-10	root	143	81
+node	entity-REFS-11	root	100	81
+node	entity-PEERS-12	root	100	81
+edge	id_entity-QUEUES-0_entity-ENTRIES-1_0	root	entity-QUEUES-0	entity-ENTRIES-1
+label	edge	id_entity-QUEUES-0_entity-ENTRIES-1_0	0	orders	41	21
+option	edge-label	id_entity-QUEUES-0_entity-ENTRIES-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-QUEUES-0_entity-ENTRIES-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-TASKS-2_entity-ENTRIES-1_1	root	entity-TASKS-2	entity-ENTRIES-1
+label	edge	id_entity-TASKS-2_entity-ENTRIES-1_1	0	placed by	61	21
+option	edge-label	id_entity-TASKS-2_entity-ENTRIES-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-TASKS-2_entity-ENTRIES-1_1	0	edgeLabels.placement	CENTER
+edge	id_entity-TASKS-2_entity-ITEMS-3_2	root	entity-TASKS-2	entity-ITEMS-3
+label	edge	id_entity-TASKS-2_entity-ITEMS-3_2	0	has	23	21
+option	edge-label	id_entity-TASKS-2_entity-ITEMS-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-TASKS-2_entity-ITEMS-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-ITEMS-3_3	root	entity-ITEMS-3	entity-ITEMS-3
+label	edge	id_entity-ITEMS-3_entity-ITEMS-3_3	0	parent of	57	21
+option	edge-label	id_entity-ITEMS-3_entity-ITEMS-3_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-ITEMS-3_3	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	root	entity-ITEMS-3	entity-ITEM_DEPS-4
+label	edge	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	0	waits on	52	21
+option	edge-label	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-SESSIONS-5_5	root	entity-ITEMS-3	entity-SESSIONS-5
+label	edge	id_entity-ITEMS-3_entity-SESSIONS-5_5	0	attempts	55	21
+option	edge-label	id_entity-ITEMS-3_entity-SESSIONS-5_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-SESSIONS-5_5	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	root	entity-ITEMS-3	entity-TRANSITIONS-6
+label	edge	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	0	logs	26	21
+option	edge-label	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	0	edgeLabels.placement	CENTER
+edge	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	root	entity-TRANSITIONS-6	entity-EFFECTS-7
+label	edge	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	0	asks	29	21
+option	edge-label	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	0	edgeLabels.placement	CENTER
+edge	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	root	entity-COMMANDS-8	entity-TRANSITIONS-6
+label	edge	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	0	produced	60	21
+option	edge-label	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	0	edgeLabels.inline	true
+option	edge-label	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-INBOX-9_9	root	entity-ITEMS-3	entity-INBOX-9
+label	edge	id_entity-ITEMS-3_entity-INBOX-9_9	0	asks you	56	21
+option	edge-label	id_entity-ITEMS-3_entity-INBOX-9_9	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-INBOX-9_9	0	edgeLabels.placement	CENTER
+edge	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	root	entity-ITEMS-3	entity-ATTACHMENTS-10
+label	edge	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	0	carries	43	21
+option	edge-label	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	0	edgeLabels.inline	true
+option	edge-label	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	0	edgeLabels.placement	CENTER
+edge	id_entity-REFS-11_entity-ITEM_DEPS-4_11	root	entity-REFS-11	entity-ITEM_DEPS-4
+label	edge	id_entity-REFS-11_entity-ITEM_DEPS-4_11	0	meets	39	21
+option	edge-label	id_entity-REFS-11_entity-ITEM_DEPS-4_11	0	edgeLabels.inline	true
+option	edge-label	id_entity-REFS-11_entity-ITEM_DEPS-4_11	0	edgeLabels.placement	CENTER
+edge	id_entity-PEERS-12_entity-ITEMS-3_12	root	entity-PEERS-12	entity-ITEMS-3
+label	edge	id_entity-PEERS-12_entity-ITEMS-3_12	0	owns under a lease	124	21
+option	edge-label	id_entity-PEERS-12_entity-ITEMS-3_12	0	edgeLabels.inline	true
+option	edge-label	id_entity-PEERS-12_entity-ITEMS-3_12	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	851	671
+place	entity-QUEUES-0	root	139.66666666666663	12	98	81
+place	entity-ENTRIES-1	root	156.5	194	100	81
+place	entity-TASKS-2	root	277.6666666666667	12	100	81
+place	entity-ITEMS-3	root	377.5	194	100	81
+place	entity-ITEM_DEPS-4	root	30.333333333333258	396	119	81
+place	entity-SESSIONS-5	root	206	396	110	81
+place	entity-TRANSITIONS-6	root	683.5	396	134	81
+place	entity-EFFECTS-7	root	698.5	578	104	81
+place	entity-COMMANDS-8	root	716	194	123	81
+place	entity-INBOX-9	root	539	396	100	81
+place	entity-ATTACHMENTS-10	root	356	396	143	81
+place	entity-REFS-11	root	12	194	100	81
+place	entity-PEERS-12	root	453.1666666666667	12	100	81
+route	id_entity-QUEUES-0_entity-ENTRIES-1_0	root	root
+section	id_entity-QUEUES-0_entity-ENTRIES-1_0	id_entity-QUEUES-0_entity-ENTRIES-1_0_s0	188.66666666666663,93	193.16666666666669,194	188.66666666666674,174 193.16666666666669,174	entity-QUEUES-0	entity-ENTRIES-1
+place-label	edge	id_entity-QUEUES-0_entity-ENTRIES-1_0	0	168.16666666666674	133	41	21
+route	id_entity-TASKS-2_entity-ENTRIES-1_1	root	root
+section	id_entity-TASKS-2_entity-ENTRIES-1_1	id_entity-TASKS-2_entity-ENTRIES-1_1_s0	314.33333333333337,93	219.83333333333337,194	314.33333333333337,174 219.83333333333337,174	entity-TASKS-2	entity-ENTRIES-1
+place-label	edge	id_entity-TASKS-2_entity-ENTRIES-1_1	0	283.83333333333337	133	61	21
+route	id_entity-TASKS-2_entity-ITEMS-3_2	root	root
+section	id_entity-TASKS-2_entity-ITEMS-3_2	id_entity-TASKS-2_entity-ITEMS-3_2_s0	341,93	414.1666666666667,194	341,113 409.6666666666667,113 409.6666666666667,174 414.1666666666667,174	entity-TASKS-2	entity-ITEMS-3
+place-label	edge	id_entity-TASKS-2_entity-ITEMS-3_2	0	398.1666666666667	133	23	21
+route	id_entity-ITEMS-3_entity-ITEMS-3_3	root	root
+section	id_entity-ITEMS-3_entity-ITEMS-3_3	id_entity-ITEMS-3_entity-ITEMS-3_3_s0	377.5,225	377.5,244	357.5,225 357.5,244	entity-ITEMS-3	entity-ITEMS-3
+place-label	edge	id_entity-ITEMS-3_entity-ITEMS-3_3	0	296.5	224	57	21
+route	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	root	root
+section	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4_s0	400.8333333333333,275	106.33333333333326,396	400.8333333333333,295 127.5,295 127.5,376 106.33333333333326,376	entity-ITEMS-3	entity-ITEM_DEPS-4
+place-label	edge	id_entity-ITEMS-3_entity-ITEM_DEPS-4_4	0	101.5	335	52	21
+route	id_entity-ITEMS-3_entity-SESSIONS-5_5	root	root
+section	id_entity-ITEMS-3_entity-SESSIONS-5_5	id_entity-ITEMS-3_entity-SESSIONS-5_5_s0	414.1666666666667,275	261,396	414.1666666666667,315 261,315	entity-ITEMS-3	entity-SESSIONS-5
+place-label	edge	id_entity-ITEMS-3_entity-SESSIONS-5_5	0	233.5	335	55	21
+route	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	root	root
+section	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	id_entity-ITEMS-3_entity-TRANSITIONS-6_6_s0	454.16666666666663,275	731.5,396	454.16666666666663,295 714.5,295 714.5,376 731.5,376	entity-ITEMS-3	entity-TRANSITIONS-6
+place-label	edge	id_entity-ITEMS-3_entity-TRANSITIONS-6_6	0	701.5	335	26	21
+route	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	root	root
+section	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7_s0	750.5,477	750.5,578		entity-TRANSITIONS-6	entity-EFFECTS-7
+place-label	edge	id_entity-TRANSITIONS-6_entity-EFFECTS-7_7	0	736	517	29	21
+route	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	root	root
+section	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8_s0	777.5,275	769.5,396	777.5,376 769.5,376	entity-COMMANDS-8	entity-TRANSITIONS-6
+place-label	edge	id_entity-COMMANDS-8_entity-TRANSITIONS-6_8	0	747.5	335	60	21
+route	id_entity-ITEMS-3_entity-INBOX-9_9	root	root
+section	id_entity-ITEMS-3_entity-INBOX-9_9	id_entity-ITEMS-3_entity-INBOX-9_9_s0	440.8333333333333,275	589,396	440.8333333333333,315 589,315	entity-ITEMS-3	entity-INBOX-9
+place-label	edge	id_entity-ITEMS-3_entity-INBOX-9_9	0	561	335	56	21
+route	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	root	root
+section	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10_s0	427.5,275	427.5,396		entity-ITEMS-3	entity-ATTACHMENTS-10
+place-label	edge	id_entity-ITEMS-3_entity-ATTACHMENTS-10_10	0	406	335	43	21
+route	id_entity-REFS-11_entity-ITEM_DEPS-4_11	root	root
+section	id_entity-REFS-11_entity-ITEM_DEPS-4_11	id_entity-REFS-11_entity-ITEM_DEPS-4_11_s0	62,275	73.33333333333326,396	62,376 73.33333333333326,376	entity-REFS-11	entity-ITEM_DEPS-4
+place-label	edge	id_entity-REFS-11_entity-ITEM_DEPS-4_11	0	42.5	335	39	21
+route	id_entity-PEERS-12_entity-ITEMS-3_12	root	root
+section	id_entity-PEERS-12_entity-ITEMS-3_12	id_entity-PEERS-12_entity-ITEMS-3_12_s0	503.1666666666667,93	440.83333333333337,194	503.1666666666667,174 440.83333333333337,174	entity-PEERS-12	entity-ITEMS-3
+place-label	edge	id_entity-PEERS-12_entity-ITEMS-3_12	0	441.1666666666667	133	124	21

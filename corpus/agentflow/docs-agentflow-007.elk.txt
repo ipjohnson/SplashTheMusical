@@ -1,0 +1,86 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f5eb8cfb8dfe7949
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	indexer	root
+option	node	indexer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	indexer		nodeSize.minimum	(56, 0)
+option	node	indexer		spacing.baseValue	24
+option	node	indexer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	indexer		elk.spacing.edgeEdge	20
+option	node	indexer		spacing.nodeNode	50
+option	node	indexer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	indexer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	indexer		elk.layered.mergeEdges	false
+option	node	indexer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	indexer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	indexer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	indexer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	indexer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	indexer		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	indexer	0	Indexer	48	19
+node	index	indexer	150	51
+option	node	index		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	summariser	root
+option	node	summariser		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	summariser		nodeSize.minimum	(85, 0)
+option	node	summariser		spacing.baseValue	24
+option	node	summariser		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	summariser		elk.spacing.edgeEdge	20
+option	node	summariser		spacing.nodeNode	50
+option	node	summariser		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	summariser		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	summariser		elk.layered.mergeEdges	false
+option	node	summariser		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	summariser		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	summariser		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	summariser		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	summariser		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	summariser		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	summariser	0	Summariser	77	19
+node	summarise	summariser	150	51
+option	node	summarise		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	corpus	root	167.1999969482422	67.49201202392578
+option	node	corpus		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_summarise_corpus_0	root	summarise	corpus
+label	edge	L_summarise_corpus_0	0		0	0
+option	edge-label	L_summarise_corpus_0	0	edgeLabels.inline	true
+option	edge-label	L_summarise_corpus_0	0	edgeLabels.placement	CENTER
+edge	L_index_corpus_0	root	index	corpus
+label	edge	L_index_corpus_0	0		0	0
+option	edge-label	L_index_corpus_0	0	edgeLabels.inline	true
+option	edge-label	L_index_corpus_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	460	264.4920120239258
+place	indexer	root	12	12	198	123
+place-label	node	indexer	0	75	5	48	19
+place	index	indexer	24	48	150	51
+place	summariser	root	250	12	198	123
+place-label	node	summariser	0	60.5	5	77	19
+place	summarise	summariser	24	48	150	51
+place	corpus	root	146.4000015258789	185	167.1999969482422	67.49201202392578
+route	L_summarise_corpus_0	root	root
+section	L_summarise_corpus_0	L_summarise_corpus_0_s0	349,111	254.53333282470703,185	349,145 349,165 254.53333282470703,165	summarise	corpus
+place-label	edge	L_summarise_corpus_0	0	0	0	0	0
+route	L_index_corpus_0	root	root
+section	L_index_corpus_0	L_index_corpus_0_s0	110.99999999999999,111	205.46666717529297,185	110.99999999999999,145 110.99999999999999,165 205.46666717529297,165	index	corpus
+place-label	edge	L_index_corpus_0	0	0	0	0	0

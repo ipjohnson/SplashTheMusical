@@ -1,0 +1,90 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5c89eae1c581b64f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	team	root
+option	node	team		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	team		nodeSize.minimum	(97, 0)
+option	node	team		spacing.baseValue	24
+option	node	team		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	team		elk.spacing.edgeEdge	20
+option	node	team		spacing.nodeNode	50
+option	node	team		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	team		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	team		elk.layered.mergeEdges	false
+option	node	team		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	team		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	team		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	team		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	team		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	team	0	Content Team	89	19
+node	writer	team
+option	node	writer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	writer		nodeSize.minimum	(46, 0)
+option	node	writer		spacing.baseValue	24
+option	node	writer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	writer		elk.spacing.edgeEdge	20
+option	node	writer		spacing.nodeNode	50
+option	node	writer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	writer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	writer		elk.layered.mergeEdges	false
+option	node	writer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	writer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	writer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	writer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	writer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	writer	0	Writer	38	19
+node	compose	writer	150	51
+node	researcher	team
+option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	researcher		nodeSize.minimum	(82, 0)
+option	node	researcher		spacing.baseValue	24
+option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	researcher		elk.spacing.edgeEdge	20
+option	node	researcher		spacing.nodeNode	50
+option	node	researcher		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	researcher		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	researcher		elk.layered.mergeEdges	false
+option	node	researcher		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	researcher	0	Researcher	74	19
+node	gather	researcher	150	51
+edge	L_researcher_writer_0	root	researcher	writer
+label	edge	L_researcher_writer_0	0		0	0
+option	edge-label	L_researcher_writer_0	0	edgeLabels.inline	true
+option	edge-label	L_researcher_writer_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	270	366
+place	team	root	12	12	246	342
+place-label	node	team	0	78.5	5	89	19
+place	writer	team	24	195	198	123
+place-label	node	writer	0	80	5	38	19
+place	compose	writer	24	48	150	51
+place	researcher	team	24	48	198	123
+place-label	node	researcher	0	62	5	74	19
+place	gather	researcher	24	48	150	51
+route	L_researcher_writer_0	root	team
+section	L_researcher_writer_0	L_researcher_writer_0_s0	122.99999999999999,171	122.99999999999999,195		researcher	writer
+place-label	edge	L_researcher_writer_0	0	0	0	0	0

@@ -1,0 +1,101 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 705099c9c7d76cb1
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	subgraph1	root
+option	node	subgraph1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	subgraph1		nodeSize.minimum	(91, 0)
+option	node	subgraph1		spacing.baseValue	24
+option	node	subgraph1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	subgraph1		elk.spacing.edgeEdge	20
+option	node	subgraph1		spacing.nodeNode	50
+option	node	subgraph1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	subgraph1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	subgraph1		elk.layered.mergeEdges	false
+option	node	subgraph1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	subgraph1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	subgraph1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	subgraph1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	subgraph1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	subgraph1		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	subgraph1	0	How to fix **fix**	83	19
+node	broken	subgraph1	210	87
+option	node	broken		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	B	subgraph1	152	45
+node	mermaid	root	213	213
+node	v10	root	152	45
+node	fine	root	152	45
+node	v11	root	152	45
+option	node	v11		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	githost	root	152	66
+node	githost2	root	152	66
+node	a	root	152	45
+node	b	root	152	45
+edge	L_mermaid_v10_0	root	mermaid	v10
+label	edge	L_mermaid_v10_0	0		0	0
+option	edge-label	L_mermaid_v10_0	0	edgeLabels.inline	true
+option	edge-label	L_mermaid_v10_0	0	edgeLabels.placement	CENTER
+edge	L_v10_fine_0	root	v10	fine
+label	edge	L_v10_fine_0	0	&lt;**1**1	24	21
+option	edge-label	L_v10_fine_0	0	edgeLabels.inline	true
+option	edge-label	L_v10_fine_0	0	edgeLabels.placement	CENTER
+edge	L_mermaid_v11_0	root	mermaid	v11
+label	edge	L_mermaid_v11_0	0		0	0
+option	edge-label	L_mermaid_v11_0	0	edgeLabels.inline	true
+option	edge-label	L_mermaid_v11_0	0	edgeLabels.placement	CENTER
+edge	L_v11_broken_0	root	v11	broken
+label	edge	L_v11_broken_0	0	>= v11	42	21
+option	edge-label	L_v11_broken_0	0	edgeLabels.inline	true
+option	edge-label	L_v11_broken_0	0	edgeLabels.placement	CENTER
+edge	L_broken_B_0	root	broken	B
+label	edge	L_broken_B_0	0		0	0
+option	edge-label	L_broken_B_0	0	edgeLabels.inline	true
+option	edge-label	L_broken_B_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1097	661
+place	subgraph1	root	204	421	258	228
+place-label	node	subgraph1	0	87.5	5	83	19
+place	broken	subgraph1	24	48	210	87
+place	B	subgraph1	53	159	152	45
+place	mermaid	root	103.99999999999996	12	213	213
+place	v10	root	12	265	152	45
+place	fine	root	12	421	152	45
+place	v11	root	257	265	152	45
+place	githost	root	356.99999999999994	85.5	152	66
+place	githost2	root	549	85.5	152	66
+place	a	root	741	96	152	45
+place	b	root	933	96	152	45
+route	L_mermaid_v10_0	root	root
+section	L_mermaid_v10_0	L_mermaid_v10_0_s0	178.33333333333331,225	88,265	178.33333333333331,245 88,245	mermaid	v10
+place-label	edge	L_mermaid_v10_0	0	0	0	0	0
+route	L_v10_fine_0	root	root
+section	L_v10_fine_0	L_v10_fine_0_s0	88,310	88,421		v10	fine
+place-label	edge	L_v10_fine_0	0	76	350	24	21
+route	L_mermaid_v11_0	root	root
+section	L_mermaid_v11_0	L_mermaid_v11_0_s0	242.66666666666663,225	333,265	242.66666666666663,245 333,245	mermaid	v11
+place-label	edge	L_mermaid_v11_0	0	0	0	0	0
+route	L_v11_broken_0	root	root
+section	L_v11_broken_0	L_v11_broken_0_s0	333,310	333,469	333,411	v11	broken
+place-label	edge	L_v11_broken_0	0	312	350	42	21
+route	L_broken_B_0	root	subgraph1
+section	L_broken_B_0	L_broken_B_0_s0	129,135	129,159		broken	B
+place-label	edge	L_broken_B_0	0	0	0	0	0

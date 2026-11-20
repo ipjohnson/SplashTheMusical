@@ -1,0 +1,228 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 86ce734ac0ee5f4e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Ledger	root	234	177
+node	WorkMachine	root	416.5	141
+node	Policy	root	265	162
+node	Scheduler	root	196.5	204
+node	IGate	root	346.5	141
+node	IEffectHandler	root	208.5	156
+node	SessionRunner	root	129	81
+node	IClaudeProcess	root	131	102
+node	ClaudeProcess	root	127	81
+node	RunnerProcess	root	129	81
+node	IWatcher	root	166.5	141
+node	GitHubWatcher	root	127	81
+node	ClockWatcher	root	118	81
+node	ProcessWatcher	root	134	81
+node	UsageWatcher	root	122	81
+node	EffectRunner	root	174	141
+node	SqliteStore	root	222.5	162
+node	Views	root	204	162
+node	IPeerLink	root	226.5	162
+node	Exporter	root	82	81
+node	Importer	root	81	81
+edge	id_Ledger_WorkMachine_1	root	Ledger	WorkMachine
+label	edge	id_Ledger_WorkMachine_1	0	decides with	78	21
+option	edge-label	id_Ledger_WorkMachine_1	0	edgeLabels.inline	true
+option	edge-label	id_Ledger_WorkMachine_1	0	edgeLabels.placement	CENTER
+edge	id_Ledger_Policy_2	root	Ledger	Policy
+label	edge	id_Ledger_Policy_2	0	reads limits	72	21
+option	edge-label	id_Ledger_Policy_2	0	edgeLabels.inline	true
+option	edge-label	id_Ledger_Policy_2	0	edgeLabels.placement	CENTER
+edge	id_Ledger_SqliteStore_3	root	Ledger	SqliteStore
+label	edge	id_Ledger_SqliteStore_3	0	one transaction	98	21
+option	edge-label	id_Ledger_SqliteStore_3	0	edgeLabels.inline	true
+option	edge-label	id_Ledger_SqliteStore_3	0	edgeLabels.placement	CENTER
+edge	id_Ledger_EffectRunner_4	root	Ledger	EffectRunner
+label	edge	id_Ledger_EffectRunner_4	0	wakes	40	21
+option	edge-label	id_Ledger_EffectRunner_4	0	edgeLabels.inline	true
+option	edge-label	id_Ledger_EffectRunner_4	0	edgeLabels.placement	CENTER
+edge	id_Scheduler_Ledger_5	root	Scheduler	Ledger
+label	edge	id_Scheduler_Ledger_5	0	start, stall, time limit	125	21
+option	edge-label	id_Scheduler_Ledger_5	0	edgeLabels.inline	true
+option	edge-label	id_Scheduler_Ledger_5	0	edgeLabels.placement	CENTER
+edge	id_Scheduler_IGate_6	root	Scheduler	IGate
+label	edge	id_Scheduler_IGate_6	0	asks each	64	21
+option	edge-label	id_Scheduler_IGate_6	0	edgeLabels.inline	true
+option	edge-label	id_Scheduler_IGate_6	0	edgeLabels.placement	CENTER
+edge	id_Scheduler_SqliteStore_7	root	Scheduler	SqliteStore
+label	edge	id_Scheduler_SqliteStore_7	0	reads ready items	114	21
+option	edge-label	id_Scheduler_SqliteStore_7	0	edgeLabels.inline	true
+option	edge-label	id_Scheduler_SqliteStore_7	0	edgeLabels.placement	CENTER
+edge	id_EffectRunner_IEffectHandler_8	root	EffectRunner	IEffectHandler
+label	edge	id_EffectRunner_IEffectHandler_8	0	by kind	45	21
+option	edge-label	id_EffectRunner_IEffectHandler_8	0	edgeLabels.inline	true
+option	edge-label	id_EffectRunner_IEffectHandler_8	0	edgeLabels.placement	CENTER
+edge	id_IEffectHandler_SessionRunner_9	root	IEffectHandler	SessionRunner
+label	edge	id_IEffectHandler_SessionRunner_9	0		0	0
+option	edge-label	id_IEffectHandler_SessionRunner_9	0	edgeLabels.inline	true
+option	edge-label	id_IEffectHandler_SessionRunner_9	0	edgeLabels.placement	CENTER
+edge	id_SessionRunner_IClaudeProcess_10	root	SessionRunner	IClaudeProcess
+label	edge	id_SessionRunner_IClaudeProcess_10	0	starts claude	81	21
+option	edge-label	id_SessionRunner_IClaudeProcess_10	0	edgeLabels.inline	true
+option	edge-label	id_SessionRunner_IClaudeProcess_10	0	edgeLabels.placement	CENTER
+edge	id_IClaudeProcess_ClaudeProcess_11	root	IClaudeProcess	ClaudeProcess
+label	edge	id_IClaudeProcess_ClaudeProcess_11	0		0	0
+option	edge-label	id_IClaudeProcess_ClaudeProcess_11	0	edgeLabels.inline	true
+option	edge-label	id_IClaudeProcess_ClaudeProcess_11	0	edgeLabels.placement	CENTER
+edge	id_IClaudeProcess_RunnerProcess_12	root	IClaudeProcess	RunnerProcess
+label	edge	id_IClaudeProcess_RunnerProcess_12	0		0	0
+option	edge-label	id_IClaudeProcess_RunnerProcess_12	0	edgeLabels.inline	true
+option	edge-label	id_IClaudeProcess_RunnerProcess_12	0	edgeLabels.placement	CENTER
+edge	id_SessionRunner_Ledger_13	root	SessionRunner	Ledger
+label	edge	id_SessionRunner_Ledger_13	0	prepared, exited, asked, lost	180	21
+option	edge-label	id_SessionRunner_Ledger_13	0	edgeLabels.inline	true
+option	edge-label	id_SessionRunner_Ledger_13	0	edgeLabels.placement	CENTER
+edge	id_IWatcher_GitHubWatcher_14	root	IWatcher	GitHubWatcher
+label	edge	id_IWatcher_GitHubWatcher_14	0		0	0
+option	edge-label	id_IWatcher_GitHubWatcher_14	0	edgeLabels.inline	true
+option	edge-label	id_IWatcher_GitHubWatcher_14	0	edgeLabels.placement	CENTER
+edge	id_IWatcher_ClockWatcher_15	root	IWatcher	ClockWatcher
+label	edge	id_IWatcher_ClockWatcher_15	0		0	0
+option	edge-label	id_IWatcher_ClockWatcher_15	0	edgeLabels.inline	true
+option	edge-label	id_IWatcher_ClockWatcher_15	0	edgeLabels.placement	CENTER
+edge	id_IWatcher_ProcessWatcher_16	root	IWatcher	ProcessWatcher
+label	edge	id_IWatcher_ProcessWatcher_16	0		0	0
+option	edge-label	id_IWatcher_ProcessWatcher_16	0	edgeLabels.inline	true
+option	edge-label	id_IWatcher_ProcessWatcher_16	0	edgeLabels.placement	CENTER
+edge	id_IWatcher_UsageWatcher_17	root	IWatcher	UsageWatcher
+label	edge	id_IWatcher_UsageWatcher_17	0		0	0
+option	edge-label	id_IWatcher_UsageWatcher_17	0	edgeLabels.inline	true
+option	edge-label	id_IWatcher_UsageWatcher_17	0	edgeLabels.placement	CENTER
+edge	id_IWatcher_Ledger_18	root	IWatcher	Ledger
+label	edge	id_IWatcher_Ledger_18	0	observations	81	21
+option	edge-label	id_IWatcher_Ledger_18	0	edgeLabels.inline	true
+option	edge-label	id_IWatcher_Ledger_18	0	edgeLabels.placement	CENTER
+edge	id_Views_SqliteStore_19	root	Views	SqliteStore
+label	edge	id_Views_SqliteStore_19	0	one snapshot	86	21
+option	edge-label	id_Views_SqliteStore_19	0	edgeLabels.inline	true
+option	edge-label	id_Views_SqliteStore_19	0	edgeLabels.placement	CENTER
+edge	id_IPeerLink_Ledger_20	root	IPeerLink	Ledger
+label	edge	id_IPeerLink_Ledger_20	0	commands in	85	21
+option	edge-label	id_IPeerLink_Ledger_20	0	edgeLabels.inline	true
+option	edge-label	id_IPeerLink_Ledger_20	0	edgeLabels.placement	CENTER
+edge	id_Ledger_IPeerLink_21	root	Ledger	IPeerLink
+label	edge	id_Ledger_IPeerLink_21	0	transitions out	89	21
+option	edge-label	id_Ledger_IPeerLink_21	0	edgeLabels.inline	true
+option	edge-label	id_Ledger_IPeerLink_21	0	edgeLabels.placement	CENTER
+edge	id_Exporter_SqliteStore_22	root	Exporter	SqliteStore
+label	edge	id_Exporter_SqliteStore_22	0	reads	36	21
+option	edge-label	id_Exporter_SqliteStore_22	0	edgeLabels.inline	true
+option	edge-label	id_Exporter_SqliteStore_22	0	edgeLabels.placement	CENTER
+edge	id_Importer_Ledger_23	root	Importer	Ledger
+label	edge	id_Importer_Ledger_23	0	import commands	114	21
+option	edge-label	id_Importer_Ledger_23	0	edgeLabels.inline	true
+option	edge-label	id_Importer_Ledger_23	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	2479	1436.7708333333333
+place	Ledger	root	561.25	1017.875	234	177
+place	WorkMachine	root	1087	636.7708333333334	416.5	141
+place	Policy	root	1087	817.7708333333334	265	162
+place	Scheduler	root	12	425	196.5	204
+place	IGate	root	482.5	12	346.5	141
+place	IEffectHandler	root	1628.5	1012.2708333333334	208.5	156
+place	SessionRunner	root	1877	1161.1041666666667	129	81
+place	IClaudeProcess	root	2167	1150.6041666666667	131	102
+place	ClaudeProcess	root	2338	1053.7708333333333	127	81
+place	RunnerProcess	root	2338	1174.7708333333333	129	81
+place	IWatcher	root	42	1001.125	166.5	141
+place	GitHubWatcher	root	288.5	703.0416666666667	127	81
+place	ClockWatcher	root	288.5	824.0416666666667	118	81
+place	ProcessWatcher	root	288.5	945.0416666666667	134	81
+place	UsageWatcher	root	288.5	1066.0416666666667	122	81
+place	EffectRunner	root	1208.25	1019.7708333333334	174	141
+place	SqliteStore	root	1087	372.7458333333334	222.5	162
+place	Views	root	625	314	204	162
+place	IPeerLink	root	1087	1262.7708333333333	226.5	162
+place	Exporter	root	747	193	82	81
+place	Importer	root	127.5	1233.875	81	81
+route	id_Ledger_WorkMachine_1	root	root
+section	id_Ledger_WorkMachine_1	id_Ledger_WorkMachine_1_s0	795.25,1067.125	1087,707.2708333333334	869,1067.125 869,707.2708333333334	Ledger	WorkMachine
+place-label	edge	id_Ledger_WorkMachine_1	0	939	696.2708333333334	78	21
+route	id_Ledger_Policy_2	root	root
+section	id_Ledger_Policy_2	id_Ledger_Policy_2_s0	795.25,1086.75	1087,898.7708333333334	889,1086.75 889,898.7708333333334	Ledger	Policy
+place-label	edge	id_Ledger_Policy_2	0	942	887.7708333333334	72	21
+route	id_Ledger_SqliteStore_3	root	root
+section	id_Ledger_SqliteStore_3	id_Ledger_SqliteStore_3_s0	795.25,1047.5	1087,496.3458333333334	849,1047.5 849,611.8208333333334 1067,611.8208333333334 1067,496.3458333333334	Ledger	SqliteStore
+place-label	edge	id_Ledger_SqliteStore_3	0	929	600.8208333333334	98	21
+route	id_Ledger_EffectRunner_4	root	root
+section	id_Ledger_EffectRunner_4	id_Ledger_EffectRunner_4_s0	795.25,1106.375	1208.25,1090.2708333333335	909,1106.375 909,1090.2708333333333	Ledger	EffectRunner
+place-label	edge	id_Ledger_EffectRunner_4	0	958	1079.2708333333333	40	21
+route	id_Scheduler_Ledger_5	root	root
+section	id_Scheduler_Ledger_5	id_Scheduler_Ledger_5_s0	208.5,573	561.25,1067.125	228.5,573 228.5,652.0416666666667 442.5,652.0416666666667 442.5,1067.125	Scheduler	Ledger
+place-label	edge	id_Scheduler_Ledger_5	0	293	641.0416666666667	125	21
+route	id_Scheduler_IGate_6	root	root
+section	id_Scheduler_IGate_6	id_Scheduler_IGate_6_s0	208.5,481	482.5,82.5	228.5,481 228.5,82.5	Scheduler	IGate
+place-label	edge	id_Scheduler_IGate_6	0	323.5	71.5	64	21
+route	id_Scheduler_SqliteStore_7	root	root
+section	id_Scheduler_SqliteStore_7	id_Scheduler_SqliteStore_7_s0	208.5,527	1087,467.94583333333344	355.5,527 978,527 1047,527 1047,467.94583333333344	Scheduler	SqliteStore
+place-label	edge	id_Scheduler_SqliteStore_7	0	598.75	516	114	21
+route	id_EffectRunner_IEffectHandler_8	root	root
+section	id_EffectRunner_IEffectHandler_8	id_EffectRunner_IEffectHandler_8_s0	1382.25,1090.2708333333335	1628.5,1090.2708333333335		EffectRunner	IEffectHandler
+place-label	edge	id_EffectRunner_IEffectHandler_8	0	1543.5	1079.2708333333333	45	21
+route	id_IEffectHandler_SessionRunner_9	root	root
+section	id_IEffectHandler_SessionRunner_9	id_IEffectHandler_SessionRunner_9_s0	1837,1090.2708333333335	1877,1191.4375	1857,1090.2708333333335 1857,1191.4375	IEffectHandler	SessionRunner
+place-label	edge	id_IEffectHandler_SessionRunner_9	0	0	0	0	0
+route	id_SessionRunner_IClaudeProcess_10	root	root
+section	id_SessionRunner_IClaudeProcess_10	id_SessionRunner_IClaudeProcess_10_s0	2006,1201.6041666666667	2167,1201.6041666666667		SessionRunner	IClaudeProcess
+place-label	edge	id_SessionRunner_IClaudeProcess_10	0	2046	1190.6041666666667	81	21
+route	id_IClaudeProcess_ClaudeProcess_11	root	root
+section	id_IClaudeProcess_ClaudeProcess_11	id_IClaudeProcess_ClaudeProcess_11_s0	2298,1187.9375	2338,1094.2708333333333	2318,1187.9375 2318,1094.2708333333333	IClaudeProcess	ClaudeProcess
+place-label	edge	id_IClaudeProcess_ClaudeProcess_11	0	0	0	0	0
+route	id_IClaudeProcess_RunnerProcess_12	root	root
+section	id_IClaudeProcess_RunnerProcess_12	id_IClaudeProcess_RunnerProcess_12_s0	2298,1215.2708333333333	2338,1215.2708333333333		IClaudeProcess	RunnerProcess
+place-label	edge	id_IClaudeProcess_RunnerProcess_12	0	0	0	0	0
+route	id_SessionRunner_Ledger_13	root	root
+section	id_SessionRunner_Ledger_13	id_SessionRunner_Ledger_13_s0	1877,1211.7708333333333	795.25,1126	1732.75,1211.7708333333333 1566,1211.7708333333333 978,1211.7708333333333 889,1211.7708333333333 889,1126	SessionRunner	Ledger
+place-label	edge	id_SessionRunner_Ledger_13	0	1205.25	1200.7708333333333	180	21
+route	id_IWatcher_GitHubWatcher_14	root	root
+section	id_IWatcher_GitHubWatcher_14	id_IWatcher_GitHubWatcher_14_s0	208.5,1031.2916666666667	288.5,743.5416666666667	228.5,1031.2916666666667 228.5,743.5416666666667	IWatcher	GitHubWatcher
+place-label	edge	id_IWatcher_GitHubWatcher_14	0	0	0	0	0
+route	id_IWatcher_ClockWatcher_15	root	root
+section	id_IWatcher_ClockWatcher_15	id_IWatcher_ClockWatcher_15_s0	208.5,1051.4583333333333	288.5,864.5416666666667	248.5,1051.4583333333333 248.5,864.5416666666667	IWatcher	ClockWatcher
+place-label	edge	id_IWatcher_ClockWatcher_15	0	0	0	0	0
+route	id_IWatcher_ProcessWatcher_16	root	root
+section	id_IWatcher_ProcessWatcher_16	id_IWatcher_ProcessWatcher_16_s0	208.5,1071.625	288.5,985.5416666666667	268.5,1071.625 268.5,985.5416666666667	IWatcher	ProcessWatcher
+place-label	edge	id_IWatcher_ProcessWatcher_16	0	0	0	0	0
+route	id_IWatcher_UsageWatcher_17	root	root
+section	id_IWatcher_UsageWatcher_17	id_IWatcher_UsageWatcher_17_s0	208.5,1091.7916666666667	288.5,1106.5416666666667	248.5,1091.7916666666667 248.5,1106.5416666666667	IWatcher	UsageWatcher
+place-label	edge	id_IWatcher_UsageWatcher_17	0	0	0	0	0
+route	id_IWatcher_Ledger_18	root	root
+section	id_IWatcher_Ledger_18	id_IWatcher_Ledger_18_s0	208.5,1111.9583333333333	561.25,1106.375	228.5,1111.9583333333333 228.5,1198.0416666666667 442.5,1198.0416666666667 442.5,1106.375	IWatcher	Ledger
+place-label	edge	id_IWatcher_Ledger_18	0	315	1187.0416666666667	81	21
+route	id_Views_SqliteStore_19	root	root
+section	id_Views_SqliteStore_19	id_Views_SqliteStore_19_s0	829,395	1087,439.54583333333335	1047,395 1047,439.54583333333335	Views	SqliteStore
+place-label	edge	id_Views_SqliteStore_19	0	935	384	86	21
+route	id_IPeerLink_Ledger_20	root	root
+section	id_IPeerLink_Ledger_20	id_IPeerLink_Ledger_20_s0	1087,1320.1041666666667	795.25,1145.625	1047,1320.1041666666667 1047,1322.7708333333333 869,1322.7708333333333 869,1145.625	IPeerLink	Ledger
+place-label	edge	id_IPeerLink_Ledger_20	0	935.5	1311.7708333333333	85	21
+route	id_Ledger_IPeerLink_21	root	root
+section	id_Ledger_IPeerLink_21	id_Ledger_IPeerLink_21_s0	795.25,1165.25	1087,1367.4375	849,1165.25 849,1367.4375	Ledger	IPeerLink
+place-label	edge	id_Ledger_IPeerLink_21	0	933.5	1356.4375	89	21
+route	id_Exporter_SqliteStore_22	root	root
+section	id_Exporter_SqliteStore_22	id_Exporter_SqliteStore_22_s0	829,233.5	1087,411.14583333333337	1067,233.5 1067,411.14583333333337	Exporter	SqliteStore
+place-label	edge	id_Exporter_SqliteStore_22	0	960	222.5	36	21
+route	id_Importer_Ledger_23	root	root
+section	id_Importer_Ledger_23	id_Importer_Ledger_23_s0	208.5,1274.375	561.25,1145.625	462.5,1274.375 462.5,1145.625	Importer	Ledger
+place-label	edge	id_Importer_Ledger_23	0	298.5	1263.375	114	21

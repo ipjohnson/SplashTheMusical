@@ -75,7 +75,7 @@ arg "<version>" help="The mermaid version, such as 12.3.0"
 run = 'bash tools/upstream/bump.sh "${usage_version}"'
 
 [tasks.corpus-oracle]
-description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
+description = "Write the mermaid.js facts, boxes, dagre and ELK files of every case in corpus/"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
   "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",

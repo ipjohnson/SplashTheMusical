@@ -1,0 +1,72 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0fe9b389817a315d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	grp	root
+option	node	grp		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	grp		nodeSize.minimum	(72, 49)
+option	node	grp		spacing.baseValue	24
+option	node	grp		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	grp		elk.spacing.edgeEdge	20
+option	node	grp		spacing.nodeNode	50
+option	node	grp		elk.padding	[top=34,left=15,bottom=15,right=15]
+option	node	grp		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	grp		elk.layered.mergeEdges	false
+option	node	grp		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	grp		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	grp		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	grp		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	grp		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	grp		elk.algorithm	elk.box
+option	node	grp		elk.hierarchyHandling	SEPARATE_CHILDREN
+option	node	grp		elk.aspectRatio	2.0
+option	node	grp		elk.contentAlignment	H_CENTER V_TOP
+option	node	grp		elk.expandNodes	true
+label	node	grp	0	Grouped	56	19
+node	a	grp	152	45
+node	b	grp	152	45
+node	c	grp	152	45
+node	start	root	152	45
+node	done	root	152	45
+edge	L_start_grp_0	root	start	grp
+label	edge	L_start_grp_0	0		0	0
+option	edge-label	L_start_grp_0	0	edgeLabels.inline	true
+option	edge-label	L_start_grp_0	0	edgeLabels.placement	CENTER
+edge	L_grp_done_0	root	grp	done
+label	edge	L_grp_done_0	0		0	0
+option	edge-label	L_grp_done_0	0	edgeLabels.inline	true
+option	edge-label	L_grp_done_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	206	478
+place	grp	root	12	97	182	284
+place-label	node	grp	0	63	5	56	19
+place	a	grp	15	34	152	45
+place	b	grp	15	129	152	45
+place	c	grp	15	224	152	45
+place	start	root	27	12	152	45
+place	done	root	27	421	152	45
+route	L_start_grp_0	root	root
+section	L_start_grp_0	L_start_grp_0_s0	103,57	103,97		start	grp
+place-label	edge	L_start_grp_0	0	0	0	0	0
+route	L_grp_done_0	root	root
+section	L_grp_done_0	L_grp_done_0_s0	103,381	103,421		grp	done
+place-label	edge	L_grp_done_0	0	0	0	0	0

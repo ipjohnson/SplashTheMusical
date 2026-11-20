@@ -1,0 +1,83 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9ca965675731c24
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	152	45
+node	B	root	152	45
+node	C	root	152	45
+node	D	root	152	45
+node	E	root	152	45
+node	F	root	152	45
+node	G	root	152	45
+node	H	root	152	45
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_A_C_0	root	A	C
+label	edge	L_A_C_0	0		0	0
+option	edge-label	L_A_C_0	0	edgeLabels.inline	true
+option	edge-label	L_A_C_0	0	edgeLabels.placement	CENTER
+edge	L_A_D_0	root	A	D
+label	edge	L_A_D_0	0		0	0
+option	edge-label	L_A_D_0	0	edgeLabels.inline	true
+option	edge-label	L_A_D_0	0	edgeLabels.placement	CENTER
+edge	L_E_F_0	root	E	F
+label	edge	L_E_F_0	0	text	23	21
+option	edge-label	L_E_F_0	0	edgeLabels.inline	true
+option	edge-label	L_E_F_0	0	edgeLabels.placement	CENTER
+edge	L_E_G_0	root	E	G
+label	edge	L_E_G_0	0	dotted text	67	21
+option	edge-label	L_E_G_0	0	edgeLabels.inline	true
+option	edge-label	L_E_G_0	0	edgeLabels.placement	CENTER
+edge	L_E_H_0	root	E	H
+label	edge	L_E_H_0	0	thick text	56	21
+option	edge-label	L_E_H_0	0	edgeLabels.inline	true
+option	edge-label	L_E_H_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1071.5	239
+place	A	root	204	12	152	45
+place	B	root	12	97	152	45
+place	C	root	204	97	152	45
+place	D	root	396	97	152	45
+place	E	root	715.5	12	152	45
+place	F	root	523.5	182	152	45
+place	G	root	715.5	182	152	45
+place	H	root	907.5	182	152	45
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	247,57	88,97	247,77 88,77	A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_A_C_0	root	root
+section	L_A_C_0	L_A_C_0_s0	280,57	280,97		A	C
+place-label	edge	L_A_C_0	0	0	0	0	0
+route	L_A_D_0	root	root
+section	L_A_D_0	L_A_D_0_s0	313,57	472,97	313,77 472,77	A	D
+place-label	edge	L_A_D_0	0	0	0	0	0
+route	L_E_F_0	root	root
+section	L_E_F_0	L_E_F_0_s0	758.5,57	599.5,182	758.5,77 599.5,77	E	F
+place-label	edge	L_E_F_0	0	588	109	23	21
+route	L_E_G_0	root	root
+section	L_E_G_0	L_E_G_0_s0	791.5,57	791.5,182		E	G
+place-label	edge	L_E_G_0	0	758	109	67	21
+route	L_E_H_0	root	root
+section	L_E_H_0	L_E_H_0_s0	824.5,57	983.5,182	824.5,77 983.5,77	E	H
+place-label	edge	L_E_H_0	0	955.5	109	56	21

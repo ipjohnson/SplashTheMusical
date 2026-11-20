@@ -1,0 +1,91 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4400a1bd9c0d5657
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	34	81
+node	B	root	34	81
+node	C	root	34	81
+node	D	root	34	81
+node	E	root	33	81
+node	F	root	33	81
+node	G	root	35	81
+node	H	root	34	81
+node	I	root	28	81
+node	J	root	32	81
+node	K	root	34	81
+node	L	root	33	81
+edge	id_A_B_1	root	A	B
+label	edge	id_A_B_1	0	Inheritance	71	21
+option	edge-label	id_A_B_1	0	edgeLabels.inline	true
+option	edge-label	id_A_B_1	0	edgeLabels.placement	CENTER
+edge	id_C_D_2	root	C	D
+label	edge	id_C_D_2	0	Composition	79	21
+option	edge-label	id_C_D_2	0	edgeLabels.inline	true
+option	edge-label	id_C_D_2	0	edgeLabels.placement	CENTER
+edge	id_E_F_3	root	E	F
+label	edge	id_E_F_3	0	Aggregation	77	21
+option	edge-label	id_E_F_3	0	edgeLabels.inline	true
+option	edge-label	id_E_F_3	0	edgeLabels.placement	CENTER
+edge	id_G_H_4	root	G	H
+label	edge	id_G_H_4	0	Association	72	21
+option	edge-label	id_G_H_4	0	edgeLabels.inline	true
+option	edge-label	id_G_H_4	0	edgeLabels.placement	CENTER
+edge	id_I_J_5	root	I	J
+label	edge	id_I_J_5	0	Dependency	80	21
+option	edge-label	id_I_J_5	0	edgeLabels.inline	true
+option	edge-label	id_I_J_5	0	edgeLabels.placement	CENTER
+edge	id_K_L_6	root	K	L
+label	edge	id_K_L_6	0	Realization	70	21
+option	edge-label	id_K_L_6	0	edgeLabels.inline	true
+option	edge-label	id_K_L_6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	573	287
+place	A	root	30.5	12	34	81
+place	B	root	30.5	194	34	81
+place	C	root	125.5	12	34	81
+place	D	root	125.5	194	34	81
+place	E	root	224	12	33	81
+place	F	root	224	194	33	81
+place	G	root	317.5	12	35	81
+place	H	root	318	194	34	81
+place	I	root	417	12	28	81
+place	J	root	415	194	32	81
+place	K	root	509	12	34	81
+place	L	root	509.5	194	33	81
+route	id_A_B_1	root	root
+section	id_A_B_1	id_A_B_1_s0	47.5,93	47.5,194		A	B
+place-label	edge	id_A_B_1	0	12	133	71	21
+route	id_C_D_2	root	root
+section	id_C_D_2	id_C_D_2_s0	142.5,93	142.5,194		C	D
+place-label	edge	id_C_D_2	0	103	133	79	21
+route	id_E_F_3	root	root
+section	id_E_F_3	id_E_F_3_s0	240.5,93	240.5,194		E	F
+place-label	edge	id_E_F_3	0	202	133	77	21
+route	id_G_H_4	root	root
+section	id_G_H_4	id_G_H_4_s0	335,93	335,194		G	H
+place-label	edge	id_G_H_4	0	299	133	72	21
+route	id_I_J_5	root	root
+section	id_I_J_5	id_I_J_5_s0	431,93	431,194		I	J
+place-label	edge	id_I_J_5	0	391	133	80	21
+route	id_K_L_6	root	root
+section	id_K_L_6	id_K_L_6_s0	526,93	526,194		K	L
+place-label	edge	id_K_L_6	0	491	133	70	21

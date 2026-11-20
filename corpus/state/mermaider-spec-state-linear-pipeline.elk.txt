@@ -1,0 +1,81 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 45c303bd49d1849e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Received	root	136	37
+node	Validated	root	136	37
+node	Enriched	root	136	37
+node	Stored	root	136	37
+node	Published	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Received
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Received	Validated
+label	edge	edge1	0	validate	49	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Validated	Enriched
+label	edge	edge2	0	enrich	39	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Enriched	Stored
+label	edge	edge3	0	persist	42	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Stored	Published
+label	edge	edge4	0	notify	34	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Published	root_end
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	160	721
+place	root_start	root	70	12	14	14
+place	Received	root	12	66	136	37
+place	Validated	root	12	204	136	37
+place	Enriched	root	12	342	136	37
+place	Stored	root	12	480	136	37
+place	Published	root	12	618	136	37
+place	root_end	root	70	695	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	80,26	80,66		root_start	Received
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	80,103	80,204		Received	Validated
+place-label	edge	edge1	0	55.5	143	49	21
+route	edge2	root	root
+section	edge2	edge2_s0	80,241	80,342		Validated	Enriched
+place-label	edge	edge2	0	60.5	281	39	21
+route	edge3	root	root
+section	edge3	edge3_s0	80,379	80,480		Enriched	Stored
+place-label	edge	edge3	0	59	419	42	21
+route	edge4	root	root
+section	edge4	edge4_s0	80,517	80,618		Stored	Published
+place-label	edge	edge4	0	63	557	34	21
+route	edge5	root	root
+section	edge5	edge5_s0	80,655	80,695		Published	root_end
+place-label	edge	edge5	0	0	0	0	0

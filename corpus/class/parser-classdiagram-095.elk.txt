@@ -1,0 +1,80 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 15efdcd8ae8f58eb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Class11	root	77	81
+node	Class12	root	78	81
+node	Class13	root	78	81
+node	Class14	root	78	81
+node	Class15	root	78	81
+node	Class16	root	78	81
+node	Class17	root	78	81
+node	Class18	root	78	81
+node	Class19	root	78	81
+node	Class20	root	78	81
+edge	id_Class11_Class12_1	root	Class11	Class12
+label	edge	id_Class11_Class12_1	0		0	0
+option	edge-label	id_Class11_Class12_1	0	edgeLabels.inline	true
+option	edge-label	id_Class11_Class12_1	0	edgeLabels.placement	CENTER
+edge	id_Class13_Class14_2	root	Class13	Class14
+label	edge	id_Class13_Class14_2	0		0	0
+option	edge-label	id_Class13_Class14_2	0	edgeLabels.inline	true
+option	edge-label	id_Class13_Class14_2	0	edgeLabels.placement	CENTER
+edge	id_Class15_Class16_3	root	Class15	Class16
+label	edge	id_Class15_Class16_3	0		0	0
+option	edge-label	id_Class15_Class16_3	0	edgeLabels.inline	true
+option	edge-label	id_Class15_Class16_3	0	edgeLabels.placement	CENTER
+edge	id_Class17_Class18_4	root	Class17	Class18
+label	edge	id_Class17_Class18_4	0		0	0
+option	edge-label	id_Class17_Class18_4	0	edgeLabels.inline	true
+option	edge-label	id_Class17_Class18_4	0	edgeLabels.placement	CENTER
+edge	id_Class19_Class20_5	root	Class19	Class20
+label	edge	id_Class19_Class20_5	0		0	0
+option	edge-label	id_Class19_Class20_5	0	edgeLabels.inline	true
+option	edge-label	id_Class19_Class20_5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	574	226
+place	Class11	root	12.5	12	77	81
+place	Class12	root	12	133	78	81
+place	Class13	root	130	12	78	81
+place	Class14	root	130	133	78	81
+place	Class15	root	248	12	78	81
+place	Class16	root	248	133	78	81
+place	Class17	root	366	12	78	81
+place	Class18	root	366	133	78	81
+place	Class19	root	484	12	78	81
+place	Class20	root	484	133	78	81
+route	id_Class11_Class12_1	root	root
+section	id_Class11_Class12_1	id_Class11_Class12_1_s0	51,93	51,133		Class11	Class12
+place-label	edge	id_Class11_Class12_1	0	0	0	0	0
+route	id_Class13_Class14_2	root	root
+section	id_Class13_Class14_2	id_Class13_Class14_2_s0	169,93	169,133		Class13	Class14
+place-label	edge	id_Class13_Class14_2	0	0	0	0	0
+route	id_Class15_Class16_3	root	root
+section	id_Class15_Class16_3	id_Class15_Class16_3_s0	287,93	287,133		Class15	Class16
+place-label	edge	id_Class15_Class16_3	0	0	0	0	0
+route	id_Class17_Class18_4	root	root
+section	id_Class17_Class18_4	id_Class17_Class18_4_s0	405,93	405,133		Class17	Class18
+place-label	edge	id_Class17_Class18_4	0	0	0	0	0
+route	id_Class19_Class20_5	root	root
+section	id_Class19_Class20_5	id_Class19_Class20_5_s0	523,93	523,133		Class19	Class20
+place-label	edge	id_Class19_Class20_5	0	0	0	0	0

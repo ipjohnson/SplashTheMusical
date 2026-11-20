@@ -1,0 +1,38 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 498d9363ba8ed96f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Animal	root	71	81
+node	Vehicle	root	73	81
+node	Car	root	47	81
+edge	id_Vehicle_Car_1	root	Vehicle	Car
+label	edge	id_Vehicle_Car_1	0		0	0
+option	edge-label	id_Vehicle_Car_1	0	edgeLabels.inline	true
+option	edge-label	id_Vehicle_Car_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	208	226
+place	Animal	root	12	12	71	81
+place	Vehicle	root	123	12	73	81
+place	Car	root	136	133	47	81
+route	id_Vehicle_Car_1	root	root
+section	id_Vehicle_Car_1	id_Vehicle_Car_1_s0	159.5,93	159.5,133		Vehicle	Car
+place-label	edge	id_Vehicle_Car_1	0	0	0	0	0

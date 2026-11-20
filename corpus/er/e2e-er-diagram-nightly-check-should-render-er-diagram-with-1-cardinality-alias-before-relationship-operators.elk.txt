@@ -1,0 +1,67 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 112f9a41e4ca057e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	120	81
+node	entity-ORDER-1	root	100	81
+node	entity-LINE-ITEM-2	root	110	81
+node	entity-PRODUCT-3	root	109	81
+node	entity-CATEGORY-4	root	117	81
+node	entity-USER-5	root	100	81
+node	entity-PROFILE-6	root	100	81
+edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	exactly one	72	21
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	entity-ORDER-1	entity-LINE-ITEM-2
+label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	one to many	79	21
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-PRODUCT-3_entity-CATEGORY-4_2	root	entity-PRODUCT-3	entity-CATEGORY-4
+label	edge	id_entity-PRODUCT-3_entity-CATEGORY-4_2	0	one or more	78	21
+option	edge-label	id_entity-PRODUCT-3_entity-CATEGORY-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-PRODUCT-3_entity-CATEGORY-4_2	0	edgeLabels.placement	CENTER
+edge	id_entity-USER-5_entity-PROFILE-6_3	root	entity-USER-5	entity-PROFILE-6
+label	edge	id_entity-USER-5_entity-PROFILE-6_3	0	exactly one optional	126	21
+option	edge-label	id_entity-USER-5_entity-PROFILE-6_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-USER-5_entity-PROFILE-6_3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	450	469
+place	entity-CUSTOMER-0	root	12	12	120	81
+place	entity-ORDER-1	root	22	194	100	81
+place	entity-LINE-ITEM-2	root	17	376	110	81
+place	entity-PRODUCT-3	root	172	12	109	81
+place	entity-CATEGORY-4	root	168	194	117	81
+place	entity-USER-5	root	325	12	100	81
+place	entity-PROFILE-6	root	325	194	100	81
+route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	72,93	72,194		entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	36	133	72	21
+route	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	root
+section	id_entity-ORDER-1_entity-LINE-ITEM-2_1	id_entity-ORDER-1_entity-LINE-ITEM-2_1_s0	72,275	72,376		entity-ORDER-1	entity-LINE-ITEM-2
+place-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	32.5	315	79	21
+route	id_entity-PRODUCT-3_entity-CATEGORY-4_2	root	root
+section	id_entity-PRODUCT-3_entity-CATEGORY-4_2	id_entity-PRODUCT-3_entity-CATEGORY-4_2_s0	226.5,93	226.5,194		entity-PRODUCT-3	entity-CATEGORY-4
+place-label	edge	id_entity-PRODUCT-3_entity-CATEGORY-4_2	0	187.5	133	78	21
+route	id_entity-USER-5_entity-PROFILE-6_3	root	root
+section	id_entity-USER-5_entity-PROFILE-6_3	id_entity-USER-5_entity-PROFILE-6_3_s0	375,93	375,194		entity-USER-5	entity-PROFILE-6
+place-label	edge	id_entity-USER-5_entity-PROFILE-6_3	0	312	133	126	21

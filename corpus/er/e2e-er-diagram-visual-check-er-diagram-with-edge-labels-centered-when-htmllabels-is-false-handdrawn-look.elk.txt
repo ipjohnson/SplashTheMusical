@@ -1,0 +1,70 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9d69b6885d9b2d5f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	123.52788543701172	78.82130432128906
+node	entity-ORDER-1	root	103.21422576904297	79.27159881591797
+node	entity-LINE-ITEM-2	root	113.49454498291016	79.40642547607422
+node	entity-ADDRESS-3	root	108.59229278564453	79.17438507080078
+node	entity-INVOICE-4	root	100.41744232177734	78.7048110961914
+edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	entity-CUSTOMER-0	entity-ORDER-1
+label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	places	45	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	entity-ORDER-1	entity-LINE-ITEM-2
+label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	contains	57	19.999998092651367
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	root	entity-CUSTOMER-0	entity-ADDRESS-3
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	invoiced at	72	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	edgeLabels.placement	CENTER
+edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	root	entity-CUSTOMER-0	entity-ADDRESS-3
+label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	receives goods at	116	19.999998092651367
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	edgeLabels.placement	CENTER
+edge	id_entity-ORDER-1_entity-INVOICE-4_4	root	entity-ORDER-1	entity-INVOICE-4
+label	edge	id_entity-ORDER-1_entity-INVOICE-4_4	0	liable for	58	19.999998092651367
+option	edge-label	id_entity-ORDER-1_entity-INVOICE-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-ORDER-1_entity-INVOICE-4_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	431.04420789082843	461.499324798584
+place	entity-CUSTOMER-0	root	185.28026517232257	12	123.52788543701172	78.82130432128906
+place	entity-ORDER-1	root	90.61815643310547	190.82130241394043	103.21422576904297	79.27159881591797
+place	entity-LINE-ITEM-2	root	12	370.09289932250977	113.49454498291016	79.40642547607422
+place	entity-ADDRESS-3	root	249.7480614980062	190.82130241394043	108.59229278564453	79.17438507080078
+place	entity-INVOICE-4	root	165.49454498291016	370.09289932250977	100.41744232177734	78.7048110961914
+route	id_entity-CUSTOMER-0_entity-ORDER-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-ORDER-1_0	id_entity-CUSTOMER-0_entity-ORDER-1_0_s0	221.1622365315755,90.82130432128906	142.22526931762695,190.82130241394043	221.1622365315755,110.82130432128906 142.22526931762695,110.82130432128906	entity-CUSTOMER-0	entity-ORDER-1
+place-label	edge	id_entity-CUSTOMER-0_entity-ORDER-1_0	0	119.72526931762695	130.82130432128906	45	19.999998092651367
+route	id_entity-ORDER-1_entity-LINE-ITEM-2_1	root	root
+section	id_entity-ORDER-1_entity-LINE-ITEM-2_1	id_entity-ORDER-1_entity-LINE-ITEM-2_1_s0	128.35623168945312,270.0929012298584	68.74727249145508,370.09289932250977	128.35623168945312,290.0929012298584 68.74727249145508,290.0929012298584	entity-ORDER-1	entity-LINE-ITEM-2
+place-label	edge	id_entity-ORDER-1_entity-LINE-ITEM-2_1	0	40.24727249145508	310.0929012298584	57	19.999998092651367
+route	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	id_entity-CUSTOMER-0_entity-ADDRESS-3_2_s0	247.04420789082843,90.82130432128906	289.2788257598877,190.82130241394043	247.04420789082843,170.82130241394043 289.2788257598877,170.82130241394043	entity-CUSTOMER-0	entity-ADDRESS-3
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_2	0	211.04420789082843	130.82130432128906	72	19.999998092651367
+route	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	root	root
+section	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	id_entity-CUSTOMER-0_entity-ADDRESS-3_3_s0	272.92617925008136,90.82130432128906	318.8095900217692,190.82130241394043	272.92617925008136,110.82130432128906 361.04420789082843,110.82130432128906 361.04420789082843,170.82130241394043 318.8095900217692,170.82130241394043	entity-CUSTOMER-0	entity-ADDRESS-3
+place-label	edge	id_entity-CUSTOMER-0_entity-ADDRESS-3_3	0	303.04420789082843	130.82130432128906	116	19.999998092651367
+route	id_entity-ORDER-1_entity-INVOICE-4_4	root	root
+section	id_entity-ORDER-1_entity-INVOICE-4_4	id_entity-ORDER-1_entity-INVOICE-4_4_s0	156.09430694580078,270.0929012298584	215.70326614379883,370.09289932250977	156.09430694580078,290.0929012298584 215.70326614379883,290.0929012298584	entity-ORDER-1	entity-INVOICE-4
+place-label	edge	id_entity-ORDER-1_entity-INVOICE-4_4	0	186.70326614379883	310.0929012298584	58	19.999998092651367

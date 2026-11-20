@@ -1,0 +1,63 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8b4cf7c3adaa9c5f
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	if_state	root	28	28
+node	root_start	root	14	14
+node	IsPositive	root	136	37
+node	False	root	136	37
+node	True	root	136	37
+edge	edge0	root	root_start	IsPositive
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	IsPositive	if_state
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	if_state	False
+label	edge	edge2	0	if n &lt; 0	43	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	if_state	True
+label	edge	edge3	0	if n >= 0	51	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	336	321
+place	if_state	root	154	143	28	28
+place	root_start	root	158	12	14	14
+place	IsPositive	root	100	66	136	37
+place	False	root	12	272	136	37
+place	True	root	188	272	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	168,26	168,66		root_start	IsPositive
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	168,103	168,143		IsPositive	if_state
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	166.66666666666666,171	80,272	166.66666666666666,191 80,191	if_state	False
+place-label	edge	edge2	0	58.5	211	43	21
+route	edge3	root	root
+section	edge3	edge3_s0	169.33333333333334,171	256,272	169.33333333333334,191 256,191	if_state	True
+place-label	edge	edge3	0	230.5	211	51	21

@@ -1,0 +1,57 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 69451cfd3a686cf3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	tools	root
+option	node	tools		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	tools		nodeSize.minimum	(49, 39)
+option	node	tools		spacing.baseValue	15
+option	node	tools		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	tools		elk.spacing.edgeEdge	20
+option	node	tools		spacing.nodeNode	15
+option	node	tools		elk.padding	[top=29,left=10,bottom=10,right=10]
+option	node	tools		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	tools		elk.layered.mergeEdges	false
+option	node	tools		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	tools		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	tools		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	tools		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	tools		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	tools		elk.algorithm	elk.rectpacking
+option	node	tools		elk.hierarchyHandling	SEPARATE_CHILDREN
+option	node	tools		elk.aspectRatio	1.6
+option	node	tools		elk.contentAlignment	H_CENTER V_TOP
+option	node	tools		elk.expandNodes	true
+option	node	tools		elk.rectpacking.trybox	true
+option	node	tools		elk.rectpacking.packing.compaction.rowHeightReevaluation	true
+option	node	tools		elk.rectpacking.packing.compaction.iterations	10
+option	node	tools		elk.rectpacking.whiteSpaceElimination.strategy	EQUAL_BETWEEN_STRUCTURES
+option	node	tools		elk.rectpacking.widthApproximation.strategy	SCANLINE
+label	node	tools	0	Tools	33	19
+node	a	tools	164	33
+node	b	tools	164	33
+result
+place	root		0	0	208	144
+place	tools	root	12	12	184	120
+place-label	node	tools	0	75.5	5	33	19
+place	a	tools	10	29	164	33
+place	b	tools	10	77	164	33

@@ -1,0 +1,102 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b46518f035ab0e3d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	req_0	root	134	166
+node	req_1	root	134	166
+node	req_2	root	134	166
+node	req_3	root	134	166
+node	req_4	root	134	166
+node	req_5	root	134	166
+node	req_6	root	134	166
+node	elem_0	root	104	103
+node	elem_1	root	104	103
+node	elem_2	root	104	103
+node	elem_3	root	104	103
+node	elem_4	root	104	103
+node	elem_5	root	104	103
+node	elem_6	root	104	103
+edge	elem_0-req_0-0	root	elem_0	req_0
+label	edge	elem_0-req_0-0	0	&lt;&lt;contains&gt;&gt;	85	21
+option	edge-label	elem_0-req_0-0	0	edgeLabels.inline	true
+option	edge-label	elem_0-req_0-0	0	edgeLabels.placement	CENTER
+edge	elem_1-req_1-1	root	elem_1	req_1
+label	edge	elem_1-req_1-1	0	&lt;&lt;copies&gt;&gt;	73	21
+option	edge-label	elem_1-req_1-1	0	edgeLabels.inline	true
+option	edge-label	elem_1-req_1-1	0	edgeLabels.placement	CENTER
+edge	elem_2-req_2-2	root	elem_2	req_2
+label	edge	elem_2-req_2-2	0	&lt;&lt;derives&gt;&gt;	78	21
+option	edge-label	elem_2-req_2-2	0	edgeLabels.inline	true
+option	edge-label	elem_2-req_2-2	0	edgeLabels.placement	CENTER
+edge	elem_3-req_3-3	root	elem_3	req_3
+label	edge	elem_3-req_3-3	0	&lt;&lt;satisfies&gt;&gt;	83	21
+option	edge-label	elem_3-req_3-3	0	edgeLabels.inline	true
+option	edge-label	elem_3-req_3-3	0	edgeLabels.placement	CENTER
+edge	elem_4-req_4-4	root	elem_4	req_4
+label	edge	elem_4-req_4-4	0	&lt;&lt;verifies&gt;&gt;	77	21
+option	edge-label	elem_4-req_4-4	0	edgeLabels.inline	true
+option	edge-label	elem_4-req_4-4	0	edgeLabels.placement	CENTER
+edge	elem_5-req_5-5	root	elem_5	req_5
+label	edge	elem_5-req_5-5	0	&lt;&lt;refines&gt;&gt;	75	21
+option	edge-label	elem_5-req_5-5	0	edgeLabels.inline	true
+option	edge-label	elem_5-req_5-5	0	edgeLabels.placement	CENTER
+edge	elem_6-req_6-6	root	elem_6	req_6
+label	edge	elem_6-req_6-6	0	&lt;&lt;traces&gt;&gt;	71	21
+option	edge-label	elem_6-req_6-6	0	edgeLabels.inline	true
+option	edge-label	elem_6-req_6-6	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1202	394
+place	req_0	root	12	216	134	166
+place	req_1	root	186	216	134	166
+place	req_2	root	360	216	134	166
+place	req_3	root	534	216	134	166
+place	req_4	root	708	216	134	166
+place	req_5	root	882	216	134	166
+place	req_6	root	1056	216	134	166
+place	elem_0	root	27	12	104	103
+place	elem_1	root	201	12	104	103
+place	elem_2	root	375	12	104	103
+place	elem_3	root	549	12	104	103
+place	elem_4	root	723	12	104	103
+place	elem_5	root	897	12	104	103
+place	elem_6	root	1071	12	104	103
+route	elem_0-req_0-0	root	root
+section	elem_0-req_0-0	elem_0-req_0-0_s0	79,115	79,216		elem_0	req_0
+place-label	edge	elem_0-req_0-0	0	36.5	155	85	21
+route	elem_1-req_1-1	root	root
+section	elem_1-req_1-1	elem_1-req_1-1_s0	253,115	253,216		elem_1	req_1
+place-label	edge	elem_1-req_1-1	0	216.5	155	73	21
+route	elem_2-req_2-2	root	root
+section	elem_2-req_2-2	elem_2-req_2-2_s0	427,115	427,216		elem_2	req_2
+place-label	edge	elem_2-req_2-2	0	388	155	78	21
+route	elem_3-req_3-3	root	root
+section	elem_3-req_3-3	elem_3-req_3-3_s0	601,115	601,216		elem_3	req_3
+place-label	edge	elem_3-req_3-3	0	559.5	155	83	21
+route	elem_4-req_4-4	root	root
+section	elem_4-req_4-4	elem_4-req_4-4_s0	775,115	775,216		elem_4	req_4
+place-label	edge	elem_4-req_4-4	0	736.5	155	77	21
+route	elem_5-req_5-5	root	root
+section	elem_5-req_5-5	elem_5-req_5-5_s0	949,115	949,216		elem_5	req_5
+place-label	edge	elem_5-req_5-5	0	911.5	155	75	21
+route	elem_6-req_6-6	root	root
+section	elem_6-req_6-6	elem_6-req_6-6_s0	1123,115	1123,216		elem_6	req_6
+place-label	edge	elem_6-req_6-6	0	1087.5	155	71	21

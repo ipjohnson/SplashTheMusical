@@ -1,0 +1,63 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d8a6f592e6cf59dc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	1A	root	182.9343719482422	54.566741943359375
+node	1B	root	182.2378692626953	54.502750396728516
+node	1C	root	183.16175842285156	54.51329803466797
+node	D	root	182.61361694335938	54.385353088378906
+node	E	root	182.97451782226562	54.24006271362305
+edge	L_1A_1B_0	root	1A	1B
+label	edge	L_1A_1B_0	0		0	0
+option	edge-label	L_1A_1B_0	0	edgeLabels.inline	true
+option	edge-label	L_1A_1B_0	0	edgeLabels.placement	CENTER
+edge	L_1B_1C_0	root	1B	1C
+label	edge	L_1B_1C_0	0		0	0
+option	edge-label	L_1B_1C_0	0	edgeLabels.inline	true
+option	edge-label	L_1B_1C_0	0	edgeLabels.placement	CENTER
+edge	L_1C_D_0	root	1C	D
+label	edge	L_1C_D_0	0		0	0
+option	edge-label	L_1C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_1C_D_0	0	edgeLabels.placement	CENTER
+edge	L_1C_E_0	root	1C	E
+label	edge	L_1C_E_0	0		0	0
+option	edge-label	L_1C_E_0	0	edgeLabels.inline	true
+option	edge-label	L_1C_E_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	429.588134765625	361.96814346313477
+place	1A	root	123.23665618896484	12	182.9343719482422	54.566741943359375
+place	1B	root	123.58490753173828	106.56674194335938	182.2378692626953	54.502750396728516
+place	1C	root	123.12296295166016	201.0694923400879	183.16175842285156	54.51329803466797
+place	D	root	12	295.58279037475586	182.61361694335938	54.385353088378906
+place	E	root	234.61361694335938	295.58279037475586	182.97451782226562	54.24006271362305
+route	L_1A_1B_0	root	root
+section	L_1A_1B_0	L_1A_1B_0_s0	214.70384216308594,66.56674194335938	214.70384216308594,106.56674194335938		1A	1B
+place-label	edge	L_1A_1B_0	0	0	0	0	0
+route	L_1B_1C_0	root	root
+section	L_1B_1C_0	L_1B_1C_0_s0	214.70384216308594,161.0694923400879	214.70384216308594,201.0694923400879		1B	1C
+place-label	edge	L_1B_1C_0	0	0	0	0	0
+route	L_1C_D_0	root	root
+section	L_1C_D_0	L_1C_D_0_s0	187.51021575927734,255.58279037475586	103.30680847167969,295.58279037475586	187.51021575927734,275.58279037475586 103.30680847167969,275.58279037475586	1C	D
+place-label	edge	L_1C_D_0	0	0	0	0	0
+route	L_1C_E_0	root	root
+section	L_1C_E_0	L_1C_E_0_s0	241.89746856689453,255.58279037475586	326.1008758544922,295.58279037475586	241.89746856689453,275.58279037475586 326.1008758544922,275.58279037475586	1C	E
+place-label	edge	L_1C_E_0	0	0	0	0	0

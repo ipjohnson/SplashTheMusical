@@ -1,0 +1,85 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 80ba49cc252d8242
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Two	root
+option	node	Two		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Two		nodeSize.minimum	(34, 0)
+option	node	Two		spacing.baseValue	24
+option	node	Two		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Two		elk.spacing.edgeEdge	20
+option	node	Two		spacing.nodeNode	50
+option	node	Two		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Two		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Two		elk.layered.mergeEdges	false
+option	node	Two		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Two		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Two		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Two		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Two		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Two		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Two	0	Two	26	19
+node	Z	Two	152	45
+option	node	Z		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	One	root
+option	node	One		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	One		nodeSize.minimum	(35, 0)
+option	node	One		spacing.baseValue	24
+option	node	One		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	One		elk.spacing.edgeEdge	20
+option	node	One		spacing.nodeNode	50
+option	node	One		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	One		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	One		elk.layered.mergeEdges	false
+option	node	One		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	One		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	One		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	One		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	One		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	One		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	One	0	One	27	19
+node	X	One	152	45
+node	Y	One	152	45
+option	node	Y		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_X_Y_0	root	X	Y
+label	edge	L_X_Y_0	0		0	0
+option	edge-label	L_X_Y_0	0	edgeLabels.inline	true
+option	edge-label	L_X_Y_0	0	edgeLabels.placement	CENTER
+edge	L_Y_Z_0	root	Y	Z
+label	edge	L_Y_Z_0	0		0	0
+option	edge-label	L_Y_Z_0	0	edgeLabels.inline	true
+option	edge-label	L_Y_Z_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	660	141
+place	Two	root	448	12	200	117
+place-label	node	Two	0	87	5	26	19
+place	Z	Two	24	48	152	45
+place	One	root	12	12	376	117
+place-label	node	One	0	174.5	5	27	19
+place	X	One	24	48	152	45
+place	Y	One	200	48	152	45
+route	L_X_Y_0	root	One
+section	L_X_Y_0	L_X_Y_0_s0	176,70.5	200,70.5		X	Y
+place-label	edge	L_X_Y_0	0	0	0	0	0
+route	L_Y_Z_0	root	root
+section	L_Y_Z_0	L_Y_Z_0_s0	364,82.5	472,82.5	398,82.5 438,82.5	Y	Z
+place-label	edge	L_Y_Z_0	0	0	0	0	0

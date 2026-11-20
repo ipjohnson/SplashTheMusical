@@ -1,0 +1,119 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0e15d039fbbeacd3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	coffee_team	root
+option	node	coffee_team		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	coffee_team		nodeSize.minimum	(89, 0)
+option	node	coffee_team		spacing.baseValue	24
+option	node	coffee_team		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	coffee_team		elk.spacing.edgeEdge	20
+option	node	coffee_team		spacing.nodeNode	50
+option	node	coffee_team		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	coffee_team		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	coffee_team		elk.layered.mergeEdges	false
+option	node	coffee_team		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	coffee_team		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	coffee_team		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	coffee_team		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	coffee_team		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	coffee_team	0	Coffee Team	81	19
+node	designer	coffee_team
+option	node	designer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	designer		nodeSize.minimum	(65, 0)
+option	node	designer		spacing.baseValue	24
+option	node	designer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	designer		elk.spacing.edgeEdge	20
+option	node	designer		spacing.nodeNode	50
+option	node	designer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	designer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	designer		elk.layered.mergeEdges	false
+option	node	designer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	designer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	designer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	designer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	designer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	designer	0	Designer	57	19
+node	render	designer	164	33
+node	brand	designer	167.1999969482422	98.98828887939453
+node	researcher	coffee_team
+option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	researcher		nodeSize.minimum	(82, 0)
+option	node	researcher		spacing.baseValue	24
+option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	researcher		elk.spacing.edgeEdge	20
+option	node	researcher		spacing.nodeNode	50
+option	node	researcher		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	researcher		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	researcher		elk.layered.mergeEdges	false
+option	node	researcher		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	researcher	0	Researcher	74	19
+node	city	researcher	186	36
+node	research	researcher	164	33
+node	write	researcher	164	33
+node	llm	root	150	51
+edge	L_city_research_0	root	city	research
+label	edge	L_city_research_0	0		0	0
+option	edge-label	L_city_research_0	0	edgeLabels.inline	true
+option	edge-label	L_city_research_0	0	edgeLabels.placement	CENTER
+edge	L_research_write_0	root	research	write
+label	edge	L_research_write_0	0		0	0
+option	edge-label	L_research_write_0	0	edgeLabels.inline	true
+option	edge-label	L_research_write_0	0	edgeLabels.placement	CENTER
+edge	L_render_brand_0	root	render	brand
+label	edge	L_render_brand_0	0		0	0
+option	edge-label	L_render_brand_0	0	edgeLabels.inline	true
+option	edge-label	L_render_brand_0	0	edgeLabels.placement	CENTER
+edge	L_researcher_designer_0	root	researcher	designer
+label	edge	L_researcher_designer_0	0		0	0
+option	edge-label	L_researcher_designer_0	0	edgeLabels.inline	true
+option	edge-label	L_researcher_designer_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	496	569.9882888793945
+place	coffee_team	root	12	12	282	545.9882888793945
+place-label	node	coffee_team	0	100.5	5	81	19
+place	designer	coffee_team	33.400001525878906	294	215.1999969482422	227.98828887939453
+place-label	node	designer	0	79.0999984741211	5	57	19
+place	render	designer	25.599998474121094	48	164	33
+place	brand	designer	24	105	167.1999969482422	98.98828887939453
+place	researcher	coffee_team	24	48	234	222
+place-label	node	researcher	0	80	5	74	19
+place	city	researcher	24	48	186	36
+place	research	researcher	35	108	164	33
+place	write	researcher	35	165	164	33
+place	llm	root	334	259.49414443969727	150	51
+route	L_city_research_0	root	researcher
+section	L_city_research_0	L_city_research_0_s0	116.99999999999999,84	116.99999999999999,108		city	research
+place-label	edge	L_city_research_0	0	0	0	0	0
+route	L_research_write_0	root	researcher
+section	L_research_write_0	L_research_write_0_s0	116.99999999999999,141	116.99999999999999,165		research	write
+place-label	edge	L_research_write_0	0	0	0	0	0
+route	L_render_brand_0	root	designer
+section	L_render_brand_0	L_render_brand_0_s0	107.59999847412108,81	107.59999847412108,105		render	brand
+place-label	edge	L_render_brand_0	0	0	0	0	0
+route	L_researcher_designer_0	root	coffee_team
+section	L_researcher_designer_0	L_researcher_designer_0_s0	141,270	141,294		researcher	designer
+place-label	edge	L_researcher_designer_0	0	0	0	0	0
