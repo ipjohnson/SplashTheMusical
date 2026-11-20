@@ -277,7 +277,9 @@ internal ref struct RequirementParser
 						return Fail("'LOW_RISK', 'MED_RISK', 'HIGH_RISK'");
 					}
 
-					risk ??= (RequirementRisk)Take().Value;
+					// Take the level before ??=, which would skip it on a repeated field.
+					var level = (RequirementRisk)Take().Value;
+					risk ??= level;
 					break;
 				case Kind.VerifyMethod:
 					if (!Colon() || Peek != Kind.VerifyType)
@@ -285,7 +287,8 @@ internal ref struct RequirementParser
 						return Fail("'VERIFY_ANALYSIS', 'VERIFY_DEMONSTRATION', 'VERIFY_INSPECTION', 'VERIFY_TEST'");
 					}
 
-					verifyMethod ??= (RequirementVerifyMethod)Take().Value;
+					var method = (RequirementVerifyMethod)Take().Value;
+					verifyMethod ??= method;
 					break;
 				default:
 					_at--;
