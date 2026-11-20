@@ -219,6 +219,10 @@ These come from sections 3 and 6 of the plan. The build and the tests enforce wh
 - No reflection, no `dynamic`, no `Activator` and no runtime code generation.
 - No global mutable state. Lookup tables are static read-only data, and diagram modules are listed explicitly.
 - Package versions live only in `Directory.Packages.props`. A `PackageReference` never carries a `Version`.
+- STM does not port ELK. The layered layout engine that reproduces mermaid.js's ELK layouts is written under
+  [docs/layered-layout/clean-room.md](docs/layered-layout/clean-room.md), which lists what a session may and may not
+  read. Never read ELK's Java source or any file under `node_modules/elkjs`, and never paste them into a prompt. A pull
+  request that changes the engine names the papers and recordings each algorithm came from.
 
 Tests may use reflection to check these rules.
 
