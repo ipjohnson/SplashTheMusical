@@ -48,7 +48,7 @@ public class StmBenchmarks
 	public static IEnumerable<string> Cases() =>
 		from c in BenchmarkSet.Selected()
 		from s in Stages
-		where s.Types.Contains(c.Type)
+		where s.Types.Contains(c.Type) && BenchmarkSet.Measures(c.Id + "/" + s.Name)
 		select c.Id + "/" + s.Name;
 
 	/// <summary>The case id and the stage, as <c>case/stage</c>.</summary>

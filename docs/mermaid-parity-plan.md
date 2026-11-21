@@ -496,7 +496,8 @@ Excluded, because the gain does not justify the cost:
   `docs/benchmarks/stm.md` holds the committed run.
 - `mise run bench-compare` compares a run with the committed numbers and fails on a regression above 10% in time or
   allocation. CI's `benchmarks` job runs STM and Mermaider on one macOS runner, checks the budget on that run and
-  uploads both result files. The committed files come from that artifact.
+  uploads both result files. A row that is slower is measured again, STM's and Mermaider's back to back, and fails only
+  when it is slower both times. The committed files come from that artifact.
 - Allocation tests assert the exact bytes allocated for small diagrams, which catches accidental allocations at once.
 - A fuzz job feeds mutated corpus cases to the parser under the resource limits and fails on a crash or a missed
   deadline.
