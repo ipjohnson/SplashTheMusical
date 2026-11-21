@@ -42,6 +42,12 @@ internal sealed class FlowchartLabelBox
 	/// <summary>The top of an SVG label's <c>getBBox</c>, below the text's origin. It is 0 for an HTML label.</summary>
 	public double Y { get; init; }
 
+	/// <summary>
+	/// Whether the renderer starts each line at the box's left rather than centring it, as a label with
+	/// <c>text-align: left</c> or <c>text-anchor: start</c> shows.
+	/// </summary>
+	public bool AlignStart { get; set; }
+
 	/// <summary>Whether the label shows any text, which is when the oracle finds a box for it.</summary>
 	public bool HasText
 	{

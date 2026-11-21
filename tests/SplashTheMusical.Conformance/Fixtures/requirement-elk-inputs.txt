@@ -1,0 +1,5 @@
+# The requirement cases whose node or label sizes differ from those mermaid.js gave ELK, under the issue that tracks
+# each. RequirementElkInputTests reads it.
+bug #152
+e2e-requirement-nightly-check-requirements-and-elements-with-markdown-text-without-htmllabels-default
+e2e-requirement-nightly-check-requirements-and-elements-with-markdown-text-without-htmllabels-elk-layout

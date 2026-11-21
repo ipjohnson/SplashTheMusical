@@ -1314,7 +1314,6 @@ public enum RequirementKind : int
   PhysicalRequirement = 4
   Requirement = 0
 public sealed class RequirementLayout : DiagramLayout
-  public RequirementLayout()
 public sealed class RequirementModule : DiagramModule<RequirementDocument, RequirementLayout>
   public RequirementModule()
   public override RequirementDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
