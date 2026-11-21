@@ -66,8 +66,9 @@ internal static class ErStyles
 		return [.. db.Classes.Select(c => new StyleClass(c.Id, c.Styles, c.TextStyles))];
 	}
 
-	// genColor: a colour theme's palettes on the entities, by the data-color-id erBox gives them.
-	private static void AddColorSlots(List<CssRule> rules, MermaidConfig config, MermaidValue? borders, MermaidValue? backgrounds)
+	// genColor: a colour theme's palettes on the entities, by the data-color-id erBox gives them. The requirement
+	// diagram's genColor is the same.
+	internal static void AddColorSlots(List<CssRule> rules, MermaidConfig config, MermaidValue? borders, MermaidValue? backgrounds)
 	{
 		if (!FlowchartStyles.IsColorTheme(config) || borders is not { Kind: MermaidValueKind.Sequence })
 		{

@@ -102,7 +102,9 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 		else if (document is RequirementDocument requirement)
 		{
-			RequirementFacts.Add(facts, requirement);
+			RequirementFacts.Add(facts, requirement, svg);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = RequirementFacts.Boxes(boxes, requirement, new RequirementModule().Layout(requirement, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);

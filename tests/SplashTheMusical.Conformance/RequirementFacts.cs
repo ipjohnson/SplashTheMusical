@@ -13,15 +13,19 @@ namespace SplashTheMusical.Conformance;
 /// </summary>
 internal static class RequirementFacts
 {
-	public static void Add(List<string> facts, RequirementDocument document)
+	public static void Add(List<string> facts, RequirementDocument document, string svg)
 	{
 		var db = RequirementDb.From(document);
+		var shown = new List<string>();
 		foreach (var requirement in db.Requirements)
 		{
+			shown.Add(Encode(requirement.Name));
+			shown.Add(Decode(requirement.Id));
+			shown.Add(Decode(requirement.Text));
 			facts.Add(ConfigLines.Line(
 				"requirement",
 				Encode(requirement.Name),
-				Lower(Kind(requirement.Kind)),
+				Lower(RequirementData.KindName(requirement.Kind)),
 				Decode(requirement.Id),
 				Decode(requirement.Text),
 				Lower(requirement.Risk?.ToString() ?? ""),
@@ -31,24 +35,50 @@ internal static class RequirementFacts
 		foreach (var element in db.Elements)
 		{
 			facts.Add(ConfigLines.Line("element", Encode(element.Name), Decode(element.Type), Decode(element.DocRef)));
+			shown.Add(Encode(element.Name));
+			shown.Add(Decode(element.Type));
+			shown.Add(Decode(element.DocRef));
 		}
 
 		foreach (var relationship in db.Relationships)
 		{
-			facts.Add(ConfigLines.Line("relation", Encode(relationship.Source), Encode(relationship.Target), relationship.Type.ToString().ToLowerInvariant()));
+			var type = relationship.Type.ToString().ToLowerInvariant();
+			facts.Add(ConfigLines.Line("relation", Encode(relationship.Source), Encode(relationship.Target), type));
+			shown.Add(type);
 		}
+
+		ErFacts.Labels(facts, shown, svg);
 	}
 
-	/// <summary>The db's <c>RequirementType</c> value of a kind.</summary>
-	private static string Kind(RequirementKind kind) => kind switch
+	/// <summary>
+	/// The extractor's requirement boxes from the module's layout: each requirement and element by its name, and each
+	/// relationship's path and label by the names of its ends, in the order of the relationships. The canvas is the
+	/// viewBox.
+	/// </summary>
+	public static string Boxes(List<string> boxes, RequirementDocument document, RequirementLayout layout)
 	{
-		RequirementKind.Requirement => "Requirement",
-		RequirementKind.FunctionalRequirement => "Functional Requirement",
-		RequirementKind.InterfaceRequirement => "Interface Requirement",
-		RequirementKind.PerformanceRequirement => "Performance Requirement",
-		RequirementKind.PhysicalRequirement => "Physical Requirement",
-		_ => "Design Constraint",
-	};
+		var db = RequirementDb.From(document);
+		var requirements = db.Requirements.Select(r => r.Name).ToHashSet(StringComparer.Ordinal);
+		var elements = db.Elements.Select(e => e.Name).ToHashSet(StringComparer.Ordinal);
+		foreach (var box in FlowchartLayout.BoxesOf(layout.Root))
+		{
+			var kind = box.Kind switch
+			{
+				"node" when requirements.Contains(box.Name) => "requirement",
+				"node" when elements.Contains(box.Name) => "element",
+				"edge" => "relation",
+				"edge-label" => "relation-label",
+				_ => null,
+			};
+			if (kind is not null)
+			{
+				boxes.Add(StmFactsProvider.Box(kind, box.Name, box.X, box.Y, box.Width, box.Height));
+			}
+		}
+
+		var viewBox = layout.ViewBox!.Value;
+		return string.Join('\t', "canvas", StmFactsProvider.Number(viewBox.X), StmFactsProvider.Number(viewBox.Y), StmFactsProvider.Number(viewBox.Width), StmFactsProvider.Number(viewBox.Height));
+	}
 
 	/// <summary>The extractor's <c>lower</c>: the text with its space folded, in lower case, with <c>-</c> for each space.</summary>
 	private static string Lower(string text) =>

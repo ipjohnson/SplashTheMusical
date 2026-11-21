@@ -146,6 +146,12 @@ internal sealed class FlowchartMeasure
 			return;
 		}
 
+		if (node is { Shape: "requirementBox", RequirementBox: { } requirement })
+		{
+			Requirement.RequirementBox.Draw(this, requirement, node);
+			return;
+		}
+
 		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true, _markdownAutoWrap) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
 		var pictured = node.Shape is "icon" or "iconCircle" or "iconRounded" or "iconSquare" or "imageSquare";
 		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0)

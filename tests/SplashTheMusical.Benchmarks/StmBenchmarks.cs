@@ -17,7 +17,7 @@ public sealed record StmStage(string Name, IReadOnlySet<string> Types, Func<stri
 public class StmBenchmarks
 {
 	/// <summary>The corpus folders of the diagram types that have stages. A diagram type adds its folder when it lands.</summary>
-	public static readonly IReadOnlySet<string> Measured = new HashSet<string>(StringComparer.Ordinal) { "flowchart", "state", "class", "er" };
+	public static readonly IReadOnlySet<string> Measured = new HashSet<string>(StringComparer.Ordinal) { "flowchart", "state", "class", "er", "requirement" };
 
 	/// <summary>
 	/// The stages. <c>render</c> starts from the source, as Mermaider's <c>render</c> does, so it is parse, layout and render
@@ -48,7 +48,7 @@ public class StmBenchmarks
 	public static IEnumerable<string> Cases() =>
 		from c in BenchmarkSet.Selected()
 		from s in Stages
-		where s.Types.Contains(c.Type)
+		where s.Types.Contains(c.Type) && BenchmarkSet.Measures(c.Id + "/" + s.Name)
 		select c.Id + "/" + s.Name;
 
 	/// <summary>The case id and the stage, as <c>case/stage</c>.</summary>
