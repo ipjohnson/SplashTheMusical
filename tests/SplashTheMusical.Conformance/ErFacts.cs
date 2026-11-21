@@ -94,7 +94,7 @@ internal static class ErFacts
 	/// The extractor's <c>labels</c>: a <c>label</c> fact for each model label whose letters and digits, case-folded,
 	/// occur in the drawn text, longest first, each taking the text it matched.
 	/// </summary>
-	private static void Labels(List<string> facts, List<string> shown, string svg)
+	internal static void Labels(List<string> facts, List<string> shown, string svg)
 	{
 		var drawn = Key(DrawnText(svg));
 		var labels = shown.Select(Norm).Where(l => Key(l).Length > 0).ToList();

@@ -65,6 +65,21 @@ public static class BenchmarkSet
 			? Load().Where(c => c.Id.Contains(filter, StringComparison.Ordinal))
 			: Load();
 
+	/// <summary>
+	/// The environment variable that limits a run to the <c>case/stage</c> parameters it lists, separated by commas, such as
+	/// <c>flowchart-small/parse,state-medium/parse</c>. The budget check sets it to measure the rows it doubts again.
+	/// </summary>
+	public const string ParameterVariable = "STM_BENCH_PARAMETERS";
+
+	/// <summary>Whether a run measures a <c>case/stage</c> parameter, which it does unless <see cref="ParameterVariable"/> leaves it out.</summary>
+	public static bool Measures(string parameter) => Measures(Environment.GetEnvironmentVariable(ParameterVariable), parameter);
+
+	/// <summary>Whether a list of <c>case/stage</c> parameters, as <see cref="ParameterVariable"/> holds it, keeps a parameter.</summary>
+	/// <param name="list">The comma-separated list, or null or empty for every parameter.</param>
+	/// <param name="parameter">A parameter such as <c>flowchart-small/parse</c>.</param>
+	public static bool Measures(string? list, string parameter) =>
+		string.IsNullOrEmpty(list) || list.Split(',').Contains(parameter, StringComparer.Ordinal);
+
 	/// <summary>The case with an id such as <c>pie-small</c>.</summary>
 	public static BenchmarkCase Find(string id) =>
 		Load().FirstOrDefault(c => c.Id == id) ?? throw new ArgumentException($"{Manifest} has no case {id}", nameof(id));

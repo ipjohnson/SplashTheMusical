@@ -147,7 +147,9 @@ jobs:
 
   # STM's stages and the Mermaider baseline, measured on the same runner. docs/benchmarks/stm.md and
   # docs/benchmarks/mermaider-baseline.md are committed from this job's artifact, because a developer's machine runs other
-  # work while it measures. The budget step holds STM's parse rows to Mermaider's rows of this run.
+  # work while it measures. The budget step holds STM's parse rows to Mermaider's rows of this run. A shared runner can slow
+  # one benchmark process for its whole run, so a row that is slower is measured again, STM's and Mermaider's back to back,
+  # and fails only when it is slower both times.
   benchmarks:
     name: benchmarks
     runs-on: macos-latest
@@ -168,7 +170,7 @@ jobs:
         run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- mermaider --out .artifacts/bench/mermaider-baseline.md
 
       - name: Fail when STM's parse rows are over this run's Mermaider rows
-        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release --no-build -- budget .artifacts/bench/mermaider-baseline.md .artifacts/bench/stm.md
+        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release --no-build -- budget .artifacts/bench/mermaider-baseline.md .artifacts/bench/stm.md --remeasure
 
       - name: Show how this run differs from the committed numbers
         continue-on-error: true

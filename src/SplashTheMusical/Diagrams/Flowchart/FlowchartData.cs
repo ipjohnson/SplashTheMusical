@@ -87,6 +87,9 @@ internal sealed class FlowNode
 	/// <summary>An entity's attributes, which <c>erBox</c> draws as rows under its name, or <c>null</c> for any other node.</summary>
 	public IReadOnlyList<Er.ErAttribute>? Attributes { get; init; }
 
+	/// <summary>A requirement's or an element's texts, which <c>requirementBox</c> draws, or <c>null</c> for any other node.</summary>
+	public Requirement.RequirementBoxContent? RequirementBox { get; init; }
+
 	/// <summary>The labels of a shape that draws more than one, each with the top left corner of its box, or <c>null</c>.</summary>
 	public IReadOnlyList<(FlowchartLabelBox Box, double X, double Y)>? Labels { get; set; }
 

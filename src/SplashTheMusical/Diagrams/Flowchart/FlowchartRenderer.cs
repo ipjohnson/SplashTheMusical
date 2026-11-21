@@ -266,6 +266,16 @@ internal static class FlowchartRenderer
 				svg.WriteAttribute("class", "label");
 				svg.WriteAttribute("data-id", edge.Id);
 				svg.WriteAttribute("transform", Translate(-label.Width / 2, -label.Height / 2));
+				if (style.EdgeLabelBackground is { } background)
+				{
+					svg.StartElement("rect");
+					svg.WriteAttribute("class", "background");
+					svg.WriteAttribute("width", label.Width);
+					svg.WriteAttribute("height", label.Height);
+					Paint(svg, "fill", background);
+					svg.EndElement();
+				}
+
 				WriteText(svg, label, style, "edgeLabel");
 				svg.EndElement();
 				svg.EndElement();
@@ -604,7 +614,7 @@ internal static class FlowchartRenderer
 
 		svg.StartElement("text");
 		svg.WriteAttribute("class", cls);
-		svg.WriteAttribute("text-anchor", "middle");
+		svg.WriteAttribute("text-anchor", label.AlignStart ? "start" : "middle");
 		svg.WriteAttribute("font-size", style.FontSize);
 		Paint(svg, "fill", style.TextColor);
 
@@ -620,7 +630,7 @@ internal static class FlowchartRenderer
 				svg.StartElement("tspan");
 				if (j == 0)
 				{
-					svg.WriteAttribute("x", label.Width / 2);
+					svg.WriteAttribute("x", label.AlignStart ? 0 : label.Width / 2);
 					svg.WriteAttribute("y", (i * label.LineHeight) + baseline);
 				}
 

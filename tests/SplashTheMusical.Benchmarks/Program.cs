@@ -8,7 +8,7 @@ return args switch
 	["mermaider", .. var rest] => Baseline(Option(rest, "--out") ?? "docs/benchmarks/mermaider-baseline.md", Jobs(rest)),
 	["select"] => Select(),
 	["compare", var committed, var run] => Comparison.Run(committed, run, Console.Out),
-	["budget", var baseline, var run] => Budget.Run(baseline, run, StmBenchmarks.Measured, Console.Out),
+	["budget", var baseline, var run, .. var rest] => Budget.Run(baseline, run, StmBenchmarks.Measured, Console.Out, rest.Contains("--remeasure") ? Remeasure : null),
 	["size", .. var rest] => Size(rest),
 	["dagre", .. var rest] => Dagre(Option(rest, "--out") ?? "docs/benchmarks/dagre.md", Jobs(rest)),
 	["dagre-layout", var nodes] => DagreLayoutOnce(int.Parse(nodes, System.Globalization.CultureInfo.InvariantCulture)),
@@ -23,7 +23,8 @@ static int Usage()
 		  mermaider [--jobs JIT,AOT] [--out file]   run the Mermaider baseline and write its result file
 		  select                                    pick the benchmark set from the corpus and rewrite its manifest
 		  compare <committed> <run>                 exit 1 when the run is more than 10% worse than the committed numbers
-		  budget <baseline> <run>                   exit 1 when the run's parse rows are slower or allocate more than Mermaider's
+		  budget <baseline> <run> [--remeasure]     exit 1 when the run's parse rows are slower or allocate more than Mermaider's;
+		                                            --remeasure measures slower rows of both again and fails only if still slower
 		  size [--sizes file] [--dll file] [--cli file] [--accept]
 		                                            exit 1 when a binary is more than 5% larger than its committed size
 		  dagre [--jobs JIT,AOT] [--out file]       run the dagre port on graphs of 10, 100 and 1,000 nodes and write its result file
@@ -40,6 +41,21 @@ static string? Option(string[] args, string name)
 }
 
 static string[] Jobs(string[] args) => Option(args, "--jobs")?.Split(',') ?? Runs.AllJobs;
+
+// Measures STM's and then Mermaider's rows of the slow cases and stages again, under the jobs they were slow in.
+static (IReadOnlyList<ResultRow> Stm, IReadOnlyList<ResultRow> Baseline) Remeasure(IReadOnlyList<ResultRow> slow)
+{
+	var jobs = slow.Select(r => r.Job).Distinct().Order(StringComparer.Ordinal).ToArray();
+	Environment.SetEnvironmentVariable(BenchmarkSet.ParameterVariable, string.Join(',', slow.Select(r => r.Case + "/" + r.Stage).Distinct()));
+	try
+	{
+		return (Runs.Run<StmBenchmarks>(jobs).Rows, Runs.Run<MermaiderBenchmarks>(jobs).Rows);
+	}
+	finally
+	{
+		Environment.SetEnvironmentVariable(BenchmarkSet.ParameterVariable, null);
+	}
+}
 
 static int Bench(string output, string[] jobs)
 {

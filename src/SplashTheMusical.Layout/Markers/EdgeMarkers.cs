@@ -46,6 +46,7 @@ internal enum MarkerDiagram
 	Class,
 	State,
 	Er,
+	Requirement,
 }
 
 /// <summary>
@@ -132,6 +133,9 @@ internal static class EdgeMarkers
 		MarkerDiagram.Er => neo
 			? ["only_one_neo", "zero_or_one_neo", "one_or_more_neo", "zero_or_more_neo"]
 			: ["only_one", "zero_or_one", "one_or_more", "zero_or_more"],
+		MarkerDiagram.Requirement => neo
+			? ["requirement_contains_neo", "requirement_arrow_neo"]
+			: ["requirement_contains", "requirement_arrow"],
 		_ => throw new ArgumentOutOfRangeException(nameof(diagram), diagram, null),
 	};
 

@@ -263,6 +263,9 @@ layout and drawing port `getData` in `flowDb.ts`, `flowRenderer-v3-unified.ts`, 
 edge labels and `createText` of `packages/mermaid/src/rendering-util`.
 `src/SplashTheMusical/Rendering/Shapes` ports the node shapes of `packages/mermaid/src/rendering-util/rendering-elements/shapes`
 and the intersections of `rendering-elements/intersect`.
+`src/SplashTheMusical/Diagrams/Requirement` ports `packages/mermaid/src/diagrams/requirement`: the grammar of
+`parser/requirementDiagram.jison`, `requirementDb.ts`, `requirementRenderer.ts` and `styles.js`, and the
+`requirementBox` shape of `rendering-elements/shapes/requirementBox.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 
