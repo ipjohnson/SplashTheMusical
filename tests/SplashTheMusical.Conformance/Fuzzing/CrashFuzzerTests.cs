@@ -66,7 +66,7 @@ public class CrashFuzzerTests
 		var corpus = CorpusCheck.CorpusRoot;
 		var folders = FuzzTypes.Folders(corpus);
 
-		Verify(() => string.Join(",", folders) == "class,er,flowchart,info,state");
+		Verify(() => string.Join(",", folders) == "class,er,flowchart,info,requirement,state");
 		foreach (var folder in folders)
 		{
 			var run = CrashFuzzer.Run(folder, FuzzTypes.Sources(corpus, folder), 300, 1, CrashFuzzer.Stm, ResourceLimits.Default.RenderDeadline!.Value, Environment.ProcessorCount);

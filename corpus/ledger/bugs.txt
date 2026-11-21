@@ -20,7 +20,7 @@ pie	260
 quadrant-chart	204
 radar	96
 railroad	424
-requirement	720
+requirement	359
 sankey	116
 sequence	1660
 state	248

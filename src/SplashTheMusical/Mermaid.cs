@@ -8,6 +8,7 @@ using SplashTheMusical.Diagrams.Class;
 using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Diagrams.Info;
+using SplashTheMusical.Diagrams.Requirement;
 using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Parsing;
@@ -78,6 +79,7 @@ public sealed class Mermaid : IMermaid
 			new StateModule(),
 			new ClassModule(),
 			new ErModule(),
+			new RequirementModule(),
 		]);
 
 	/// <summary>An instance with the default options, <see cref="CoreModules"/> and the default extension points.</summary>
