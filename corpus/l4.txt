@@ -3090,8 +3090,8 @@ railroad/parser-railroadrenderer-004	fail
 railroad/parser-railroadrenderer-005	fail
 requirement/docs-requirementDiagram-001	fail
 requirement/docs-requirementDiagram-002	fail
-requirement/docs-requirementDiagram-003	fail
-requirement/docs-requirementDiagram-004	fail
+requirement/docs-requirementDiagram-003	pass
+requirement/docs-requirementDiagram-004	pass
 requirement/docs-requirementDiagram-005	fail
 requirement/docs-requirementDiagram-006	fail
 requirement/docs-requirementDiagram-007	fail
