@@ -24,6 +24,7 @@ mise run colors            # rewrite corpus/colors.txt, khroma's results on merm
 mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
+mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against ELK
 mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
@@ -47,7 +48,7 @@ mise run upstream-bump <version>   # move the oracle to another mermaid and writ
 `upstream-bump` runs `tools/upstream/bump.sh`. It clones the old and new mermaid tags into `.artifacts/upstream`, each
 from the repository npm names for that version, and runs the conformance tests. It installs the new mermaid in
 `tools/oracle`, re-extracts the corpus, rewrites the oracle files, `colors.txt`, `MermaidConfig`, `MermaidCompatibility`
-and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity-report.md` and `docs/layered-layout/corpus-survey.md`, and rewrites
+and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity-report.md`, `docs/layered-layout/corpus-survey.md` and `docs/layered-layout/baseline.md`, and rewrites
 `corpus/l4.txt`. `DeltaReport` in `tools/SplashTheMusical.Upstream` then compares the two sides. A bump to the version already pinned
 changes no file. Each parser source under `src/SplashTheMusical/Diagrams` starts with one
 `// Upstream grammar: <path in mermaid-js/mermaid>` line per grammar file it implements, so the report names the parser
@@ -139,6 +140,13 @@ Where dagre redoes work the port only updates, as in `NetworkSimplex.ExchangeEdg
 5,000 nodes inside `ResourceLimits.Default.RenderDeadline`, `DagreBenchmarks` measures 10, 100 and 1,000 nodes, and
 `dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagre-layout <nodes>` prints the time of each
 phase group and a checksum of the positions, so two builds can be compared on graphs the corpus lacks.
+
+`ElkLayoutComparer` in `tests/SplashTheMusical.Conformance` scores a `CandidateLayout` of a recorded ELK input graph
+against ELK's result in the `.elk.txt` file: same layers and same order in each layer, read from the coordinates along
+the layout direction, boxes overlapping by 80% with the canvas within 5%, and the same bends per edge. A layout that
+has layers but no coordinates gives them in `CandidateLayout.Layers`. `ElkBaselineTests` scores the dagre port and
+Mermaider's `Sugiyama`, a test-only package reference of that project, on every recording and fails when
+`docs/layered-layout/baseline.md` differs. `SugiyamaOnElkInput.Commit` names the mermaider commit of the pinned package.
 
 `src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
 the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds

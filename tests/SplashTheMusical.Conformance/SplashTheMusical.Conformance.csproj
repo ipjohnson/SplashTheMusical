@@ -9,6 +9,8 @@
     <PackageReference Include="TUnit" />
     <PackageReference Include="VerificationGlue" />
     <PackageReference Include="VerificationGlue.Mocks" />
+    <!-- Mermaider's layout engine, scored against ELK by ElkBaselineTests. No project under src references it. -->
+    <PackageReference Include="Sugiyama" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SplashTheMusical/SplashTheMusical.csproj" />

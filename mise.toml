@@ -100,6 +100,11 @@ description = "Write docs/parity-report.md from the committed oracle output and 
 env = { STM_WRITE_REPORT = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
 
+[tasks.baseline]
+description = "Write docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against the recorded ELK layouts"
+env = { STM_WRITE_BASELINE = "1" }
+run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkBaselineTests/*"'
+
 [tasks.elk-survey]
 description = "Write docs/layered-layout/corpus-survey.md from the committed .elk.txt files"
 env = { STM_WRITE_SURVEY = "1" }
