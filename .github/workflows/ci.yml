@@ -105,6 +105,29 @@ jobs:
       - name: Fail when the core assembly or stm is more than 5% larger than docs/benchmarks/sizes.md
         run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
 
+  # mise run pack: the packages of this commit, and the sample published with native AOT from them alone. The packages
+  # are the run's packages artifact. release.yml publishes the packages of a tag.
+  packages:
+    name: packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - name: Pack, and run the sample built from the packages
+        run: bash tools/packages/pack.sh
+
+      - name: Upload the packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: packages
+          path: .artifacts/package
+
   # The crash fuzzing of the parity plan's section 7, which mise run fuzz-crash runs locally: 100,000 sources per diagram
   # type, mutated from the corpus, go through STM's parser and renderer under ResourceLimits.Default. A crash, an
   # exception other than MermaidParseException or a missed render deadline fails it. Pull requests use seed 1, so an
@@ -210,8 +233,8 @@ jobs:
       - name: Install the oracle
         run: npm ci --prefix tools/oracle --no-audit --no-fund
 
-      - name: Test the upstream tools' version choice and mermaid 12 and 13 layouts
-        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs
+      - name: Test the upstream tools' version choice, mermaid 12 and 13 layouts, the ELK probe and the site's scripts
+        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs
 
       - name: Write STM's SVGs
         env:

@@ -9,6 +9,10 @@
     <!-- The container of the tests and the sample -->
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.15" />
   </ItemGroup>
+  <ItemGroup Condition="'$(StmFromPackages)' == 'true'">
+    <!-- The sample, built from the packages of this commit -->
+    <PackageVersion Include="SplashTheMusical.DependencyModule" Version="$(Version)" />
+  </ItemGroup>
   <ItemGroup>
     <!-- Test dependencies -->
     <PackageVersion Include="TUnit" Version="1.83.8" />

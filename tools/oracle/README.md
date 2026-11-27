@@ -8,7 +8,8 @@ against. Section 7 of [the parity plan](../../docs/mermaid-parity-plan.md) descr
 ```bash
 mise run oracle                              # cases in tools/oracle/cases, output in .artifacts/oracle
 mise run oracle <cases> <facts-dir> <svg-dir>
-mise run oracle-test                         # node --test on facts.test.mjs and raster.test.mjs
+mise run oracle-test                         # node --test on the oracle's test files
+mise run elk-probe <graph file>              # ELK's layout of a graph, as the ELK probe section describes
 mise run raster                              # L4: corpus/l4.txt and .artifacts/raster
 mise run screenshots <cases>                 # the named cases side by side in .artifacts/screenshots
 ```
@@ -371,6 +372,75 @@ ELK does not read are left out.
 Like the boxes and dagre files, the committed ELK files come from macOS, because label sizes depend on the fonts
 Chromium falls back to. CI's `l4` job fails when a committed file differs from what it writes, and then uploads the
 corpus files it rewrote as its `oracle-corpus` artifact, whose files can be committed as they are.
+
+## ELK probe
+
+```bash
+mise run elk-probe [options] <graph file>   # node tools/oracle/elk-probe.mjs [options] <graph file>
+mise run elk-diff [graphs] [seed]           # the differential run, output in .artifacts/elk-diff
+node tools/oracle/elk-probe.mjs --help
+```
+
+`elk-probe.mjs` runs the pinned elkjs on any graph and prints its layout, so a session can learn how ELK behaves on a
+graph the corpus lacks without reading ELK's source. It imports `elkjs/lib/elk.bundled.js`, the entry mermaid's
+`render.ts` imports, calls `layout` once per layout and reads the graph it returns, as the [ELK files](#elk-files)
+recorder does in the page. It opens no file under `node_modules/elkjs`. Node prints the line of code that throws an
+uncaught exception, so the probe catches every exception of elkjs and prints only the first line of its message.
+
+A graph file holds the input lines of an ELK file: `node`, `port`, `edge`, `label`, `option` and `property`. A
+recorded `.elk.txt` file is a graph file as it is. A file without a `layout` line is one layout, and a file without a
+root node gets the node `root`. A root that sets no `elk.algorithm` gets the root options mermaid.js gives a flowchart
+at default config, which every flowchart recording has, and a root option the file sets replaces mermaid's. Each edge of
+such a graph gets the empty label mermaid gives an edge without text, and each edge label gets mermaid's two label
+options. Every recording sets `elk.algorithm`, so a recorded graph runs with the options mermaid gave it.
+
+The output is an ELK file with `# ELK probe layouts` as its first line, the elkjs version `package-lock.json` pins, the
+graph file and the overrides. For each layout it prints the graph ELK was given and the graph ELK returned, then one
+`# layer` line per leaf node with its id, its layer and its position in the layer, read from ELK's coordinates as
+`ElkLayoutComparer` reads them. The layer lines are comments, so `ElkRecords` reads the output as it reads a recording.
+
+| Option | What it does |
+|---|---|
+| `--keep-layers` | Sets `elk.layered.layering.strategy` to `INTERACTIVE`: ELK keeps the layers the input's node coordinates give |
+| `--keep-order` | Sets `elk.layered.crossingMinimization.strategy` to `INTERACTIVE`: ELK keeps the order within each layer the coordinates give |
+| `--keep-cycles` | Sets `elk.layered.cycleBreaking.strategy` to `INTERACTIVE`: ELK reverses the edges that point against the coordinates |
+| `--place-from-result` | Gives each node of a recorded layout the `x` and `y` of its recorded `place` line, so the pins keep ELK's own layers and order |
+| `--option <key>=<value>` | Sets a root layout option, after the file's and the pins' |
+| `--layout <n>` | Runs only layout `n` of the file |
+| `--check` | Prints `# check` after each layout and exits with 1 unless the result lines equal the file's. With no override it compares the input lines too |
+| `--serve` | Reads one graph file per line on stdin as base64 of its UTF-8 and answers each with the output lines and a line holding a period, or `# error <message>` and the period. It prints `ready` first |
+
+The pins are set on the root and on every node with children, because ELK refuses a child graph whose stage differs
+from the root's. They hold the stages before the one a session probes still: `--keep-layers --keep-order` with
+`--place-from-result` on a recording leaves node placement and edge routing to vary with `--option`.
+
+Run with `--check` on each of the 2,304 committed recordings of mermaid 12.3.0, the probe's input and result lines
+equal the recorded ones, so elkjs under Node lays out a graph as it does in the page. `elk-probe.test.mjs` checks three
+recordings, the pins, the defaults, the help, the errors and the serve mode.
+
+### The differential run
+
+`ElkDifferentialTests.RunsWhenAsked` in `tests/SplashTheMusical.Conformance`, which `mise run elk-diff` runs, feeds
+seeded random graphs to the probe and to the dagre port. `ElkDifferential.Generate` makes graph `i` of seed `s` from
+`FuzzRandom.For(s, i)`: 2 to 8 nodes of flowchart sizes, up to two more edges than nodes with an occasional self loop
+or label, laid out down or right. The probe gives each mermaid's flowchart options. `DagreOnElkInput` lays out the
+graph ELK was given with mermaid's dagre options for a flowchart, as `docs/layered-layout/baseline.md` does, and
+`ElkLayoutComparer` scores it against ELK's result.
+
+A graph the dagre port fails a measure on is a find, named by the first measure it fails: `layers`, `order`, `boxes`
+or `bends`, or `error` when the port throws. The run shrinks it with `Minimizer.DeltaDebug`: edges, then nodes with their
+edges, then labels, then a right layout to down, while the same measure still fails. These variables set the run:
+
+| Variable | Default | What it sets |
+|---|---|---|
+| `STM_ELK_DIFF_GRAPHS` | none, the test does nothing | Random graphs |
+| `STM_ELK_DIFF_SEED` | 1 | The seed |
+| `STM_ELK_DIFF_MEASURES` | all five | A comma-separated list of the measures a find may fail |
+| `STM_ELK_DIFF_TESTS` | 400 | The most graphs the shrinking of one find lays out |
+| `STM_ELK_DIFF_DIR` | `.artifacts/elk-diff` | The folder of the report and the finds |
+
+The run prints each distinct smallest graph and writes `report.md` with the graphs by measure, and each find's smallest
+graph as `finds/<measure>/<index>.txt`, a graph file of the probe.
 
 ## Theme variables
 

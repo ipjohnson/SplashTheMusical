@@ -15,14 +15,39 @@
     <_RepoRelativeProjectDirectory>$([MSBuild]::MakeRelative($(MSBuildThisFileDirectory), $(MSBuildProjectDirectory)).Replace('\','/'))</_RepoRelativeProjectDirectory>
   </PropertyGroup>
 
-  <!-- src/ projects: the trim, AOT and single-file analyzers -->
+  <!-- The version of every package. .github/workflows/release.yml publishes only a tag v$(Version). -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+  </PropertyGroup>
+
+  <!-- src/ projects: the trim, AOT and single-file analyzers, and the packages. SplashTheMusical.Cli sets IsPackable
+       back to false. -->
   <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('src/'))">
     <IsAotCompatible>true</IsAotCompatible>
+    <IsPackable>true</IsPackable>
+    <Authors>Ian Johnson</Authors>
+    <Copyright>Copyright (c) Ian Johnson</Copyright>
+    <PackageProjectUrl>https://github.com/ipjohnson/SplashTheMusical</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ipjohnson/SplashTheMusical</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>mermaid;diagrams;svg;flowchart;aot</PackageTags>
     <PackageIcon>06-nuget-purple.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('src/'))">
     <None Include="$(MSBuildThisFileDirectory)artwork/06-nuget-purple.png" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="/" />
+    <None Include="$(MSBuildThisFileDirectory)THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(_RepoRelativeProjectDirectory.StartsWith('tests/'))">

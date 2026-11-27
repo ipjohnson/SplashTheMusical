@@ -5,6 +5,7 @@
     <RootNamespace>SplashTheMusical.Cli</RootNamespace>
     <Description>The stm command: render and write Mermaid diagrams.</Description>
     <PublishAot>true</PublishAot>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../SplashTheMusical/SplashTheMusical.csproj" />
