@@ -222,6 +222,10 @@ run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagr
 description = "Pick the benchmark set from the corpus and rewrite corpus/benchmarks/cases.txt"
 run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- select"
 
+[tasks.pack]
+description = "Pack the src projects to .artifacts/package, then publish and run the sample with native AOT from those packages"
+run = "bash tools/packages/pack.sh"
+
 [tasks.size]
 description = "Fail when the core assembly or the native AOT stm is more than 5% larger than docs/benchmarks/sizes.md"
 usage = '''
