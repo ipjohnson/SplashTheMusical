@@ -1,6 +1,7 @@
 using System.Xml;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
+using SplashTheMusical.Diagrams.Block;
 using SplashTheMusical.Diagrams.Class;
 using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
@@ -105,6 +106,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			RequirementFacts.Add(facts, requirement, svg);
 			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
 			canvas = RequirementFacts.Boxes(boxes, requirement, new RequirementModule().Layout(requirement, context));
+		}
+		else if (document is BlockDocument block)
+		{
+			BlockFacts.Add(facts, block);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
