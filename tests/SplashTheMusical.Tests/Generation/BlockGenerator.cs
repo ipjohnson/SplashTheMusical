@@ -60,7 +60,7 @@ public static class BlockGenerator
 				{ } s => new BlockNode(id) { Shape = s, Label = label },
 			});
 
-	private static readonly Gen<int> Width = Gen.Frequency((4, Gen.Const(1)), (2, Gen.Int[2, 5]), (1, Gen.Const(0)));
+	private static readonly Gen<int> Width = Gen.Frequency((4, Gen.Const(1)), (2, Gen.Int[2, 5]));
 
 	private static readonly Gen<BlockNode> FirstNode = Gen.Select(PlainNode, Width, (node, width) =>
 	{
@@ -126,7 +126,71 @@ public static class BlockGenerator
 	private static readonly Gen<BlockStatement> Statement = Gen.Frequency((10, Leaf), (2, Composite(Gen.Frequency((10, Leaf), (1, Inner)))));
 
 	public static Gen<BlockDocument> Document { get; } =
-		Statement.List[1, 8].Select(statements => new BlockDocument { Statements = WithDefinedStyles(statements) });
+		Statement.List[1, 8].Select(statements => new BlockDocument { Statements = Drawable(WithDefinedStyles(statements)) });
+
+	/// <summary>
+	/// The statements without what mermaid.js 12.3.0 parses and then fails to draw. An edge to a block whose shape ends
+	/// up a diamond fails, because the diamond has no <c>calcIntersect</c>. In a document with an edge, text outside
+	/// Latin-1 fails in some layouts, where the points of an edge take in a label that <c>btoa</c> refuses, so such a
+	/// document has its ids and labels in Latin-1 without entity codes. The generator makes no block 0 columns wide,
+	/// which also fails in some layouts.
+	/// </summary>
+	private static List<BlockStatement> Drawable(List<BlockStatement> statements)
+	{
+		if (Links(statements).Any())
+		{
+			statements = Latin1(statements);
+		}
+
+		var db = BlockDb.From(new BlockDocument { Statements = statements });
+		var ends = db.Edges.SelectMany(e => new[] { e.Start, e.End }).OfType<string>().ToHashSet(StringComparer.Ordinal);
+		var diamonds = ends.Where(id => db.Block(id)?.Type == "diamond").ToHashSet(StringComparer.Ordinal);
+		foreach (var node in Nodes(statements))
+		{
+			if (node.Shape == BlockShape.Diamond && diamonds.Contains(node.Id))
+			{
+				node.Shape = BlockShape.Square;
+			}
+		}
+
+		return statements;
+	}
+
+	/// <summary>The statements with each character of an id or a label outside Latin-1 made <c>u</c>, and each <c>#</c> <c>h</c>.</summary>
+	private static List<BlockStatement> Latin1(List<BlockStatement> statements) => [.. statements.Select(Latin1)];
+
+	private static BlockStatement Latin1(BlockStatement statement) => statement switch
+	{
+		BlockNode node => Latin1(node),
+		BlockEdge edge => new BlockEdge(
+			[.. edge.Nodes.Select(Latin1)],
+			[.. edge.Links.Select(l => new BlockLink { Label = Latin1(l.Label), Start = l.Start, End = l.End, Stroke = l.Stroke })]),
+		BlockComposite composite => new BlockComposite(Latin1(composite.Statements)) { Header = composite.Header is { } header ? Latin1(header) : null },
+		_ => statement,
+	};
+
+	private static BlockNode Latin1(BlockNode node) =>
+		new(Latin1(node.Id)!) { Label = Latin1(node.Label), Shape = node.Shape, Directions = node.Directions, Width = node.Width };
+
+	private static string? Latin1(string? text) =>
+		text is null ? null : string.Concat(text.Select(c => c > 'ÿ' ? 'u' : c == '#' ? 'h' : c));
+
+	private static IEnumerable<BlockNode> Nodes(List<BlockStatement> statements) =>
+		statements.SelectMany(s => s switch
+		{
+			BlockNode node => [node],
+			BlockEdge edge => edge.Nodes,
+			BlockComposite composite => (composite.Header is { } header ? Nodes([header]) : []).Concat(Nodes(composite.Statements)),
+			_ => [],
+		});
+
+	private static IEnumerable<BlockLink> Links(List<BlockStatement> statements) =>
+		statements.SelectMany(s => s switch
+		{
+			BlockEdge edge => edge.Links,
+			BlockComposite composite => (composite.Header is { } header ? Links([header]) : []).Concat(Links(composite.Statements)),
+			_ => [],
+		});
 
 	/// <summary><c>block … end</c> or <c>block:node … end</c>, with one to four of <paramref name="statement"/> inside.</summary>
 	private static Gen<BlockStatement> Composite(Gen<BlockStatement> statement) =>
