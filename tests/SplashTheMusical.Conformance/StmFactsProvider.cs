@@ -9,6 +9,7 @@ using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Icons;
 using SplashTheMusical.Diagrams.Info;
 using SplashTheMusical.Diagrams.Requirement;
+using SplashTheMusical.Diagrams.Sequence;
 using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Parsing;
 using SplashTheMusical.Text;
@@ -117,6 +118,10 @@ public sealed class StmFactsProvider : IFactsProvider
 			BlockFacts.Add(facts, block, svg);
 			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
 			canvas = BlockFacts.Boxes(boxes, block, new BlockModule().Layout(block, context));
+		}
+		else if (document is SequenceDocument sequence)
+		{
+			SequenceFacts.Add(facts, sequence);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
