@@ -40,6 +40,8 @@ documents.
   generated code, wherever it appears: GitHub, a Maven or source jar, a code search result, a blog post, an issue or an
   answer that quotes it.
 - **Any file under `node_modules/elkjs`.** elkjs is GWT output of ELK's Java. `tools/oracle` runs it and never opens it.
+  Node prints the line of code that throws an uncaught exception, which for elkjs is a line of its build, so a script
+  that runs elkjs catches its exceptions and prints only their message, as `tools/oracle/elk-probe.mjs` does.
 - **Bundled builds that contain elkjs.** mermaid depends on elkjs, and its bundled builds under `node_modules/mermaid/dist`
   can inline it. Read mermaid's code in its TypeScript source at the pinned tag instead.
 
