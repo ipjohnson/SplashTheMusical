@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
+using SplashTheMusical.Diagrams.C4;
 using SplashTheMusical.Diagrams.Class;
 using SplashTheMusical.Diagrams.Er;
 using SplashTheMusical.Diagrams.Flowchart;
@@ -80,6 +81,7 @@ public sealed class Mermaid : IMermaid
 			new ClassModule(),
 			new ErModule(),
 			new RequirementModule(),
+			new C4Module(),
 		]);
 
 	/// <summary>An instance with the default options, <see cref="CoreModules"/> and the default extension points.</summary>
