@@ -1065,6 +1065,104 @@ public sealed class BlockStyle : BlockStatement
   public List<string> Styles { get; }
   public string Id { get; }
 
+namespace SplashTheMusical.Diagrams.C4
+public sealed class C4Argument
+  public C4Argument(string name, string value)
+  public C4Argument(string value)
+  public string Value { get; }
+  public string? Name { get; }
+public sealed class C4Boundary : C4Statement
+  public C4Boundary(C4BoundaryKind kind, List<C4Argument> arguments)
+  public C4BoundaryKind Kind { get; }
+  public List<C4Statement> Statements { get; init; }
+public enum C4BoundaryKind : int
+  Boundary = 0
+  ContainerBoundary = 3
+  DeploymentNode = 4
+  EnterpriseBoundary = 1
+  Node = 5
+  NodeL = 6
+  NodeR = 7
+  SystemBoundary = 2
+public sealed class C4Builder
+  public C4Builder Boundary(C4BoundaryKind kind, string alias, string label, Action<C4Builder> inside, params string[] arguments)
+  public C4Builder Element(C4ElementKind kind, string alias, params string[] arguments)
+  public C4Builder Relation(C4RelationKind kind, string from, string to, string label, params string[] arguments)
+  public C4Builder(C4DiagramKind kind = 0, string? title = null)
+  public C4Document Build()
+public enum C4DiagramKind : int
+  Component = 2
+  Container = 1
+  Context = 0
+  Deployment = 4
+  Dynamic = 3
+public sealed class C4Document : MermaidDocument
+  public C4DiagramKind Kind { get; set; }
+  public C4Document()
+  public List<C4Statement> Statements { get; init; }
+  public override string DiagramType { get; }
+  public string? DiagramTitle { get; set; }
+public sealed class C4Element : C4Statement
+  public C4Element(C4ElementKind kind, List<C4Argument> arguments)
+  public C4ElementKind Kind { get; }
+public enum C4ElementKind : int
+  Component = 14
+  ComponentDb = 15
+  ComponentDbExt = 18
+  ComponentExt = 17
+  ComponentQueue = 16
+  ComponentQueueExt = 19
+  Container = 8
+  ContainerDb = 9
+  ContainerDbExt = 12
+  ContainerExt = 11
+  ContainerQueue = 10
+  ContainerQueueExt = 13
+  Person = 0
+  PersonExt = 1
+  System = 2
+  SystemDb = 3
+  SystemDbExt = 6
+  SystemExt = 5
+  SystemQueue = 4
+  SystemQueueExt = 7
+public sealed class C4Layout : DiagramLayout
+  public C4Layout()
+public sealed class C4Module : DiagramModule<C4Document, C4Layout>
+  public C4Module()
+  public override C4Document? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override C4Layout Layout(C4Document document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(C4Document document, C4Layout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(C4Document document, StringBuilder output)
+public sealed class C4Relation : C4Statement
+  public C4Relation(C4RelationKind kind, List<C4Argument> arguments)
+  public C4RelationKind Kind { get; }
+public enum C4RelationKind : int
+  BiRel = 1
+  Rel = 0
+  RelBack = 10
+  RelD = 5
+  RelDown = 4
+  RelIndex = 11
+  RelL = 7
+  RelLeft = 6
+  RelR = 9
+  RelRight = 8
+  RelU = 3
+  RelUp = 2
+public abstract class C4Statement
+  protected C4Statement(List<C4Argument> arguments)
+  public List<C4Argument> Arguments { get; }
+public sealed class C4Update : C4Statement
+  public C4Update(C4UpdateKind kind, List<C4Argument> arguments)
+  public C4UpdateKind Kind { get; }
+public enum C4UpdateKind : int
+  ElementStyle = 0
+  LayoutConfig = 2
+  RelStyle = 1
+
 namespace SplashTheMusical.Diagrams.Class
 public sealed class ClassAnnotation : ClassStatement
   public ClassAnnotation(string annotation, string className)

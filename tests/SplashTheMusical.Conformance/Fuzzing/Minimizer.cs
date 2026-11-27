@@ -12,11 +12,12 @@ public static class Minimizer
 	public static string Minimize(string source, Func<string, bool> keeps, int maxTests, out int tests)
 	{
 		var budget = new Budget(maxTests);
+		bool Joined(List<string> units) => keeps(string.Concat(units));
 		while (true)
 		{
 			var before = source;
-			source = string.Concat(DeltaDebug(SourceTokens.Lines(source), keeps, budget));
-			source = string.Concat(DeltaDebug(SourceTokens.Split(source).ConvertAll(t => t.Text), keeps, budget));
+			source = string.Concat(DeltaDebug(SourceTokens.Lines(source), Joined, budget));
+			source = string.Concat(DeltaDebug(SourceTokens.Split(source).ConvertAll(t => t.Text), Joined, budget));
 			if (source == before || budget.Spent)
 			{
 				tests = budget.Used;
@@ -25,20 +26,32 @@ public static class Minimizer
 		}
 	}
 
+	/// <summary>Shrinks a list of units while a test holds, with one pass of ddmin.</summary>
+	/// <param name="keeps">Whether a sublist, in the units' order, still shows what the whole list does.</param>
+	/// <param name="maxTests">The most calls of <paramref name="keeps"/>.</param>
+	/// <param name="tests">The calls made.</param>
+	public static List<T> DeltaDebug<T>(List<T> units, Func<List<T>, bool> keeps, int maxTests, out int tests)
+	{
+		var budget = new Budget(maxTests);
+		var reduced = DeltaDebug(units, keeps, budget);
+		tests = budget.Used;
+		return reduced;
+	}
+
 	private sealed class Budget(int max)
 	{
 		public int Used { get; private set; }
 
 		public bool Spent => Used >= max;
 
-		public bool Try(Func<string, bool> keeps, string candidate)
+		public bool Try<T>(Func<T, bool> keeps, T candidate)
 		{
 			Used++;
 			return keeps(candidate);
 		}
 	}
 
-	private static List<string> DeltaDebug(List<string> units, Func<string, bool> keeps, Budget budget)
+	private static List<T> DeltaDebug<T>(List<T> units, Func<List<T>, bool> keeps, Budget budget)
 	{
 		var parts = 2;
 		while (units.Count >= 2 && !budget.Spent)
@@ -47,10 +60,10 @@ public static class Minimizer
 			var reduced = false;
 			for (var start = 0; start < units.Count && !budget.Spent; start += size)
 			{
-				var candidate = new List<string>(units.Count);
+				var candidate = new List<T>(units.Count);
 				candidate.AddRange(units.Take(start));
 				candidate.AddRange(units.Skip(start + size));
-				if (budget.Try(keeps, string.Concat(candidate)))
+				if (budget.Try(keeps, candidate))
 				{
 					units = candidate;
 					parts = Math.Max(parts - 1, 2);
