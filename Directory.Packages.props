@@ -7,7 +7,7 @@
     <PackageVersion Include="DependencyModules.Runtime" Version="1.7.0" />
     <PackageVersion Include="DependencyModules.SourceGenerator" Version="1.7.0" />
     <!-- The container of the tests and the sample -->
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(StmFromPackages)' == 'true'">
     <!-- The sample, built from the packages of this commit -->
@@ -15,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Test dependencies -->
-    <PackageVersion Include="TUnit" Version="1.83.8" />
+    <PackageVersion Include="TUnit" Version="1.87.12" />
     <PackageVersion Include="AwesomeAssertions" Version="9.6.0" />
     <PackageVersion Include="CsCheck" Version="5.0.1" />
     <PackageVersion Include="VerificationGlue" Version="0.3.0-preview.1" />
