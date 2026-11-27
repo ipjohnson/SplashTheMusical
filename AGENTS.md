@@ -28,6 +28,7 @@ mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre 
 mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
 mise run elk-probe [options] <graph file>  # the pinned elkjs's layout of a graph file in the .elk.txt format; --help names the stage pins
 mise run elk-diff [graphs] [seed]          # seeded random graphs through ELK and the dagre port, smallest differing graphs in .artifacts/elk-diff
+mise run elk-spikes        # the stage spikes of docs/layered-layout/design.md on the recordings, in .artifacts/elk-spikes
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
@@ -167,6 +168,12 @@ prints only the message of an exception elkjs throws. `elk-probe.test.mjs` check
 when its input or result differs from the recorded one. `ElkDifferentialTests.RunsWhenAsked`, which `mise run elk-diff`
 runs, sends seeded random graphs from `ElkDifferential.Generate` to the probe through `ElkProbeProcess` and to the
 dagre port, scores them with `ElkLayoutComparer`, and shrinks each graph they differ on with `Minimizer.DeltaDebug`.
+
+[docs/layered-layout/design.md](docs/layered-layout/design.md) is the engine's design: its stages, each stage's
+measure, floor and target, and the rollout steps. `ElkStageSpikes` holds its spikes, which score each stage's approach
+with the stages before it taken from ELK's recorded result. `ElkStageSpikeTests.RunsWhenAsked`, which `mise run
+elk-spikes` runs, writes their shares to `.artifacts/elk-spikes/report.md`. The probe graphs the design learned rules
+from are in `tests/SplashTheMusical.Conformance/Fixtures/elk-probes`.
 
 `src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
 the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds
