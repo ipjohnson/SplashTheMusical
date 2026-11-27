@@ -25,6 +25,7 @@ mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against ELK
+mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
@@ -47,7 +48,7 @@ mise run upstream-bump <version>   # move the oracle to another mermaid and writ
 `upstream-bump` runs `tools/upstream/bump.sh`. It clones the old and new mermaid tags into `.artifacts/upstream`, each
 from the repository npm names for that version, and runs the conformance tests. It installs the new mermaid in
 `tools/oracle`, re-extracts the corpus, rewrites the oracle files, `colors.txt`, `MermaidConfig`, `MermaidCompatibility`
-and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity-report.md`, and rewrites
+and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity-report.md`, `docs/layered-layout/corpus-survey.md` and `docs/layered-layout/baseline.md`, and rewrites
 `corpus/l4.txt`. `DeltaReport` in `tools/SplashTheMusical.Upstream` then compares the two sides. A bump to the version already pinned
 changes no file. Each parser source under `src/SplashTheMusical/Diagrams` starts with one
 `// Upstream grammar: <path in mermaid-js/mermaid>` line per grammar file it implements, so the report names the parser
