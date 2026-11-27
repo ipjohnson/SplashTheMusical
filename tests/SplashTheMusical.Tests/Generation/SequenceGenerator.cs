@@ -15,7 +15,8 @@ namespace SplashTheMusical.Tests.Generation;
 /// <see cref="Repaired"/> changes what mermaid.js's db refuses: a <c>create</c> of a participant that exists, a
 /// created or destroyed participant whose next message does not involve it, a deactivation of an inactive participant,
 /// and a participant in a second box. Text holds no <c>#</c> or <c>;</c> outside an entity code, which would end it, and
-/// no <c>%</c>, which would start a comment.
+/// no <c>%</c>, which would start a comment. The label of a block or a section holds no tab, because mermaid.js fails
+/// to draw a block that holds no message when a tab and more text follow in its label.
 /// </remarks>
 public static class SequenceGenerator
 {
@@ -39,6 +40,9 @@ public static class SequenceGenerator
 		"{\"Dashboard\": \"https://x.org/a\", \"Wiki\": \"https://x.org/b\"}", "Dashboard @ https://x.org/a", "details-1", "{\"class\": \"internal\"}",
 	];
 
+	/// <summary>The types whose drawing leaves <c>rectData</c> null, which <c>drawPopup</c> reads when the actor has links.</summary>
+	private static readonly HashSet<string> FigureTypes = new(["actor", "control", "entity", "boundary"], StringComparer.Ordinal);
+
 	private static readonly double[] Starts = [1, 10, 0.5, 1.25, 100];
 
 	private static readonly double[] Steps = [1, 2, 0.1, 0.25];
@@ -49,6 +53,8 @@ public static class SequenceGenerator
 
 	/// <summary>One line of text that <c>TXT</c> and <c>restOfLine</c> read to its end.</summary>
 	private static readonly Gen<string> Text = GenText.Line.Select(WithoutBareHashes);
+
+	private static readonly Gen<string> BlockText = Text.Select(t => t.Replace('\t', ' '));
 
 	private static readonly Gen<bool?> Wrap = Gen.Frequency((3, Gen.Const((bool?)null)), (1, Gen.Const((bool?)true)), (1, Gen.Const((bool?)false)));
 
@@ -160,10 +166,10 @@ public static class SequenceGenerator
 		}
 
 		var inner = Statements(depth - 1).List[0, 3];
-		var section = Gen.Select(Text.OrNull(), Wrap, inner, (text, wrap, statements) => new SequenceBlockSection { Text = text ?? "", Wrap = wrap, Statements = statements });
+		var section = Gen.Select(BlockText.OrNull(), Wrap, inner, (text, wrap, statements) => new SequenceBlockSection { Text = text ?? "", Wrap = wrap, Statements = statements });
 		var block = Gen.Select(
 			Gen.OneOf(Enum.GetValues<SequenceBlockKind>()),
-			Text.OrNull(),
+			BlockText.OrNull(),
 			Gen.OneOf(RectColors),
 			Wrap,
 			inner,
@@ -220,7 +226,8 @@ public static class SequenceGenerator
 	/// exists is a plain declaration, the next message after a <c>create</c> or <c>destroy</c> goes to its
 	/// participant, a deactivation of an inactive participant activates it, and a participant in a second box is left
 	/// out of it. An <c>activate</c>, <c>deactivate</c> or <c>destroy</c> of an id no earlier statement made a
-	/// participant is left out, because mermaid.js's renderer throws on it.
+	/// participant is left out, because mermaid.js's renderer throws on it. So is a <c>links</c> or <c>link</c> of an
+	/// <c>actor</c>, <c>control</c>, <c>entity</c> or <c>boundary</c>, whose popup menu the renderer fails to draw.
 	/// </summary>
 	private static List<SequenceStatement> Repaired(List<SequenceStatement> statements)
 	{
@@ -233,6 +240,9 @@ public static class SequenceGenerator
 		public Dictionary<string, int> Boxes { get; } = new(StringComparer.Ordinal);
 
 		public Dictionary<string, int> Activations { get; } = new(StringComparer.Ordinal);
+
+		/// <summary>The type of each participant's record, which a declaration with a description or an alias replaces.</summary>
+		public Dictionary<string, string> Types { get; } = new(StringComparer.Ordinal);
 
 		public int BoxCount { get; set; }
 
@@ -261,7 +271,14 @@ public static class SequenceGenerator
 							continue;
 						}
 
+						var replaced = !state.Types.ContainsKey(current.Id) || current.Description is not null
+							|| current.Metadata?.Contains("\"alias\"", StringComparison.Ordinal) == true;
 						AddActor(state, current.Id, box);
+						if (replaced)
+						{
+							state.Types[current.Id] = MetadataType(current.Metadata)
+								?? (current.Kind == SequenceParticipantKind.Actor ? "actor" : "participant");
+						}
 						if (current.Created)
 						{
 							state.LastCreated = current.Id;
@@ -353,6 +370,11 @@ public static class SequenceGenerator
 					break;
 				case SequenceActorData data:
 					AddActor(state, data.Actor, -1);
+					if (data.Kind is SequenceActorDataKind.Links or SequenceActorDataKind.Link && FigureTypes.Contains(state.Types[data.Actor]))
+					{
+						continue;
+					}
+
 					repaired.Add(data);
 					break;
 				case SequenceBlock block:
@@ -381,5 +403,31 @@ public static class SequenceGenerator
 		{
 			state.Boxes[id] = box;
 		}
+
+		state.Types.TryAdd(id, "participant");
+	}
+
+	/// <summary>The value of the <c>type</c> key of <c>@{ }</c> metadata, or null when it has none.</summary>
+	private static string? MetadataType(string? metadata)
+	{
+		var key = metadata?.IndexOf("type", StringComparison.Ordinal) ?? -1;
+		if (key < 0)
+		{
+			return null;
+		}
+
+		var start = metadata!.IndexOf(':', key) + 1;
+		while (metadata[start] is ' ' or '"')
+		{
+			start++;
+		}
+
+		var end = start;
+		while (end < metadata.Length && char.IsAsciiLetter(metadata[end]))
+		{
+			end++;
+		}
+
+		return metadata[start..end];
 	}
 }
