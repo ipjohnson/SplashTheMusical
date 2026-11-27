@@ -1,0 +1,18 @@
+erDiagram
+  CUSTOMER ||--o{ ORDER : places
+  ORDER ||--|{ LINE_ITEM : contains
+  CUSTOMER {
+    string name PK
+    string email UK
+    date joined
+  }
+  ORDER {
+    int id PK
+    date created
+    string status
+  }
+  LINE_ITEM {
+    int id PK
+    int quantity
+    float price
+  }

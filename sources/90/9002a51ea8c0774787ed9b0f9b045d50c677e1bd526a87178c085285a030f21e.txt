@@ -1,0 +1,7 @@
+flowchart LR
+    src["`manage-data/ingest/some-page.md
+    *(source — unchanged on disk)*`"]
+    src --> v1["V1 build\npath_prefix: manage-data"]
+    src --> v2["V2 build\npath_prefix: elasticsearch-fundamentals"]
+    v1 --> v1out["/docs/manage-data/ingest/some-page"]
+    v2 --> v2out["/docs/elasticsearch-fundamentals/ingest/some-page"]

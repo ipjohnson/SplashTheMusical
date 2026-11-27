@@ -1,0 +1,22 @@
+sequenceDiagram
+  actor U as User
+  participant F as Frontend
+  participant B as Backend
+  participant DB as Database
+  U->>F: Click login
+  F->>+B: POST /auth
+  Note right of B: Hash & verify
+  B->>+DB: SELECT user
+  DB-->>-B: Row
+  alt Valid
+    B-->>F: 200 JWT
+    Note over F,B: Session established
+  else Invalid
+    B-->>F: 401 Unauthorized
+  end
+  B-->>-F: Done
+  F-->>U: Show dashboard
+  loop Every 30s
+    F->>B: Heartbeat
+    B-->>F: OK
+  end

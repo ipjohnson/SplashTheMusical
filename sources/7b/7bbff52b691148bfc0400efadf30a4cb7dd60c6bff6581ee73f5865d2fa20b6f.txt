@@ -1,0 +1,14 @@
+stateDiagram-v2
+    state "Not started" as NotStarted
+    state "Shadow nav created" as ShadowNav
+    state "Virtual remap active" as VirtualRemap
+    state "Physical restructure" as PhysicalRestructure
+    state "Cutover complete" as Cutover
+
+    [*] --> NotStarted
+    NotStarted --> ShadowNav : add docset-v2.yml + toc-v2.yml to main
+    ShadowNav --> VirtualRemap : assign new path_prefix in navigation-v2.yml
+    VirtualRemap --> PhysicalRestructure : run apply-nav-restructure\n(only if content moves)
+    VirtualRemap --> Cutover : no URL changes needed
+    PhysicalRestructure --> Cutover : merge feature branch
+    Cutover --> [*]

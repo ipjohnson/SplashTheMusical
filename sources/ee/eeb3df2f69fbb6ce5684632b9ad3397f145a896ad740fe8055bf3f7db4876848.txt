@@ -1,0 +1,10 @@
+treeView-beta
+    deploy/ icon(folder-open)
+        Dockerfile :::highlight ## production image
+        nginx.conf ## reverse proxy config
+        certs/
+            server.crt icon(file:config)
+            server.key icon(file:config) :::highlight
+        scripts/
+            deploy.sh ## CI/CD entry point
+            rollback.sh

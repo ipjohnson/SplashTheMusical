@@ -1,0 +1,6 @@
+erDiagram
+    Repository ||--o{ DocumentationSet : "≤1 per Registry"
+    Repository ||--|| ContentSourceBranches : "current, next, edge"
+    PublishEnvironment }o--|| ContentSource : "content_source"
+    Checkout }o--|| Repository : "clones"
+    Checkout }o--|| LinkRegistryEntry : "pinned commit"

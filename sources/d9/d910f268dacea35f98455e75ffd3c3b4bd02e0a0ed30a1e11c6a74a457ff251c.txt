@@ -1,0 +1,5 @@
+sankey-beta
+Visitors,Signups,1000
+Signups,Trials,400
+Trials,Paid,120
+Trials,Churned,280

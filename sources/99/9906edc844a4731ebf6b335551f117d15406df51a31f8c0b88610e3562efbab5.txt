@@ -1,0 +1,6 @@
+block-beta
+columns 3
+  Header["Header spans all three"]:3
+  Nav["Nav"] Content["Content"]:2
+  Sidebar:2 Aside
+  Footer["Footer"]:3

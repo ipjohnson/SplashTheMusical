@@ -1,0 +1,6 @@
+packet
+title TCP Segment (partial)
++16: "Source Port"
++16: "Dest Port"
++32: "Sequence Number"
++32: "Ack Number"

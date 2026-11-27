@@ -1,0 +1,5 @@
+erDiagram
+A ||--|| B : one-to-one
+C ||--o| D : one-to-zero-or-one
+E ||--o{ F : one-to-zero-or-many
+G ||--|{ H : one-to-one-or-many

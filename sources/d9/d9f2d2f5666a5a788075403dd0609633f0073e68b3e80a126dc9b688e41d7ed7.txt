@@ -1,0 +1,11 @@
+stateDiagram-v2
+[*] --> Pending
+Pending --> Confirmed : payment_ok
+Pending --> Cancelled : timeout
+Confirmed --> Shipped : dispatch
+Shipped --> Delivered : deliver
+Delivered --> [*]
+Cancelled --> [*]
+Shipped --> Returned : return_request
+Returned --> Refunded : process_refund
+Refunded --> [*]

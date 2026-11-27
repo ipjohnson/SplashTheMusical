@@ -1,0 +1,7 @@
+erDiagram
+    Assembly ||--|{ Repository : "references"
+    Assembly ||--|{ PublishEnvironment : "environments"
+    PublishEnvironment ||--o{ SearchIndex : "index suffix"
+    Build ||--|{ AssembledDocumentationSet : "assembles"
+    Build ||--|| CloudfrontRedirectMap : "redirects.json"
+    Build ||--o| SyncPlan : "deploy"

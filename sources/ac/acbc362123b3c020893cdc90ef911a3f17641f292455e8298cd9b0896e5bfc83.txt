@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph inputs [Inputs]
+        assemblerYml["assembler.yml\nenv config · feature flags"]
+        navYml["navigation.yml"]
+        navV2Yml["navigation-v2.yml"]
+        repoCheckouts["Repo checkouts\ndocset.yml / docset-v2.yml\ntoc.yml / toc-v2.yml\ncontent .md files"]
+    end
+
+    subgraph navAssembly [Navigation Assembly]
+        v1Nav["V1 SiteNavigation\n+ V1 NavigationTocMappings"]
+        v2Nav["V2 SiteNavigationV2\n+ V2 NavigationTocMappings"]
+        fileLookup["NavigationDocumentationFileLookup\nfile path → output URL"]
+    end
+
+    subgraph dualVal ["Dual Validation — both must pass"]
+        valV1["V1\npath prefixes · completeness · links"]
+        valV2["V2\npath prefixes · completeness\ncross-nav aliasing · migration warnings"]
+    end
+
+    subgraph contentProc [Content Processing — per file]
+        relLinks["Relative links\nvalidate source-side\nemit URL from nav lookup"]
+        images["Images\nvalidate source-side\ncopy via path provider"]
+        includes["Include directives\n100% source-based\nunaffected by path changes"]
+        xlinks["Cross-links  repo://path\nresolved via NavigationTocMappings\n→ V1 or V2 output URL"]
+    end
+
+    subgraph outputLayer [Output]
+        pathProvider["GlobalNavigationPathProvider\nflag-injected: V1 or V2 mappings"]
+        sidebarHtml["Sidebar HTML\nV1 or V2 tree per flag"]
+        outputFiles["Output files\nwritten at V1 or V2 paths"]
+    end
+
+    navYml --> navAssembly
+    navV2Yml --> navAssembly
+    repoCheckouts --> navAssembly
+    navAssembly --> dualVal
+    navAssembly --> fileLookup
+    fileLookup --> contentProc
+    dualVal -->|both pass| contentProc
+    repoCheckouts -->|.md source files| contentProc
+    assemblerYml -->|nav-v2 flag| outputLayer
+    contentProc --> outputLayer

@@ -1,0 +1,7 @@
+sequenceDiagram
+participant A
+participant B
+Note left of A: Left note
+A->>B: Hello
+Note right of B: Right note
+Note over A,B: Spanning note

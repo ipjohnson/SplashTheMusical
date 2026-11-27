@@ -1,0 +1,11 @@
+mindmap
+  ((Project))
+    (Planning)
+      Requirements
+      Timeline
+    [Development]
+      Frontend
+      Backend
+    {{Testing}}
+      Unit Tests
+      Integration

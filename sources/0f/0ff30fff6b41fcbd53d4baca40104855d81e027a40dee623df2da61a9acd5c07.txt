@@ -1,0 +1,12 @@
+block-beta
+columns 4
+  UI["User interface"]:4
+  Auth["Auth"] Billing["Billing"] Search["Search"] Reports["Reports"]
+  Core["Core platform"]:4
+  Postgres["Postgres"]:2 Cache["Cache"] Storage["Object storage"]
+  UI --> Auth
+  UI --> Reports
+  Auth --> Core
+  Billing --> Core
+  Search --> Core
+  Reports --> Core

@@ -1,0 +1,9 @@
+kanban
+  backlog[Backlog]
+    p1[Security audit]@{ priority: 'Very High' }
+    p2[Perf regression]@{ priority: 'High' }
+    p3[Docs update]@{ priority: 'Low' }
+    p4[Typo fix]@{ priority: 'Very Low' }
+  review[Review]
+    p5[API redesign]@{ assigned: 'alice', priority: 'High' }
+    p6[Changelog]@{ assigned: 'bob', ticket: CH-99, priority: 'Very Low' }

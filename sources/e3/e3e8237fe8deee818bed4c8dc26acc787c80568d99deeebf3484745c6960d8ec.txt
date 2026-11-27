@@ -1,0 +1,5 @@
+erDiagram
+    CodexSite ||--|| Registry : "environment"
+    CodexSite ||--o{ CodexDocumentationSet : "from LinkRegistry"
+    CodexDocumentationSet ||--|| DocumentationSet : "docset"
+    CodexDocumentationSet }o--o| CodexGroup : "codex.group"

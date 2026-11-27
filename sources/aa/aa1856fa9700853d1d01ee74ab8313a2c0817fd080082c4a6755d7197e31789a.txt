@@ -1,0 +1,20 @@
+zenuml
+title Booking
+group Backend { API BookingService }
+Client->API.book(slot) {
+  booking = new Booking(slot)
+  try {
+    API->Audit: start attempts
+    while(attempts < 3) {
+      BookingService.confirm(booking)
+    }
+  } catch(Timeout e) {
+    API->Client: retry later
+  } finally {
+    API->Audit: log attempt
+  }
+  par {
+    API->Client: confirmed
+    API->Calendar: block slot
+  }
+}

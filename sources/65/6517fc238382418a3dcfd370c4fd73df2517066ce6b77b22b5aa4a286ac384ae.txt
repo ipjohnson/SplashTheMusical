@@ -1,0 +1,13 @@
+quadrantChart
+title Technical Skills Matrix
+x-axis Beginner --> Expert
+y-axis Low Demand --> High Demand
+quadrant-1 Invest
+quadrant-2 Maintain
+quadrant-3 Deprioritize
+quadrant-4 Phase Out
+Kubernetes: [0.4, 0.9]
+React: [0.7, 0.8]
+COBOL: [0.3, 0.1]
+Rust: [0.3, 0.7]
+Python: [0.8, 0.9]

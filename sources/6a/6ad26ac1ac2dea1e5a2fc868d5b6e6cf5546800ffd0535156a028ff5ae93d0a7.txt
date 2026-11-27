@@ -1,0 +1,49 @@
+requirementDiagram
+
+requirement base_req {
+id: R-0
+text: Base requirement
+risk: low
+verifymethod: inspection
+}
+
+functionalRequirement functional_req {
+id: R-1
+text: Must do the thing
+risk: medium
+verifymethod: demonstration
+}
+
+interfaceRequirement interface_req {
+id: R-2
+text: Expose a REST API
+risk: low
+verifymethod: test
+}
+
+performanceRequirement performance_req {
+id: R-3
+text: Respond within 100ms
+risk: high
+verifymethod: analysis
+}
+
+physicalRequirement physical_req {
+id: R-4
+text: Fit in a 1U rack
+risk: low
+verifymethod: inspection
+}
+
+designConstraint design_constraint {
+id: R-5
+text: Use the company stack
+risk: medium
+verifymethod: inspection
+}
+
+base_req - contains -> functional_req
+base_req - contains -> interface_req
+base_req - contains -> performance_req
+base_req - contains -> physical_req
+base_req - contains -> design_constraint

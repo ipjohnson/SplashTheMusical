@@ -1,0 +1,19 @@
+treeView-beta
+    MyApp.sln/
+        src/
+            MyApp/
+                Program.cs
+                appsettings.json
+                MyApp.csproj
+            MyApp.Core/
+                Services/
+                    UserService.cs
+                    AuthService.cs
+                Models/
+                    User.cs
+                MyApp.Core.csproj
+        tests/
+            MyApp.Tests/
+                UserServiceTests.cs
+                MyApp.Tests.csproj
+        README.md

@@ -1,0 +1,8 @@
+kanban
+  [To Do]
+    t1[Implement feature]
+    t2[Write unit tests]
+  [In Review]
+    t3[PR for auth flow]
+  [Done]
+    t4[Deploy to staging]

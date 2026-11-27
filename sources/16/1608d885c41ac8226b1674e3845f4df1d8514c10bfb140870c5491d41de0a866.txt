@@ -1,0 +1,9 @@
+sequenceDiagram
+  participant A as Alice
+  participant B as Bob
+  participant C as Charlie
+  A->>B: Hello Bob!
+  B-->>A: Hi Alice!
+  B->>C: Forward message
+  C-->>B: Got it
+  C->>A: Hey Alice, Charlie here

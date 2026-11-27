@@ -1,0 +1,14 @@
+mindmap
+  ((Shapes))
+    (Rounded)
+      Plain child
+    [Square]
+      Plain child
+    ((Circle))
+      Plain child
+    {{Hexagon}}
+      Plain child
+    ))Bang((
+      Plain child
+    )Cloud(
+      Plain child

@@ -1,0 +1,5 @@
+sequenceDiagram
+  autonumber 100 10
+  Alice->>Bob: First message
+  Bob->>Charlie: Second message
+  Charlie-->>Alice: Third message

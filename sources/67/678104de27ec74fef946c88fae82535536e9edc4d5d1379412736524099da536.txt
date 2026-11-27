@@ -1,0 +1,14 @@
+treeView-beta
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── Sidebar.tsx
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   └── About.tsx
+│   └── App.tsx
+├── public/
+│   └── index.html
+├── package.json
+└── tsconfig.json

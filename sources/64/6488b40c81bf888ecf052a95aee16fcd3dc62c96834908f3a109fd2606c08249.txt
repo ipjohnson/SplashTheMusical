@@ -1,0 +1,10 @@
+block-beta
+columns 3
+  A["Source"] B["Middle"] C["Target"]
+  D["Left"] E["Centre"] F["Right"]
+  G["Bottom left"] H["Bottom"] I["Bottom right"]
+  A --> C
+  B --> E
+  E --> H
+  D --> F
+  C --> G

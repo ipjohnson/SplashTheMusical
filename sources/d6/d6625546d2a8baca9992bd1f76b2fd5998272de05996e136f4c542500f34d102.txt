@@ -1,0 +1,7 @@
+architecture-beta
+group cloud1(cloud)[Cloud]
+service compute(aws:compute)[EC2] in cloud1
+service storage(aws:storage)[S3] in cloud1
+service search(elastic:elasticsearch)[Elasticsearch] in cloud1
+compute:R -- L:storage
+compute:B -- T:search

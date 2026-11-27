@@ -1,0 +1,8 @@
+flowchart LR
+  Client --> API
+  subgraph backend [Backend services]
+    API --> Orders
+    Orders --> DB@{ shape: cyl, label: "Orders DB" }
+  end
+  Orders --> Mail@{ shape: doc, label: "Receipt" }
+  backend@{ view: collapsed }

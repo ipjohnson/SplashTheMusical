@@ -1,0 +1,7 @@
+erDiagram
+    CodexSite ||--|| Registry : "environment = registry"
+    CodexSite ||--o{ CodexGroup : "groups"
+    CodexSite ||--o{ CodexDocumentationSet : "from LinkRegistry"
+    CodexDocumentationSet ||--|| DocumentationSet : "docset"
+    CodexDocumentationSet }o--o| CodexGroup : "codex.group"
+    Registry ||--|| LinkRegistry : "git: elastic/codex-link-index/{registry}"

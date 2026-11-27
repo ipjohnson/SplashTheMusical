@@ -1,0 +1,11 @@
+flowchart TD
+subgraph Outer[Deployment]
+  subgraph Inner1[Cluster A]
+    A1[Pod 1] --> A2[Pod 2]
+  end
+  subgraph Inner2[Cluster B]
+    B1[Pod 1] --> B2[Pod 2]
+  end
+end
+LB[Load Balancer] --> Inner1
+LB --> Inner2

@@ -1,0 +1,45 @@
+flowchart LR
+    subgraph Reference["Reference data (config/)"]
+        Catalog["Products, versioning systems"]
+    end
+    subgraph Sources["Sources"]
+        Repo["Repositories (Git)"]
+    end
+    subgraph Authoring["Authoring (in each repository)"]
+        DocSet["Documentation sets"]
+        OpenApi["OpenAPI specs"]
+        Changelog["Changelog entries"]
+    end
+    subgraph Build["Build"]
+        Isolated["Isolated build"]
+        Assembler["Assembler build"]
+        Codex["Codex build"]
+    end
+    subgraph Outputs["Outputs"]
+        Site["HTML sites"]
+        Links["Link graph"]
+        SpecIndex["OpenAPI repository"]
+        Search["Search indices"]
+        Notes["Release note bundles"]
+    end
+    Catalog --> DocSet
+    Repo --> DocSet
+    Repo --> OpenApi
+    Repo --> Changelog
+    OpenApi -->|"published per version"| SpecIndex
+    OpenApi -.->|"api: local spec"| DocSet
+    DocSet -.->|"api: spec + repository"| SpecIndex
+    SpecIndex --> Isolated
+    SpecIndex --> Assembler
+    DocSet --> Isolated
+    DocSet --> Assembler
+    DocSet --> Codex
+    Isolated --> Links
+    Links --> Assembler
+    Links --> Codex
+    Assembler --> Site
+    Codex --> Site
+    Isolated --> Site
+    Assembler --> Search
+    Changelog --> Notes
+    Notes --> Site

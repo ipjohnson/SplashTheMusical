@@ -1,0 +1,16 @@
+wardley-beta
+title Data Platform
+anchor Analyst [0.95, 0.60]
+component Dashboards [0.80, 0.55]
+component Storage [0.45, 0.60]
+pipeline Storage {
+  component "File Store" [0.30]
+  component "Warehouse" [0.60]
+  component "Lakehouse" [0.80]
+}
+Analyst -> Dashboards
+Dashboards +'queries'> Warehouse
+Dashboards -.-> Storage; reads
+annotations [0.20, 0.05]
+annotation 1,[0.84, 0.50] "Self-service reporting"
+annotation 2,[0.36, 0.60] "Consolidate storage"

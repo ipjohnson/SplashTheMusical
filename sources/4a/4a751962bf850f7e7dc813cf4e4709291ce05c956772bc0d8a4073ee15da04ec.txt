@@ -1,0 +1,11 @@
+quadrantChart title Feature Prioritization
+x-axis Low Complexity --> High Complexity
+y-axis Low Value --> High Value
+quadrant-1 Quick Wins
+quadrant-2 Big Bets
+quadrant-3 Low Priority
+quadrant-4 Fill-Ins
+Dark Mode: [0.2, 0.8]
+SSO: [0.6, 0.9]
+CSV Export: [0.2, 0.4]
+AI Suggestions: [0.9, 0.7]

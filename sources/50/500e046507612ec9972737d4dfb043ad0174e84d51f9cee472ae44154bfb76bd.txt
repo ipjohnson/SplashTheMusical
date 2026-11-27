@@ -1,0 +1,18 @@
+timeline
+title A Year in Product
+section Q1
+Jan : Planning
+Feb : Prototype : Customer interviews
+Mar : Alpha
+section Q2
+Apr : Beta : Docs
+May : Feedback
+Jun : Launch
+section Q3
+Jul : Scale-out
+Aug : Pricing
+Sep : Partnerships
+section Q4
+Oct : Enterprise
+Nov : Security audit
+Dec : Retrospective

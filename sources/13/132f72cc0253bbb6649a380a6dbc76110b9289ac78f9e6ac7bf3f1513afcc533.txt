@@ -1,0 +1,9 @@
+sequenceDiagram
+participant A
+participant B
+critical Establish connection
+A->>B: Connect
+B-->>A: Ack
+option Network timeout
+A->>A: Retry
+end

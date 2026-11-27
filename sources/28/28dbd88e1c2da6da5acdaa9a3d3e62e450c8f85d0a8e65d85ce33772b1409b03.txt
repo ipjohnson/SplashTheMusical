@@ -1,0 +1,18 @@
+erDiagram
+  cust["Customer Account"] {
+    int id PK
+    string name
+    string email UK
+  }
+  ord[Order] {
+    int id PK
+    date created
+    string status
+  }
+  li["Line Item"] {
+    int id PK
+    int qty
+    float price
+  }
+  cust ||--o{ ord : places
+  ord ||--|{ li : contains

@@ -1,0 +1,19 @@
+sequenceDiagram
+participant A
+participant B
+participant C
+loop Every minute
+par Ping B
+A->>B: ping
+and Ping C
+A->>C: ping
+end
+C-->>A: pong
+end
+alt Retry
+opt Same messages
+A->>B: again
+end
+else Give up
+A->>C: stop
+end

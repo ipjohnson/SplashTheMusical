@@ -1,0 +1,29 @@
+flowchart TD
+    subgraph config [Config]
+        navYml[navigation.yml]
+        navV2Yml[navigation-v2.yml]
+    end
+
+    subgraph repos [Per-repo checkouts]
+        docsetV1["docset.yml + toc.yml"]
+        docsetV2["docset-v2.yml + toc-v2.yml\n(if present)"]
+    end
+
+    navYml --> v1SiteNav[V1 SiteNavigation]
+    docsetV1 --> v1SiteNav
+    navV2Yml --> v2SiteNav[V2 SiteNavigationV2]
+    docsetV2 --> v2SiteNav
+    docsetV1 -. "V1 fallback" .-> v2SiteNav
+
+    v1SiteNav --> v1Map[V1 NavigationTocMappings]
+    v2SiteNav --> v2Map[V2 NavigationTocMappings]
+
+    v1Map --> valV1{"V1 valid?"}
+    v2Map --> valV2{"V2 valid?"}
+    valV1 -->|fail| errV1([Build error])
+    valV2 -->|fail| errV2([Build error])
+
+    valV1 -->|pass| flag{"nav-v2 flag"}
+    valV2 -->|pass| flag
+    flag -->|false| emitV1["V1 NavigationTocMappings injected\n→ V1 paths + V1 sidebar"]
+    flag -->|true| emitV2["V2 NavigationTocMappings injected\n→ V2 paths + V2 sidebar"]

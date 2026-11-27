@@ -1,0 +1,8 @@
+sequenceDiagram
+participant Client
+participant Server
+Client->>Server: Request
+break When rate limited
+Server-->>Client: 429 Too Many Requests
+end
+Server-->>Client: 200 OK

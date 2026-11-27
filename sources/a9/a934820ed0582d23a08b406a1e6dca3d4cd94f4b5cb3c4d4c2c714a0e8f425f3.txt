@@ -1,0 +1,9 @@
+C4Context
+title System Context diagram for Internet Banking System
+Person(customer, "Banking Customer", "A customer of the bank, with personal bank accounts.")
+System(banking, "Internet Banking System", "Allows customers to view accounts and make payments.")
+System_Ext(mail, "E-mail System", "The internal Microsoft Exchange e-mail system.")
+SystemDb_Ext(mainframe, "Mainframe Banking System", "Stores core banking information.")
+Rel(customer, banking, "Uses")
+Rel(banking, mail, "Sends e-mails", "SMTP")
+Rel(banking, mainframe, "Uses")

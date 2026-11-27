@@ -1,0 +1,14 @@
+usecase-beta
+direction TB
+actor Admin
+actor User
+systemBoundary Account
+  Login("Sign in")
+  Reset("Reset password")
+  Audit[Audit log]
+end
+Admin --|> User
+User --> Login
+Reset ..> : extend Login
+Login ..> : include Audit
+Admin --o Audit

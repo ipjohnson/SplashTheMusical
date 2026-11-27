@@ -1,0 +1,11 @@
+graph TD
+  subgraph Backend
+    direction LR
+    API[REST API] --> DB[(Database)]
+    API --> Cache[(Redis)]
+  end
+  subgraph Frontend
+    UI[React App] --> State[Redux]
+  end
+  UI --> API
+  State --> API

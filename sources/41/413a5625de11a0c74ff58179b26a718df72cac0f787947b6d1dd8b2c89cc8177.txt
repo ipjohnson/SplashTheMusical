@@ -1,0 +1,4 @@
+graph TD
+A -- text on solid --> B
+C -. text on dotted .-> D
+E == text on thick ==> F

@@ -1,0 +1,16 @@
+classDiagram
+  class Shape {
+    <<interface>>
+    +area() double
+  }
+  class Drawable {
+    <<interface>>
+    +draw() void
+  }
+  class Circle {
+    +double radius
+    +area() double
+    +draw() void
+  }
+  Circle ..|> Shape
+  Circle --() Drawable

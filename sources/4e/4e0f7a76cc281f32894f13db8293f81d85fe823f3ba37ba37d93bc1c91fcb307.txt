@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant A as Service A
+  participant B as Service B
+  participant C as Service C
+  A<<->>B: Bidirectional sync
+  A<<-->>C: Dashed bidirectional
+  B->>C: Normal one-way
+  C-->>B: Dashed one-way

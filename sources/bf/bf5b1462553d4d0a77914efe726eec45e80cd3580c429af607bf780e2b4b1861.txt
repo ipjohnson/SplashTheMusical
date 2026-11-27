@@ -1,0 +1,15 @@
+sequenceDiagram
+  box rgb(200,220,255) Internal Services
+  participant API
+  participant Auth
+  participant DB
+  end
+  box rgb(255,220,200) External
+  participant Client
+  end
+  Client->>API: Request
+  API->>Auth: Validate
+  Auth-->>API: OK
+  API->>DB: Query
+  DB-->>API: Data
+  API-->>Client: Response

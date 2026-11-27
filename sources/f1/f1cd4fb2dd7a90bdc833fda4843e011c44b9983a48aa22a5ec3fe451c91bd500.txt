@@ -1,0 +1,4 @@
+erDiagram
+    Product }o--o| VersioningSystem : "versioning"
+    Product }o--o| Repository : "repository"
+    LegacyUrlMapping }o--|| Product : "product"

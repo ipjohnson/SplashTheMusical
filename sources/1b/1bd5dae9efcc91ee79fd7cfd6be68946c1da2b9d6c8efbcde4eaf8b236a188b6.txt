@@ -1,0 +1,8 @@
+kanban
+  todo[To Do]
+    docs[Create Documentation]
+    id8[Design grammar]@{ assigned: 'knsv' }
+  wip[In Progress]
+    id4[Create parsing tests]@{ ticket: MC-2038, assigned: 'K.Sveidqvist', priority: 'High' }
+  done[Done]
+    id5[define getData]

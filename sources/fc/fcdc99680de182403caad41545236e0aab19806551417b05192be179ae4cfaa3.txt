@@ -1,0 +1,15 @@
+architecture-beta
+group awsNet(cloud)[AWS]
+service awsVpc(aws:networking)[VPC] in awsNet
+service awsCompute(aws:compute)[EC2] in awsNet
+awsVpc:R -- L:awsCompute
+
+group azureNet(cloud)[Azure]
+service azureVnet(azure:networking)[VNet] in azureNet
+service azureCompute(azure:compute)[VM] in azureNet
+azureVnet:R -- L:azureCompute
+
+group gcpNet(cloud)[GCP]
+service gcpVpc(gcp:networking)[VPC] in gcpNet
+service gcpCompute(gcp:compute)[Compute Engine] in gcpNet
+gcpVpc:R -- L:gcpCompute

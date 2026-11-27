@@ -1,0 +1,6 @@
+architecture-beta
+group outer(cloud)[Outer]
+group inner(cloud)[Inner] in outer
+service a(server)[A] in inner
+service b(server)[B] in outer
+a:R -- L:b

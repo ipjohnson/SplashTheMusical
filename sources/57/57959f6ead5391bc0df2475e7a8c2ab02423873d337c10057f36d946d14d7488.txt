@@ -1,0 +1,7 @@
+classDiagram
+Animal : +String name
+Animal : +int age
+Animal : +isMammal() bool
+Dog : +String breed
+Dog : +bark() void
+Animal <|-- Dog

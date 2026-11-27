@@ -1,0 +1,18 @@
+mindmap
+  ((Architecture))
+    (Frontend)
+      Components
+        Buttons
+        Forms
+          Validation
+          Masks
+      State
+        Store
+    (Backend)
+      API
+        REST
+        GraphQL
+      Data
+        SQL
+          Postgres
+        Cache

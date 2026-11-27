@@ -1,0 +1,10 @@
+classDiagram
+class Repository~T~ {
++getById(id) T
++save(entity) void
++findAll() List~T~
+}
+class UserRepo {
++getById(id) User
+}
+Repository~T~ <|-- UserRepo

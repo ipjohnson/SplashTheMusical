@@ -1,0 +1,8 @@
+sequenceDiagram
+participant A
+participant B
+A->>B: Request
+opt Extra logging
+B->>B: Write to audit log
+end
+B-->>A: Response

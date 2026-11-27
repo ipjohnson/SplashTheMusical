@@ -1,0 +1,10 @@
+sequenceDiagram
+participant A as Alice
+participant B as Bob
+participant J as John
+A->>B: Hello Bob
+B->>J: Hi John
+J-->>A: Hey Alice
+A->>J: How are you?
+J-->>B: Tell Alice I'm fine
+B-->>A: John says hi

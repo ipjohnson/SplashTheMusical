@@ -1,0 +1,11 @@
+stateDiagram-v2
+  [*] --> Evaluate
+  state checkResult <<choice>>
+  Evaluate --> checkResult
+  checkResult --> Positive : if score > 0
+  checkResult --> Negative : if score < 0
+  checkResult --> Neutral : if score = 0
+  Positive --> [*]
+  Negative --> Retry
+  Neutral --> [*]
+  Retry --> Evaluate

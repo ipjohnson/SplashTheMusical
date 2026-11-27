@@ -1,0 +1,28 @@
+requirementDiagram
+
+functionalRequirement checkout {
+id: SHOP-1
+text: Customers can pay by card
+risk: high
+verifymethod: test
+}
+
+element payment_service {
+type: service
+}
+
+payment_service - satisfies -> checkout
+
+functionalRequirement alerting {
+id: OPS-1
+text: On-call is paged on a failed deploy
+risk: medium
+verifymethod: demonstration
+}
+
+element pager_rules {
+type: configuration
+docRef: ops/pager.yml
+}
+
+pager_rules - satisfies -> alerting

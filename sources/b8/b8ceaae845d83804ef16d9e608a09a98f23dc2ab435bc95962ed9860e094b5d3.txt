@@ -1,0 +1,7 @@
+sequenceDiagram
+  participant A as Service
+  participant B as Queue
+  A->>A: Initialize
+  A->>B: Send message
+  B->>B: Process internally
+  B-->>A: Acknowledgement
