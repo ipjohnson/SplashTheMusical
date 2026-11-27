@@ -229,6 +229,7 @@ internal sealed class C4LayoutStep
 	private readonly Dictionary<C4DbItem, C4ShapeDrawing> _shapes = [];
 	private readonly Dictionary<C4DbItem, C4BoundaryDrawing> _boundaries = [];
 	private readonly List<C4Drawing> _drawings = [];
+	private readonly HashSet<C4DbItem> _drawing = [];
 	private double _globalMaxX;
 	private double _globalMaxY;
 
@@ -356,7 +357,15 @@ internal sealed class C4LayoutStep
 			var nested = Boundaries(alias);
 			if (nested.Count > 0)
 			{
+				// A boundary with the alias "" holds the boundaries of the root, the global one among them, and mermaid.js
+				// recurses until its stack overflows.
+				if (!_drawing.Add(boundary))
+				{
+					throw Error($"C4 boundary \"{boundary.StringOf("alias")}\" is inside itself");
+				}
+
 				DrawInsideBoundary(currentBounds, nested);
+				_ = _drawing.Remove(boundary);
 			}
 
 			if (boundary.StringOf("alias") != "global")

@@ -243,6 +243,21 @@ public class C4RenderTests
 	}
 
 	[Test]
+	public void ABoundaryInsideItselfIsRefused()
+	{
+		// A boundary with the alias "" holds the boundaries of the root, so the global boundary holds itself.
+		var root = Throws<MermaidParseException>(() => Layout("C4Context\nBoundary(\"\", \"A\") {\nSystem(s, \"S\")\n}\n"));
+		Verify(() => root.Diagnostics[0].Message == "C4 boundary \"global\" is inside itself");
+
+		var nested = Throws<MermaidParseException>(() => Layout("C4Context\nBoundary(a, \"A\") {\nBoundary(\"\", \"B\") {\nSystem(s, \"S\")\n}\n}\n"));
+		Verify(() => nested.Diagnostics[0].Message == "C4 boundary \"global\" is inside itself");
+
+		// A boundary that reuses an alias is the earlier one, now inside itself, and the root no longer reaches it.
+		var merged = Layout("C4Context\nBoundary(a, \"A\") {\nBoundary(a, \"B\") {\nSystem(s, \"S\")\n}\n}\n");
+		Verify(() => merged.Drawings.Count == 0);
+	}
+
+	[Test]
 	public void TheSvgHasMermaidJsIdsMarkersAndTexts()
 	{
 		var svg = SvgDocuments.Checked(Mermaid.Default.RenderSvg("""
