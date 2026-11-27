@@ -4,8 +4,12 @@
     <Description>A host that registers STM with SplashTheMusicalModule and renders a diagram. CI publishes it with native AOT.</Description>
     <PublishAot>true</PublishAot>
   </PropertyGroup>
-  <ItemGroup>
+  <!-- CI's packages job builds it with StmFromPackages=true, from the packages dotnet pack wrote. -->
+  <ItemGroup Condition="'$(StmFromPackages)' != 'true'">
     <ProjectReference Include="../../src/SplashTheMusical.DependencyModule/SplashTheMusical.DependencyModule.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(StmFromPackages)' == 'true'">
+    <PackageReference Include="SplashTheMusical.DependencyModule" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
