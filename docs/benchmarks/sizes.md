@@ -7,7 +7,7 @@ the machine it runs on. CI checks on each runner of its build job, which reads t
 
 | File | RID | Bytes |
 |---|---|---:|
-| SplashTheMusical.dll | any | 1142784 |
+| SplashTheMusical.dll | any | 1224704 |
 | stm | linux-x64 | 4961384 |
-| stm | osx-arm64 | 4683664 |
+| stm | osx-arm64 | 4865792 |
 | stm | win-x64 | 5016576 |
