@@ -111,6 +111,8 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is C4Document c4)
 		{
 			C4Facts.Add(facts, c4, svg);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = C4Facts.Boxes(boxes, c4, new C4Module().Layout(c4, context), TextMeasurer.Default);
 		}
 		else if (document is BlockDocument block)
 		{

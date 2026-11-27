@@ -269,7 +269,9 @@ and the intersections of `rendering-elements/intersect`.
 `src/SplashTheMusical/Diagrams/Block` ports `packages/mermaid/src/diagrams/block`: the grammar of
 `parser/block.jison`, `blockDB.ts` and the columns check of `layout.ts`.
 `src/SplashTheMusical/Diagrams/C4` ports `packages/mermaid/src/diagrams/c4`: the lexer and grammar of
-`parser/c4Diagram.jison`, `c4Db.ts`, and the check of `drawRels` in `c4Renderer.ts` that a relation's ends exist.
+`parser/c4Diagram.jison`, `c4Db.ts`, the layout and drawing of `c4Renderer.ts` and `svgDraw.ts`, the shape choice and
+colours of `c4ShapeAdapter.ts` and the rules of `styles.js`. `src/SplashTheMusical/Diagrams/C4/C4Label.cs` ports
+`packages/mermaid/src/rendering-util/rendering-elements/shapes/c4LabelHelper.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 

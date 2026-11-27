@@ -1128,7 +1128,6 @@ public enum C4ElementKind : int
   SystemQueue = 4
   SystemQueueExt = 7
 public sealed class C4Layout : DiagramLayout
-  public C4Layout()
 public sealed class C4Module : DiagramModule<C4Document, C4Layout>
   public C4Module()
   public override C4Document? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
