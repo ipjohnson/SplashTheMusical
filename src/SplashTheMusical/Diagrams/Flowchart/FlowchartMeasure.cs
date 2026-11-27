@@ -110,7 +110,12 @@ internal sealed class FlowchartMeasure
 			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(text, type), Font, wrapWidth, 0, false);
 
 	/// <summary>Draws the node's shape at its label's size and gives the node the size of the drawing.</summary>
-	public void Node(FlowNode node, string direction)
+	/// <param name="width">
+	/// <c>node.width</c>, which a type that sizes its nodes itself, as block does, sets before <c>insertNode</c>.
+	/// </param>
+	/// <param name="height"><c>node.height</c>.</param>
+	/// <param name="draw">The drawing function of a shape the library does not hold, such as block's <c>composite</c>.</param>
+	public void Node(FlowNode node, string direction, double? width = null, double? height = null, Func<ShapeNode, ShapeGeometry>? draw = null)
 	{
 		if (node.Shape == "labelRect")
 		{
@@ -164,9 +169,11 @@ internal sealed class FlowchartMeasure
 		};
 		var vertex = node.Vertex;
 		var imageSide = vertex?.AssetHeight ?? vertex?.AssetWidth ?? DefaultImageSide;
-		var shape = NodeShapes.Find(node.Shape) ?? NodeShapes.Find("squareRect")!;
-		var geometry = shape.Draw(new ShapeNode
+		draw ??= (NodeShapes.Find(node.Shape) ?? NodeShapes.Find("squareRect")!).Draw;
+		var geometry = draw(new ShapeNode
 		{
+			Width = width,
+			Height = height,
 			HasLabel = node.Label.Length > 0,
 			AssetWidth = vertex?.AssetWidth,
 			AssetHeight = vertex?.AssetHeight,

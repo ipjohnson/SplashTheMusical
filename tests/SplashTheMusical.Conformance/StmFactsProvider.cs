@@ -109,7 +109,9 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 		else if (document is BlockDocument block)
 		{
-			BlockFacts.Add(facts, block);
+			BlockFacts.Add(facts, block, svg);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = BlockFacts.Boxes(boxes, block, new BlockModule().Layout(block, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
