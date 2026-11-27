@@ -241,6 +241,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## js-sequence-diagrams
+
+mermaid's `sequenceDiagram.jison`, which `src/SplashTheMusical/Diagrams/Sequence/SequenceLexer.cs` and
+`SequenceParser.cs` port, is based on the jison grammar of [js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/),
+under the Simplified BSD license.
+
+```
+Copyright (c) 2012-2013 Andrew Brampton (bramp.net)
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
 ## mermaid
 
 The syntax, default configuration, themes, shapes and test cases follow [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid).
@@ -270,6 +301,9 @@ and the intersections of `rendering-elements/intersect`.
 `parser/block.jison`, `blockDB.ts` and the columns check of `layout.ts`.
 `src/SplashTheMusical/Diagrams/C4` ports `packages/mermaid/src/diagrams/c4`: the lexer and grammar of
 `parser/c4Diagram.jison`, `c4Db.ts`, and the check of `drawRels` in `c4Renderer.ts` that a relation's ends exist.
+`src/SplashTheMusical/Diagrams/Sequence` ports `packages/mermaid/src/diagrams/sequence`: the lexer and grammar of
+`parser/sequenceDiagram.jison`, which is based on js-sequence-diagrams (see above), and the actions, `apply`,
+`parseMessage` and `parseBoxData` of `sequenceDb.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 
