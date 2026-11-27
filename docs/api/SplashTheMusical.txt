@@ -976,6 +976,96 @@ public readonly record struct SvgViewBox : IEquatable<SvgViewBox>
   public double X { get; init; }
   public double Y { get; init; }
 
+namespace SplashTheMusical.Diagrams.Block
+public enum BlockArrowHead : int
+  Circle = 2
+  Cross = 3
+  None = 0
+  Point = 1
+public sealed class BlockBuilder
+  public BlockBuilder Block(string id, string? label = null, BlockShape shape = 1, int width = 1)
+  public BlockBuilder Edge(string start, string end, string? label = null)
+  public BlockBuilder Space(int width = 1)
+  public BlockBuilder(int? columns = null)
+  public BlockDocument Build()
+public sealed class BlockClassAssignment : BlockStatement
+  public BlockClassAssignment(List<string> ids, string className)
+  public List<string> Ids { get; }
+  public string ClassName { get; }
+public sealed class BlockClassDefinition : BlockStatement
+  public BlockClassDefinition(string name, List<string> styles)
+  public List<string> Styles { get; }
+  public string Name { get; }
+public sealed class BlockColumns : BlockStatement
+  public BlockColumns(int? columns)
+  public int? Columns { get; }
+public sealed class BlockComposite : BlockStatement
+  public BlockComposite(List<BlockStatement> statements)
+  public BlockStatement? Header { get; set; }
+  public List<BlockStatement> Statements { get; }
+public sealed class BlockDocument : MermaidDocument
+  public BlockDocument()
+  public List<BlockStatement> Statements { get; init; }
+  public override string DiagramType { get; }
+public sealed class BlockEdge : BlockStatement
+  public BlockEdge(BlockNode start, BlockLink link, BlockNode end)
+  public BlockEdge(List<BlockNode> nodes, List<BlockLink> links)
+  public List<BlockLink> Links { get; }
+  public List<BlockNode> Nodes { get; }
+public sealed class BlockLayout : DiagramLayout
+  public BlockLayout()
+public sealed class BlockLink
+  public BlockArrowHead End { get; set; }
+  public BlockArrowHead Start { get; set; }
+  public BlockLink()
+  public BlockStroke Stroke { get; set; }
+  public string? Label { get; set; }
+public sealed class BlockModule : DiagramModule<BlockDocument, BlockLayout>
+  public BlockModule()
+  public override BlockDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override BlockLayout Layout(BlockDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(BlockDocument document, BlockLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(BlockDocument document, StringBuilder output)
+public sealed class BlockNode : BlockStatement
+  public BlockNode(string id)
+  public BlockShape Shape { get; set; }
+  public List<string>? Directions { get; set; }
+  public int Width { get; set; }
+  public string Id { get; }
+  public string? Label { get; set; }
+public enum BlockShape : int
+  BlockArrow = 15
+  Circle = 3
+  Cylinder = 9
+  Diamond = 5
+  DoubleCircle = 10
+  Hexagon = 6
+  InvTrapezoid = 14
+  LeanLeft = 12
+  LeanRight = 11
+  Na = 0
+  RectLeftInvArrow = 4
+  Round = 2
+  Square = 1
+  Stadium = 7
+  Subroutine = 8
+  Trapezoid = 13
+public sealed class BlockSpace : BlockStatement
+  public BlockSpace(int width = 1)
+  public int Width { get; }
+public abstract class BlockStatement
+  protected BlockStatement()
+public enum BlockStroke : int
+  Dotted = 2
+  Normal = 0
+  Thick = 1
+public sealed class BlockStyle : BlockStatement
+  public BlockStyle(string id, List<string> styles)
+  public List<string> Styles { get; }
+  public string Id { get; }
+
 namespace SplashTheMusical.Diagrams.C4
 public sealed class C4Argument
   public C4Argument(string name, string value)

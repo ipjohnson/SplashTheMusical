@@ -22,6 +22,8 @@
     <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
     <!-- The baseline STM is measured against -->
     <PackageVersion Include="Mermaider" Version="0.17.0" />
+    <!-- Mermaider's layout engine, which docs/layered-layout/baseline.md scores against ELK. Keep it at Mermaider's version. -->
+    <PackageVersion Include="Sugiyama" Version="0.17.0" />
   </ItemGroup>
   <ItemGroup>
     <!-- tools/SplashTheMusical.Upstream reads mermaid's config.schema.yaml, which uses anchors -->

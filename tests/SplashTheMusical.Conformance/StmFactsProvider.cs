@@ -1,6 +1,7 @@
 using System.Xml;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams;
+using SplashTheMusical.Diagrams.Block;
 using SplashTheMusical.Diagrams.C4;
 using SplashTheMusical.Diagrams.Class;
 using SplashTheMusical.Diagrams.Er;
@@ -110,6 +111,10 @@ public sealed class StmFactsProvider : IFactsProvider
 		else if (document is C4Document c4)
 		{
 			C4Facts.Add(facts, c4, svg);
+		}
+		else if (document is BlockDocument block)
+		{
+			BlockFacts.Add(facts, block);
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
