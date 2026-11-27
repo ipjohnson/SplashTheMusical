@@ -100,6 +100,11 @@ description = "Write docs/parity-report.md from the committed oracle output and 
 env = { STM_WRITE_REPORT = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
 
+[tasks.elk-survey]
+description = "Write docs/layered-layout/corpus-survey.md from the committed .elk.txt files"
+env = { STM_WRITE_SURVEY = "1" }
+run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkSurveyTests/*"'
+
 [tasks.api]
 description = "Rewrite docs/api/SplashTheMusical.txt, the core's public API, which PublicApiTests checks"
 env = { STM_WRITE_API = "1" }
