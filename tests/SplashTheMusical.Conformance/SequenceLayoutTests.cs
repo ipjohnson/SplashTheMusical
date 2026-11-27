@@ -26,7 +26,7 @@ public class SequenceLayoutTests
 		var all = new List<string>();
 		var cases = 0;
 		var passing = 0;
-		foreach (var name in CorpusCheck.Cases(CorpusCheck.CorpusRoot).Where(n => n.StartsWith("sequence/", StringComparison.Ordinal)))
+		foreach (var name in CorpusCheck.Cases(CorpusCheck.CorpusRoot).Where(n => n.Split('/', '\\')[0] == "sequence"))
 		{
 			if (!PlacedAlone(CorpusComparison.Source(CorpusCheck.CorpusRoot, name)))
 			{
