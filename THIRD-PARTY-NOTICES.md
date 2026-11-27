@@ -299,6 +299,8 @@ and the intersections of `rendering-elements/intersect`.
 `requirementBox` shape of `rendering-elements/shapes/requirementBox.ts`.
 `src/SplashTheMusical/Diagrams/Block` ports `packages/mermaid/src/diagrams/block`: the grammar of
 `parser/block.jison`, `blockDB.ts` and the columns check of `layout.ts`.
+`src/SplashTheMusical/Diagrams/C4` ports `packages/mermaid/src/diagrams/c4`: the lexer and grammar of
+`parser/c4Diagram.jison`, `c4Db.ts`, and the check of `drawRels` in `c4Renderer.ts` that a relation's ends exist.
 `src/SplashTheMusical/Diagrams/Sequence` ports `packages/mermaid/src/diagrams/sequence`: the lexer and grammar of
 `parser/sequenceDiagram.jison`, which is based on js-sequence-diagrams (see above), and the actions, `apply`,
 `parseMessage` and `parseBoxData` of `sequenceDb.ts`.

@@ -105,6 +105,27 @@ description = "Write docs/layered-layout/baseline.md, the dagre port and Mermaid
 env = { STM_WRITE_BASELINE = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkBaselineTests/*"'
 
+[tasks.elk-probe]
+description = "Run the pinned elkjs on a graph file and print its layout in the .elk.txt format. --help names the options"
+usage = '''
+arg "<args>" help="The probe's options and the graph file, such as --keep-layers corpus/flowchart/docs-flowchart-007.elk.txt" var=#true
+'''
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  'node tools/oracle/elk-probe.mjs ${usage_args}',
+]
+
+[tasks.elk-diff]
+description = "Feed seeded random graphs to ELK and the dagre port, and write the smallest graph of each difference to .artifacts/elk-diff"
+usage = '''
+arg "[graphs]" help="Random graphs" default="200"
+arg "[seed]" help="The seed. A find is reproducible from the seed and its index" default="1"
+'''
+run = [
+  "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
+  'STM_ELK_DIFF_GRAPHS="${usage_graphs}" STM_ELK_DIFF_SEED="${usage_seed}" dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkDifferentialTests/RunsWhenAsked" --output Detailed',
+]
+
 [tasks.elk-survey]
 description = "Write docs/layered-layout/corpus-survey.md from the committed .elk.txt files"
 env = { STM_WRITE_SURVEY = "1" }
@@ -184,7 +205,7 @@ run = [
 description = "Test the oracle: two identical runs, every diagram type, the boxes and the font, the dumps, the failures and the L4 raster scores"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
-  "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs tools/oracle/dumps.test.mjs",
+  "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs",
 ]
 
 [tasks.bench]
@@ -221,6 +242,10 @@ run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagr
 [tasks.bench-select]
 description = "Pick the benchmark set from the corpus and rewrite corpus/benchmarks/cases.txt"
 run = "dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- select"
+
+[tasks.pack]
+description = "Pack the src projects to .artifacts/package, then publish and run the sample with native AOT from those packages"
+run = "bash tools/packages/pack.sh"
 
 [tasks.size]
 description = "Fail when the core assembly or the native AOT stm is more than 5% larger than docs/benchmarks/sizes.md"
