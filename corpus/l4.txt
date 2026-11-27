@@ -3602,7 +3602,7 @@ sequence/parser-keywordactors-008	fail
 sequence/parser-keywordactors-009	fail
 sequence/parser-keywordactors-010	fail
 sequence/parser-keywordactors-011	fail
-sequence/parser-sequencediagram-001	fail
+sequence/parser-sequencediagram-001	pass
 sequence/parser-sequencediagram-002	fail
 sequence/parser-sequencediagram-003	fail
 sequence/parser-sequencediagram-004	fail

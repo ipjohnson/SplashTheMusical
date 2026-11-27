@@ -19,6 +19,7 @@ public static class DocumentGenerators
 		new("class", ClassGenerator.Document.Select(d => (MermaidDocument)d)),
 		new("er", ErGenerator.Document.Select(d => (MermaidDocument)d)),
 		new("requirement", RequirementGenerator.Document.Select(d => (MermaidDocument)d)),
+		new("sequence", SequenceGenerator.Document.Select(d => (MermaidDocument)d)),
 	];
 
 	/// <summary>The names of <see cref="All"/>, for TUnit's <c>MethodDataSource</c>.</summary>

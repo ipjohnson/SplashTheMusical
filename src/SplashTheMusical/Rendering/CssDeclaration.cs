@@ -499,7 +499,7 @@ internal sealed class CssDeclaration
 	}
 
 	// The 148 colour names of CSS Color 4.
-	private static readonly FrozenSet<string> ColorNames = FrozenSet.Create(
+	internal static readonly FrozenSet<string> ColorNames = FrozenSet.Create(
 		StringComparer.Ordinal,
 		"aliceblue", "antiquewhite", "aqua", "aquamarine", "azure", "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet", "brown",
 		"burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan",

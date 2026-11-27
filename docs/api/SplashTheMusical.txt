@@ -1351,6 +1351,147 @@ public enum RequirementVerifyMethod : int
   Inspection = 2
   Test = 3
 
+namespace SplashTheMusical.Diagrams.Sequence
+public sealed class SequenceActivation : SequenceStatement
+  public SequenceActivation(string id, bool active = true)
+  public bool Active { get; }
+  public string Id { get; }
+public sealed class SequenceActorData : SequenceStatement
+  public SequenceActorData(SequenceActorDataKind kind, string actor, string text)
+  public SequenceActorDataKind Kind { get; }
+  public string Actor { get; }
+  public string Text { get; }
+public enum SequenceActorDataKind : int
+  Details = 3
+  Link = 1
+  Links = 0
+  Properties = 2
+public enum SequenceArrow : int
+  BidirectionalDotted = 34
+  BidirectionalSolid = 33
+  Dotted = 1
+  DottedCross = 4
+  DottedOpen = 6
+  DottedPoint = 25
+  Solid = 0
+  SolidArrowBottomReverse = 46
+  SolidArrowBottomReverseDotted = 56
+  SolidArrowTopReverse = 45
+  SolidArrowTopReverseDotted = 55
+  SolidBottom = 42
+  SolidBottomDotted = 52
+  SolidCross = 3
+  SolidOpen = 5
+  SolidPoint = 24
+  SolidTop = 41
+  SolidTopDotted = 51
+  StickArrowBottomReverse = 48
+  StickArrowBottomReverseDotted = 58
+  StickArrowTopReverse = 47
+  StickArrowTopReverseDotted = 57
+  StickBottom = 44
+  StickBottomDotted = 54
+  StickTop = 43
+  StickTopDotted = 53
+public sealed class SequenceAutonumber : SequenceStatement
+  public SequenceAutonumber()
+  public bool Visible { get; init; }
+  public double? Start { get; init; }
+  public double? Step { get; init; }
+public sealed class SequenceBlock : SequenceStatement
+  public List<SequenceBlockSection> Sections { get; init; }
+  public List<SequenceStatement> Statements { get; init; }
+  public SequenceBlock(SequenceBlockKind kind)
+  public SequenceBlockKind Kind { get; }
+  public bool? Wrap { get; init; }
+  public string Text { get; init; }
+public enum SequenceBlockKind : int
+  Alt = 3
+  Break = 7
+  Critical = 6
+  Loop = 0
+  Opt = 2
+  Par = 4
+  ParOver = 5
+  Rect = 1
+public sealed class SequenceBlockSection
+  public List<SequenceStatement> Statements { get; init; }
+  public SequenceBlockSection()
+  public bool? Wrap { get; init; }
+  public string Text { get; init; }
+public sealed class SequenceBox : SequenceStatement
+  public List<SequenceStatement> Statements { get; init; }
+  public SequenceBox()
+  public bool? Wrap { get; init; }
+  public string Color { get; init; }
+  public string? Title { get; init; }
+public sealed class SequenceBuilder
+  public SequenceBuilder Actor(string id, string? description = null)
+  public SequenceBuilder Autonumber(double? start = null, double? step = null)
+  public SequenceBuilder Message(string from, string to, string text, SequenceArrow arrow = 0, SequenceMessageModifier modifier = 0)
+  public SequenceBuilder Note(string actor, string text, SequenceNotePlacement placement = 2, string? secondActor = null)
+  public SequenceBuilder Participant(string id, string? description = null, string? type = null)
+  public SequenceBuilder Title(string title)
+  public SequenceBuilder()
+  public SequenceDocument Build()
+public sealed class SequenceDestroy : SequenceStatement
+  public SequenceDestroy(string id)
+  public string Id { get; }
+public sealed class SequenceDocument : MermaidDocument
+  public List<SequenceStatement> Statements { get; init; }
+  public SequenceDocument()
+  public override string DiagramType { get; }
+  public string? DiagramTitle { get; set; }
+public sealed class SequenceLayout : DiagramLayout
+  public SequenceLayout()
+public sealed class SequenceMessage : SequenceStatement
+  public SequenceArrow Arrow { get; }
+  public SequenceMessage(string from, string to, SequenceArrow arrow = 0)
+  public SequenceMessageModifier Modifier { get; init; }
+  public bool? Wrap { get; init; }
+  public string From { get; }
+  public string Text { get; init; }
+  public string To { get; }
+public enum SequenceMessageModifier : int
+  Activate = 1
+  CentralConnection = 3
+  CentralConnectionDual = 5
+  CentralConnectionReverse = 4
+  Deactivate = 2
+  None = 0
+public sealed class SequenceModule : DiagramModule<SequenceDocument, SequenceLayout>
+  public SequenceModule()
+  public override SequenceDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override SequenceLayout Layout(SequenceDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(SequenceDocument document, SequenceLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(SequenceDocument document, StringBuilder output)
+public sealed class SequenceNote : SequenceStatement
+  public SequenceNote(SequenceNotePlacement placement, string actor, string? secondActor = null)
+  public SequenceNotePlacement Placement { get; }
+  public bool? Wrap { get; init; }
+  public string Actor { get; }
+  public string Text { get; init; }
+  public string? SecondActor { get; }
+public enum SequenceNotePlacement : int
+  LeftOf = 0
+  Over = 2
+  RightOf = 1
+public sealed class SequenceParticipant : SequenceStatement
+  public SequenceParticipant(string id, SequenceParticipantKind kind = 0)
+  public SequenceParticipantKind Kind { get; }
+  public bool Created { get; init; }
+  public bool? Wrap { get; init; }
+  public string Id { get; }
+  public string? Description { get; init; }
+  public string? Metadata { get; init; }
+public enum SequenceParticipantKind : int
+  Actor = 1
+  Participant = 0
+public abstract class SequenceStatement
+  protected SequenceStatement()
+
 namespace SplashTheMusical.Diagrams.State
 public sealed class StateBlock : StateStatement
   public List<StateStatement>? Statements { get; set; }
