@@ -187,6 +187,28 @@ run = [
   "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs tools/oracle/dumps.test.mjs",
 ]
 
+[tasks.site-dev]
+description = "Serve the documentation site at http://localhost:5173/SplashTheMusical/"
+run = [
+  "test -d site/node_modules || npm ci --prefix site --no-audit --no-fund",
+  "npm run dev --prefix site",
+]
+
+[tasks.site-build]
+description = "Build the documentation site into site/.vitepress/dist"
+run = [
+  "test -d site/node_modules || npm ci --prefix site --no-audit --no-fund",
+  "npm run build --prefix site",
+]
+
+[tasks.site-test]
+description = "Test the site's snapshot, issue labelling and issue list scripts"
+run = "node --test tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs"
+
+[tasks.site-snapshot]
+description = "Add a snapshot of the local L4 rasters to site/public/data, for mise run site-dev. Run raster with STM_RASTER_DIR=.artifacts/stm/raster first"
+run = "node tools/site/snapshot.mjs corpus .artifacts/corpus/raster .artifacts/stm/raster .artifacts/raster/scores.txt site/public/data"
+
 [tasks.bench]
 description = "Run STM's stages on the benchmark set under JIT and native AOT, and write a result file"
 usage = '''

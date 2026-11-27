@@ -211,7 +211,7 @@ jobs:
         run: npm ci --prefix tools/oracle --no-audit --no-fund
 
       - name: Test the upstream tools' version choice and mermaid 12 and 13 layouts
-        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs
+        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs
 
       - name: Write STM's SVGs
         env:
@@ -249,7 +249,22 @@ jobs:
       - name: Rasterize and score both SVGs of every case
         env:
           ORACLE_RASTER_DIR: ${{ github.event_name != 'schedule' && '.artifacts/corpus/raster' || '' }}
+          STM_RASTER_DIR: ${{ github.event_name == 'push' && '.artifacts/stm/raster' || '' }}
         run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
+
+      # .github/workflows/site.yml adds these rasters and scores to the site's comparison data as a snapshot of this
+      # commit, also when a later step of this job fails.
+      - name: Upload the comparison artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: comparison
+          path: |
+            .artifacts/corpus/raster/**/*.png
+            .artifacts/stm/raster
+            .artifacts/raster/scores.txt
+          if-no-files-found: error
+          retention-days: 7
 
       # The oracle output is every facts, boxes, dagre and ELK file of corpus/, so a committed .elk.txt that differs from
       # what the pinned mermaid.js writes, a missing one and a stale one all fail here. On a cache hit facts.mjs did not
