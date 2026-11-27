@@ -126,6 +126,10 @@ run = [
   'STM_ELK_DIFF_GRAPHS="${usage_graphs}" STM_ELK_DIFF_SEED="${usage_seed}" dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkDifferentialTests/RunsWhenAsked" --output Detailed',
 ]
 
+[tasks.elk-spikes]
+description = "Score the stage spikes of docs/layered-layout/design.md on the recordings, written to .artifacts/elk-spikes/report.md"
+run = 'STM_ELK_SPIKES_DIR="$PWD/.artifacts/elk-spikes" dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkStageSpikeTests/RunsWhenAsked"'
+
 [tasks.elk-survey]
 description = "Write docs/layered-layout/corpus-survey.md from the committed .elk.txt files"
 env = { STM_WRITE_SURVEY = "1" }
