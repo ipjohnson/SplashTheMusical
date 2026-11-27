@@ -57,11 +57,11 @@ internal static class C4Writer
 	{
 		if (IsLineText(title))
 		{
-			output.Append("title ").Append(title).Append('\n');
+			output.Append("  title ").Append(title).Append('\n');
 		}
 		else if (IsTrimmedLine(title))
 		{
-			output.Append("accTitle: ").Append(title).Append('\n');
+			output.Append("  accTitle: ").Append(title).Append('\n');
 		}
 		else
 		{
@@ -73,15 +73,15 @@ internal static class C4Writer
 	{
 		if (IsLineText(description))
 		{
-			output.Append("accDescription ").Append(description).Append('\n');
+			output.Append("  accDescription ").Append(description).Append('\n');
 		}
 		else if (IsTrimmedLine(description))
 		{
-			output.Append("accDescr: ").Append(description).Append('\n');
+			output.Append("  accDescr: ").Append(description).Append('\n');
 		}
 		else if (description.Length > 0 && StateLexer.Trim(description).Length == description.Length && !description.Contains('}', StringComparison.Ordinal))
 		{
-			output.Append("accDescr {\n").Append(description).Append("\n}\n");
+			output.Append("  accDescr {\n").Append(description).Append("\n  }\n");
 		}
 		else
 		{
