@@ -1,0 +1,126 @@
+# Builds the documentation site and publishes it to GitHub Pages. site/README.md describes the site and its data.
+#
+# After CI finishes on a push to main, the build adds that run's comparison artifact to the comparison data in the ref
+# refs/site-data as a snapshot of the commit, and the site is deployed with the data. A pull request that changes the
+# site only builds it.
+name: Site
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  pull_request:
+    paths:
+      - site/**
+      - tools/site/**
+      - docs/parity-report.md
+      - corpus/l4.txt
+      - samples/SplashTheMusical.Sample/Program.cs
+      - .github/workflows/site.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Snapshots are added one at a time, so each push of refs/site-data is a fast-forward.
+concurrency:
+  group: site-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+      issues: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      DATA_DIR: ${{ github.workspace }}/.artifacts/site-data
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: ${{ github.event_name != 'pull_request' }}
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22.23"
+
+      - name: Install the site
+        run: npm ci --prefix site --no-audit --no-fund
+
+      - name: Check out the comparison data
+        if: github.event_name != 'pull_request'
+        run: |
+          if git fetch --no-tags origin +refs/site-data:refs/site-data; then
+            git worktree add --detach "$DATA_DIR" refs/site-data
+          else
+            echo "No refs/site-data yet. The first snapshot starts it."
+            git worktree add --orphan -b site-data-start "$DATA_DIR"
+          fi
+
+      # CI's l4 job uploads the artifact before its later checks, so a run whose checks failed still has one. A run that
+      # failed earlier has none, and the site is then deployed with the data it has.
+      - name: Download the comparison artifact
+        id: artifact
+        if: github.event_name == 'workflow_run'
+        run: |
+          if gh run download "${{ github.event.workflow_run.id }}" --name comparison --dir .artifacts/comparison; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::CI run ${{ github.event.workflow_run.id }} has no comparison artifact, so this deploy adds no snapshot."
+          fi
+
+      - name: Add the snapshot of this commit
+        if: steps.artifact.outputs.found == 'true'
+        env:
+          COMMIT: ${{ github.event.workflow_run.head_sha }}
+          COMMIT_DATE: ${{ github.event.workflow_run.head_commit.timestamp }}
+        run: |
+          node tools/site/snapshot.mjs corpus .artifacts/comparison/corpus/raster .artifacts/comparison/stm/raster \
+            .artifacts/comparison/raster/scores.txt "$DATA_DIR" "$COMMIT" "$COMMIT_DATE"
+          cd "$DATA_DIR"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The data already has this snapshot."
+          else
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit --quiet -m "Add the comparison snapshot of $COMMIT"
+            git push origin HEAD:refs/site-data
+          fi
+
+      - name: Copy the comparison data and the open comparison issues into the site
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p site/public/data
+          rsync -a --exclude .git "$DATA_DIR/" site/public/data/
+          gh issue list --label comparison --state open --limit 1000 --json number,title \
+            | node tools/site/issues.mjs site/public/data/issues.json
+
+      - name: Build the site
+        run: npm run build --prefix site
+
+      - name: Upload the Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site/.vitepress/dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

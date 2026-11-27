@@ -23,6 +23,16 @@ updates:
     groups:
       oracle:
         patterns: ["*"]
+  - package-ecosystem: npm
+    directory: /site
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    labels: [dependencies]
+    groups:
+      site:
+        patterns: ["*"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

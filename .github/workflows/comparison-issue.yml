@@ -1,0 +1,31 @@
+# Labels an issue filed with the comparison form, from the site's "Report a difference" button. Anyone can file the
+# form, and labels from a link only apply for people with triage rights, so this workflow adds them.
+name: Comparison issue
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  label:
+    if: contains(github.event.issue.body, '### Comparison case')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            corpus
+            tools/site
+
+      - name: Label the issue and start its title with the case
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: node tools/site/label-issue.mjs corpus "$GITHUB_EVENT_PATH"

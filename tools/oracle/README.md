@@ -625,6 +625,7 @@ The run writes these files:
 | The outcomes file, `corpus/l4.txt` for `mise run raster` | A comment line, then case and outcome per case, sorted by UTF-16 code unit |
 | `<images-dir>/scores.txt` | A comment line, then case, outcome and score to 4 decimals per case. The score is empty when one side has no SVG |
 | `<images-dir>/<name>.png` | mermaid.js's raster on the left and STM's on the right, for the first 10 failing or report-only cases below the threshold of each type. A side without an SVG is grey |
+| `$STM_RASTER_DIR/<name>.png` | With `STM_RASTER_DIR` set, STM's raster of every case STM draws, at the size of mermaid.js's raster. The site's comparison section takes them, with mermaid.js's rasters from oracle-raster-dir |
 
 `corpus/l4.txt` is committed. `docs/parity-report.md` takes its L4 column from it, and `RasterOutcomesTests` in
 `tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build

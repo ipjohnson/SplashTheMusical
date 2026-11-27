@@ -218,6 +218,15 @@ against the oracle's `type` fact of every accepted corpus case. `StmFactsProvide
 so a new module changes the ledgers, `docs/parity-report.md` and `corpus/l4.txt`. `PublicApiTests` fails when the
 public API differs from `docs/api/SplashTheMusical.txt`, which `mise run api` rewrites.
 
+The documentation site is VitePress in `site`, and [site/README.md](site/README.md) describes it. `mise run site-dev`
+serves it, `mise run site-build` builds it and `mise run site-test` tests `tools/site`. Its comparison section shows
+mermaid.js's and STM's raster of every corpus case with their L4 score and the history of each case. On a push to main,
+CI's `l4` job runs `raster.mjs` with `STM_RASTER_DIR` and uploads the rasters and scores as the `comparison` artifact.
+`.github/workflows/site.yml` then adds them as a snapshot with `tools/site/snapshot.mjs` to the data in the ref
+`refs/site-data`, which is not a branch so that clones do not fetch it, and deploys the site to GitHub Pages. A case's
+"Report a difference" button opens `.github/ISSUE_TEMPLATE/comparison.yml` filled in, and
+`.github/workflows/comparison-issue.yml` labels the issue `comparison:<type>` and starts its title with the case.
+
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
 
 Without mise:

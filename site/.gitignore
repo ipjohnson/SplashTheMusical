@@ -1,0 +1,6 @@
+# Written by scripts/prepare.mjs
+parity.md
+# The comparison data, copied in by the site workflow or mise run site-snapshot
+public/data/
+.vitepress/cache/
+.vitepress/dist/
