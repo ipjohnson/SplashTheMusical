@@ -266,6 +266,8 @@ and the intersections of `rendering-elements/intersect`.
 `src/SplashTheMusical/Diagrams/Requirement` ports `packages/mermaid/src/diagrams/requirement`: the grammar of
 `parser/requirementDiagram.jison`, `requirementDb.ts`, `requirementRenderer.ts` and `styles.js`, and the
 `requirementBox` shape of `rendering-elements/shapes/requirementBox.ts`.
+`src/SplashTheMusical/Diagrams/Block` ports `packages/mermaid/src/diagrams/block`: the grammar of
+`parser/block.jison`, `blockDB.ts` and the columns check of `layout.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 
