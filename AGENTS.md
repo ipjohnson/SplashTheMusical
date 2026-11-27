@@ -26,6 +26,8 @@ mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's p
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
 mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against ELK
 mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
+mise run elk-probe [options] <graph file>  # the pinned elkjs's layout of a graph file in the .elk.txt format; --help names the stage pins
+mise run elk-diff [graphs] [seed]          # seeded random graphs through ELK and the dagre port, smallest differing graphs in .artifacts/elk-diff
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
@@ -147,6 +149,16 @@ the layout direction, boxes overlapping by 80% with the canvas within 5%, and th
 has layers but no coordinates gives them in `CandidateLayout.Layers`. `ElkBaselineTests` scores the dagre port and
 Mermaider's `Sugiyama`, a test-only package reference of that project, on every recording and fails when
 `docs/layered-layout/baseline.md` differs. `SugiyamaOnElkInput.Commit` names the mermaider commit of the pinned package.
+
+`tools/oracle/elk-probe.mjs` runs the pinned elkjs on a graph file, a recording or a graph written in its input lines,
+and prints ELK's layout in the `.elk.txt` format with the layer and position of each leaf node. A root without
+`elk.algorithm` gets mermaid's flowchart options. `--keep-layers` and `--keep-order` set ELK's `INTERACTIVE` layering
+and crossing minimization, which keep the layers and order the input's coordinates give, and `--place-from-result`
+gives a recording ELK's own coordinates. The probe imports elkjs and reads its result. It opens no file of elkjs, and
+prints only the message of an exception elkjs throws. `elk-probe.test.mjs` checks it, and `--check` on a recording fails
+when its input or result differs from the recorded one. `ElkDifferentialTests.RunsWhenAsked`, which `mise run elk-diff`
+runs, sends seeded random graphs from `ElkDifferential.Generate` to the probe through `ElkProbeProcess` and to the
+dagre port, scores them with `ElkLayoutComparer`, and shrinks each graph they differ on with `Minimizer.DeltaDebug`.
 
 `src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
 the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds

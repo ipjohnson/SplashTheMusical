@@ -210,8 +210,8 @@ jobs:
       - name: Install the oracle
         run: npm ci --prefix tools/oracle --no-audit --no-fund
 
-      - name: Test the upstream tools' version choice and mermaid 12 and 13 layouts
-        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs
+      - name: Test the upstream tools' version choice, mermaid 12 and 13 layouts and the ELK probe
+        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs
 
       - name: Write STM's SVGs
         env:
