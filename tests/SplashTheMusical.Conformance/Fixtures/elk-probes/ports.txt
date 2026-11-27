@@ -1,0 +1,22 @@
+layout	1
+node	a	root	60	40
+node	b	root	60	40
+node	c	root	60	40
+node	d	root	60	40
+edge	e0	root	a	b
+edge	e1	root	a	c
+edge	e2	root	a	d
+layout	2
+node	a	root	200	40
+node	b	root	60	40
+node	c	root	60	40
+edge	e0	root	a	b
+edge	e1	root	a	c
+layout	3
+node	a	root	30	40
+node	b	root	60	40
+node	c	root	60	40
+node	d	root	60	40
+edge	e0	root	a	b
+edge	e1	root	a	c
+edge	e2	root	a	d

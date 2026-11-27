@@ -1,0 +1,16 @@
+{
+  "name": "splashthemusical-site",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The STM documentation site and the comparison of mermaid.js's and STM's drawings",
+  "type": "module",
+  "scripts": {
+    "prepare-pages": "node scripts/prepare.mjs",
+    "dev": "node scripts/prepare.mjs && vitepress dev",
+    "build": "node scripts/prepare.mjs && vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}

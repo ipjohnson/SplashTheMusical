@@ -37,11 +37,11 @@ function fixture({ dropOracleSvg } = {}) {
 	return dir
 }
 
-const run = (dir, { cache, cases } = {}) =>
+const run = (dir, { cache, cases, stmRasters } = {}) =>
 	spawnSync(
 		process.execPath,
 		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4.txt', 'images', ...(cache ? ['cache'] : [])].map(f => path.join(dir, f))],
-		{ encoding: 'utf8', env: { ...process.env, STM_RASTER_CASES: cases ?? '' } },
+		{ encoding: 'utf8', env: { ...process.env, STM_RASTER_CASES: cases ?? '', STM_RASTER_DIR: stmRasters ? path.join(dir, 'stm-raster') : '' } },
 	)
 
 const readScores = dir => fs.readFileSync(path.join(dir, 'images', 'scores.txt'), 'utf8')
@@ -153,6 +153,21 @@ test('with named cases, draws only those side by side, passing ones too, and kee
 	const images = fs.readdirSync(path.join(dir, 'images'), { recursive: true }).filter(f => f.endsWith('.png')).sort()
 	assert.deepEqual(images, ['pie/differ.png', 'pie/same.png'].map(f => f.split('/').join(path.sep)))
 	assert.deepEqual(cacheFiles(dir), ['mindmap/differ', 'pie/differ', 'pie/no-stm', 'pie/same'].flatMap(n => [n + '.key', n + '.png']))
+})
+
+test('with STM_RASTER_DIR, keeps STM\'s raster of every case STM draws and scores as a run without it', () => {
+	const dir = fixture()
+	assert.equal(run(dir).status, 0)
+	const scores = readScores(dir)
+	fs.mkdirSync(path.join(dir, 'stm-raster', 'stale'), { recursive: true })
+	fs.writeFileSync(path.join(dir, 'stm-raster', 'stale', 'case.png'), '')
+
+	const result = run(dir, { stmRasters: true })
+	assert.equal(result.status, 0, result.stderr)
+	assert.equal(readScores(dir), scores)
+	const kept = fs.readdirSync(path.join(dir, 'stm-raster'), { recursive: true }).filter(f => f.endsWith('.png')).map(f => f.split(path.sep).join('/')).sort()
+	assert.deepEqual(kept, ['mindmap/differ.png', 'pie/differ.png', 'pie/same.png', 'pie/stm-only.png'])
+	for (const image of kept) assert.ok(isPng(path.join(dir, 'stm-raster', image)), image)
 })
 
 test('fails on a named case that is not in the corpus', () => {

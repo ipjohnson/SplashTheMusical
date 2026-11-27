@@ -10,6 +10,9 @@
 //
 // With STM_RASTER_CASES, a comma-separated list of case names such as flowchart/basic, the run takes only those cases and
 // draws each side by side whatever its outcome. It then deletes nothing from oracle-raster-dir.
+//
+// With STM_RASTER_DIR, STM's raster of every case STM draws is written there as <name>.png, for the site's comparison
+// section. The folder is emptied first.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -281,6 +284,11 @@ async function sideBySide(name, oracle, stm, width, height, caption) {
 
 fs.rmSync(imagesDir, { recursive: true, force: true })
 fs.mkdirSync(imagesDir, { recursive: true })
+const stmRasterDir = process.env.STM_RASTER_DIR || undefined
+if (stmRasterDir) {
+	fs.rmSync(stmRasterDir, { recursive: true, force: true })
+	fs.mkdirSync(stmRasterDir, { recursive: true })
+}
 const corpusNames = filesUnder(corpusDir).filter(f => f.endsWith('.mmd')).map(f => f.slice(0, -4))
 const wanted = new Set((process.env.STM_RASTER_CASES ?? '').split(',').map(n => n.trim()).filter(n => n))
 const unknown = [...wanted].filter(n => !corpusNames.includes(n))
@@ -329,7 +337,7 @@ for (const name of names) {
 		width = drawn.width
 		height = drawn.height
 	}
-	if (both || imageDue) {
+	if (both || imageDue || (stmRasterDir && stm !== undefined)) {
 		// Both rasters take the size of mermaid.js's SVG, or of STM's when mermaid.js refuses the case.
 		if (oracle === undefined) {
 			const stage = await stageOf(stm)
@@ -338,6 +346,11 @@ for (const name of names) {
 		}
 		stmPng = stm && await rasterize(stm, width, height)
 		if (both) score = await similarity(oraclePng, stmPng)
+		if (stmRasterDir && stmPng) {
+			const file = path.join(stmRasterDir, name + '.png')
+			fs.mkdirSync(path.dirname(file), { recursive: true })
+			fs.writeFileSync(file, Buffer.from(stmPng, 'base64'))
+		}
 	}
 	const passed = score !== undefined && score >= threshold
 	const outcome = reportOnly ? 'report' : passed ? 'pass' : 'fail'

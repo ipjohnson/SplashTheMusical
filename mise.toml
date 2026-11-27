@@ -126,6 +126,10 @@ run = [
   'STM_ELK_DIFF_GRAPHS="${usage_graphs}" STM_ELK_DIFF_SEED="${usage_seed}" dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkDifferentialTests/RunsWhenAsked" --output Detailed',
 ]
 
+[tasks.elk-spikes]
+description = "Score the stage spikes of docs/layered-layout/design.md on the recordings, written to .artifacts/elk-spikes/report.md"
+run = 'STM_ELK_SPIKES_DIR="$PWD/.artifacts/elk-spikes" dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ElkStageSpikeTests/RunsWhenAsked"'
+
 [tasks.elk-survey]
 description = "Write docs/layered-layout/corpus-survey.md from the committed .elk.txt files"
 env = { STM_WRITE_SURVEY = "1" }
@@ -207,6 +211,28 @@ run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
   "node --test tools/oracle/facts.test.mjs tools/oracle/raster.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs",
 ]
+
+[tasks.site-dev]
+description = "Serve the documentation site at http://localhost:5173/SplashTheMusical/"
+run = [
+  "test -d site/node_modules || npm ci --prefix site --no-audit --no-fund",
+  "npm run dev --prefix site",
+]
+
+[tasks.site-build]
+description = "Build the documentation site into site/.vitepress/dist"
+run = [
+  "test -d site/node_modules || npm ci --prefix site --no-audit --no-fund",
+  "npm run build --prefix site",
+]
+
+[tasks.site-test]
+description = "Test the site's snapshot, issue labelling and issue list scripts"
+run = "node --test tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs"
+
+[tasks.site-snapshot]
+description = "Add a snapshot of the local L4 rasters to site/public/data, for mise run site-dev. Run raster with STM_RASTER_DIR=.artifacts/stm/raster first"
+run = "node tools/site/snapshot.mjs corpus .artifacts/corpus/raster .artifacts/stm/raster .artifacts/raster/scores.txt site/public/data"
 
 [tasks.bench]
 description = "Run STM's stages on the benchmark set under JIT and native AOT, and write a result file"

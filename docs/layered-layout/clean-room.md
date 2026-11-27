@@ -71,3 +71,14 @@ sources without reading old pull requests.
 
 | Stage | Source file | Papers | Recordings and probes | Other sources | Pull request |
 |---|---|---|---|---|---|
+| Design of every stage | [design.md](design.md), spikes in `tests/SplashTheMusical.Conformance/ElkStageSpikes.cs` | Those of each stage below | All 2,304 recordings of mermaid 12.3.0; the probe files in `tests/SplashTheMusical.Conformance/Fixtures/elk-probes`; the pinned `--check` run on every recording | The option reference pages listed under "Sources" in design.md; mermaid 12.3.0's `rendering-util/layout-algorithms/elk/render.ts`, `algorithms.ts`, `rendering-util/render.ts` and `rendering-elements/edges.js` | #231 |
+| S0 Components | not written | none | All recordings; `components.txt` | Option reference: `separateConnectedComponents` | #231, design only |
+| S1 Cycle breaking | not written | Tarjan 1972; Gansner, Koutsofios, North and Vo 1993, section 2.1 | All recordings | Option reference: `layered.cycleBreaking.strategy` | #231, design only |
+| S2 Layering | not written | Gansner, Koutsofios, North and Vo 1993, section 2 | All recordings; `label-layer.txt` | The dagre port's network simplex, from dagre-d3-es; option reference: `layered.layering.strategy` | #231, design only |
+| S3 Ordering | not written | Sugiyama, Tagawa and Toda 1981; Barth, Jünger and Mutzel 2004; Forster 2002 | All recordings; `order-tie.txt` | Option reference: `layered.considerModelOrder.strategy`, `crossingMinimization.forceNodeModelOrder` | #231, design only |
+| S4 Ports | not written | Schulze, Spönemann and von Hanxleden 2014 | All recordings; `ports.txt`, `order-tie.txt`, `label-layer.txt` | Option reference: `spacing.portsSurrounding` | #231, design only |
+| S5 Node placement | not written | Brandes and Köpf 2001; Brandes, Walter and Zink 2020 | All recordings; `layer-alignment.txt` | The dagre port's Brandes–Köpf, from dagre-d3-es; option reference: `layered.nodePlacement.*`, `spacing.nodeNode`, `layered.spacing.nodeNodeBetweenLayers` | #231, design only |
+| S6 Edge routing | not written | Sander 2003, "Layout of Directed Hypergraphs with Orthogonal Hyperedges" | All recordings; `order-tie.txt` | Option reference: `edgeRouting`, `layered.unnecessaryBendpoints` | #231, design only |
+| S7 Self loops | not written | Schulze, Spönemann and von Hanxleden 2014 | All recordings; `self-loop.txt` | Option reference: `layered.edgeRouting.selfLoopDistribution` | #231, design only |
+| S8 Labels | not written | Gansner, Koutsofios, North and Vo 1993 | All recordings; `label-layer.txt` | Option reference: `edgeLabels.placement`, `edgeLabels.inline` | #231, design only |
+| S9 Nested graphs | not written | Sander 1996, "Layout of Compound Directed Graphs"; Forster 2002 | All recordings | Option reference: `hierarchyHandling`, `padding`, `nodeSize.constraints`, `nodeSize.minimum`, `layered.mergeHierarchyEdges` | #231, design only |
