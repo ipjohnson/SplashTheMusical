@@ -1,0 +1,61 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 55e64f563ccaff1a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	State1	root	133.296875	59
+node	root_end	root	14.013293266296387	14
+node	State2	root	136	37
+edge	edge0	root	root_start	State1
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	State1	root_end
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	State1	State2
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	State2	root_end
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	203.1484375	288
+place	root_start	root	68.6484375	12	14	14
+place	State1	root	12	66	133.296875	59
+place	root_end	root	71.6417908668518	262	14.013293266296387	14
+place	State2	root	55.1484375	165	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	78.6484375,26	78.6484375,66		root_start	State1
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	59.765625,125	79.64622195561728,262	59.765625,145 34.1484375,145 34.1484375,183.5 34.1484375,242 79.64622195561728,242	State1	root_end
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	97.53125,125	123.1484375,165	97.53125,145 123.1484375,145	State1	State2
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	123.1484375,202	77.65065304438274,262	123.1484375,222 77.65065304438274,222	State2	root_end
+place-label	edge	edge3	0	0	0	0	0

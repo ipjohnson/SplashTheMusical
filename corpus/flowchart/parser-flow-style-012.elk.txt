@@ -1,0 +1,126 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b949ddd963ab1351
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	152	45
+node	B1	root	152	45
+node	B2	root	152	45
+node	B3	root	152	45
+node	B4	root	152	45
+node	B5	root	152	45
+node	B6	root	152	45
+node	B7	root	152	45
+node	B8	root	152	45
+node	B9	root	152	45
+node	B10	root	152	45
+node	B11	root	152	45
+edge	L_A_B1_0	root	A	B1
+label	edge	L_A_B1_0	0		0	0
+option	edge-label	L_A_B1_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B1_0	0	edgeLabels.placement	CENTER
+edge	L_A_B2_0	root	A	B2
+label	edge	L_A_B2_0	0		0	0
+option	edge-label	L_A_B2_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B2_0	0	edgeLabels.placement	CENTER
+edge	L_A_B3_0	root	A	B3
+label	edge	L_A_B3_0	0		0	0
+option	edge-label	L_A_B3_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B3_0	0	edgeLabels.placement	CENTER
+edge	L_A_B4_0	root	A	B4
+label	edge	L_A_B4_0	0		0	0
+option	edge-label	L_A_B4_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B4_0	0	edgeLabels.placement	CENTER
+edge	L_A_B5_0	root	A	B5
+label	edge	L_A_B5_0	0		0	0
+option	edge-label	L_A_B5_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B5_0	0	edgeLabels.placement	CENTER
+edge	L_A_B6_0	root	A	B6
+label	edge	L_A_B6_0	0		0	0
+option	edge-label	L_A_B6_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B6_0	0	edgeLabels.placement	CENTER
+edge	L_A_B7_0	root	A	B7
+label	edge	L_A_B7_0	0		0	0
+option	edge-label	L_A_B7_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B7_0	0	edgeLabels.placement	CENTER
+edge	L_A_B8_0	root	A	B8
+label	edge	L_A_B8_0	0		0	0
+option	edge-label	L_A_B8_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B8_0	0	edgeLabels.placement	CENTER
+edge	L_A_B9_0	root	A	B9
+label	edge	L_A_B9_0	0		0	0
+option	edge-label	L_A_B9_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B9_0	0	edgeLabels.placement	CENTER
+edge	L_A_B10_0	root	A	B10
+label	edge	L_A_B10_0	0		0	0
+option	edge-label	L_A_B10_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B10_0	0	edgeLabels.placement	CENTER
+edge	L_A_B11_0	root	A	B11
+label	edge	L_A_B11_0	0		0	0
+option	edge-label	L_A_B11_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B11_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	2096	234
+place	A	root	972	12	152	45
+place	B1	root	12	177	152	45
+place	B2	root	204	177	152	45
+place	B3	root	396	177	152	45
+place	B4	root	588	177	152	45
+place	B5	root	780	177	152	45
+place	B6	root	972	177	152	45
+place	B7	root	1164	177	152	45
+place	B8	root	1356	177	152	45
+place	B9	root	1548	177	152	45
+place	B10	root	1740	177	152	45
+place	B11	root	1932	177	152	45
+route	L_A_B1_0	root	root
+section	L_A_B1_0	L_A_B1_0_s0	993,57	88,177	993,77 88,77	A	B1
+place-label	edge	L_A_B1_0	0	0	0	0	0
+route	L_A_B2_0	root	root
+section	L_A_B2_0	L_A_B2_0_s0	1004,57	280,177	1004,97 280,97	A	B2
+place-label	edge	L_A_B2_0	0	0	0	0	0
+route	L_A_B3_0	root	root
+section	L_A_B3_0	L_A_B3_0_s0	1015,57	472,177	1015,117 472,117	A	B3
+place-label	edge	L_A_B3_0	0	0	0	0	0
+route	L_A_B4_0	root	root
+section	L_A_B4_0	L_A_B4_0_s0	1026,57	664,177	1026,137 664,137	A	B4
+place-label	edge	L_A_B4_0	0	0	0	0	0
+route	L_A_B5_0	root	root
+section	L_A_B5_0	L_A_B5_0_s0	1037,57	856,177	1037,157 856,157	A	B5
+place-label	edge	L_A_B5_0	0	0	0	0	0
+route	L_A_B6_0	root	root
+section	L_A_B6_0	L_A_B6_0_s0	1048,57	1048,177		A	B6
+place-label	edge	L_A_B6_0	0	0	0	0	0
+route	L_A_B7_0	root	root
+section	L_A_B7_0	L_A_B7_0_s0	1059,57	1240,177	1059,157 1240,157	A	B7
+place-label	edge	L_A_B7_0	0	0	0	0	0
+route	L_A_B8_0	root	root
+section	L_A_B8_0	L_A_B8_0_s0	1070,57	1432,177	1070,137 1432,137	A	B8
+place-label	edge	L_A_B8_0	0	0	0	0	0
+route	L_A_B9_0	root	root
+section	L_A_B9_0	L_A_B9_0_s0	1081,57	1624,177	1081,117 1624,117	A	B9
+place-label	edge	L_A_B9_0	0	0	0	0	0
+route	L_A_B10_0	root	root
+section	L_A_B10_0	L_A_B10_0_s0	1092,57	1816,177	1092,97 1816,97	A	B10
+place-label	edge	L_A_B10_0	0	0	0	0	0
+route	L_A_B11_0	root	root
+section	L_A_B11_0	L_A_B11_0_s0	1103,57	2008,177	1103,77 2008,77	A	B11
+place-label	edge	L_A_B11_0	0	0	0	0	0

@@ -1,0 +1,72 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 201393dc087d6ceb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	171.6723175048828	39.783363342285156
+node	B	root	202.58663940429688	53.93965530395508
+node	C	root	282.97308349609375	283.8239440917969
+node	D	root	172.41177368164062	39.67184829711914
+node	E	root	172.3603973388672	39.44235610961914
+node	F	root	182.9658966064453	54.3862190246582
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0	Get money	68.484375	21
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_C_D_0	root	C	D
+label	edge	L_C_D_0	0	One	26.46875	21
+option	edge-label	L_C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
+edge	L_C_E_0	root	C	E
+label	edge	L_C_E_0	0	Two	25.6875	21
+option	edge-label	L_C_E_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E_0	0	edgeLabels.placement	CENTER
+edge	L_C_F_0	root	C	F
+label	edge	L_C_F_0	0	Three	36.578125	21
+option	edge-label	L_C_F_0	0	edgeLabels.inline	true
+option	edge-label	L_C_F_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	631.7380676269531	697.9331817626953
+place	A	root	224.7558135986328	12	171.6723175048828	39.783363342285156
+place	B	root	209.29865264892578	152.78336334228516	202.58663940429688	53.93965530395508
+place	C	root	169.10543060302734	246.72301864624023	282.97308349609375	283.8239440917969
+place	D	root	12	631.5469627380371	172.41177368164062	39.67184829711914
+place	E	root	224.41177368164062	631.5469627380371	172.3603973388672	39.44235610961914
+place	F	root	436.7721710205078	631.5469627380371	182.9658966064453	54.3862190246582
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	310.5919723510742,51.783363342285156	310.5919723510742,152.78336334228516		A	B
+place-label	edge	L_A_B_0	0	276.0919723510742	91.78336334228516	68.484375	21
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	310.5919723510742,206.72301864624023	310.5919723510742,246.72301864624023		B	C
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_C_D_0	root	root
+section	L_C_D_0	L_C_D_0_s0	244.84870147705078,530.5469627380371	98.20588684082031,631.5469627380371	244.84870147705078,550.5469627380371 98.20588684082031,550.5469627380371	C	D
+place-label	edge	L_C_D_0	0	84.70588684082031	570.5469627380371	26.46875	21
+route	L_C_E_0	root	root
+section	L_C_E_0	L_C_E_0_s0	310.5919723510742,530.5469627380371	310.5919723510742,631.5469627380371		C	E
+place-label	edge	L_C_E_0	0	297.5919723510742	570.5469627380371	25.6875	21
+route	L_C_F_0	root	root
+section	L_C_F_0	L_C_F_0_s0	376.33524322509766,530.5469627380371	528.2551193237305,631.5469627380371	376.33524322509766,550.5469627380371 528.2551193237305,550.5469627380371	C	F
+place-label	edge	L_C_F_0	0	509.75511932373047	570.5469627380371	36.578125	21

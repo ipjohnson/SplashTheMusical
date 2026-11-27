@@ -1,0 +1,104 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 48b724d65c7171fc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Evaluate	root	136	37
+node	checkResult	root	28	28
+node	Positive	root	136	37
+node	Negative	root	136	37
+node	Neutral	root	136	37
+node	root_end	root	14.013293266296387	14
+node	Retry	root	136	37
+edge	edge0	root	root_start	Evaluate
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Evaluate	checkResult
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	checkResult	Positive
+label	edge	edge2	0	if score > 0	68.875	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	checkResult	Negative
+label	edge	edge3	0	if score &lt; 0	68.875	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	checkResult	Neutral
+label	edge	edge4	0	if score = 0	68.875	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Positive	root_end
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Negative	Retry
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Neutral	root_end
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	Retry	Evaluate
+label	edge	edge8	0		0	0
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	556	418
+place	root_start	root	377.99999999999994	12	14	14
+place	Evaluate	root	319.99999999999994	66	136	37
+place	checkResult	root	242	143	28	28
+place	Positive	root	12	272	136	37
+place	Negative	root	364	272	136	37
+place	Neutral	root	188	272	136	37
+place	root_end	root	160.9933533668518	369	14.013293266296387	14
+place	Retry	root	407.99999999999994	369	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	387.99999999999994,26	387.99999999999994,66		root_start	Evaluate
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	368.66666666666663,103	256,143	368.66666666666663,123 256,123	Evaluate	checkResult
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	254,171	80,272	254,191 80,191	checkResult	Positive
+place-label	edge	edge2	0	45.5	211	68.875	21
+route	edge3	root	root
+section	edge3	edge3_s0	258,171	432,272	258,191 432,191	checkResult	Negative
+place-label	edge	edge3	0	397.5	211	68.875	21
+route	edge4	root	root
+section	edge4	edge4_s0	256,171	256,272		checkResult	Neutral
+place-label	edge	edge4	0	221.5	211	68.875	21
+route	edge5	root	root
+section	edge5	edge5_s0	80,309	168.99778445561728,369	80,349 168.99778445561728,349	Positive	root_end
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	root
+section	edge6	edge6_s0	432,309	456.66666666666663,369	432,329 456.66666666666663,329	Negative	Retry
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	root
+section	edge7	edge7_s0	256,309	167.00221554438272,369	256,329 167.00221554438272,329	Neutral	root_end
+place-label	edge	edge7	0	0	0	0	0
+route	edge8	root	root
+section	edge8	edge8_s0	495.3333333333333,369	407.3333333333333,103	495.3333333333333,329 520,329 520,290.5 520,221.5 520,157 520,123 407.3333333333333,123	Retry	Evaluate
+place-label	edge	edge8	0	0	0	0	0

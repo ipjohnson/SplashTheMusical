@@ -1,0 +1,113 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d9f2d2f5666a5a78
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Pending	root	136	37
+node	Confirmed	root	136	37
+node	Cancelled	root	136	37
+node	Shipped	root	136	37
+node	Delivered	root	136	37
+node	root_end	root	14.013293266296387	14
+node	Returned	root	136	37
+node	Refunded	root	136	37
+edge	edge0	root	root_start	Pending
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Pending	Confirmed
+label	edge	edge1	0	payment_ok	76.28125	21
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Pending	Cancelled
+label	edge	edge2	0	timeout	45.921875	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Confirmed	Shipped
+label	edge	edge3	0	dispatch	52.15625	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Shipped	Delivered
+label	edge	edge4	0	deliver	41.25	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Delivered	root_end
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	Cancelled	root_end
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	Shipped	Returned
+label	edge	edge7	0	return_request	91.0625	21
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	Returned	Refunded
+label	edge	edge8	0	process_refund	96.515625	21
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+edge	edge9	root	Refunded	root_end
+label	edge	edge9	0		0	0
+option	edge-label	edge9	0	edgeLabels.inline	true
+option	edge-label	edge9	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	417.6614583333333	773
+place	root_start	root	215.07812499999994	12	14	14
+place	Pending	root	157.078125	66	136	37
+place	Confirmed	root	90.24999999999999	204	136	37
+place	Cancelled	root	269.6614583333333	281	136	37
+place	Shipped	root	90.24999999999999	358	136	37
+place	Delivered	root	12	573	136	37
+place	root_end	root	229.4933533668518	747	14.013293266296387	14
+place	Returned	root	168.5	496	136	37
+place	Refunded	root	168.5	650	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	225.07812499999994,26	225.078125,66		root_start	Pending
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	205.74479166666663,103	158.25,204	205.74479166666663,123 158.25,123	Pending	Confirmed
+place-label	edge	edge1	0	119.74999999999999	143	76.28125	21
+route	edge2	root	root
+section	edge2	edge2_s0	244.41145833333331,103	337.6614583333333,281	244.41145833333331,123 337.6614583333333,123 337.6614583333333,222.5	Pending	Cancelled
+place-label	edge	edge2	0	314.6614583333333	143	45.921875	21
+route	edge3	root	root
+section	edge3	edge3_s0	158.25,241	158.25,358		Confirmed	Shipped
+place-label	edge	edge3	0	131.75	289	52.15625	21
+route	edge4	root	root
+section	edge4	edge4_s0	138.91666666666666,395	80,573	138.91666666666666,415 80,415 80,514.5	Shipped	Delivered
+place-label	edge	edge4	0	59	435	41.25	21
+route	edge5	root	root
+section	edge5	edge5_s0	80,610	237.9966766834259,747	80,668.5 80,727 237.9966766834259,727	Delivered	root_end
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	root
+section	edge6	edge6_s0	337.6614583333333,318	235.0033233165741,747	337.6614583333333,376.5 337.6614583333333,445.5 337.6614583333333,514.5 337.6614583333333,591.5 337.6614583333333,668.5 337.6614583333333,707 235.0033233165741,707	Cancelled	root_end
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	root
+section	edge7	edge7_s0	177.58333333333331,395	236.5,496	177.58333333333331,415 236.5,415	Shipped	Returned
+place-label	edge	edge7	0	190.5	435	91.0625	21
+route	edge8	root	root
+section	edge8	edge8_s0	236.5,533	236.5,650		Returned	Refunded
+place-label	edge	edge8	0	188	581	96.515625	21
+route	edge9	root	root
+section	edge9	edge9_s0	236.5,687	236.5,747		Refunded	root_end
+place-label	edge	edge9	0	0	0	0	0

@@ -1,0 +1,74 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 796f57f1e169bdfa
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-Repository-0	root	106.921875	81
+node	entity-DocumentationSet-1	root	155.1875	81
+node	entity-ContentSourceBranches-2	root	192.546875	81
+node	entity-PublishEnvironment-3	root	164.515625	81
+node	entity-ContentSource-4	root	133.40625	81
+node	entity-Checkout-5	root	99.15625	81
+node	entity-LinkRegistryEntry-6	root	149.703125	81
+edge	id_entity-Repository-0_entity-DocumentationSet-1_0	root	entity-Repository-0	entity-DocumentationSet-1
+label	edge	id_entity-Repository-0_entity-DocumentationSet-1_0	0	≤1 per Registry	94.828125	21
+option	edge-label	id_entity-Repository-0_entity-DocumentationSet-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-Repository-0_entity-DocumentationSet-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-Repository-0_entity-ContentSourceBranches-2_1	root	entity-Repository-0	entity-ContentSourceBranches-2
+label	edge	id_entity-Repository-0_entity-ContentSourceBranches-2_1	0	current, next, edge	116.75	21
+option	edge-label	id_entity-Repository-0_entity-ContentSourceBranches-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-Repository-0_entity-ContentSourceBranches-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	root	entity-PublishEnvironment-3	entity-ContentSource-4
+label	edge	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	0	content_source	95.734375	21
+option	edge-label	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	0	edgeLabels.placement	CENTER
+edge	id_entity-Checkout-5_entity-Repository-0_3	root	entity-Checkout-5	entity-Repository-0
+label	edge	id_entity-Checkout-5_entity-Repository-0_3	0	clones	40.46875	21
+option	edge-label	id_entity-Checkout-5_entity-Repository-0_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-Checkout-5_entity-Repository-0_3	0	edgeLabels.placement	CENTER
+edge	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	root	entity-Checkout-5	entity-LinkRegistryEntry-6
+label	edge	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	0	pinned commit	91.046875	21
+option	edge-label	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	509.5859375	469
+place	entity-Repository-0	root	200.96093749999997	194	106.921875	81
+place	entity-DocumentationSet-1	root	69.89453125	376	155.1875	81
+place	entity-ContentSourceBranches-2	root	265.08203125	376	192.546875	81
+place	entity-PublishEnvironment-3	root	12	12	164.515625	81
+place	entity-ContentSource-4	root	27.5546875	194	133.40625	81
+place	entity-Checkout-5	root	289	12	99.15625	81
+place	entity-LinkRegistryEntry-6	root	347.8828125	194	149.703125	81
+route	id_entity-Repository-0_entity-DocumentationSet-1_0	root	root
+section	id_entity-Repository-0_entity-DocumentationSet-1_0	id_entity-Repository-0_entity-DocumentationSet-1_0_s0	239.93489583333331,275	147.48828125,376	239.93489583333331,295 147.48828125,295	entity-Repository-0	entity-DocumentationSet-1
+place-label	edge	id_entity-Repository-0_entity-DocumentationSet-1_0	0	99.98828125	315	94.828125	21
+route	id_entity-Repository-0_entity-ContentSourceBranches-2_1	root	root
+section	id_entity-Repository-0_entity-ContentSourceBranches-2_1	id_entity-Repository-0_entity-ContentSourceBranches-2_1_s0	268.90885416666663,275	361.35546875,376	268.90885416666663,295 361.35546875,295	entity-Repository-0	entity-ContentSourceBranches-2
+place-label	edge	id_entity-Repository-0_entity-ContentSourceBranches-2_1	0	302.85546875	315	116.75	21
+route	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	root	root
+section	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	id_entity-PublishEnvironment-3_entity-ContentSource-4_2_s0	94.2578125,93	94.2578125,194		entity-PublishEnvironment-3	entity-ContentSource-4
+place-label	edge	id_entity-PublishEnvironment-3_entity-ContentSource-4_2	0	46.2578125	133	95.734375	21
+route	id_entity-Checkout-5_entity-Repository-0_3	root	root
+section	id_entity-Checkout-5_entity-Repository-0_3	id_entity-Checkout-5_entity-Repository-0_3_s0	325.38541666666663,93	254.42187499999997,194	325.38541666666663,113 254.42187499999997,113	entity-Checkout-5	entity-Repository-0
+place-label	edge	id_entity-Checkout-5_entity-Repository-0_3	0	233.92187499999997	133	40.46875	21
+route	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	root	root
+section	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4_s0	351.7708333333333,93	422.734375,194	351.7708333333333,113 422.734375,113	entity-Checkout-5	entity-LinkRegistryEntry-6
+place-label	edge	id_entity-Checkout-5_entity-LinkRegistryEntry-6_4	0	376.734375	133	91.046875	21

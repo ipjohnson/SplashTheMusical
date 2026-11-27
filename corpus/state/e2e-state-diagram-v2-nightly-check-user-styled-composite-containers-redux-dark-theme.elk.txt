@@ -1,0 +1,121 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4e7a58206857e113
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Outer	root
+option	node	Outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Outer		nodeSize.minimum	(43.015625, 0)
+option	node	Outer		spacing.baseValue	24
+option	node	Outer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Outer		elk.spacing.edgeEdge	20
+option	node	Outer		spacing.nodeNode	50
+option	node	Outer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Outer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Outer		elk.layered.mergeEdges	false
+option	node	Outer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Outer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Outer		elk.algorithm	elk.layered
+option	node	Outer		elk.direction	DOWN
+option	node	Outer		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Outer	0	Outer	35.015625	19
+node	Outer_start	Outer	14	14
+node	Step	Outer	136	37
+node	Pinned	Outer
+option	node	Pinned		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Pinned		nodeSize.minimum	(51.59375, 0)
+option	node	Pinned		spacing.baseValue	24
+option	node	Pinned		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Pinned		elk.spacing.edgeEdge	20
+option	node	Pinned		spacing.nodeNode	50
+option	node	Pinned		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Pinned		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Pinned		elk.layered.mergeEdges	false
+option	node	Pinned		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Pinned		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Pinned		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Pinned		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Pinned		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Pinned		elk.algorithm	elk.layered
+option	node	Pinned		elk.direction	DOWN
+option	node	Pinned		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Pinned	0	Pinned	43.59375	19
+node	Pinned_start	Pinned	14	14
+node	Held	Pinned	136	37
+node	Plain	Outer
+option	node	Plain		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Plain		nodeSize.minimum	(39.140625, 0)
+option	node	Plain		spacing.baseValue	24
+option	node	Plain		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Plain		elk.spacing.edgeEdge	20
+option	node	Plain		spacing.nodeNode	50
+option	node	Plain		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Plain		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Plain		elk.layered.mergeEdges	false
+option	node	Plain		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Plain		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Plain		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Plain		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Plain		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Plain		elk.algorithm	elk.layered
+option	node	Plain		elk.direction	DOWN
+option	node	Plain		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Plain	0	Plain	31.140625	19
+node	Plain_start	Plain	14	14
+node	Free	Plain	136	37
+edge	edge0	root	Outer_start	Step
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Pinned_start	Held
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Plain_start	Free
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	416	414
+place	Outer	root	12	12	392	390
+place-label	node	Outer	0	178.4921875	5	35.015625	19
+place	Outer_start	Outer	81.2	48	14	14
+place	Step	Outer	24	86	136	37
+place	Pinned	Outer	184	48	184	147
+place-label	node	Pinned	0	70.203125	5	43.59375	19
+place	Pinned_start	Pinned	81.2	48	14	14
+place	Held	Pinned	24	86	136	37
+place	Plain	Outer	24	219	184	147
+place-label	node	Plain	0	76.4296875	5	31.140625	19
+place	Plain_start	Plain	81.2	48	14	14
+place	Free	Plain	24	86	136	37
+route	edge0	root	Outer
+section	edge0	edge0_s0	92,62	92,86		Outer_start	Step
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	Pinned
+section	edge1	edge1_s0	92,62	92,86		Pinned_start	Held
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	Plain
+section	edge2	edge2_s0	92,62	92,86		Plain_start	Free
+place-label	edge	edge2	0	0	0	0	0

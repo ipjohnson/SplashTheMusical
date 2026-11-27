@@ -1,0 +1,80 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 725504fa514cd8dc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	san_francisco	root	152	66
+node	stockholm	root	152	87
+option	node	stockholm		elk.layered.layering.layerConstraint	FIRST
+node	new_york	root	152	66
+node	decide	root	152	66
+node	end_decision	root	171	171
+node	format_json	root	152	45
+edge	L_stockholm_new_york_0	root	stockholm	new_york
+label	edge	L_stockholm_new_york_0	0		0	0
+option	edge-label	L_stockholm_new_york_0	0	edgeLabels.inline	true
+option	edge-label	L_stockholm_new_york_0	0	edgeLabels.placement	CENTER
+edge	L_new_york_san_francisco_0	root	new_york	san_francisco
+label	edge	L_new_york_san_francisco_0	0		0	0
+option	edge-label	L_new_york_san_francisco_0	0	edgeLabels.inline	true
+option	edge-label	L_new_york_san_francisco_0	0	edgeLabels.placement	CENTER
+edge	L_san_francisco_decide_0	root	san_francisco	decide
+label	edge	L_san_francisco_decide_0	0		0	0
+option	edge-label	L_san_francisco_decide_0	0	edgeLabels.inline	true
+option	edge-label	L_san_francisco_decide_0	0	edgeLabels.placement	CENTER
+edge	L_decide_end_decision_0	root	decide	end_decision
+label	edge	L_decide_end_decision_0	0		0	0
+option	edge-label	L_decide_end_decision_0	0	edgeLabels.inline	true
+option	edge-label	L_decide_end_decision_0	0	edgeLabels.placement	CENTER
+edge	L_end_decision_format_json_0	root	end_decision	format_json
+label	edge	L_end_decision_format_json_0	0	Yes	22.84375	21
+option	edge-label	L_end_decision_format_json_0	0	edgeLabels.inline	true
+option	edge-label	L_end_decision_format_json_0	0	edgeLabels.placement	CENTER
+edge	L_end_decision_stockholm_0	root	end_decision	stockholm
+label	edge	L_end_decision_stockholm_0	0	No	17.90625	21
+option	edge-label	L_end_decision_stockholm_0	0	edgeLabels.inline	true
+option	edge-label	L_end_decision_stockholm_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	248	786
+place	san_francisco	root	12	245	152	66
+place	stockholm	root	74.5	12	152	87
+place	new_york	root	12	139	152	66
+place	decide	root	12	351	152	66
+place	end_decision	root	65	457	171	171
+place	format_json	root	74.5	729	152	45
+route	L_stockholm_new_york_0	root	root
+section	L_stockholm_new_york_0	L_stockholm_new_york_0_s0	128.5,99	88,139	128.5,119 88,119	stockholm	new_york
+place-label	edge	L_stockholm_new_york_0	0	0	0	0	0
+route	L_new_york_san_francisco_0	root	root
+section	L_new_york_san_francisco_0	L_new_york_san_francisco_0_s0	88,205	88,245		new_york	san_francisco
+place-label	edge	L_new_york_san_francisco_0	0	0	0	0	0
+route	L_san_francisco_decide_0	root	root
+section	L_san_francisco_decide_0	L_san_francisco_decide_0_s0	88,311	88,351		san_francisco	decide
+place-label	edge	L_san_francisco_decide_0	0	0	0	0	0
+route	L_decide_end_decision_0	root	root
+section	L_decide_end_decision_0	L_decide_end_decision_0_s0	88,417	125.33333333333333,457	88,437 125.33333333333333,437	decide	end_decision
+place-label	edge	L_decide_end_decision_0	0	0	0	0	0
+route	L_end_decision_format_json_0	root	root
+section	L_end_decision_format_json_0	L_end_decision_format_json_0_s0	150.5,628	150.5,729		end_decision	format_json
+place-label	edge	L_end_decision_format_json_0	0	139	668	22.84375	21
+route	L_end_decision_stockholm_0	root	root
+section	L_end_decision_stockholm_0	L_end_decision_stockholm_0_s0	175.66666666666669,457	172.5,99	175.66666666666669,437 213,437 213,384 213,172 213,119 172.5,119	end_decision	stockholm
+place-label	edge	L_end_decision_stockholm_0	0	204	267.5	17.90625	21

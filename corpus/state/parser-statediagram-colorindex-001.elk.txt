@@ -1,0 +1,169 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 364c4c528942c3cb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Boot	root
+option	node	Boot		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Boot		nodeSize.minimum	(36.8125, 0)
+option	node	Boot		spacing.baseValue	24
+option	node	Boot		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Boot		elk.spacing.edgeEdge	20
+option	node	Boot		spacing.nodeNode	50
+option	node	Boot		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Boot		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Boot		elk.layered.mergeEdges	false
+option	node	Boot		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Boot		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Boot		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Boot		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Boot		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Boot		elk.algorithm	elk.layered
+option	node	Boot		elk.direction	DOWN
+option	node	Boot		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Boot	0	Boot	28.8125	19
+node	Boot_start	Boot	14	14
+node	Firmware	Boot	136	37
+node	Kernel	Boot
+option	node	Kernel		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Kernel		nodeSize.minimum	(48.46875, 0)
+option	node	Kernel		spacing.baseValue	24
+option	node	Kernel		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Kernel		elk.spacing.edgeEdge	20
+option	node	Kernel		spacing.nodeNode	50
+option	node	Kernel		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Kernel		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Kernel		elk.layered.mergeEdges	false
+option	node	Kernel		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Kernel		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Kernel		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Kernel		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Kernel		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Kernel		elk.algorithm	elk.layered
+option	node	Kernel		elk.direction	DOWN
+option	node	Kernel		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Kernel	0	Kernel	40.46875	19
+node	Kernel_start	Kernel	14	14
+node	Scheduler	Kernel	136	37
+node	Drivers	Kernel
+option	node	Drivers		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Drivers		nodeSize.minimum	(52.34375, 0)
+option	node	Drivers		spacing.baseValue	24
+option	node	Drivers		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Drivers		elk.spacing.edgeEdge	20
+option	node	Drivers		spacing.nodeNode	50
+option	node	Drivers		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Drivers		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Drivers		elk.layered.mergeEdges	false
+option	node	Drivers		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Drivers		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Drivers		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Drivers		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Drivers		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Drivers		elk.algorithm	elk.layered
+option	node	Drivers		elk.direction	DOWN
+option	node	Drivers		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Drivers	0	Drivers	44.34375	19
+node	Drivers_start	Drivers	14	14
+node	Probe	Drivers	136	37
+node	Running	root
+option	node	Running		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Running		nodeSize.minimum	(60.15625, 0)
+option	node	Running		spacing.baseValue	24
+option	node	Running		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Running		elk.spacing.edgeEdge	20
+option	node	Running		spacing.nodeNode	50
+option	node	Running		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Running		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Running		elk.layered.mergeEdges	false
+option	node	Running		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Running		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Running		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Running		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Running		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Running		elk.algorithm	elk.layered
+option	node	Running		elk.direction	DOWN
+option	node	Running		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Running	0	Running	52.15625	19
+node	Running_start	Running	14	14
+node	Serving	Running	136	37
+edge	edge0	root	root_start	Boot
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Boot_start	Firmware
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Kernel_start	Scheduler
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Drivers_start	Probe
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Boot	Running
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	Running_start	Serving
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	464	655
+place	root_start	root	222	12	14	14
+place	Boot	root	12	66	440	390
+place-label	node	Boot	0	205.59375	5	28.8125	19
+place	Boot_start	Boot	81.2	48	14	14
+place	Firmware	Boot	24	86	136	37
+place	Kernel	Boot	184	48	232	318
+place-label	node	Kernel	0	95.765625	5	40.46875	19
+place	Kernel_start	Kernel	81.2	48	14	14
+place	Scheduler	Kernel	24	86	136	37
+place	Drivers	Kernel	24	147	184	147
+place-label	node	Drivers	0	69.828125	5	44.34375	19
+place	Drivers_start	Drivers	81.2	48	14	14
+place	Probe	Drivers	24	86	136	37
+place	Running	root	140	496	184	147
+place-label	node	Running	0	65.921875	5	52.15625	19
+place	Running_start	Running	81.2	48	14	14
+place	Serving	Running	24	86	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	232,26	232,66		root_start	Boot
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	Boot
+section	edge1	edge1_s0	92,62	92,86		Boot_start	Firmware
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	Kernel
+section	edge2	edge2_s0	92,62	92,86		Kernel_start	Scheduler
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	Drivers
+section	edge3	edge3_s0	92,62	92,86		Drivers_start	Probe
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	root
+section	edge4	edge4_s0	232,456	232,496		Boot	Running
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	Running
+section	edge5	edge5_s0	92,62	92,86		Running_start	Serving
+place-label	edge	edge5	0	0	0	0	0

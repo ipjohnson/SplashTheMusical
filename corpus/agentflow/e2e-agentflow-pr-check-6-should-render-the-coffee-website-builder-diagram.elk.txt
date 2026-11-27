@@ -1,0 +1,188 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b56d0d19ee4f14bb
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	build_site	root
+option	node	build_site		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	build_site		nodeSize.minimum	(67.15625, 0)
+option	node	build_site		spacing.baseValue	24
+option	node	build_site		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	build_site		elk.spacing.edgeEdge	20
+option	node	build_site		spacing.nodeNode	50
+option	node	build_site		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	build_site		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	build_site		elk.layered.mergeEdges	false
+option	node	build_site		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	build_site		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	build_site		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	build_site		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	build_site		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	build_site		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	build_site	0	Build Site	59.15625	19
+node	designer	build_site
+option	node	designer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	designer		nodeSize.minimum	(64.03125, 0)
+option	node	designer		spacing.baseValue	24
+option	node	designer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	designer		elk.spacing.edgeEdge	20
+option	node	designer		spacing.nodeNode	50
+option	node	designer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	designer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	designer		elk.layered.mergeEdges	false
+option	node	designer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	designer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	designer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	designer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	designer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	designer		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	designer	0	Designer	56.03125	19
+node	gen_html	designer	164	33
+option	node	gen_html		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	html_out	designer	150	51
+node	nordic	designer	167.1999969482422	67.49201202392578
+node	translator	build_site
+option	node	translator		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	translator		nodeSize.minimum	(70.515625, 0)
+option	node	translator		spacing.baseValue	24
+option	node	translator		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	translator		elk.spacing.edgeEdge	20
+option	node	translator		spacing.nodeNode	50
+option	node	translator		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	translator		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	translator		elk.layered.mergeEdges	false
+option	node	translator		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	translator		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	translator		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	translator		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	translator		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	translator		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	translator	0	Translator	62.515625	19
+node	translate_sv	translator	175.53125	33
+option	node	translate_sv		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	bilingual	translator	150	51
+option	node	bilingual		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	researcher	build_site
+option	node	researcher		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	researcher		nodeSize.minimum	(80.375, 0)
+option	node	researcher		spacing.baseValue	24
+option	node	researcher		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	researcher		elk.spacing.edgeEdge	20
+option	node	researcher		spacing.nodeNode	50
+option	node	researcher		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	researcher		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	researcher		elk.layered.mergeEdges	false
+option	node	researcher		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	researcher		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	researcher		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	researcher		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	researcher		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	researcher		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	researcher	0	Researcher	72.375	19
+node	city	researcher	186	36
+node	research_loc	researcher	164	33
+node	brief	researcher	150	51
+node	write_copy	researcher	164	33
+node	english_copy	researcher	150	51
+option	node	english_copy		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_city_research_loc_0	root	city	research_loc
+label	edge	L_city_research_loc_0	0		0	0
+option	edge-label	L_city_research_loc_0	0	edgeLabels.inline	true
+option	edge-label	L_city_research_loc_0	0	edgeLabels.placement	CENTER
+edge	L_research_loc_brief_0	root	research_loc	brief
+label	edge	L_research_loc_brief_0	0		0	0
+option	edge-label	L_research_loc_brief_0	0	edgeLabels.inline	true
+option	edge-label	L_research_loc_brief_0	0	edgeLabels.placement	CENTER
+edge	L_brief_write_copy_0	root	brief	write_copy
+label	edge	L_brief_write_copy_0	0		0	0
+option	edge-label	L_brief_write_copy_0	0	edgeLabels.inline	true
+option	edge-label	L_brief_write_copy_0	0	edgeLabels.placement	CENTER
+edge	L_write_copy_english_copy_0	root	write_copy	english_copy
+label	edge	L_write_copy_english_copy_0	0		0	0
+option	edge-label	L_write_copy_english_copy_0	0	edgeLabels.inline	true
+option	edge-label	L_write_copy_english_copy_0	0	edgeLabels.placement	CENTER
+edge	L_english_copy_translate_sv_0	root	english_copy	translate_sv
+label	edge	L_english_copy_translate_sv_0	0		0	0
+option	edge-label	L_english_copy_translate_sv_0	0	edgeLabels.inline	true
+option	edge-label	L_english_copy_translate_sv_0	0	edgeLabels.placement	CENTER
+edge	L_translate_sv_bilingual_0	root	translate_sv	bilingual
+label	edge	L_translate_sv_bilingual_0	0		0	0
+option	edge-label	L_translate_sv_bilingual_0	0	edgeLabels.inline	true
+option	edge-label	L_translate_sv_bilingual_0	0	edgeLabels.placement	CENTER
+edge	L_bilingual_gen_html_0	root	bilingual	gen_html
+label	edge	L_bilingual_gen_html_0	0		0	0
+option	edge-label	L_bilingual_gen_html_0	0	edgeLabels.inline	true
+option	edge-label	L_bilingual_gen_html_0	0	edgeLabels.placement	CENTER
+edge	L_gen_html_html_out_0	root	gen_html	html_out
+label	edge	L_gen_html_html_out_0	0		0	0
+option	edge-label	L_gen_html_html_out_0	0	edgeLabels.inline	true
+option	edge-label	L_gen_html_html_out_0	0	edgeLabels.placement	CENTER
+edge	L_gen_html_nordic_0	root	gen_html	nordic
+label	edge	L_gen_html_nordic_0	0		0	0
+option	edge-label	L_gen_html_nordic_0	0	edgeLabels.inline	true
+option	edge-label	L_gen_html_nordic_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	487.1999969482422	968.4920120239258
+place	build_site	root	12	12	463.1999969482422	944.4920120239258
+place-label	node	build_site	0	202.0218734741211	5	59.15625	19
+place	designer	build_site	24	688	415.1999969482422	232.49201202392578
+place-label	node	designer	0	179.5843734741211	5	56.03125	19
+place	gen_html	designer	121.29999923706053	48	164	33
+place	html_out	designer	24	141	150	51
+place	nordic	designer	224	141	167.1999969482422	67.49201202392578
+place	translator	build_site	115.53437423706053	464	223.53125	180
+place-label	node	translator	0	80.5078125	5	62.515625	19
+place	translate_sv	translator	24	48	175.53125	33
+place	bilingual	translator	36.765625	105	150	51
+place	researcher	build_site	110.29999923706053	48	234	372
+place-label	node	researcher	0	80.8125	5	72.375	19
+place	city	researcher	24	48	186	36
+place	research_loc	researcher	35	108	164	33
+place	brief	researcher	42	165	150	51
+place	write_copy	researcher	35	240	164	33
+place	english_copy	researcher	42	297	150	51
+route	L_city_research_loc_0	root	researcher
+section	L_city_research_loc_0	L_city_research_loc_0_s0	116.99999999999999,84	116.99999999999999,108		city	research_loc
+place-label	edge	L_city_research_loc_0	0	0	0	0	0
+route	L_research_loc_brief_0	root	researcher
+section	L_research_loc_brief_0	L_research_loc_brief_0_s0	116.99999999999999,141	116.99999999999999,165		research_loc	brief
+place-label	edge	L_research_loc_brief_0	0	0	0	0	0
+route	L_brief_write_copy_0	root	researcher
+section	L_brief_write_copy_0	L_brief_write_copy_0_s0	116.99999999999999,216	116.99999999999999,240		brief	write_copy
+place-label	edge	L_brief_write_copy_0	0	0	0	0	0
+route	L_write_copy_english_copy_0	root	researcher
+section	L_write_copy_english_copy_0	L_write_copy_english_copy_0_s0	116.99999999999999,273	116.99999999999999,297		write_copy	english_copy
+place-label	edge	L_write_copy_english_copy_0	0	0	0	0	0
+route	L_english_copy_translate_sv_0	root	build_site
+section	L_english_copy_translate_sv_0	L_english_copy_translate_sv_0_s0	227.29999923706055,396	227.29999923706055,512	227.29999923706055,430 227.29999923706055,454	english_copy	translate_sv
+place-label	edge	L_english_copy_translate_sv_0	0	0	0	0	0
+route	L_translate_sv_bilingual_0	root	translator
+section	L_translate_sv_bilingual_0	L_translate_sv_bilingual_0_s0	111.76562499999999,81	111.76562499999999,105		translate_sv	bilingual
+place-label	edge	L_translate_sv_bilingual_0	0	0	0	0	0
+route	L_bilingual_gen_html_0	root	build_site
+section	L_bilingual_gen_html_0	L_bilingual_gen_html_0_s0	227.29999923706055,620	227.29999923706055,736	227.29999923706055,654 227.29999923706055,678	bilingual	gen_html
+place-label	edge	L_bilingual_gen_html_0	0	0	0	0	0
+route	L_gen_html_html_out_0	root	designer
+section	L_gen_html_html_out_0	L_gen_html_html_out_0_s0	179.5666659037272,81	98.99999999999999,141	179.5666659037272,111 98.99999999999999,111	gen_html	html_out
+place-label	edge	L_gen_html_html_out_0	0	0	0	0	0
+route	L_gen_html_nordic_0	root	designer
+section	L_gen_html_nordic_0	L_gen_html_nordic_0_s0	227.03333257039384,81	307.5999984741211,141	227.03333257039384,111 307.5999984741211,111	gen_html	nordic
+place-label	edge	L_gen_html_nordic_0	0	0	0	0	0

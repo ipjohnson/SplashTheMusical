@@ -1,0 +1,72 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source eabf31276bcf7268
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	t	root	150	51
+node	o	root	164	33
+node	i	root	186	36
+node	d	root	171	171
+node	r	root	167.1999969482422	67.49201202392578
+node	c	root	204	91
+edge	L_t_o_0	root	t	o
+label	edge	L_t_o_0	0		0	0
+option	edge-label	L_t_o_0	0	edgeLabels.inline	true
+option	edge-label	L_t_o_0	0	edgeLabels.placement	CENTER
+edge	L_o_i_0	root	o	i
+label	edge	L_o_i_0	0		0	0
+option	edge-label	L_o_i_0	0	edgeLabels.inline	true
+option	edge-label	L_o_i_0	0	edgeLabels.placement	CENTER
+edge	L_i_d_0	root	i	d
+label	edge	L_i_d_0	0		0	0
+option	edge-label	L_i_d_0	0	edgeLabels.inline	true
+option	edge-label	L_i_d_0	0	edgeLabels.placement	CENTER
+edge	L_d_r_0	root	d	r
+label	edge	L_d_r_0	0		0	0
+option	edge-label	L_d_r_0	0	edgeLabels.inline	true
+option	edge-label	L_d_r_0	0	edgeLabels.placement	CENTER
+edge	L_r_c_0	root	r	c
+label	edge	L_r_c_0	0		0	0
+option	edge-label	L_r_c_0	0	edgeLabels.inline	true
+option	edge-label	L_r_c_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	228	673.4920120239258
+place	t	root	39	12	150	51
+place	o	root	32	103	164	33
+place	i	root	21	176	186	36
+place	d	root	28.5	252	171	171
+place	r	root	30.400001525878906	463	167.1999969482422	67.49201202392578
+place	c	root	12	570.4920120239258	204	91
+route	L_t_o_0	root	root
+section	L_t_o_0	L_t_o_0_s0	114,63	114,103		t	o
+place-label	edge	L_t_o_0	0	0	0	0	0
+route	L_o_i_0	root	root
+section	L_o_i_0	L_o_i_0_s0	114,136	114,176		o	i
+place-label	edge	L_o_i_0	0	0	0	0	0
+route	L_i_d_0	root	root
+section	L_i_d_0	L_i_d_0_s0	114,212	114,252		i	d
+place-label	edge	L_i_d_0	0	0	0	0	0
+route	L_d_r_0	root	root
+section	L_d_r_0	L_d_r_0_s0	114,423	114,463		d	r
+place-label	edge	L_d_r_0	0	0	0	0	0
+route	L_r_c_0	root	root
+section	L_r_c_0	L_r_c_0_s0	114,530.4920120239258	114,570.4920120239258		r	c
+place-label	edge	L_r_c_0	0	0	0	0	0

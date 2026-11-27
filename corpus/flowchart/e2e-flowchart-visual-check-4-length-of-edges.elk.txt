@@ -1,0 +1,117 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source db9f0f4423695f56
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	L1	root	152	45
+node	L2	root	152	45
+node	C	root	152	45
+node	M1	root	152	45
+node	R1	root	152	45
+node	R2	root	152	45
+node	E1	root	152	45
+node	E2	root	152	45
+node	E3	root	152	45
+node	E4	root	152	45
+node	E5	root	152	45
+edge	L_L1_L2_0	root	L1	L2
+label	edge	L_L1_L2_0	0		0	0
+option	edge-label	L_L1_L2_0	0	edgeLabels.inline	true
+option	edge-label	L_L1_L2_0	0	edgeLabels.placement	CENTER
+edge	L_L2_C_0	root	L2	C
+label	edge	L_L2_C_0	0		0	0
+option	edge-label	L_L2_C_0	0	edgeLabels.inline	true
+option	edge-label	L_L2_C_0	0	edgeLabels.placement	CENTER
+edge	L_M1_C_0	root	M1	C
+label	edge	L_M1_C_0	0		0	0
+option	edge-label	L_M1_C_0	0	edgeLabels.inline	true
+option	edge-label	L_M1_C_0	0	edgeLabels.placement	CENTER
+edge	L_R1_R2_0	root	R1	R2
+label	edge	L_R1_R2_0	0		0	0
+option	edge-label	L_R1_R2_0	0	edgeLabels.inline	true
+option	edge-label	L_R1_R2_0	0	edgeLabels.placement	CENTER
+edge	L_R2_C_0	root	R2	C
+label	edge	L_R2_C_0	0		0	0
+option	edge-label	L_R2_C_0	0	edgeLabels.inline	true
+option	edge-label	L_R2_C_0	0	edgeLabels.placement	CENTER
+edge	L_C_E1_0	root	C	E1
+label	edge	L_C_E1_0	0	Label 1	45.9375	21
+option	edge-label	L_C_E1_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E1_0	0	edgeLabels.placement	CENTER
+edge	L_C_E2_0	root	C	E2
+label	edge	L_C_E2_0	0	Label 2	45.9375	21
+option	edge-label	L_C_E2_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E2_0	0	edgeLabels.placement	CENTER
+edge	L_C_E3_0	root	C	E3
+label	edge	L_C_E3_0	0		0	0
+option	edge-label	L_C_E3_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E3_0	0	edgeLabels.placement	CENTER
+edge	L_C_E4_0	root	C	E4
+label	edge	L_C_E4_0	0		0	0
+option	edge-label	L_C_E4_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E4_0	0	edgeLabels.placement	CENTER
+edge	L_C_E5_0	root	C	E5
+label	edge	L_C_E5_0	0		0	0
+option	edge-label	L_C_E5_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E5_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	890.9375	429
+place	L1	root	160.96875	12	152	45
+place	L2	root	160.96875	97	152	45
+place	C	root	342.9375	182	152	45
+place	M1	root	352.96875	97	152	45
+place	R1	root	544.96875	12	152	45
+place	R2	root	544.96875	97	152	45
+place	E1	root	12	372	152	45
+place	E2	root	204	372	152	45
+place	E3	root	342.9375	287	152	45
+place	E4	root	534.9375	287	152	45
+place	E5	root	726.9375	287	152	45
+route	L_L1_L2_0	root	root
+section	L_L1_L2_0	L_L1_L2_0_s0	236.96875,57	236.96875,97		L1	L2
+place-label	edge	L_L1_L2_0	0	0	0	0	0
+route	L_L2_C_0	root	root
+section	L_L2_C_0	L_L2_C_0_s0	236.96875,142	385.9375,182	236.96875,162 385.9375,162	L2	C
+place-label	edge	L_L2_C_0	0	0	0	0	0
+route	L_M1_C_0	root	root
+section	L_M1_C_0	L_M1_C_0_s0	428.96875,142	418.9375,182	428.96875,162 418.9375,162	M1	C
+place-label	edge	L_M1_C_0	0	0	0	0	0
+route	L_R1_R2_0	root	root
+section	L_R1_R2_0	L_R1_R2_0_s0	620.96875,57	620.96875,97		R1	R2
+place-label	edge	L_R1_R2_0	0	0	0	0	0
+route	L_R2_C_0	root	root
+section	L_R2_C_0	L_R2_C_0_s0	620.96875,142	451.9375,182	620.96875,162 451.9375,162	R2	C
+place-label	edge	L_R2_C_0	0	0	0	0	0
+route	L_C_E1_0	root	root
+section	L_C_E1_0	L_C_E1_0_s0	374.9375,227	88,372	374.9375,247 88,247	C	E1
+place-label	edge	L_C_E1_0	0	65	299	45.9375	21
+route	L_C_E2_0	root	root
+section	L_C_E2_0	L_C_E2_0_s0	396.9375,227	280,372	396.9375,267 280,267	C	E2
+place-label	edge	L_C_E2_0	0	257	299	45.9375	21
+route	L_C_E3_0	root	root
+section	L_C_E3_0	L_C_E3_0_s0	418.9375,227	418.9375,287		C	E3
+place-label	edge	L_C_E3_0	0	0	0	0	0
+route	L_C_E4_0	root	root
+section	L_C_E4_0	L_C_E4_0_s0	440.9375,227	610.9375,287	440.9375,267 610.9375,267	C	E4
+place-label	edge	L_C_E4_0	0	0	0	0	0
+route	L_C_E5_0	root	root
+section	L_C_E5_0	L_C_E5_0_s0	462.9375,227	802.9375,287	462.9375,247 802.9375,247	C	E5
+place-label	edge	L_C_E5_0	0	0	0	0	0

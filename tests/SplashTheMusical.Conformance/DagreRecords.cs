@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Text;
 using SplashTheMusical.Layout.Dagre;
 
 namespace SplashTheMusical.Conformance;
@@ -51,51 +50,51 @@ internal static class DagreRecords
 					break;
 				case "graph":
 					Require(current).Options = new DagreOptions(
-						Text(fields, 1),
-						Number(fields, 2),
-						Number(fields, 3),
-						Number(fields, 4),
-						Number(fields, 5),
-						Number(fields, 6),
-						Text(fields, 7),
-						Text(fields, 8),
-						Text(fields, 9));
+						RecordFields.Text(fields, 1),
+						RecordFields.Number(fields, 2),
+						RecordFields.Number(fields, 3),
+						RecordFields.Number(fields, 4),
+						RecordFields.Number(fields, 5),
+						RecordFields.Number(fields, 6),
+						RecordFields.Text(fields, 7),
+						RecordFields.Text(fields, 8),
+						RecordFields.Text(fields, 9));
 					break;
 				case "node":
-					Require(current).Nodes.Add(new DagreNodeInput(Field(fields, 1), Text(fields, 2), Number(fields, 3) ?? 0, Number(fields, 4) ?? 0));
+					Require(current).Nodes.Add(new DagreNodeInput(RecordFields.Field(fields, 1), RecordFields.Text(fields, 2), RecordFields.Number(fields, 3) ?? 0, RecordFields.Number(fields, 4) ?? 0));
 					break;
 				case "edge":
 					Require(current).Edges.Add(new DagreEdgeInput(
-						Field(fields, 1),
-						Field(fields, 2),
-						Text(fields, 3),
-						Number(fields, 4) ?? 1,
-						Number(fields, 5) ?? 1,
-						Number(fields, 6) ?? 0,
-						Number(fields, 7) ?? 0,
-						Number(fields, 8) ?? 10,
-						Text(fields, 9) ?? "r"));
+						RecordFields.Field(fields, 1),
+						RecordFields.Field(fields, 2),
+						RecordFields.Text(fields, 3),
+						RecordFields.Number(fields, 4) ?? 1,
+						RecordFields.Number(fields, 5) ?? 1,
+						RecordFields.Number(fields, 6) ?? 0,
+						RecordFields.Number(fields, 7) ?? 0,
+						RecordFields.Number(fields, 8) ?? 10,
+						RecordFields.Text(fields, 9) ?? "r"));
 					break;
 				case "size":
-					Require(current).Width = Number(fields, 1) ?? double.NaN;
-					current!.Height = Number(fields, 2) ?? double.NaN;
+					Require(current).Width = RecordFields.Number(fields, 1) ?? double.NaN;
+					current!.Height = RecordFields.Number(fields, 2) ?? double.NaN;
 					break;
 				case "place":
 					Require(current).Places.Add(new DagrePlace(
-						Field(fields, 1),
-						Number(fields, 2) ?? double.NaN,
-						Number(fields, 3) ?? double.NaN,
-						Number(fields, 4) ?? double.NaN,
-						Number(fields, 5) ?? double.NaN));
+						RecordFields.Field(fields, 1),
+						RecordFields.Number(fields, 2) ?? double.NaN,
+						RecordFields.Number(fields, 3) ?? double.NaN,
+						RecordFields.Number(fields, 4) ?? double.NaN,
+						RecordFields.Number(fields, 5) ?? double.NaN));
 					break;
 				case "route":
 					Require(current).Routes.Add(new DagreRoute(
-						Field(fields, 1),
-						Field(fields, 2),
-						Text(fields, 3),
-						Number(fields, 4),
-						Number(fields, 5),
-						Points(Field(fields, 6))));
+						RecordFields.Field(fields, 1),
+						RecordFields.Field(fields, 2),
+						RecordFields.Text(fields, 3),
+						RecordFields.Number(fields, 4),
+						RecordFields.Number(fields, 5),
+						RecordFields.Points(RecordFields.Field(fields, 6))));
 					break;
 				default:
 					throw new FormatException($"{path}: unknown line '{fields[0]}'.");
@@ -111,69 +110,6 @@ internal static class DagreRecords
 	}
 
 	private static Builder Require(Builder? builder) => builder ?? throw new FormatException("A line comes before the first layout line.");
-
-	/// <summary>The field, unescaped. A trailing empty field is dropped from the line, so a missing one is empty.</summary>
-	private static string Field(string[] fields, int index) => index < fields.Length ? Unescape(fields[index]) : "";
-
-	/// <summary>The field, or null when it is empty.</summary>
-	private static string? Text(string[] fields, int index)
-	{
-		var text = Field(fields, index);
-		return text.Length == 0 ? null : text;
-	}
-
-	/// <summary>A number written by JavaScript's <c>String</c>, or null when the field is empty.</summary>
-	private static double? Number(string[] fields, int index) => Text(fields, index) is { } text ? ParseNumber(text) : null;
-
-	private static double ParseNumber(string text) => text switch
-	{
-		"NaN" => double.NaN,
-		"Infinity" => double.PositiveInfinity,
-		"-Infinity" => double.NegativeInfinity,
-		_ => double.Parse(text, NumberStyles.Float, CultureInfo.InvariantCulture),
-	};
-
-	private static List<(double X, double Y)> Points(string text)
-	{
-		var points = new List<(double X, double Y)>();
-		foreach (var pair in text.Split(' ', StringSplitOptions.RemoveEmptyEntries))
-		{
-			var comma = pair.IndexOf(',', StringComparison.Ordinal);
-			points.Add((ParseNumber(pair[..comma]), ParseNumber(pair[(comma + 1)..])));
-		}
-
-		return points;
-	}
-
-	private static string Unescape(string text)
-	{
-		if (!text.Contains('\\', StringComparison.Ordinal))
-		{
-			return text;
-		}
-
-		var builder = new StringBuilder(text.Length);
-		for (var i = 0; i < text.Length; i++)
-		{
-			if (text[i] == '\\' && i + 1 < text.Length)
-			{
-				i++;
-				builder.Append(text[i] switch
-				{
-					't' => '\t',
-					'n' => '\n',
-					'r' => '\r',
-					_ => text[i],
-				});
-			}
-			else
-			{
-				builder.Append(text[i]);
-			}
-		}
-
-		return builder.ToString();
-	}
 
 	private sealed class Builder(int number)
 	{

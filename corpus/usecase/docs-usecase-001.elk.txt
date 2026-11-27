@@ -1,0 +1,58 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 00339c496aec5a45
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Customer	root	80.6875	121
+option	node	Customer		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Order_system	root
+option	node	Order_system		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Order_system		nodeSize.minimum	(104.015625, 0)
+option	node	Order_system		spacing.baseValue	24
+option	node	Order_system		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Order_system		elk.spacing.edgeEdge	20
+option	node	Order_system		spacing.nodeNode	50
+option	node	Order_system		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Order_system		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Order_system		elk.layered.mergeEdges	false
+option	node	Order_system		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Order_system		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Order_system		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Order_system		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Order_system		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Order_system		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Order_system	0	Order system	84.015625	19
+node	Checkout	Order_system	160	58
+option	node	Checkout		elk.portAlignment.default	CENTER
+option	node	Checkout		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	edge-0	root	Customer	Checkout
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	362.6875	161.5
+place	Customer	root	12	28.5	80.6875	121
+place	Order_system	root	142.6875	12	208	130
+place-label	node	Order_system	0	61.9921875	5	84.015625	19
+place	Checkout	Order_system	24	48	160	58
+route	edge-0	root	root
+section	edge-0	edge-0_s0	92.6875,89	166.6875,89	132.6875,89	Customer	Checkout
+place-label	edge	edge-0	0	0	0	0	0

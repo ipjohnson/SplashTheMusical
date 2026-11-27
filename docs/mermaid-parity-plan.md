@@ -204,7 +204,7 @@ The defaults below were read at `mermaid@12.3.0`. [upstream-map.md](upstream-map
 
 | Engine | Default for | Approach |
 |---|---|---|
-| `elk` | flowchart, class, state, ER, requirement, agentflow, usecase. The top-level `layout` default is `elk` | Use the `Sugiyama` engine from Mermaider, which is layered with orthogonal routing, in #25. Parity is L2 only. Until then flowchart lays out every case with the dagre port, and its cases that mermaid.js draws with ELK are `bug #25` ledger entries at L3. Open decision 8 asks whether that is enough now that ELK is the default |
+| `elk` | flowchart, class, state, ER, requirement, agentflow, usecase. The top-level `layout` default is `elk` | STM does not port ELK. It designs and writes its own layered layout library that reproduces mermaid.js's ELK layouts, built without reading ELK's source under the rules of [layered-layout/clean-room.md](layered-layout/clean-room.md), in #25. Parity is L3 and L4 for the share of cases the approved design sets. Until then flowchart lays out every case with the dagre port, and its cases that mermaid.js draws with ELK are `bug #25` ledger entries. Open decision 8 records the decision |
 | `dagre` | No type at default config. A diagram that sets `layout: dagre` gets it, and the `tiny` build falls back to it for `elk` | Port dagre to C#. Geometry parity depends on the same ranking, ordering and coordinate assignment |
 | `swimlane` | swimlane | Port mermaid's own lane layout and orthogonal router |
 | `cose-bilkent` | mindmap | Port with a fixed seed. Parity is topology, not position |
@@ -495,7 +495,9 @@ Excluded, because the gain does not justify the cost:
   supported type. It reports nanoseconds and bytes allocated per source character, on JIT and on native AOT, and
   `docs/benchmarks/stm.md` holds the committed run.
 - `mise run bench-compare` compares a run with the committed numbers and fails on a regression above 10% in time or
-  allocation. It runs locally. Pull request CI does not run the benchmarks.
+  allocation. CI's `benchmarks` job runs STM and Mermaider on one macOS runner, checks the budget on that run and
+  uploads both result files. A row that is slower is measured again, STM's and Mermaider's back to back, and fails only
+  when it is slower both times. The committed files come from that artifact.
 - Allocation tests assert the exact bytes allocated for small diagrams, which catches accidental allocations at once.
 - A fuzz job feeds mutated corpus cases to the parser under the resource limits and fails on a crash or a missed
   deadline.
@@ -563,7 +565,8 @@ package.
 
 cose-bilkent and fcose depend on different major versions of cose-base and layout-base. A port that shares one graph
 model between them would be smaller than the sum. The total leaves out ELK. elkjs 0.12.0 is GWT output of Eclipse ELK's
-Java, 4.8 MB in one file, so a port of ELK layered would be sized from the Java source.
+Java, 4.8 MB in one file. STM does not port it: open decision 8 records the decision to write a layered engine of its
+own under [layered-layout/clean-room.md](layered-layout/clean-room.md), which its design sizes.
 
 ## 7. The test harness
 
@@ -702,7 +705,7 @@ Each phase ends when its exit criteria hold on JIT and on native AOT.
 | 4. Sequence types | Sequence and ZenUML | Each type meets its targets |
 | 5. Charts | Pie, quadrant, xychart, radar, sankey, gantt, timeline, journey, gitgraph, packet, kanban, treemap, venn | Each type meets its targets |
 | 6. Remaining types | Mindmap, architecture, treeView, usecase, wardley, railroad, ishikawa, cynefin, eventmodeling, agentflow, swimlanes | Every type mermaid.js registers is supported |
-| 7. Extras | `elk`, `handDrawn` and `neo` looks, icon packs, the decision on math | L2 parity for each |
+| 7. Extras | The `elk` layout, `handDrawn` and `neo` looks, icon packs, the decision on math | L2 parity for each, except the `elk` layout, which meets the L3 and L4 share of its approved design (open decision 8) |
 | 8. 1.0 | One real mermaid.js bump done through the update process. Docs. Public API review | The parity report meets the targets in section 1. No `bug` entry is older than one mermaid release |
 
 Phases 3 to 6 are independent per diagram type after phase 2, so they can run in parallel. Within a phase, types are
@@ -735,12 +738,14 @@ lists the files parallel types share.
    names.
 6. **Target frameworks.** This plan targets `net10.0` only.
 7. **Names.** Package ids, the root namespace and the CLI command name are placeholders here.
-8. **Default layout.** At 12.3.0 the top-level `layout` default is `elk`, so flowchart, class, state, ER, requirement,
-   agentflow and usecase use ELK unless a diagram asks for `dagre`. The plan's dagre port then gives geometry parity
-   only for diagrams that set `layout: dagre`. The options are to port ELK layered, to accept L2 parity through
-   `Sugiyama` for these types at default config, or to run the oracle with `layout: dagre` and treat the ELK default
-   as a ledger entry. The roadmap's phase 2 and phase 7 depend on the answer. Phase 2 settled it for now: the oracle
-   keeps the ELK default, STM's flowchart lays out with dagre, and the cases mermaid.js draws with ELK that fail L3
-   are `bug #25` ledger entries until #25 brings `Sugiyama` in as the `elk` engine.
+8. **Default layout.** Settled on 2026-11-20. At 12.3.0 the top-level `layout` default is `elk`, so flowchart, class,
+   state, ER, requirement, agentflow and usecase use ELK unless a diagram asks for `dagre`, and the dagre port gives
+   geometry parity only for diagrams that set `layout: dagre`. The options were to port ELK layered, to accept L2 parity
+   through Mermaider's `Sugiyama`, or to run the oracle with `layout: dagre`. The owner chose none of them: STM does not
+   port ELK, which is `EPL-2.0 OR GPL-3.0-or-later`, and designs and writes its own layered layout library that
+   reproduces mermaid.js's ELK layouts at L3 and L4. It is built without reading ELK's source, under the rules of
+   [layered-layout/clean-room.md](layered-layout/clean-room.md). The oracle keeps the ELK default, and until #25 brings
+   the engine in, STM's flowchart lays out with dagre and the cases mermaid.js draws with ELK are `bug #25` ledger
+   entries.
 9. **Default look.** Ten types default to look `neo` and theme `redux-color` at 12.3.0. The roadmap puts `neo` in
    phase 7. Moving `neo` and `redux-color` into phase 1 would give those types default-config parity from the start.

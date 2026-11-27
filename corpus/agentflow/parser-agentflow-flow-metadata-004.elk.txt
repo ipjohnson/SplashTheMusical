@@ -1,0 +1,54 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9f2e678ef5b0169b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	f	root
+option	node	f		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	f		nodeSize.minimum	(8, 0)
+option	node	f		spacing.baseValue	24
+option	node	f		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	f		elk.spacing.edgeEdge	20
+option	node	f		spacing.nodeNode	50
+option	node	f		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	f		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	f		elk.layered.mergeEdges	false
+option	node	f		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	f		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	f		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	f		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	f		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	f	0		0	0
+node	a	f	150	51
+node	b	f	150	51
+edge	L_a_b_0	root	a	b
+label	edge	L_a_b_0	0		0	0
+option	edge-label	L_a_b_0	0	edgeLabels.inline	true
+option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	222	198
+place	f	root	12	12	198	174
+place-label	node	f	0	0	0	0	0
+place	a	f	24	24	150	51
+place	b	f	24	99	150	51
+route	L_a_b_0	root	f
+section	L_a_b_0	L_a_b_0_s0	98.99999999999999,75	98.99999999999999,99		a	b
+place-label	edge	L_a_b_0	0	0	0	0	0

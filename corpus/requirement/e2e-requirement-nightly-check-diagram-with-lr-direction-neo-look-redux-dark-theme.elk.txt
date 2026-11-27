@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 1f5511edbba7702d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	req_a	root	147.625	166
+node	req_b	root	160.09375	166
+edge	req_a-req_b-0	root	req_a	req_b
+label	edge	req_a-req_b-0	0	&lt;&lt;derives&gt;&gt;	77.84375	21
+option	edge-label	req_a-req_b-0	0	edgeLabels.inline	true
+option	edge-label	req_a-req_b-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	489.5625	190
+place	req_a	root	12	12	147.625	166
+place	req_b	root	317.46875	12	160.09375	166
+route	req_a-req_b-0	root	root
+section	req_a-req_b-0	req_a-req_b-0_s0	159.625,95	317.46875,95		req_a	req_b
+place-label	edge	req_a-req_b-0	0	199.625	84	77.84375	21

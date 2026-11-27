@@ -1,0 +1,56 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 296bfadf2b93d26b
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	119.859375	81
+node	entity-1-1	root	100	81
+node	entity-u-2	root	156.625	119.25
+node	entity-1.5-3	root	100	81
+node	entity-2.5-4	root	117.703125	119.25
+edge	id_entity-CUSTOMER-0_entity-1-1_0	root	entity-CUSTOMER-0	entity-1-1
+label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	places	40.46875	21
+option	edge-label	id_entity-CUSTOMER-0_entity-1-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-1-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-1-1_entity-u-2_1	root	entity-1-1	entity-u-2
+label	edge	id_entity-1-1_entity-u-2_1	0	contains	52.15625	21
+option	edge-label	id_entity-1-1_entity-u-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-1-1_entity-u-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-u-2_entity-2.5-4_2	root	entity-u-2	entity-2.5-4
+label	edge	id_entity-u-2_entity-2.5-4_2	0	processes	63.8125	21
+option	edge-label	id_entity-u-2_entity-2.5-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-u-2_entity-2.5-4_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	302.2421875	727.5
+place	entity-CUSTOMER-0	root	30.3828125	12	119.859375	81
+place	entity-1-1	root	40.3125	194	100	81
+place	entity-u-2	root	12	376	156.625	119.25
+place	entity-1.5-3	root	190.2421875	12	100	81
+place	entity-2.5-4	root	31.4609375	596.25	117.703125	119.25
+route	id_entity-CUSTOMER-0_entity-1-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-1-1_0	id_entity-CUSTOMER-0_entity-1-1_0_s0	90.3125,93	90.3125,194		entity-CUSTOMER-0	entity-1-1
+place-label	edge	id_entity-CUSTOMER-0_entity-1-1_0	0	69.8125	133	40.46875	21
+route	id_entity-1-1_entity-u-2_1	root	root
+section	id_entity-1-1_entity-u-2_1	id_entity-1-1_entity-u-2_1_s0	90.3125,275	90.3125,376		entity-1-1	entity-u-2
+place-label	edge	id_entity-1-1_entity-u-2_1	0	63.8125	315	52.15625	21
+route	id_entity-u-2_entity-2.5-4_2	root	root
+section	id_entity-u-2_entity-2.5-4_2	id_entity-u-2_entity-2.5-4_2_s0	90.3125,495.25	90.3125,596.25		entity-u-2	entity-2.5-4
+place-label	edge	id_entity-u-2_entity-2.5-4_2	0	58.3125	535.25	63.8125	21

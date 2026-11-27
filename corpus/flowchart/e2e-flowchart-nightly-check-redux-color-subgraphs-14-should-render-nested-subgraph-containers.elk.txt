@@ -1,0 +1,133 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6a8cd7ab3bcbbdbf
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Sibling	root
+option	node	Sibling		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Sibling		nodeSize.minimum	(50.03125, 0)
+option	node	Sibling		spacing.baseValue	24
+option	node	Sibling		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Sibling		elk.spacing.edgeEdge	20
+option	node	Sibling		spacing.nodeNode	50
+option	node	Sibling		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Sibling		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Sibling		elk.layered.mergeEdges	false
+option	node	Sibling		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Sibling		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Sibling		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Sibling		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Sibling		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Sibling		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Sibling	0	Sibling	42.03125	19
+node	D	Sibling	152	45
+option	node	D		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Outer	root
+option	node	Outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Outer		nodeSize.minimum	(43.015625, 0)
+option	node	Outer		spacing.baseValue	24
+option	node	Outer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Outer		elk.spacing.edgeEdge	20
+option	node	Outer		spacing.nodeNode	50
+option	node	Outer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Outer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Outer		elk.layered.mergeEdges	false
+option	node	Outer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Outer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Outer		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Outer	0	Outer	35.015625	19
+node	InnerTwo	Outer
+option	node	InnerTwo		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	InnerTwo		nodeSize.minimum	(65.59375, 0)
+option	node	InnerTwo		spacing.baseValue	24
+option	node	InnerTwo		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	InnerTwo		elk.spacing.edgeEdge	20
+option	node	InnerTwo		spacing.nodeNode	50
+option	node	InnerTwo		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	InnerTwo		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	InnerTwo		elk.layered.mergeEdges	false
+option	node	InnerTwo		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	InnerTwo		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	InnerTwo		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	InnerTwo		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	InnerTwo		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	InnerTwo		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	InnerTwo	0	InnerTwo	57.59375	19
+node	C	InnerTwo	152	45
+option	node	C		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	InnerOne	Outer
+option	node	InnerOne		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	InnerOne		nodeSize.minimum	(66.375, 0)
+option	node	InnerOne		spacing.baseValue	24
+option	node	InnerOne		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	InnerOne		elk.spacing.edgeEdge	20
+option	node	InnerOne		spacing.nodeNode	50
+option	node	InnerOne		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	InnerOne		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	InnerOne		elk.layered.mergeEdges	false
+option	node	InnerOne		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	InnerOne		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	InnerOne		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	InnerOne		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	InnerOne		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	InnerOne		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	InnerOne	0	InnerOne	58.375	19
+node	A	InnerOne	152	45
+node	B	InnerOne	152	45
+option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_C_D_0	root	C	D
+label	edge	L_C_D_0	0		0	0
+option	edge-label	L_C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	962	213
+place	Sibling	root	750	60	200	117
+place-label	node	Sibling	0	78.984375	5	42.03125	19
+place	D	Sibling	24	48	152	45
+place	Outer	root	12	12	678	189
+place-label	node	Outer	0	321.4921875	5	35.015625	19
+place	InnerTwo	Outer	444	48	200	117
+place-label	node	InnerTwo	0	71.203125	5	57.59375	19
+place	C	InnerTwo	24	48	152	45
+place	InnerOne	Outer	24	48	376	117
+place-label	node	InnerOne	0	158.8125	5	58.375	19
+place	A	InnerOne	24	48	152	45
+place	B	InnerOne	200	48	152	45
+route	L_A_B_0	root	InnerOne
+section	L_A_B_0	L_A_B_0_s0	176,70.5	200,70.5		A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_B_C_0	root	Outer
+section	L_B_C_0	L_B_C_0_s0	376,118.5	468,118.5	410,118.5 434,118.5	B	C
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_C_D_0	root	root
+section	L_C_D_0	L_C_D_0_s0	632,130.5	774,130.5	666,130.5 700,130.5 740,130.5	C	D
+place-label	edge	L_C_D_0	0	0	0	0	0

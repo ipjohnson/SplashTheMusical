@@ -1,0 +1,72 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 139b95807fa3f861
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	A	root	182.47457885742188	54.5583381652832
+node	B	root	152.65760803222656	54.20133590698242
+node	C	root	172.50537109375	172.7653350830078
+node	D	root	182.58470153808594	54.433834075927734
+node	E	root	182.61524963378906	54.50688171386719
+node	F	root	182.8750762939453	54.3415412902832
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0	Get money	68.484375	21
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_C_D_0	root	C	D
+label	edge	L_C_D_0	0	One	26.46875	21
+option	edge-label	L_C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
+edge	L_C_E_0	root	C	E
+label	edge	L_C_E_0	0	Two	25.6875	21
+option	edge-label	L_C_E_0	0	edgeLabels.inline	true
+option	edge-label	L_C_E_0	0	edgeLabels.placement	CENTER
+edge	L_C_F_0	root	C	F
+label	edge	L_C_F_0	0	Three	36.578125	21
+option	edge-label	L_C_F_0	0	edgeLabels.inline	true
+option	edge-label	L_C_F_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	652.0750274658203	602.0318908691406
+place	A	root	234.65503692626953	12	182.47457885742188	54.5583381652832
+place	B	root	249.5635223388672	167.5583381652832	152.65760803222656	54.20133590698242
+place	C	root	239.63964080810547	261.7596740722656	172.50537109375	172.7653350830078
+place	D	root	12	535.5250091552734	182.58470153808594	54.433834075927734
+place	E	root	234.58470153808594	535.5250091552734	182.61524963378906	54.50688171386719
+place	F	root	457.199951171875	535.5250091552734	182.8750762939453	54.3415412902832
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	325.89232635498047,66.5583381652832	325.89232635498047,167.5583381652832		A	B
+place-label	edge	L_A_B_0	0	291.39232635498047	106.5583381652832	68.484375	21
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	325.89232635498047,221.75967407226562	325.89232635498047,261.7596740722656		B	C
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_C_D_0	root	root
+section	L_C_D_0	L_C_D_0_s0	287.76598358154297,434.52500915527344	103.29235076904297,535.5250091552734	287.76598358154297,454.52500915527344 103.29235076904297,454.52500915527344	C	D
+place-label	edge	L_C_D_0	0	89.79235076904297	474.52500915527344	26.46875	21
+route	L_C_E_0	root	root
+section	L_C_E_0	L_C_E_0_s0	325.89232635498047,434.52500915527344	325.89232635498047,535.5250091552734		C	E
+place-label	edge	L_C_E_0	0	312.89232635498047	474.52500915527344	25.6875	21
+route	L_C_F_0	root	root
+section	L_C_F_0	L_C_F_0_s0	364.01866912841797,434.52500915527344	548.6374893188477,535.5250091552734	364.01866912841797,454.52500915527344 548.6374893188477,454.52500915527344	C	F
+place-label	edge	L_C_F_0	0	530.1374893188477	474.52500915527344	36.578125	21

@@ -1,0 +1,83 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 3263782cabf54e06
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	sibling	root
+option	node	sibling		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	sibling		nodeSize.minimum	(50.03125, 0)
+option	node	sibling		spacing.baseValue	24
+option	node	sibling		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	sibling		elk.spacing.edgeEdge	20
+option	node	sibling		spacing.nodeNode	50
+option	node	sibling		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	sibling		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	sibling		elk.layered.mergeEdges	false
+option	node	sibling		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	sibling		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	sibling		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	sibling		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	sibling		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	sibling	0	Sibling	42.03125	19
+node	b	sibling	150	51
+node	outer	root
+option	node	outer		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	outer		nodeSize.minimum	(43.015625, 0)
+option	node	outer		spacing.baseValue	24
+option	node	outer		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	outer		elk.spacing.edgeEdge	20
+option	node	outer		spacing.nodeNode	50
+option	node	outer		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	outer		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	outer		elk.layered.mergeEdges	false
+option	node	outer		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	outer		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	outer		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	outer		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	outer		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	outer	0	Outer	35.015625	19
+node	inner	outer
+option	node	inner		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	inner		nodeSize.minimum	(39.921875, 0)
+option	node	inner		spacing.baseValue	24
+option	node	inner		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	inner		elk.spacing.edgeEdge	20
+option	node	inner		spacing.nodeNode	50
+option	node	inner		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	inner		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	inner		elk.layered.mergeEdges	false
+option	node	inner		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	inner		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	inner		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	inner		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	inner		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	inner	0	Inner	31.921875	19
+node	a	inner	150	51
+result
+place	root		0	0	508	219
+place	sibling	root	12	48	198	123
+place-label	node	sibling	0	77.984375	5	42.03125	19
+place	b	sibling	24	48	150	51
+place	outer	root	250	12	246	195
+place-label	node	outer	0	105.4921875	5	35.015625	19
+place	inner	outer	24	48	198	123
+place-label	node	inner	0	83.0390625	5	31.921875	19
+place	a	inner	24	48	150	51

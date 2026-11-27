@@ -1,0 +1,105 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8f2276532490a52d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-DocumentationSet-0	root	155.1875	81
+node	entity-DocumentationFile-1	root	156.734375	81
+node	entity-Page-2	root	100	81
+node	entity-FrontMatter-3	root	112.359375	81
+node	entity-Anchor-4	root	100	81
+node	entity-Link-5	root	100	81
+node	entity-InternalLink-6	root	112.390625	81
+node	entity-CrossLink-7	root	102.25	81
+node	entity-CrossLinkUri-8	root	120.125	81
+node	entity-IncludeDirective-9	root	139.609375	81
+node	entity-Snippet-10	root	100	81
+node	entity-Applicability-11	root	113.9375	81
+edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	root	entity-DocumentationSet-0	entity-DocumentationFile-1
+label	edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	files	24.90625	21
+option	edge-label	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-FrontMatter-3_1	root	entity-Page-2	entity-FrontMatter-3
+label	edge	id_entity-Page-2_entity-FrontMatter-3_1	0	front matter	71.59375	21
+option	edge-label	id_entity-Page-2_entity-FrontMatter-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-FrontMatter-3_1	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Anchor-4_2	root	entity-Page-2	entity-Anchor-4
+label	edge	id_entity-Page-2_entity-Anchor-4_2	0	anchors	49.8125	21
+option	edge-label	id_entity-Page-2_entity-Anchor-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Anchor-4_2	0	edgeLabels.placement	CENTER
+edge	id_entity-Page-2_entity-Link-5_3	root	entity-Page-2	entity-Link-5
+label	edge	id_entity-Page-2_entity-Link-5_3	0	links	28.015625	21
+option	edge-label	id_entity-Page-2_entity-Link-5_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-Page-2_entity-Link-5_3	0	edgeLabels.placement	CENTER
+edge	id_entity-InternalLink-6_entity-Page-2_4	root	entity-InternalLink-6	entity-Page-2
+label	edge	id_entity-InternalLink-6_entity-Page-2_4	0	target	35.8125	21
+option	edge-label	id_entity-InternalLink-6_entity-Page-2_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-InternalLink-6_entity-Page-2_4	0	edgeLabels.placement	CENTER
+edge	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	root	entity-CrossLink-7	entity-CrossLinkUri-8
+label	edge	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	0	repo://path	66.9375	21
+option	edge-label	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	0	edgeLabels.placement	CENTER
+edge	id_entity-IncludeDirective-9_entity-Snippet-10_6	root	entity-IncludeDirective-9	entity-Snippet-10
+label	edge	id_entity-IncludeDirective-9_entity-Snippet-10_6	0	include	44.375	21
+option	edge-label	id_entity-IncludeDirective-9_entity-Snippet-10_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-IncludeDirective-9_entity-Snippet-10_6	0	edgeLabels.placement	CENTER
+edge	id_entity-FrontMatter-3_entity-Applicability-11_7	root	entity-FrontMatter-3	entity-Applicability-11
+label	edge	id_entity-FrontMatter-3_entity-Applicability-11_7	0	applies_to	63.828125	21
+option	edge-label	id_entity-FrontMatter-3_entity-Applicability-11_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-FrontMatter-3_entity-Applicability-11_7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	656.953125	651
+place	entity-DocumentationSet-0	root	12.7734375	12	155.1875	81
+place	entity-DocumentationFile-1	root	12	194	156.734375	81
+place	entity-Page-2	root	214.15625	194	100	81
+place	entity-FrontMatter-3	root	61.796875	376	112.359375	81
+place	entity-Anchor-4	root	214.15625	376	100	81
+place	entity-Link-5	root	354.15625	376	100	81
+place	entity-InternalLink-6	root	207.9609375	12	112.390625	81
+place	entity-CrossLink-7	root	363.09375	12	102.25	81
+place	entity-CrossLinkUri-8	root	354.15625	194	120.125	81
+place	entity-IncludeDirective-9	root	505.34375	12	139.609375	81
+place	entity-Snippet-10	root	525.1484375	194	100	81
+place	entity-Applicability-11	root	61.0078125	558	113.9375	81
+route	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	root	root
+section	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0_s0	90.3671875,93	90.3671875,194		entity-DocumentationSet-0	entity-DocumentationFile-1
+place-label	edge	id_entity-DocumentationSet-0_entity-DocumentationFile-1_0	0	77.8671875	133	24.90625	21
+route	id_entity-Page-2_entity-FrontMatter-3_1	root	root
+section	id_entity-Page-2_entity-FrontMatter-3_1	id_entity-Page-2_entity-FrontMatter-3_1_s0	244.15625,275	117.9765625,376	244.15625,295 117.9765625,295	entity-Page-2	entity-FrontMatter-3
+place-label	edge	id_entity-Page-2_entity-FrontMatter-3_1	0	81.9765625	315	71.59375	21
+route	id_entity-Page-2_entity-Anchor-4_2	root	root
+section	id_entity-Page-2_entity-Anchor-4_2	id_entity-Page-2_entity-Anchor-4_2_s0	264.15625,275	264.15625,376		entity-Page-2	entity-Anchor-4
+place-label	edge	id_entity-Page-2_entity-Anchor-4_2	0	239.15625	315	49.8125	21
+route	id_entity-Page-2_entity-Link-5_3	root	root
+section	id_entity-Page-2_entity-Link-5_3	id_entity-Page-2_entity-Link-5_3_s0	284.15625,275	404.15625,376	284.15625,295 404.15625,295	entity-Page-2	entity-Link-5
+place-label	edge	id_entity-Page-2_entity-Link-5_3	0	389.65625	315	28.015625	21
+route	id_entity-InternalLink-6_entity-Page-2_4	root	root
+section	id_entity-InternalLink-6_entity-Page-2_4	id_entity-InternalLink-6_entity-Page-2_4_s0	264.15625,93	264.15625,194		entity-InternalLink-6	entity-Page-2
+place-label	edge	id_entity-InternalLink-6_entity-Page-2_4	0	246.15625	133	35.8125	21
+route	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	root	root
+section	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	id_entity-CrossLink-7_entity-CrossLinkUri-8_5_s0	414.21875,93	414.21875,194		entity-CrossLink-7	entity-CrossLinkUri-8
+place-label	edge	id_entity-CrossLink-7_entity-CrossLinkUri-8_5	0	380.71875	133	66.9375	21
+route	id_entity-IncludeDirective-9_entity-Snippet-10_6	root	root
+section	id_entity-IncludeDirective-9_entity-Snippet-10_6	id_entity-IncludeDirective-9_entity-Snippet-10_6_s0	575.1484375,93	575.1484375,194		entity-IncludeDirective-9	entity-Snippet-10
+place-label	edge	id_entity-IncludeDirective-9_entity-Snippet-10_6	0	552.6484375	133	44.375	21
+route	id_entity-FrontMatter-3_entity-Applicability-11_7	root	root
+section	id_entity-FrontMatter-3_entity-Applicability-11_7	id_entity-FrontMatter-3_entity-Applicability-11_7_s0	117.9765625,457	117.9765625,558		entity-FrontMatter-3	entity-Applicability-11
+place-label	edge	id_entity-FrontMatter-3_entity-Applicability-11_7	0	85.9765625	497	63.828125	21

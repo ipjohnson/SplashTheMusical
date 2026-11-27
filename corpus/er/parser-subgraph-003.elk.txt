@@ -1,0 +1,47 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c46cac5350e67d29
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	id	root
+option	node	id		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	id		nodeSize.minimum	(33.9375, 0)
+option	node	id		spacing.baseValue	24
+option	node	id		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id		elk.spacing.edgeEdge	20
+option	node	id		spacing.nodeNode	50
+option	node	id		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id		elk.layered.mergeEdges	false
+option	node	id		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	id	0	Title	25.9375	19
+node	entity-A-0	id	100	81
+node	entity-B-1	id	100	81
+result
+place	root		0	0	322	177
+place	id	root	12	12	298	153
+place-label	node	id	0	136.03125	5	25.9375	19
+place	entity-A-0	id	24	48	100	81
+place	entity-B-1	id	174	48	100	81

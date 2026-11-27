@@ -1,0 +1,132 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5efd39abba7d2514
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Auth	root
+option	node	Auth		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Auth		nodeSize.minimum	(36.8125, 0)
+option	node	Auth		spacing.baseValue	24
+option	node	Auth		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Auth		elk.spacing.edgeEdge	20
+option	node	Auth		spacing.nodeNode	50
+option	node	Auth		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Auth		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Auth		elk.layered.mergeEdges	false
+option	node	Auth		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Auth		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Auth		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Auth		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Auth		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Auth		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Auth	0	Auth	28.8125	19
+node	E	Auth	152	45
+option	node	E		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	F	Auth	144	85.14869689941406
+node	Backend	root
+option	node	Backend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Backend		nodeSize.minimum	(62.484375, 0)
+option	node	Backend		spacing.baseValue	24
+option	node	Backend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Backend		elk.spacing.edgeEdge	20
+option	node	Backend		spacing.nodeNode	50
+option	node	Backend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Backend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Backend		elk.layered.mergeEdges	false
+option	node	Backend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Backend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Backend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Backend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Backend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Backend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Backend	0	Backend	54.484375	19
+node	C	Backend	152	45
+option	node	C		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	D	Backend	144	85.14869689941406
+node	Frontend	root
+option	node	Frontend		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Frontend		nodeSize.minimum	(64.046875, 0)
+option	node	Frontend		spacing.baseValue	24
+option	node	Frontend		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Frontend		elk.spacing.edgeEdge	20
+option	node	Frontend		spacing.nodeNode	50
+option	node	Frontend		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Frontend		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Frontend		elk.layered.mergeEdges	false
+option	node	Frontend		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Frontend		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Frontend		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Frontend		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Frontend		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Frontend		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Frontend	0	Frontend	56.046875	19
+node	A	Frontend	152	45
+node	B	Frontend	152	45
+option	node	B		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_C_D_0	root	C	D
+label	edge	L_C_D_0	0		0	0
+option	edge-label	L_C_D_0	0	edgeLabels.inline	true
+option	edge-label	L_C_D_0	0	edgeLabels.placement	CENTER
+edge	L_E_F_0	root	E	F
+label	edge	L_E_F_0	0		0	0
+option	edge-label	L_E_F_0	0	edgeLabels.inline	true
+option	edge-label	L_E_F_0	0	edgeLabels.placement	CENTER
+edge	L_B_C_0	root	B	C
+label	edge	L_B_C_0	0		0	0
+option	edge-label	L_B_C_0	0	edgeLabels.inline	true
+option	edge-label	L_B_C_0	0	edgeLabels.placement	CENTER
+edge	L_B_E_0	root	B	E
+label	edge	L_B_E_0	0		0	0
+option	edge-label	L_B_E_0	0	edgeLabels.inline	true
+option	edge-label	L_B_E_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	464	496.14869689941406
+place	Auth	root	252	258	200	226.14869689941406
+place-label	node	Auth	0	85.59375	5	28.8125	19
+place	E	Auth	24	48	152	45
+place	F	Auth	27.999999999999986	117	144	85.14869689941406
+place	Backend	root	12	258	200	226.14869689941406
+place-label	node	Backend	0	72.7578125	5	54.484375	19
+place	C	Backend	24	48	152	45
+place	D	Backend	27.999999999999986	117	144	85.14869689941406
+place	Frontend	root	132	12	200	186
+place-label	node	Frontend	0	71.9765625	5	56.046875	19
+place	A	Frontend	24	48	152	45
+place	B	Frontend	24	117	152	45
+route	L_A_B_0	root	Frontend
+section	L_A_B_0	L_A_B_0_s0	99.99999999999999,93	99.99999999999999,117		A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_C_D_0	root	Backend
+section	L_C_D_0	L_C_D_0_s0	99.99999999999999,93	99.99999999999999,117		C	D
+place-label	edge	L_C_D_0	0	0	0	0	0
+route	L_E_F_0	root	Auth
+section	L_E_F_0	L_E_F_0_s0	99.99999999999999,93	99.99999999999999,117		E	F
+place-label	edge	L_E_F_0	0	0	0	0	0
+route	L_B_C_0	root	root
+section	L_B_C_0	L_B_C_0_s0	210.26666666666665,174	111.99999999999999,306	210.26666666666665,208 210.26666666666665,228 111.99999999999999,228 111.99999999999999,248	B	C
+place-label	edge	L_B_C_0	0	0	0	0	0
+route	L_B_E_0	root	root
+section	L_B_E_0	L_B_E_0_s0	253.7333333333333,174	352,306	253.7333333333333,208 253.7333333333333,228 352,228 352,248	B	E
+place-label	edge	L_B_E_0	0	0	0	0	0

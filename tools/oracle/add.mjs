@@ -3,7 +3,7 @@
 //   node add.mjs <find.mmd or folder>... [--corpus <dir>]
 //
 // A find is <type>/<name>.mmd, where <type> is the corpus folder of its diagram type, as the fuzzer writes it. Each
-// becomes <corpus>/<type>/fuzz-<name>.mmd with the facts, boxes and dagre files facts.mjs would write for it, and the
+// becomes <corpus>/<type>/fuzz-<name>.mmd with the facts, boxes, dagre and ELK files facts.mjs would write for it, and the
 // counts in the corpus README are rewritten. A find whose text is already a case of its type is left out. A folder adds
 // every find in it and its subfolders.
 import fs from 'node:fs'
@@ -54,6 +54,7 @@ for (const find of finds) {
 	fs.writeFileSync(base + '.facts.txt', result.facts)
 	if (result.boxes) fs.writeFileSync(base + '.boxes.txt', result.boxes)
 	if (result.dagre) fs.writeFileSync(base + '.dagre.txt', result.dagre)
+	if (result.elk) fs.writeFileSync(base + '.elk.txt', result.elk)
 	added.push(`${type}/${name}`)
 	console.log(`add  ${type}/${name}${result.error === undefined ? '' : ': ' + result.error.split('\n')[0]}`)
 }

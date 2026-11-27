@@ -1,0 +1,65 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8434de39937b9274
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	MyState	root	136	37
+option	node	MyState		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	MyState----parent	root
+option	node	MyState----parent		spacing.baseValue	24
+option	node	MyState----parent		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	MyState----parent		elk.spacing.edgeEdge	20
+option	node	MyState----parent		spacing.nodeNode	50
+option	node	MyState----parent		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	MyState----parent		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	MyState----parent		elk.layered.mergeEdges	false
+option	node	MyState----parent		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	MyState----parent		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	MyState----parent		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	MyState----parent		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	MyState----parent		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	MyState----parent		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	MyState----parent	0	I am a righty	77.03125	19
+node	MyState----note-0	MyState----parent	150	51
+option	node	MyState----note-0		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	MyState----note-1	MyState----parent	150	51
+option	node	MyState----note-1		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	MyState----note-0-MyState	root	MyState----note-0	MyState
+label	edge	MyState----note-0-MyState	0		0	0
+option	edge-label	MyState----note-0-MyState	0	edgeLabels.inline	true
+option	edge-label	MyState----note-0-MyState	0	edgeLabels.placement	CENTER
+edge	MyState-MyState----note-1	root	MyState----note-1	MyState
+label	edge	MyState-MyState----note-1	0		0	0
+option	edge-label	MyState-MyState----note-1	0	edgeLabels.inline	true
+option	edge-label	MyState-MyState----note-1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	422	234
+place	MyState	root	143	185	136	37
+place	MyState----parent	root	12	12	398	123
+place-label	node	MyState----parent	0	160.484375	5	77.03125	19
+place	MyState----note-0	MyState----parent	24	48	150	51
+place	MyState----note-1	MyState----parent	224	48	150	51
+route	MyState----note-0-MyState	root	root
+section	MyState----note-0-MyState	MyState----note-0-MyState_s0	110.99999999999999,111	191.66666666666669,185	110.99999999999999,145 110.99999999999999,165 191.66666666666669,165	MyState----note-0	MyState
+place-label	edge	MyState----note-0-MyState	0	0	0	0	0
+route	MyState-MyState----note-1	root	root
+section	MyState-MyState----note-1	MyState-MyState----note-1_s0	311,111	230.33333333333334,185	311,145 311,165 230.33333333333334,165	MyState----note-1	MyState
+place-label	edge	MyState-MyState----note-1	0	0	0	0	0

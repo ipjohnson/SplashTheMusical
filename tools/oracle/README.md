@@ -10,6 +10,7 @@ mise run oracle                              # cases in tools/oracle/cases, outp
 mise run oracle <cases> <facts-dir> <svg-dir>
 mise run oracle-test                         # node --test on facts.test.mjs and raster.test.mjs
 mise run raster                              # L4: corpus/l4.txt and .artifacts/raster
+mise run screenshots <cases>                 # the named cases side by side in .artifacts/screenshots
 ```
 
 Both tasks run `npm ci` in `tools/oracle` when `node_modules` is missing. Without mise, run
@@ -25,14 +26,16 @@ The run fails in these cases:
 
 - `mermaid.min.js` does not hold dagre's `layout` function exactly once. The [dagre dumps](#dagre-files) section says
   why the runner looks for it.
+- `mermaid.min.js` does not hold mermaid's `elk.layout` call exactly once. The [ELK files](#elk-files) section says why
+  the runner looks for it.
 
 The runner reads the cases of the folder and its subfolders. A case in a subfolder, such as `pie/docs-pie-001.mmd`,
-gets its facts, boxes, dagre and SVG files in the same subfolder of the output folders. A case's seed and SVG id come
+gets its facts, boxes, dagre, ELK and SVG files in the same subfolder of the output folders. A case's seed and SVG id come
 from its file name alone. `mise run corpus-oracle` runs it on `corpus/` with the facts folder set to `corpus/`, so each
 case's files sit beside it.
 
-Facts, boxes and dagre files whose case is no longer in the cases folder are deleted. A case that mermaid.js refuses
-has no boxes file and no dagre file.
+Facts, boxes, dagre and ELK files whose case is no longer in the cases folder are deleted, as is the dagre or ELK file
+of a case that no longer has one. A case that mermaid.js refuses has no boxes file, no dagre file and no ELK file.
 
 Each run writes these files to the facts folder:
 
@@ -41,6 +44,7 @@ Each run writes these files to the facts folder:
 | `<name>.facts.txt` | case | [Facts files](#facts-files) |
 | `<name>.boxes.txt` | accepted case | [Boxes files](#boxes-files) |
 | `<name>.dagre.txt` | accepted flowchart, state, class and ER case | [Dagre files](#dagre-files) |
+| `<name>.elk.txt` | accepted case that mermaid.js lays out with ELK | [ELK files](#elk-files) |
 | `themes.txt` | run | [Theme variables](#theme-variables) |
 | `config.txt` | run | [Default config](#default-config) |
 | `shapes.txt` | run | [Shape table](#shape-table) |
@@ -60,7 +64,7 @@ lines of its facts file. It records no dagre layout. `differential.sh` clones me
 
 A run writes `report.md`, each minimized find as `finds/<type>/<name>.mmd` and the source it came from as
 `original/<type>/<name>.mmd`. `add.mjs` writes a find as `corpus/<type>/fuzz-<name>.mmd` with its facts, boxes and
-dagre files, skips one whose text is already a case of its type, and rewrites the corpus counts. Fix the difference or
+dagre and ELK files, skips one whose text is already a case of its type, and rewrites the corpus counts. Fix the difference or
 list it in the type's ledger, then run `mise run raster`.
 
 `.github/workflows/fuzz-differential.yml` runs the fuzzer daily on macOS for 600 seconds per type. A run with finds
@@ -322,6 +326,52 @@ because dagre sizes it.
 
 The output is what dagre writes back to the graph. Label x and y are empty for an edge dagre gives no label position.
 
+## ELK files
+
+The runner writes `<name>.elk.txt` for each accepted case whose own render calls ELK, which at 12.3.0 is every case of
+a type mermaid lays out with its default `elk` layout, such as flowchart, state, class and ER, and any case whose
+config asks for an `elk` or `elk.*` layout. A case drawn with `layout: dagre` makes no ELK call and gets no file. The
+file records every ELK call of the case's render, in call order. The second render with `layout: dagre` that writes the
+dagre file is not recorded.
+
+mermaid's code calls ELK in one place, `graph = await elk.layout(elkGraph)` in `runElkLayout` of
+`src/rendering-util/layout-algorithms/elk/render.ts`. The runner finds that call in `mermaid.min.js` by the
+`layoutCore` profiler label around it, which minification keeps, and wraps it before the page loads the bundle: the
+hook hands the graph to the recorder before the call and the graph ELK returns after it. elkjs itself is run as it is;
+no file under `node_modules/elkjs` is read or changed. The run fails when the call is not found exactly once.
+
+The file has the same header as a facts file, with `# mermaid.js ELK layouts. Refresh with: mise run oracle` as its
+first line. Its lines are not sorted, and its escapes and numbers are written as in a [dagre file](#dagre-files). A
+field that lists ids separates them with spaces and writes a space in an id as `\s`. Points are `x,y` pairs separated
+by spaces.
+
+Each call is a `layout` line, the lines of the graph mermaid gives ELK, a `result` line and the lines of the graph ELK
+returns. Both graphs are walked in the same order: a node, its options, labels and ports, its children, then the edges
+it holds. Only the fields of ELK's JSON graph format are written; the fields mermaid adds to its nodes and edges that
+ELK does not read are left out.
+
+| Line | Fields |
+|---|---|
+| `layout` | the call's number, from 1 |
+| `node` | id, parent id or empty for the root, width, height, x, y. A field mermaid does not set is empty |
+| `port` | id, node id, width, height, x, y |
+| `edge` | id, id of the node whose `edges` holds it, source ids, target ids |
+| `label` | owner kind (`node`, `port` or `edge`), owner id, index, text, width, height, x, y |
+| `option` | owner kind (`node`, `port`, `edge`, `node-label`, `port-label` or `edge-label`), owner id, label index or empty, key, value. One per key of the owner's `layoutOptions`, in key order. A key whose value is `undefined` is left out, as ELK never sees it |
+| `property` | the same fields, for a key of the owner's `properties` |
+| `result` | none. The lines after it, up to the next `layout`, are ELK's output |
+| `place` | id, parent id or empty for the root, x, y, width, height. x and y are relative to the parent, as ELK gives them |
+| `place-port` | id, node id, x, y, width, height |
+| `place-label` | owner kind, owner id, index, x, y, width, height |
+| `route` | edge id, id of the node whose `edges` holds it, the edge's `container`, junction points |
+| `section` | edge id, section id, start point, end point, bend points, incoming shape, outgoing shape, incoming section ids, outgoing section ids. One per section of the `route` before it |
+
+`ElkRecords` in `tests/SplashTheMusical.Conformance` reads the files, and `ElkRecordsTests` reads every committed one.
+
+Like the boxes and dagre files, the committed ELK files come from macOS, because label sizes depend on the fonts
+Chromium falls back to. CI's `l4` job fails when a committed file differs from what it writes, and then uploads the
+corpus files it rewrote as its `oracle-corpus` artifact, whose files can be committed as they are.
+
 ## Theme variables
 
 `themes.txt` holds the computed variables of each theme in mermaid's themes table: `default`, `base`, `dark`,
@@ -509,6 +559,13 @@ The run writes these files:
 `corpus/l4.txt` is committed. `docs/parity-report.md` takes its L4 column from it, and `RasterOutcomesTests` in
 `tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build
 artifacts. Scores are not committed, because small differences between machines would change them.
+
+### Named cases
+
+With `STM_RASTER_CASES` set to a comma-separated list of case names, such as `flowchart/basic,state/notes`, the run
+takes only those cases and writes the side-by-side image of each, whatever its outcome and however many its type has.
+It fails when a name is not a corpus case, and it deletes nothing from the oracle raster folder. `mise run screenshots`
+runs it this way and writes the outcomes and images to `.artifacts/screenshots`, so `corpus/l4.txt` is unchanged.
 
 ### The oracle raster folder
 

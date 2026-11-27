@@ -266,6 +266,16 @@ internal static class FlowchartRenderer
 				svg.WriteAttribute("class", "label");
 				svg.WriteAttribute("data-id", edge.Id);
 				svg.WriteAttribute("transform", Translate(-label.Width / 2, -label.Height / 2));
+				if (style.EdgeLabelBackground is { } background)
+				{
+					svg.StartElement("rect");
+					svg.WriteAttribute("class", "background");
+					svg.WriteAttribute("width", label.Width);
+					svg.WriteAttribute("height", label.Height);
+					Paint(svg, "fill", background);
+					svg.EndElement();
+				}
+
 				WriteText(svg, label, style, "edgeLabel");
 				svg.EndElement();
 				svg.EndElement();
@@ -559,8 +569,15 @@ internal static class FlowchartRenderer
 
 		if (element.Kind is not ShapeElementKind.Group and not ShapeElementKind.Text)
 		{
-			Paint(svg, "fill", style.NodeFill);
-			Paint(svg, "stroke", style.NodeStroke);
+			if (!Sets(element, "fill"))
+			{
+				Paint(svg, "fill", style.NodeFill);
+			}
+
+			if (!Sets(element, "stroke"))
+			{
+				Paint(svg, "stroke", style.NodeStroke);
+			}
 		}
 
 		if (element.Attributes is { } attributes)
@@ -597,7 +614,7 @@ internal static class FlowchartRenderer
 
 		svg.StartElement("text");
 		svg.WriteAttribute("class", cls);
-		svg.WriteAttribute("text-anchor", "middle");
+		svg.WriteAttribute("text-anchor", label.AlignStart ? "start" : "middle");
 		svg.WriteAttribute("font-size", style.FontSize);
 		Paint(svg, "fill", style.TextColor);
 
@@ -613,7 +630,7 @@ internal static class FlowchartRenderer
 				svg.StartElement("tspan");
 				if (j == 0)
 				{
-					svg.WriteAttribute("x", label.Width / 2);
+					svg.WriteAttribute("x", label.AlignStart ? 0 : label.Width / 2);
 					svg.WriteAttribute("y", (i * label.LineHeight) + baseline);
 				}
 
@@ -634,6 +651,9 @@ internal static class FlowchartRenderer
 
 		svg.EndElement();
 	}
+
+	private static bool Sets(ShapeElement element, string name) =>
+		element.Attributes is { } attributes && attributes.Any(a => string.Equals(a.Key, name, StringComparison.Ordinal));
 
 	private static string WithStyleClass(string classes, string? styleClass) => styleClass is null ? classes : classes + " " + styleClass;
 

@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6920cc358188ce78
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	system performance requirement	root	321.90625	166
+node	test harness component	root	215.3125	124
+edge	test harness component-system performance requirement-0	root	test\sharness\scomponent	system\sperformance\srequirement
+label	edge	test harness component-system performance requirement-0	0	&lt;&lt;verifies&gt;&gt;	77.0625	21
+option	edge-label	test harness component-system performance requirement-0	0	edgeLabels.inline	true
+option	edge-label	test harness component-system performance requirement-0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	345.90625	415
+place	system performance requirement	root	12	237	321.90625	166
+place	test harness component	root	65.296875	12	215.3125	124
+route	test harness component-system performance requirement-0	root	root
+section	test harness component-system performance requirement-0	test harness component-system performance requirement-0_s0	172.953125,136	172.953125,237		test\sharness\scomponent	system\sperformance\srequirement
+place-label	edge	test harness component-system performance requirement-0	0	133.953125	176	77.0625	21

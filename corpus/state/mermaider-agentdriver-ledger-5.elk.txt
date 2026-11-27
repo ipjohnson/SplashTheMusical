@@ -1,0 +1,203 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4039435d3fe22168
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	proposed	root	136	37
+node	pending	root	136	37
+node	skipped	root	136	37
+node	running	root	136	37
+node	review	root	136	37
+node	done	root	136	37
+node	waiting	root	136	37
+node	interrupted	root	136	37
+node	attention	root	136	37
+node	paused	root	136	37
+node	cancelled	root	136	37
+edge	edge0	root	root_start	proposed
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	root_start	pending
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	proposed	pending
+label	edge	edge2	0	approve	50.59375	21
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	proposed	skipped
+label	edge	edge3	0	reject	34.234375	21
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	pending	running
+label	edge	edge4	0	start	27.234375	21
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	running	review
+label	edge	edge5	0	pull request open	107.421875	21
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	running	done
+label	edge	edge6	0	nothing to publish	109.765625	21
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	review	done
+label	edge	edge7	0	merged	47.46875	21
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	review	running
+label	edge	edge8	0	fix round	53.703125	21
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+edge	edge9	root	running	waiting
+label	edge	edge9	0	asked	37.359375	21
+option	edge-label	edge9	0	edgeLabels.inline	true
+option	edge-label	edge9	0	edgeLabels.placement	CENTER
+edge	edge10	root	waiting	running
+label	edge	edge10	0	answered	60.703125	21
+option	edge-label	edge10	0	edgeLabels.inline	true
+option	edge-label	edge10	0	edgeLabels.placement	CENTER
+edge	edge11	root	running	interrupted
+label	edge	edge11	0	driver fault	65.359375	21
+option	edge-label	edge11	0	edgeLabels.inline	true
+option	edge-label	edge11	0	edgeLabels.placement	CENTER
+edge	edge12	root	interrupted	pending
+label	edge	edge12	0	retry due	55.25	21
+option	edge-label	edge12	0	edgeLabels.inline	true
+option	edge-label	edge12	0	edgeLabels.placement	CENTER
+edge	edge13	root	interrupted	attention
+label	edge	edge13	0	driver budget spent	119.859375	21
+option	edge-label	edge13	0	edgeLabels.inline	true
+option	edge-label	edge13	0	edgeLabels.placement	CENTER
+edge	edge14	root	running	attention
+label	edge	edge14	0	rounds spent or gave up	151	21
+option	edge-label	edge14	0	edgeLabels.inline	true
+option	edge-label	edge14	0	edgeLabels.placement	CENTER
+edge	edge15	root	review	attention
+label	edge	edge15	0	closed without a merge	143.96875	21
+option	edge-label	edge15	0	edgeLabels.inline	true
+option	edge-label	edge15	0	edgeLabels.placement	CENTER
+edge	edge16	root	attention	pending
+label	edge	edge16	0	retry	28	21
+option	edge-label	edge16	0	edgeLabels.inline	true
+option	edge-label	edge16	0	edgeLabels.placement	CENTER
+edge	edge17	root	attention	done
+label	edge	edge17	0	mark done	66.15625	21
+option	edge-label	edge17	0	edgeLabels.inline	true
+option	edge-label	edge17	0	edgeLabels.placement	CENTER
+edge	edge18	root	pending	paused
+label	edge	edge18	0	pause	38.15625	21
+option	edge-label	edge18	0	edgeLabels.inline	true
+option	edge-label	edge18	0	edgeLabels.placement	CENTER
+edge	edge19	root	paused	pending
+label	edge	edge19	0	resume	46.6875	21
+option	edge-label	edge19	0	edgeLabels.inline	true
+option	edge-label	edge19	0	edgeLabels.placement	CENTER
+edge	edge20	root	pending	skipped
+label	edge	edge20	0	skip	24.90625	21
+option	edge-label	edge20	0	edgeLabels.inline	true
+option	edge-label	edge20	0	edgeLabels.placement	CENTER
+edge	edge21	root	pending	cancelled
+label	edge	edge21	0	cancel	40.46875	21
+option	edge-label	edge21	0	edgeLabels.inline	true
+option	edge-label	edge21	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1903.828125	600.9166666666665
+place	root_start	root	12	474.56249999999994	14	14
+place	proposed	root	86	482.81249999999994	136	37
+place	pending	root	352.59375	367.8958333333333	136	37
+place	skipped	root	675.28125	544.9791666666665	136	37
+place	running	root	675.28125	123.8958333333333	136	37
+place	review	root	1066.203125	53.145833333333314	136	37
+place	done	root	1755.828125	34.10416666666664	136	37
+place	waiting	root	1058.703125	137.14583333333331	136	37
+place	interrupted	root	1063.703125	276.81249999999994	136	37
+place	attention	root	1453.671875	235.7708333333333	136	37
+place	paused	root	675.28125	376.4791666666667	136	37
+place	cancelled	root	675.28125	457.6458333333333	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	26,480.56249999999994	86,501.31249999999994	46,480.56249999999994 46,501.31249999999994	root_start	proposed
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	26,482.56249999999994	352.59375,383.5625	66,482.56249999999994 66,370.3958333333333 154,370.3958333333333 287.296875,370.3958333333333 332.59375,370.3958333333333 332.59375,383.5625	root_start	pending
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	222,498.47916666666663	352.59375,389.22916666666663	242,498.47916666666663 242,404.7291666666667 332.59375,404.7291666666667 332.59375,389.22916666666663	proposed	pending
+place-label	edge	edge2	0	262	393.7291666666667	50.59375	21
+route	edge3	root	root
+section	edge3	edge3_s0	222,504.14583333333326	675.28125,566.3125	242,504.14583333333326 242,577.9166666666665 287.296875,577.9166666666665 611.9375,577.9166666666665 655.28125,577.9166666666665 655.28125,566.3125	proposed	skipped
+place-label	edge	edge3	0	403.4765625	566.9166666666665	34.234375	21
+route	edge4	root	root
+section	edge4	edge4_s0	488.59375,380.0208333333333	675.28125,142.39583333333331	508.59375,380.0208333333333 508.59375,142.39583333333331	pending	running
+place-label	edge	edge4	0	598.3203125	131.39583333333331	27.234375	21
+route	edge5	root	root
+section	edge5	edge5_s0	811.28125,138.14583333333331	1066.203125,68.81249999999997	851.28125,138.14583333333331 851.28125,57.33333333333333 1038.703125,57.33333333333333 1038.703125,68.81249999999997	running	review
+place-label	edge	edge5	0	911.28125	46.33333333333333	107.421875	21
+route	edge6	root	root
+section	edge6	edge6_s0	811.28125,136.02083333333331	1755.828125,48.35416666666664	831.28125,136.02083333333331 831.28125,23 964.9921875,23 1134.203125,23 1521.671875,23 1662.75,23 1715.828125,23 1715.828125,48.35416666666664	running	done
+place-label	edge	edge6	0	1266.8046875	12	109.765625	21
+route	edge7	root	root
+section	edge7	edge7_s0	1202.203125,68.81249999999997	1755.828125,52.60416666666664	1229.703125,68.81249999999997 1229.703125,62.3333333333333 1321.6875,62.3333333333333 1662.75,62.3333333333333 1715.828125,62.3333333333333 1715.828125,52.60416666666664	review	done
+place-label	edge	edge7	0	1497.9375	51.3333333333333	47.46875	21
+route	edge8	root	root
+section	edge8	edge8_s0	1066.203125,74.47916666666664	811.28125,140.27083333333331	1038.703125,74.47916666666664 1038.703125,99.3333333333333 871.28125,99.3333333333333 871.28125,140.27083333333331	review	running
+place-label	edge	edge8	0	938.140625	88.3333333333333	53.703125	21
+route	edge9	root	root
+section	edge9	edge9_s0	811.28125,142.39583333333331	1058.703125,152.81249999999997	891.28125,142.39583333333331 891.28125,141.33333333333331 1038.703125,141.33333333333331 1038.703125,152.81249999999997	running	waiting
+place-label	edge	edge9	0	946.3125	130.33333333333331	37.359375	21
+route	edge10	root	root
+section	edge10	edge10_s0	1058.703125,158.47916666666663	811.28125,144.52083333333331	1038.703125,158.47916666666663 1038.703125,183.33333333333331 871.28125,183.33333333333331 871.28125,144.52083333333331	waiting	running
+place-label	edge	edge10	0	934.640625	172.33333333333331	60.703125	21
+route	edge11	root	root
+section	edge11	edge11_s0	811.28125,148.77083333333331	1063.703125,292.47916666666663	831.28125,148.77083333333331 831.28125,286.1666666666667 1038.703125,286.1666666666667 1038.703125,292.47916666666663	running	interrupted
+place-label	edge	edge11	0	932.3125	275.1666666666667	65.359375	21
+route	edge12	root	root
+section	edge12	edge12_s0	1063.703125,298.14583333333326	488.59375,382.1458333333333	1038.703125,298.14583333333326 1038.703125,317.1666666666667 964.9921875,317.1666666666667 611.9375,317.1666666666667 528.59375,317.1666666666667 528.59375,382.1458333333333	interrupted	pending
+place-label	edge	edge12	0	715.65625	306.1666666666667	55.25	21
+route	edge13	root	root
+section	edge13	edge13_s0	1199.703125,295.31249999999994	1453.671875,255.97083333333327	1413.671875,295.31249999999994 1413.671875,255.97083333333327	interrupted	attention
+place-label	edge	edge13	0	1261.7578125	284.31249999999994	119.859375	21
+route	edge14	root	root
+section	edge14	edge14_s0	811.28125,146.64583333333331	1453.671875,252.57083333333327	851.28125,146.64583333333331 851.28125,225.8125 964.9921875,225.8125 1321.6875,225.8125 1413.671875,225.8125 1413.671875,252.57083333333327	running	attention
+place-label	edge	edge14	0	1058.703125	214.8125	151	21
+route	edge15	root	root
+section	edge15	edge15_s0	1202.203125,74.47916666666664	1453.671875,249.1708333333333	1229.703125,74.47916666666664 1229.703125,94.3333333333333 1433.671875,94.3333333333333 1433.671875,249.1708333333333	review	attention
+place-label	edge	edge15	0	1249.703125	83.3333333333333	143.96875	21
+route	edge16	root	root
+section	edge16	edge16_s0	1453.671875,259.3708333333333	488.59375,384.2708333333333	1433.671875,259.3708333333333 1433.671875,351 1321.6875,351 1134.203125,351 743.28125,351 611.9375,351 548.59375,351 548.59375,384.2708333333333	attention	pending
+place-label	edge	edge16	0	950.9921875	340	28	21
+route	edge17	root	root
+section	edge17	edge17_s0	1589.671875,254.2708333333333	1755.828125,56.85416666666664	1735.828125,254.2708333333333 1735.828125,56.85416666666664	attention	done
+place-label	edge	edge17	0	1629.671875	243.2708333333333	66.15625	21
+route	edge18	root	root
+section	edge18	edge18_s0	488.59375,386.3958333333333	675.28125,392.14583333333337	568.59375,386.3958333333333 568.59375,385.3333333333333 655.28125,385.3333333333333 655.28125,392.14583333333337	pending	paused
+place-label	edge	edge18	0	592.859375	374.3333333333333	38.15625	21
+route	edge19	root	root
+section	edge19	edge19_s0	675.28125,397.8125	488.59375,388.5208333333333	655.28125,397.8125 655.28125,427.3333333333333 548.59375,427.3333333333333 548.59375,388.5208333333333	paused	pending
+place-label	edge	edge19	0	588.59375	416.3333333333333	46.6875	21
+route	edge20	root	root
+section	edge20	edge20_s0	488.59375,392.7708333333333	675.28125,560.6458333333333	508.59375,392.7708333333333 508.59375,546.9166666666665 655.28125,546.9166666666665 655.28125,560.6458333333333	pending	skipped
+place-label	edge	edge20	0	599.484375	535.9166666666665	24.90625	21
+route	edge21	root	root
+section	edge21	edge21_s0	488.59375,390.6458333333333	675.28125,476.1458333333333	528.59375,390.6458333333333 528.59375,476.1458333333333	pending	cancelled
+place-label	edge	edge21	0	591.703125	465.1458333333333	40.46875	21

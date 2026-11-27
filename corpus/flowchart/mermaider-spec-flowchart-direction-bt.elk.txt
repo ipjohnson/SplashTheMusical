@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 592e2a0c91f9ecea
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	UP
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Bottom	root	152	45
+node	Middle	root	152	45
+node	Top	root	152	45
+edge	L_Bottom_Middle_0	root	Bottom	Middle
+label	edge	L_Bottom_Middle_0	0		0	0
+option	edge-label	L_Bottom_Middle_0	0	edgeLabels.inline	true
+option	edge-label	L_Bottom_Middle_0	0	edgeLabels.placement	CENTER
+edge	L_Middle_Top_0	root	Middle	Top
+label	edge	L_Middle_Top_0	0		0	0
+option	edge-label	L_Middle_Top_0	0	edgeLabels.inline	true
+option	edge-label	L_Middle_Top_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	176	239
+place	Bottom	root	12	182	152	45
+place	Middle	root	12	97	152	45
+place	Top	root	12	12	152	45
+route	L_Bottom_Middle_0	root	root
+section	L_Bottom_Middle_0	L_Bottom_Middle_0_s0	88,182	88,142		Bottom	Middle
+place-label	edge	L_Bottom_Middle_0	0	0	0	0	0
+route	L_Middle_Top_0	root	root
+section	L_Middle_Top_0	L_Middle_Top_0_s0	88,97	88,57		Middle	Top
+place-label	edge	L_Middle_Top_0	0	0	0	0	0

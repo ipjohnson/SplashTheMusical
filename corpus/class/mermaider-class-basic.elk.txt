@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 53acb787af289f9e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Animal	root	145.015625	198
+node	Dog	root	122.8125	156
+node	Cat	root	135.265625	156
+edge	id_Animal_Dog_1	root	Animal	Dog
+label	edge	id_Animal_Dog_1	0		0	0
+option	edge-label	id_Animal_Dog_1	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Dog_1	0	edgeLabels.placement	CENTER
+edge	id_Animal_Cat_2	root	Animal	Cat
+label	edge	id_Animal_Cat_2	0		0	0
+option	edge-label	id_Animal_Cat_2	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Cat_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	322.078125	418
+place	Animal	root	85.41796875	12	145.015625	198
+place	Dog	root	12	250	122.8125	156
+place	Cat	root	174.8125	250	135.265625	156
+route	id_Animal_Dog_1	root	root
+section	id_Animal_Dog_1	id_Animal_Dog_1_s0	137.08984375,210	73.40625,250	137.08984375,230 73.40625,230	Animal	Dog
+place-label	edge	id_Animal_Dog_1	0	0	0	0	0
+route	id_Animal_Cat_2	root	root
+section	id_Animal_Cat_2	id_Animal_Cat_2_s0	178.76171875,210	242.4453125,250	178.76171875,230 242.4453125,230	Animal	Cat
+place-label	edge	id_Animal_Cat_2	0	0	0	0	0

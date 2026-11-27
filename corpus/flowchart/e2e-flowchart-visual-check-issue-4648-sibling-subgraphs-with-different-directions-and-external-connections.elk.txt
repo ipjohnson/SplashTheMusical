@@ -1,0 +1,166 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9bcfd24d8f213bab
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Group3	root
+option	node	Group3		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Group3		nodeSize.minimum	(54.703125, 0)
+option	node	Group3		spacing.baseValue	24
+option	node	Group3		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Group3		elk.spacing.edgeEdge	20
+option	node	Group3		spacing.nodeNode	50
+option	node	Group3		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Group3		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Group3		elk.layered.mergeEdges	false
+option	node	Group3		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Group3		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Group3		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Group3		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Group3		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Group3		elk.algorithm	elk.layered
+option	node	Group3		elk.direction	RIGHT
+option	node	Group3		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Group3	0	Group3	46.703125	19
+node	C1	Group3	152	45
+option	node	C1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	C2	Group3	152	45
+node	C3	Group3	152	45
+node	Group2	root
+option	node	Group2		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Group2		nodeSize.minimum	(54.703125, 0)
+option	node	Group2		spacing.baseValue	24
+option	node	Group2		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Group2		elk.spacing.edgeEdge	20
+option	node	Group2		spacing.nodeNode	50
+option	node	Group2		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Group2		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Group2		elk.layered.mergeEdges	false
+option	node	Group2		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Group2		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Group2		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Group2		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Group2		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Group2		elk.algorithm	elk.layered
+option	node	Group2		elk.direction	RIGHT
+option	node	Group2		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Group2	0	Group2	46.703125	19
+node	B1	Group2	152	45
+option	node	B1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	B2	Group2	152	45
+node	B3	Group2	152	45
+option	node	B3		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Group1	root
+option	node	Group1		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Group1		nodeSize.minimum	(54.703125, 0)
+option	node	Group1		spacing.baseValue	24
+option	node	Group1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Group1		elk.spacing.edgeEdge	20
+option	node	Group1		spacing.nodeNode	50
+option	node	Group1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Group1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Group1		elk.layered.mergeEdges	false
+option	node	Group1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Group1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Group1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Group1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Group1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Group1		elk.algorithm	elk.layered
+option	node	Group1		elk.direction	DOWN
+option	node	Group1		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Group1	0	Group1	46.703125	19
+node	A1	Group1	152	45
+node	A2	Group1	152	45
+node	A3	Group1	152	45
+option	node	A3		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_A1_A2_0	root	A1	A2
+label	edge	L_A1_A2_0	0		0	0
+option	edge-label	L_A1_A2_0	0	edgeLabels.inline	true
+option	edge-label	L_A1_A2_0	0	edgeLabels.placement	CENTER
+edge	L_A2_A3_0	root	A2	A3
+label	edge	L_A2_A3_0	0		0	0
+option	edge-label	L_A2_A3_0	0	edgeLabels.inline	true
+option	edge-label	L_A2_A3_0	0	edgeLabels.placement	CENTER
+edge	L_B1_B2_0	root	B1	B2
+label	edge	L_B1_B2_0	0		0	0
+option	edge-label	L_B1_B2_0	0	edgeLabels.inline	true
+option	edge-label	L_B1_B2_0	0	edgeLabels.placement	CENTER
+edge	L_B2_B3_0	root	B2	B3
+label	edge	L_B2_B3_0	0		0	0
+option	edge-label	L_B2_B3_0	0	edgeLabels.inline	true
+option	edge-label	L_B2_B3_0	0	edgeLabels.placement	CENTER
+edge	L_C1_C2_0	root	C1	C2
+label	edge	L_C1_C2_0	0		0	0
+option	edge-label	L_C1_C2_0	0	edgeLabels.inline	true
+option	edge-label	L_C1_C2_0	0	edgeLabels.placement	CENTER
+edge	L_C2_C3_0	root	C2	C3
+label	edge	L_C2_C3_0	0		0	0
+option	edge-label	L_C2_C3_0	0	edgeLabels.inline	true
+option	edge-label	L_C2_C3_0	0	edgeLabels.placement	CENTER
+edge	L_A3_B1_0	root	A3	B1
+label	edge	L_A3_B1_0	0		0	0
+option	edge-label	L_A3_B1_0	0	edgeLabels.inline	true
+option	edge-label	L_A3_B1_0	0	edgeLabels.placement	CENTER
+edge	L_B3_C1_0	root	B3	C1
+label	edge	L_B3_C1_0	0		0	0
+option	edge-label	L_B3_C1_0	0	edgeLabels.inline	true
+option	edge-label	L_B3_C1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	224	909
+place	Group3	root	12	642	200	255
+place-label	node	Group3	0	76.6484375	5	46.703125	19
+place	C1	Group3	24	48	152	45
+place	C2	Group3	24	117	152	45
+place	C3	Group3	24	186	152	45
+place	Group2	root	12	327	200	255
+place-label	node	Group2	0	76.6484375	5	46.703125	19
+place	B1	Group2	24	48	152	45
+place	B2	Group2	24	117	152	45
+place	B3	Group2	24	186	152	45
+place	Group1	root	12	12	200	255
+place-label	node	Group1	0	76.6484375	5	46.703125	19
+place	A1	Group1	24	48	152	45
+place	A2	Group1	24	117	152	45
+place	A3	Group1	24	186	152	45
+route	L_A1_A2_0	root	Group1
+section	L_A1_A2_0	L_A1_A2_0_s0	99.99999999999999,93	99.99999999999999,117		A1	A2
+place-label	edge	L_A1_A2_0	0	0	0	0	0
+route	L_A2_A3_0	root	Group1
+section	L_A2_A3_0	L_A2_A3_0_s0	99.99999999999999,162	99.99999999999999,186		A2	A3
+place-label	edge	L_A2_A3_0	0	0	0	0	0
+route	L_B1_B2_0	root	Group2
+section	L_B1_B2_0	L_B1_B2_0_s0	99.99999999999999,93	99.99999999999999,117		B1	B2
+place-label	edge	L_B1_B2_0	0	0	0	0	0
+route	L_B2_B3_0	root	Group2
+section	L_B2_B3_0	L_B2_B3_0_s0	99.99999999999999,162	99.99999999999999,186		B2	B3
+place-label	edge	L_B2_B3_0	0	0	0	0	0
+route	L_C1_C2_0	root	Group3
+section	L_C1_C2_0	L_C1_C2_0_s0	99.99999999999999,93	99.99999999999999,117		C1	C2
+place-label	edge	L_C1_C2_0	0	0	0	0	0
+route	L_C2_C3_0	root	Group3
+section	L_C2_C3_0	L_C2_C3_0_s0	99.99999999999999,162	99.99999999999999,186		C2	C3
+place-label	edge	L_C2_C3_0	0	0	0	0	0
+route	L_A3_B1_0	root	root
+section	L_A3_B1_0	L_A3_B1_0_s0	111.99999999999999,243	111.99999999999999,375	111.99999999999999,277 111.99999999999999,317	A3	B1
+place-label	edge	L_A3_B1_0	0	0	0	0	0
+route	L_B3_C1_0	root	root
+section	L_B3_C1_0	L_B3_C1_0_s0	111.99999999999999,558	111.99999999999999,690	111.99999999999999,592 111.99999999999999,632	B3	C1
+place-label	edge	L_B3_C1_0	0	0	0	0	0

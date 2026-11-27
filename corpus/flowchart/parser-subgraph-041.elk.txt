@@ -1,0 +1,57 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source ecbf1822ee4af894
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	WithTD	root
+option	node	WithTD		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	WithTD		nodeSize.minimum	(54.671875, 0)
+option	node	WithTD		spacing.baseValue	24
+option	node	WithTD		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	WithTD		elk.spacing.edgeEdge	20
+option	node	WithTD		spacing.nodeNode	50
+option	node	WithTD		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	WithTD		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	WithTD		elk.layered.mergeEdges	false
+option	node	WithTD		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	WithTD		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	WithTD		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	WithTD		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	WithTD		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	WithTD		elk.algorithm	elk.layered
+option	node	WithTD		elk.direction	DOWN
+option	node	WithTD		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	WithTD	0	WithTD	46.671875	19
+node	A1	WithTD	152	45
+node	A2	WithTD	152	45
+edge	L_A1_A2_0	root	A1	A2
+label	edge	L_A1_A2_0	0		0	0
+option	edge-label	L_A1_A2_0	0	edgeLabels.inline	true
+option	edge-label	L_A1_A2_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	224	210
+place	WithTD	root	12	12	200	186
+place-label	node	WithTD	0	76.6640625	5	46.671875	19
+place	A1	WithTD	24	48	152	45
+place	A2	WithTD	24	117	152	45
+route	L_A1_A2_0	root	WithTD
+section	L_A1_A2_0	L_A1_A2_0_s0	99.99999999999999,93	99.99999999999999,117		A1	A2
+place-label	edge	L_A1_A2_0	0	0	0	0	0

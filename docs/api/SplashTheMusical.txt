@@ -1014,7 +1014,6 @@ public enum ClassInteractionKind : int
   ClickHref = 3
   Link = 1
 public sealed class ClassLayout : DiagramLayout
-  public ClassLayout()
 public enum ClassLineStyle : int
   Dotted = 1
   Solid = 0
@@ -1114,7 +1113,6 @@ public sealed class ErEntity : ErStatement
   public string Name { get; }
   public string? Alias { get; set; }
 public sealed class ErLayout : DiagramLayout
-  public ErLayout()
 public sealed class ErModule : DiagramModule<ErDocument, ErLayout>
   public ErModule()
   public override ErDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
@@ -1270,6 +1268,88 @@ public sealed class InfoModule : DiagramModule<InfoDocument, InfoLayout>
   public override string DiagramType { get; }
   public override void Render(InfoDocument document, InfoLayout layout, SvgWriter svg, DiagramRenderContext context)
   public override void Write(InfoDocument document, StringBuilder output)
+
+namespace SplashTheMusical.Diagrams.Requirement
+public sealed class RequirementBuilder
+  public RequirementBuilder Element(string name, string? type = null, string? docRef = null)
+  public RequirementBuilder Relationship(string source, RequirementRelationshipType type, string target)
+  public RequirementBuilder Requirement(string name, RequirementKind kind = 0, string? id = null, string? text = null, RequirementRisk? risk = null, RequirementVerifyMethod? verifyMethod = null)
+  public RequirementBuilder(string direction = "TB")
+  public RequirementDocument Build()
+public sealed class RequirementClassAssignment : RequirementStatement
+  public List<string> Classes { get; }
+  public List<string> Ids { get; }
+  public RequirementClassAssignment(List<string> ids, List<string> classes)
+public sealed class RequirementClassDefinition : RequirementStatement
+  public List<string> Names { get; }
+  public List<string> Styles { get; }
+  public RequirementClassDefinition(List<string> names, List<string> styles)
+public sealed class RequirementDefinition : RequirementStatement
+  public List<string>? Classes { get; set; }
+  public RequirementDefinition(string name, RequirementKind kind = 0)
+  public RequirementKind Kind { get; }
+  public RequirementRisk? Risk { get; set; }
+  public RequirementVerifyMethod? VerifyMethod { get; set; }
+  public string Name { get; }
+  public string? Id { get; set; }
+  public string? Text { get; set; }
+public sealed class RequirementDirection : RequirementStatement
+  public RequirementDirection(string direction)
+  public string Direction { get; }
+public sealed class RequirementDocument : MermaidDocument
+  public List<RequirementStatement> Statements { get; init; }
+  public RequirementDocument()
+  public override string DiagramType { get; }
+public sealed class RequirementElement : RequirementStatement
+  public List<string>? Classes { get; set; }
+  public RequirementElement(string name)
+  public string Name { get; }
+  public string? DocRef { get; set; }
+  public string? Type { get; set; }
+public enum RequirementKind : int
+  DesignConstraint = 5
+  FunctionalRequirement = 1
+  InterfaceRequirement = 2
+  PerformanceRequirement = 3
+  PhysicalRequirement = 4
+  Requirement = 0
+public sealed class RequirementLayout : DiagramLayout
+public sealed class RequirementModule : DiagramModule<RequirementDocument, RequirementLayout>
+  public RequirementModule()
+  public override RequirementDocument? Parse(ReadOnlySpan<char> source, DiagramParseContext context)
+  public override RequirementLayout Layout(RequirementDocument document, DiagramRenderContext context)
+  public override bool Detect(ReadOnlySpan<char> text)
+  public override string DiagramType { get; }
+  public override void Render(RequirementDocument document, RequirementLayout layout, SvgWriter svg, DiagramRenderContext context)
+  public override void Write(RequirementDocument document, StringBuilder output)
+public sealed class RequirementRelationship : RequirementStatement
+  public RequirementRelationship(string source, string target, RequirementRelationshipType type)
+  public RequirementRelationshipType Type { get; }
+  public string Source { get; }
+  public string Target { get; }
+public enum RequirementRelationshipType : int
+  Contains = 0
+  Copies = 1
+  Derives = 2
+  Refines = 5
+  Satisfies = 3
+  Traces = 6
+  Verifies = 4
+public enum RequirementRisk : int
+  High = 2
+  Low = 0
+  Medium = 1
+public abstract class RequirementStatement
+  protected RequirementStatement()
+public sealed class RequirementStyle : RequirementStatement
+  public List<string> Ids { get; }
+  public List<string> Styles { get; }
+  public RequirementStyle(List<string> ids, List<string> styles)
+public enum RequirementVerifyMethod : int
+  Analysis = 0
+  Demonstration = 1
+  Inspection = 2
+  Test = 3
 
 namespace SplashTheMusical.Diagrams.State
 public sealed class StateBlock : StateStatement

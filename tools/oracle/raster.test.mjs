@@ -37,11 +37,11 @@ function fixture({ dropOracleSvg } = {}) {
 	return dir
 }
 
-const run = (dir, { cache } = {}) =>
+const run = (dir, { cache, cases } = {}) =>
 	spawnSync(
 		process.execPath,
 		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4.txt', 'images', ...(cache ? ['cache'] : [])].map(f => path.join(dir, f))],
-		{ encoding: 'utf8' },
+		{ encoding: 'utf8', env: { ...process.env, STM_RASTER_CASES: cases ?? '' } },
 	)
 
 const readScores = dir => fs.readFileSync(path.join(dir, 'images', 'scores.txt'), 'utf8')
@@ -137,4 +137,27 @@ test('fails when mermaid.js accepts a case and its SVG is missing', () => {
 	const result = run(dir)
 	assert.equal(result.status, 1)
 	assert.match(result.stderr, /pie\/same: mermaid.js accepts it/)
+})
+
+test('with named cases, draws only those side by side, passing ones too, and keeps the rest of the cache', () => {
+	const dir = fixture()
+	assert.equal(run(dir, { cache: true }).status, 0)
+
+	const result = run(dir, { cache: true, cases: 'pie/same, pie/differ' })
+	assert.equal(result.status, 0, result.stderr)
+	assert.match(result.stdout, /2 read from .*, 0 drawn, 0 files deleted/)
+	assert.equal(
+		fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8'),
+		['# L4 outcomes. Refresh with: mise run raster', 'pie/differ\tfail', 'pie/same\tpass', ''].join('\n'),
+	)
+	const images = fs.readdirSync(path.join(dir, 'images'), { recursive: true }).filter(f => f.endsWith('.png')).sort()
+	assert.deepEqual(images, ['pie/differ.png', 'pie/same.png'].map(f => f.split('/').join(path.sep)))
+	assert.deepEqual(cacheFiles(dir), ['mindmap/differ', 'pie/differ', 'pie/no-stm', 'pie/same'].flatMap(n => [n + '.key', n + '.png']))
+})
+
+test('fails on a named case that is not in the corpus', () => {
+	const dir = fixture()
+	const result = run(dir, { cases: 'pie/same,pie/missing' })
+	assert.equal(result.status, 1)
+	assert.match(result.stderr, /not corpus cases: pie\/missing/)
 })

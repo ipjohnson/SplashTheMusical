@@ -91,6 +91,24 @@ internal sealed class FlowchartMeasure
 
 	public FlowchartFont Font { get; }
 
+	/// <summary>The width a node label without its own width wraps at: the configured wrapping width, or 200 when it is unset or 0.</summary>
+	public double WrappingWidth => _wrappingWidth;
+
+	/// <summary>The font size a diagram's stylesheet gives its edge labels, or <c>null</c> for the theme's.</summary>
+	public double? EdgeLabelFontSize { get; init; }
+
+	/// <summary><c>markdownAutoWrap</c>, which is on unless the config sets it false.</summary>
+	public bool MarkdownAutoWrap => _markdownAutoWrap;
+
+	/// <summary>The <c>er</c> config and theme values an entity's <c>erBox</c> reads, or <c>null</c> outside an ER diagram.</summary>
+	public Er.ErBoxSettings? ErBox { get; init; }
+
+	/// <summary><c>createText</c>'s label of <paramref name="text"/> at <paramref name="wrapWidth"/>, as HTML or as SVG text.</summary>
+	public FlowchartLabelBox Text(string text, FlowchartLabelType type, double wrapWidth, bool html) =>
+		html
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(text, type, true, _markdownAutoWrap), Font, wrapWidth, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(text, type), Font, wrapWidth, 0, false);
+
 	/// <summary>Draws the node's shape at its label's size and gives the node the size of the drawing.</summary>
 	public void Node(FlowNode node, string direction)
 	{
@@ -116,6 +134,24 @@ internal sealed class FlowchartMeasure
 			return;
 		}
 
+		if (node is { Shape: "classBox", ClassBox: { } content })
+		{
+			Class.ClassBox.Measure(this, node, content);
+			return;
+		}
+
+		if (node.Shape == "erBox" && ErBox is { } erBox)
+		{
+			Er.ErBox.Draw(this, erBox, node);
+			return;
+		}
+
+		if (node is { Shape: "requirementBox", RequirementBox: { } requirement })
+		{
+			Requirement.RequirementBox.Draw(this, requirement, node);
+			return;
+		}
+
 		var lines = NodeHtmlLabels ? FlowchartLabelText.Lines(node.Label, node.LabelType, true, _markdownAutoWrap) : FlowchartLabels.SvgLines(node.Label, node.LabelType);
 		var pictured = node.Shape is "icon" or "iconCircle" or "iconRounded" or "iconSquare" or "imageSquare";
 		var measurer = new LabelMeasurer(this, lines, node.Label.Length > 0)
@@ -124,6 +160,7 @@ internal sealed class FlowchartMeasure
 			Inset = NodeHtmlLabels && pictured && lines.Count > 0 ? PicturedLabelPadding : 0,
 			Images = NodeHtmlLabels ? FlowchartLabels.Images(node.Label) : default,
 			HasMinWidth = !node.IsSubgraph && !node.IsGroup,
+			NoWrap = NodeHtmlLabels && NoWrap(node),
 		};
 		var vertex = node.Vertex;
 		var imageSide = vertex?.AssetHeight ?? vertex?.AssetWidth ?? DefaultImageSide;
@@ -210,9 +247,10 @@ internal sealed class FlowchartMeasure
 	/// <summary>Sizes the edge's label, which dagre makes room for. An SVG label has a background 2 wider on each side.</summary>
 	public void Edge(FlowEdge edge)
 	{
+		var font = EdgeLabelFontSize is { } size ? new FlowchartFont(Font.Measurer, Font.Family, size) : Font;
 		var box = EdgeHtmlLabels
-			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true, _markdownAutoWrap), Font, DefaultWrapWidth, 0, true)
-			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), Font, DefaultWrapWidth, 0, edge.Label.Length > 0);
+			? FlowchartLabelText.Measure(FlowchartLabelText.Lines(edge.Label, edge.LabelType, true, _markdownAutoWrap), font, DefaultWrapWidth, 0, true)
+			: FlowchartLabelText.MeasureSvg(FlowchartLabels.SvgLines(edge.Label, edge.LabelType), font, DefaultWrapWidth, 0, edge.Label.Length > 0);
 		edge.LabelBox = box;
 		edge.Width = box.Width;
 		edge.Height = box.Height;
@@ -298,6 +336,25 @@ internal sealed class FlowchartMeasure
 		return end > 0 && double.TryParse(span[..end], NumberStyles.Float, CultureInfo.InvariantCulture, out var value) ? value : null;
 	}
 
+	/// <summary>
+	/// Whether the node's styles end with <c>white-space: nowrap</c>, which <c>styles2String</c> gives the label's
+	/// <c>span</c>. A class diagram's note has it.
+	/// </summary>
+	private static bool NoWrap(FlowNode node)
+	{
+		string? value = null;
+		foreach (var style in node.CssCompiledStyles.Concat(node.CssStyles))
+		{
+			var parts = style.Split(':');
+			if (parts[0].Trim() == "white-space")
+			{
+				value = parts.Length > 1 ? parts[1].Trim().TrimEnd(';').Trim() : null;
+			}
+		}
+
+		return value == "nowrap";
+	}
+
 	/// <summary><c>labelHelper</c>'s measurement of a node's label at the width the shape sets.</summary>
 	private sealed class LabelMeasurer(FlowchartMeasure measure, List<List<LabelRun>> lines, bool hasLabel) : IShapeLabelMeasurer
 	{
@@ -315,6 +372,12 @@ internal sealed class FlowchartMeasure
 		/// <summary>The padding of each side of the label's <c>p</c>.</summary>
 		public double Inset { get; init; }
 
+		/// <summary>
+		/// Whether the HTML label's <c>span</c> has <c>white-space: nowrap</c>. Its lines then do not wrap: when the
+		/// <c>div</c> reaches the wrapping width, <c>addHtmlSpan</c> makes it a table, which widens to the unbroken lines.
+		/// </summary>
+		public bool NoWrap { get; init; }
+
 		/// <summary>The label's <c>img</c> tags.</summary>
 		public (int WithSource, int WithoutSource) Images { get; init; }
 
@@ -323,7 +386,7 @@ internal sealed class FlowchartMeasure
 			var width = Truthy(nodeWidth) ? nodeWidth!.Value : measure._wrappingWidth;
 			var minWidth = hasLabel && !Truthy(nodeWidth) && !ignoreMinWidth && HasMinWidth ? measure._minNodeWidth : 0;
 			Box = measure.NodeHtmlLabels
-				? FlowchartLabelText.Measure(lines, measure.Font, width, minWidth, true, Inset)
+				? FlowchartLabelText.Measure(lines, measure.Font, NoWrap ? double.PositiveInfinity : width, minWidth, true, Inset)
 				: FlowchartLabelText.MeasureSvg(lines, measure.Font, width, minWidth, false);
 			if (ExtraLines > 0)
 			{

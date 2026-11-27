@@ -1,0 +1,141 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source db4aa3083cae19b2
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Storage	root
+option	node	Storage		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Storage		nodeSize.minimum	(57.046875, 0)
+option	node	Storage		spacing.baseValue	24
+option	node	Storage		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Storage		elk.spacing.edgeEdge	20
+option	node	Storage		spacing.nodeNode	50
+option	node	Storage		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Storage		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Storage		elk.layered.mergeEdges	false
+option	node	Storage		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Storage		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Storage		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Storage		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Storage		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Storage		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Storage	0	Storage	49.046875	19
+node	DB	Storage	144	85.14869689941406
+option	node	DB		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Services	root
+option	node	Services		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Services		nodeSize.minimum	(61.6875, 0)
+option	node	Services		spacing.baseValue	24
+option	node	Services		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Services		elk.spacing.edgeEdge	20
+option	node	Services		spacing.nodeNode	50
+option	node	Services		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Services		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Services		elk.layered.mergeEdges	false
+option	node	Services		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Services		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Services		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Services		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Services		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Services		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Services	0	Services	53.6875	19
+node	API	Services	152	45
+option	node	API		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Auth	Services	152	45
+option	node	Auth		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Orders	Services	152	45
+option	node	Orders		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Client	root
+option	node	Client		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Client		nodeSize.minimum	(43.796875, 0)
+option	node	Client		spacing.baseValue	24
+option	node	Client		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Client		elk.spacing.edgeEdge	20
+option	node	Client		spacing.nodeNode	50
+option	node	Client		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Client		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Client		elk.layered.mergeEdges	false
+option	node	Client		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Client		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Client		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Client		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Client		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Client		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Client	0	Client	35.796875	19
+node	UI	Client	152	45
+option	node	UI		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Cache	Client	144	85.14869689941406
+edge	L_UI_API_0	root	UI	API
+label	edge	L_UI_API_0	0		0	0
+option	edge-label	L_UI_API_0	0	edgeLabels.inline	true
+option	edge-label	L_UI_API_0	0	edgeLabels.placement	CENTER
+edge	L_UI_Cache_0	root	UI	Cache
+label	edge	L_UI_Cache_0	0		0	0
+option	edge-label	L_UI_Cache_0	0	edgeLabels.inline	true
+option	edge-label	L_UI_Cache_0	0	edgeLabels.placement	CENTER
+edge	L_API_Auth_0	root	API	Auth
+label	edge	L_API_Auth_0	0		0	0
+option	edge-label	L_API_Auth_0	0	edgeLabels.inline	true
+option	edge-label	L_API_Auth_0	0	edgeLabels.placement	CENTER
+edge	L_API_Orders_0	root	API	Orders
+label	edge	L_API_Orders_0	0		0	0
+option	edge-label	L_API_Orders_0	0	edgeLabels.inline	true
+option	edge-label	L_API_Orders_0	0	edgeLabels.placement	CENTER
+edge	L_Orders_DB_0	root	Orders	DB
+label	edge	L_Orders_DB_0	0		0	0
+option	edge-label	L_Orders_DB_0	0	edgeLabels.inline	true
+option	edge-label	L_Orders_DB_0	0	edgeLabels.placement	CENTER
+edge	L_Auth_UI_0	root	UI	Auth
+label	edge	L_Auth_UI_0	0	token	34.25	21
+option	edge-label	L_Auth_UI_0	0	edgeLabels.inline	true
+option	edge-label	L_Auth_UI_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1226.25	257.04869689941404
+place	Storage	root	1022.25	12	192	157.14869689941406
+place-label	node	Storage	0	71.4765625	5	49.046875	19
+place	DB	Storage	24	48	144	85.14869689941406
+place	Services	root	550.25	32.07434844970703	412	212
+place-label	node	Services	0	179.15625	5	53.6875	19
+place	API	Services	24	51.900000000000006	152	45
+place	Auth	Services	236	143	152	45
+place	Orders	Services	236	48	152	45
+place	Client	root	12	38.900000000000006	404	206.14869689941406
+place-label	node	Client	0	184.1015625	5	35.796875	19
+place	UI	Client	24	93.07434844970703	152	45
+place	Cache	Client	236	73	144	85.14869689941406
+route	L_UI_API_0	root	root
+section	L_UI_API_0	L_UI_API_0_s0	188,148.62434844970704	574.25,106.47434844970704	218,148.62434844970704 218,98.9 426,98.9 446,98.9 446,106.47434844970704 483.125,106.47434844970704 540.25,106.47434844970704	UI	API
+place-label	edge	L_UI_API_0	0	0	0	0	0
+route	L_UI_Cache_0	root	Client
+section	L_UI_Cache_0	L_UI_Cache_0_s0	176,115.57434844970703	236,115.57434844970703		UI	Cache
+place-label	edge	L_UI_Cache_0	0	0	0	0	0
+route	L_API_Auth_0	root	Services
+section	L_API_Auth_0	L_API_Auth_0_s0	176,78.30000000000001	236,161.6	206,78.30000000000001 206,161.6	API	Auth
+place-label	edge	L_API_Auth_0	0	0	0	0	0
+route	L_API_Orders_0	root	Services
+section	L_API_Orders_0	L_API_Orders_0_s0	176,70.5	236,70.5		API	Orders
+place-label	edge	L_API_Orders_0	0	0	0	0	0
+route	L_Orders_DB_0	root	root
+section	L_Orders_DB_0	L_Orders_DB_0_s0	938.25,102.57434844970703	1046.25,102.57434844970703	972.25,102.57434844970703 1012.25,102.57434844970703	Orders	DB
+place-label	edge	L_Orders_DB_0	0	0	0	0	0
+route	L_Auth_UI_0	root	root
+section	L_Auth_UI_0	L_Auth_UI_0_s0	188,160.32434844970703	786.25,201.47434844970704	218,160.32434844970703 218,209.04869689941407 426,209.04869689941407 446,209.04869689941407 446,201.47434844970704 540.25,201.47434844970704	UI	Auth
+place-label	edge	L_Auth_UI_0	0	466	190.47434844970704	34.25	21

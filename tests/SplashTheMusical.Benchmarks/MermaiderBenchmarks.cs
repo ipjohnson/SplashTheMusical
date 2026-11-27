@@ -17,7 +17,7 @@ public class MermaiderBenchmarks
 	public static IEnumerable<string> Cases() =>
 		from c in BenchmarkSet.Selected()
 		from stage in new[] { "parse", "render" }
-		where Runs(stage, c.Source)
+		where BenchmarkSet.Measures(c.Id + "/" + stage) && Runs(stage, c.Source)
 		select c.Id + "/" + stage;
 
 	/// <summary>The case id and the stage, as <c>case/stage</c>.</summary>

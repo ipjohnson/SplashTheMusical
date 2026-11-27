@@ -1,0 +1,56 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 5bfc42bf4c5a2a2e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CUSTOMER-0	root	119.859375	81
+node	entity-u-1	root	100	81
+node	entity-ORDER-2	root	100	81
+node	entity-PROJECT-3	root	105.34375	81
+node	entity-TEAM_MEMBER-4	root	148.125	81
+edge	id_entity-CUSTOMER-0_entity-u-1_0	root	entity-CUSTOMER-0	entity-u-1
+label	edge	id_entity-CUSTOMER-0_entity-u-1_0	0	has	22.578125	21
+option	edge-label	id_entity-CUSTOMER-0_entity-u-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CUSTOMER-0_entity-u-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-u-1_entity-ORDER-2_1	root	entity-u-1	entity-ORDER-2
+label	edge	id_entity-u-1_entity-ORDER-2_1	0	places	40.46875	21
+option	edge-label	id_entity-u-1_entity-ORDER-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-u-1_entity-ORDER-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	root	entity-PROJECT-3	entity-TEAM_MEMBER-4
+label	edge	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	0	parent	39.703125	21
+option	edge-label	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	322.0546875	469
+place	entity-CUSTOMER-0	root	12	12	119.859375	81
+place	entity-u-1	root	21.9296875	194	100	81
+place	entity-ORDER-2	root	21.9296875	376	100	81
+place	entity-PROJECT-3	root	183.3203125	12	105.34375	81
+place	entity-TEAM_MEMBER-4	root	161.9296875	194	148.125	81
+route	id_entity-CUSTOMER-0_entity-u-1_0	root	root
+section	id_entity-CUSTOMER-0_entity-u-1_0	id_entity-CUSTOMER-0_entity-u-1_0_s0	71.9296875,93	71.9296875,194		entity-CUSTOMER-0	entity-u-1
+place-label	edge	id_entity-CUSTOMER-0_entity-u-1_0	0	60.4296875	133	22.578125	21
+route	id_entity-u-1_entity-ORDER-2_1	root	root
+section	id_entity-u-1_entity-ORDER-2_1	id_entity-u-1_entity-ORDER-2_1_s0	71.9296875,275	71.9296875,376		entity-u-1	entity-ORDER-2
+place-label	edge	id_entity-u-1_entity-ORDER-2_1	0	51.4296875	315	40.46875	21
+route	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	root	root
+section	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2_s0	235.9921875,93	235.9921875,194		entity-PROJECT-3	entity-TEAM_MEMBER-4
+place-label	edge	id_entity-PROJECT-3_entity-TEAM_MEMBER-4_2	0	215.9921875	133	39.703125	21

@@ -1,0 +1,145 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 254237d5abc35e02
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Split	root
+option	node	Split		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Split		nodeSize.minimum	(35.234375, 0)
+option	node	Split		spacing.baseValue	24
+option	node	Split		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Split		elk.spacing.edgeEdge	20
+option	node	Split		spacing.nodeNode	50
+option	node	Split		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Split		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Split		elk.layered.mergeEdges	false
+option	node	Split		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Split		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Split		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Split		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Split		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Split		elk.algorithm	elk.layered
+option	node	Split		elk.direction	DOWN
+option	node	Split		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Split	0	Split	27.234375	19
+node	divider-id-1	Split
+option	node	divider-id-1		spacing.baseValue	24
+option	node	divider-id-1		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	divider-id-1		elk.spacing.edgeEdge	20
+option	node	divider-id-1		spacing.nodeNode	50
+option	node	divider-id-1		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	divider-id-1		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	divider-id-1		elk.layered.mergeEdges	false
+option	node	divider-id-1		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	divider-id-1		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	divider-id-1		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	divider-id-1		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	divider-id-1		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	divider-id-1		elk.algorithm	elk.layered
+option	node	divider-id-1		elk.direction	DOWN
+option	node	divider-id-1		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	divider-id-1	0		0	0
+node	divider-id-1_start	divider-id-1	14	14
+node	Left	divider-id-1	136	37
+node	id-264eg0bl4jc-102	Split
+option	node	id-264eg0bl4jc-102		spacing.baseValue	24
+option	node	id-264eg0bl4jc-102		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	id-264eg0bl4jc-102		elk.spacing.edgeEdge	20
+option	node	id-264eg0bl4jc-102		spacing.nodeNode	50
+option	node	id-264eg0bl4jc-102		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	id-264eg0bl4jc-102		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	id-264eg0bl4jc-102		elk.layered.mergeEdges	false
+option	node	id-264eg0bl4jc-102		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	id-264eg0bl4jc-102		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	id-264eg0bl4jc-102		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	id-264eg0bl4jc-102		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	id-264eg0bl4jc-102		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	id-264eg0bl4jc-102		elk.algorithm	elk.layered
+option	node	id-264eg0bl4jc-102		elk.direction	DOWN
+option	node	id-264eg0bl4jc-102		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	id-264eg0bl4jc-102	0		0	0
+node	id-264eg0bl4jc-102_start	id-264eg0bl4jc-102	14	14
+node	Right	id-264eg0bl4jc-102	136	37
+node	Neighbour	root
+option	node	Neighbour		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Neighbour		nodeSize.minimum	(72.609375, 0)
+option	node	Neighbour		spacing.baseValue	24
+option	node	Neighbour		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Neighbour		elk.spacing.edgeEdge	20
+option	node	Neighbour		spacing.nodeNode	50
+option	node	Neighbour		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Neighbour		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Neighbour		elk.layered.mergeEdges	false
+option	node	Neighbour		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Neighbour		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Neighbour		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Neighbour		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Neighbour		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Neighbour		elk.algorithm	elk.layered
+option	node	Neighbour		elk.direction	DOWN
+option	node	Neighbour		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Neighbour	0	Neighbour	64.609375	19
+node	Neighbour_start	Neighbour	14	14
+node	After	Neighbour	136	37
+edge	edge0	root	divider-id-1_start	Left
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	id-264eg0bl4jc-102_start	Right
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Split	Neighbour
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Neighbour_start	After
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	256	553
+place	Split	root	12	12	232	342
+place-label	node	Split	0	102.3828125	5	27.234375	19
+place	divider-id-1	Split	24	48	184	123
+place-label	node	divider-id-1	0	0	0	0	0
+place	divider-id-1_start	divider-id-1	81.2	24	14	14
+place	Left	divider-id-1	24	62	136	37
+place	id-264eg0bl4jc-102	Split	24	195	184	123
+place-label	node	id-264eg0bl4jc-102	0	0	0	0	0
+place	id-264eg0bl4jc-102_start	id-264eg0bl4jc-102	81.2	24	14	14
+place	Right	id-264eg0bl4jc-102	24	62	136	37
+place	Neighbour	root	36	394	184	147
+place-label	node	Neighbour	0	59.6953125	5	64.609375	19
+place	Neighbour_start	Neighbour	81.2	48	14	14
+place	After	Neighbour	24	86	136	37
+route	edge0	root	divider-id-1
+section	edge0	edge0_s0	92,38	92,62		divider-id-1_start	Left
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	id-264eg0bl4jc-102
+section	edge1	edge1_s0	92,38	92,62		id-264eg0bl4jc-102_start	Right
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	128,354	128,394		Split	Neighbour
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	Neighbour
+section	edge3	edge3_s0	92,62	92,86		Neighbour_start	After
+place-label	edge	edge3	0	0	0	0	0

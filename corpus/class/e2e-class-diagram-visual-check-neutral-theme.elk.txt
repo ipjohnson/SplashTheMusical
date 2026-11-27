@@ -1,0 +1,210 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source daa2d2b04208bde3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Animal	root	156.078125	192
+node	Duck	root	172.078125	168
+node	Fish	root	140.9296875	144
+node	Zebra	root	137.8515625	144
+node	classA	root	75.59375	84
+node	classB	root	75.59375	84
+node	classC	root	75.59375	84
+node	classD	root	75.59375	84
+node	classE	root	74.71875	84
+node	classF	root	73.8125	84
+node	classG	root	76.484375	84
+node	classH	root	75.59375	84
+node	classI	root	68.484375	84
+node	classJ	root	72.9375	84
+node	classK	root	75.59375	84
+node	classL	root	73.8125	84
+node	classM	root	77.375	84
+node	classN	root	75.59375	84
+node	classO	root	76.484375	84
+node	classP	root	74.71875	84
+edge	id_Animal_Duck_1	root	Animal	Duck
+label	edge	id_Animal_Duck_1	0		0	0
+option	edge-label	id_Animal_Duck_1	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Duck_1	0	edgeLabels.placement	CENTER
+label	edge	id_Animal_Duck_1	1	*	16.28125	28.5
+option	edge-label	id_Animal_Duck_1	1	edgeLabels.placement	TAIL
+label	edge	id_Animal_Duck_1	2	1	6.125	16.5
+option	edge-label	id_Animal_Duck_1	2	edgeLabels.placement	HEAD
+edge	id_Animal_Fish_2	root	Animal	Fish
+label	edge	id_Animal_Fish_2	0		0	0
+option	edge-label	id_Animal_Fish_2	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Fish_2	0	edgeLabels.placement	CENTER
+label	edge	id_Animal_Fish_2	1	1	18.125	28.5
+option	edge-label	id_Animal_Fish_2	1	edgeLabels.placement	TAIL
+label	edge	id_Animal_Fish_2	2	10	12.25	16.5
+option	edge-label	id_Animal_Fish_2	2	edgeLabels.placement	HEAD
+edge	id_Animal_Zebra_3	root	Animal	Zebra
+label	edge	id_Animal_Zebra_3	0		0	0
+option	edge-label	id_Animal_Zebra_3	0	edgeLabels.inline	true
+option	edge-label	id_Animal_Zebra_3	0	edgeLabels.placement	CENTER
+edge	id_classA_classB_4	root	classA	classB
+label	edge	id_classA_classB_4	0		0	0
+option	edge-label	id_classA_classB_4	0	edgeLabels.inline	true
+option	edge-label	id_classA_classB_4	0	edgeLabels.placement	CENTER
+edge	id_classC_classD_5	root	classC	classD
+label	edge	id_classC_classD_5	0		0	0
+option	edge-label	id_classC_classD_5	0	edgeLabels.inline	true
+option	edge-label	id_classC_classD_5	0	edgeLabels.placement	CENTER
+edge	id_classE_classF_6	root	classE	classF
+label	edge	id_classE_classF_6	0		0	0
+option	edge-label	id_classE_classF_6	0	edgeLabels.inline	true
+option	edge-label	id_classE_classF_6	0	edgeLabels.placement	CENTER
+edge	id_classG_classH_7	root	classG	classH
+label	edge	id_classG_classH_7	0		0	0
+option	edge-label	id_classG_classH_7	0	edgeLabels.inline	true
+option	edge-label	id_classG_classH_7	0	edgeLabels.placement	CENTER
+edge	id_classI_classJ_8	root	classI	classJ
+label	edge	id_classI_classJ_8	0		0	0
+option	edge-label	id_classI_classJ_8	0	edgeLabels.inline	true
+option	edge-label	id_classI_classJ_8	0	edgeLabels.placement	CENTER
+edge	id_classK_classL_9	root	classK	classL
+label	edge	id_classK_classL_9	0		0	0
+option	edge-label	id_classK_classL_9	0	edgeLabels.inline	true
+option	edge-label	id_classK_classL_9	0	edgeLabels.placement	CENTER
+edge	id_classM_classN_10	root	classM	classN
+label	edge	id_classM_classN_10	0		0	0
+option	edge-label	id_classM_classN_10	0	edgeLabels.inline	true
+option	edge-label	id_classM_classN_10	0	edgeLabels.placement	CENTER
+edge	id_classO_classP_11	root	classO	classP
+label	edge	id_classO_classP_11	0		0	0
+option	edge-label	id_classO_classP_11	0	edgeLabels.inline	true
+option	edge-label	id_classO_classP_11	0	edgeLabels.placement	CENTER
+edge	id_classA_classB_12	root	classA	classB
+label	edge	id_classA_classB_12	0	Inheritance	79.171875	24
+option	edge-label	id_classA_classB_12	0	edgeLabels.inline	true
+option	edge-label	id_classA_classB_12	0	edgeLabels.placement	CENTER
+edge	id_classC_classD_13	root	classC	classD
+label	edge	id_classC_classD_13	0	Composition	88.9375	24
+option	edge-label	id_classC_classD_13	0	edgeLabels.inline	true
+option	edge-label	id_classC_classD_13	0	edgeLabels.placement	CENTER
+edge	id_classE_classF_14	root	classE	classF
+label	edge	id_classE_classF_14	0	Aggregation	86.296875	24
+option	edge-label	id_classE_classF_14	0	edgeLabels.inline	true
+option	edge-label	id_classE_classF_14	0	edgeLabels.placement	CENTER
+edge	id_classG_classH_15	root	classG	classH
+label	edge	id_classG_classH_15	0	Association	81.828125	24
+option	edge-label	id_classG_classH_15	0	edgeLabels.inline	true
+option	edge-label	id_classG_classH_15	0	edgeLabels.placement	CENTER
+edge	id_classI_classJ_16	root	classI	classJ
+label	edge	id_classI_classJ_16	0	Link(Solid)	75.59375	24
+option	edge-label	id_classI_classJ_16	0	edgeLabels.inline	true
+option	edge-label	id_classI_classJ_16	0	edgeLabels.placement	CENTER
+edge	id_classK_classL_17	root	classK	classL
+label	edge	id_classK_classL_17	0	Dependency	89.84375	24
+option	edge-label	id_classK_classL_17	0	edgeLabels.inline	true
+option	edge-label	id_classK_classL_17	0	edgeLabels.placement	CENTER
+edge	id_classM_classN_18	root	classM	classN
+label	edge	id_classM_classN_18	0	Realization	79.15625	24
+option	edge-label	id_classM_classN_18	0	edgeLabels.inline	true
+option	edge-label	id_classM_classN_18	0	edgeLabels.placement	CENTER
+edge	id_classO_classP_19	root	classO	classP
+label	edge	id_classO_classP_19	0	Link(Dashed)	95.15625	24
+option	edge-label	id_classO_classP_19	0	edgeLabels.inline	true
+option	edge-label	id_classO_classP_19	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1558.84375	601
+place	Animal	root	216.50390625	12	156.078125	192
+place	Duck	root	12	297	172.078125	168
+place	Fish	root	224.078125	297	140.9296875	144
+place	Zebra	root	405.0078125	297	137.8515625	144
+place	classA	root	555.5625	120	75.59375	84
+place	classB	root	555.5625	505	75.59375	84
+place	classC	root	677.984375	120	75.59375	84
+place	classD	root	677.984375	505	75.59375	84
+place	classE	root	807.859375	120	74.71875	84
+place	classF	root	808.3125	505	73.8125	84
+place	classG	root	933.0234375	120	76.484375	84
+place	classH	root	933.46875	505	75.59375	84
+place	classI	root	1058.3515625	120	68.484375	84
+place	classJ	root	1056.125	505	72.9375	84
+place	classK	root	1174.890625	120	75.59375	84
+place	classL	root	1175.78125	505	73.8125	84
+place	classM	root	1302.34375	120	77.375	84
+place	classN	root	1303.234375	505	75.59375	84
+place	classO	root	1426.9453125	120	76.484375	84
+place	classP	root	1427.828125	505	74.71875	84
+route	id_Animal_Duck_1	root	root
+section	id_Animal_Duck_1	id_Animal_Duck_1_s0	260.5234375,204	98.0390625,297	260.5234375,256.5 98.0390625,256.5	Animal	Duck
+place-label	edge	id_Animal_Duck_1	0	0	0	0	0
+place-label	edge	id_Animal_Duck_1	1	265.5234375	208	16.28125	28.5
+place-label	edge	id_Animal_Duck_1	2	103.0390625	276.5	6.125	16.5
+route	id_Animal_Fish_2	root	root
+section	id_Animal_Fish_2	id_Animal_Fish_2_s0	294.54296875,204	294.54296875,297		Animal	Fish
+place-label	edge	id_Animal_Fish_2	0	0	0	0	0
+place-label	edge	id_Animal_Fish_2	1	299.54296875	208	18.125	28.5
+place-label	edge	id_Animal_Fish_2	2	299.54296875	276.5	12.25	16.5
+route	id_Animal_Zebra_3	root	root
+section	id_Animal_Zebra_3	id_Animal_Zebra_3_s0	328.5625,204	473.93359375,297	328.5625,256.5 473.93359375,256.5	Animal	Zebra
+place-label	edge	id_Animal_Zebra_3	0	0	0	0	0
+route	id_classA_classB_4	root	root
+section	id_classA_classB_4	id_classA_classB_4_s0	584.09375,204	584.09375,505	584.09375,256.5 562.859375,256.5 562.859375,370.75 562.859375,485 584.09375,485	classA	classB
+place-label	edge	id_classA_classB_4	0	0	0	0	0
+route	id_classC_classD_5	root	root
+section	id_classC_classD_5	id_classC_classD_5_s0	706.515625,204	706.515625,505	706.515625,256.5 683.03125,256.5 683.03125,370.75 683.03125,485 706.515625,485	classC	classD
+place-label	edge	id_classC_classD_5	0	0	0	0	0
+route	id_classE_classF_6	root	root
+section	id_classE_classF_6	id_classE_classF_6_s0	836.0989583333334,204	836.25,505	836.0989583333334,256.5 812.96875,256.5 812.96875,370.75 812.96875,485 836.25,485	classE	classF
+place-label	edge	id_classE_classF_6	0	0	0	0	0
+route	id_classG_classH_7	root	root
+section	id_classG_classH_7	id_classG_classH_7_s0	961.8515625,204	962,505	961.8515625,256.5 940.265625,256.5 940.265625,370.75 940.265625,485 962,485	classG	classH
+place-label	edge	id_classG_classH_7	0	0	0	0	0
+route	id_classI_classJ_8	root	root
+section	id_classI_classJ_8	id_classI_classJ_8_s0	1084.5130208333333,204	1083.7708333333333,505	1084.5130208333333,256.5 1063.09375,256.5 1063.09375,370.75 1063.09375,485 1083.7708333333333,485	classI	classJ
+place-label	edge	id_classI_classJ_8	0	0	0	0	0
+route	id_classK_classL_9	root	root
+section	id_classK_classL_9	id_classK_classL_9_s0	1203.421875,204	1203.71875,505	1203.421875,256.5 1179.6875,256.5 1179.6875,370.75 1179.6875,485 1203.71875,485	classK	classL
+place-label	edge	id_classK_classL_9	0	0	0	0	0
+route	id_classM_classN_10	root	root
+section	id_classM_classN_10	id_classM_classN_10_s0	1331.46875,204	1331.765625,505	1331.46875,256.5 1310.53125,256.5 1310.53125,370.75 1310.53125,485 1331.765625,485	classM	classN
+place-label	edge	id_classM_classN_10	0	0	0	0	0
+route	id_classO_classP_11	root	root
+section	id_classO_classP_11	id_classO_classP_11_s0	1455.7734375,204	1456.0677083333333,505	1455.7734375,256.5 1430.6875,256.5 1430.6875,370.75 1430.6875,485 1456.0677083333333,485	classO	classP
+place-label	edge	id_classO_classP_11	0	0	0	0	0
+route	id_classA_classB_12	root	root
+section	id_classA_classB_12	id_classA_classB_12_s0	602.625,204	602.625,505	602.625,256.5 623.859375,256.5 623.859375,485 602.625,485	classA	classB
+place-label	edge	id_classA_classB_12	0	583.859375	358.75	79.171875	24
+route	id_classC_classD_13	root	root
+section	id_classC_classD_13	id_classC_classD_13_s0	725.046875,204	725.046875,505	725.046875,256.5 748.53125,256.5 748.53125,485 725.046875,485	classC	classD
+place-label	edge	id_classC_classD_13	0	704.03125	358.75	88.9375	24
+route	id_classE_classF_14	root	root
+section	id_classE_classF_14	id_classE_classF_14_s0	854.3385416666666,204	854.1875,505	854.3385416666666,256.5 877.46875,256.5 877.46875,485 854.1875,485	classE	classF
+place-label	edge	id_classE_classF_14	0	833.96875	358.75	86.296875	24
+route	id_classG_classH_15	root	root
+section	id_classG_classH_15	id_classG_classH_15_s0	980.6796875,204	980.53125,505	980.6796875,256.5 1002.265625,256.5 1002.265625,485 980.53125,485	classG	classH
+place-label	edge	id_classG_classH_15	0	961.265625	358.75	81.828125	24
+route	id_classI_classJ_16	root	root
+section	id_classI_classJ_16	id_classI_classJ_16_s0	1100.6744791666667,204	1101.4166666666667,505	1100.6744791666667,256.5 1122.09375,256.5 1122.09375,485 1101.4166666666667,485	classI	classJ
+place-label	edge	id_classI_classJ_16	0	1084.09375	358.75	75.59375	24
+route	id_classK_classL_17	root	root
+section	id_classK_classL_17	id_classK_classL_17_s0	1221.953125,204	1221.65625,505	1221.953125,256.5 1245.6875,256.5 1245.6875,485 1221.65625,485	classK	classL
+place-label	edge	id_classK_classL_17	0	1200.6875	358.75	89.84375	24
+route	id_classM_classN_18	root	root
+section	id_classM_classN_18	id_classM_classN_18_s0	1350.59375,204	1350.296875,505	1350.59375,256.5 1371.53125,256.5 1371.53125,485 1350.296875,485	classM	classN
+place-label	edge	id_classM_classN_18	0	1331.53125	358.75	79.15625	24
+route	id_classO_classP_19	root	root
+section	id_classO_classP_19	id_classO_classP_19_s0	1474.6015625,204	1474.3072916666667,505	1474.6015625,256.5 1499.6875,256.5 1499.6875,485 1474.3072916666667,485	classO	classP
+place-label	edge	id_classO_classP_19	0	1451.6875	358.75	95.15625	24

@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 8fab50cd93e81a67
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	List	root	128.3984375	120
+node	Duck	root	58.234375	81
+node	ArrayList	root	85.46875	81
+edge	id_Duck_List_1	root	Duck	List
+label	edge	id_Duck_List_1	0		0	0
+option	edge-label	id_Duck_List_1	0	edgeLabels.inline	true
+option	edge-label	id_Duck_List_1	0	edgeLabels.placement	CENTER
+edge	id_List_ArrayList_2	root	List	ArrayList
+label	edge	id_List_ArrayList_2	0		0	0
+option	edge-label	id_List_ArrayList_2	0	edgeLabels.inline	true
+option	edge-label	id_List_ArrayList_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	152.3984375	386
+place	List	root	12	133	128.3984375	120
+place	Duck	root	47.08203125	12	58.234375	81
+place	ArrayList	root	33.46484375	293	85.46875	81
+route	id_Duck_List_1	root	root
+section	id_Duck_List_1	id_Duck_List_1_s0	76.19921875,93	76.19921875,133		Duck	List
+place-label	edge	id_Duck_List_1	0	0	0	0	0
+route	id_List_ArrayList_2	root	root
+section	id_List_ArrayList_2	id_List_ArrayList_2_s0	76.19921875,253	76.19921875,293		List	ArrayList
+place-label	edge	id_List_ArrayList_2	0	0	0	0	0

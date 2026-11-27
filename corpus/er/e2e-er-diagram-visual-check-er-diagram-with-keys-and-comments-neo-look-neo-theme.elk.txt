@@ -1,0 +1,36 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 273a28c1908d0f89
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-AUTHOR-0	root	293.75	119.25
+node	entity-BOOK-1	root	296.921875	198.75
+edge	id_entity-AUTHOR-0_entity-BOOK-1_0	root	entity-AUTHOR-0	entity-BOOK-1
+label	edge	id_entity-AUTHOR-0_entity-BOOK-1_0	0	writes	36.5625	21
+option	edge-label	id_entity-AUTHOR-0_entity-BOOK-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-AUTHOR-0_entity-BOOK-1_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	320.921875	443
+place	entity-AUTHOR-0	root	13.5859375	12	293.75	119.25
+place	entity-BOOK-1	root	12	232.25	296.921875	198.75
+route	id_entity-AUTHOR-0_entity-BOOK-1_0	root	root
+section	id_entity-AUTHOR-0_entity-BOOK-1_0	id_entity-AUTHOR-0_entity-BOOK-1_0_s0	160.4609375,131.25	160.4609375,232.25		entity-AUTHOR-0	entity-BOOK-1
+place-label	edge	id_entity-AUTHOR-0_entity-BOOK-1_0	0	141.9609375	171.25	36.5625	21

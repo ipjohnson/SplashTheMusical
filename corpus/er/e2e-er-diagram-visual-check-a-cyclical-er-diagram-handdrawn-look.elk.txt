@@ -1,0 +1,52 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 459b367e44e4efc5
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-A-0	root	102.88812255859375	84.3779525756836
+node	entity-B-1	root	103.29016876220703	84.74198150634766
+node	entity-C-2	root	103.40092468261719	84.00389099121094
+edge	id_entity-A-0_entity-B-1_0	root	entity-A-0	entity-B-1
+label	edge	id_entity-A-0_entity-B-1_0	0	likes	28.015625	21
+option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-A-0_entity-B-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-B-1_entity-C-2_1	root	entity-B-1	entity-C-2
+label	edge	id_entity-B-1_entity-C-2_1	0	likes	28.015625	21
+option	edge-label	id_entity-B-1_entity-C-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-B-1_entity-C-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-C-2_entity-A-0_2	root	entity-C-2	entity-A-0
+label	edge	id_entity-C-2_entity-A-0_2	0	likes	28.015625	21
+option	edge-label	id_entity-C-2_entity-A-0_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-C-2_entity-A-0_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	195.30579376220703	479.1238250732422
+place	entity-A-0	root	65.2735652923584	12	102.88812255859375	84.3779525756836
+place	entity-B-1	root	12	197.3779525756836	103.29016876220703	84.74198150634766
+place	entity-C-2	root	65.01716423034668	383.11993408203125	103.40092468261719	84.00389099121094
+route	id_entity-A-0_entity-B-1_0	root	root
+section	id_entity-A-0_entity-B-1_0	id_entity-A-0_entity-B-1_0_s0	102.9029394785563,96.3779525756836	63.645084381103516,197.3779525756836	102.9029394785563,116.3779525756836 63.645084381103516,116.3779525756836	entity-A-0	entity-B-1
+place-label	edge	id_entity-A-0_entity-B-1_0	0	49.145084381103516	136.3779525756836	28.015625	21
+route	id_entity-B-1_entity-C-2_1	root	root
+section	id_entity-B-1_entity-C-2_1	id_entity-B-1_entity-C-2_1_s0	63.645084381103516,282.11993408203125	102.81747245788574,383.11993408203125	63.645084381103516,363.11993408203125 102.81747245788574,363.11993408203125	entity-B-1	entity-C-2
+place-label	edge	id_entity-B-1_entity-C-2_1	0	49.145084381103516	322.11993408203125	28.015625	21
+route	id_entity-C-2_entity-A-0_2	root	root
+section	id_entity-C-2_entity-A-0_2	id_entity-C-2_entity-A-0_2_s0	130.6177806854248,383.11993408203125	130.53231366475424,96.3779525756836	130.6177806854248,363.11993408203125 169.79016876220703,363.11993408203125 169.79016876220703,332.61993408203125 169.79016876220703,146.8779525756836 169.79016876220703,116.3779525756836 130.53231366475424,116.3779525756836	entity-C-2	entity-A-0
+place-label	edge	id_entity-C-2_entity-A-0_2	0	155.29016876220703	229.24894332885742	28.015625	21

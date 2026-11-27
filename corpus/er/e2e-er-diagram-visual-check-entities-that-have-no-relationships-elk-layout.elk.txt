@@ -1,0 +1,47 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 123ebf19a362cfbc
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-DEAD_PARROT-0	root	143.984375	81
+node	entity-HERMIT-1	root	93.671875	81
+node	entity-RECLUSE-2	root	106.140625	81
+node	entity-SOCIALITE-3	root	113.140625	81
+edge	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	root	entity-SOCIALITE-3	entity-SOCIALITE-3
+label	edge	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	0	interacts with	81.703125	21
+option	edge-label	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	0	edgeLabels.placement	CENTER
+edge	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	root	entity-RECLUSE-2	entity-SOCIALITE-3
+label	edge	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	0	avoids	40.46875	21
+option	edge-label	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	451.296875	287
+place	entity-DEAD_PARROT-0	root	12	12	143.984375	81
+place	entity-HERMIT-1	root	195.984375	12	93.671875	81
+place	entity-RECLUSE-2	root	329.65625	12	106.140625	81
+place	entity-SOCIALITE-3	root	326.15625	194	113.140625	81
+route	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	root	root
+section	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0_s0	326.15625,225	326.15625,244	306.15625,225 306.15625,244	entity-SOCIALITE-3	entity-SOCIALITE-3
+place-label	edge	id_entity-SOCIALITE-3_entity-SOCIALITE-3_0	0	220.453125	224	81.703125	21
+route	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	root	root
+section	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	id_entity-RECLUSE-2_entity-SOCIALITE-3_1_s0	382.7265625,93	382.7265625,194		entity-RECLUSE-2	entity-SOCIALITE-3
+place-label	edge	id_entity-RECLUSE-2_entity-SOCIALITE-3_1	0	362.2265625	133	40.46875	21

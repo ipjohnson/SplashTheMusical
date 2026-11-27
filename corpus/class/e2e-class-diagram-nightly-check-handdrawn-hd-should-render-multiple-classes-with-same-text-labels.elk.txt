@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9941bff54507612c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	C1	root	162.42404174804688	84.88683319091797
+node	C2	root	162.11968994140625	84.48162078857422
+node	C3	root	162.5572052001953	84.71106719970703
+edge	id_C1_C2_1	root	C1	C2
+label	edge	id_C1_C2_1	0		0	0
+option	edge-label	id_C1_C2_1	0	edgeLabels.inline	true
+option	edge-label	id_C1_C2_1	0	edgeLabels.placement	CENTER
+edge	id_C3_C2_2	root	C3	C2
+label	edge	id_C3_C2_2	0		0	0
+option	edge-label	id_C3_C2_2	0	edgeLabels.inline	true
+option	edge-label	id_C3_C2_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	388.9812469482422	233.3684539794922
+place	C1	root	12	12	162.42404174804688	84.88683319091797
+place	C2	root	113.39748764038086	136.88683319091797	162.11968994140625	84.48162078857422
+place	C3	root	214.42404174804688	12.175765991210938	162.5572052001953	84.71106719970703
+route	id_C1_C2_1	root	root
+section	id_C1_C2_1	id_C1_C2_1_s0	93.21202087402344,96.88683319091797	170.7707176208496,136.88683319091797	93.21202087402344,116.88683319091797 170.7707176208496,116.88683319091797	C1	C2
+place-label	edge	id_C1_C2_1	0	0	0	0	0
+route	id_C3_C2_2	root	root
+section	id_C3_C2_2	id_C3_C2_2_s0	295.70264434814453,96.88683319091797	218.14394760131836,136.88683319091797	295.70264434814453,116.88683319091797 218.14394760131836,116.88683319091797	C3	C2
+place-label	edge	id_C3_C2_2	0	0	0	0	0

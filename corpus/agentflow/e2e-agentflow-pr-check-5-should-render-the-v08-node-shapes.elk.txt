@@ -1,0 +1,72 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 2f41d8449ebe4e4a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	city	root	186	36
+node	research	root	164	33
+node	brief	root	150	51
+node	style_ref	root	167.1999969482422	67.49201202392578
+node	check	root	171	171
+node	post	root	204	91
+edge	L_city_research_0	root	city	research
+label	edge	L_city_research_0	0		0	0
+option	edge-label	L_city_research_0	0	edgeLabels.inline	true
+option	edge-label	L_city_research_0	0	edgeLabels.placement	CENTER
+edge	L_research_brief_0	root	research	brief
+label	edge	L_research_brief_0	0		0	0
+option	edge-label	L_research_brief_0	0	edgeLabels.inline	true
+option	edge-label	L_research_brief_0	0	edgeLabels.placement	CENTER
+edge	L_research_style_ref_0	root	research	style_ref
+label	edge	L_research_style_ref_0	0		0	0
+option	edge-label	L_research_style_ref_0	0	edgeLabels.inline	true
+option	edge-label	L_research_style_ref_0	0	edgeLabels.placement	CENTER
+edge	L_brief_check_0	root	brief	check
+label	edge	L_brief_check_0	0		0	0
+option	edge-label	L_brief_check_0	0	edgeLabels.inline	true
+option	edge-label	L_brief_check_0	0	edgeLabels.placement	CENTER
+edge	L_check_post_0	root	check	post
+label	edge	L_check_post_0	0	yes	21.796875	21
+option	edge-label	L_check_post_0	0	edgeLabels.inline	true
+option	edge-label	L_check_post_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	408.1999969482422	643.4920120239258
+place	city	root	120.29999923706055	12	186	36
+place	research	root	131.29999923706055	88	164	33
+place	brief	root	39	169.2460060119629	150	51
+place	style_ref	root	229	161	167.1999969482422	67.49201202392578
+place	check	root	28.5	268.4920120239258	171	171
+place	post	root	12	540.4920120239258	204	91
+route	L_city_research_0	root	root
+section	L_city_research_0	L_city_research_0_s0	213.29999923706055,48	213.29999923706055,88		city	research
+place-label	edge	L_city_research_0	0	0	0	0	0
+route	L_research_brief_0	root	root
+section	L_research_brief_0	L_research_brief_0_s0	189.29999923706055,121	114,169.2460060119629	189.29999923706055,141 114,141	research	brief
+place-label	edge	L_research_brief_0	0	0	0	0	0
+route	L_research_style_ref_0	root	root
+section	L_research_style_ref_0	L_research_style_ref_0_s0	237.29999923706055,121	312.5999984741211,161	237.29999923706055,141 312.5999984741211,141	research	style_ref
+place-label	edge	L_research_style_ref_0	0	0	0	0	0
+route	L_brief_check_0	root	root
+section	L_brief_check_0	L_brief_check_0_s0	114,220.2460060119629	114,268.4920120239258		brief	check
+place-label	edge	L_brief_check_0	0	0	0	0	0
+route	L_check_post_0	root	root
+section	L_check_post_0	L_check_post_0_s0	114,439.4920120239258	114,540.4920120239258		check	post
+place-label	edge	L_check_post_0	0	103	479.4920120239258	21.796875	21

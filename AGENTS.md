@@ -24,6 +24,7 @@ mise run colors            # rewrite corpus/colors.txt, khroma's results on merm
 mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
+mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
 mise run fuzz-crash [sources] [seed]  # fail on a crash or missed deadline of 100,000 mutated sources per type, finds in .artifacts/fuzz/crash
@@ -114,7 +115,12 @@ accepts a subset of what `XmlReader` accepts, so the sanitizer's fuzz tests can 
 `StmBenchmarks.Stages` measures parse, layout, render and write on the benchmark cases of the types in
 `StmBenchmarks.Measured`, and `mise run bench` writes them. `docs/benchmarks/stm.md` holds the committed run.
 `BudgetTests` fails when a committed `parse` row is slower or allocates more than Mermaider's row in
-`docs/benchmarks/mermaider-baseline.md`.
+`docs/benchmarks/mermaider-baseline.md`. CI's `benchmarks` job runs both on one macOS runner, fails when STM's parse rows
+are over that run's Mermaider rows, and uploads the two files as its `benchmarks` artifact. Its `budget --remeasure`
+measures a row that is slower again, STM's and Mermaider's back to back for that case, stage and job through
+`STM_BENCH_PARAMETERS`, and fails only when it is still slower, because a shared runner can slow one benchmark process
+for its whole run. A row that allocates more fails at once. The committed files come
+from that artifact, because a local machine runs other work while it measures.
 
 `src/SplashTheMusical.Layout/Dagre` ports dagre-d3-es 7.0.14, the dagre mermaid 12.3.0 uses. Its `Graph` iterates
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as
@@ -216,6 +222,10 @@ These come from sections 3 and 6 of the plan. The build and the tests enforce wh
 - No reflection, no `dynamic`, no `Activator` and no runtime code generation.
 - No global mutable state. Lookup tables are static read-only data, and diagram modules are listed explicitly.
 - Package versions live only in `Directory.Packages.props`. A `PackageReference` never carries a `Version`.
+- STM does not port ELK. The layered layout engine that reproduces mermaid.js's ELK layouts is written under
+  [docs/layered-layout/clean-room.md](docs/layered-layout/clean-room.md), which lists what a session may and may not
+  read. Never read ELK's Java source or any file under `node_modules/elkjs`, and never paste them into a prompt. A pull
+  request that changes the engine names the papers and recordings each algorithm came from.
 
 Tests may use reflection to check these rules.
 
@@ -238,3 +248,8 @@ Tests may use reflection to check these rules.
   differing line with both values. A test with no `await` is a `void` method.
 - In test files, `Assembly` is ambiguous with TUnit's `HookType.Assembly`. Write `System.Reflection.Assembly`.
 - Code derived from another project is listed in `THIRD-PARTY-NOTICES.md` with its license.
+- A pull request that changes what STM draws shows it. `mise run screenshots <cases>` writes mermaid.js's raster and
+  STM's side by side to `.artifacts/screenshots/<case>.png` for each named corpus case, passing or not. Add each PNG
+  with the driver's `add_figure` tool and paste its `figure:v1` link under the template's Screenshots heading. Pick the
+  cases the change affects, and for a change to existing output also run the task on the base branch for a before
+  image. A pull request that draws nothing differently says so there.

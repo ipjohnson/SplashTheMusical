@@ -28,11 +28,17 @@ internal sealed class FlowchartDagre
 	/// <summary>The detector id of the state diagram, which the same renderer draws.</summary>
 	public const string StateDiagramType = "stateDiagram";
 
+	/// <summary>The detector id of the class diagram, which the same renderer draws.</summary>
+	public const string ClassDiagramType = "classDiagram";
+
+	/// <summary>The detector id of the entity relationship diagram, which the same renderer draws.</summary>
+	public const string ErDiagramType = "er";
+
 	public FlowchartDagre(FlowchartMeasure measure, string diagramType, double titleTopMargin, double titleBottomMargin)
 	{
 		_measure = measure;
-		// shouldMergeSelfLoopSegments: flowchart-v2 and stateDiagram among the types STM draws, not flowchart-elk.
-		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType;
+		// shouldMergeSelfLoopSegments: flowchart-v2, stateDiagram, classDiagram and er among the types STM draws, not flowchart-elk.
+		_mergeSelfLoops = diagramType is FlowchartModule.FlowchartV2 or StateDiagramType or ClassDiagramType or ErDiagramType;
 		_titleTopMargin = titleTopMargin;
 		_titleTotalMargin = titleTopMargin + titleBottomMargin;
 	}
@@ -605,7 +611,7 @@ internal sealed class FlowchartDagre
 		foreach (var e in g.Edges())
 		{
 			var edge = g.Edge(e);
-			edges.Add(new DagreEdgeInput(g.Name(g.EdgeV(e)), g.Name(g.EdgeW(e)), g.EdgeName(e), edge.MinLen, 1, edge.Width, edge.Height, 10, "c"));
+			edges.Add(new DagreEdgeInput(g.Name(g.EdgeV(e)), g.Name(g.EdgeW(e)), g.EdgeName(e), edge.MinLen, 1, edge.Width, edge.Height, 10, edge.LabelPos));
 		}
 
 		var input = new DagreInput(
@@ -726,7 +732,7 @@ internal sealed class FlowchartDagre
 					Labels = node.Labels,
 					NodeStyles = nodeStyles,
 					LabelStyles = labelStyles,
-					ColorId = node.Shape == "collapsedGroup" ? ColorId(node) : null,
+					ColorId = node.Shape is "collapsedGroup" or "classBox" or "erBox" or "requirementBox" ? ColorId(node) : null,
 					Icon = node.Vertex?.Icon,
 					IconColor = node.Vertex?.Icon is null ? null : FlowchartStyles.StyleValue(node.CssCompiledStyles, node.CssStyles, "stroke"),
 					Image = node.Vertex?.Image,
@@ -1170,7 +1176,9 @@ internal sealed class FlowchartDagre
 			FlowchartStroke.Invisible => "edge-thickness-invisible",
 			_ => "edge-thickness-normal",
 		}
-		+ (edge.Pattern == "dashed" ? " edge-pattern-dashed" : edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted" : " edge-pattern-solid");
+		+ (edge.Pattern == "dashed" ? " edge-pattern-dashed"
+			: edge.Pattern == "dotted" || edge.Stroke == FlowchartStroke.Dotted ? " edge-pattern-dotted"
+			: " edge-pattern-solid");
 
 	private static bool HasIntersect(FlowNode node) => node.IsFrame || node.Geometry is not null;
 

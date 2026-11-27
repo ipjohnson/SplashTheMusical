@@ -1,0 +1,80 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source d8bcf1c47bd62c2e
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-ENTITY_A0-0	root	114.703125	81
+node	entity-ENTITY_B0-1	root	114.703125	81
+node	entity-ENTITY_A1-2	root	114.703125	81
+node	entity-ENTITY_B1-3	root	114.703125	81
+node	entity-ENTITY_A2-4	root	114.703125	81
+node	entity-ENTITY_B2-5	root	114.703125	81
+node	entity-ENTITY_A3-6	root	114.703125	81
+node	entity-ENTITY_B3-7	root	114.703125	81
+node	entity-ENTITY_A4-8	root	114.703125	81
+node	entity-ENTITY_B4-9	root	114.703125	81
+edge	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	root	entity-ENTITY_A0-0	entity-ENTITY_B0-1
+label	edge	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	0	one-to-one-identifying	135.421875	21
+option	edge-label	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	root	entity-ENTITY_A1-2	entity-ENTITY_B1-3
+label	edge	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	0	one-to-many-identifying	146.296875	21
+option	edge-label	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	0	edgeLabels.placement	CENTER
+edge	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	root	entity-ENTITY_A2-4	entity-ENTITY_B2-5
+label	edge	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	0	many-to-many-identifying	157.171875	21
+option	edge-label	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	0	edgeLabels.placement	CENTER
+edge	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	root	entity-ENTITY_A3-6	entity-ENTITY_B3-7
+label	edge	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	0	one-to-zero-or-one-non-identifying	200	42
+option	edge-label	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	0	edgeLabels.placement	CENTER
+edge	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	root	entity-ENTITY_A4-8	entity-ENTITY_B4-9
+label	edge	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	0	one-or-more-to-many-non-identifying	200	42
+option	edge-label	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	942.890625	308
+place	entity-ENTITY_A0-0	root	22.6484375	12	114.703125	81
+place	entity-ENTITY_B0-1	root	22.6484375	215	114.703125	81
+place	entity-ENTITY_A1-2	root	183.5703125	12	114.703125	81
+place	entity-ENTITY_B1-3	root	183.5703125	215	114.703125	81
+place	entity-ENTITY_A2-4	root	355.3671875	12	114.703125	81
+place	entity-ENTITY_B2-5	root	355.3671875	215	114.703125	81
+place	entity-ENTITY_A3-6	root	553.5390625	12	114.703125	81
+place	entity-ENTITY_B3-7	root	553.5390625	215	114.703125	81
+place	entity-ENTITY_A4-8	root	773.5390625	12	114.703125	81
+place	entity-ENTITY_B4-9	root	773.5390625	215	114.703125	81
+route	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	root	root
+section	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0_s0	80,93	80,215		entity-ENTITY_A0-0	entity-ENTITY_B0-1
+place-label	edge	id_entity-ENTITY_A0-0_entity-ENTITY_B0-1_0	0	12	143.5	135.421875	21
+route	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	root	root
+section	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1_s0	240.921875,93	240.921875,215		entity-ENTITY_A1-2	entity-ENTITY_B1-3
+place-label	edge	id_entity-ENTITY_A1-2_entity-ENTITY_B1-3_1	0	167.421875	143.5	146.296875	21
+route	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	root	root
+section	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2_s0	412.71875,93	412.71875,215		entity-ENTITY_A2-4	entity-ENTITY_B2-5
+place-label	edge	id_entity-ENTITY_A2-4_entity-ENTITY_B2-5_2	0	333.71875	143.5	157.171875	21
+route	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	root	root
+section	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3_s0	610.890625,93	610.890625,215		entity-ENTITY_A3-6	entity-ENTITY_B3-7
+place-label	edge	id_entity-ENTITY_A3-6_entity-ENTITY_B3-7_3	0	510.890625	133	200	42
+route	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	root	root
+section	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4_s0	830.890625,93	830.890625,215		entity-ENTITY_A4-8	entity-ENTITY_B4-9
+place-label	edge	id_entity-ENTITY_A4-8_entity-ENTITY_B4-9_4	0	730.890625	133	200	42

@@ -1,4 +1,3 @@
-using AwesomeAssertions;
 using SplashTheMusical.Config;
 using SplashTheMusical.Diagrams.Flowchart;
 using SplashTheMusical.Rendering.Shapes;
@@ -24,9 +23,9 @@ public class FlowchartHtmlLabelTests
 	{
 		var box = Measure("V2 build\\npath_prefix: elasticsearch-fundamentals");
 
-		Texts(box).Should().Equal("V2 build", "path_prefix:", "elasticsearch-", "fundamentals");
-		box.Width.Should().Be(120);
-		box.Height.Should().Be(84);
+		SequenceAssert.Equal(Texts(box), "V2 build", "path_prefix:", "elasticsearch-", "fundamentals");
+		Verify(Math.Abs(box.Width - 120) <= 1e-9);
+		Verify(Math.Abs(box.Height - 84) <= 1e-9);
 	}
 
 	[Test]
@@ -34,8 +33,21 @@ public class FlowchartHtmlLabelTests
 	{
 		var box = Measure("V1 TableOfContentNodes");
 
-		Texts(box).Should().Equal("V1", "TableOfContentNodes");
-		box.Width.Should().Be(137.75);
+		SequenceAssert.Equal(Texts(box), "V1", "TableOfContentNodes");
+		Verify(Math.Abs(box.Width - 137.75) <= 1e-9);
+	}
+
+	[Test]
+	public void AnUnderscoreBetweenLettersIsText()
+	{
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("officer_of_firm"), ("officer_of_firm", false, false));
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("a _b_ c"), ("a ", false, false), ("b", false, true), (" c", false, false));
+	}
+
+	[Test]
+	public void StrongInsideEmphasisIsBoldAndItalic()
+	{
+		SequenceAssert.Equal(FlowchartLabelText.MarkdownRuns("_**last**Name_"), ("last", true, true), ("Name", false, true));
 	}
 
 	[Test]
@@ -43,7 +55,7 @@ public class FlowchartHtmlLabelTests
 	{
 		var lines = FlowchartLabelText.Lines("one\n\n  two", FlowchartLabelType.Markdown, true);
 
-		lines.Select(line => string.Concat(line.Select(run => run.Text))).Should().Equal("one", "two");
+		SequenceAssert.Equal(lines.Select(line => string.Concat(line.Select(run => run.Text))), "one", "two");
 	}
 
 	[Test]
@@ -51,8 +63,8 @@ public class FlowchartHtmlLabelTests
 	{
 		const string Label = "This is a long markdown label that would wrap";
 
-		Measure(Label, FlowchartLabelType.Markdown).Lines.Should().HaveCountGreaterThan(1);
-		Measure(Label, FlowchartLabelType.Markdown, autoWrap: false).Lines.Should().ContainSingle();
+		Verify(Measure(Label, FlowchartLabelType.Markdown).Lines.Count > 1);
+		Verify(Measure(Label, FlowchartLabelType.Markdown, autoWrap: false).Lines.Count == 1);
 	}
 
 	[Test]
@@ -60,9 +72,9 @@ public class FlowchartHtmlLabelTests
 	{
 		var box = Measure("fa:fa-circle [DBServer\\SharedDbInstance].[SupportDb]");
 
-		box.Lines.Should().HaveCount(3);
-		Texts(box)[1].Should().Be("[DBServer\\SharedDbInstance].");
-		box.Width.Should().BeApproximately(192.219, 0.001);
+		Verify(box.Lines.Count == 3);
+		Verify(Texts(box)[1] == "[DBServer\\SharedDbInstance].");
+		Verify(Math.Abs(box.Width - 192.219) <= 0.001);
 	}
 
 	[Test]
@@ -70,8 +82,8 @@ public class FlowchartHtmlLabelTests
 	{
 		var box = Measure("fa:fa-spinner");
 
-		box.Width.Should().Be(120);
-		box.Height.Should().Be(0);
+		Verify(Math.Abs(box.Width - 120) <= 1e-9);
+		Verify(Math.Abs(box.Height - 0) <= 1e-9);
 	}
 
 	[Test]
@@ -86,10 +98,10 @@ public class FlowchartHtmlLabelTests
 		measure.Node(withText, "TB");
 		measure.Node(broken, "TB");
 
-		alone.LabelBox!.Width.Should().Be(120);
-		alone.LabelBox.Height.Should().Be(80);
-		withText.LabelBox!.Height.Should().Be(withText.LabelBox.Width + withText.LabelBox.LineHeight);
-		broken.LabelBox!.Height.Should().Be(0);
+		Verify(Math.Abs(alone.LabelBox!.Width - 120) <= 1e-9);
+		Verify(Math.Abs(alone.LabelBox.Height - 80) <= 1e-9);
+		Verify(Math.Abs(withText.LabelBox!.Height - (withText.LabelBox.Width + withText.LabelBox.LineHeight)) <= 1e-9);
+		Verify(Math.Abs(broken.LabelBox!.Height - 0) <= 1e-9);
 	}
 
 	[Test]
@@ -101,11 +113,12 @@ public class FlowchartHtmlLabelTests
 		var square = ShapeDrawings.IconSquare(new ShapeNode { Label = label, HasLabel = true, AssetHeight = 60, Padding = 15, LabelPosition = "t", WrappingWidth = 120 });
 		var bare = ShapeDrawings.Icon(new ShapeNode { Label = new FixedLabel(0, 0), WrappingWidth = 120 });
 
-		(icon.Width, icon.Height).Should().Be((48, 81));
-		square.Width.Should().BeApproximately(75, 1e-9);
-		square.Height.Should().BeApproximately(108, 1e-9);
-		(bare.Width, bare.Height).Should().Be((48, 48));
-		label.Widths.Should().AllBeEquivalentTo(120);
+		Verify((icon.Width, icon.Height) == (48, 81));
+		Verify(Math.Abs(square.Width - 75) <= 1e-9);
+		Verify(Math.Abs(square.Height - 108) <= 1e-9);
+		Verify(Math.Abs(bare.Width - 48) <= 1e-9);
+		Verify(Math.Abs(bare.Height - 48) <= 1e-9);
+		Verify(label.Widths.All(width => Math.Abs((width ?? 0) - 120) <= 1e-9));
 	}
 
 	private sealed class FixedLabel(double width, double height) : IShapeLabelMeasurer

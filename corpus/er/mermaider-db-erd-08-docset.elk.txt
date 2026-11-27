@@ -1,0 +1,97 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source e3bf8156297ac7c6
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-DocumentationSet-0	root	155.1875	81
+node	entity-TableOfContents-1	root	144.296875	81
+node	entity-TocItem-2	root	100	81
+node	entity-Redirect-3	root	92.140625	81
+node	entity-CrossLinkDeclaration-4	root	173.0625	81
+node	entity-ApiDeclaration-5	root	131.0625	81
+node	entity-Product-6	root	100	81
+node	entity-Registry-7	root	100	81
+edge	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	root	entity-DocumentationSet-0	entity-TableOfContents-1
+label	edge	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	0	toc	18.6875	21
+option	edge-label	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-TableOfContents-1_entity-TocItem-2_1	root	entity-TableOfContents-1	entity-TocItem-2
+label	edge	id_entity-TableOfContents-1_entity-TocItem-2_1	0	entries	42.03125	21
+option	edge-label	id_entity-TableOfContents-1_entity-TocItem-2_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-TableOfContents-1_entity-TocItem-2_1	0	edgeLabels.placement	CENTER
+edge	id_entity-TocItem-2_entity-TocItem-2_2	root	entity-TocItem-2	entity-TocItem-2
+label	edge	id_entity-TocItem-2_entity-TocItem-2_2	0	children	49.03125	21
+option	edge-label	id_entity-TocItem-2_entity-TocItem-2_2	0	edgeLabels.inline	true
+option	edge-label	id_entity-TocItem-2_entity-TocItem-2_2	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationSet-0_entity-Redirect-3_3	root	entity-DocumentationSet-0	entity-Redirect-3
+label	edge	id_entity-DocumentationSet-0_entity-Redirect-3_3	0	redirects.yml	79.359375	21
+option	edge-label	id_entity-DocumentationSet-0_entity-Redirect-3_3	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-Redirect-3_3	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	root	entity-DocumentationSet-0	entity-CrossLinkDeclaration-4
+label	edge	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	0	cross_links	69.25	21
+option	edge-label	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	root	entity-DocumentationSet-0	entity-ApiDeclaration-5
+label	edge	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	0	api	18.6875	21
+option	edge-label	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationSet-0_entity-Product-6_6	root	entity-DocumentationSet-0	entity-Product-6
+label	edge	id_entity-DocumentationSet-0_entity-Product-6_6	0	products	53.703125	21
+option	edge-label	id_entity-DocumentationSet-0_entity-Product-6_6	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-Product-6_6	0	edgeLabels.placement	CENTER
+edge	id_entity-DocumentationSet-0_entity-Registry-7_7	root	entity-DocumentationSet-0	entity-Registry-7
+label	edge	id_entity-DocumentationSet-0_entity-Registry-7_7	0	registry	45.90625	21
+option	edge-label	id_entity-DocumentationSet-0_entity-Registry-7_7	0	edgeLabels.inline	true
+option	edge-label	id_entity-DocumentationSet-0_entity-Registry-7_7	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1015.4453125	509
+place	entity-DocumentationSet-0	root	484.2890625	12	155.1875	81
+place	entity-TableOfContents-1	root	62.8828125	234	144.296875	81
+place	entity-TocItem-2	root	85.03125	416	100	81
+place	entity-Redirect-3	root	247.1796875	234	92.140625	81
+place	entity-CrossLinkDeclaration-4	root	379.3203125	234	173.0625	81
+place	entity-ApiDeclaration-5	root	592.3828125	234	131.0625	81
+place	entity-Product-6	root	763.4453125	234	100	81
+place	entity-Registry-7	root	903.4453125	234	100	81
+route	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	root	root
+section	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	id_entity-DocumentationSet-0_entity-TableOfContents-1_0_s0	513.6015625,93	135.03125,234	513.6015625,113 135.03125,113	entity-DocumentationSet-0	entity-TableOfContents-1
+place-label	edge	id_entity-DocumentationSet-0_entity-TableOfContents-1_0	0	125.53125	173	18.6875	21
+route	id_entity-TableOfContents-1_entity-TocItem-2_1	root	root
+section	id_entity-TableOfContents-1_entity-TocItem-2_1	id_entity-TableOfContents-1_entity-TocItem-2_1_s0	135.03125,315	135.03125,416		entity-TableOfContents-1	entity-TocItem-2
+place-label	edge	id_entity-TableOfContents-1_entity-TocItem-2_1	0	113.53125	355	42.03125	21
+route	id_entity-TocItem-2_entity-TocItem-2_2	root	root
+section	id_entity-TocItem-2_entity-TocItem-2_2	id_entity-TocItem-2_entity-TocItem-2_2_s0	85.03125,447	85.03125,466	65.03125,447 65.03125,466	entity-TocItem-2	entity-TocItem-2
+place-label	edge	id_entity-TocItem-2_entity-TocItem-2_2	0	12	446	49.03125	21
+route	id_entity-DocumentationSet-0_entity-Redirect-3_3	root	root
+section	id_entity-DocumentationSet-0_entity-Redirect-3_3	id_entity-DocumentationSet-0_entity-Redirect-3_3_s0	532.9140625,93	293.25,234	532.9140625,133 293.25,133	entity-DocumentationSet-0	entity-Redirect-3
+place-label	edge	id_entity-DocumentationSet-0_entity-Redirect-3_3	0	253.25	173	79.359375	21
+route	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	root	root
+section	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4_s0	552.2265625,93	465.8515625,234	552.2265625,153 465.8515625,153	entity-DocumentationSet-0	entity-CrossLinkDeclaration-4
+place-label	edge	id_entity-DocumentationSet-0_entity-CrossLinkDeclaration-4_4	0	430.8515625	173	69.25	21
+route	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	root	root
+section	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5_s0	571.5390625,93	657.9140625,234	571.5390625,153 657.9140625,153	entity-DocumentationSet-0	entity-ApiDeclaration-5
+place-label	edge	id_entity-DocumentationSet-0_entity-ApiDeclaration-5_5	0	648.4140625	173	18.6875	21
+route	id_entity-DocumentationSet-0_entity-Product-6_6	root	root
+section	id_entity-DocumentationSet-0_entity-Product-6_6	id_entity-DocumentationSet-0_entity-Product-6_6_s0	590.8515625,93	813.4453125,234	590.8515625,133 813.4453125,133	entity-DocumentationSet-0	entity-Product-6
+place-label	edge	id_entity-DocumentationSet-0_entity-Product-6_6	0	786.4453125	173	53.703125	21
+route	id_entity-DocumentationSet-0_entity-Registry-7_7	root	root
+section	id_entity-DocumentationSet-0_entity-Registry-7_7	id_entity-DocumentationSet-0_entity-Registry-7_7_s0	610.1640625,93	953.4453125,234	610.1640625,113 953.4453125,113	entity-DocumentationSet-0	entity-Registry-7
+place-label	edge	id_entity-DocumentationSet-0_entity-Registry-7_7	0	930.4453125	173	45.90625	21

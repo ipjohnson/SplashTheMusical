@@ -114,6 +114,98 @@ export function hookDagre(code) {
 	return code.slice(0, found[0].index) + hook + code.slice(found[0].index + head.length)
 }
 
+// mermaid.min.js with a hook around the one ELK call of mermaid's code, `graph = await elk.layout(elkGraph)` in
+// runElkLayout of src/rendering-util/layout-algorithms/elk/render.ts. The hook calls globalThis.__oracleElk.before(graph)
+// with the graph mermaid hands ELK and .after(result) with the graph ELK returns, when a recorder is set. It only wraps
+// the call: elkjs is run as it is. The call is found by the "layoutCore" profiler label around it, which minification
+// keeps; the run fails when it is not found exactly once.
+export function hookElk(code) {
+	const re = /\?\.begin\("layoutCore"\);let ([\w$]+);try\{\1=await ([\w$]+)\.layout\(([\w$]+)\)\}/g
+	const found = [...code.matchAll(re)]
+	if (found.length !== 1) throw new Error(`mermaid's elk.layout call found ${found.length} times in mermaid.min.js, expected once; the ELK hook in tools/oracle/dumps.mjs needs updating`)
+	const [text, result, elk, graph] = found[0]
+	const hook = `?.begin("layoutCore");let ${result};try{globalThis.__oracleElk?.before(${graph});${result}=await ${elk}.layout(${graph});globalThis.__oracleElk?.after(${result})}`
+	return code.slice(0, found[0].index) + hook + code.slice(found[0].index + text.length)
+}
+
+// In the page: sets globalThis.__oracleElk to a recorder of every ELK layout, in call order, as the lines of an .elk.txt
+// file. The input lines are written when ELK is called, before it runs, and the output lines when it returns. Each
+// side holds the fields of ELK's JSON graph format: nodes with their ports, labels and children, edges, layout options
+// and, on the output, positions, sections and bend points. Fields mermaid adds that ELK does not read are left out.
+// Numbers are written in full, as JavaScript's String writes them.
+export function recordElkLayouts() {
+	const esc = v => v === undefined || v === null ? '' : String(v).replace(/\\/g, '\\\\').replace(/\t/g, '\\t').replace(/\n/g, '\\n').replace(/\r/g, '\\r')
+	// A field written as it is, because it is escaped already.
+	const escaped = text => ({ escaped: text })
+	const line = (...fields) => fields.map(f => f?.escaped ?? esc(f)).join('\t').replace(/\t+$/, '')
+	// A list of ids, separated by spaces; a space in an id is written \s.
+	const ids = list => escaped((list ?? []).map(id => esc(id).replace(/ /g, '\\s')).join(' '))
+	const point = p => p ? `${p.x},${p.y}` : ''
+	const points = list => (list ?? []).map(point).join(' ')
+	const lines = []
+	let calls = 0
+	// layoutOptions and properties, ELK's two names for an element's options, in key order. An option whose value is
+	// undefined is one ELK never sees, so it is left out.
+	const options = (lines, kind, owner, index, element) => {
+		for (const field of ['layoutOptions', 'properties'])
+			for (const [key, value] of Object.entries(element[field] ?? {}))
+				if (value !== undefined) lines.push(line(field === 'layoutOptions' ? 'option' : 'property', kind, owner, index, key, value))
+	}
+	const inLabels = (kind, owner, labels) => (labels ?? []).forEach((l, i) => {
+		lines.push(line('label', kind, owner, i, l.text, l.width, l.height, l.x, l.y))
+		options(lines, kind + '-label', owner, i, l)
+	})
+	const input = (node, parent) => {
+		lines.push(line('node', node.id, parent, node.width, node.height, node.x, node.y))
+		options(lines, 'node', node.id, '', node)
+		inLabels('node', node.id, node.labels)
+		for (const port of node.ports ?? []) {
+			lines.push(line('port', port.id, node.id, port.width, port.height, port.x, port.y))
+			options(lines, 'port', port.id, '', port)
+			inLabels('port', port.id, port.labels)
+		}
+		for (const child of node.children ?? []) input(child, node.id)
+		for (const edge of node.edges ?? []) {
+			lines.push(line('edge', edge.id, node.id, ids(edge.sources), ids(edge.targets)))
+			options(lines, 'edge', edge.id, '', edge)
+			inLabels('edge', edge.id, edge.labels)
+		}
+	}
+	const outLabels = (kind, owner, labels) => (labels ?? []).forEach((l, i) =>
+		lines.push(line('place-label', kind, owner, i, l.x, l.y, l.width, l.height)))
+	const output = (node, parent) => {
+		lines.push(line('place', node.id, parent, node.x, node.y, node.width, node.height))
+		outLabels('node', node.id, node.labels)
+		for (const port of node.ports ?? []) {
+			lines.push(line('place-port', port.id, node.id, port.x, port.y, port.width, port.height))
+			outLabels('port', port.id, port.labels)
+		}
+		for (const child of node.children ?? []) output(child, node.id)
+		for (const edge of node.edges ?? []) {
+			lines.push(line('route', edge.id, node.id, edge.container, points(edge.junctionPoints)))
+			for (const s of edge.sections ?? [])
+				lines.push(line('section', edge.id, s.id, point(s.startPoint), point(s.endPoint), points(s.bendPoints),
+					ids(s.incomingShape === undefined ? [] : [s.incomingShape]), ids(s.outgoingShape === undefined ? [] : [s.outgoingShape]),
+					ids(s.incomingSections), ids(s.outgoingSections)))
+			outLabels('edge', edge.id, edge.labels)
+		}
+	}
+	globalThis.__oracleElk = {
+		before(graph) {
+			lines.push(line('layout', ++calls))
+			input(graph, undefined)
+		},
+		after(graph) {
+			lines.push(line('result'))
+			output(graph, undefined)
+		},
+		take() {
+			globalThis.__oracleElk = undefined
+			return lines
+		},
+	}
+}
+
 // mermaid.min.js with its preprocessDiagram set on globalThis.__oraclePreprocess. preprocessDiagram returns the front
 // matter title and the config of the front matter and the directives, which no public function returns together. The
 // function is found by the name label minification keeps; the run fails when it is not found exactly once.

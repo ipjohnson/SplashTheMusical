@@ -1,0 +1,75 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6b45f4280039e184
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	a	root	152	108
+node	b	root	152	129
+node	r	root	152	129
+node	g	root	152	87
+edge	L_a_r_0	root	a	r
+label	edge	L_a_r_0	0	commands, heartbeat	135.40625	21
+option	edge-label	L_a_r_0	0	edgeLabels.inline	true
+option	edge-label	L_a_r_0	0	edgeLabels.placement	CENTER
+edge	L_r_a_0	root	r	a
+label	edge	L_r_a_0	0	transitions	63.8125	21
+option	edge-label	L_r_a_0	0	edgeLabels.inline	true
+option	edge-label	L_r_a_0	0	edgeLabels.placement	CENTER
+edge	L_b_r_0	root	b	r
+label	edge	L_b_r_0	0	commands, heartbeat	135.40625	21
+option	edge-label	L_b_r_0	0	edgeLabels.inline	true
+option	edge-label	L_b_r_0	0	edgeLabels.placement	CENTER
+edge	L_r_b_0	root	r	b
+label	edge	L_r_b_0	0	transitions	63.8125	21
+option	edge-label	L_r_b_0	0	edgeLabels.inline	true
+option	edge-label	L_r_b_0	0	edgeLabels.placement	CENTER
+edge	L_a_g_0	root	a	g
+label	edge	L_a_g_0	0	push, pull requests	117.53125	21
+option	edge-label	L_a_g_0	0	edgeLabels.inline	true
+option	edge-label	L_a_g_0	0	edgeLabels.placement	CENTER
+edge	L_b_g_0	root	b	g
+label	edge	L_b_g_0	0	push, pull requests	117.53125	21
+option	edge-label	L_b_g_0	0	edgeLabels.inline	true
+option	edge-label	L_b_g_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1260.34375	184
+place	a	root	12	47	152	108
+place	b	root	746.8125	12	152	129
+place	r	root	379.40625	12	152	129
+place	g	root	1096.34375	75.25	152	87
+route	L_a_r_0	root	root
+section	L_a_r_0	L_a_r_0_s0	164,79	379.40625,58.33333333333333	184,79 184,55.49999999999999 359.40625,55.49999999999999 359.40625,58.33333333333333	a	r
+place-label	edge	L_a_r_0	0	204	44.49999999999999	135.40625	21
+route	L_r_a_0	root	root
+section	L_r_a_0	L_r_a_0_s0	379.40625,94.66666666666666	164,101	359.40625,94.66666666666666 359.40625,97.49999999999999 184,97.49999999999999 184,101	r	a
+place-label	edge	L_r_a_0	0	239.796875	86.5	63.8125	21
+route	L_b_r_0	root	root
+section	L_b_r_0	L_b_r_0_s0	746.8125,58.33333333333333	531.40625,58.33333333333333	726.8125,58.33333333333333 726.8125,55.49999999999999 551.40625,55.49999999999999 551.40625,58.33333333333333	b	r
+place-label	edge	L_b_r_0	0	571.40625	44.49999999999999	135.40625	21
+route	L_r_b_0	root	root
+section	L_r_b_0	L_r_b_0_s0	531.40625,94.66666666666666	746.8125,94.66666666666666	551.40625,94.66666666666666 551.40625,97.49999999999999 726.8125,97.49999999999999 726.8125,94.66666666666666	r	b
+place-label	edge	L_r_b_0	0	607.203125	86.5	63.8125	21
+route	L_a_g_0	root	root
+section	L_a_g_0	L_a_g_0_s0	164,123	1096.34375,129.91666666666669	184,123 184,161 271.703125,161 455.40625,161 822.8125,161 997.578125,161 1076.34375,161 1076.34375,129.91666666666669	a	g
+place-label	edge	L_a_g_0	0	580.34375	150	117.53125	21
+route	L_b_g_0	root	root
+section	L_b_g_0	L_b_g_0_s0	898.8125,76.5	1096.34375,107.58333333333333	1076.34375,76.5 1076.34375,107.58333333333333	b	g
+place-label	edge	L_b_g_0	0	938.8125	65.5	117.53125	21

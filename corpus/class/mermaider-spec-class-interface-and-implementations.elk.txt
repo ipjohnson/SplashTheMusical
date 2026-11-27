@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 417888e1d1a2fc1d
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	ILogger	root	182.75	162
+node	ConsoleLogger	root	199.4453125	156
+node	FileLogger	root	183.890625	177
+edge	id_ILogger_ConsoleLogger_1	root	ILogger	ConsoleLogger
+label	edge	id_ILogger_ConsoleLogger_1	0		0	0
+option	edge-label	id_ILogger_ConsoleLogger_1	0	edgeLabels.inline	true
+option	edge-label	id_ILogger_ConsoleLogger_1	0	edgeLabels.placement	CENTER
+edge	id_ILogger_FileLogger_2	root	ILogger	FileLogger
+label	edge	id_ILogger_FileLogger_2	0		0	0
+option	edge-label	id_ILogger_FileLogger_2	0	edgeLabels.inline	true
+option	edge-label	id_ILogger_FileLogger_2	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	447.3359375	403
+place	ILogger	root	136.181640625	12	182.75	162
+place	ConsoleLogger	root	12	214	199.4453125	156
+place	FileLogger	root	251.4453125	214	183.890625	177
+route	id_ILogger_ConsoleLogger_1	root	root
+section	id_ILogger_ConsoleLogger_1	id_ILogger_ConsoleLogger_1_s0	200.431640625,174	111.72265625,214	200.431640625,194 111.72265625,194	ILogger	ConsoleLogger
+place-label	edge	id_ILogger_ConsoleLogger_1	0	0	0	0	0
+route	id_ILogger_FileLogger_2	root	root
+section	id_ILogger_FileLogger_2	id_ILogger_FileLogger_2_s0	254.681640625,174	343.390625,214	254.681640625,194 343.390625,194	ILogger	FileLogger
+place-label	edge	id_ILogger_FileLogger_2	0	0	0	0	0

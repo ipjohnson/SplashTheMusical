@@ -1,0 +1,229 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source b27d981c9dfb12a3
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Outputs	root
+option	node	Outputs		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Outputs		nodeSize.minimum	(57.03125, 0)
+option	node	Outputs		spacing.baseValue	24
+option	node	Outputs		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Outputs		elk.spacing.edgeEdge	20
+option	node	Outputs		spacing.nodeNode	50
+option	node	Outputs		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Outputs		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Outputs		elk.layered.mergeEdges	false
+option	node	Outputs		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Outputs		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Outputs		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Outputs		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Outputs		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Outputs		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Outputs	0	Outputs	49.03125	19
+node	Html	Outputs	152	66
+option	node	Html		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Manifest	Outputs	152	66
+option	node	Manifest		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Redirects	Outputs	152	45
+option	node	Redirects		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	State	Outputs	152	66
+node	Build	root
+option	node	Build		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Build		nodeSize.minimum	(90.515625, 0)
+option	node	Build		spacing.baseValue	24
+option	node	Build		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Build		elk.spacing.edgeEdge	20
+option	node	Build		spacing.nodeNode	50
+option	node	Build		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Build		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Build		elk.layered.mergeEdges	false
+option	node	Build		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Build		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Build		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Build		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Build		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Build		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Build	0	Isolated build	82.515625	19
+node	DocSet	Build	152	66
+option	node	DocSet		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Toc	Build	152	45
+node	Content	Build	152	66
+option	node	Content		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Nav	Build	152	45
+option	node	Nav		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	External	root
+option	node	External		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	External		nodeSize.minimum	(244.578125, 0)
+option	node	External		spacing.baseValue	24
+option	node	External		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	External		elk.spacing.edgeEdge	20
+option	node	External		spacing.nodeNode	50
+option	node	External		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	External		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	External		elk.layered.mergeEdges	false
+option	node	External		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	External		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	External		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	External		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	External		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	External		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	External	0	Read from outside, never checked out	236.578125	19
+node	LinkReg	External	152	45
+option	node	LinkReg		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	OpenApiRepo	External	152	66
+option	node	OpenApiRepo		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Bundles	External	152	66
+option	node	Bundles		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Inputs	root
+option	node	Inputs		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Inputs		nodeSize.minimum	(46.140625, 0)
+option	node	Inputs		spacing.baseValue	24
+option	node	Inputs		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Inputs		elk.spacing.edgeEdge	20
+option	node	Inputs		spacing.nodeNode	50
+option	node	Inputs		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Inputs		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Inputs		elk.layered.mergeEdges	false
+option	node	Inputs		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Inputs		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Inputs		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Inputs		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Inputs		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Inputs		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	Inputs	0	Inputs	38.140625	19
+node	Checkout	Inputs	152	87
+option	node	Checkout		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	Vocab	Inputs	152	87
+option	node	Vocab		elk.hierarchyHandling	INCLUDE_CHILDREN
+edge	L_Checkout_DocSet_0	root	Checkout	DocSet
+label	edge	L_Checkout_DocSet_0	0		0	0
+option	edge-label	L_Checkout_DocSet_0	0	edgeLabels.inline	true
+option	edge-label	L_Checkout_DocSet_0	0	edgeLabels.placement	CENTER
+edge	L_Vocab_DocSet_0	root	Vocab	DocSet
+label	edge	L_Vocab_DocSet_0	0		0	0
+option	edge-label	L_Vocab_DocSet_0	0	edgeLabels.inline	true
+option	edge-label	L_Vocab_DocSet_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Toc_0	root	DocSet	Toc
+label	edge	L_DocSet_Toc_0	0		0	0
+option	edge-label	L_DocSet_Toc_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Toc_0	0	edgeLabels.placement	CENTER
+edge	L_Toc_Nav_0	root	Toc	Nav
+label	edge	L_Toc_Nav_0	0		0	0
+option	edge-label	L_Toc_Nav_0	0	edgeLabels.inline	true
+option	edge-label	L_Toc_Nav_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Content_0	root	DocSet	Content
+label	edge	L_DocSet_Content_0	0		0	0
+option	edge-label	L_DocSet_Content_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Content_0	0	edgeLabels.placement	CENTER
+edge	L_Content_Nav_0	root	Content	Nav
+label	edge	L_Content_Nav_0	0		0	0
+option	edge-label	L_Content_Nav_0	0	edgeLabels.inline	true
+option	edge-label	L_Content_Nav_0	0	edgeLabels.placement	CENTER
+edge	L_LinkReg_Content_0	root	Content	LinkReg
+label	edge	L_LinkReg_Content_0	0	cross_links	69.25	21
+option	edge-label	L_LinkReg_Content_0	0	edgeLabels.inline	true
+option	edge-label	L_LinkReg_Content_0	0	edgeLabels.placement	CENTER
+edge	L_OpenApiRepo_Content_0	root	Content	OpenApiRepo
+label	edge	L_OpenApiRepo_Content_0	0	api	18.6875	21
+option	edge-label	L_OpenApiRepo_Content_0	0	edgeLabels.inline	true
+option	edge-label	L_OpenApiRepo_Content_0	0	edgeLabels.placement	CENTER
+edge	L_Bundles_Content_0	root	Content	Bundles
+label	edge	L_Bundles_Content_0	0	release_notes	87.953125	21
+option	edge-label	L_Bundles_Content_0	0	edgeLabels.inline	true
+option	edge-label	L_Bundles_Content_0	0	edgeLabels.placement	CENTER
+edge	L_Nav_Html_0	root	Nav	Html
+label	edge	L_Nav_Html_0	0		0	0
+option	edge-label	L_Nav_Html_0	0	edgeLabels.inline	true
+option	edge-label	L_Nav_Html_0	0	edgeLabels.placement	CENTER
+edge	L_Nav_Manifest_0	root	Nav	Manifest
+label	edge	L_Nav_Manifest_0	0		0	0
+option	edge-label	L_Nav_Manifest_0	0	edgeLabels.inline	true
+option	edge-label	L_Nav_Manifest_0	0	edgeLabels.placement	CENTER
+edge	L_DocSet_Redirects_0	root	DocSet	Redirects
+label	edge	L_DocSet_Redirects_0	0		0	0
+option	edge-label	L_DocSet_Redirects_0	0	edgeLabels.inline	true
+option	edge-label	L_DocSet_Redirects_0	0	edgeLabels.placement	CENTER
+edge	L_Manifest_LinkReg_0	root	Manifest	LinkReg
+label	edge	L_Manifest_LinkReg_0	0	published on push	113.65625	21
+option	edge-label	L_Manifest_LinkReg_0	0	edgeLabels.inline	true
+option	edge-label	L_Manifest_LinkReg_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1753.65625	735.75
+place	Outputs	root	1068	12	200	465
+place-label	node	Outputs	0	75.484375	5	49.03125	19
+place	Html	Outputs	24	259	152	66
+place	Manifest	Outputs	24	375	152	66
+place	Redirects	Outputs	24	164	152	45
+place	State	Outputs	24	48	152	66
+place	Build	root	272	297.3	696	268.5
+place-label	node	Build	0	306.7421875	5	82.515625	19
+place	DocSet	Build	24	62.5	152	66
+place	Toc	Build	236	73	152	45
+place	Content	Build	236	168	152	66
+place	Nav	Build	460	76.9	152	45
+place	External	root	1481.65625	374.75	260	349
+place-label	node	External	0	11.7109375	5	236.578125	19
+place	LinkReg	External	84	48	152	45
+place	OpenApiRepo	External	84	143	152	66
+place	Bundles	External	84	259	152	66
+place	Inputs	root	12	181.3	200	296
+place-label	node	Inputs	0	80.9296875	5	38.140625	19
+place	Checkout	Inputs	24	48	152	87
+place	Vocab	Inputs	24	185	152	87
+route	L_Checkout_DocSet_0	root	root
+section	L_Checkout_DocSet_0	L_Checkout_DocSet_0_s0	188,272.8	296,385.40000000000003	222,272.8 242,272.8 242,385.4 262,385.40000000000003	Checkout	DocSet
+place-label	edge	L_Checkout_DocSet_0	0	0	0	0	0
+route	L_Vocab_DocSet_0	root	root
+section	L_Vocab_DocSet_0	L_Vocab_DocSet_0_s0	188,409.8	296,400.20000000000005	222,409.8 242,409.8 242,400.20000000000005 262,400.20000000000005	Vocab	DocSet
+place-label	edge	L_Vocab_DocSet_0	0	0	0	0	0
+route	L_DocSet_Toc_0	root	Build
+section	L_DocSet_Toc_0	L_DocSet_Toc_0_s0	176,95.5	236,95.5		DocSet	Toc
+place-label	edge	L_DocSet_Toc_0	0	0	0	0	0
+route	L_Toc_Nav_0	root	Build
+section	L_Toc_Nav_0	L_Toc_Nav_0_s0	388,95.5	460,95.5		Toc	Nav
+place-label	edge	L_Toc_Nav_0	0	0	0	0	0
+route	L_DocSet_Content_0	root	Build
+section	L_DocSet_Content_0	L_DocSet_Content_0_s0	176,106.6	236,201	206,106.6 206,201	DocSet	Content
+place-label	edge	L_DocSet_Content_0	0	0	0	0	0
+route	L_Content_Nav_0	root	Build
+section	L_Content_Nav_0	L_Content_Nav_0_s0	388,187.68	460,103.30000000000001	418,187.68 418,103.30000000000001	Content	Nav
+place-label	edge	L_Content_Nav_0	0	0	0	0	0
+route	L_LinkReg_Content_0	root	root
+section	L_LinkReg_Content_0	L_LinkReg_Content_0_s0	660,493.86	1565.65625,449.15000000000003	702,493.86 702,487.80000000000007 978,487.8 1038,487.8 1038,528 1374.828125,528 1451.65625,528 1451.65625,451.25 1471.65625,451.25000000000006 1535.65625,451.25000000000006 1535.65625,449.15000000000003	Content	LinkReg
+place-label	edge	L_LinkReg_Content_0	0	1133.375	517	69.25	21
+route	L_OpenApiRepo_Content_0	root	root
+section	L_OpenApiRepo_Content_0	L_OpenApiRepo_Content_0_s0	660,502.74000000000007	1565.65625,550.75	702,502.74000000000007 702,508.80000000000007 978,508.8 1018,508.8 1018,570 1374.828125,570 1451.65625,570 1451.65625,550.75 1471.65625,550.75	Content	OpenApiRepo
+place-label	edge	L_OpenApiRepo_Content_0	0	1158.65625	559	18.6875	21
+route	L_Bundles_Content_0	root	root
+section	L_Bundles_Content_0	L_Bundles_Content_0_s0	660,511.62000000000006	1565.65625,666.75	690,511.62000000000006 690,529.8000000000001 978,529.8 998,529.8 998,649 1374.828125,649 1451.65625,649 1451.65625,666.75 1471.65625,666.75	Content	Bundles
+place-label	edge	L_Bundles_Content_0	0	1124.0234375	638	87.953125	21
+route	L_Nav_Html_0	root	root
+section	L_Nav_Html_0	L_Nav_Html_0_s0	884,392.80000000000007	1092,304	914,392.80000000000007 914,390.70000000000005 978,390.70000000000005 1018,390.70000000000005 1018,304 1058,304	Nav	Html
+place-label	edge	L_Nav_Html_0	0	0	0	0	0
+route	L_Nav_Manifest_0	root	root
+section	L_Nav_Manifest_0	L_Nav_Manifest_0_s0	884,400.6	1092,420	914,400.6 914,402.70000000000005 978,402.70000000000005 998,402.70000000000005 998,420 1058,420	Nav	Manifest
+place-label	edge	L_Nav_Manifest_0	0	0	0	0	0
+route	L_DocSet_Redirects_0	root	root
+section	L_DocSet_Redirects_0	L_DocSet_Redirects_0_s0	448,381.70000000000005	1092,198.5	478,381.70000000000005 478,357.30000000000007 978,357.3 998,357.3 998,198.5 1058,198.5	DocSet	Redirects
+place-label	edge	L_DocSet_Redirects_0	0	0	0	0	0
+route	L_Manifest_LinkReg_0	root	root
+section	L_Manifest_LinkReg_0	L_Manifest_LinkReg_0_s0	1244,420	1565.65625,441.35	1278,420 1451.65625,420 1451.65625,439.25 1471.65625,439.25 1535.65625,439.25 1535.65625,441.35	Manifest	LinkReg
+place-label	edge	L_Manifest_LinkReg_0	0	1318	409	113.65625	21

@@ -125,6 +125,12 @@ internal sealed record FlowchartStyle(string DiagramType, string Look, string? N
 
 	/// <summary>The marker sets <c>insertMarkers</c> writes: the diagram's <c>data4Layout.markers</c>.</summary>
 	public Layout.Markers.MarkerDiagram Markers { get; init; } = Layout.Markers.MarkerDiagram.Flowchart;
+
+	/// <summary>
+	/// The paint of a <c>rect</c> behind each edge label, as the requirement diagram's <c>.labelBkg</c> rule fills the
+	/// label's box, or <c>null</c> for no background.
+	/// </summary>
+	public string? EdgeLabelBackground { get; init; }
 }
 
 /// <summary><c>insertTitle</c>'s text: the front matter title, centred over the drawing, with the diagram's title class.</summary>

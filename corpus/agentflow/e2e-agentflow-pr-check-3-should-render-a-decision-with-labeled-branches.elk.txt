@@ -1,0 +1,54 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 0b1f5d541b948e14
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	triage	root	171	171
+node	bugfix	root	150	51
+node	feature_work	root	150	51
+node	answer	root	150	51
+edge	L_triage_bugfix_0	root	triage	bugfix
+label	edge	L_triage_bugfix_0	0	bug	23.359375	21
+option	edge-label	L_triage_bugfix_0	0	edgeLabels.inline	true
+option	edge-label	L_triage_bugfix_0	0	edgeLabels.placement	CENTER
+edge	L_triage_feature_work_0	root	triage	feature_work
+label	edge	L_triage_feature_work_0	0	feature	43.59375	21
+option	edge-label	L_triage_feature_work_0	0	edgeLabels.inline	true
+option	edge-label	L_triage_feature_work_0	0	edgeLabels.placement	CENTER
+edge	L_triage_answer_0	root	triage	answer
+label	edge	L_triage_answer_0	0	question	52.9375	21
+option	edge-label	L_triage_answer_0	0	edgeLabels.inline	true
+option	edge-label	L_triage_answer_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	554	347
+place	triage	root	191.5	12	171	171
+place	bugfix	root	12	284	150	51
+place	feature_work	root	202	284	150	51
+place	answer	root	392	284	150	51
+route	L_triage_bugfix_0	root	root
+section	L_triage_bugfix_0	L_triage_bugfix_0_s0	239.25,183	87,284	239.25,203 87,203	triage	bugfix
+place-label	edge	L_triage_bugfix_0	0	75	223	23.359375	21
+route	L_triage_feature_work_0	root	root
+section	L_triage_feature_work_0	L_triage_feature_work_0_s0	277,183	277,284		triage	feature_work
+place-label	edge	L_triage_feature_work_0	0	255	223	43.59375	21
+route	L_triage_answer_0	root	root
+section	L_triage_answer_0	L_triage_answer_0_s0	314.75,183	467,284	314.75,203 467,203	triage	answer
+place-label	edge	L_triage_answer_0	0	440.5	223	52.9375	21

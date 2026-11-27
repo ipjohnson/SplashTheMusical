@@ -15,8 +15,12 @@ public static class Runs
 	/// <summary>The jobs a run takes when it names none.</summary>
 	public static readonly string[] AllJobs = ["JIT", "AOT"];
 
-	/// <summary>The warmup iterations of the JIT job. The AOT job takes 3.</summary>
-	public const int JitWarmupCount = 20;
+	/// <summary>
+	/// The warmup iterations of the JIT job. The AOT job takes 3. With 20, the measured iterations of the flowchart-large
+	/// layout and render rows still fell as tier-1 code arrived, so a run measured a mix of tiers. With 60, about 6 s, they
+	/// stay level.
+	/// </summary>
+	public const int JitWarmupCount = 60;
 
 	/// <summary>
 	/// Runs the benchmarks of <typeparamref name="T"/> under the named jobs, with <see cref="MemoryDiagnoser"/>. The class has a
@@ -57,7 +61,8 @@ public static class Runs
 		{
 			config.AddJob(id switch
 			{
-				// Tier-1 code can arrive a second or more into a run, so 3 warmups of 100 ms would measure tier-0 code.
+				// Tier-1 code of the large layout and render rows arrives several seconds into a run, so few warmups of 100 ms
+				// would measure tier-0 code.
 				"JIT" => job.WithWarmupCount(JitWarmupCount).WithId("JIT"),
 				"AOT" => job.WithToolchain(NativeAotToolchain.Net10_0).WithId("AOT"),
 				_ => throw new ArgumentException($"Unknown job {id}. Use JIT or AOT.", nameof(jobs)),

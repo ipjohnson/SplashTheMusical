@@ -1,0 +1,113 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 33859bb5fa91e0c1
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Ready	root	136	37
+node	fork_point	root	70	10
+node	join_point	root	70	10
+node	TaskA	root	136	37
+node	TaskB	root	136	37
+node	TaskC	root	136	37
+node	Complete	root	136	37
+node	root_end	root	14.013293266296387	14
+edge	edge0	root	root_start	Ready
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Ready	fork_point
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	fork_point	TaskA
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	fork_point	TaskB
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	fork_point	TaskC
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+edge	edge5	root	TaskA	join_point
+label	edge	edge5	0		0	0
+option	edge-label	edge5	0	edgeLabels.inline	true
+option	edge-label	edge5	0	edgeLabels.placement	CENTER
+edge	edge6	root	TaskB	join_point
+label	edge	edge6	0		0	0
+option	edge-label	edge6	0	edgeLabels.inline	true
+option	edge-label	edge6	0	edgeLabels.placement	CENTER
+edge	edge7	root	TaskC	join_point
+label	edge	edge7	0		0	0
+option	edge-label	edge7	0	edgeLabels.inline	true
+option	edge-label	edge7	0	edgeLabels.placement	CENTER
+edge	edge8	root	join_point	Complete
+label	edge	edge8	0		0	0
+option	edge-label	edge8	0	edgeLabels.inline	true
+option	edge-label	edge8	0	edgeLabels.placement	CENTER
+edge	edge9	root	Complete	root_end
+label	edge	edge9	0		0	0
+option	edge-label	edge9	0	edgeLabels.inline	true
+option	edge-label	edge9	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	512	423
+place	root_start	root	246	12	14	14
+place	Ready	root	188	66	136	37
+place	fork_point	root	221	143	70	10
+place	join_point	root	221	270	70	10
+place	TaskA	root	12	193	136	37
+place	TaskB	root	188	193	136	37
+place	TaskC	root	364	193	136	37
+place	Complete	root	188	320	136	37
+place	root_end	root	246	397	14.013293266296387	14
+route	edge0	root	root
+section	edge0	edge0_s0	256,26	256,66		root_start	Ready
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	root
+section	edge1	edge1_s0	256,103	256,143		Ready	fork_point
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	243.5,153	80,193	243.5,173 80,173	fork_point	TaskA
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	256,153	256,193		fork_point	TaskB
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	root
+section	edge4	edge4_s0	268.5,153	432,193	268.5,173 432,173	fork_point	TaskC
+place-label	edge	edge4	0	0	0	0	0
+route	edge5	root	root
+section	edge5	edge5_s0	80,230	243.5,270	80,250 243.5,250	TaskA	join_point
+place-label	edge	edge5	0	0	0	0	0
+route	edge6	root	root
+section	edge6	edge6_s0	256,230	256,270		TaskB	join_point
+place-label	edge	edge6	0	0	0	0	0
+route	edge7	root	root
+section	edge7	edge7_s0	432,230	268.5,270	432,250 268.5,250	TaskC	join_point
+place-label	edge	edge7	0	0	0	0	0
+route	edge8	root	root
+section	edge8	edge8_s0	256,280	256,320		join_point	Complete
+place-label	edge	edge8	0	0	0	0	0
+route	edge9	root	root
+section	edge9	edge9_s0	256,357	256,397		Complete	root_end
+place-label	edge	edge9	0	0	0	0	0

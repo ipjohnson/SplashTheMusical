@@ -1,0 +1,112 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 330b2d93e12c5899
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	root_start	root	14	14
+node	Loop	root
+option	node	Loop		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Loop		nodeSize.minimum	(39.15625, 0)
+option	node	Loop		spacing.baseValue	24
+option	node	Loop		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Loop		elk.spacing.edgeEdge	20
+option	node	Loop		spacing.nodeNode	50
+option	node	Loop		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Loop		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Loop		elk.layered.mergeEdges	false
+option	node	Loop		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Loop		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Loop		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Loop		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Loop		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Loop		elk.algorithm	elk.layered
+option	node	Loop		elk.direction	DOWN
+option	node	Loop		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Loop	0	Loop	31.15625	19
+node	Loop_start	Loop	14	14
+node	Spin	Loop	136	37
+node	Exit	root
+option	node	Exit		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	Exit		nodeSize.minimum	(31.34375, 0)
+option	node	Exit		spacing.baseValue	24
+option	node	Exit		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	Exit		elk.spacing.edgeEdge	20
+option	node	Exit		spacing.nodeNode	50
+option	node	Exit		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	Exit		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	Exit		elk.layered.mergeEdges	false
+option	node	Exit		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	Exit		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	Exit		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	Exit		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	Exit		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	Exit		elk.algorithm	elk.layered
+option	node	Exit		elk.direction	DOWN
+option	node	Exit		elk.hierarchyHandling	SEPARATE_CHILDREN
+label	node	Exit	0	Exit	23.34375	19
+node	Exit_start	Exit	14	14
+node	Bye	Exit	136	37
+edge	edge0	root	root_start	Loop
+label	edge	edge0	0		0	0
+option	edge-label	edge0	0	edgeLabels.inline	true
+option	edge-label	edge0	0	edgeLabels.placement	CENTER
+edge	edge1	root	Loop_start	Spin
+label	edge	edge1	0		0	0
+option	edge-label	edge1	0	edgeLabels.inline	true
+option	edge-label	edge1	0	edgeLabels.placement	CENTER
+edge	edge2	root	Loop	Loop
+label	edge	edge2	0		0	0
+option	edge-label	edge2	0	edgeLabels.inline	true
+option	edge-label	edge2	0	edgeLabels.placement	CENTER
+edge	edge3	root	Loop	Exit
+label	edge	edge3	0		0	0
+option	edge-label	edge3	0	edgeLabels.inline	true
+option	edge-label	edge3	0	edgeLabels.placement	CENTER
+edge	edge4	root	Exit_start	Bye
+label	edge	edge4	0		0	0
+option	edge-label	edge4	0	edgeLabels.inline	true
+option	edge-label	edge4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	228	412
+place	root_start	root	114	12	14	14
+place	Loop	root	32	66	184	147
+place-label	node	Loop	0	76.421875	5	31.15625	19
+place	Loop_start	Loop	81.2	48	14	14
+place	Spin	Loop	24	86	136	37
+place	Exit	root	32	253	184	147
+place-label	node	Exit	0	80.328125	5	23.34375	19
+place	Exit_start	Exit	81.2	48	14	14
+place	Bye	Exit	24	86	136	37
+route	edge0	root	root
+section	edge0	edge0_s0	124,26	124,66		root_start	Loop
+place-label	edge	edge0	0	0	0	0	0
+route	edge1	root	Loop
+section	edge1	edge1_s0	92,62	92,86		Loop_start	Spin
+place-label	edge	edge1	0	0	0	0	0
+route	edge2	root	root
+section	edge2	edge2_s0	32,119	32,160	12,119 12,160	Loop	Loop
+place-label	edge	edge2	0	0	0	0	0
+route	edge3	root	root
+section	edge3	edge3_s0	124,213	124,253		Loop	Exit
+place-label	edge	edge3	0	0	0	0	0
+route	edge4	root	Exit
+section	edge4	edge4_s0	92,62	92,86		Exit_start	Bye
+place-label	edge	edge4	0	0	0	0	0

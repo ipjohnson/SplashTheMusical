@@ -1,0 +1,74 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source f9c8b13372157bff
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	myTitle	root
+option	node	myTitle		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	myTitle		nodeSize.minimum	(52.59375, 0)
+option	node	myTitle		spacing.baseValue	24
+option	node	myTitle		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	myTitle		elk.spacing.edgeEdge	20
+option	node	myTitle		spacing.nodeNode	50
+option	node	myTitle		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	myTitle		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	myTitle		elk.layered.mergeEdges	false
+option	node	myTitle		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	myTitle		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	myTitle		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	myTitle		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	myTitle		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+label	node	myTitle	0	myTitle	44.59375	19
+node	c	myTitle	152	45
+node	d	myTitle	152	45
+node	e	myTitle	152	45
+node	A	root	152	45
+node	B	root	152	45
+edge	L_A_B_0	root	A	B
+label	edge	L_A_B_0	0		0	0
+option	edge-label	L_A_B_0	0	edgeLabels.inline	true
+option	edge-label	L_A_B_0	0	edgeLabels.placement	CENTER
+edge	L_c_d_0	root	c	d
+label	edge	L_c_d_0	0	text	22.578125	21
+option	edge-label	L_c_d_0	0	edgeLabels.inline	true
+option	edge-label	L_c_d_0	0	edgeLabels.placement	CENTER
+edge	L_d_e_0	root	d	e
+label	edge	L_d_e_0	0		0	0
+option	edge-label	L_d_e_0	0	edgeLabels.inline	true
+option	edge-label	L_d_e_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	416	409
+place	myTitle	root	12	12	200	300
+place-label	node	myTitle	0	77.703125	5	44.59375	19
+place	c	myTitle	24	48	152	45
+place	d	myTitle	24	162	152	45
+place	e	myTitle	24	231	152	45
+place	A	root	252	267	152	45
+place	B	root	252	352	152	45
+route	L_A_B_0	root	root
+section	L_A_B_0	L_A_B_0_s0	328,312	328,352		A	B
+place-label	edge	L_A_B_0	0	0	0	0	0
+route	L_c_d_0	root	myTitle
+section	L_c_d_0	L_c_d_0_s0	99.99999999999999,93	99.99999999999999,162		c	d
+place-label	edge	L_c_d_0	0	88.49999999999999	117	22.578125	21
+route	L_d_e_0	root	myTitle
+section	L_d_e_0	L_d_e_0_s0	99.99999999999999,207	99.99999999999999,231		d	e
+place-label	edge	L_d_e_0	0	0	0	0	0

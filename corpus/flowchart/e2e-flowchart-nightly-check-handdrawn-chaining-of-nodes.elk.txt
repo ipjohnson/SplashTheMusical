@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 61c329dee3d54dee
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	a	root	182.63299560546875	54.762245178222656
+node	b	root	182.65850830078125	54.29500198364258
+node	c	root	182.7357177734375	54.1590690612793
+edge	L_a_b_0	root	a	b
+label	edge	L_a_b_0	0		0	0
+option	edge-label	L_a_b_0	0	edgeLabels.inline	true
+option	edge-label	L_a_b_0	0	edgeLabels.placement	CENTER
+edge	L_b_c_0	root	b	c
+label	edge	L_b_c_0	0		0	0
+option	edge-label	L_b_c_0	0	edgeLabels.inline	true
+option	edge-label	L_b_c_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	652.0272216796875	78.76224517822266
+place	a	root	12	12	182.63299560546875	54.762245178222656
+place	b	root	234.63299560546875	12.233621597290039	182.65850830078125	54.29500198364258
+place	c	root	457.29150390625	12.30158805847168	182.7357177734375	54.1590690612793
+route	L_a_b_0	root	root
+section	L_a_b_0	L_a_b_0_s0	194.63299560546875,39.38112258911133	234.63299560546875,39.38112258911133		a	b
+place-label	edge	L_a_b_0	0	0	0	0	0
+route	L_b_c_0	root	root
+section	L_b_c_0	L_b_c_0_s0	417.29150390625,39.38112258911133	457.29150390625,39.38112258911133		b	c
+place-label	edge	L_b_c_0	0	0	0	0	0

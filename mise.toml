@@ -75,7 +75,7 @@ arg "<version>" help="The mermaid version, such as 12.3.0"
 run = 'bash tools/upstream/bump.sh "${usage_version}"'
 
 [tasks.corpus-oracle]
-description = "Write the mermaid.js facts, boxes and dagre files of every case in corpus/"
+description = "Write the mermaid.js facts, boxes, dagre and ELK files of every case in corpus/"
 run = [
   "test -d tools/oracle/node_modules || npm ci --prefix tools/oracle --no-audit --no-fund",
   "node tools/oracle/facts.mjs corpus corpus .artifacts/corpus/svg",
@@ -114,6 +114,12 @@ run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-fil
 description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write corpus/l4.txt and the side-by-side images of failing cases"
 depends = ["stm-svg", "corpus-oracle"]
 run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
+
+[tasks.screenshots]
+description = "Draw mermaid.js's and STM's SVG of the named corpus cases side by side as PNGs in .artifacts/screenshots, for a pull request"
+usage = 'arg "<cases>" help="Comma-separated case names, such as flowchart/basic,state/notes"'
+depends = ["stm-svg", "corpus-oracle"]
+run = 'STM_RASTER_CASES="${usage_cases}" node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg .artifacts/screenshots/l4.txt .artifacts/screenshots .artifacts/corpus/raster'
 
 [tasks.oracle-roundtrip]
 description = "Write STM's text of every accepted corpus case and of random documents, run the oracle on it, and fail when mermaid.js reads a case differently or refuses one"

@@ -1,0 +1,204 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 9030927aa46339a4
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	repos	root
+option	node	repos		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	repos		nodeSize.minimum	(129.40625, 0)
+option	node	repos		spacing.baseValue	24
+option	node	repos		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	repos		elk.spacing.edgeEdge	20
+option	node	repos		spacing.nodeNode	50
+option	node	repos		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	repos		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	repos		elk.layered.mergeEdges	false
+option	node	repos		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	repos		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	repos		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	repos		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	repos		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	repos		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	repos	0	Per-repo checkouts	121.40625	19
+node	docsetV1	repos	152	66
+option	node	docsetV1		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	docsetV2	repos	152	87
+option	node	docsetV2		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	config	root
+option	node	config		nodeSize.constraints	[MINIMUM_SIZE, NODE_LABELS]
+option	node	config		nodeSize.minimum	(48.46875, 0)
+option	node	config		spacing.baseValue	24
+option	node	config		elk.layered.spacing.edgeNodeBetweenLayers	30
+option	node	config		elk.spacing.edgeEdge	20
+option	node	config		spacing.nodeNode	50
+option	node	config		elk.padding	[top=24,left=24,bottom=24,right=24]
+option	node	config		nodeLabels.placement	[H_CENTER V_TOP, INSIDE]
+option	node	config		elk.layered.mergeEdges	false
+option	node	config		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	config		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	config		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	config		elk.layered.nodePlacement.networkSimplex.nodeFlexibility	PORT_POSITION
+option	node	config		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+option	node	config		elk.hierarchyHandling	INCLUDE_CHILDREN
+label	node	config	0	Config	40.46875	19
+node	navYml	config	152	45
+option	node	navYml		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	navV2Yml	config	152	45
+option	node	navV2Yml		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	v1SiteNav	root	152	45
+option	node	v1SiteNav		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	v2SiteNav	root	152	66
+option	node	v2SiteNav		elk.hierarchyHandling	INCLUDE_CHILDREN
+node	v1Map	root	180.640625	66
+node	v2Map	root	180.640625	66
+node	valV1	root	171	171
+node	valV2	root	171	171
+node	errV1	root	171.2268829345703	45
+node	errV2	root	171.2268829345703	45
+node	flag	root	171	171
+node	emitV1	root	184.53125	129
+node	emitV2	root	184.53125	129
+edge	L_navYml_v1SiteNav_0	root	navYml	v1SiteNav
+label	edge	L_navYml_v1SiteNav_0	0		0	0
+option	edge-label	L_navYml_v1SiteNav_0	0	edgeLabels.inline	true
+option	edge-label	L_navYml_v1SiteNav_0	0	edgeLabels.placement	CENTER
+edge	L_docsetV1_v1SiteNav_0	root	docsetV1	v1SiteNav
+label	edge	L_docsetV1_v1SiteNav_0	0		0	0
+option	edge-label	L_docsetV1_v1SiteNav_0	0	edgeLabels.inline	true
+option	edge-label	L_docsetV1_v1SiteNav_0	0	edgeLabels.placement	CENTER
+edge	L_navV2Yml_v2SiteNav_0	root	navV2Yml	v2SiteNav
+label	edge	L_navV2Yml_v2SiteNav_0	0		0	0
+option	edge-label	L_navV2Yml_v2SiteNav_0	0	edgeLabels.inline	true
+option	edge-label	L_navV2Yml_v2SiteNav_0	0	edgeLabels.placement	CENTER
+edge	L_docsetV2_v2SiteNav_0	root	docsetV2	v2SiteNav
+label	edge	L_docsetV2_v2SiteNav_0	0		0	0
+option	edge-label	L_docsetV2_v2SiteNav_0	0	edgeLabels.inline	true
+option	edge-label	L_docsetV2_v2SiteNav_0	0	edgeLabels.placement	CENTER
+edge	L_docsetV1_v2SiteNav_0	root	docsetV1	v2SiteNav
+label	edge	L_docsetV1_v2SiteNav_0	0	V1 fallback	68.484375	21
+option	edge-label	L_docsetV1_v2SiteNav_0	0	edgeLabels.inline	true
+option	edge-label	L_docsetV1_v2SiteNav_0	0	edgeLabels.placement	CENTER
+edge	L_v1SiteNav_v1Map_0	root	v1SiteNav	v1Map
+label	edge	L_v1SiteNav_v1Map_0	0		0	0
+option	edge-label	L_v1SiteNav_v1Map_0	0	edgeLabels.inline	true
+option	edge-label	L_v1SiteNav_v1Map_0	0	edgeLabels.placement	CENTER
+edge	L_v2SiteNav_v2Map_0	root	v2SiteNav	v2Map
+label	edge	L_v2SiteNav_v2Map_0	0		0	0
+option	edge-label	L_v2SiteNav_v2Map_0	0	edgeLabels.inline	true
+option	edge-label	L_v2SiteNav_v2Map_0	0	edgeLabels.placement	CENTER
+edge	L_v1Map_valV1_0	root	v1Map	valV1
+label	edge	L_v1Map_valV1_0	0		0	0
+option	edge-label	L_v1Map_valV1_0	0	edgeLabels.inline	true
+option	edge-label	L_v1Map_valV1_0	0	edgeLabels.placement	CENTER
+edge	L_v2Map_valV2_0	root	v2Map	valV2
+label	edge	L_v2Map_valV2_0	0		0	0
+option	edge-label	L_v2Map_valV2_0	0	edgeLabels.inline	true
+option	edge-label	L_v2Map_valV2_0	0	edgeLabels.placement	CENTER
+edge	L_valV1_errV1_0	root	valV1	errV1
+label	edge	L_valV1_errV1_0	0	fail	17.90625	21
+option	edge-label	L_valV1_errV1_0	0	edgeLabels.inline	true
+option	edge-label	L_valV1_errV1_0	0	edgeLabels.placement	CENTER
+edge	L_valV2_errV2_0	root	valV2	errV2
+label	edge	L_valV2_errV2_0	0	fail	17.90625	21
+option	edge-label	L_valV2_errV2_0	0	edgeLabels.inline	true
+option	edge-label	L_valV2_errV2_0	0	edgeLabels.placement	CENTER
+edge	L_valV1_flag_0	root	valV1	flag
+label	edge	L_valV1_flag_0	0	pass	29.578125	21
+option	edge-label	L_valV1_flag_0	0	edgeLabels.inline	true
+option	edge-label	L_valV1_flag_0	0	edgeLabels.placement	CENTER
+edge	L_valV2_flag_0	root	valV2	flag
+label	edge	L_valV2_flag_0	0	pass	29.578125	21
+option	edge-label	L_valV2_flag_0	0	edgeLabels.inline	true
+option	edge-label	L_valV2_flag_0	0	edgeLabels.placement	CENTER
+edge	L_flag_emitV1_0	root	flag	emitV1
+label	edge	L_flag_emitV1_0	0	false	29.578125	21
+option	edge-label	L_flag_emitV1_0	0	edgeLabels.inline	true
+option	edge-label	L_flag_emitV1_0	0	edgeLabels.placement	CENTER
+edge	L_flag_emitV2_0	root	flag	emitV2
+label	edge	L_flag_emitV2_0	0	true	24.125	21
+option	edge-label	L_flag_emitV2_0	0	edgeLabels.inline	true
+option	edge-label	L_flag_emitV2_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	766.2878705342611	1305
+place	repos	root	12	12	402	159
+place-label	node	repos	0	140.296875	5	121.40625	19
+place	docsetV1	repos	226	69	152	66
+place	docsetV2	repos	24	48	152	87
+place	config	root	281.5077624003093	221	402	117
+place-label	node	config	0	180.765625	5	40.46875	19
+place	navYml	config	226	48	152	45
+place	navV2Yml	config	24	48	152	45
+place	v1SiteNav	root	567.5077624003093	415	152	45
+place	v2SiteNav	root	190.76557490030925	408	152	66
+place	v1Map	root	553.1874499003093	514	180.640625	66
+place	v2Map	root	176.44526240030925	514	180.640625	66
+place	valV1	root	558.0077624003093	620	171	171
+place	valV2	root	181.26557490030925	620	171	171
+place	errV1	root	583.0609875996907	892	171.2268829345703	45
+place	errV2	root	136.5386919657389	892	171.2268829345703	45
+place	flag	root	347.7655749003093	892	171	171
+place	emitV1	root	228.73432490030922	1164	184.53125	129
+place	emitV2	root	453.2655749003092	1164	184.53125	129
+route	L_navYml_v1SiteNav_0	root	root
+section	L_navYml_v1SiteNav_0	L_navYml_v1SiteNav_0_s0	583.5077624003093,314	621.5077624003093,415	583.5077624003093,348 583.5077624003093,368 621.5077624003093,368	navYml	v1SiteNav
+place-label	edge	L_navYml_v1SiteNav_0	0	0	0	0	0
+route	L_docsetV1_v1SiteNav_0	root	root
+section	L_docsetV1_v1SiteNav_0	L_docsetV1_v1SiteNav_0_s0	335.7333333333333,147	665.5077624003093,415	335.7333333333333,181 335.7333333333333,201 703.5077624003093,201 703.5077624003093,284.5 703.5077624003093,368 665.5077624003093,368	docsetV1	v1SiteNav
+place-label	edge	L_docsetV1_v1SiteNav_0	0	0	0	0	0
+route	L_navV2Yml_v2SiteNav_0	root	root
+section	L_navV2Yml_v2SiteNav_0	L_navV2Yml_v2SiteNav_0_s0	381.5077624003093,314	299.7655749003093,408	381.5077624003093,348 381.5077624003093,368 299.7655749003093,368	navV2Yml	v2SiteNav
+place-label	edge	L_navV2Yml_v2SiteNav_0	0	0	0	0	0
+route	L_docsetV2_v2SiteNav_0	root	root
+section	L_docsetV2_v2SiteNav_0	L_docsetV2_v2SiteNav_0_s0	111.99999999999999,147	233.76557490030925,408	112,181 112,201 89.64005406697595,201 89.64005406697595,284.5 89.64005406697595,388 233.76557490030925,388	docsetV2	v2SiteNav
+place-label	edge	L_docsetV2_v2SiteNav_0	0	0	0	0	0
+route	L_docsetV1_v2SiteNav_0	root	root
+section	L_docsetV1_v2SiteNav_0	L_docsetV1_v2SiteNav_0_s0	292.26666666666665,147	266.7655749003093,408	292.26666666666665,181 292.26666666666665,201 207.52338740030928,201 207.52338740030928,368 266.7655749003093,368	docsetV1	v2SiteNav
+place-label	edge	L_docsetV1_v2SiteNav_0	0	173.02338740030928	274	68.484375	21
+route	L_v1SiteNav_v1Map_0	root	root
+section	L_v1SiteNav_v1Map_0	L_v1SiteNav_v1Map_0_s0	643.5077624003093,460	643.5077624003093,514		v1SiteNav	v1Map
+place-label	edge	L_v1SiteNav_v1Map_0	0	0	0	0	0
+route	L_v2SiteNav_v2Map_0	root	root
+section	L_v2SiteNav_v2Map_0	L_v2SiteNav_v2Map_0_s0	266.7655749003093,474	266.7655749003093,514		v2SiteNav	v2Map
+place-label	edge	L_v2SiteNav_v2Map_0	0	0	0	0	0
+route	L_v1Map_valV1_0	root	root
+section	L_v1Map_valV1_0	L_v1Map_valV1_0_s0	643.5077624003093,580	643.5077624003093,620		v1Map	valV1
+place-label	edge	L_v1Map_valV1_0	0	0	0	0	0
+route	L_v2Map_valV2_0	root	root
+section	L_v2Map_valV2_0	L_v2Map_valV2_0_s0	266.7655749003093,580	266.7655749003093,620		v2Map	valV2
+place-label	edge	L_v2Map_valV2_0	0	0	0	0	0
+route	L_valV1_errV1_0	root	root
+section	L_valV1_errV1_0	L_valV1_errV1_0_s0	668.6744290669759,791	668.6744290669759,892		valV1	errV1
+place-label	edge	L_valV1_errV1_0	0	659.6744290669759	831	17.90625	21
+route	L_valV2_errV2_0	root	root
+section	L_valV2_errV2_0	L_valV2_errV2_0_s0	241.5989082336426,791	222.15213343302406,892	241.5989082336426,811 222.15213343302406,811	valV2	errV2
+place-label	edge	L_valV2_errV2_0	0	213.15213343302406	831	17.90625	21
+route	L_valV1_flag_0	root	root
+section	L_valV1_flag_0	L_valV1_flag_0_s0	618.3410957336425,791	458.4322415669759,892	618.3410957336425,811 550.534375,811 550.534375,872 458.4322415669759,872	valV1	flag
+place-label	edge	L_valV1_flag_0	0	535.534375	831	29.578125	21
+route	L_valV2_flag_0	root	root
+section	L_valV2_flag_0	L_valV2_flag_0_s0	291.9322415669759,791	408.0989082336426,892	291.9322415669759,811 359.7389623006185,811 359.7389623006185,872 408.0989082336426,872	valV2	flag
+place-label	edge	L_valV2_flag_0	0	344.7389623006185	831	29.578125	21
+route	L_flag_emitV1_0	root	root
+section	L_flag_emitV1_0	L_flag_emitV1_0_s0	408.0989082336426,1063	320.9999499003092,1164	408.0989082336426,1083 320.9999499003092,1083	flag	emitV1
+place-label	edge	L_flag_emitV1_0	0	305.9999499003092	1103	29.578125	21
+route	L_flag_emitV2_0	root	root
+section	L_flag_emitV2_0	L_flag_emitV2_0_s0	458.4322415669759,1063	545.5311999003093,1164	458.4322415669759,1083 545.5311999003093,1083	flag	emitV2
+place-label	edge	L_flag_emitV2_0	0	533.0311999003093	1103	24.125	21

@@ -1,0 +1,46 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source c06e12c17bcd613a
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Inspector	root	77.59375	121
+node	Inspect	root	160	58
+option	node	Inspect		elk.portAlignment.default	CENTER
+node	Payload	root	241.9375	429
+edge	edge-0	root	Inspector	Inspect
+label	edge	edge-0	0		0	0
+option	edge-label	edge-0	0	edgeLabels.inline	true
+option	edge-label	edge-0	0	edgeLabels.placement	CENTER
+edge	edge-1	root	Inspect	Payload
+label	edge	edge-1	0		0	0
+option	edge-label	edge-1	0	edgeLabels.inline	true
+option	edge-label	edge-1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	583.53125	453
+place	Inspector	root	12	166	77.59375	121
+place	Inspect	root	129.59375	197.5	160	58
+place	Payload	root	329.59375	12	241.9375	429
+route	edge-0	root	root
+section	edge-0	edge-0_s0	89.59375,226.5	129.59375,226.5		Inspector	Inspect
+place-label	edge	edge-0	0	0	0	0	0
+route	edge-1	root	root
+section	edge-1	edge-1_s0	289.59375,226.5	329.59375,226.5		Inspect	Payload
+place-label	edge	edge-1	0	0	0	0	0

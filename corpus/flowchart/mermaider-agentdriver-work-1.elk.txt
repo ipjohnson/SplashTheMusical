@@ -1,0 +1,244 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 6f544be817622cab
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	RIGHT
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	New	root	152	45
+node	T	root	152	45
+node	Chat	root	152	45
+node	Enq	root	152	66
+node	Intake	root	152	45
+node	Issue	root	152	66
+node	E	root	152	66
+node	X	root	152	66
+node	D	root	152	66
+node	S	root	152	45
+node	Steward	root	152	45
+node	You	root	152	45
+node	P	root	152	45
+node	Inbox	root	152	66
+node	M	root	152	45
+node	Q	root	152	45
+node	Pool	root	152	45
+node	Sess	root	152	45
+node	L	root	152	45
+node	B	root	152	45
+node	Bd	root	152	45
+node	Pane	root	152	45
+edge	L_New_T_0	root	New	T
+label	edge	L_New_T_0	0		0	0
+option	edge-label	L_New_T_0	0	edgeLabels.inline	true
+option	edge-label	L_New_T_0	0	edgeLabels.placement	CENTER
+edge	L_Chat_T_0	root	Chat	T
+label	edge	L_Chat_T_0	0		0	0
+option	edge-label	L_Chat_T_0	0	edgeLabels.inline	true
+option	edge-label	L_Chat_T_0	0	edgeLabels.placement	CENTER
+edge	L_Enq_T_0	root	Enq	T
+label	edge	L_Enq_T_0	0		0	0
+option	edge-label	L_Enq_T_0	0	edgeLabels.inline	true
+option	edge-label	L_Enq_T_0	0	edgeLabels.placement	CENTER
+edge	L_Intake_T_0	root	Intake	T
+label	edge	L_Intake_T_0	0		0	0
+option	edge-label	L_Intake_T_0	0	edgeLabels.inline	true
+option	edge-label	L_Intake_T_0	0	edgeLabels.placement	CENTER
+edge	L_Issue_T_0	root	Issue	T
+label	edge	L_Issue_T_0	0		0	0
+option	edge-label	L_Issue_T_0	0	edgeLabels.inline	true
+option	edge-label	L_Issue_T_0	0	edgeLabels.placement	CENTER
+edge	L_T_E_0	root	T	E
+label	edge	L_T_E_0	0		0	0
+option	edge-label	L_T_E_0	0	edgeLabels.inline	true
+option	edge-label	L_T_E_0	0	edgeLabels.placement	CENTER
+edge	L_T_X_0	root	T	X
+label	edge	L_T_X_0	0		0	0
+option	edge-label	L_T_X_0	0	edgeLabels.inline	true
+option	edge-label	L_T_X_0	0	edgeLabels.placement	CENTER
+edge	L_E_X_0	root	E	X
+label	edge	L_E_X_0	0		0	0
+option	edge-label	L_E_X_0	0	edgeLabels.inline	true
+option	edge-label	L_E_X_0	0	edgeLabels.placement	CENTER
+edge	L_X_D_0	root	X	D
+label	edge	L_X_D_0	0		0	0
+option	edge-label	L_X_D_0	0	edgeLabels.inline	true
+option	edge-label	L_X_D_0	0	edgeLabels.placement	CENTER
+edge	L_D_S_0	root	D	S
+label	edge	L_D_S_0	0		0	0
+option	edge-label	L_D_S_0	0	edgeLabels.inline	true
+option	edge-label	L_D_S_0	0	edgeLabels.placement	CENTER
+edge	L_S_T_0	root	S	T
+label	edge	L_S_T_0	0	add_step	57.609375	21
+option	edge-label	L_S_T_0	0	edgeLabels.inline	true
+option	edge-label	L_S_T_0	0	edgeLabels.placement	CENTER
+edge	L_Steward_T_0	root	Steward	T
+label	edge	L_Steward_T_0	0	add_step	57.609375	21
+option	edge-label	L_Steward_T_0	0	edgeLabels.inline	true
+option	edge-label	L_Steward_T_0	0	edgeLabels.placement	CENTER
+edge	L_You_T_0	root	You	T
+label	edge	L_You_T_0	0	Add step	55.265625	21
+option	edge-label	L_You_T_0	0	edgeLabels.inline	true
+option	edge-label	L_You_T_0	0	edgeLabels.placement	CENTER
+edge	L_T_P_0	root	T	P
+label	edge	L_T_P_0	0		0	0
+option	edge-label	L_T_P_0	0	edgeLabels.inline	true
+option	edge-label	L_T_P_0	0	edgeLabels.placement	CENTER
+edge	L_P_Inbox_0	root	P	Inbox
+label	edge	L_P_Inbox_0	0	rule asks	56.03125	21
+option	edge-label	L_P_Inbox_0	0	edgeLabels.inline	true
+option	edge-label	L_P_Inbox_0	0	edgeLabels.placement	CENTER
+edge	L_T_M_0	root	T	M
+label	edge	L_T_M_0	0		0	0
+option	edge-label	L_T_M_0	0	edgeLabels.inline	true
+option	edge-label	L_T_M_0	0	edgeLabels.placement	CENTER
+edge	L_Q_M_0	root	Q	M
+label	edge	L_Q_M_0	0		0	0
+option	edge-label	L_Q_M_0	0	edgeLabels.inline	true
+option	edge-label	L_Q_M_0	0	edgeLabels.placement	CENTER
+edge	L_Pool_M_0	root	Pool	M
+label	edge	L_Pool_M_0	0		0	0
+option	edge-label	L_Pool_M_0	0	edgeLabels.inline	true
+option	edge-label	L_Pool_M_0	0	edgeLabels.placement	CENTER
+edge	L_Sess_M_0	root	Sess	M
+label	edge	L_Sess_M_0	0		0	0
+option	edge-label	L_Sess_M_0	0	edgeLabels.inline	true
+option	edge-label	L_Sess_M_0	0	edgeLabels.placement	CENTER
+edge	L_M_L_0	root	M	L
+label	edge	L_M_L_0	0		0	0
+option	edge-label	L_M_L_0	0	edgeLabels.inline	true
+option	edge-label	L_M_L_0	0	edgeLabels.placement	CENTER
+edge	L_M_B_0	root	M	B
+label	edge	L_M_B_0	0		0	0
+option	edge-label	L_M_B_0	0	edgeLabels.inline	true
+option	edge-label	L_M_B_0	0	edgeLabels.placement	CENTER
+edge	L_M_Bd_0	root	M	Bd
+label	edge	L_M_Bd_0	0		0	0
+option	edge-label	L_M_Bd_0	0	edgeLabels.inline	true
+option	edge-label	L_M_Bd_0	0	edgeLabels.placement	CENTER
+edge	L_L_Pane_0	root	L	Pane
+label	edge	L_L_Pane_0	0		0	0
+option	edge-label	L_L_Pane_0	0	edgeLabels.inline	true
+option	edge-label	L_L_Pane_0	0	edgeLabels.placement	CENTER
+edge	L_B_Pane_0	root	B	Pane
+label	edge	L_B_Pane_0	0		0	0
+option	edge-label	L_B_Pane_0	0	edgeLabels.inline	true
+option	edge-label	L_B_Pane_0	0	edgeLabels.placement	CENTER
+edge	L_Bd_Pane_0	root	Bd	Pane
+label	edge	L_Bd_Pane_0	0		0	0
+option	edge-label	L_Bd_Pane_0	0	edgeLabels.inline	true
+option	edge-label	L_Bd_Pane_0	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	1488	609.5
+place	New	root	204	170.5	152	45
+place	T	root	456	253.70833333333337	152	45
+place	Chat	root	204	255.5	152	45
+place	Enq	root	204	340.5	152	66
+place	Intake	root	204	446.5	152	45
+place	Issue	root	204	531.5	152	66
+place	E	root	708	88.95833333333337	152	66
+place	X	root	920	134.29166666666669	152	66
+place	D	root	1132	134.29166666666669	152	66
+place	S	root	1324	224.625	152	45
+place	Steward	root	12	12	152	45
+place	You	root	12	97	152	45
+place	P	root	708	282.7916666666667	152	45
+place	Inbox	root	1132	272.2916666666667	152	66
+place	M	root	708	487.375	152	45
+place	Q	root	456	377.1666666666667	152	45
+place	Pool	root	456	462.1666666666667	152	45
+place	Sess	root	456	547.1666666666667	152	45
+place	L	root	920	373.7916666666667	152	45
+place	B	root	920	458.7916666666667	152	45
+place	Bd	root	920	543.7916666666667	152	45
+place	Pane	root	1132	487.375	152	45
+route	L_New_T_0	root	root
+section	L_New_T_0	L_New_T_0_s0	356,193	456,273.08333333333337	396,193 396,273.08333333333337	New	T
+place-label	edge	L_New_T_0	0	0	0	0	0
+route	L_Chat_T_0	root	root
+section	L_Chat_T_0	L_Chat_T_0_s0	356,278	456,276.20833333333337	376,278 376,276.20833333333337	Chat	T
+place-label	edge	L_Chat_T_0	0	0	0	0	0
+route	L_Enq_T_0	root	root
+section	L_Enq_T_0	L_Enq_T_0_s0	356,373.5	456,279.33333333333337	396,373.5 396,279.33333333333337	Enq	T
+place-label	edge	L_Enq_T_0	0	0	0	0	0
+route	L_Intake_T_0	root	root
+section	L_Intake_T_0	L_Intake_T_0_s0	356,469	456,282.45833333333337	416,469 416,282.45833333333337	Intake	T
+place-label	edge	L_Intake_T_0	0	0	0	0	0
+route	L_Issue_T_0	root	root
+section	L_Issue_T_0	L_Issue_T_0_s0	356,564.5	456,285.58333333333337	436,564.5 436,285.58333333333337	Issue	T
+place-label	edge	L_Issue_T_0	0	0	0	0	0
+route	L_T_E_0	root	root
+section	L_T_E_0	L_T_E_0_s0	608,267.87500000000006	708,121.95833333333337	628,267.87500000000006 628,121.95833333333337	T	E
+place-label	edge	L_T_E_0	0	0	0	0	0
+route	L_T_X_0	root	root
+section	L_T_X_0	L_T_X_0_s0	608,272.0416666666667	920,174.95833333333337	648,272.0416666666667 648,174.95833333333337 784,174.95833333333337	T	X
+place-label	edge	L_T_X_0	0	0	0	0	0
+route	L_E_X_0	root	root
+section	L_E_X_0	L_E_X_0_s0	860,121.95833333333337	920,159.625	880,121.95833333333337 880,159.625	E	X
+place-label	edge	L_E_X_0	0	0	0	0	0
+route	L_X_D_0	root	root
+section	L_X_D_0	L_X_D_0_s0	1072,167.29166666666669	1132,167.29166666666669		X	D
+place-label	edge	L_X_D_0	0	0	0	0	0
+route	L_D_S_0	root	root
+section	L_D_S_0	L_D_S_0_s0	1284,167.29166666666669	1324,242.95833333333331	1304,167.29166666666669 1304,242.95833333333331	D	S
+place-label	edge	L_D_S_0	0	0	0	0	0
+route	L_S_T_0	root	root
+section	L_S_T_0	L_S_T_0_s0	1324,251.29166666666669	608,276.20833333333337	1208,251.29166666666669 784,251.29166666666669 668,251.29166666666669 668,276.20833333333337	S	T
+place-label	edge	L_S_T_0	0	967.1953125	240.29166666666669	57.609375	21
+route	L_Steward_T_0	root	root
+section	L_Steward_T_0	L_Steward_T_0_s0	164,34.5	456,266.83333333333337	436,34.5 436,266.83333333333337	Steward	T
+place-label	edge	L_Steward_T_0	0	251.1953125	23.5	57.609375	21
+route	L_You_T_0	root	root
+section	L_You_T_0	L_You_T_0_s0	164,119.5	456,269.95833333333337	416,119.5 416,269.95833333333337	You	T
+place-label	edge	L_You_T_0	0	252.3671875	108.5	55.265625	21
+route	L_T_P_0	root	root
+section	L_T_P_0	L_T_P_0_s0	608,280.375	708,305.2916666666667	688,280.375 688,305.2916666666667	T	P
+place-label	edge	L_T_P_0	0	0	0	0	0
+route	L_P_Inbox_0	root	root
+section	L_P_Inbox_0	L_P_Inbox_0_s0	860,305.2916666666667	1132,305.2916666666667		P	Inbox
+place-label	edge	L_P_Inbox_0	0	967.984375	294.2916666666667	56.03125	21
+route	L_T_M_0	root	root
+section	L_T_M_0	L_T_M_0_s0	608,284.5416666666667	708,502.375	668,284.5416666666667 668,502.375	T	M
+place-label	edge	L_T_M_0	0	0	0	0	0
+route	L_Q_M_0	root	root
+section	L_Q_M_0	L_Q_M_0_s0	608,399.6666666666667	708,507.375	648,399.6666666666667 648,507.375	Q	M
+place-label	edge	L_Q_M_0	0	0	0	0	0
+route	L_Pool_M_0	root	root
+section	L_Pool_M_0	L_Pool_M_0_s0	608,484.6666666666667	708,512.375	628,484.6666666666667 628,512.375	Pool	M
+place-label	edge	L_Pool_M_0	0	0	0	0	0
+route	L_Sess_M_0	root	root
+section	L_Sess_M_0	L_Sess_M_0_s0	608,569.6666666666667	708,517.375	628,569.6666666666667 628,517.375	Sess	M
+place-label	edge	L_Sess_M_0	0	0	0	0	0
+route	L_M_L_0	root	root
+section	L_M_L_0	L_M_L_0_s0	860,503.625	920,396.2916666666667	880,503.625 880,396.2916666666667	M	L
+place-label	edge	L_M_L_0	0	0	0	0	0
+route	L_M_B_0	root	root
+section	L_M_B_0	L_M_B_0_s0	860,509.875	920,481.2916666666667	900,509.875 900,481.2916666666667	M	B
+place-label	edge	L_M_B_0	0	0	0	0	0
+route	L_M_Bd_0	root	root
+section	L_M_Bd_0	L_M_Bd_0_s0	860,516.125	920,566.2916666666667	880,516.125 880,566.2916666666667	M	Bd
+place-label	edge	L_M_Bd_0	0	0	0	0	0
+route	L_L_Pane_0	root	root
+section	L_L_Pane_0	L_L_Pane_0_s0	1072,396.2916666666667	1132,503.625	1112,396.2916666666667 1112,503.625	L	Pane
+place-label	edge	L_L_Pane_0	0	0	0	0	0
+route	L_B_Pane_0	root	root
+section	L_B_Pane_0	L_B_Pane_0_s0	1072,481.2916666666667	1132,509.875	1092,481.2916666666667 1092,509.875	B	Pane
+place-label	edge	L_B_Pane_0	0	0	0	0	0
+route	L_Bd_Pane_0	root	root
+section	L_Bd_Pane_0	L_Bd_Pane_0_s0	1072,566.2916666666667	1132,516.125	1092,566.2916666666667 1092,516.125	Bd	Pane
+place-label	edge	L_Bd_Pane_0	0	0	0	0	0

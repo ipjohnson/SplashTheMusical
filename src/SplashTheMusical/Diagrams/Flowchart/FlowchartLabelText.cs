@@ -42,6 +42,12 @@ internal sealed class FlowchartLabelBox
 	/// <summary>The top of an SVG label's <c>getBBox</c>, below the text's origin. It is 0 for an HTML label.</summary>
 	public double Y { get; init; }
 
+	/// <summary>
+	/// Whether the renderer starts each line at the box's left rather than centring it, as a label with
+	/// <c>text-align: left</c> or <c>text-anchor: start</c> shows.
+	/// </summary>
+	public bool AlignStart { get; set; }
+
 	/// <summary>Whether the label shows any text, which is when the oracle finds a box for it.</summary>
 	public bool HasText
 	{
@@ -703,12 +709,18 @@ internal static class FlowchartLabelText
 
 	/// <summary>
 	/// The runs of a line of inline Markdown: a run of <c>*</c> or <c>_</c> with a matching run later in the line wraps
-	/// strong text when it is two or more long, and emphasized text when it is one or three.
+	/// strong text when it is two or more long, and emphasized text when it is one or three, and the text inside it is
+	/// read for runs again. A run of <c>_</c> between two letters or digits is text, as in <c>officer_of_firm</c>.
 	/// </summary>
 	public static List<(string Text, bool Bold, bool Italic)> MarkdownRuns(string line)
 	{
 		var runs = new List<(string, bool, bool)>();
-		var text = line.AsSpan();
+		AddMarkdownRuns(line, false, false, runs);
+		return runs;
+	}
+
+	private static void AddMarkdownRuns(ReadOnlySpan<char> text, bool bold, bool italic, List<(string Text, bool Bold, bool Italic)> runs)
+	{
 		var plain = new StringBuilder();
 		for (var i = 0; i < text.Length; i++)
 		{
@@ -725,7 +737,7 @@ internal static class FlowchartLabelText
 				run++;
 			}
 
-			var close = text[(i + run)..].IndexOf(text.Slice(i, run));
+			var close = Intraword(text, i, run) ? -1 : CloseOf(text, i + run, run);
 			if (close <= 0)
 			{
 				plain.Append(text.Slice(i, run));
@@ -735,19 +747,43 @@ internal static class FlowchartLabelText
 
 			if (plain.Length > 0)
 			{
-				runs.Add((plain.ToString(), false, false));
+				runs.Add((plain.ToString(), bold, italic));
 				plain.Clear();
 			}
 
-			runs.Add((text.Slice(i + run, close).ToString(), run >= 2, run is 1 or >= 3));
+			AddMarkdownRuns(text.Slice(i + run, close), bold || run >= 2, italic || run is 1 or >= 3, runs);
 			i += run + close + run - 1;
 		}
 
 		if (plain.Length > 0)
 		{
-			runs.Add((plain.ToString(), false, false));
+			runs.Add((plain.ToString(), bold, italic));
+		}
+	}
+
+	/// <summary>The offset from <paramref name="start"/> of the first run of the same <paramref name="run"/> characters that is not inside a word, or -1.</summary>
+	private static int CloseOf(ReadOnlySpan<char> text, int start, int run)
+	{
+		var delimiter = text.Slice(start - run, run);
+		for (var from = start; from < text.Length;)
+		{
+			var at = text[from..].IndexOf(delimiter);
+			if (at < 0)
+			{
+				return -1;
+			}
+
+			if (!Intraword(text, from + at, run))
+			{
+				return from + at - start;
+			}
+
+			from += at + 1;
 		}
 
-		return runs;
+		return -1;
 	}
+
+	private static bool Intraword(ReadOnlySpan<char> text, int at, int run) =>
+		text[at] == '_' && at > 0 && at + run < text.Length && char.IsLetterOrDigit(text[at - 1]) && char.IsLetterOrDigit(text[at + run]);
 }

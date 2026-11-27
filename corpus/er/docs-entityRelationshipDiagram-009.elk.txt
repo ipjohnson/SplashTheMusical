@@ -1,0 +1,45 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 38d6e4a4399d6bef
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	entity-CAR-0	root	203.296875	159
+node	entity-NAMED-DRIVER-1	root	148.125	81
+node	entity-PERSON-2	root	144.140625	159
+edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	root	entity-CAR-0	entity-NAMED-DRIVER-1
+label	edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	allows	38.90625	21
+option	edge-label	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	edgeLabels.inline	true
+option	edge-label	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	edgeLabels.placement	CENTER
+edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	root	entity-PERSON-2	entity-NAMED-DRIVER-1
+label	edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	is	10.125	21
+option	edge-label	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	edgeLabels.inline	true
+option	edge-label	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	411.4375	365
+place	entity-CAR-0	root	12	12	203.296875	159
+place	entity-NAMED-DRIVER-1	root	146.4453125	272	148.125	81
+place	entity-PERSON-2	root	255.296875	12	144.140625	159
+route	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	root	root
+section	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	id_entity-CAR-0_entity-NAMED-DRIVER-1_0_s0	113.6484375,171	199.15364583333331,272	113.6484375,252 199.15364583333331,252	entity-CAR-0	entity-NAMED-DRIVER-1
+place-label	edge	id_entity-CAR-0_entity-NAMED-DRIVER-1_0	0	94.1484375	211	38.90625	21
+route	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	root	root
+section	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1_s0	327.3671875,171	241.86197916666666,272	327.3671875,252 241.86197916666666,252	entity-PERSON-2	entity-NAMED-DRIVER-1
+place-label	edge	id_entity-PERSON-2_entity-NAMED-DRIVER-1_1	0	321.8671875	211	10.125	21

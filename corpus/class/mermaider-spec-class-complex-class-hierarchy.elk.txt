@@ -1,0 +1,63 @@
+# mermaid.js ELK layouts. Refresh with: mise run oracle
+# mermaid 12.3.0
+# source 4a3eb97f24466a1c
+layout	1
+node	root
+option	node	root		elk.hierarchyHandling	INCLUDE_CHILDREN
+option	node	root		elk.algorithm	elk.layered
+option	node	root		elk.layered.nodePlacement.strategy	BRANDES_KOEPF
+option	node	root		elk.layered.nodePlacement.bk.fixedAlignment	BALANCED
+option	node	root		elk.layered.mergeEdges	false
+option	node	root		elk.direction	DOWN
+option	node	root		spacing.baseValue	40
+option	node	root		elk.layered.crossingMinimization.forceNodeModelOrder	false
+option	node	root		elk.layered.considerModelOrder.strategy	NODES_AND_EDGES
+option	node	root		elk.layered.unnecessaryBendpoints	true
+option	node	root		elk.layered.cycleBreaking.strategy	DEPTH_FIRST
+option	node	root		elk.layered.layering.strategy	NETWORK_SIMPLEX
+option	node	root		elk.layered.layering.coffmanGraham.layerBound	4
+option	node	root		elk.layered.wrapping.multiEdge.improveCuts	true
+option	node	root		elk.layered.wrapping.multiEdge.improveWrappedEdges	true
+option	node	root		elk.layered.edgeRouting.selfLoopDistribution	EQUALLY
+option	node	root		elk.layered.mergeHierarchyEdges	true
+option	node	root		elk.spacing.portsSurrounding	[top=12,left=12,bottom=12,right=12]
+node	Vehicle	root	139.5625	198
+node	Car	root	120.8828125	135
+node	Truck	root	145.8359375	135
+node	Electric	root	178.875	162
+node	Engine	root	147.3515625	135
+edge	id_Vehicle_Car_1	root	Vehicle	Car
+label	edge	id_Vehicle_Car_1	0		0	0
+option	edge-label	id_Vehicle_Car_1	0	edgeLabels.inline	true
+option	edge-label	id_Vehicle_Car_1	0	edgeLabels.placement	CENTER
+edge	id_Vehicle_Truck_2	root	Vehicle	Truck
+label	edge	id_Vehicle_Truck_2	0		0	0
+option	edge-label	id_Vehicle_Truck_2	0	edgeLabels.inline	true
+option	edge-label	id_Vehicle_Truck_2	0	edgeLabels.placement	CENTER
+edge	id_Electric_Car_3	root	Electric	Car
+label	edge	id_Electric_Car_3	0	optional	49.046875	21
+option	edge-label	id_Electric_Car_3	0	edgeLabels.inline	true
+option	edge-label	id_Electric_Car_3	0	edgeLabels.placement	CENTER
+edge	id_Car_Engine_4	root	Car	Engine
+label	edge	id_Car_Engine_4	0		0	0
+option	edge-label	id_Car_Engine_4	0	edgeLabels.inline	true
+option	edge-label	id_Car_Engine_4	0	edgeLabels.placement	CENTER
+result
+place	root		0	0	376.52864583333337	774
+place	Vehicle	root	201.90234375	214	139.5625	198
+place	Car	root	57.80989583333334	452	120.8828125	135
+place	Truck	root	218.69270833333337	452	145.8359375	135
+place	Electric	root	12	12	178.875	162
+place	Engine	root	44.57552083333334	627	147.3515625	135
+route	id_Vehicle_Car_1	root	root
+section	id_Vehicle_Car_1	id_Vehicle_Car_1_s0	251.75651041666669,412	135.06510416666669,452	251.75651041666669,432 135.06510416666669,432	Vehicle	Car
+place-label	edge	id_Vehicle_Car_1	0	0	0	0	0
+route	id_Vehicle_Truck_2	root	root
+section	id_Vehicle_Truck_2	id_Vehicle_Truck_2_s0	291.61067708333337,412	291.61067708333337,452		Vehicle	Truck
+place-label	edge	id_Vehicle_Truck_2	0	0	0	0	0
+route	id_Electric_Car_3	root	root
+section	id_Electric_Car_3	id_Electric_Car_3_s0	101.4375,174	101.43750000000001,452		Electric	Car
+place-label	edge	id_Electric_Car_3	0	76.4375	302.5	49.046875	21
+route	id_Car_Engine_4	root	root
+section	id_Car_Engine_4	id_Car_Engine_4_s0	118.25130208333334,587	118.25130208333334,627		Car	Engine
+place-label	edge	id_Car_Engine_4	0	0	0	0	0

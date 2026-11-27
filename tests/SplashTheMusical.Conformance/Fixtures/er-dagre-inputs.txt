@@ -1,0 +1,16 @@
+# The ER cases whose dagre graphs differ from mermaid.js's, under the issue that tracks each. ErDagreInputTests reads it.
+bug #152
+e2e-er-diagram-visual-check-entities-with-comments-without-htmllabels-default
+e2e-er-diagram-visual-check-entities-with-keys-and-comments-without-htmllabels-default
+e2e-er-diagram-visual-check-entities-with-keys-without-htmllabels-default
+bug #190
+e2e-er-diagram-visual-check-entities-with-styles-applied-from-class-statement-default
+e2e-er-diagram-visual-check-entities-with-styles-applied-from-class-statement-without-htmllabels-default
+e2e-er-diagram-visual-check-entities-with-styles-applied-from-style-statement-default
+e2e-er-diagram-visual-check-entities-with-styles-applied-from-style-statement-without-htmllabels-default
+bug #191
+docs-entityRelationshipDiagram-005
+e2e-er-diagram-visual-check-an-er-diagram-with-relationships-with-unicode-text-default
+e2e-er-diagram-visual-check-an-er-diagram-with-relationships-with-unicode-text-without-htmllabels-default
+e2e-er-diagram-visual-check-an-er-diagram-with-unicode-text-default
+e2e-er-diagram-visual-check-an-er-diagram-with-unicode-text-without-htmllabels-default
