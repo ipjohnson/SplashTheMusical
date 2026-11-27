@@ -24,6 +24,7 @@ mise run colors            # rewrite corpus/colors.txt, khroma's results on merm
 mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
 mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
+mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against ELK
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
@@ -138,6 +139,13 @@ Where dagre redoes work the port only updates, as in `NetworkSimplex.ExchangeEdg
 5,000 nodes inside `ResourceLimits.Default.RenderDeadline`, `DagreBenchmarks` measures 10, 100 and 1,000 nodes, and
 `dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- dagre-layout <nodes>` prints the time of each
 phase group and a checksum of the positions, so two builds can be compared on graphs the corpus lacks.
+
+`ElkLayoutComparer` in `tests/SplashTheMusical.Conformance` scores a `CandidateLayout` of a recorded ELK input graph
+against ELK's result in the `.elk.txt` file: same layers and same order in each layer, read from the coordinates along
+the layout direction, boxes overlapping by 80% with the canvas within 5%, and the same bends per edge. A layout that
+has layers but no coordinates gives them in `CandidateLayout.Layers`. `ElkBaselineTests` scores the dagre port and
+Mermaider's `Sugiyama`, a test-only package reference of that project, on every recording and fails when
+`docs/layered-layout/baseline.md` differs. `SugiyamaOnElkInput.Commit` names the mermaider commit of the pinned package.
 
 `src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
 the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds
