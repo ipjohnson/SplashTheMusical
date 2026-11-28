@@ -1,4 +1,6 @@
+using System.Text.Json;
 using SplashTheMusical.Diagrams.Flowchart;
+using SplashTheMusical.Diagrams.State;
 using SplashTheMusical.Parsing;
 
 namespace SplashTheMusical.Diagrams.Sequence;
@@ -46,6 +48,46 @@ internal sealed class SequenceDbActor(string name, string description, bool wrap
 	public string Type { get; } = type;
 
 	public SequenceDbBox? Box { get; set; }
+
+	/// <summary>The <c>prevActor</c> of the db when this record was set: the id added before it, which may be its own.</summary>
+	public string? PrevActor { get; init; }
+
+	/// <summary>The id of the next record set after this one, or <c>null</c>.</summary>
+	public string? NextActor { get; set; }
+
+	/// <summary>The labels of the actor's <c>links</c> menu, in JavaScript's key order.</summary>
+	public List<string> Links { get; } = [];
+
+	/// <summary><c>insertLinks</c> of one label: array indexes come first in numeric order, then other labels as added.</summary>
+	public void AddLink(string label)
+	{
+		if (Links.Contains(label))
+		{
+			return;
+		}
+
+		if (!IsArrayIndex(label, out var index))
+		{
+			Links.Add(label);
+			return;
+		}
+
+		var at = 0;
+		while (at < Links.Count && IsArrayIndex(Links[at], out var other) && other < index)
+		{
+			at++;
+		}
+
+		Links.Insert(at, label);
+	}
+
+	private static bool IsArrayIndex(string key, out uint index)
+	{
+		index = 0;
+		return key.Length > 0 && (key.Length == 1 || key[0] != '0') && key.All(char.IsAsciiDigit)
+			&& uint.TryParse(key, System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out index)
+			&& index != uint.MaxValue;
+	}
 }
 
 /// <summary>A box of the db: its <c>Box</c>.</summary>
@@ -105,6 +147,7 @@ internal sealed class SequenceDb
 	private readonly Dictionary<string, int> _actorIndex = new(StringComparer.Ordinal);
 	private readonly bool _autoWrap;
 	private SequenceDbBox? _currentBox;
+	private string? _prevActor;
 
 	private SequenceDb(bool autoWrap) => _autoWrap = autoWrap;
 
@@ -187,6 +230,7 @@ internal sealed class SequenceDb
 					break;
 				case SequenceActorData data:
 					AddActor(data.Actor);
+					AddLinks(data);
 					break;
 				case SequenceBlock block:
 					ApplyBlock(block);
@@ -267,6 +311,88 @@ internal sealed class SequenceDb
 			Placement = placement,
 		});
 
+	/// <summary>
+	/// <c>addLinks</c> and <c>addALink</c>: the labels of a <c>links</c> object or a <c>link</c> line. Text that
+	/// <c>JSON.parse</c> refuses adds none, as the db logs the error and goes on. <c>details</c> reads an element of the
+	/// page, which the oracle's has not, so it adds none either.
+	/// </summary>
+	private void AddLinks(SequenceActorData data)
+	{
+		if (Actor(data.Actor) is not { } actor)
+		{
+			return;
+		}
+
+		var text = data.Text.Replace("&equals;", "=", StringComparison.Ordinal).Replace("&amp;", "&", StringComparison.Ordinal);
+		if (data.Kind == SequenceActorDataKind.Link)
+		{
+			var sep = text.IndexOf('@', StringComparison.Ordinal);
+			var end = sep - 1 < 0 ? Math.Max(0, text.Length + sep - 1) : sep - 1;
+			actor.AddLink(StateLexer.Trim(text.AsSpan(0, Math.Min(end, text.Length))).ToString());
+			return;
+		}
+
+		if (data.Kind != SequenceActorDataKind.Links)
+		{
+			return;
+		}
+
+		var labels = new List<string>();
+		try
+		{
+			var reader = new Utf8JsonReader(System.Text.Encoding.UTF8.GetBytes(text), new JsonReaderOptions { MaxDepth = 64 });
+			if (!reader.Read())
+			{
+				return;
+			}
+
+			switch (reader.TokenType)
+			{
+				case JsonTokenType.StartObject:
+					while (reader.Read() && reader.TokenType == JsonTokenType.PropertyName)
+					{
+						labels.Add(reader.GetString()!);
+						reader.Skip();
+					}
+
+					break;
+				case JsonTokenType.StartArray:
+					var count = 0;
+					while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
+					{
+						reader.Skip();
+						labels.Add(JsNumber.ToString(count++));
+					}
+
+					break;
+				case JsonTokenType.String:
+					var length = reader.GetString()!.Length;
+					for (var i = 0; i < length; i++)
+					{
+						labels.Add(JsNumber.ToString(i));
+					}
+
+					break;
+				default:
+					reader.Skip();
+					break;
+			}
+
+			while (reader.Read())
+			{
+			}
+		}
+		catch (JsonException)
+		{
+			return;
+		}
+
+		foreach (var label in labels)
+		{
+			actor.AddLink(label);
+		}
+	}
+
 	/// <summary>The db's <c>addActor</c> for an id a message, note or menu names, with no description and no type.</summary>
 	private void AddActor(string id) => AddActor(id, null, null, null);
 
@@ -301,7 +427,11 @@ internal sealed class SequenceDb
 			description = null;
 		}
 
-		var actor = new SequenceDbActor(id, description?.Text ?? id, description?.Wrap ?? _autoWrap, type ?? "participant") { Box = assignedBox };
+		var actor = new SequenceDbActor(id, description?.Text ?? id, description?.Wrap ?? _autoWrap, type ?? "participant")
+		{
+			Box = assignedBox,
+			PrevActor = _prevActor,
+		};
 		if (_actorIndex.TryGetValue(id, out existing))
 		{
 			Actors[existing] = actor;
@@ -312,7 +442,13 @@ internal sealed class SequenceDb
 			Actors.Add(actor);
 		}
 
+		if (_prevActor is not null && Actor(_prevActor) is { } previous)
+		{
+			previous.NextActor = id;
+		}
+
 		_currentBox?.ActorKeys.Add(id);
+		_prevActor = id;
 	}
 
 	/// <summary>
@@ -349,7 +485,8 @@ internal sealed class SequenceDb
 		_ => true,
 	};
 
-	private static string Restore(string text)
+	/// <summary>The text with the placeholders of <see cref="SequenceWriter.Encode"/> back as the characters they stand for.</summary>
+	internal static string Restore(string text)
 	{
 		if (!FlowchartText.HasPlaceholder(text))
 		{

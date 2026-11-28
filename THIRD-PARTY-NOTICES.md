@@ -305,7 +305,11 @@ and the `composite` and `block_arrow` shapes of `rendering-elements/shapes/compo
 `parser/c4Diagram.jison`, `c4Db.ts`, and the check of `drawRels` in `c4Renderer.ts` that a relation's ends exist.
 `src/SplashTheMusical/Diagrams/Sequence` ports `packages/mermaid/src/diagrams/sequence`: the lexer and grammar of
 `parser/sequenceDiagram.jison`, which is based on js-sequence-diagrams (see above), and the actions, `apply`,
-`parseMessage` and `parseBoxData` of `sequenceDb.ts`.
+`parseMessage`, `parseBoxData`, `addActor`, `addLinks` and `addALink` of `sequenceDb.ts`, and in
+`SequenceLayoutStep.cs` the placing of participants, boxes and messages of `draw` in `sequenceRenderer.ts`, with
+`getMaxMessageWidthPerActor`, `calculateActorMargins`, `addActorRenderingData`, `buildMessageModel`, `boundMessage`,
+`drawMessage` and `drawActorsPopup`, the shape geometry of the `drawActorType` functions of `svgDraw.js`, and the band
+model of `actorBands.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 

@@ -22,7 +22,7 @@ radar	96
 railroad	424
 requirement	147
 sankey	116
-sequence	829
+sequence	598
 state	248
 swimlanes	276
 timeline	236

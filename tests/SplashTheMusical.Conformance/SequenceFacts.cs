@@ -56,6 +56,73 @@ internal static class SequenceFacts
 		}
 	}
 
+	/// <summary>
+	/// The extractor's sequence boxes from the module's layout: each participant's top drawing and the shape at its
+	/// bottom, each titled box, and each message of the ten arrow types the extractor knows with the last line of its
+	/// text, named by its ends. The canvas is the viewBox.
+	/// </summary>
+	public static string Boxes(List<string> boxes, SequenceLayout layout)
+	{
+		var names = new Dictionary<string, int>(StringComparer.Ordinal);
+		void Add(string kind, string name, SequenceRect rect)
+		{
+			var key = kind + "\t" + Norm(name);
+			var n = names.GetValueOrDefault(key) + 1;
+			names[key] = n;
+			boxes.Add(StmFactsProvider.Box(kind, n > 1 ? $"{Norm(name)} #{n}" : name, rect.X, rect.Y, rect.Width, rect.Height));
+		}
+
+		foreach (var actor in layout.Actors)
+		{
+			var id = Encode(actor.Name);
+			Add("actor", id, actor.Top.Bounds);
+			if (actor.Bottom is { } bottom && BottomBox(actor.Type, bottom) is { } rect)
+			{
+				Add("actor-bottom", id, rect);
+			}
+		}
+
+		foreach (var box in layout.Boxes)
+		{
+			var name = Decode(box.Name ?? "");
+			if (name.Any(char.IsLetterOrDigit))
+			{
+				Add("box", name, box.Rect);
+			}
+		}
+
+		foreach (var message in layout.Messages)
+		{
+			if (Signal(message.Type) is null)
+			{
+				continue;
+			}
+
+			var name = $"{Encode(message.From)} --> {Encode(message.To)}";
+			Add("message", name, message.Line);
+			if (message.Text.Count > 0)
+			{
+				Add("message-text", name, message.Text[^1].Box);
+			}
+		}
+
+		var viewBox = layout.ViewBox!.Value;
+		return string.Join('\t', "canvas", StmFactsProvider.Number(viewBox.X), StmFactsProvider.Number(viewBox.Y), StmFactsProvider.Number(viewBox.Width), StmFactsProvider.Number(viewBox.Height));
+	}
+
+	/// <summary>
+	/// What <c>.actor-bottom[name]</c> finds at the bottom: the rectangle of a participant or collections, the group of
+	/// an icon, and nothing for a queue or a database, whose bottom drawing has no <c>name</c>.
+	/// </summary>
+	private static SequenceRect? BottomBox(string type, SequenceActorDrawing bottom) => type switch
+	{
+		"queue" or "database" => null,
+		"participant" or "collections" => bottom.Shape,
+		_ => bottom.Bounds,
+	};
+
+	private static string Norm(string text) => string.Join(' ', text.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries));
+
 	/// <summary>The extractor's <c>message</c> table: the line and the head of each arrow type it knows.</summary>
 	private static (string Line, string Head)? Signal(int type) => (SequenceArrow)type switch
 	{

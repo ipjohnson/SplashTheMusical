@@ -1630,7 +1630,6 @@ public sealed class SequenceDocument : MermaidDocument
   public override string DiagramType { get; }
   public string? DiagramTitle { get; set; }
 public sealed class SequenceLayout : DiagramLayout
-  public SequenceLayout()
 public sealed class SequenceMessage : SequenceStatement
   public SequenceArrow Arrow { get; }
   public SequenceMessage(string from, string to, SequenceArrow arrow = 0)
