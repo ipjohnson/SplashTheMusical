@@ -55,6 +55,9 @@ internal sealed class BlockDbBlock
 
 	public string? StylesStr { get; set; }
 
+	/// <summary><c>size</c>: what <c>calculateBlockSize</c> measures and <c>layout</c> places, or <c>null</c> before.</summary>
+	public BlockSize? Size { get; set; }
+
 	/// <summary>es-toolkit's <c>clone</c>: a copy that shares the lists.</summary>
 	public BlockDbBlock Clone() => (BlockDbBlock)MemberwiseClone();
 }

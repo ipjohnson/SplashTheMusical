@@ -2,6 +2,7 @@
 # mermaid 12.3.0
 # source 8c1f8d5387a4888c
 box	block	a	8	-92	80.047	40
+box	block	anonymous-1	0	-100	96.047	200
 box	block	b	8	-44	80.047	40
 box	block	c	8	4	80.047	40
 box	block	d	8	52	80.047	40

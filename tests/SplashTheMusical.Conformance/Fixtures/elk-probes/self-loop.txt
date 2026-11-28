@@ -1,0 +1,9 @@
+layout	1
+node	a	root	60	40
+node	b	root	60	40
+edge	e0	root	a	b
+edge	e1	root	a	a
+layout	2
+node	a	root	60	40
+edge	e0	root	a	a
+edge	e1	root	a	a

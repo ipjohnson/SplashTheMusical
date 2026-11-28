@@ -28,6 +28,7 @@ mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre 
 mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
 mise run elk-probe [options] <graph file>  # the pinned elkjs's layout of a graph file in the .elk.txt format; --help names the stage pins
 mise run elk-diff [graphs] [seed]          # seeded random graphs through ELK and the dagre port, smallest differing graphs in .artifacts/elk-diff
+mise run elk-spikes        # the stage spikes of docs/layered-layout/design.md on the recordings, in .artifacts/elk-spikes
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
 mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
@@ -168,6 +169,12 @@ when its input or result differs from the recorded one. `ElkDifferentialTests.Ru
 runs, sends seeded random graphs from `ElkDifferential.Generate` to the probe through `ElkProbeProcess` and to the
 dagre port, scores them with `ElkLayoutComparer`, and shrinks each graph they differ on with `Minimizer.DeltaDebug`.
 
+[docs/layered-layout/design.md](docs/layered-layout/design.md) is the engine's design: its stages, each stage's
+measure, floor and target, and the rollout steps. `ElkStageSpikes` holds its spikes, which score each stage's approach
+with the stages before it taken from ELK's recorded result. `ElkStageSpikeTests.RunsWhenAsked`, which `mise run
+elk-spikes` runs, writes their shares to `.artifacts/elk-spikes/report.md`. The probe graphs the design learned rules
+from are in `tests/SplashTheMusical.Conformance/Fixtures/elk-probes`.
+
 `src/SplashTheMusical.Layout/Paths` turns edge points into SVG paths. `CurveWriter` ports d3-shape 3.2.1's curves for
 the 13 `curve` values of mermaid 12.3.0's schema, listed in `CurveNames`, and writes through `PathWriter`, which rounds
 as d3-path does. `EdgePath` adds `insertEdge`'s corner fix and marker offsets. `src/SplashTheMusical.Layout/Markers`
@@ -210,6 +217,15 @@ supported diagram type. `DiagramDetector` picks the type as mermaid.js's detecto
 against the oracle's `type` fact of every accepted corpus case. `StmFactsProvider` runs STM for the conformance report,
 so a new module changes the ledgers, `docs/parity-report.md` and `corpus/l4.txt`. `PublicApiTests` fails when the
 public API differs from `docs/api/SplashTheMusical.txt`, which `mise run api` rewrites.
+
+The documentation site is VitePress in `site`, and [site/README.md](site/README.md) describes it. `mise run site-dev`
+serves it, `mise run site-build` builds it and `mise run site-test` tests `tools/site`. Its comparison section shows
+mermaid.js's and STM's raster of every corpus case with their L4 score and the history of each case. On a push to main,
+CI's `l4` job runs `raster.mjs` with `STM_RASTER_DIR` and uploads the rasters and scores as the `comparison` artifact.
+`.github/workflows/site.yml` then adds them as a snapshot with `tools/site/snapshot.mjs` to the data in the ref
+`refs/site-data`, which is not a branch so that clones do not fetch it, and deploys the site to GitHub Pages. A case's
+"Report a difference" button opens `.github/ISSUE_TEMPLATE/comparison.yml` filled in, and
+`.github/workflows/comparison-issue.yml` labels the issue `comparison:<type>` and starts its title with the case.
 
 `mise install` also provides Node 22.23 for the oracle. `tools/oracle/README.md` describes its outputs.
 

@@ -1,0 +1,20 @@
+layout	1
+node	a	root	60	40
+node	b	root	60	40
+edge	e0	root	a	b
+layout	2
+node	a	root	60	40
+node	b	root	60	40
+edge	e0	root	a	b
+label	edge	e0	0	x	50	21
+option	edge-label	e0	0	edgeLabels.inline	true
+option	edge-label	e0	0	edgeLabels.placement	CENTER
+layout	3
+node	a	root	60	40
+node	b	root	60	40
+node	c	root	60	40
+edge	e0	root	a	b
+edge	e1	root	a	c
+label	edge	e1	0	x	50	21
+option	edge-label	e1	0	edgeLabels.inline	true
+option	edge-label	e1	0	edgeLabels.placement	CENTER
