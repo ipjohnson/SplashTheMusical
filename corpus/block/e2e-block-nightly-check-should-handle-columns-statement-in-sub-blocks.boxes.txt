@@ -1,6 +1,7 @@
 # mermaid.js boxes. Refresh with: mise run oracle
 # mermaid 12.3.0
 # source a6a704b2f62c1bc6
+box	block	anonymous-1	260.5	-52	252.5	104
 box	block	id1	0	-52	252.5	104
 box	block	id2	268.5	-44	73.5	40
 box	block	id3	350	-44	73.5	40

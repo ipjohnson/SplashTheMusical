@@ -1013,7 +1013,6 @@ public sealed class BlockEdge : BlockStatement
   public List<BlockLink> Links { get; }
   public List<BlockNode> Nodes { get; }
 public sealed class BlockLayout : DiagramLayout
-  public BlockLayout()
 public sealed class BlockLink
   public BlockArrowHead End { get; set; }
   public BlockArrowHead Start { get; set; }

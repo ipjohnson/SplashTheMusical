@@ -5,8 +5,9 @@ namespace SplashTheMusical.Diagrams.Block;
 
 /// <summary>
 /// The block diagram of <c>packages/mermaid/src/diagrams/block</c>: the detector <c>/^\s*block(-beta)?/</c> of
-/// <c>blockDetector.ts</c>, the parser of <see cref="BlockParser"/> and the writer of <see cref="BlockWriter"/>. The
-/// layout and the renderer draw nothing yet.
+/// <c>blockDetector.ts</c>, the parser of <see cref="BlockParser"/> and the writer of <see cref="BlockWriter"/>.
+/// <see cref="BlockLayoutStep"/> places the blocks on mermaid.js's grid of columns, whatever the <c>layout</c> config
+/// names, and <see cref="Flowchart.FlowchartRenderer"/> draws them with the shapes of the flowchart.
 /// </summary>
 public sealed class BlockModule : DiagramModule<BlockDocument, BlockLayout>
 {
@@ -23,36 +24,21 @@ public sealed class BlockModule : DiagramModule<BlockDocument, BlockLayout>
 	public override void Write(BlockDocument document, StringBuilder output) => BlockWriter.Write(document, output);
 
 	/// <summary>
-	/// Fails where <c>layout.ts</c>'s <c>calculateBlockPosition</c> fails: on a block with children whose last
-	/// <c>columns</c> statement is <c>columns 0</c>.
+	/// <c>blockRenderer.ts</c>'s <c>draw</c>. It fails where <c>layout.ts</c>'s <c>calculateBlockPosition</c> fails: on
+	/// a block with children whose last <c>columns</c> statement is <c>columns 0</c>.
 	/// </summary>
 	public override BlockLayout Layout(BlockDocument document, DiagramRenderContext context)
 	{
 		ArgumentNullException.ThrowIfNull(document);
-		CheckColumns(BlockDb.From(document).Root);
-		return new BlockLayout();
+		ArgumentNullException.ThrowIfNull(context);
+		return BlockLayoutStep.Run(document, context);
 	}
 
-	public override void Render(BlockDocument document, BlockLayout layout, SvgWriter svg, DiagramRenderContext context) { }
-
-	private static void CheckColumns(BlockDbBlock block)
+	public override void Render(BlockDocument document, BlockLayout layout, SvgWriter svg, DiagramRenderContext context)
 	{
-		if (block.Children is not { Count: > 0 } children)
-		{
-			return;
-		}
-
-		if (block.Columns == 0)
-		{
-			throw new MermaidParseException(new MermaidDiagnostic(DiagnosticSeverity.Error, "Columns must be an integer !== 0.", 0, 0));
-		}
-
-		foreach (var child in children)
-		{
-			CheckColumns(child);
-		}
+		ArgumentNullException.ThrowIfNull(layout);
+		ArgumentNullException.ThrowIfNull(svg);
+		ArgumentNullException.ThrowIfNull(context);
+		Flowchart.FlowchartRenderer.RenderBlock(layout.Root, layout.Style, svg, context.SvgId);
 	}
 }
-
-/// <summary>The layout of a block diagram. It has no parts yet.</summary>
-public sealed class BlockLayout() : DiagramLayout(0, 0);

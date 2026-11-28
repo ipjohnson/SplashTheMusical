@@ -6,5 +6,6 @@ box	block	B	0	4	111.125	56
 box	block	C	0	-60	111.125	56
 box	block	D	127.125	12	43.563	40
 box	block	E	178.688	12	43.563	40
+box	block	anonymous-1	119.125	4	111.125	56
 canvas	-5	-65	240.25	130
 font	Liberation Sans	10

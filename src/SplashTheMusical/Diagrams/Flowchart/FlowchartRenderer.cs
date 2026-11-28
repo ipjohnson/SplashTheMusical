@@ -257,29 +257,7 @@ internal static class FlowchartRenderer
 		svg.WriteAttribute("class", "edgeLabels");
 		foreach (var edge in drawing.Edges)
 		{
-			if (edge.Label is { HasText: true } label)
-			{
-				svg.StartElement("g");
-				svg.WriteAttribute("class", WithStyleClass("edgeLabel", edge.LabelStyleClass));
-				svg.WriteAttribute("transform", Translate(edge.LabelX, edge.LabelY));
-				svg.StartElement("g");
-				svg.WriteAttribute("class", "label");
-				svg.WriteAttribute("data-id", edge.Id);
-				svg.WriteAttribute("transform", Translate(-label.Width / 2, -label.Height / 2));
-				if (style.EdgeLabelBackground is { } background)
-				{
-					svg.StartElement("rect");
-					svg.WriteAttribute("class", "background");
-					svg.WriteAttribute("width", label.Width);
-					svg.WriteAttribute("height", label.Height);
-					Paint(svg, "fill", background);
-					svg.EndElement();
-				}
-
-				WriteText(svg, label, style, "edgeLabel");
-				svg.EndElement();
-				svg.EndElement();
-			}
+			WriteEdgeLabel(svg, edge, style);
 		}
 
 		svg.EndElement();
@@ -291,6 +269,59 @@ internal static class FlowchartRenderer
 			WriteNode(svg, node, svgId, style, pictures);
 		}
 
+		svg.EndElement();
+		svg.EndElement();
+	}
+
+	/// <summary>
+	/// Writes the drawing as <c>blockRenderer.ts</c> builds its DOM: the edge markers, then a <c>g.block</c> of the
+	/// nodes, followed by each edge's path and label, so edges are drawn over the blocks.
+	/// </summary>
+	public static void RenderBlock(FlowchartDrawing drawing, FlowchartStyle style, SvgWriter svg, string svgId)
+	{
+		WriteLookDefs(svg, svgId, style);
+		WriteMarkers(svg, svgId, style, ColoredMarkers(drawing));
+		svg.StartElement("g");
+		svg.WriteAttribute("class", "block");
+		foreach (var node in drawing.Nodes)
+		{
+			WriteNode(svg, node, svgId, style, null);
+		}
+
+		foreach (var edge in drawing.Edges)
+		{
+			WriteEdge(svg, edge, svgId, style);
+			WriteEdgeLabel(svg, edge, style);
+		}
+
+		svg.EndElement();
+	}
+
+	private static void WriteEdgeLabel(SvgWriter svg, FlowchartEdgeDrawing edge, FlowchartStyle style)
+	{
+		if (edge.Label is not { HasText: true } label)
+		{
+			return;
+		}
+
+		svg.StartElement("g");
+		svg.WriteAttribute("class", WithStyleClass("edgeLabel", edge.LabelStyleClass));
+		svg.WriteAttribute("transform", Translate(edge.LabelX, edge.LabelY));
+		svg.StartElement("g");
+		svg.WriteAttribute("class", "label");
+		svg.WriteAttribute("data-id", edge.Id);
+		svg.WriteAttribute("transform", Translate(-label.Width / 2, -label.Height / 2));
+		if (style.EdgeLabelBackground is { } background)
+		{
+			svg.StartElement("rect");
+			svg.WriteAttribute("class", "background");
+			svg.WriteAttribute("width", label.Width);
+			svg.WriteAttribute("height", label.Height);
+			Paint(svg, "fill", background);
+			svg.EndElement();
+		}
+
+		WriteText(svg, label, style, "edgeLabel");
 		svg.EndElement();
 		svg.EndElement();
 	}

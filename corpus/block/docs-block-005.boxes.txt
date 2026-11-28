@@ -3,5 +3,6 @@
 # source bd54fe8aea77a0c8
 box	block	A	172.516	-28	164.516	56
 box	block	D	8	-20	148.516	40
+box	block	anonymous-1	0	-28	164.516	56
 canvas	-5	-33	347.031	66
 font	Liberation Sans	38
