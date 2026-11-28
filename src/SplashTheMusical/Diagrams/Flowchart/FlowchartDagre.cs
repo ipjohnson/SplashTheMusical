@@ -1061,8 +1061,15 @@ internal sealed class FlowchartDagre
 
 	// insertEdge and positionEdgeLabel
 
-	private FlowchartEdgeDrawing InsertEdge(FlowEdge edge, FlowNode? tail, FlowNode? head)
+	/// <summary>
+	/// <c>insertEdge</c> as the block renderer calls it, between nodes it placed itself: the edge has no <c>look</c>, and
+	/// <c>positionEdgeLabel</c> gets only the original points, so the label stays at the edge's <c>x</c> and <c>y</c>.
+	/// </summary>
+	internal FlowchartEdgeDrawing PlacedEdge(FlowEdge edge, FlowNode? tail, FlowNode? head) => InsertEdge(edge, tail, head, placed: true);
+
+	private FlowchartEdgeDrawing InsertEdge(FlowEdge edge, FlowNode? tail, FlowNode? head, bool placed = false)
 	{
+		var look = placed ? "" : _measure.Look;
 		var original = edge.Points ?? [];
 		var points = new List<PathPoint>(original);
 		var changed = false;
@@ -1089,13 +1096,13 @@ internal sealed class FlowchartDagre
 		var curve = CurveNames.Parse(edge.Curve);
 		var data = points.Count > 0 ? EdgePath.ToString([.. points], curve, edge.ArrowTypeStart, edge.ArrowTypeEnd) : "";
 		var classes = " " + StrokeClasses(edge) + (edge.Classes.Length > 0 ? " " + edge.Classes : "");
-		var useMargin = !edge.Animated && _measure.Look == "neo";
+		var useMargin = !edge.Animated && look == "neo";
 		var markerStart = EdgeMarkers.MarkerId(_measure.SvgId, _measure.DiagramType, edge.ArrowTypeStart, MarkerEnd.Start, useMargin);
 		var markerEnd = EdgeMarkers.MarkerId(_measure.SvgId, _measure.DiagramType, edge.ArrowTypeEnd, MarkerEnd.End, useMargin);
 		var pathStyle = FlowchartStyles.EdgeStyle(edge.CssCompiledStyles, edge.Styles);
 
 		// The handDrawn branch of insertEdge takes the whole first "stroke:" style as the colour.
-		var strokeColor = _measure.Look == "handDrawn"
+		var strokeColor = look == "handDrawn"
 			? edge.Styles.FirstOrDefault(s => s.StartsWith("stroke:", StringComparison.Ordinal))
 			: FlowchartStyles.StrokeColor(pathStyle);
 		var colored = new List<ColoredMarker>();
@@ -1110,7 +1117,7 @@ internal sealed class FlowchartDagre
 		}
 
 		var (labelX, labelY) = (edge.X, edge.Y);
-		if (changed && points.Count > 0 && original.Count > 0)
+		if (changed && !placed && points.Count > 0 && original.Count > 0)
 		{
 			var updatedMid = CalcLabelPosition(points);
 			var originalMid = CalcLabelPosition(original);

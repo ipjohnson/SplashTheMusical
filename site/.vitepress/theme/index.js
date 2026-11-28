@@ -3,6 +3,7 @@ import CompareOverview from './CompareOverview.vue'
 import CompareType from './CompareType.vue'
 import CompareCase from './CompareCase.vue'
 import './compare.css'
+import './home.css'
 
 export default {
 	extends: DefaultTheme,

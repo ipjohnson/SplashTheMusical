@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Text;
 
 namespace SplashTheMusical.Text;
@@ -140,15 +141,78 @@ public static class MermaidText
 		foreach (var line in SplitBreaks(text))
 		{
 			// mermaid draws an empty line as a zero width space, which has the font's height.
-			var metrics = measurer.Measure(line, font);
+			var metrics = measurer.Measure(CollapseSpaces(line, out var rented), font);
+			if (rented is not null)
+			{
+				ArrayPool<char>.Shared.Return(rented);
+			}
+
 			width = Math.Round(Math.Max(width, metrics.Width), MidpointRounding.AwayFromZero);
-			var lineBox = Math.Round(metrics.Height, MidpointRounding.AwayFromZero);
+			// Chromium's text box rounds the ascent and the descent each to whole pixels.
+			var lineBox = Math.Round(metrics.Ascent, MidpointRounding.AwayFromZero) + Math.Round(metrics.Descent, MidpointRounding.AwayFromZero);
 			height += lineBox;
 			lineHeight = Math.Round(Math.Max(lineHeight, lineBox), MidpointRounding.AwayFromZero);
 		}
 
 		return new TextDimensions(width, height, lineHeight);
 	}
+
+	/// <summary>
+	/// The line as an SVG <c>text</c> without <c>xml:space</c> shows it: tabs and line ends as spaces, runs of spaces as
+	/// one, and none at either end. <paramref name="rented"/> is the pooled buffer of the result, or <c>null</c> when the
+	/// line is returned as it is.
+	/// </summary>
+	private static ReadOnlySpan<char> CollapseSpaces(ReadOnlySpan<char> line, out char[]? rented)
+	{
+		rented = null;
+		var trimmed = line.Trim(SvgSpaces);
+		if (trimmed.IndexOfAny(SvgSpaces) < 0 || !HasCollapsible(trimmed))
+		{
+			return trimmed;
+		}
+
+		rented = ArrayPool<char>.Shared.Rent(trimmed.Length);
+		var length = 0;
+		var space = false;
+		foreach (var c in trimmed)
+		{
+			if (SvgSpaces.Contains(c))
+			{
+				space = true;
+				continue;
+			}
+
+			if (space)
+			{
+				rented[length++] = ' ';
+				space = false;
+			}
+
+			rented[length++] = c;
+		}
+
+		return rented.AsSpan(0, length);
+	}
+
+	private static bool HasCollapsible(ReadOnlySpan<char> text)
+	{
+		for (var i = 0; i < text.Length; i++)
+		{
+			if (text[i] != ' ' && SvgSpaces.Contains(text[i]))
+			{
+				return true;
+			}
+
+			if (text[i] == ' ' && i + 1 < text.Length && text[i + 1] == ' ')
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private const string SvgSpaces = " \t\r\n";
 
 	private static int Next(ReadOnlySpan<char> text, int from)
 	{

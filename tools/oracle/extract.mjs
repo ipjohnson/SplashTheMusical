@@ -1002,13 +1002,17 @@ export async function extractFacts(source, name, shapes) {
 			if (!anonymous.has(raw)) anonymous.set(raw, `anonymous-${anonymous.size + 1}`)
 			return anonymous.get(raw)
 		}
+		// render() parsed the source into another db, whose generated ids differ from these. insertBlocks draws the blocks
+		// in this walk's order, so a block with a generated id is the next drawn block with one.
+		const generated = [...dom.querySelectorAll('g.node[id]')].filter(g => /^id-[a-z0-9]+-\d+$/.test(g.id.slice(svgId.length + 1)))
 		const walk = (n, parent) => {
 			for (const c of n.children ?? []) {
 				if (c.type === 'space') facts.push(tab('space', parent, num(c.width ?? c.widthInColumns ?? 1)))
 				else {
 					facts.push(tab('block', id(c.id), c.type === 'composite' ? '' : decode(c.label), blockShape[c.type] ?? shape(c.type), num(c.widthInColumns ?? 1), parent))
 					if (c.type !== 'composite') shown.push(decode(c.label))
-					box('block', id(c.id), dom.querySelector(`g.node[id="${esc(`${svgId}-${c.id}`)}"]`))
+					const drawn = /^id-[a-z0-9]+-\d+$/.test(c.id) ? generated.shift() : dom.querySelector(`g.node[id="${esc(`${svgId}-${c.id}`)}"]`)
+					box('block', id(c.id), drawn)
 				}
 				walk(c, id(c.id))
 			}

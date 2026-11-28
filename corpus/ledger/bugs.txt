@@ -2,7 +2,7 @@
 # The bug entries of each ledger. corpus/ledger/README.md describes it.
 agentflow	780
 architecture	248
-block	248
+block	0
 c4	20
 class	225
 cynefin	124
@@ -22,7 +22,7 @@ radar	96
 railroad	424
 requirement	147
 sankey	116
-sequence	829
+sequence	598
 state	248
 swimlanes	276
 timeline	236

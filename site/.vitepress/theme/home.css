@@ -1,0 +1,22 @@
+/* At desktop widths the home page's poster fills the column to the right of the headline. Below 960px VitePress puts
+   it above the headline at its own sizes. */
+@media (min-width: 960px) {
+	.VPHero.has-image .image-container {
+		transform: none;
+		align-items: center;
+	}
+
+	.VPHero.has-image .image-src {
+		position: static;
+		transform: none;
+		width: 100%;
+		max-width: 560px !important;
+		max-height: none !important;
+		height: auto;
+		border-radius: 12px;
+	}
+
+	.VPHero.has-image .main {
+		padding-right: 48px;
+	}
+}

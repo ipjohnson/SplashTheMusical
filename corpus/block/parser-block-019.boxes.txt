@@ -5,6 +5,7 @@ box	block	A	0	-92	162.688	56
 box	block	B	8	44	43.563	40
 box	block	C	59.563	44	43.563	40
 box	block	D	111.125	44	43.563	40
+box	block	anonymous-1	0	36	162.688	56
 box	block	blockArrow	50.672	-20	61.344	40
 canvas	-5	-97	172.688	194
 font	Liberation Sans	14

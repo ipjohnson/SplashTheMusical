@@ -298,14 +298,20 @@ and the intersections of `rendering-elements/intersect`.
 `parser/requirementDiagram.jison`, `requirementDb.ts`, `requirementRenderer.ts` and `styles.js`, and the
 `requirementBox` shape of `rendering-elements/shapes/requirementBox.ts`.
 `src/SplashTheMusical/Diagrams/Block` ports `packages/mermaid/src/diagrams/block`: the grammar of
-`parser/block.jison`, `blockDB.ts` and the columns check of `layout.ts`.
+`parser/block.jison`, `blockDB.ts`, the grid of `layout.ts`, `renderHelpers.ts`, `blockRenderer.ts` and `styles.ts`,
+and the `composite` and `block_arrow` shapes of `rendering-elements/shapes/composite.ts` and
+`rendering-elements/shapes/blockArrow.ts`.
 `src/SplashTheMusical/Diagrams/C4` ports `packages/mermaid/src/diagrams/c4`: the lexer and grammar of
 `parser/c4Diagram.jison`, `c4Db.ts`, the layout and drawing of `c4Renderer.ts` and `svgDraw.ts`, the shape choice and
 colours of `c4ShapeAdapter.ts` and the rules of `styles.js`. `src/SplashTheMusical/Diagrams/C4/C4Label.cs` ports
 `packages/mermaid/src/rendering-util/rendering-elements/shapes/c4LabelHelper.ts`.
 `src/SplashTheMusical/Diagrams/Sequence` ports `packages/mermaid/src/diagrams/sequence`: the lexer and grammar of
 `parser/sequenceDiagram.jison`, which is based on js-sequence-diagrams (see above), and the actions, `apply`,
-`parseMessage` and `parseBoxData` of `sequenceDb.ts`.
+`parseMessage`, `parseBoxData`, `addActor`, `addLinks` and `addALink` of `sequenceDb.ts`, and in
+`SequenceLayoutStep.cs` the placing of participants, boxes and messages of `draw` in `sequenceRenderer.ts`, with
+`getMaxMessageWidthPerActor`, `calculateActorMargins`, `addActorRenderingData`, `buildMessageModel`, `boundMessage`,
+`drawMessage` and `drawActorsPopup`, the shape geometry of the `drawActorType` functions of `svgDraw.js`, and the band
+model of `actorBands.ts`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 

@@ -117,11 +117,15 @@ public sealed class StmFactsProvider : IFactsProvider
 		}
 		else if (document is BlockDocument block)
 		{
-			BlockFacts.Add(facts, block);
+			BlockFacts.Add(facts, block, svg);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = BlockFacts.Boxes(boxes, block, new BlockModule().Layout(block, context));
 		}
 		else if (document is SequenceDocument sequence)
 		{
 			SequenceFacts.Add(facts, sequence);
+			var context = new DiagramRenderContext(config, "mermaid", TextMeasurer.Default, NoIcons.Instance, [], ResourceLimits.Unlimited);
+			canvas = SequenceFacts.Boxes(boxes, new SequenceModule().Layout(sequence, context));
 		}
 
 		return new CaseFacts(true, null, facts, boxes, canvas, svg);
