@@ -104,7 +104,7 @@ public class C4GeneratorTests
 	[Arguments("q<br> q", "q<br> q")]
 	[Arguments("q \n q", "q \n q")]
 	public void WhitespaceBetweenTwoLineBreaksIsRemoved(string text, string expected) =>
-		C4Generator.WithoutBlankBreaks(text).Should().Be(expected);
+		GenText.WithoutBlankBreaks(text).Should().Be(expected);
 
 	[Test]
 	public void NoRelationTextHasOnlyWhitespaceBetweenTwoLineBreaks()
@@ -115,7 +115,7 @@ public class C4GeneratorTests
 			{
 				foreach (var argument in relation.Arguments)
 				{
-					argument.Value.Should().Be(C4Generator.WithoutBlankBreaks(argument.Value), "mermaid.js fails to draw the relation");
+					argument.Value.Should().Be(GenText.WithoutBlankBreaks(argument.Value), "mermaid.js fails to draw the relation");
 				}
 			}
 		}, iter: 1_000, threads: 1);

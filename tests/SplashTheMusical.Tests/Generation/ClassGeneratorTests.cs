@@ -82,6 +82,16 @@ public class ClassGeneratorTests
 	public void TheTextAfterAColonHoldsNoTag() =>
 		DocumentGenerators.Named("class").Documents.Sample(RoundTripPropertyTests.AssertRoundTrips, seed: "fXwAV48Tlua8", iter: 1, threads: 1);
 
+	// mermaid.js 12.3.0 refused random/class/class-0018 of CI's oracle round trip, whose label was "😀  <br>  <br>".
+	[Test]
+	public void NoClassLabelHasOnlyWhitespaceBetweenTwoLineBreaks()
+	{
+		foreach (var label in Statements.Value.OfType<ClassDefinition>().Select(d => d.Label).OfType<string>())
+		{
+			label.Should().Be(GenText.WithoutBlankBreaks(label), "mermaid.js fails to draw the class");
+		}
+	}
+
 	private static IEnumerable<ClassStatement> All(List<ClassStatement> statements) =>
 		statements.SelectMany(s => s is ClassNamespace n ? [s, .. All(n.Statements)] : new[] { s });
 }
