@@ -1,9 +1,12 @@
 ---
 layout: home
 hero:
-  name: SplashTheMusical
-  text: Mermaid diagrams in .NET
+  name: "Splash the Musical:"
+  text: A mermaid rendering in C#
   tagline: Parse, generate and render Mermaid diagrams in C#, with no package dependencies and native AOT support.
+  image:
+    src: /splash-poster.jpg
+    alt: "Splash The Musical: a mermaid holding C# above the New York skyline. An AgentDriver original."
   actions:
     - theme: brand
       text: Get started
