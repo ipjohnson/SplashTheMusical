@@ -5,12 +5,12 @@ using SplashTheMusical.Text;
 namespace SplashTheMusical.Diagrams.Sequence;
 
 /// <summary>
-/// The port of <c>draw</c> in mermaid's <c>sequenceRenderer.ts</c> for participants, boxes and messages:
-/// <c>getMaxMessageWidthPerActor</c>, <c>calculateActorMargins</c>, <c>addActorRenderingData</c>,
-/// <c>buildMessageModel</c>, <c>boundMessage</c>, the line ends and texts of <c>drawMessage</c>, the footer of
-/// <c>drawActors</c>, and the canvas. mermaid.js computes these positions in its renderer and ignores <c>layout</c>.
-/// Notes count toward the participants' margins but are not placed, and blocks and activations do not move anything
-/// yet, so the messages after them sit higher than mermaid.js draws them.
+/// The port of <c>draw</c> in mermaid's <c>sequenceRenderer.ts</c>: <c>getMaxMessageWidthPerActor</c>,
+/// <c>calculateActorMargins</c>, <c>addActorRenderingData</c>, <c>calculateLoopBounds</c> with
+/// <c>buildMessageModel</c> and <c>buildNoteModel</c>, the loop over the messages with <c>boundMessage</c>,
+/// <c>drawNote</c>, <c>adjustLoopHeightForWrap</c>, the activations and <c>adjustCreatedDestroyedData</c>, the
+/// geometry of <c>drawLoop</c>, the line ends and texts of <c>drawMessage</c>, the footer of <c>drawActors</c>, and
+/// the canvas. mermaid.js computes these positions in its renderer and ignores <c>layout</c>.
 /// </summary>
 /// <remarks>
 /// <c>bounds.init</c> merges the whole config into the sequence config, so the top-level <c>fontFamily</c> and
@@ -26,7 +26,12 @@ internal sealed class SequenceLayoutStep
 	private readonly SequenceConf _conf;
 	private readonly ITextMeasurer _measurer;
 	private readonly Dictionary<string, ActorModel> _actors = new(StringComparer.Ordinal);
-	private readonly List<(string Actor, double StartX, double StopX)> _activations = [];
+	private readonly List<Activation> _activations = [];
+	private readonly List<LoopModel> _sequenceItems = [];
+	private readonly List<SequenceNotePlace> _notes = [];
+	private readonly List<SequenceBlockPlace> _blocks = [];
+	private readonly List<SequenceBackgroundPlace> _backgrounds = [];
+	private readonly List<SequenceActivationPlace> _drawnActivations = [];
 	private double? _startX;
 	private double? _startY;
 	private double? _stopX;
@@ -102,32 +107,92 @@ internal sealed class SequenceLayoutStep
 		}
 
 		var drawnBoxes = AddActorRenderingData(actorKeys, db.CreatedActors);
-		CalculateLoopBounds(messages);
+		var loopWidths = CalculateLoopBounds(messages);
 
 		var sequenceIndex = 1.0;
 		var sequenceIndexStep = 1.0;
 		var sequenceVisible = false;
+		var index = 0;
 		foreach (var message in messages)
 		{
-			var type = message.Source.Type;
-			if (type == SequenceLineType.Autonumber)
+			var msg = message.Source;
+			var type = msg.Type;
+			switch (type)
 			{
-				sequenceIndex = message.Source.Start is { } start && start != 0 ? start : sequenceIndex;
-				sequenceIndexStep = message.Source.Step is { } step && step != 0 ? step : sequenceIndexStep;
-				sequenceVisible = message.Source.Visible;
-			}
-			else if (IsSignal(type))
-			{
-				message.StartY = _verticalPos;
-				message.SequenceIndex = sequenceIndex;
-				message.SequenceVisible = sequenceVisible;
-				message.LineY = BoundMessage(message);
+				case SequenceLineType.Note:
+					DrawNote(message);
+					break;
+				case SequenceLineType.ActiveStart:
+				case SequenceLineType.CentralConnection:
+				case SequenceLineType.CentralConnectionReverse:
+					NewActivation(msg);
+					break;
+				case SequenceLineType.ActiveEnd:
+					ActiveEnd(msg, _verticalPos);
+					break;
+				case SequenceLineType.LoopStart:
+				case SequenceLineType.OptStart:
+				case SequenceLineType.AltStart:
+				case SequenceLineType.ParStart:
+				case SequenceLineType.ParOverStart:
+				case SequenceLineType.CriticalStart:
+				case SequenceLineType.BreakStart:
+					AdjustLoopHeightForWrap(loopWidths, message, conf.BoxMargin, conf.BoxMargin + conf.BoxTextMargin, m => NewLoop(m, msg));
+					break;
+				case SequenceLineType.AltElse:
+				case SequenceLineType.ParAnd:
+				case SequenceLineType.CriticalOption:
+					AdjustLoopHeightForWrap(loopWidths, message, conf.BoxMargin + conf.BoxTextMargin, conf.BoxMargin, AddSectionToLoop);
+					break;
+				case SequenceLineType.RectStart:
+					AdjustLoopHeightForWrap(loopWidths, message, conf.BoxMargin, conf.BoxMargin, m => NewLoop(null, null, string.IsNullOrEmpty(m.Text) ? null : SequenceDb.Restore(m.Text)));
+					break;
+				case SequenceLineType.RectEnd:
+					{
+						var loop = EndLoop();
+						_backgrounds.Add(new SequenceBackgroundPlace(Frame(loop), loop.Fill));
+						Bump((loop.StopY ?? double.NaN) - _verticalPos);
+						break;
+					}
+
+				case SequenceLineType.LoopEnd:
+				case SequenceLineType.OptEnd:
+				case SequenceLineType.AltEnd:
+				case SequenceLineType.ParEnd:
+				case SequenceLineType.CriticalEnd:
+				case SequenceLineType.BreakEnd:
+					{
+						var loop = EndLoop();
+						_blocks.Add(DrawLoop(loop, BlockLabel(type), msg));
+						Bump((loop.StopY ?? double.NaN) - _verticalPos);
+						break;
+					}
+
+				case SequenceLineType.Autonumber:
+					sequenceIndex = msg.Start is { } start && start != 0 ? start : sequenceIndex;
+					sequenceIndexStep = msg.Step is { } step && step != 0 ? step : sequenceIndexStep;
+					sequenceVisible = msg.Visible;
+					break;
+				default:
+					if (message.Built)
+					{
+						message.StartY = _verticalPos;
+						message.SequenceIndex = sequenceIndex;
+						message.SequenceVisible = sequenceVisible;
+						var lineY = BoundMessage(message);
+						message.LineY = lineY;
+						AdjustCreatedDestroyedData(message, lineY, index, db);
+					}
+
+					break;
 			}
 
 			if (IsSignal(type))
 			{
 				sequenceIndex = Math.Round((sequenceIndex + sequenceIndexStep) * 100, MidpointRounding.AwayFromZero) / 100;
 			}
+
+			index++;
 		}
 
 		var placed = new List<SequenceActorPlace>(actorKeys.Count);
@@ -209,7 +274,345 @@ internal sealed class SequenceLayoutStep
 			-(conf.DiagramMarginY + extraVertForTitle),
 			width,
 			height + extraVertForTitle + extraHeightForNeoActors);
-		return new SequenceLayout(width, height, viewBox, conf.Look, placed, boxPlaces, messagePlaces);
+		var parts = new SequenceLayoutParts(_notes, _blocks, _backgrounds, _drawnActivations);
+		return new SequenceLayout(width, height, viewBox, conf.Look, placed, boxPlaces, messagePlaces, parts);
+	}
+
+	/// <summary>The label <c>drawLoop</c> writes in the corner of the block a message ends.</summary>
+	private static string BlockLabel(int endType) => endType switch
+	{
+		SequenceLineType.LoopEnd => "loop",
+		SequenceLineType.OptEnd => "opt",
+		SequenceLineType.AltEnd => "alt",
+		SequenceLineType.ParEnd => "par",
+		SequenceLineType.CriticalEnd => "critical",
+		_ => "break",
+	};
+
+	/// <summary><c>bounds.newActivation</c>.</summary>
+	private void NewActivation(SequenceDbMessage msg)
+	{
+		if (msg.From is null || !_actors.TryGetValue(msg.From, out var actor))
+		{
+			return;
+		}
+
+		var stacked = _activations.Count(a => a.Actor == msg.From);
+		var x = actor.X + (actor.Width / 2) + ((stacked - 1) * _conf.ActivationWidth / 2);
+		_activations.Add(new Activation(msg.From, x, x + _conf.ActivationWidth) { StartY = _verticalPos + 2 });
+	}
+
+	/// <summary>
+	/// <c>bounds.endActivation</c>: it removes the participant's latest activation, or the latest of all when the
+	/// participant has none, as <c>splice(-1, 1)</c> does.
+	/// </summary>
+	private Activation? EndActivation(string? actor)
+	{
+		var last = _activations.FindLastIndex(a => a.Actor == actor);
+		if (last < 0)
+		{
+			last = _activations.Count - 1;
+		}
+
+		if (last < 0)
+		{
+			return null;
+		}
+
+		var activation = _activations[last];
+		_activations.RemoveAt(last);
+		return activation;
+	}
+
+	/// <summary><c>activeEnd</c> of <c>draw</c>: the activation's rectangle, at least 18 high, and its bottom in the bounds.</summary>
+	private void ActiveEnd(SequenceDbMessage msg, double verticalPos)
+	{
+		if (EndActivation(msg.From) is not { } activation)
+		{
+			return;
+		}
+
+		if (activation.StartY + 18 > verticalPos)
+		{
+			activation.StartY = verticalPos - 6;
+			verticalPos += 12;
+		}
+
+		var level = _activations.Count(a => a.Actor == msg.From) % 3;
+		var rect = new SequenceRect(activation.StartX, activation.StartY, activation.StopX - activation.StartX, verticalPos - activation.StartY);
+		_drawnActivations.Add(new SequenceActivationPlace(activation.Actor, rect, level));
+		Insert(activation.StartX, verticalPos - 10, activation.StopX, verticalPos);
+	}
+
+	/// <summary>
+	/// <c>adjustLoopHeightForWrap</c>: the margin before a block's start or branch, its title as <c>[text]</c> wrapped
+	/// to the block's width, and the margin and title height after it.
+	/// </summary>
+	private void AdjustLoopHeightForWrap(Dictionary<int, LoopWidth> loopWidths, MessageModel message, double preMargin, double postMargin, Action<MessageModel> addLoop)
+	{
+		var conf = _conf;
+		Bump(preMargin);
+		var heightAdjust = postMargin;
+		if (message.Text.Length > 0 && loopWidths.TryGetValue(message.Source.Id, out var loop))
+		{
+			message.Text = MermaidText.WrapLabel($"[{message.Text}]", loop.Width - (2 * conf.WrapPadding), conf.MessageFont, _measurer);
+			var dims = Dimensions(message.Text, conf.MessageFont);
+			heightAdjust = postMargin + Math.Max(dims.Height, conf.LabelBoxHeight);
+		}
+
+		addLoop(message);
+		Bump(heightAdjust);
+	}
+
+	/// <summary><c>bounds.newLoop</c>.</summary>
+	private void NewLoop(MessageModel? title, SequenceDbMessage? start, string? fill = null) =>
+		_sequenceItems.Add(new LoopModel(_verticalPos) { Title = title?.Text, Start = start, Fill = fill });
+
+	private LoopModel EndLoop()
+	{
+		var loop = _sequenceItems[^1];
+		_sequenceItems.RemoveAt(_sequenceItems.Count - 1);
+		return loop;
+	}
+
+	/// <summary><c>bounds.addSectionToLoop</c>.</summary>
+	private void AddSectionToLoop(MessageModel message)
+	{
+		var loop = _sequenceItems[^1];
+		loop.Sections.Add(_verticalPos);
+		loop.SectionTitles.Add(message);
+	}
+
+	private static SequenceRect Frame(LoopModel loop) => SequenceRect.FromEdges(
+		loop.StartX ?? double.NaN,
+		loop.StartY ?? double.NaN,
+		loop.StopX ?? double.NaN,
+		loop.StopY ?? double.NaN);
+
+	/// <summary>
+	/// The geometry of <c>svgDraw.drawLoop</c>: the frame, the dashed line of each branch, the label box and its text,
+	/// the title, and each branch's title. The box of the group unites all of them, the zero-width lines included.
+	/// </summary>
+	private SequenceBlockPlace DrawLoop(LoopModel loop, string labelText, SequenceDbMessage end)
+	{
+		var conf = _conf;
+		var frame = Frame(loop);
+		var labelWidth = Math.Max(conf.LabelBoxWidth, 50);
+		var labelHeight = conf.LabelBoxHeight + (conf.Look == "neo" ? 15 : 0);
+		if (labelHeight == 0 || double.IsNaN(labelHeight))
+		{
+			labelHeight = 20;
+		}
+
+		var startX = loop.StartX ?? double.NaN;
+		var stopX = loop.StopX ?? double.NaN;
+		var startY = loop.StartY ?? double.NaN;
+		var labelBox = new SequenceRect(startX, startY, labelWidth, labelHeight);
+		var font = conf.MessageFont;
+		var label = DrawText(labelText, startX, startY + (labelHeight / 2), labelWidth, "middle", "middle", conf.BoxTextMargin, null, font);
+		var title = DrawText(
+			loop.Title ?? "",
+			startX + (conf.LabelBoxWidth / 2) + ((stopX - startX) / 2),
+			startY + conf.BoxMargin + conf.BoxTextMargin,
+			null,
+			"middle",
+			"middle",
+			conf.BoxTextMargin,
+			null,
+			font);
+		var sectionTitles = new List<SequenceTextLine>();
+		for (var i = 0; i < loop.SectionTitles.Count; i++)
+		{
+			var text = loop.SectionTitles[i].Text;
+			if (text.Length > 0)
+			{
+				sectionTitles.AddRange(DrawText(text, startX + ((stopX - startX) / 2), loop.Sections[i] + conf.BoxMargin + conf.BoxTextMargin, null, "middle", "middle", conf.BoxTextMargin, null, font));
+			}
+		}
+
+		var bounds = frame.Union(labelBox);
+		foreach (var sectionY in loop.Sections)
+		{
+			bounds = bounds.Union(SequenceRect.FromEdges(startX, sectionY, stopX, sectionY));
+		}
+
+		foreach (var line in label.Concat(title).Concat(sectionTitles))
+		{
+			bounds = bounds.Union(line.Box);
+		}
+
+		var start = loop.Start;
+		return new SequenceBlockPlace(
+			end.Id,
+			labelText,
+			start?.Type ?? 0,
+			start?.Text ?? "",
+			frame,
+			loop.Sections,
+			labelBox,
+			label,
+			title,
+			sectionTitles,
+			bounds);
+	}
+
+	/// <summary>
+	/// The lines of <c>svgDraw.drawText</c> and the boxes Chromium gives them: <c>valign</c> moves each line by the
+	/// height of the lines before it, an <paramref name="anchor"/> with a <paramref name="width"/> centers or aligns the
+	/// lines in it under <c>dominant-baseline: middle</c>, and an anchor without one only sets <c>text-anchor</c>.
+	/// </summary>
+	private List<SequenceTextLine> DrawText(string text, double x, double y, double? width, string? anchor, string? valign, double textMargin, string? dy, FontSpec font)
+	{
+		var textHeight = 0.0;
+		var middle = false;
+		var textAnchor = anchor;
+		if (anchor is not null && width is { } w)
+		{
+			switch (anchor)
+			{
+				case "left" or "start":
+					x = JsRound(x + textMargin);
+					textAnchor = "start";
+					middle = true;
+					break;
+				case "middle" or "center":
+					x = JsRound(x + (w / 2));
+					textAnchor = "middle";
+					middle = true;
+					break;
+				case "right" or "end":
+					x = JsRound(x + w - textMargin);
+					textAnchor = "end";
+					middle = true;
+					break;
+			}
+		}
+
+		var lines = new List<SequenceTextLine>();
+		var i = 0;
+		foreach (var part in MermaidText.SplitBreaks(text))
+		{
+			var line = part.ToString();
+			var lineY = valign is not null && textMargin > 0
+				? valign switch
+				{
+					"top" or "start" => JsRound(y + textMargin),
+					"middle" or "center" => JsRound(y + (((2 * textHeight) + textMargin) / 2)),
+					"bottom" or "end" => JsRound(y + (2 * textHeight) + textMargin),
+					_ => y,
+				}
+				: y;
+			var shift = dy == "1em" ? font.Size : textMargin == 0 ? i * font.Size : 0;
+			var (lineWidth, ascent, height) = DrawnLine(line.Length == 0 ? "​" : line, font);
+			var baseline = lineY + shift + (middle ? font.Size * HalfXHeight : 0);
+			var left = textAnchor switch
+			{
+				"middle" => x - (lineWidth / 2),
+				"end" => x - lineWidth,
+				_ => x,
+			};
+			lines.Add(new SequenceTextLine(line, x, lineY, new SequenceRect(left, baseline - ascent, lineWidth, height)));
+			if (valign is not null && textMargin > 0)
+			{
+				textHeight += height;
+			}
+
+			i++;
+		}
+
+		return lines;
+	}
+
+	/// <summary><c>drawNote</c>: the note's rectangle, as high as its text and two note margins, and its text lines.</summary>
+	private void DrawNote(MessageModel message)
+	{
+		var conf = _conf;
+		var note = message.Note!;
+		Bump(conf.BoxMargin);
+		note.StartY = _verticalPos;
+		var width = note.Width is 0 or double.NaN ? conf.Width : note.Width;
+		var lines = DrawText(note.Message, note.StartX, note.StartY, width, conf.NoteAlign, "center", conf.NoteMargin, "1em", conf.NoteFont);
+		var textHeight = JsRound(lines.Sum(l => l.Box.Height));
+		var height = textHeight + (2 * conf.NoteMargin);
+		Bump(height);
+		var rect = new SequenceRect(note.StartX, note.StartY, width, height);
+		Insert(note.StartX, note.StartY, note.StartX + width, note.StartY + height);
+		var bounds = rect;
+		foreach (var line in lines)
+		{
+			bounds = bounds.Union(line.Box);
+		}
+
+		_notes.Add(new SequenceNotePlace(message.Source.Id, message.Source.Text, rect, lines, bounds));
+	}
+
+	/// <summary>
+	/// <c>adjustCreatedDestroyedData</c>: a message that creates its receiver ends at the receiver's drawing, which
+	/// starts at the line, and a message from or to a destroyed participant ends its lifeline there.
+	/// </summary>
+	private void AdjustCreatedDestroyedData(MessageModel message, double lineY, int index, SequenceDb db)
+	{
+		var conf = _conf;
+		var msg = message.Source;
+		double Adjustment(ActorModel actor, double extra) => (actor.Type is "actor" or "control" or "entity" or "database" ? ActorTypeWidth / 2 : actor.Width / 2) + extra;
+
+		void Receiver(ActorModel actor, double adjustment)
+		{
+			if (actor.X < _actors[msg.From!].X)
+			{
+				Insert(message.StopX - adjustment, message.StartY, message.StartX, message.StopY + (actor.Height / 2) + conf.NoteMargin);
+				message.StopX += adjustment;
+			}
+			else
+			{
+				Insert(message.StartX, message.StartY, message.StopX + adjustment, message.StopY + (actor.Height / 2) + conf.NoteMargin);
+				message.StopX -= adjustment;
+			}
+		}
+
+		void Sender(ActorModel actor, double adjustment)
+		{
+			if (actor.X < _actors[msg.To!].X)
+			{
+				Insert(message.StartX - adjustment, message.StartY, message.StopX, message.StopY + (actor.Height / 2) + conf.NoteMargin);
+				message.StartX += adjustment;
+			}
+			else
+			{
+				Insert(message.StopX, message.StartY, message.StartX + adjustment, message.StopY + (actor.Height / 2) + conf.NoteMargin);
+				message.StartX -= adjustment;
+			}
+		}
+
+		if (msg.To is { } to && db.CreatedActors.TryGetValue(to, out var created) && created == index)
+		{
+			var actor = _actors[to];
+			Receiver(actor, Adjustment(actor, 3));
+			actor.StartY = lineY - (actor.Height / 2);
+			Bump(actor.Height / 2);
+		}
+		else if (msg.From is { } from && db.DestroyedActors.TryGetValue(from, out var fromDestroyed) && fromDestroyed == index)
+		{
+			var actor = _actors[from];
+			if (conf.MirrorActors)
+			{
+				Sender(actor, Adjustment(actor, 0));
+			}
+
+			actor.StopY = lineY - (actor.Height / 2);
+			Bump(actor.Height / 2);
+		}
+		else if (msg.To is { } target && db.DestroyedActors.TryGetValue(target, out var toDestroyed) && toDestroyed == index)
+		{
+			var actor = _actors[target];
+			if (conf.MirrorActors)
+			{
+				Receiver(actor, Adjustment(actor, 3));
+			}
+
+			actor.StopY = lineY - (actor.Height / 2);
+			Bump(actor.Height / 2);
+		}
 	}
 
 	/// <summary>
@@ -445,41 +848,164 @@ internal sealed class SequenceLayoutStep
 	}
 
 	/// <summary>
-	/// The part of <c>calculateLoopBounds</c> that builds each message's model, with the activations of the messages
-	/// before it.
+	/// <c>calculateLoopBounds</c>: each message's and note's model, with the activations of the messages before it, and
+	/// the width of each block from the messages and notes inside it, keyed by the ids of its start and its titled
+	/// branches.
 	/// </summary>
-	private void CalculateLoopBounds(List<MessageModel> messages)
+	private Dictionary<int, LoopWidth> CalculateLoopBounds(List<MessageModel> messages)
 	{
+		var conf = _conf;
+		var loops = new Dictionary<int, LoopWidth>();
+		var stack = new List<LoopWidth>();
 		foreach (var message in messages)
 		{
 			var msg = message.Source;
-			if (msg.Type == SequenceLineType.ActiveStart && msg.From is not null && _actors.TryGetValue(msg.From, out var actor))
+			switch (msg.Type)
 			{
-				var stacked = _activations.Count(a => a.Actor == msg.From);
-				var x = actor.X + (actor.Width / 2) + ((stacked - 1) * _conf.ActivationWidth / 2);
-				_activations.Add((msg.From, x, x + _conf.ActivationWidth));
+				case SequenceLineType.LoopStart:
+				case SequenceLineType.AltStart:
+				case SequenceLineType.OptStart:
+				case SequenceLineType.ParStart:
+				case SequenceLineType.ParOverStart:
+				case SequenceLineType.CriticalStart:
+				case SequenceLineType.BreakStart:
+					stack.Add(new LoopWidth(msg.Id));
+					break;
+				case SequenceLineType.AltElse:
+				case SequenceLineType.ParAnd:
+				case SequenceLineType.CriticalOption:
+					if (msg.Text.Length > 0 && stack.Count > 0)
+					{
+						loops[stack[^1].Id] = stack[^1];
+						loops[msg.Id] = stack[^1];
+					}
+
+					break;
+				case SequenceLineType.LoopEnd:
+				case SequenceLineType.AltEnd:
+				case SequenceLineType.OptEnd:
+				case SequenceLineType.ParEnd:
+				case SequenceLineType.CriticalEnd:
+				case SequenceLineType.BreakEnd:
+					if (stack.Count > 0)
+					{
+						loops[stack[^1].Id] = stack[^1];
+						stack.RemoveAt(stack.Count - 1);
+					}
+
+					break;
+				case SequenceLineType.ActiveStart:
+					if (msg.From is not null && _actors.TryGetValue(msg.From, out var actor))
+					{
+						var stacked = _activations.Count(a => a.Actor == msg.From);
+						var x = actor.X + (actor.Width / 2) + ((stacked - 1) * conf.ActivationWidth / 2);
+						_activations.Add(new Activation(msg.From, x, x + conf.ActivationWidth));
+					}
+
+					break;
+				case SequenceLineType.ActiveEnd:
+					_ = EndActivation(msg.From);
+					break;
 			}
-			else if (msg.Type == SequenceLineType.ActiveEnd)
+
+			if (msg.Placement is not null)
 			{
-				var last = _activations.FindLastIndex(a => a.Actor == msg.From);
-				if (last < 0)
+				var note = BuildNoteModel(message);
+				message.Note = note;
+				foreach (var current in stack)
 				{
-					last = _activations.Count - 1;
-				}
-
-				if (last >= 0)
-				{
-					_activations.RemoveAt(last);
+					current.From = Math.Min(current.From, note.StartX);
+					current.To = Math.Max(current.To, note.StartX + note.Width);
+					current.Width = Math.Max(current.Width, Math.Abs(current.From - current.To)) - conf.LabelBoxWidth;
 				}
 			}
-
-			if (msg.Placement is null && IsSignal(msg.Type))
+			else if (IsSignal(msg.Type))
 			{
 				BuildMessageModel(message);
+				if (IsTruthy(message.StartX) && IsTruthy(message.StopX))
+				{
+					foreach (var current in stack)
+					{
+						if (message.StartX == message.StopX)
+						{
+							var from = _actors[msg.From!];
+							var to = _actors[msg.To!];
+							current.From = Math.Min(Math.Min(from.X - (message.Width / 2), from.X - (from.Width / 2)), current.From);
+							current.To = Math.Max(Math.Max(to.X + (message.Width / 2), to.X + (from.Width / 2)), current.To);
+							current.Width = Math.Max(current.Width, Math.Abs(current.To - current.From)) - conf.LabelBoxWidth;
+						}
+						else
+						{
+							current.From = Math.Min(message.StartX, current.From);
+							current.To = Math.Max(message.StopX, current.To);
+							current.Width = Math.Max(current.Width, message.Width) - conf.LabelBoxWidth;
+						}
+					}
+				}
 			}
 		}
 
 		_activations.Clear();
+		return loops;
+	}
+
+	private static bool IsTruthy(double value) => value != 0 && !double.IsNaN(value);
+
+	/// <summary><c>buildNoteModel</c>: the note's left and width, from the participants it is placed by.</summary>
+	private NoteModel BuildNoteModel(MessageModel message)
+	{
+		var conf = _conf;
+		var msg = message.Source;
+		var from = _actors[msg.From!];
+		var to = _actors[msg.To!];
+		var startX = from.X;
+		var stopX = to.X;
+		var text = message.Text;
+		var font = conf.NoteFont;
+		var shouldWrap = msg.Wrap && text.Length > 0;
+		var dims = Dimensions(shouldWrap ? MermaidText.WrapLabel(text, conf.Width, font, _measurer) : text, font);
+		var note = new NoteModel
+		{
+			Width = shouldWrap ? conf.Width : Math.Max(conf.Width, dims.Width + (2 * conf.NoteMargin)),
+			StartX = from.X,
+			Message = text,
+		};
+		if (msg.Placement == SequenceNotePlacement.RightOf)
+		{
+			note.Width = shouldWrap
+				? Math.Max(conf.Width, dims.Width)
+				: Math.Max((from.Width / 2) + (to.Width / 2), dims.Width + (2 * conf.NoteMargin));
+			note.StartX = startX + ((from.Width + conf.ActorMargin) / 2);
+		}
+		else if (msg.Placement == SequenceNotePlacement.LeftOf)
+		{
+			note.Width = shouldWrap
+				? Math.Max(conf.Width, dims.Width + (2 * conf.NoteMargin))
+				: Math.Max((from.Width / 2) + (to.Width / 2), dims.Width + (2 * conf.NoteMargin));
+			note.StartX = startX - note.Width + ((from.Width - conf.ActorMargin) / 2);
+		}
+		else if (msg.To == msg.From)
+		{
+			dims = Dimensions(shouldWrap ? MermaidText.WrapLabel(text, Math.Max(conf.Width, from.Width), font, _measurer) : text, font);
+			note.Width = shouldWrap
+				? Math.Max(conf.Width, from.Width)
+				: Math.Max(Math.Max(from.Width, conf.Width), dims.Width + (2 * conf.NoteMargin));
+			note.StartX = startX + ((from.Width - note.Width) / 2);
+		}
+		else
+		{
+			note.Width = Math.Abs(startX + (from.Width / 2) - (stopX + (to.Width / 2))) + conf.ActorMargin;
+			note.StartX = startX < stopX
+				? startX + (from.Width / 2) - (conf.ActorMargin / 2)
+				: stopX + (to.Width / 2) - (conf.ActorMargin / 2);
+		}
+
+		if (shouldWrap)
+		{
+			note.Message = MermaidText.WrapLabel(text, note.Width - (2 * conf.WrapPadding), font, _measurer);
+		}
+
+		return note;
 	}
 
 	/// <summary><c>activationBounds</c>: the left and right of the actor's lifeline and its activations.</summary>
@@ -560,6 +1086,8 @@ internal sealed class SequenceLayoutStep
 			message.Text = MermaidText.WrapLabel(message.Text, Math.Max(boundedWidth + (2 * conf.WrapPadding), conf.Width), conf.MessageFont, _measurer);
 		}
 
+		var textWidth = msg.Wrap ? 0 : Dimensions(message.Text, conf.MessageFont).Width + (2 * conf.WrapPadding);
+		message.Width = Math.Max(Math.Max(textWidth, boundedWidth + (2 * conf.WrapPadding)), conf.Width);
 		message.StartX = startX;
 		message.StopX = stopX;
 		message.FromBounds = Math.Min(Math.Min(fromLeft, fromRight), Math.Min(toLeft, toRight));
@@ -606,8 +1134,8 @@ internal sealed class SequenceLayoutStep
 
 		Bump(totalOffset);
 		message.Height += totalOffset;
-		var stopY = message.StartY + message.Height;
-		Insert(message.FromBounds, message.StartY, message.ToBounds, stopY);
+		message.StopY = message.StartY + message.Height;
+		Insert(message.FromBounds, message.StartY, message.ToBounds, message.StopY);
 		return lineStartY;
 	}
 
@@ -1017,21 +1545,71 @@ internal sealed class SequenceLayoutStep
 	/// <summary>JavaScript's <c>Math.round</c>.</summary>
 	private static double JsRound(double value) => Math.Floor(value + 0.5);
 
+	/// <summary><c>bounds.bumpVerticalPos</c>. <c>common.getMax</c> skips a position that is not a number.</summary>
 	private void Bump(double bump)
 	{
 		_verticalPos += bump;
-		_stopY = _stopY is { } stop ? Math.Max(stop, _verticalPos) : _verticalPos;
+		if (!double.IsNaN(_verticalPos))
+		{
+			_stopY = _stopY is { } stop && !double.IsNaN(stop) ? Math.Max(stop, _verticalPos) : _verticalPos;
+		}
 	}
 
-	/// <summary><c>bounds.insert</c>. It has no loops or activations to widen yet.</summary>
+	/// <summary><c>updateVal</c>: the value when there is none yet, and otherwise the pick of both.</summary>
+	private static double Update(double? current, double value, Func<double, double, double> pick) => current is { } c ? pick(value, c) : value;
+
+	/// <summary><c>bounds.insert</c>, with <c>updateBounds</c>.</summary>
 	private void Insert(double startX, double startY, double stopX, double stopY)
 	{
-		static double Update(double? current, double value, Func<double, double, double> pick) => current is { } c ? pick(value, c) : value;
-		_startX = Update(_startX, Math.Min(startX, stopX), Math.Min);
-		_startY = Update(_startY, Math.Min(startY, stopY), Math.Min);
-		_stopX = Update(_stopX, Math.Max(startX, stopX), Math.Max);
-		_stopY = Update(_stopY, Math.Max(startY, stopY), Math.Max);
+		var left = JsMin(startX, stopX);
+		var right = JsMax(startX, stopX);
+		var top = JsMin(startY, stopY);
+		var bottom = JsMax(startY, stopY);
+		_startX = Update(_startX, left, Math.Min);
+		_startY = Update(_startY, top, Math.Min);
+		_stopX = Update(_stopX, right, Math.Max);
+		_stopY = Update(_stopY, bottom, Math.Max);
+		UpdateBounds(left, top, right, bottom);
 	}
+
+	/// <summary>
+	/// <c>bounds.updateBounds</c>: each open block grows to hold the box with a margin for each block inside it, and the
+	/// bounds grow with it. The count runs on over the activations, so their margins are zero or less.
+	/// </summary>
+	private void UpdateBounds(double startX, double startY, double stopX, double stopY)
+	{
+		var boxMargin = _conf.BoxMargin;
+		var count = 0;
+		var items = _sequenceItems.Count;
+		foreach (var item in _sequenceItems)
+		{
+			count++;
+			var margin = (items - count + 1) * boxMargin;
+			item.StartY = Update(item.StartY, startY - margin, Math.Min);
+			item.StopY = Update(item.StopY, stopY + margin, Math.Max);
+			_startX = Update(_startX, startX - margin, Math.Min);
+			_stopX = Update(_stopX, stopX + margin, Math.Max);
+			item.StartX = Update(item.StartX, startX - margin, Math.Min);
+			item.StopX = Update(item.StopX, stopX + margin, Math.Max);
+			_startY = Update(_startY, startY - margin, Math.Min);
+			_stopY = Update(_stopY, stopY + margin, Math.Max);
+		}
+
+		foreach (var activation in _activations)
+		{
+			count++;
+			var margin = (items - count + 1) * boxMargin;
+			activation.StartY = Math.Min(startY - margin, activation.StartY);
+			_startX = Update(_startX, startX - margin, Math.Min);
+			_stopX = Update(_stopX, stopX + margin, Math.Max);
+		}
+	}
+
+	/// <summary><c>common.getMin</c>, which skips values that are not numbers.</summary>
+	private static double JsMin(double a, double b) => double.IsNaN(a) ? b : double.IsNaN(b) ? a : Math.Min(a, b);
+
+	/// <summary><c>common.getMax</c>, which skips values that are not numbers.</summary>
+	private static double JsMax(double a, double b) => double.IsNaN(a) ? b : double.IsNaN(b) ? a : Math.Max(a, b);
 
 	/// <summary>The stack an icon actor needs above the lifeline under <c>neo</c>: glyph, gap, label, gap, from <c>actorBands.ts</c>.</summary>
 	private static double ActorStackHeight(double textHeight) => GlyphBandHeight + GlyphLabelGap + textHeight + LabelLifelineGap;
@@ -1131,7 +1709,78 @@ internal sealed class SequenceLayoutStep
 		public bool SequenceVisible { get; set; }
 
 		public double? LineY { get; set; }
+
+		/// <summary>The <c>width</c> of the <c>msgModel</c>, which sizes the blocks around it.</summary>
+		public double Width { get; set; }
+
+		public double StopY { get; set; }
+
+		/// <summary>The <c>noteModel</c> of a note.</summary>
+		public NoteModel? Note { get; set; }
 	}
+
+	/// <summary>A note's <c>noteModel</c>.</summary>
+	private sealed class NoteModel
+	{
+		public double StartX { get; set; }
+
+		public double Width { get; set; }
+
+		public double StartY { get; set; }
+
+		public required string Message { get; set; }
+	}
+
+	/// <summary>An activation of <c>bounds.activations</c>.</summary>
+	private sealed class Activation(string actor, double startX, double stopX)
+	{
+		public string Actor { get; } = actor;
+
+		public double StartX { get; } = startX;
+
+		public double StopX { get; } = stopX;
+
+		public double StartY { get; set; }
+	}
+
+	/// <summary>A block of <c>bounds.sequenceItems</c>, as <c>createLoop</c> makes it and the inserts grow it.</summary>
+	private sealed class LoopModel(double startY)
+	{
+		public double? StartX { get; set; }
+
+		public double? StartY { get; set; } = startY;
+
+		public double? StopX { get; set; }
+
+		public double? StopY { get; set; }
+
+		public string? Title { get; init; }
+
+		/// <summary>The message that starts the block, or <c>null</c> for a <c>rect</c>.</summary>
+		public SequenceDbMessage? Start { get; init; }
+
+		public string? Fill { get; init; }
+
+		/// <summary>The y of each branch.</summary>
+		public List<double> Sections { get; } = [];
+
+		public List<MessageModel> SectionTitles { get; } = [];
+	}
+
+	/// <summary>An entry of the <c>loops</c> object of <c>calculateLoopBounds</c>.</summary>
+	private sealed class LoopWidth(int id)
+	{
+		public int Id { get; } = id;
+
+		public double From { get; set; } = MaxSafeInteger;
+
+		public double To { get; set; } = -MaxSafeInteger;
+
+		public double Width { get; set; }
+	}
+
+	/// <summary>JavaScript's <c>Number.MAX_SAFE_INTEGER</c>.</summary>
+	private const double MaxSafeInteger = 9007199254740991;
 }
 
 /// <summary>The sequence config as <c>bounds.init</c> leaves it, with the top-level look and fonts merged in.</summary>
@@ -1174,6 +1823,10 @@ internal sealed class SequenceConf
 
 	public required double LabelBoxHeight { get; init; }
 
+	public required double LabelBoxWidth { get; init; }
+
+	public required string NoteAlign { get; init; }
+
 	public required FontSpec ActorFont { get; init; }
 
 	public required FontSpec NoteFont { get; init; }
@@ -1207,6 +1860,8 @@ internal sealed class SequenceConf
 			HideUnusedParticipants = sequence.HideUnusedParticipants ?? false,
 			MessageAlign = sequence.MessageAlign ?? "center",
 			LabelBoxHeight = sequence.LabelBoxHeight ?? 20,
+			LabelBoxWidth = sequence.LabelBoxWidth ?? 50,
+			NoteAlign = sequence.NoteAlign ?? "center",
 			ActorFont = Font(sequence.ActorFontFamily, sequence.ActorFontSize, sequence.ActorFontWeight),
 			NoteFont = Font(sequence.NoteFontFamily, sequence.NoteFontSize, sequence.NoteFontWeight),
 			MessageFont = Font(sequence.MessageFontFamily, sequence.MessageFontSize, sequence.MessageFontWeight),
