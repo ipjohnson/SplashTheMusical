@@ -357,7 +357,7 @@ public class SequenceLayoutTests
 
 	private static bool Near(double actual, double expected, double tolerance = 0.01) => Math.Abs(actual - expected) <= tolerance;
 
-	private static SequenceLayout Layout(string source)
+	internal static SequenceLayout Layout(string source)
 	{
 		var document = (SequenceDocument)new Mermaid().Parse(source);
 		var config = MermaidConfig.Resolve(null, document, document.DiagramType);

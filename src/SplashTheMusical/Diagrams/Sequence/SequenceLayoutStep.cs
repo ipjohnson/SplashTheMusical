@@ -32,16 +32,21 @@ internal sealed class SequenceLayoutStep
 	private readonly List<SequenceBlockPlace> _blocks = [];
 	private readonly List<SequenceBackgroundPlace> _backgrounds = [];
 	private readonly List<SequenceActivationPlace> _drawnActivations = [];
+	private readonly SequencePalette _palette;
+
+	/// <summary>The <c>actorIndexMap</c> of <c>draw</c>: each drawn participant's place in the actor keys.</summary>
+	private readonly Dictionary<string, int> _actorIndex = new(StringComparer.Ordinal);
 	private double? _startX;
 	private double? _startY;
 	private double? _stopX;
 	private double? _stopY;
 	private double _verticalPos;
 
-	private SequenceLayoutStep(SequenceConf conf, ITextMeasurer measurer)
+	private SequenceLayoutStep(SequenceConf conf, ITextMeasurer measurer, SequencePalette palette)
 	{
 		_conf = conf;
 		_measurer = measurer;
+		_palette = palette;
 	}
 
 	public static SequenceLayout Run(SequenceDocument document, DiagramRenderContext context)
@@ -49,10 +54,11 @@ internal sealed class SequenceLayoutStep
 		var config = context.Config;
 		var db = SequenceDb.From(document, config.Wrap ?? config.Sequence.Wrap ?? false);
 		var title = document.DiagramTitle ?? document.Title;
-		return new SequenceLayoutStep(SequenceConf.From(config), context.TextMeasurer).Draw(db, string.IsNullOrEmpty(title) ? null : title);
+		return new SequenceLayoutStep(SequenceConf.From(config), context.TextMeasurer, new SequencePalette(config))
+			.Draw(db, string.IsNullOrEmpty(title) ? null : title, config);
 	}
 
-	private SequenceLayout Draw(SequenceDb db, string? title)
+	private SequenceLayout Draw(SequenceDb db, string? title, MermaidConfig config)
 	{
 		var conf = _conf;
 		foreach (var actor in db.Actors)
@@ -104,6 +110,11 @@ internal sealed class SequenceLayoutStep
 			}
 
 			actorKeys = [.. actorKeys.Where(used.Contains)];
+		}
+
+		for (var i = 0; i < actorKeys.Count; i++)
+		{
+			_actorIndex[actorKeys[i]] = i;
 		}
 
 		var drawnBoxes = AddActorRenderingData(actorKeys, db.CreatedActors);
@@ -226,7 +237,12 @@ internal sealed class SequenceLayoutStep
 				actor.StartY,
 				actor.StopY,
 				tops[i],
-				conf.MirrorActors ? bottoms[i] : null));
+				conf.MirrorActors ? bottoms[i] : null)
+			{
+				LifelineStartY = actor.LifelineStartY,
+				LifelineEndY = conf.MirrorActors ? actor.StopY ?? double.NaN : actor.StopY is { } stop ? stop + (actor.Height / 2) : 2000,
+				PaletteClass = _palette.Actor(i),
+			});
 		}
 
 		var messagePlaces = new List<SequenceMessagePlace>();
@@ -247,7 +263,7 @@ internal sealed class SequenceLayoutStep
 			var startX = box.X - padding;
 			var startY = box.Y - (padding * 0.25);
 			var rect = new SequenceRect(startX, startY, box.Width + (2 * padding), box.Height + (padding * 0.75));
-			boxPlaces.Add(new SequenceBoxPlace(box.Name, rect, BoxLabel(box)));
+			boxPlaces.Add(new SequenceBoxPlace(box.Name, rect, BoxLabel(box)) { Fill = box.Source.Fill });
 		}
 
 		if (hasBoxes)
@@ -274,8 +290,9 @@ internal sealed class SequenceLayoutStep
 			-(conf.DiagramMarginY + extraVertForTitle),
 			width,
 			height + extraVertForTitle + extraHeightForNeoActors);
-		var parts = new SequenceLayoutParts(_notes, _blocks, _backgrounds, _drawnActivations);
-		return new SequenceLayout(width, height, viewBox, conf.Look, placed, boxPlaces, messagePlaces, parts);
+		var titlePlace = title is null ? null : new SequenceTitlePlace(title, ((boundsStopX - boundsStartX) / 2) - (2 * conf.DiagramMarginX));
+		var parts = new SequenceLayoutParts(_notes, _blocks, _backgrounds, _drawnActivations, titlePlace);
+		return new SequenceLayout(width, height, viewBox, conf.Look, placed, boxPlaces, messagePlaces, parts, SequenceStyles.Styling(config, _palette)) { Conf = conf };
 	}
 
 	/// <summary>The label <c>drawLoop</c> writes in the corner of the block a message ends.</summary>
@@ -299,7 +316,7 @@ internal sealed class SequenceLayoutStep
 
 		var stacked = _activations.Count(a => a.Actor == msg.From);
 		var x = actor.X + (actor.Width / 2) + ((stacked - 1) * _conf.ActivationWidth / 2);
-		_activations.Add(new Activation(msg.From, x, x + _conf.ActivationWidth) { StartY = _verticalPos + 2 });
+		_activations.Add(new Activation(msg.From, x, x + _conf.ActivationWidth) { StartY = _verticalPos + 2, StartId = msg.Id });
 	}
 
 	/// <summary>
@@ -340,7 +357,11 @@ internal sealed class SequenceLayoutStep
 
 		var level = _activations.Count(a => a.Actor == msg.From) % 3;
 		var rect = new SequenceRect(activation.StartX, activation.StartY, activation.StopX - activation.StartX, verticalPos - activation.StartY);
-		_drawnActivations.Add(new SequenceActivationPlace(activation.Actor, rect, level));
+		_drawnActivations.Add(new SequenceActivationPlace(activation.Actor, rect, level)
+		{
+			StartId = activation.StartId,
+			PaletteClass = _palette.Activation(_actorIndex.GetValueOrDefault(activation.Actor)),
+		});
 		Insert(activation.StartX, verticalPos - 10, activation.StopX, verticalPos);
 	}
 
@@ -1176,17 +1197,22 @@ internal sealed class SequenceLayoutStep
 		var central = msg.CentralConnection != 0;
 		var centralAtSource = msg.CentralConnection is SequenceLineType.CentralConnectionDual or SequenceLineType.CentralConnectionReverse;
 		SequenceRect lineBox;
+		string? selfPath = null;
+		var x1 = startX;
+		var x2 = stopX;
 		if (startX == stopX)
 		{
 			var lineStartX = startX + (visible && (reverse || bidirectional) ? 10 : 0);
+			var rightX = startX + Math.Max(conf.Width / 2, dims.Width / 2);
 			lineBox = conf.RightAngles
-				? SequenceRect.FromEdges(Math.Min(lineStartX, startX), lineY, Math.Max(lineStartX, startX + Math.Max(conf.Width / 2, dims.Width / 2)), lineY + 25)
+				? SequenceRect.FromEdges(Math.Min(lineStartX, startX), lineY, Math.Max(lineStartX, rightX), lineY + 25)
 				: CubicBounds(lineStartX, lineY, lineStartX + 60, lineY - 10, startX + 60, lineY + 30, startX, lineY + 20);
+			selfPath = conf.RightAngles
+				? $"M  {N(lineStartX)},{N(lineY)} H {N(rightX)} V {N(lineY + 25)} H {N(startX)}"
+				: $"M {N(lineStartX)},{N(lineY)} C {N(lineStartX + 60)},{N(lineY - 10)} {N(startX + 60)},{N(lineY + 30)} {N(startX)},{N(lineY + 20)}";
 		}
 		else
 		{
-			var x1 = startX;
-			var x2 = stopX;
 			if (visible)
 			{
 				if (bidirectional)
@@ -1218,6 +1244,10 @@ internal sealed class SequenceLayoutStep
 			lineBox = SequenceRect.FromEdges(Math.Min(x1, x2), lineY, Math.Max(x1, x2), lineY);
 		}
 
+		var leftToRight = startX <= stopX;
+		var numberX = startX == stopX ? message.FromBounds + 1
+			: reverse ? (leftToRight ? message.ToBounds - 1 : message.FromBounds + 1)
+			: leftToRight ? message.FromBounds + 1 : message.ToBounds - 1;
 		return new SequenceMessagePlace(
 			msg.Id,
 			msg.From!,
@@ -1228,8 +1258,66 @@ internal sealed class SequenceLayoutStep
 			lineY,
 			lineBox,
 			text,
-			visible ? message.SequenceIndex : null);
+			visible ? message.SequenceIndex : null)
+		{
+			X1 = x1,
+			X2 = x2,
+			SelfPath = selfPath,
+			NumberX = numberX,
+			CentralCircles = CentralCircles(msg, message.SequenceVisible, reverse),
+		};
 	}
+
+	/// <summary>
+	/// The <c>cx</c> of each circle <c>drawCentralConnection</c> draws: at the receiver's centre, the sender's or both,
+	/// moved 16.5 aside from an arrowhead when the db shows numbers.
+	/// </summary>
+	private List<double> CentralCircles(SequenceDbMessage msg, bool numbered, bool reverse)
+	{
+		if (msg.CentralConnection == 0 || msg.From is null || msg.To is null || !_actors.TryGetValue(msg.From, out var from) || !_actors.TryGetValue(msg.To, out var to))
+		{
+			return [];
+		}
+
+		const double CircleOffset = 16.5;
+		var fromCenter = from.X + (from.Width / 2);
+		var toCenter = to.X + (to.Width / 2);
+		var leftToRight = fromCenter <= toCenter;
+		double Offset(bool reversed) => (leftToRight ? CircleOffset : -CircleOffset) * (reversed ? -1 : 1);
+		if (numbered)
+		{
+			switch (msg.CentralConnection)
+			{
+				case SequenceLineType.CentralConnection when reverse:
+					toCenter += Offset(true);
+					break;
+				case SequenceLineType.CentralConnectionReverse when !reverse:
+					fromCenter += Offset(false);
+					break;
+				case SequenceLineType.CentralConnectionDual:
+					if (reverse)
+					{
+						toCenter += Offset(true);
+					}
+					else
+					{
+						fromCenter += Offset(false);
+					}
+
+					break;
+			}
+		}
+
+		return msg.CentralConnection switch
+		{
+			SequenceLineType.CentralConnection => [toCenter],
+			SequenceLineType.CentralConnectionReverse => [fromCenter],
+			SequenceLineType.CentralConnectionDual => [fromCenter, toCenter],
+			_ => [],
+		};
+	}
+
+	private static string N(double value) => JsNumber.ToString(value);
 
 	/// <summary>
 	/// The box Chromium gives a line of <c>drawText</c>: <c>dy="1em"</c> under <c>dominant-baseline: middle</c>, which
@@ -1287,7 +1375,7 @@ internal sealed class SequenceLayoutStep
 			var lineY = y + (height / 2);
 			var (boxWidth, _, boxHeight) = DrawnLine(lines[i], font);
 			var box = new SequenceRect(centerX - (boxWidth / 2), lineY + dy - (boxHeight / 2), boxWidth, boxHeight);
-			result.Add(new SequenceTextLine(lines[i], centerX, lineY + dy, box));
+			result.Add(new SequenceTextLine(lines[i], centerX, lineY + dy, box) { Dy = dy });
 		}
 
 		return result;
@@ -1325,6 +1413,18 @@ internal sealed class SequenceLayoutStep
 				labelCenter = lifelineStart - LabelLifelineGap - (actor.TextHeight / 2);
 				glyphBottom = lifelineStart - LabelLifelineGap - actor.TextHeight - GlyphLabelGap;
 			}
+		}
+
+		if (!footer)
+		{
+			actor.LifelineStartY = actor.Type switch
+			{
+				_ when neo => actorY + height,
+				"control" or "entity" => actorY + 75,
+				"boundary" or "actor" => actorY + 80,
+				"database" => actorY + height + (2 * conf.BoxTextMargin),
+				_ => actorY + height,
+			};
 		}
 
 		SequenceRect shape;
@@ -1657,6 +1757,9 @@ internal sealed class SequenceLayoutStep
 
 		/// <summary>The height <c>drawActor</c> returned for the footer.</summary>
 		public double FooterHeight { get; set; }
+
+		/// <summary>The <c>y1</c> of the lifeline the top drawing adds.</summary>
+		public double LifelineStartY { get; set; }
 	}
 
 	/// <summary>A box as the renderer mutates it.</summary>
@@ -1741,6 +1844,9 @@ internal sealed class SequenceLayoutStep
 		public double StopX { get; } = stopX;
 
 		public double StartY { get; set; }
+
+		/// <summary>The db id of the message that starts it, where <c>anchorElement</c> adds its group.</summary>
+		public int StartId { get; init; }
 	}
 
 	/// <summary>A block of <c>bounds.sequenceItems</c>, as <c>createLoop</c> makes it and the inserts grow it.</summary>

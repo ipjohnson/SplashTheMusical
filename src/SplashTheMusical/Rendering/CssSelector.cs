@@ -21,7 +21,7 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 	/// <summary>
 	/// A selector the renderer writes, such as <c>.node .neo-node</c> or <c>[data-look="neo"].node rect</c>. It may hold
 	/// names, <c>.</c>, <c>#</c>, <c>*</c>, <c>:</c>, the combinators <c>&gt;</c>, <c>+</c>, <c>~</c> and space,
-	/// attribute selectors whose value is a quoted name, <c>:not()</c> of a compound selector and <c>:nth-of-type()</c>.
+	/// attribute selectors <c>[name="value"]</c> and <c>[name$="value"]</c> whose value is a quoted name, <c>:not()</c> of a compound selector and <c>:nth-of-type()</c>.
 	/// </summary>
 	/// <exception cref="ArgumentException">The selector holds anything else.</exception>
 	public static CssSelector Parse(string selector)
@@ -135,7 +135,7 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 		return false;
 	}
 
-	// name, or name="value" with a value of names and spaces.
+	// name, or name="value" or name$="value" with a value of names and spaces.
 	private static bool IsAttribute(ReadOnlySpan<char> attribute)
 	{
 		var equals = attribute.IndexOf('=');
@@ -145,7 +145,13 @@ internal readonly struct CssSelector : IEquatable<CssSelector>
 		}
 
 		var value = attribute[(equals + 1)..];
-		if (!CssText.IsIdentifier(attribute[..equals]) || value.Length < 2 || value[0] != '"' || value[^1] != '"')
+		var name = attribute[..equals];
+		if (name.EndsWith('$'))
+		{
+			name = name[..^1];
+		}
+
+		if (!CssText.IsIdentifier(name) || value.Length < 2 || value[0] != '"' || value[^1] != '"')
 		{
 			return false;
 		}

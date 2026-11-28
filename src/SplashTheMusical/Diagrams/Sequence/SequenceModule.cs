@@ -6,7 +6,8 @@ namespace SplashTheMusical.Diagrams.Sequence;
 /// <summary>
 /// The sequence diagram of <c>packages/mermaid/src/diagrams/sequence</c>: the detector <c>/^\s*sequenceDiagram/</c> of
 /// <c>sequenceDetector.ts</c>, the parser of <see cref="SequenceParser"/> and the writer of
-/// <see cref="SequenceWriter"/>, and the layout of <see cref="SequenceLayoutStep"/>. The renderer draws nothing yet.
+/// <see cref="SequenceWriter"/>, the layout of <see cref="SequenceLayoutStep"/> and the renderer of
+/// <see cref="SequenceRenderer"/>.
 /// </summary>
 public sealed class SequenceModule : DiagramModule<SequenceDocument, SequenceLayout>
 {
@@ -29,5 +30,9 @@ public sealed class SequenceModule : DiagramModule<SequenceDocument, SequenceLay
 		return SequenceLayoutStep.Run(document, context);
 	}
 
-	public override void Render(SequenceDocument document, SequenceLayout layout, SvgWriter svg, DiagramRenderContext context) { }
+	public override void Render(SequenceDocument document, SequenceLayout layout, SvgWriter svg, DiagramRenderContext context)
+	{
+		ArgumentNullException.ThrowIfNull(context);
+		SequenceRenderer.Render(layout, svg, context.SvgId);
+	}
 }
