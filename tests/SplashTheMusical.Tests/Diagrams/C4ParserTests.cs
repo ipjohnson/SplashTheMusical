@@ -136,7 +136,11 @@ public class C4ParserTests
 		var render = () => mermaid.RenderSvg(document);
 
 		render.Should().Throw<MermaidParseException>().Which.Message.Should().Contain("C4 rel \"a\" -> \"b\" references an unknown shape or boundary");
-		mermaid.RenderSvg(mermaid.Parse("C4Context\nBoundary(b, \"B\") {\nPerson(a, \"A\")\n}\nRel(a, b, \"uses\")\nRel(a, global, \"x\")\n")).Should().NotBeNull();
+		mermaid.RenderSvg(mermaid.Parse("C4Context\nBoundary(b, \"B\") {\nPerson(a, \"A\")\n}\nRel(a, b, \"uses\")\n")).Should().NotBeNull();
+
+		// mermaid.js never draws the global boundary, so a relation to it has no outline to meet.
+		var global = () => mermaid.RenderSvg(mermaid.Parse("C4Context\nBoundary(b, \"B\") {\nPerson(a, \"A\")\n}\nRel(a, global, \"x\")\n"));
+		global.Should().Throw<MermaidParseException>().Which.Message.Should().Contain("C4 element \"global\" has no intersect function");
 	}
 
 	[Test]
