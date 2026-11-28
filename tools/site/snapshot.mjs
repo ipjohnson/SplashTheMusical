@@ -6,8 +6,8 @@
 //
 // The rasters and scores are what tools/oracle/raster.mjs writes with an oracle-raster-dir and STM_RASTER_DIR. Images
 // and sources are stored once under their SHA-256, so a snapshot adds only what changed. A case's history gets an entry
-// only when its images, source, score or outcome differ from its last one. A snapshot of a commit the data already has
-// changes nothing.
+// only when its images, source, score or outcome differ from its last one. A snapshot of a commit the data already has,
+// or of a commit dated before the newest snapshot, changes nothing.
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -59,6 +59,10 @@ const sameEntry = (a, b) => ['oracle', 'stm', 'source', 'score', 'outcome', 'rem
 export function snapshot({ corpusDir, oracleRasterDir, stmRasterDir, scoresFile, dataDir, commit, date, mermaid }) {
 	const index = readJson(path.join(dataDir, 'snapshots.json'), { snapshots: [] })
 	if (index.snapshots.some(s => s.commit === commit)) return { added: false }
+	// CI runs on main can finish out of order. A commit older than the newest snapshot is left out, so a case's history
+	// never steps back to an earlier commit.
+	const newest = index.snapshots.at(-1)
+	if (newest && Date.parse(date) < Date.parse(newest.date)) return { added: false, older: newest.id }
 	const id = `${date.slice(0, 10)}-${commit.slice(0, 7)}`
 	fs.mkdirSync(path.join(dataDir, 'history'), { recursive: true })
 
@@ -129,5 +133,9 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 	const date = rest[1] || new Date().toISOString()
 	const mermaid = rest[2] || JSON.parse(fs.readFileSync(lock, 'utf8')).packages['node_modules/mermaid'].version
 	const result = snapshot({ corpusDir, oracleRasterDir, stmRasterDir, scoresFile, dataDir, commit, date, mermaid })
-	console.log(result.added ? `added snapshot ${result.id}` : `the data already has a snapshot of ${commit}`)
+	console.log(result.added
+		? `added snapshot ${result.id}`
+		: result.older
+			? `${commit} is older than the newest snapshot, ${result.older}, so it is left out`
+			: `the data already has a snapshot of ${commit}`)
 }

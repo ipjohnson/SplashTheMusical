@@ -92,3 +92,11 @@ test('a snapshot of a commit the data has changes no file', () => {
 	assert.deepEqual(take(dir, 'aaaaaaaaaa'), { added: false })
 	assert.equal(fs.readFileSync(path.join(dir, 'data', 'snapshots.json'), 'utf8'), before)
 })
+
+test('a commit dated before the newest snapshot changes no file', () => {
+	const { dir } = fixture()
+	take(dir, 'bbbbbbbbbb', '2026-11-28T10:00:00Z')
+	const before = fs.readFileSync(path.join(dir, 'data', 'snapshots.json'), 'utf8')
+	assert.deepEqual(take(dir, 'aaaaaaaaaa', '2026-11-27T10:00:00Z'), { added: false, older: '2026-11-28-bbbbbbb' })
+	assert.equal(fs.readFileSync(path.join(dir, 'data', 'snapshots.json'), 'utf8'), before)
+})

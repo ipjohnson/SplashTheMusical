@@ -15,7 +15,8 @@ mise run site-snapshot   # add a snapshot of the local L4 rasters to site/public
 The comparison section reads the data `tools/site/snapshot.mjs` writes. The site workflow keeps it in the ref
 `refs/site-data`, which is not a branch, so a clone of the repository does not fetch it. On each push to main, CI's
 `l4` job uploads the rasters and scores as the `comparison` artifact. The site workflow adds them to the data as a
-snapshot, pushes the ref, copies the data to `public/data` and deploys the site.
+snapshot, pushes the ref, copies the data to `public/data` and deploys the site. CI runs on main can finish out of order, so the
+workflow builds the site from main's latest commit and leaves out a snapshot of a commit older than the newest one.
 
 | File | Holds |
 |---|---|
