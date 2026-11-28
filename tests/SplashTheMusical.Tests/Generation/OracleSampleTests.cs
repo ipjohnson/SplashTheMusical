@@ -15,6 +15,9 @@ public class OracleSampleTests
 
 	public const int Count = 100;
 
+	/// <summary>The documents are the same on every run, so a pull request fails only on what it changes.</summary>
+	public const uint Seed = 1;
+
 	[Test]
 	public void WritesRandomDocumentsWhenAsked()
 	{
@@ -32,8 +35,12 @@ public class OracleSampleTests
 		foreach (var generator in DocumentGenerators.All)
 		{
 			var target = Directory.CreateDirectory(Path.Combine(random, generator.Name)).FullName;
+			var pcg = new PCG(1, Seed);
 			var texts = new List<string>();
-			generator.Documents.Sample(d => texts.Add(Mermaid.Default.Write(d)), iter: Count, threads: 1);
+			for (var i = 0; i < Count; i++)
+			{
+				texts.Add(Mermaid.Default.Write(generator.Documents.Generate(pcg, null, out _)));
+			}
 			for (var i = 0; i < texts.Count; i++)
 			{
 				File.WriteAllText(Path.Combine(target, $"{generator.Name}-{i:D4}.mmd"), texts[i]);
