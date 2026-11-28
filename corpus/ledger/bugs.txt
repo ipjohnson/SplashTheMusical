@@ -3,7 +3,7 @@
 agentflow	780
 architecture	248
 block	0
-c4	126
+c4	20
 class	225
 cynefin	124
 er	201
@@ -22,7 +22,7 @@ radar	96
 railroad	424
 requirement	147
 sankey	116
-sequence	598
+sequence	438
 state	248
 swimlanes	276
 timeline	236
