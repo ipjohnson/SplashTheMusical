@@ -472,7 +472,7 @@ L3 and 63.6% at L4. Today these cases pass L3 at 26.7% (533) and L4 at 13.9% (27
 
 The L4 targets of class, state and requirement are low because those renderers fail L4 for reasons other than layout.
 Class's `layout: dagre` cases, whose layout is exact, pass L4 at 63.8%. The "today" columns count the ELK cases not in
-the type's ledger for L3, and the `pass` lines of `corpus/l4.txt` for L4.
+the type's ledger for L3, and the `pass` lines of `corpus/l4` for L4.
 
 ## Where the spikes are
 

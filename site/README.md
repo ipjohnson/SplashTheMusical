@@ -8,7 +8,9 @@ mise run site-build      # build it into site/.vitepress/dist
 mise run site-snapshot   # add a snapshot of the local L4 rasters to site/public/data
 ```
 
-`scripts/prepare.mjs` writes `parity.md` from `docs/parity-report.md` before each build.
+`scripts/prepare.mjs` writes `parity.md` before each build. `tools/site/parity.mjs` builds it from the README and the
+per-type reports of `docs/parity`, and adds their rows up in a totals row. No committed file holds the totals, so
+branches that change different types do not conflict. The compare section has one page per file of `corpus/l4`.
 
 ## Comparison data
 

@@ -5,9 +5,9 @@
 #
 # It records the corpus and the conformance results, installs mermaid <version> in tools/oracle, re-extracts the
 # corpus from the tag mermaid@<version>, rewrites the oracle files, colors.txt, curves.txt, markers.txt, MermaidConfig,
-# MermaidCompatibility, docs/api/SplashTheMusical.txt, docs/parity-report.md, docs/layered-layout/corpus-survey.md
-# and docs/layered-layout/baseline.md, runs the conformance tests again,
-# rewrites corpus/l4.txt, and writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop
+# MermaidCompatibility, docs/api/SplashTheMusical.txt, the per-type reports of docs/parity,
+# docs/layered-layout/corpus-survey.md and docs/layered-layout/baseline.md, runs the conformance tests again,
+# rewrites the per-type outcomes of corpus/l4, and writes .artifacts/upstream/after/upstream-delta.md. Failing conformance tests do not stop
 # it, because the report lists them. The checkouts of both tags are kept in .artifacts/upstream/mermaid@<version>. Each
 # is cloned from the repository npm names for that version, because the 13 pre-releases are tagged in
 # mermaid-js/mermaid-v13.
@@ -65,5 +65,5 @@ STM_WRITE_API=1 dotnet run --project tests/SplashTheMusical.Tests -- --treenode-
 STM_WRITE_REPORT=1 STM_WRITE_SURVEY=1 STM_WRITE_BASELINE=1 conformance "$work/after"
 STM_SVG_DIR="$repo/.artifacts/stm/svg" dotnet run --project tests/SplashTheMusical.Conformance -- \
 	--treenode-filter "/*/*/StmSvgsTests/*" >/dev/null
-node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster
+node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4 .artifacts/raster .artifacts/corpus/raster
 dotnet run --project tools/SplashTheMusical.Upstream -- delta "$work/mermaid@$old" "$work/mermaid@$version" "$work/before" "$work/after"

@@ -1,0 +1,18 @@
+# L4 outcomes of ishikawa. Refresh with: mise run raster
+ishikawa/docs-ishikawa-001	fail
+ishikawa/e2e-ishikawa-nightly-check-should-render-usemaxwidth-false	fail
+ishikawa/e2e-ishikawa-nightly-check-should-render-usemaxwidth-true	fail
+ishikawa/e2e-ishikawa-pr-check-1-should-render-a-simple-ishikawa-diagram	fail
+ishikawa/e2e-ishikawa-pr-check-12-should-render-correctly-when-effect-is-indented-more-than-causes	fail
+ishikawa/e2e-ishikawa-pr-check-13-should-render-a-very-deep-nested-diagram	fail
+ishikawa/e2e-ishikawa-pr-check-2-should-render-with-many-causes-on-both-sides	fail
+ishikawa/e2e-ishikawa-pr-check-3-should-render-with-deeply-nested-causes	fail
+ishikawa/e2e-ishikawa-pr-check-4-should-render-with-a-single-cause	fail
+ishikawa/e2e-ishikawa-pr-check-5-should-render-with-no-children-root-only	fail
+ishikawa/e2e-ishikawa-pr-check-6-should-render-with-handdrawn-look	fail
+ishikawa/e2e-ishikawa-pr-check-7-should-render-with-forest-theme	fail
+ishikawa/e2e-ishikawa-pr-check-8-should-render-with-dark-theme	fail
+ishikawa/e2e-ishikawa-pr-check-9-should-render-with-custom-diagrampadding	fail
+ishikawa/parser-ishikawa-001	fail
+ishikawa/parser-ishikawa-002	fail
+ishikawa/parser-ishikawa-003	fail

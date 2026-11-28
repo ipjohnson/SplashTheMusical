@@ -33,9 +33,9 @@ The repository setting "Allow GitHub Actions to create and approve pull requests
 3. installs the new mermaid in `tools/oracle`
 4. re-extracts the corpus from the new tag and rewrites the oracle facts, boxes and dumps
 5. rewrites `corpus/colors.txt`, `corpus/curves.txt`, `corpus/markers.txt`, `MermaidConfig`, `MermaidCompatibility` and `docs/api/SplashTheMusical.txt`
-6. runs the conformance tests again and rewrites `docs/parity-report.md`, `docs/layered-layout/corpus-survey.md` and
-   `docs/layered-layout/baseline.md`
-7. rewrites `corpus/l4.txt`
+6. runs the conformance tests again and rewrites the reports of `docs/parity`, `docs/layered-layout/corpus-survey.md`
+   and `docs/layered-layout/baseline.md`
+7. rewrites the outcomes of `corpus/l4`
 8. writes `.artifacts/upstream/after/upstream-delta.md`
 
 The oracle's boxes depend on the fonts Chromium falls back to, so run a bump on macOS, as CI's `l4` job does. A bump to

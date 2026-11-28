@@ -40,10 +40,13 @@ function fixture({ dropOracleSvg } = {}) {
 const run = (dir, { cache, cases, stmRasters } = {}) =>
 	spawnSync(
 		process.execPath,
-		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4.txt', 'images', ...(cache ? ['cache'] : [])].map(f => path.join(dir, f))],
+		[path.join(root, 'raster.mjs'), ...['corpus', 'oracle', 'stm', 'l4', 'images', ...(cache ? ['cache'] : [])].map(f => path.join(dir, f))],
 		{ encoding: 'utf8', env: { ...process.env, STM_RASTER_CASES: cases ?? '', STM_RASTER_DIR: stmRasters ? path.join(dir, 'stm-raster') : '' } },
 	)
 
+// The outcome files, by file name.
+const readOutcomes = dir =>
+	Object.fromEntries(fs.readdirSync(path.join(dir, 'l4')).sort().map(f => [f, fs.readFileSync(path.join(dir, 'l4', f), 'utf8')]))
 const readScores = dir => fs.readFileSync(path.join(dir, 'images', 'scores.txt'), 'utf8')
 const cacheFiles = dir => fs.readdirSync(path.join(dir, 'cache'), { recursive: true })
 	.filter(f => f.endsWith('.png') || f.endsWith('.key'))
@@ -52,16 +55,17 @@ const cacheFiles = dir => fs.readdirSync(path.join(dir, 'cache'), { recursive: t
 
 const isPng = file => fs.readFileSync(file).subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))
 
-test('scores each case, writes the outcomes and draws the failing cases side by side', () => {
+test('scores each case, writes the outcomes of each type and draws the failing cases side by side', () => {
 	const dir = fixture()
+	fs.mkdirSync(path.join(dir, 'l4'))
+	fs.writeFileSync(path.join(dir, 'l4', 'gone.txt'), '# L4 outcomes of a type that left the corpus\n')
 	const result = run(dir)
 	assert.equal(result.status, 0, result.stderr)
 
-	assert.equal(
-		fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8'),
-		[
-			'# L4 outcomes. Refresh with: mise run raster',
-			'mindmap/differ\treport',
+	assert.deepEqual(readOutcomes(dir), {
+		'mindmap.txt': ['# L4 outcomes of mindmap. Refresh with: mise run raster', 'mindmap/differ\treport', ''].join('\n'),
+		'pie.txt': [
+			'# L4 outcomes of pie. Refresh with: mise run raster',
 			'pie/differ\tfail',
 			'pie/no-stm\tfail',
 			'pie/refused\tn/a',
@@ -69,7 +73,7 @@ test('scores each case, writes the outcomes and draws the failing cases side by 
 			'pie/stm-only\tfail',
 			'',
 		].join('\n'),
-	)
+	})
 
 	const scores = Object.fromEntries(
 		fs.readFileSync(path.join(dir, 'images', 'scores.txt'), 'utf8').trim().split('\n').slice(1).map(l => [l.split('\t')[0], l.split('\t')[2]]),
@@ -88,7 +92,7 @@ test('a run that reads mermaid.js rasters from the cache scores as a run without
 	const cold = run(dir)
 	assert.equal(cold.status, 0, cold.stderr)
 	const coldScores = readScores(dir)
-	const coldOutcomes = fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8')
+	const coldOutcomes = readOutcomes(dir)
 
 	const filling = run(dir, { cache: true })
 	assert.equal(filling.status, 0, filling.stderr)
@@ -99,7 +103,7 @@ test('a run that reads mermaid.js rasters from the cache scores as a run without
 	assert.equal(hit.status, 0, hit.stderr)
 	assert.match(hit.stdout, /4 read from .*, 0 drawn, 0 files deleted/)
 	assert.equal(readScores(dir), coldScores)
-	assert.equal(fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8'), coldOutcomes)
+	assert.deepEqual(readOutcomes(dir), coldOutcomes)
 })
 
 test('the cache drops removed cases and redraws added and changed ones', () => {
@@ -146,9 +150,11 @@ test('with named cases, draws only those side by side, passing ones too, and kee
 	const result = run(dir, { cache: true, cases: 'pie/same, pie/differ' })
 	assert.equal(result.status, 0, result.stderr)
 	assert.match(result.stdout, /2 read from .*, 0 drawn, 0 files deleted/)
+	// Only the named cases' type is written, and the other type's file stays.
+	assert.deepEqual(Object.keys(readOutcomes(dir)), ['mindmap.txt', 'pie.txt'])
 	assert.equal(
-		fs.readFileSync(path.join(dir, 'l4.txt'), 'utf8'),
-		['# L4 outcomes. Refresh with: mise run raster', 'pie/differ\tfail', 'pie/same\tpass', ''].join('\n'),
+		readOutcomes(dir)['pie.txt'],
+		['# L4 outcomes of pie. Refresh with: mise run raster', 'pie/differ\tfail', 'pie/same\tpass', ''].join('\n'),
 	)
 	const images = fs.readdirSync(path.join(dir, 'images'), { recursive: true }).filter(f => f.endsWith('.png')).sort()
 	assert.deepEqual(images, ['pie/differ.png', 'pie/same.png'].map(f => f.split('/').join(path.sep)))

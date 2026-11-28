@@ -7,29 +7,34 @@ public class ParityReportTests
 	private static readonly CaseFacts Refused = CaseFacts.Refused("no");
 
 	[Test]
-	public void TheCommittedReportIsStmsReport()
+	public void EachCommittedReportIsStmsReport()
 	{
 		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
 		var problems = new List<string>();
-		var report = ParityReport.Render(
+		var reports = ParityReport.Render(
 			results,
 			LedgerFolder.Read(LedgerFolder.Root, problems),
-			RasterOutcomes.Read(RasterOutcomes.FilePath, problems),
+			RasterOutcomes.Read(RasterOutcomes.Folder, problems),
 			new StmFactsProvider().Name,
 			CorpusCheck.PinnedMermaid()
 		);
 		if (Environment.GetEnvironmentVariable(ParityReport.WriteVariable) is { Length: > 0 })
 		{
-			File.WriteAllText(ParityReport.FilePath, report);
+			ParityReport.Write(ParityReport.Folder, reports);
 		}
 
 		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
-		var committed = File.Exists(ParityReport.FilePath) ? File.ReadAllText(ParityReport.FilePath) : "";
-		LineAssert.Equal(committed.Split('\n'), report.Split('\n'), "mise run parity rewrites docs/parity-report.md");
+		LineAssert.Equal(ParityReport.Committed(ParityReport.Folder), reports.Keys, "mise run parity writes one file per type in docs/parity");
+		foreach (var (type, report) in reports)
+		{
+			var path = Path.Combine(ParityReport.Folder, ParityReport.FileName(type));
+			var committed = File.Exists(path) ? File.ReadAllText(path) : "";
+			LineAssert.Equal(committed.Split('\n'), report.Split('\n'), $"mise run parity rewrites docs/parity/{ParityReport.FileName(type)}");
+		}
 	}
 
 	[Test]
-	public void EachTypeHasARowOfRatesAndLedgerCounts()
+	public void EachTypeHasAFileWithItsRowOfRatesAndLedgerCounts()
 	{
 		var results = new[]
 		{
@@ -61,11 +66,40 @@ public class ParityReportTests
 			),
 		};
 
-		var lines = ParityReport.Render(results, ledgers, l4, "test", "12.3.0").Split('\n');
+		var reports = ParityReport.Render(results, ledgers, l4, "test", "12.3.0");
 
-		Verify(lines.Contains("| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |"), $"{string.Join('\n', lines)}");
-		Verify(lines.Contains("| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | n/a | 0 | 0 | 0 |"), $"{string.Join('\n', lines)}");
-		Verify(lines.Contains("| mindmap | 1 | 0 | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | report-only | 0 | 0 | 0 |"), $"{string.Join('\n', lines)}");
-		Verify(lines.Contains("| **Total** | 6 | 3 | 66.7% (4 of 6) | 50.0% (2 of 4) | 50.0% (2 of 4) | 50.0% (2 of 4) | 33.3% (1 of 3) | 1 | 1 | 1 |"), $"{string.Join('\n', lines)}");
+		LineAssert.Equal(reports.Keys, "mindmap", "pie", "xychart");
+		LineAssert.Equal(Rows(reports["pie"]), "| pie | 4 | 2 | 50.0% (2 of 4) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 33.3% (1 of 3) | 1 | 1 | 1 |");
+		LineAssert.Equal(Rows(reports["xychart"]), "| xychart | 1 | 1 | 100.0% (1 of 1) | n/a | n/a | n/a | n/a | 0 | 0 | 0 |");
+		LineAssert.Equal(
+			Rows(reports["mindmap"]),
+			"| mindmap | 1 | 0 | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | 100.0% (1 of 1) | report-only | 0 | 0 | 0 |"
+		);
+		Verify(() => reports["pie"].Contains(ParityReport.Header));
 	}
+
+	[Test]
+	public void WritingDeletesTheReportOfATypeWithoutResultsAndKeepsTheReadme()
+	{
+		var folder = Directory.CreateTempSubdirectory("stm-parity-").FullName;
+		try
+		{
+			File.WriteAllText(Path.Combine(folder, "README.md"), "readme");
+			File.WriteAllText(Path.Combine(folder, "gone.md"), "old");
+
+			ParityReport.Write(folder, new Dictionary<string, string> { ["pie"] = "pie report" });
+
+			LineAssert.Equal(ParityReport.Committed(folder), "pie");
+			Verify(() => File.ReadAllText(Path.Combine(folder, "pie.md")) == "pie report");
+			Verify(() => File.Exists(Path.Combine(folder, "README.md")));
+		}
+		finally
+		{
+			Directory.Delete(folder, recursive: true);
+		}
+	}
+
+	// The table rows below the header and separator.
+	private static IEnumerable<string> Rows(string report) =>
+		report.Split('\n').SkipWhile(l => !l.StartsWith("|---", StringComparison.Ordinal)).Skip(1).Where(l => l.Length > 0);
 }

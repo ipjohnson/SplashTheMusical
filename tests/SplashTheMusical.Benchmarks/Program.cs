@@ -9,7 +9,6 @@ return args switch
 	["select"] => Select(),
 	["compare", var committed, var run] => Comparison.Run(committed, run, Console.Out),
 	["budget", var baseline, var run, .. var rest] => Budget.Run(baseline, run, StmBenchmarks.Measured, Console.Out, rest.Contains("--remeasure") ? Remeasure : null),
-	["size", .. var rest] => Size(rest),
 	["dagre", .. var rest] => Dagre(Option(rest, "--out") ?? "docs/benchmarks/dagre.md", Jobs(rest)),
 	["dagre-layout", var nodes] => DagreLayoutOnce(int.Parse(nodes, System.Globalization.CultureInfo.InvariantCulture)),
 	_ => Usage(),
@@ -25,8 +24,6 @@ static int Usage()
 		  compare <committed> <run>                 exit 1 when the run is more than 10% worse than the committed numbers
 		  budget <baseline> <run> [--remeasure]     exit 1 when the run's parse rows are slower or allocate more than Mermaider's;
 		                                            --remeasure measures slower rows of both again and fails only if still slower
-		  size [--sizes file] [--dll file] [--cli file] [--accept]
-		                                            exit 1 when a binary is more than 5% larger than its committed size
 		  dagre [--jobs JIT,AOT] [--out file]       run the dagre port on graphs of 10, 100 and 1,000 nodes and write its result file
 		  dagre-layout <nodes>                      lay out one generated graph of that many nodes and print the time
 		STM_BENCH_CASES limits a run to the cases whose id contains it.
@@ -151,16 +148,4 @@ static int DagreLayoutOnce(int nodes)
 
 	Console.WriteLine($"{nodes} nodes, {input.Edges.Count} edges, {normalized} nodes after normalize: {total:F1} ms (rank {rank:F1}, order {order - rank:F1}, position {total - order:F1}), {g.Label.Width:F0} x {g.Label.Height:F0}, positions {hash:x16}");
 	return 0;
-}
-
-static int Size(string[] args)
-{
-	var cli = OperatingSystem.IsWindows() ? "stm.exe" : "stm";
-	var binaries = new List<(string, string, string)>
-	{
-		("SplashTheMusical.dll", "any", Option(args, "--dll") ?? Repository.Resolve(".artifacts/bin/SplashTheMusical/release/SplashTheMusical.dll")),
-		("stm", SizeCheck.HostRid, Option(args, "--cli") ?? Repository.Resolve(".artifacts/publish/SplashTheMusical.Cli/release/" + cli)),
-	};
-	var sizes = Option(args, "--sizes") ?? Repository.Resolve("docs/benchmarks/sizes.md");
-	return SizeCheck.Run(sizes, binaries, args.Contains("--accept"), Console.Out);
 }

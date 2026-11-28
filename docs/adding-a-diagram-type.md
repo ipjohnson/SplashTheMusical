@@ -16,7 +16,7 @@ under `packages/` and upstream file names such as `flow.jison`, which are in mer
   `src/SplashTheMusical/Generated/MermaidCompatibility.g.cs` names.
 - Read the type's extractor in `tools/oracle/extract.mjs` and its rows in the tables of `tools/oracle/README.md`. They
   say which facts and boxes STM has to produce.
-- Read the type's row in `docs/parity-report.md`, its ledger in `corpus/ledger` and its cases in `corpus/<type>`.
+- Read the type's row in `docs/parity/<type>.md`, its ledger in `corpus/ledger` and its cases in `corpus/<type>`.
   Before the type is supported, its ledger lists every case under `bug #13` at every level.
 - Check that the type does not need a shared part that does not exist yet, such as a layout port (#23, #24, #25), the
   icons (#22) or a look (#61, #62). A missing shared part is its own step, done before the type's render step.
@@ -143,13 +143,13 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
 - `corpus/ledger/<type>.txt` lists the cases that fail L0 to L3. `corpus/ledger/README.md` has the format. A case that
   starts passing fails `LedgerTests` until its entry goes, so rewrite the ledger with
   `STM_WRITE_LEDGER='#N' dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/LedgerTests/*"`
-  and review the diff. Every entry that stays is `by-design`, `out-of-scope`, or `bug` with an open issue. The count
-  in `corpus/ledger/bugs.txt` may only go down.
+  and review the diff. Every entry that stays is `by-design`, `out-of-scope`, or `bug` with an open issue. The
+  type's count of `bug` entries in `docs/parity/<type>.md` should only go down within a mermaid version.
 - `corpus/tolerances/<type>.json` holds the L3 and L4 thresholds. `corpus/tolerances/README.md` has the format. Start
   from 0.05, 0.8 and 0.9 and tighten when the type allows it. Looser values need a `reason`.
-- L4 outcomes are in `corpus/l4.txt`, which `mise run raster` rewrites with Node and Chromium. A full run takes about
-  25 minutes. CI's `l4` job fails when the committed file is stale. The ledger does not hold L4: a case that fails L4
-  stays `fail` in `corpus/l4.txt`, and the pull request names the open issue that covers it.
+- L4 outcomes are in `corpus/l4/<type>.txt`, which `mise run raster` rewrites with Node and Chromium. A full run takes
+  about 25 minutes. CI's `l4` job fails when a committed file is stale. The ledger does not hold L4: a case that fails
+  L4 stays `fail` in `corpus/l4/<type>.txt`, and the pull request names the open issue that covers it.
 
 ## Tests and benchmarks
 
@@ -193,8 +193,8 @@ box kind a role for L3's overlap check. Correct the type's row if its box kinds 
   look. `BudgetTests` fails when a parse row is slower or allocates
   more than the type's row in `docs/benchmarks/mermaider-baseline.md`. Layout, render and write are measured but not
   gated. Flowchart's render is over Mermaider's (#158).
-- **Size.** Code in the core grows `SplashTheMusical.dll`. `mise run size -- --accept` rewrites
-  `docs/benchmarks/sizes.md`, and CI fails at more than 5% growth over it.
+- **Size.** Code in the core grows `SplashTheMusical.dll`. CI writes its size and the AOT `stm`'s to the job summary
+  of each build runner and checks neither, and `mise run size` prints them.
 - **AOT.** `mise run conformance-aot` runs the conformance tests under JIT and native AOT and fails when the results
   differ.
 - `mise run ci` before every commit: build, test and the formatting check.
@@ -209,7 +209,7 @@ A type is three steps, each its own pull request, as the state Task files them (
 2. **Layout and renderer, to L2.** Layout data, measuring, the layout step, the renderer and the styles, and the
    facts and boxes in `StmFactsProvider`. Done when every L2 difference is in the ledger.
 3. **Parity closeout: L3 and L4.** Fix what the boxes and rasters show, set the tolerances, rewrite the ledger and
-   `corpus/l4.txt`, commit the benchmarks and check native AOT. Done when the definition of done below holds.
+   `corpus/l4/<type>.txt`, commit the benchmarks and check native AOT. Done when the definition of done below holds.
 
 Flowchart took six steps (#136 to #141), because it also built the shape library, the styling and the label measuring
 every later type reuses. A type that needs a new shared part adds a step for it before step 2.
@@ -237,9 +237,9 @@ How each line is checked, and how flowchart met it:
 
 | Line | Check | Flowchart |
 |---|---|---|
-| L0 | The type's L0 column in `docs/parity-report.md`, which `mise run parity` writes | 100.0%, 891 of 891 |
+| L0 | The L0 column of `docs/parity/<type>.md`, which `mise run parity` writes | 100.0%, 891 of 891 |
 | L1 and L2 | `LedgerTests` | Four L1 entries, the KaTeX cases under `bug #63`. No L2 entries |
-| L3 and L4 | `LedgerTests` for L3, `corpus/l4.txt` for L4, `ToleranceTests` for the thresholds. A case under the threshold is a `bug` entry at L3 or a `fail` in `corpus/l4.txt`, each covered by an open issue | The 649 cases that mermaid.js draws with ELK and that fail L3 are `bug #25`, and most of them fail L4. One label precision case is `bug #152`, and long labels that fail L4 are #157 |
+| L3 and L4 | `LedgerTests` for L3, `corpus/l4/<type>.txt` for L4, `ToleranceTests` for the thresholds. A case under the threshold is a `bug` entry at L3 or a `fail` in `corpus/l4/<type>.txt`, each covered by an open issue | The 649 cases that mermaid.js draws with ELK and that fail L3 are `bug #25`, and most of them fail L4. One label precision case is `bug #152`, and long labels that fail L4 are #157 |
 | Round trip | `RoundTripTests`, and the oracle round trip of CI's `l4` job | 874 cases, and `FlowchartRoundTripTests` compares the whole model |
 | Random documents | `RoundTripPropertyTests`, and the oracle round trip's random sample | `FlowchartGenerator`, with every shape and edge type, which `FlowchartGeneratorTests` shows |
 | Shape library | `ShapeTests` in `tests/SplashTheMusical.Conformance/ShapeTests.cs` | Every shape of `corpus/shapes.txt`. A type that draws no node shapes marks this line not applicable |
@@ -261,14 +261,11 @@ after rebasing instead of merging them by hand.
 | `tests/SplashTheMusical.Benchmarks/StmBenchmarks.cs` | The type's folder in `Measured` | One name |
 | `tests/SplashTheMusical.Tests/Generation/DocumentGenerators.cs` | The type's generator in `All` | One generator per line, yours appended last |
 | `tools/oracle/extract.mjs`, `tools/oracle/README.md` | The type's extractor and rows, if wrong | Only your function and rows. A shared helper is its own pull request |
-| `corpus/ledger/bugs.txt` | The type's count | Rewrite it with the ledger after rebasing |
 | `src/SplashTheMusical/Rendering/SvgValues.cs` | An element or attribute the renderer needs | Only what the renderer writes |
-| `THIRD-PARTY-NOTICES.md` | A notice for ported code | One section |
-| `docs/parity-report.md` | Generated | `mise run parity` after rebasing |
-| `corpus/l4.txt` | Generated | `mise run raster` after rebasing |
+| `THIRD-PARTY-NOTICES.md` | A notice for ported code | One section, appended. `.gitattributes` merges it with `union` |
+| `docs/parity/<type>.md`, `corpus/l4/<type>.txt` | Generated, one file per type and no totals | Commit only your type's files. `mise run parity` and `mise run raster` |
 | `docs/api/SplashTheMusical.txt` | Generated | `mise run api` after rebasing |
 | `docs/benchmarks/stm.md` | Generated, the whole file per run | The `benchmarks` artifact of CI's run after rebasing, with `mermaider-baseline.md` of the same run |
-| `docs/benchmarks/sizes.md` | Generated | `mise run size -- --accept` after rebasing |
 | `AGENTS.md` | Only a rule other work must follow | One paragraph |
 
 Changing shared code, such as the shape library, the parsing helpers, `SvgWriter` or `SplashTheMusical.Layout`, is a
@@ -292,7 +289,7 @@ The plan now says each of these. They are listed here so a type issue does not f
   font tables are `ReadOnlySpan<byte>` data.
 - **Stylesheets.** The stylesheet is built per render, not cached. Source styles are rules on `stm-style-N` classes,
   because `SvgWriter` writes no `style` attribute.
-- **L4.** The ledger holds L0 to L3. L4 outcomes are committed in `corpus/l4.txt`.
+- **L4.** The ledger holds L0 to L3. L4 outcomes are committed in `corpus/l4/<type>.txt`.
 - **Budget.** `BudgetTests` gates parse time and allocation against Mermaider. Layout, render and write are measured
   only.
 - **Generation tests.** One round trip test covers every module, comparing facts, boxes and SVG rather than a model

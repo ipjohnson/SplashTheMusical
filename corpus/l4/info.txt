@@ -1,0 +1,10 @@
+# L4 outcomes of info. Refresh with: mise run raster
+info/e2e-info-pr-check-should-handle-an-info-definition-with-showinfo	pass
+info/e2e-info-pr-check-should-handle-an-info-definition	pass
+info/e2e-state-diagram-v2-nightly-check-v2-should-render-a-simple-info	pass
+info/parser-info-001	pass
+info/parser-info-002	pass
+info/parser-info-003	n/a
+info/parser-langium-info-001	pass
+info/parser-langium-info-002	pass
+info/parser-state-parser-012	n/a

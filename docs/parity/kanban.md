@@ -1,0 +1,9 @@
+# Parity of kanban
+
+STM, as `stm`, against mermaid.js 12.3.0 on the kanban cases of `corpus/`. `mise run parity` writes
+this file, and `ParityReportTests` in `tests/SplashTheMusical.Conformance` fails when it is out of date.
+[The README](README.md) describes the columns.
+
+| Type | Cases | Refused by mermaid.js | L0 | L1 | L2 | L3 | L4 | bug | by-design | out-of-scope |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| kanban | 47 | 1 | 2.1% (1 of 47) | 0.0% (0 of 46) | 0.0% (0 of 46) | 0.0% (0 of 46) | 0.0% (0 of 46) | 184 | 0 | 0 |

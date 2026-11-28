@@ -2,8 +2,6 @@ namespace SplashTheMusical.Conformance;
 
 public class LedgerTests
 {
-	private const string Mermaid = "12.3.0";
-
 	private static readonly CaseFacts Oracle = new(true, null, ["label\tA", "node\tA\tA\trect", "type\tpie"], ["box\tnode\tA\t0\t0\t10\t10"], "canvas\t0\t0\t10\t10");
 
 	[Test]
@@ -13,10 +11,10 @@ public class LedgerTests
 		ResultsFile.WriteIfRequested(results);
 		if (Environment.GetEnvironmentVariable(LedgerFolder.WriteVariable) is { Length: > 0 } issue)
 		{
-			LedgerFolder.Write(LedgerFolder.Root, results, issue, CorpusCheck.PinnedMermaid());
+			LedgerFolder.Write(LedgerFolder.Root, results, issue);
 		}
 
-		var ledgerProblems = LedgerFolder.Problems(LedgerFolder.Root, results, CorpusCheck.PinnedMermaid());
+		var ledgerProblems = LedgerFolder.Problems(LedgerFolder.Root, results);
 		Verify(ledgerProblems.Count == 0, $"{string.Join('\n', ledgerProblems)}");
 	}
 
@@ -24,10 +22,10 @@ public class LedgerTests
 	public Task AnUnlistedDifferenceFails() =>
 		WithFolder(async folder =>
 		{
-			LedgerFolder.Write(folder, [Passes("pie/a"), Fails("pie/b")], "#13", Mermaid);
+			LedgerFolder.Write(folder, [Passes("pie/a"), Fails("pie/b")], "#13");
 
 			LineAssert.Equal(
-				LedgerFolder.Problems(folder, [Fails("pie/a"), Fails("pie/b")], Mermaid),
+				LedgerFolder.Problems(folder, [Fails("pie/a"), Fails("pie/b")]),
 				"pie/a L0: differs from mermaid.js and pie.txt does not list it",
 				"pie/a L1: differs from mermaid.js and pie.txt does not list it",
 				"pie/a L2: differs from mermaid.js and pie.txt does not list it",
@@ -39,10 +37,10 @@ public class LedgerTests
 	public Task AListedDifferenceThatNoLongerOccursFails() =>
 		WithFolder(async folder =>
 		{
-			LedgerFolder.Write(folder, [Passes("pie/a"), Fails("pie/b")], "#13", Mermaid);
+			LedgerFolder.Write(folder, [Passes("pie/a"), Fails("pie/b")], "#13");
 
 			LineAssert.Equal(
-				LedgerFolder.Problems(folder, [Passes("pie/a"), Passes("pie/b")], Mermaid),
+				LedgerFolder.Problems(folder, [Passes("pie/a"), Passes("pie/b")]),
 				"pie/b L0: pie.txt lists it and it no longer differs",
 				"pie/b L1: pie.txt lists it and it no longer differs",
 				"pie/b L2: pie.txt lists it and it no longer differs",
@@ -51,39 +49,16 @@ public class LedgerTests
 		});
 
 	[Test]
-	public Task RaisingABugCountFailsUntilTheMermaidVersionChanges() =>
+	public Task ARewriteWritesOnlyTheLedgerOfEachType() =>
 		WithFolder(async folder =>
 		{
-			LedgerFolder.Write(folder, [Passes("pie/a"), Fails("pie/b")], "#13", Mermaid);
+			LedgerFolder.Write(folder, [Fails("pie/a"), Fails("mindmap/a")], "#13");
 			var worse = new[] { Fails("pie/a"), Fails("pie/b") };
 
-			LedgerFolder.Write(folder, worse, "#13", Mermaid);
+			LedgerFolder.Write(folder, worse, "#13");
 
-			LineAssert.Equal(
-				LedgerFolder.Problems(folder, worse, Mermaid),
-				"pie: 8 bugs, bugs.txt allows 4. The count may only go up when the mermaid version changes"
-			);
-
-			LedgerFolder.Write(folder, worse, "#13", "12.4.0");
-
-			var ledgerProblems = LedgerFolder.Problems(folder, worse, "12.4.0");
-			Verify(ledgerProblems.Count == 0, $"{string.Join('\n', ledgerProblems)}");
-		});
-
-	[Test]
-	public Task ALowerBugCountIsWrittenAndThenHeld() =>
-		WithFolder(async folder =>
-		{
-			LedgerFolder.Write(folder, [Fails("pie/a"), Fails("pie/b")], "#13", Mermaid);
-			File.WriteAllText(Path.Combine(folder, "pie.txt"), "bug #13\nb\tL0\nb\tL1\nb\tL2\nb\tL3\n");
-			var better = new[] { Passes("pie/a"), Fails("pie/b") };
-
-			LineAssert.Equal(LedgerFolder.Problems(folder, better, Mermaid), "pie: 4 bugs, bugs.txt records 8. Lower it to 4");
-
-			LedgerFolder.Write(folder, better, "#13", Mermaid);
-
-			Verify(File.ReadAllText(Path.Combine(folder, BugCounts.FileName)).Contains("pie\t4\n"), $"{File.ReadAllText(Path.Combine(folder, BugCounts.FileName))}");
-			var ledgerProblems = LedgerFolder.Problems(folder, better, Mermaid);
+			LineAssert.Equal(Directory.EnumerateFiles(folder).Select(f => Path.GetFileName(f)).Order(StringComparer.Ordinal), "pie.txt");
+			var ledgerProblems = LedgerFolder.Problems(folder, worse);
 			Verify(ledgerProblems.Count == 0, $"{string.Join('\n', ledgerProblems)}");
 		});
 
@@ -93,7 +68,7 @@ public class LedgerTests
 		{
 			File.WriteAllText(Path.Combine(folder, "pie.txt"), "out-of-scope\na\tL0\nby-design\na\tL1\nbug owner/repo#7\na\tL2\n");
 
-			LedgerFolder.Write(folder, [Fails("pie/a"), Fails("pie/b")], "#13", Mermaid);
+			LedgerFolder.Write(folder, [Fails("pie/a"), Fails("pie/b")], "#13");
 
 			LineAssert.Equal(
 				File.ReadAllLines(Path.Combine(folder, "pie.txt")),
@@ -111,7 +86,6 @@ public class LedgerTests
 				"out-of-scope",
 				"a\tL0"
 			);
-			Verify(File.ReadAllText(Path.Combine(folder, BugCounts.FileName)).Contains("pie\t6\n"), $"{File.ReadAllText(Path.Combine(folder, BugCounts.FileName))}");
 		});
 
 	[Test]
@@ -134,18 +108,6 @@ public class LedgerTests
 			"pie.txt:8: wontfix is not by-design, out-of-scope or bug with an issue such as #13"
 		);
 	}
-
-	[Test]
-	public Task BugCountsOfAnotherMermaidVersionAreReported() =>
-		WithFolder(async folder =>
-		{
-			LedgerFolder.Write(folder, [Fails("pie/a")], "#13", Mermaid);
-
-			LineAssert.Equal(
-				LedgerFolder.Problems(folder, [Fails("pie/a")], "12.4.0"),
-				"bugs.txt counts bugs for mermaid 12.3.0 and tools/oracle pins 12.4.0. Rewrite it with STM_WRITE_LEDGER"
-			);
-		});
 
 	private static CaseComparison Passes(string name) => Comparer.Compare(name, Oracle, Oracle);
 

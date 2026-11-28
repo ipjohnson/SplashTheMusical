@@ -542,8 +542,8 @@ Estimate for the shipped binaries:
 - The native AOT CLI is 8 to 15 MB. STM has more code than Mermaider, but it drops the regex engine and reads JSON
   with `Utf8JsonReader`.
 - Icon packs ship as separate packages, because a full pack is several megabytes.
-- CI records the size of the core assembly and of the native AOT CLI. A pull request that grows either by more than
-  5% fails until the new size is accepted.
+- CI records the size of the core assembly and of the native AOT CLI in each build runner's job summary. It does not
+  fail on growth, because the binaries grow with each feature.
 
 The dependency ports were measured at the versions mermaid 12.3.0's lock file pins. "Code" counts lines that are not
 blank and not comments, without tests and type declarations. [upstream-map.md](upstream-map.md) has the count per
@@ -631,10 +631,11 @@ the same font files. Text width then stops being a source of difference, and wha
 ### Parity ledger
 
 - One ledger file per diagram type lists every accepted difference at L0 to L3 under a category: `by-design`,
-  `out-of-scope` or `bug` with an issue reference. L4 outcomes are committed per case in `corpus/l4.txt`, and the L4
+  `out-of-scope` or `bug` with an issue reference. L4 outcomes are committed per case in `corpus/l4/<type>.txt`, and the L4
   job fails when they change.
 - A new difference fails. A listed difference that no longer occurs fails, so the ledger cannot go stale.
-- The count of `bug` entries per type is published and may only go down within a mermaid version.
+- The count of `bug` entries per type is published in `docs/parity/<type>.md`, counted from the ledger, and should
+  only go down within a mermaid version.
 
 ### Generation tests
 

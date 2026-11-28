@@ -62,5 +62,5 @@ await oracle.close()
 
 execFileSync(process.execPath, [path.join(root, '..', 'corpus', 'corpus.mjs'), '--counts', corpus], { stdio: 'inherit' })
 if (added.length) {
-	console.log('Fix the difference or list it in the type\'s ledger under corpus/ledger, then run mise run raster for corpus/l4.txt.')
+	console.log('Fix the difference or list it in the type\'s ledger under corpus/ledger, then run mise run raster for corpus/l4.')
 }

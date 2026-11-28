@@ -1,12 +1,12 @@
 namespace SplashTheMusical.Conformance;
 
 /// <summary>
-/// Reads corpus/l4.txt, the L4 outcome of every corpus case, which tools/oracle/raster.mjs writes. tools/oracle/README.md
-/// describes the file.
+/// Reads corpus/l4, the L4 outcome of every corpus case in one file per type, which tools/oracle/raster.mjs writes.
+/// tools/oracle/README.md describes the files.
 /// </summary>
 public static class RasterOutcomes
 {
-	public static string FilePath => Path.Combine(CorpusCheck.CorpusRoot, "l4.txt");
+	public static string Folder => Path.Combine(CorpusCheck.CorpusRoot, "l4");
 
 	/// <summary>The outcome of each case, by its name with / between folders.</summary>
 	public static IReadOnlyDictionary<string, Outcome> Parse(IEnumerable<string> lines, List<string> problems)
@@ -45,15 +45,36 @@ public static class RasterOutcomes
 		return outcomes;
 	}
 
-	public static IReadOnlyDictionary<string, Outcome> Read(string path, List<string> problems)
+	/// <summary>The outcomes of every <c>&lt;type&gt;.txt</c> in <paramref name="folder"/>, each of which lists only its type's cases.</summary>
+	public static IReadOnlyDictionary<string, Outcome> Read(string folder, List<string> problems)
 	{
-		if (!File.Exists(path))
+		var outcomes = new Dictionary<string, Outcome>(StringComparer.Ordinal);
+		if (!Directory.Exists(folder))
 		{
-			problems.Add($"{path} does not exist. mise run raster writes it");
-			return new Dictionary<string, Outcome>();
+			problems.Add($"{folder} does not exist. mise run raster writes it");
+			return outcomes;
 		}
 
-		return Parse(File.ReadLines(path), problems);
+		foreach (var file in Directory.EnumerateFiles(folder, "*.txt").Order(StringComparer.Ordinal))
+		{
+			var type = Path.GetFileNameWithoutExtension(file);
+			var fileProblems = new List<string>();
+			foreach (var (name, outcome) in Parse(File.ReadLines(file), fileProblems))
+			{
+				if (name.StartsWith(type + "/", StringComparison.Ordinal))
+				{
+					outcomes[name] = outcome;
+				}
+				else
+				{
+					fileProblems.Add($"{name} is not a {type} case");
+				}
+			}
+
+			problems.AddRange(fileProblems.Select(p => $"{Path.GetFileName(file)}: {p}"));
+		}
+
+		return outcomes;
 	}
 
 	/// <summary>One line per case without an outcome and per outcome without a case.</summary>

@@ -101,9 +101,19 @@ jobs:
           fi
           grep -q 'error IL2057' .artifacts/probe.log || { tail -30 .artifacts/probe.log; echo "::error::The probe publish failed without ILC's IL2057."; exit 1; }
 
-      # It reads the stm the first publish step wrote, and the core assembly that publish built in release.
-      - name: Fail when the core assembly or stm is more than 5% larger than docs/benchmarks/sizes.md
-        run: dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size
+      # The sizes are measured and not checked, because the binaries grow with each feature. The table reads the stm
+      # the first publish step wrote.
+      - name: Build the core assembly in release
+        run: dotnet build src/SplashTheMusical -c Release
+
+      - name: Write the sizes of the core assembly and stm to the job summary
+        shell: bash
+        run: |
+          {
+            echo "### Binary sizes (${{ matrix.os }})"
+            echo
+            bash tools/benchmarks/sizes.sh
+          } | tee -a "$GITHUB_STEP_SUMMARY"
 
   # mise run pack: the packages of this commit, and the sample published with native AOT from them alone. The packages
   # are the run's packages artifact. release.yml publishes the packages of a tag.
@@ -234,7 +244,7 @@ jobs:
         run: npm ci --prefix tools/oracle --no-audit --no-fund
 
       - name: Test the upstream tools' version choice, mermaid 12 and 13 layouts, the ELK probe and the site's scripts
-        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs
+        run: node --test tools/upstream/versions.test.mjs tools/corpus/layout.test.mjs tools/oracle/dumps.test.mjs tools/oracle/elk-probe.test.mjs tools/site/snapshot.test.mjs tools/site/parity.test.mjs tools/site/label-issue.test.mjs
 
       - name: Write STM's SVGs
         env:
@@ -273,7 +283,7 @@ jobs:
         env:
           ORACLE_RASTER_DIR: ${{ github.event_name != 'schedule' && '.artifacts/corpus/raster' || '' }}
           STM_RASTER_DIR: ${{ github.event_name == 'push' && '.artifacts/stm/raster' || '' }}
-        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
+        run: node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4 .artifacts/raster ${ORACLE_RASTER_DIR:+"$ORACLE_RASTER_DIR"}
 
       # .github/workflows/site.yml adds these rasters and scores to the site's comparison data as a snapshot of this
       # commit, also when a later step of this job fails.
@@ -291,8 +301,8 @@ jobs:
 
       # The oracle output is every facts, boxes, dagre and ELK file of corpus/, so a committed .elk.txt that differs from
       # what the pinned mermaid.js writes, a missing one and a stale one all fail here. On a cache hit facts.mjs did not
-      # run, so this checks only corpus/l4.txt; the cache key holds every input of facts.mjs.
-      - name: Fail when the committed oracle output or corpus/l4.txt is stale
+      # run, so this checks only corpus/l4; the cache key holds every input of facts.mjs.
+      - name: Fail when the committed oracle output or corpus/l4 is stale
         run: |
           changed=$(git status --porcelain -- corpus)
           if [ -n "$changed" ]; then

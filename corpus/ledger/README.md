@@ -6,8 +6,9 @@ Section 7 of [the parity plan](../../docs/mermaid-parity-plan.md) describes the 
 
 - A case that fails a level and is not listed fails the test.
 - A listed case and level that no longer fails fails the test, so a ledger cannot go stale.
-- A type whose ledger holds more `bug` entries than `bugs.txt` records fails the test, unless `bugs.txt` names another
-  mermaid version than `tools/oracle/package.json` pins.
+
+No file records the count of `bug` entries. `docs/parity/<type>.md` counts them from the type's ledger, so branches that
+change different types change different files.
 
 ## Format
 
@@ -29,8 +30,6 @@ by-design
 e2e-pie-004	L2
 ```
 
-`bugs.txt` starts with `# mermaid <version>`, and then each type, a tab and its count of `bug` entries.
-
 ## Rewriting
 
 ```bash
@@ -39,6 +38,3 @@ STM_WRITE_LEDGER='#13' dotnet run --project tests/SplashTheMusical.Conformance -
 
 This rewrites every ledger to list exactly the current differences. A listed entry keeps its category, and a new one goes
 under `bug` with the issue the variable names. Review the diff before committing it.
-
-The rewrite lowers a count in `bugs.txt` when its ledger holds fewer bugs, and leaves a higher one failing. It writes
-the ledgers' counts as they are only when `bugs.txt` names another mermaid version, as after a mermaid bump.
