@@ -9,7 +9,7 @@ public class ParityReportTests
 	[Test]
 	public void TheCommittedReportIsStmsReport()
 	{
-		var results = CorpusComparison.Run(CorpusCheck.CorpusRoot, new StmFactsProvider());
+		var results = StmCorpusResults.All;
 		var problems = new List<string>();
 		var report = ParityReport.Render(
 			results,

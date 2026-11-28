@@ -27,7 +27,7 @@ public class RoundTripTests
 	[Test]
 	public void ChecksTheCasesOfAnAddedModule()
 	{
-		var result = RoundTrip.Run(CorpusCheck.CorpusRoot, [.. Mermaid.CoreModules, new LossyInfoModule()]);
+		var result = RoundTrip.Run(CorpusCheck.CorpusRoot, [.. Mermaid.CoreModules, new LossyInfoModule()], name => name.Split('/', '\\')[0] == "info");
 
 		Verify(() => result.Checked.GetValueOrDefault("info") > 0);
 		Verify(() => result.Problems.Count == result.Checked["info"]);
@@ -61,8 +61,9 @@ public static class RoundTrip
 	/// <summary>
 	/// Every accepted case whose document is of one of <paramref name="modules"/>' types, with the modules in a
 	/// <see cref="Mermaid"/> like <see cref="StmFactsProvider"/>'s. The result counts the cases of each type.
+	/// <paramref name="include"/>, when given, picks the case names to read.
 	/// </summary>
-	public static Result Run(string corpus, IReadOnlyList<IDiagramModule> modules)
+	public static Result Run(string corpus, IReadOnlyList<IDiagramModule> modules, Func<string, bool>? include = null)
 	{
 		var types = new HashSet<string>(modules.Select(m => m.DiagramType), StringComparer.Ordinal);
 		var mermaid = new Mermaid(new MermaidOptions { SiteConfig = StmFactsProvider.OracleSite, Limits = ResourceLimits.Unlimited }, modules);
@@ -71,7 +72,7 @@ public static class RoundTrip
 		var problems = new List<string>();
 		foreach (var name in CorpusCheck.Cases(corpus))
 		{
-			if (!OracleFiles.Read(corpus, name).Accepted)
+			if (include?.Invoke(name) == false || !OracleFiles.Read(corpus, name).Accepted)
 			{
 				continue;
 			}

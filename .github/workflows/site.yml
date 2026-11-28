@@ -41,9 +41,10 @@ jobs:
       GH_REPO: ${{ github.repository }}
       DATA_DIR: ${{ github.workspace }}/.artifacts/site-data
     steps:
+      # CI runs on main can finish out of order, so the site is always built from main's latest commit, which is
+      # github.sha for a workflow_run. Only the snapshot comes from the commit the finished CI run tested.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           persist-credentials: ${{ github.event_name != 'pull_request' }}
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
@@ -81,8 +82,10 @@ jobs:
           COMMIT: ${{ github.event.workflow_run.head_sha }}
           COMMIT_DATE: ${{ github.event.workflow_run.head_commit.timestamp }}
         run: |
-          node tools/site/snapshot.mjs corpus .artifacts/comparison/corpus/raster .artifacts/comparison/stm/raster \
-            .artifacts/comparison/raster/scores.txt "$DATA_DIR" "$COMMIT" "$COMMIT_DATE"
+          git fetch --no-tags --depth=1 origin "$COMMIT"
+          git worktree add --detach .artifacts/snapshot-source "$COMMIT"
+          node tools/site/snapshot.mjs .artifacts/snapshot-source/corpus .artifacts/comparison/corpus/raster \
+            .artifacts/comparison/stm/raster .artifacts/comparison/raster/scores.txt "$DATA_DIR" "$COMMIT" "$COMMIT_DATE"
           cd "$DATA_DIR"
           git add -A
           if git diff --cached --quiet; then
