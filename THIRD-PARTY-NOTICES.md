@@ -311,7 +311,11 @@ colours of `c4ShapeAdapter.ts` and the rules of `styles.js`. `src/SplashTheMusic
 `SequenceLayoutStep.cs` the placing of participants, boxes and messages of `draw` in `sequenceRenderer.ts`, with
 `getMaxMessageWidthPerActor`, `calculateActorMargins`, `addActorRenderingData`, `buildMessageModel`, `boundMessage`,
 `drawMessage` and `drawActorsPopup`, the shape geometry of the `drawActorType` functions of `svgDraw.js`, and the band
-model of `actorBands.ts`.
+model of `actorBands.ts`. `SequenceRenderer.cs` ports the drawing of `draw` and `drawMessage` in
+`sequenceRenderer.ts`, of `drawActor`, `drawBox`, `drawActivation`, `drawLoop`, `drawLabel`, `drawText`, the marker and
+drop shadow functions of `svgDraw.js`, and of `drawRect` and `drawBackgroundRect` in
+`packages/mermaid/src/diagrams/common/svgDrawCommon.ts`. `SequenceStyles.cs` ports the rules of `styles.js` and the
+palette colours of `paletteColor` in `svgDraw.js`.
 `src/SplashTheMusical/Icons/MermaidIcons.cs` holds `unknownIcon` of `packages/mermaid/src/rendering-util/icons.ts` and
 the icons of `packages/mermaid/src/diagrams/architecture/architectureIcons.ts`.
 

@@ -37,7 +37,7 @@ internal static class SvgValues
 		"marker-start", "marker-mid", "markerWidth", "markerHeight", "markerUnits", "refX", "refY", "orient", "offset", "stop-color", "stop-opacity",
 		"gradientUnits", "gradientTransform", "spreadMethod", "fx", "fy", "fr", "in", "in2", "result", "stdDeviation", "dx", "dy", "mode",
 		"flood-color", "flood-opacity", "operator", "k1", "k2", "k3", "k4", "type", "values", "filterUnits", "primitiveUnits", "clipPathUnits",
-		"maskUnits", "maskContentUnits", "display", "visibility", "patternUnits", "patternContentUnits", "patternTransform");
+		"maskUnits", "maskContentUnits", "display", "visibility", "patternUnits", "patternContentUnits", "patternTransform", "filter");
 
 	/// <summary>The elements <see cref="SvgWriter.StartElement"/> writes: the sanitizer's, less <c>image</c>.</summary>
 	public static readonly FrozenSet<string> WriterElements = FrozenSet.Create(StringComparer.Ordinal, [.. Elements.Where(e => e != "image")]);
@@ -47,7 +47,7 @@ internal static class SvgValues
 
 	private static readonly FrozenSet<string> PaintAttributes = FrozenSet.Create(StringComparer.Ordinal, "color", "fill", "stroke", "stop-color", "flood-color");
 
-	private static readonly FrozenSet<string> ReferenceAttributes = FrozenSet.Create(StringComparer.Ordinal, "marker-start", "marker-mid", "marker-end");
+	private static readonly FrozenSet<string> ReferenceAttributes = FrozenSet.Create(StringComparer.Ordinal, "marker-start", "marker-mid", "marker-end", "filter");
 
 	private static readonly FrozenSet<string> ColorFunctions = FrozenSet.Create(
 		StringComparer.OrdinalIgnoreCase, "rgb", "rgba", "hsl", "hsla", "hwb", "lab", "lch", "oklab", "oklch", "color");
