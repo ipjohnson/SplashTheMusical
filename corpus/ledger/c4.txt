@@ -1,22 +1,8 @@
 # The parity ledger of c4. corpus/ledger/README.md describes it.
-bug #220
+bug #256
 docs-c4-001	L3
 docs-c4-002	L3
 docs-c4-003	L3
-docs-c4-004	L3
-docs-c4-006	L3
-e2e-c4-nightly-check-c4-5-should-render-a-simple-c4deployment-diagram	L3
 e2e-c4-nightly-check-elements-person-and-person-ext	L3
-e2e-c4-nightly-check-relationships-bidirectional-relationship	L3
-e2e-c4-nightly-check-relationships-rel-back	L3
-e2e-c4-nightly-check-relationships-technology-and-description	L3
-e2e-c4-pr-check-c4-1-should-render-a-simple-c4context-diagram	L3
-e2e-c4-pr-check-c4-2-should-render-a-simple-c4container-diagram	L3
-e2e-c4-pr-check-c4-3-should-render-a-simple-c4component-diagram	L3
-e2e-c4-pr-check-c4-6-should-render-c4context-diagram-with-componentqueue-ext	L3
-e2e-c4-pr-check-c4-9-should-render-a-relationship-whose-endpoint-is-a-boundary	L3
-e2e-c4-pr-check-directional-relationships	L3
-mermaider-c4-container	L3
-mermaider-c4-context	L3
-parser-c4namedattributes-005	L3
-parser-c4namedattributes-008	L3
+bug #257
+docs-c4-006	L3
