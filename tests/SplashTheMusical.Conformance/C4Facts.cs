@@ -77,6 +77,7 @@ internal static class C4Facts
 	{
 		var db = C4Db.From(document);
 		var texts = new List<DrawnText>();
+		var scale = layout.Height is null ? Math.Min(1, PageWidth / layout.ViewBox!.Value.Width) : 1;
 		foreach (var drawing in layout.Drawings)
 		{
 			if (drawing is C4ShapeDrawing shape)
@@ -91,11 +92,11 @@ internal static class C4Facts
 			}
 			else if (drawing is C4BoundaryDrawing boundary)
 			{
-				texts.AddRange(boundary.Texts.Select(t => Line(t, boundary, measurer)));
+				texts.AddRange(boundary.Texts.Select(t => Line(t, boundary, measurer, scale)));
 			}
 		}
 
-		texts.AddRange(layout.Rels.SelectMany(r => r.Texts).Select(t => Line(t, null, measurer)));
+		texts.AddRange(layout.Rels.SelectMany(r => r.Texts).Select(t => Line(t, null, measurer, scale)));
 		if (layout.Title is { } title)
 		{
 			var metrics = measurer.Measure(title.Text, title.Font);
@@ -171,11 +172,24 @@ internal static class C4Facts
 		return string.Join('\t', "canvas", StmFactsProvider.Number(viewBox.X), StmFactsProvider.Number(viewBox.Y), StmFactsProvider.Number(viewBox.Width), StmFactsProvider.Number(viewBox.Height));
 	}
 
-	/// <summary>A line of <c>byTspan</c>: its width in its font, centred on its x, with its line box centred on its middle.</summary>
-	private static DrawnText Line(C4TextLine line, C4BoundaryDrawing? boundary, ITextMeasurer measurer)
+	/// <summary>
+	/// The width of the oracle page's body: puppeteer's 800 pixel viewport less the body's 8 pixel margins. With
+	/// <c>useMaxWidth</c> the SVG is as wide as the body, up to its own width.
+	/// </summary>
+	private const double PageWidth = 784;
+
+	/// <summary>
+	/// A line of <c>byTspan</c> as Chromium boxes it on the oracle's page, where the SVG is drawn at
+	/// <paramref name="scale"/>: its width in its font, centred on its x. Chromium rounds the font's ascent and descent
+	/// to whole pixels at the drawn size, puts the <c>mathematical</c> baseline half the rounded ascent below the line's
+	/// y, and gives the line box the rounded ascent above the baseline and the rounded descent below it.
+	/// </summary>
+	private static DrawnText Line(C4TextLine line, C4BoundaryDrawing? boundary, ITextMeasurer measurer, double scale)
 	{
 		var metrics = measurer.Measure(line.Text, line.Italic ? line.Font with { Style = FontStyle.Italic } : line.Font);
-		return new DrawnText(line.Text, true, boundary, (line.X - (metrics.Width / 2), line.Y + line.Dy - (metrics.Height / 2), metrics.Width, metrics.Height));
+		var ascent = Math.Round(metrics.Ascent * scale, MidpointRounding.AwayFromZero) / scale;
+		var descent = Math.Round(metrics.Descent * scale, MidpointRounding.AwayFromZero) / scale;
+		return new DrawnText(line.Text, true, boundary, (line.X - (metrics.Width / 2), line.Y + line.Dy - (ascent / 2), metrics.Width, ascent + descent));
 	}
 
 	/// <summary>The extractor's <c>key</c>: the letters and digits of the text, in lower case.</summary>
