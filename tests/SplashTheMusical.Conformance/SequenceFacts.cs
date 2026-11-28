@@ -59,7 +59,8 @@ internal static class SequenceFacts
 	/// <summary>
 	/// The extractor's sequence boxes from the module's layout: each participant's top drawing and the shape at its
 	/// bottom, each titled box, and each message of the ten arrow types the extractor knows with the last line of its
-	/// text, named by its ends. The canvas is the viewBox.
+	/// text, named by its ends, each note by its text, and each block <c>drawLoop</c> draws by its kind and text. The
+	/// canvas is the viewBox.
 	/// </summary>
 	public static string Boxes(List<string> boxes, SequenceLayout layout)
 	{
@@ -103,6 +104,19 @@ internal static class SequenceFacts
 			if (message.Text.Count > 0)
 			{
 				Add("message-text", name, message.Text[^1].Box);
+			}
+		}
+
+		foreach (var note in layout.Notes)
+		{
+			Add("note", Decode(note.Text), note.Bounds);
+		}
+
+		foreach (var block in layout.Blocks)
+		{
+			if (Block(block.StartType) is { } kind)
+			{
+				Add("block", $"{kind} {Decode(block.Text)}".Trim(), block.Bounds);
 			}
 		}
 
