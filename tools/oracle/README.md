@@ -10,7 +10,7 @@ mise run oracle                              # cases in tools/oracle/cases, outp
 mise run oracle <cases> <facts-dir> <svg-dir>
 mise run oracle-test                         # node --test on the oracle's test files
 mise run elk-probe <graph file>              # ELK's layout of a graph, as the ELK probe section describes
-mise run raster                              # L4: corpus/l4.txt and .artifacts/raster
+mise run raster                              # L4: corpus/l4/<type>.txt and .artifacts/raster
 mise run screenshots <cases>                 # the named cases side by side in .artifacts/screenshots
 ```
 
@@ -622,13 +622,14 @@ The run writes these files:
 
 | File | Lines |
 |---|---|
-| The outcomes file, `corpus/l4.txt` for `mise run raster` | A comment line, then case and outcome per case, sorted by UTF-16 code unit |
+| `<outcomes-dir>/<type>.txt`, in `corpus/l4` for `mise run raster` | A comment line, then case and outcome per case of the type, sorted by UTF-16 code unit. A run of every case deletes the file of a type without cases |
 | `<images-dir>/scores.txt` | A comment line, then case, outcome and score to 4 decimals per case. The score is empty when one side has no SVG |
 | `<images-dir>/<name>.png` | mermaid.js's raster on the left and STM's on the right, for the first 10 failing or report-only cases below the threshold of each type. A side without an SVG is grey |
 | `$STM_RASTER_DIR/<name>.png` | With `STM_RASTER_DIR` set, STM's raster of every case STM draws, at the size of mermaid.js's raster. The site's comparison section takes them, with mermaid.js's rasters from oracle-raster-dir |
 
-`corpus/l4.txt` is committed. `docs/parity-report.md` takes its L4 column from it, and `RasterOutcomesTests` in
-`tests/SplashTheMusical.Conformance` fails when a corpus case has no line in it. The scores and images are build
+`corpus/l4` is committed, one file per type, so branches that change different types change different files. Each
+`docs/parity/<type>.md` takes its L4 column from it, and `RasterOutcomesTests` in `tests/SplashTheMusical.Conformance`
+fails when a corpus case has no line or a file lists a case of another type. The scores and images are build
 artifacts. Scores are not committed, because small differences between machines would change them.
 
 ### Named cases
@@ -636,7 +637,7 @@ artifacts. Scores are not committed, because small differences between machines 
 With `STM_RASTER_CASES` set to a comma-separated list of case names, such as `flowchart/basic,state/notes`, the run
 takes only those cases and writes the side-by-side image of each, whatever its outcome and however many its type has.
 It fails when a name is not a corpus case, and it deletes nothing from the oracle raster folder. `mise run screenshots`
-runs it this way and writes the outcomes and images to `.artifacts/screenshots`, so `corpus/l4.txt` is unchanged.
+runs it this way and writes the outcomes and images to `.artifacts/screenshots`, so `corpus/l4` is unchanged.
 
 ### The oracle raster folder
 
@@ -671,7 +672,7 @@ redraws only the rasters whose SVG changed. A miss saves the new cache when the 
 
 The job then runs `raster.mjs` and uploads the scores and images as the `l4-raster` artifact. It fails when any file
 under `corpus/` then differs from the commit. On a miss that catches oracle output that the pinned mermaid.js no
-longer writes. On every run it catches an `l4.txt` that STM's SVGs no longer give.
+longer writes. On every run it catches a file of `corpus/l4` that STM's SVGs no longer give.
 
 A weekly scheduled run of the workflow skips the cache and runs the whole job, so a runner image update that changes
 the fallback fonts shows up within a week. It saves no cache, so it runs `raster.mjs` without the oracle raster folder.

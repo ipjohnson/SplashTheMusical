@@ -34,8 +34,8 @@ Beside each case are the files the oracle in `tools/oracle` writes for it. Its R
 
 `themes.txt`, `config.txt`, `shapes.txt` and `styles.txt` in this folder are the oracle's theme variables, default
 config, shape table and stylesheets. `colors.txt` holds the results of the colour functions mermaid's themes call, which `mise run colors` writes. `curves.txt` and `markers.txt` hold d3-shape's curves, mermaid's edge paths and its edge markers, which `mise run curves` writes. `ledger` holds the parity ledgers, which [its README](ledger/README.md) describes. `tolerances` holds the L3
-and L4 tolerances of each type, which [its README](tolerances/README.md) describes. `l4.txt` holds the L4 outcome of
-each case, which `mise run raster` writes and [the oracle README](../tools/oracle/README.md#l4-rasters) describes.
+and L4 tolerances of each type, which [its README](tolerances/README.md) describes. `l4/<type>.txt` holds the L4 outcome
+of each case of a type, which `mise run raster` writes and [the oracle README](../tools/oracle/README.md#l4-rasters) describes.
 
 ## Refreshing
 

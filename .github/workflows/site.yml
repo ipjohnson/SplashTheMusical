@@ -14,8 +14,8 @@ on:
     paths:
       - site/**
       - tools/site/**
-      - docs/parity-report.md
-      - corpus/l4.txt
+      - docs/parity/**
+      - corpus/l4/**
       - samples/SplashTheMusical.Sample/Program.cs
       - .github/workflows/site.yml
   workflow_dispatch:

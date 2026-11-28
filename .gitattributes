@@ -12,6 +12,8 @@
 *.mmd text eol=lf
 *.sh text eol=lf
 *.bat text eol=crlf
+# Branches only append notices, so a merge keeps the lines of both sides.
+THIRD-PARTY-NOTICES.md merge=union
 *.png binary
 *.ico binary
 *.ttf binary

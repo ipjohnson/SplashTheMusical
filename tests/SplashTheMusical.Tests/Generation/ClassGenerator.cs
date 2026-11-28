@@ -41,6 +41,12 @@ public static class ClassGenerator
 	private static readonly Gen<string> Quoted = GenText.Label.Select(text => GenText.WithoutTags(GenText.Without(text, "\"%")));
 
 	/// <summary>
+	/// A class label: <see cref="Quoted"/> without whitespace between two HTML line breaks, as mermaid.js 12.3.0 fails to
+	/// draw a class whose label has a line of only whitespace with "svg element not in render tree".
+	/// </summary>
+	private static readonly Gen<string> ClassLabel = Quoted.Select(GenText.WithoutBlankBreaks);
+
+	/// <summary>
 	/// The text after a colon: one line, without the <c>:</c> and <c>;</c> the writer writes as entity codes. Removing
 	/// them can join a <c>&lt;</c> to a word, so the tags are removed again: mermaid.js's <c>cleanupText</c> rewrites
 	/// <c>="..."</c> to <c>='...'</c> from a tag start to the next <c>&gt;</c>, across lines.
@@ -69,7 +75,7 @@ public static class ClassGenerator
 	private static readonly Gen<ClassStatement> Definition =
 		Gen.Select(
 			Name,
-			Quoted.OrNull(),
+			ClassLabel.OrNull(),
 			Gen.Frequency(
 				(2, Gen.Const(((string?)null, (string?)null))),
 				(1, Gen.OneOf(Words).Select(c => ((string?)c, (string?)null))),

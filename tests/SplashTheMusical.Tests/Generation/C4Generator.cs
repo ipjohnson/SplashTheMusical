@@ -19,7 +19,8 @@ namespace SplashTheMusical.Tests.Generation;
 /// <para>
 /// mermaid.js also fails to draw a relation whose end is no element or boundary, and recurses for ever on a boundary
 /// inside one of its own alias, so each relation's ends are aliases the diagram defines, and each boundary's alias is
-/// its own.
+/// its own. It fails as well on a relation text with only whitespace between two HTML line breaks, such as
+/// <c>&lt;br&gt; &lt;br/&gt;</c>, so that whitespace goes.
 /// </para>
 /// </remarks>
 public static class C4Generator
@@ -156,6 +157,13 @@ public static class C4Generator
 			}
 			else if (statement is C4Relation relation)
 			{
+				for (var i = 0; i < relation.Arguments.Count; i++)
+				{
+					var argument = relation.Arguments[i];
+					var value = GenText.WithoutBlankBreaks(argument.Value);
+					relation.Arguments[i] = argument.Name is null ? new C4Argument(value) : new C4Argument(argument.Name, value);
+				}
+
 				var from = relation.Kind == C4RelationKind.RelIndex ? 1 : 0;
 				for (var end = from; end < from + 2; end++)
 				{

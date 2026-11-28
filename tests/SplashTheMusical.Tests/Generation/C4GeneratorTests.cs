@@ -95,4 +95,37 @@ public class C4GeneratorTests
 			}
 		}
 	}
+
+	// mermaid.js 12.3.0 refuses each of the inputs with "svg element not in render tree", and draws each output.
+	[Test]
+	[Arguments("<br>\n<br>", "<br><br>")]
+	[Arguments("q<br> <br/>q", "q<br><br/>q")]
+	[Arguments("<br>\t<br/>\n \n<br>", "<br><br/><br>")]
+	[Arguments("q<br> q", "q<br> q")]
+	[Arguments("q \n q", "q \n q")]
+	public void WhitespaceBetweenTwoLineBreaksIsRemoved(string text, string expected) =>
+		GenText.WithoutBlankBreaks(text).Should().Be(expected);
+
+	[Test]
+	public void NoRelationTextHasOnlyWhitespaceBetweenTwoLineBreaks()
+	{
+		C4Generator.Document.Sample(document =>
+		{
+			foreach (var relation in Relations(document.Statements))
+			{
+				foreach (var argument in relation.Arguments)
+				{
+					argument.Value.Should().Be(GenText.WithoutBlankBreaks(argument.Value), "mermaid.js fails to draw the relation");
+				}
+			}
+		}, iter: 1_000, threads: 1);
+
+		static IEnumerable<C4Relation> Relations(List<C4Statement> statements) =>
+			statements.SelectMany(s => s switch
+			{
+				C4Relation relation => [relation],
+				C4Boundary boundary => Relations(boundary.Statements),
+				_ => Array.Empty<C4Relation>(),
+			});
+	}
 }

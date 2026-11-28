@@ -7,7 +7,7 @@ public class RasterOutcomesTests
 	{
 		var problems = new List<string>();
 
-		var outcomes = RasterOutcomes.Read(RasterOutcomes.FilePath, problems);
+		var outcomes = RasterOutcomes.Read(RasterOutcomes.Folder, problems);
 
 		Verify(problems.Count == 0, $"{string.Join('\n', problems)}");
 		var outcomeProblems = RasterOutcomes.Problems(outcomes, CorpusCheck.Cases(CorpusCheck.CorpusRoot));
@@ -34,6 +34,27 @@ public class RasterOutcomesTests
 			"line 7: pie/e is not a case, a tab and pass, fail, n/a or report",
 			"line 8: pie/a is listed twice"
 		);
+	}
+
+	[Test]
+	public void EachTypeFileIsReadAndACaseOfAnotherTypeIsReported()
+	{
+		var folder = Directory.CreateTempSubdirectory("stm-l4-").FullName;
+		try
+		{
+			File.WriteAllText(Path.Combine(folder, "pie.txt"), "# L4 outcomes of pie\npie/a\tpass\nmindmap/b\tfail\n");
+			File.WriteAllText(Path.Combine(folder, "mindmap.txt"), "# L4 outcomes of mindmap\nmindmap/a\treport\n");
+			var problems = new List<string>();
+
+			var outcomes = RasterOutcomes.Read(folder, problems);
+
+			LineAssert.Equal(outcomes.Keys.Order(StringComparer.Ordinal), "mindmap/a", "pie/a");
+			LineAssert.Equal(problems, "pie.txt: mindmap/b is not a pie case");
+		}
+		finally
+		{
+			Directory.Delete(folder, recursive: true);
+		}
 	}
 
 	[Test]

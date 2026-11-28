@@ -23,14 +23,14 @@ mise run oracle-roundtrip  # fail when mermaid.js reads STM's written text of a 
 mise run colors            # rewrite corpus/colors.txt, khroma's results on mermaid's theme colours
 mise run curves            # rewrite corpus/curves.txt and corpus/markers.txt, d3-shape's curves and mermaid's edge paths and markers
 mise run api               # rewrite docs/api/SplashTheMusical.txt, the core's public API
-mise run parity            # rewrite docs/parity-report.md from the corpus, the ledgers and corpus/l4.txt
+mise run parity            # rewrite docs/parity/<type>.md from the corpus, the ledgers and corpus/l4
 mise run baseline          # rewrite docs/layered-layout/baseline.md, the dagre port and Mermaider's Sugiyama scored against ELK
 mise run elk-survey        # rewrite docs/layered-layout/corpus-survey.md, the ELK options and graph features of the .elk.txt files
 mise run elk-probe [options] <graph file>  # the pinned elkjs's layout of a graph file in the .elk.txt format; --help names the stage pins
 mise run elk-diff [graphs] [seed]          # seeded random graphs through ELK and the dagre port, smallest differing graphs in .artifacts/elk-diff
 mise run elk-spikes        # the stage spikes of docs/layered-layout/design.md on the recordings, in .artifacts/elk-spikes
 mise run screenshots <cases>  # mermaid.js and STM side by side as PNGs of the named corpus cases, written to .artifacts/screenshots
-mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4.txt
+mise run raster            # L4: rasterize both SVGs of every corpus case and rewrite corpus/l4/<type>.txt
 mise run conformance-aot   # run the conformance tests under JIT and native AOT, and fail when their corpus results differ
 mise run fuzz-crash [sources] [seed]  # fail on a crash or missed deadline of 100,000 mutated sources per type, finds in .artifacts/fuzz/crash
 mise run fuzz-diff [seconds] [seed]   # minimized sources STM and mermaid.js differ on, written to .artifacts/fuzz/differential
@@ -40,7 +40,7 @@ mise run bench-compare     # fail when a run is more than 10% worse than docs/be
 mise run bench-budget      # fail when STM's parse rows are slower or allocate more than docs/benchmarks/mermaider-baseline.md
 mise run bench-mermaider   # rewrite docs/benchmarks/mermaider-baseline.md, the budget STM is held to
 mise run bench-dagre       # rewrite docs/benchmarks/dagre.md, the dagre port on graphs of 10, 100 and 1,000 nodes
-mise run size              # fail when SplashTheMusical.dll or the AOT stm grows more than 5% over docs/benchmarks/sizes.md
+mise run size              # print the sizes of SplashTheMusical.dll and the AOT stm
 mise run pack              # pack the src projects to .artifacts/package, then publish and run the sample with AOT from them
 mise run upstream-generate <checkout>          # rewrite src/SplashTheMusical/Config/Generated from mermaid's config schema
 mise run upstream-generate <checkout> --check  # fail when the generated files differ from the committed ones
@@ -52,8 +52,8 @@ mise run upstream-bump <version>   # move the oracle to another mermaid and writ
 `upstream-bump` runs `tools/upstream/bump.sh`. It clones the old and new mermaid tags into `.artifacts/upstream`, each
 from the repository npm names for that version, and runs the conformance tests. It installs the new mermaid in
 `tools/oracle`, re-extracts the corpus, rewrites the oracle files, `colors.txt`, `MermaidConfig`, `MermaidCompatibility`
-and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity-report.md`, `docs/layered-layout/corpus-survey.md` and `docs/layered-layout/baseline.md`, and rewrites
-`corpus/l4.txt`. `DeltaReport` in `tools/SplashTheMusical.Upstream` then compares the two sides. A bump to the version already pinned
+and `docs/api/SplashTheMusical.txt`, runs the conformance tests again with `docs/parity`, `docs/layered-layout/corpus-survey.md` and `docs/layered-layout/baseline.md`, and rewrites
+`corpus/l4`. `DeltaReport` in `tools/SplashTheMusical.Upstream` then compares the two sides. A bump to the version already pinned
 changes no file. Each parser source under `src/SplashTheMusical/Diagrams` starts with one
 `// Upstream grammar: <path in mermaid-js/mermaid>` line per grammar file it implements, so the report names the parser
 of a changed grammar. `GrammarHeaderTests` fails when a parser source has none.
@@ -135,6 +135,17 @@ measures a row that is slower again, STM's and Mermaider's back to back for that
 for its whole run. A row that allocates more fails at once. The committed files come
 from that artifact, because a local machine runs other work while it measures.
 
+Nothing compares the binaries' sizes with a committed value, because they grow with each feature. Each runner of CI's
+`build` job writes the sizes of `SplashTheMusical.dll` and its AOT `stm` to the job summary with
+`tools/benchmarks/sizes.sh`, which `mise run size` runs.
+
+Generated files that every diagram type's branch changes are split per type, so two branches that work on different
+types do not conflict. `mise run parity` writes `docs/parity/<type>.md`, the type's row and no total, and
+`ParityReportTests` checks each file. `tools/site/parity.mjs` adds the rows up for the site's parity page. `mise run raster`
+writes `corpus/l4/<type>.txt`, which `RasterOutcomes` reads. The count of `bug` entries of a type is counted from its
+ledger in `corpus/ledger/<type>.txt` where it is used. `.gitattributes` merges `THIRD-PARTY-NOTICES.md` with `union`,
+because branches only append to it.
+
 `src/SplashTheMusical.Layout/Dagre` ports dagre-d3-es 7.0.14, the dagre mermaid 12.3.0 uses. Its `Graph` iterates
 nodes and edges in graphlib's order, which is JavaScript's object key order: names that are array indexes, such as
 `"2"`, come first in numeric order. `DagreRecords` in `tests/SplashTheMusical.Conformance` reads the oracle's
@@ -215,7 +226,7 @@ changes the run's sources.
 `Mermaid` is the public entry point. It implements `IMermaid`, and `Mermaid.CoreModules` lists one `IDiagramModule` per
 supported diagram type. `DiagramDetector` picks the type as mermaid.js's detectors do, and `DetectionTests` checks it
 against the oracle's `type` fact of every accepted corpus case. `StmFactsProvider` runs STM for the conformance report,
-so a new module changes the ledgers, `docs/parity-report.md` and `corpus/l4.txt`. `PublicApiTests` fails when the
+so a new module changes the ledgers, `docs/parity` and `corpus/l4`. `PublicApiTests` fails when the
 public API differs from `docs/api/SplashTheMusical.txt`, which `mise run api` rewrites.
 
 The documentation site is VitePress in `site`, and [site/README.md](site/README.md) describes it. `mise run site-dev`

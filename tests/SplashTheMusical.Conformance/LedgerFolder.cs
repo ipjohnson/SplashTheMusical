@@ -1,6 +1,6 @@
 namespace SplashTheMusical.Conformance;
 
-/// <summary>Checks a provider's comparison results against the ledgers and bug counts of a ledger folder.</summary>
+/// <summary>Checks a provider's comparison results against the ledgers of a ledger folder.</summary>
 public static class LedgerFolder
 {
 	/// <summary>The environment variable that rewrites the ledgers from the current differences. Its value is the issue new bug entries name.</summary>
@@ -21,18 +21,13 @@ public static class LedgerFolder
 			.. Directory
 				.EnumerateFiles(folder, "*.txt")
 				.Select(Path.GetFileName)
-				.Where(f => f != BugCounts.FileName)
 				.Order(StringComparer.Ordinal)
 				.Select(f => Ledger.Parse(f![..^".txt".Length], f, File.ReadLines(Path.Combine(folder, f)), problems)),
 		];
 	}
 
-	/// <summary>
-	/// One line per difference no ledger lists, per listed difference that no longer occurs, and per bug count that
-	/// does not match <see cref="BugCounts"/>.
-	/// </summary>
-	/// <param name="mermaid">The mermaid version tools/oracle pins.</param>
-	public static IReadOnlyList<string> Problems(string folder, IReadOnlyList<CaseComparison> results, string mermaid)
+	/// <summary>One line per difference no ledger lists and per listed difference that no longer occurs.</summary>
+	public static IReadOnlyList<string> Problems(string folder, IReadOnlyList<CaseComparison> results)
 	{
 		var problems = new List<string>();
 		var ledgers = Read(folder, problems);
@@ -57,15 +52,14 @@ public static class LedgerFolder
 			}
 		}
 
-		problems.AddRange(BugCounts.Problems(BugCounts.Read(Path.Combine(folder, BugCounts.FileName), problems), ledgers, mermaid));
 		return problems;
 	}
 
 	/// <summary>
 	/// Rewrites the folder so its ledgers list exactly the current differences. A listed difference keeps its category,
-	/// and a new one is a bug that names <paramref name="issue"/>. <see cref="BugCounts.Next"/> gives the new counts.
+	/// and a new one is a bug that names <paramref name="issue"/>.
 	/// </summary>
-	public static void Write(string folder, IReadOnlyList<CaseComparison> results, string issue, string mermaid)
+	public static void Write(string folder, IReadOnlyList<CaseComparison> results, string issue)
 	{
 		if (!Ledger.IsIssue(issue))
 		{
@@ -74,7 +68,6 @@ public static class LedgerFolder
 
 		var problems = new List<string>();
 		var current = Read(folder, problems);
-		var counts = BugCounts.Read(Path.Combine(folder, BugCounts.FileName), problems);
 		if (problems.Count > 0)
 		{
 			throw new InvalidOperationException("Fix the ledger folder first:\n" + string.Join('\n', problems));
@@ -102,8 +95,6 @@ public static class LedgerFolder
 		{
 			WriteLines(Path.Combine(folder, Ledger.FileName(ledger.Type)), ledger.Lines());
 		}
-
-		WriteLines(Path.Combine(folder, BugCounts.FileName), BugCounts.Next(counts, ledgers, mermaid).Lines());
 	}
 
 	// Every case and level that fails, with the case's path below its type folder.

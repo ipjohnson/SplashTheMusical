@@ -4,20 +4,29 @@ using System.Text;
 namespace SplashTheMusical.Conformance;
 
 /// <summary>
-/// The parity report of section 7 of docs/mermaid-parity-plan.md: per diagram type, the pass rate of each level and
-/// the ledger counts.
+/// The parity report of section 7 of docs/mermaid-parity-plan.md: one file per diagram type in docs/parity with the
+/// pass rate of each level and the ledger counts. No file holds a total, so branches that change different types do
+/// not touch the same file. The documentation site adds the rows up.
 /// </summary>
 public static class ParityReport
 {
-	/// <summary>The environment variable that rewrites the committed report when it is set to any value.</summary>
+	/// <summary>The environment variable that rewrites the committed reports when it is set to any value.</summary>
 	public const string WriteVariable = "STM_WRITE_REPORT";
 
-	public static string FilePath => Path.Combine(CorpusCheck.RepositoryRoot, "docs", "parity-report.md");
+	/// <summary>The table's header and separator lines, which tools/site/parity.mjs reads.</summary>
+	public const string Header =
+		"| Type | Cases | Refused by mermaid.js | L0 | L1 | L2 | L3 | L4 | bug | by-design | out-of-scope |\n"
+		+ "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n";
+
+	public static string Folder => Path.Combine(CorpusCheck.RepositoryRoot, "docs", "parity");
+
+	public static string FileName(string type) => type + ".md";
 
 	/// <param name="l4">The L4 outcome of each case from <see cref="RasterOutcomes"/>. A case without one does not count at L4.</param>
 	/// <param name="provider">The name of the provider that produced the results.</param>
 	/// <param name="mermaid">The mermaid version tools/oracle pins.</param>
-	public static string Render(
+	/// <returns>The report of each type that has results, by type.</returns>
+	public static IReadOnlyDictionary<string, string> Render(
 		IReadOnlyList<CaseComparison> results,
 		IReadOnlyList<Ledger> ledgers,
 		IReadOnlyDictionary<string, Outcome> l4,
@@ -25,31 +34,55 @@ public static class ParityReport
 		string mermaid
 	)
 	{
-		var text = new StringBuilder();
-		text.Append("# Parity report\n\n");
-		text.Append(
-			CultureInfo.InvariantCulture,
-			$"STM, as `{provider}`, against mermaid.js {mermaid} on the {Count(results.Count)} cases of `corpus/`. `mise run parity` writes\n"
-		);
-		text.Append("this file, and `ParityReportTests` in `tests/SplashTheMusical.Conformance` fails when it is out of date.\n\n");
-		text.Append("A level's rate is the cases that pass it out of the cases it applies to. L1 to L4 do not apply to a case that both\n");
-		text.Append("mermaid.js and STM refuse. Section 7 of [the parity plan](mermaid-parity-plan.md) describes the levels,\n");
-		text.Append("[the tolerances README](../corpus/tolerances/README.md) the L3 and L4 tolerances, and\n");
-		text.Append("[the ledger README](../corpus/ledger/README.md) the categories of the ledger counts. L4 comes from `corpus/l4.txt`,\n");
-		text.Append("which `mise run raster` writes with Node, and a report-only type's L4 scores are not judged.\n\n");
-		text.Append("| Type | Cases | Refused by mermaid.js | L0 | L1 | L2 | L3 | L4 | bug | by-design | out-of-scope |\n");
-		text.Append("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n");
-
 		var byType = ledgers.ToDictionary(l => l.Type, StringComparer.Ordinal);
-		foreach (var group in results.GroupBy(r => r.Type).OrderBy(g => g.Key, StringComparer.Ordinal))
+		var reports = new SortedDictionary<string, string>(StringComparer.Ordinal);
+		foreach (var group in results.GroupBy(r => r.Type))
 		{
 			var entries = byType.TryGetValue(group.Key, out var ledger) ? ledger.Entries : [];
+			var text = new StringBuilder();
+			text.Append(CultureInfo.InvariantCulture, $"# Parity of {group.Key}\n\n");
+			text.Append(
+				CultureInfo.InvariantCulture,
+				$"STM, as `{provider}`, against mermaid.js {mermaid} on the {group.Key} cases of `corpus/`. `mise run parity` writes\n"
+			);
+			text.Append("this file, and `ParityReportTests` in `tests/SplashTheMusical.Conformance` fails when it is out of date.\n");
+			text.Append("[The README](README.md) describes the columns.\n\n");
+			text.Append(Header);
 			Row(text, group.Key, [.. group], l4, entries);
+			reports[group.Key] = text.ToString();
 		}
 
-		Row(text, "**Total**", results, l4, [.. ledgers.SelectMany(l => l.Entries)]);
-		return text.ToString();
+		return reports;
 	}
+
+	/// <summary>
+	/// Writes each report to <paramref name="folder"/> and deletes the report of a type that has none. The README stays.
+	/// </summary>
+	public static void Write(string folder, IReadOnlyDictionary<string, string> reports)
+	{
+		_ = Directory.CreateDirectory(folder);
+		foreach (var stale in Committed(folder).Where(t => !reports.ContainsKey(t)))
+		{
+			File.Delete(Path.Combine(folder, FileName(stale)));
+		}
+
+		foreach (var (type, text) in reports)
+		{
+			File.WriteAllText(Path.Combine(folder, FileName(type)), text);
+		}
+	}
+
+	/// <summary>The type of each report in <paramref name="folder"/>.</summary>
+	public static IReadOnlyList<string> Committed(string folder) =>
+		Directory.Exists(folder)
+			? [
+				.. Directory
+					.EnumerateFiles(folder, "*.md")
+					.Select(f => Path.GetFileNameWithoutExtension(f))
+					.Where(t => t != "README")
+					.Order(StringComparer.Ordinal),
+			]
+			: [];
 
 	private static void Row(
 		StringBuilder text,

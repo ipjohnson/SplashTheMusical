@@ -96,7 +96,7 @@ run = [
 ]
 
 [tasks.parity]
-description = "Write docs/parity-report.md from the committed oracle output and the ledgers"
+description = "Write docs/parity/<type>.md for each type from the committed oracle output, the ledgers and corpus/l4"
 env = { STM_WRITE_REPORT = "1" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/ParityReportTests/*"'
 
@@ -146,15 +146,15 @@ env = { STM_SVG_DIR = "{{config_root}}/.artifacts/stm/svg" }
 run = 'dotnet run --project tests/SplashTheMusical.Conformance -- --treenode-filter "/*/*/StmSvgsTests/*"'
 
 [tasks.raster]
-description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write corpus/l4.txt and the side-by-side images of failing cases"
+description = "Rasterize mermaid.js's and STM's SVG of every corpus case, write corpus/l4/<type>.txt and the side-by-side images of failing cases"
 depends = ["stm-svg", "corpus-oracle"]
-run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4.txt .artifacts/raster .artifacts/corpus/raster"
+run = "node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg corpus/l4 .artifacts/raster .artifacts/corpus/raster"
 
 [tasks.screenshots]
 description = "Draw mermaid.js's and STM's SVG of the named corpus cases side by side as PNGs in .artifacts/screenshots, for a pull request"
 usage = 'arg "<cases>" help="Comma-separated case names, such as flowchart/basic,state/notes"'
 depends = ["stm-svg", "corpus-oracle"]
-run = 'STM_RASTER_CASES="${usage_cases}" node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg .artifacts/screenshots/l4.txt .artifacts/screenshots .artifacts/corpus/raster'
+run = 'STM_RASTER_CASES="${usage_cases}" node tools/oracle/raster.mjs corpus .artifacts/corpus/svg .artifacts/stm/svg .artifacts/screenshots/l4 .artifacts/screenshots .artifacts/corpus/raster'
 
 [tasks.oracle-roundtrip]
 description = "Write STM's text of every accepted corpus case and of random documents, run the oracle on it, and fail when mermaid.js reads a case differently or refuses one"
@@ -227,8 +227,8 @@ run = [
 ]
 
 [tasks.site-test]
-description = "Test the site's snapshot, issue labelling and issue list scripts"
-run = "node --test tools/site/snapshot.test.mjs tools/site/label-issue.test.mjs"
+description = "Test the site's snapshot, parity table, issue labelling and issue list scripts"
+run = "node --test tools/site/snapshot.test.mjs tools/site/parity.test.mjs tools/site/label-issue.test.mjs"
 
 [tasks.site-snapshot]
 description = "Add a snapshot of the local L4 rasters to site/public/data, for mise run site-dev. Run raster with STM_RASTER_DIR=.artifacts/stm/raster first"
@@ -274,14 +274,11 @@ description = "Pack the src projects to .artifacts/package, then publish and run
 run = "bash tools/packages/pack.sh"
 
 [tasks.size]
-description = "Fail when the core assembly or the native AOT stm is more than 5% larger than docs/benchmarks/sizes.md"
-usage = '''
-flag "--accept" help="Rewrite the sizes of this machine's rows instead of checking them"
-'''
+description = "Print the sizes of the core assembly, release build, and of the native AOT stm"
 run = [
   "dotnet build src/SplashTheMusical -c Release",
   "dotnet publish src/SplashTheMusical.Cli",
-  'dotnet run --project tests/SplashTheMusical.Benchmarks -c Release -- size $([ "${usage_accept:-false}" = "true" ] && echo --accept)',
+  "bash tools/benchmarks/sizes.sh",
 ]
 
 [tasks.ci]

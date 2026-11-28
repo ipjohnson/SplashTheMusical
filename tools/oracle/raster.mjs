@@ -1,7 +1,9 @@
 // L4 of the parity plan: rasterizes the mermaid.js SVG and STM's SVG of every corpus case in one headless Chromium
 // page and scores their structural similarity. tools/oracle/README.md describes the outputs.
 //
-//   node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir> [oracle-raster-dir]
+//   node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-dir> <images-dir> [oracle-raster-dir]
+//
+// The outcomes of each type's cases are written to <outcomes-dir>/<type>.txt.
 //
 // A case's oracle acceptance comes from its facts file, and STM's from whether stm-svg-dir has its SVG. The threshold
 // of a type comes from <corpus-dir>/tolerances/<type>.json. The run fails when an accepted case has no oracle SVG.
@@ -20,9 +22,9 @@ import { fileURLToPath } from 'node:url'
 import puppeteer from 'puppeteer'
 import { checkPinned } from './pinned.mjs'
 
-const [, , corpusDir, oracleSvgDir, stmSvgDir, outcomesFile, imagesDir, rasterDir] = process.argv
-if (!corpusDir || !oracleSvgDir || !stmSvgDir || !outcomesFile || !imagesDir) {
-	console.error('usage: node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-file> <images-dir> [oracle-raster-dir]')
+const [, , corpusDir, oracleSvgDir, stmSvgDir, outcomesDir, imagesDir, rasterDir] = process.argv
+if (!corpusDir || !oracleSvgDir || !stmSvgDir || !outcomesDir || !imagesDir) {
+	console.error('usage: node raster.mjs <corpus-dir> <oracle-svg-dir> <stm-svg-dir> <outcomes-dir> <images-dir> [oracle-raster-dir]')
 	process.exit(2)
 }
 
@@ -376,8 +378,16 @@ for (const file of rasterDir && !wanted.size ? filesUnder(rasterDir) : []) {
 	}
 }
 
-fs.mkdirSync(path.dirname(path.resolve(outcomesFile)), { recursive: true })
-fs.writeFileSync(outcomesFile, ['# L4 outcomes. Refresh with: mise run raster', ...outcomes].join('\n') + '\n')
+// One file per type, so branches that change different types change different files. A full run deletes the file of a
+// type that left the corpus.
+const byType = Map.groupBy(outcomes, line => line.split('/')[0])
+fs.mkdirSync(outcomesDir, { recursive: true })
+for (const file of wanted.size ? [] : fs.readdirSync(outcomesDir).filter(f => f.endsWith('.txt'))) {
+	if (!byType.has(file.slice(0, -4))) fs.rmSync(path.join(outcomesDir, file))
+}
+for (const [type, lines] of byType) {
+	fs.writeFileSync(path.join(outcomesDir, type + '.txt'), [`# L4 outcomes of ${type}. Refresh with: mise run raster`, ...lines].join('\n') + '\n')
+}
 fs.writeFileSync(path.join(imagesDir, 'scores.txt'), ['# L4 scores. Written by tools/oracle/raster.mjs', ...scores].join('\n') + '\n')
 const imageCount = [...images.values()].reduce((a, b) => a + b, 0)
 console.log(`${names.length} cases: ${counts.pass} pass, ${counts.fail} fail, ${counts.report} report-only, ${counts['n/a']} n/a. ${imageCount} side-by-side images`)

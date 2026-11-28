@@ -105,6 +105,42 @@ public static class GenText
 	/// <summary><paramref name="text"/> without the characters of <paramref name="removed"/>, or <c>x</c> when nothing is left.</summary>
 	public static string Without(string text, string removed) => Trim(string.Concat(text.Where(c => !removed.Contains(c))));
 
+	/// <summary>The text with the whitespace removed wherever only whitespace stands between two HTML line breaks.</summary>
+	public static string WithoutBlankBreaks(string text)
+	{
+		var result = new System.Text.StringBuilder(text.Length);
+		var i = 0;
+		while (i < text.Length)
+		{
+			var tag = BreakAt(text, i);
+			if (tag == 0)
+			{
+				result.Append(text[i++]);
+				continue;
+			}
+
+			result.Append(text, i, tag);
+			i += tag;
+			var next = i;
+			while (next < text.Length && char.IsWhiteSpace(text[next]))
+			{
+				next++;
+			}
+
+			if (BreakAt(text, next) > 0)
+			{
+				i = next;
+			}
+		}
+
+		return result.ToString();
+	}
+
+	private static int BreakAt(string text, int at) =>
+		text.AsSpan(at).StartsWith("<br/>", StringComparison.Ordinal) ? 5
+		: text.AsSpan(at).StartsWith("<br>", StringComparison.Ordinal) ? 4
+		: 0;
+
 	private static Gen<string> Join(string[] fragments) =>
 		Gen.OneOf(fragments).Array[1, 6].Select(parts => Trim(string.Concat(parts)));
 
